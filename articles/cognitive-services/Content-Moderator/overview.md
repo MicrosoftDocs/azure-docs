@@ -56,8 +56,11 @@ Hybrid moderation by using the Content Moderator [Review tool](quick-start.md) i
 Use the [Review API](review-api.md) to auto-moderate content in bulk and review tagged images or text in the Review tool. Provide your API callback point so that you are notified when reviewers submit their decisions. You can use this feature to automate the post-review workflow by integrating it with your own systems.
 
 ## Use the automated moderation APIs
+
 If you sign up for the Review tool, you will find your free tier key on the **Credentials** tab, under **Settings**:
 
 ![Your Content Moderator API key](images/credentials3.PNG)
 
 You can also sign up for the free tiers of the [Text Moderation API](text-moderation-api.md) and the [Image Moderation API](image-moderation-api.md). You can use these subscriptions to learn how to automatically moderate large amounts of content, and integrate the content moderation with your review tools and processes. While you’re at it, apply to use the private preview of the [Video Moderation API](video-moderation-api.md).
+
+

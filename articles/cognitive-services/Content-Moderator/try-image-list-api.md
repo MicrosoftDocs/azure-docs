@@ -42,12 +42,12 @@ Before you can test-drive the API in the online console, you need your subscript
 
   The **Image Lists - Create** API console opens.
 
-  ![Try Image Lists - Create page region selection](images/test-drive-region.png)
+  ![Image Lists - Create page region selection](images/test-drive-region.png)
  
 4.	In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
 5.	In the **Request Body**, enter values for **Name** (for example, MyList) and **Description**.
-  ![Try Image Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
+  ![Image Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
 
 6.	Use key-value pair placeholders to assign more descriptive metadata to your list. For example, enter something like this:
 
@@ -65,7 +65,7 @@ Before you can test-drive the API in the online console, you need your subscript
  
 7.	Select **Send**. Your list is created. Take note of the **Id** value that is associated with the new list. You will need this for other image list management functions.
 
-  ![Try Image Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
+  ![Image Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
 8.	Next, add images to MyList. In the left menu, select **Image**, and then select **Add Image**.
 
@@ -73,7 +73,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 9. For **Open API testing console**, select the region that most closely describes your location.
 
-  ![Try Image - Add Image page region selection](images/test-drive-region.png)
+  ![Image - Add Image page region selection](images/test-drive-region.png)
 
   The **Image - Add Image** API console opens.
  
@@ -85,7 +85,7 @@ Before you can test-drive the API in the online console, you need your subscript
   
 12. In the **listId** box, enter the list ID, and then enter your subscription key. Select **Send**.
 
-  ![Try Image - Get All Image Ids console Response content box lists the images that you entered](images/try-image-list-create-11.png)
+  ![Image - Get All Image Ids console Response content box lists the images that you entered](images/try-image-list-create-11.png)
  
 10.	Add a few more images. Now that you have created a custom list of images, try [evaluating images](try-image-api.md) by using the custom image list. 
 
@@ -105,7 +105,7 @@ This example deletes a single image:
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Image - Delete page region selection](images/test-drive-region.png)
+  ![Image - Delete page region selection](images/test-drive-region.png)
  
   The **Image - Delete** API console opens.
  
@@ -127,13 +127,13 @@ You can edit a list’s name and description, and add metadata items.
 
   The **Image Lists - Update Details** API console opens.
 
-  ![Try Image Lists - Update Details page region selection](images/test-drive-region.png)
+  ![Image Lists - Update Details page region selection](images/test-drive-region.png)
  
 3.	In the **listId** box, enter the list ID, and then enter your subscription key.
 
 4.	In the **Request Body** box, make your edits, and then select **Send**.
 
-  ![Try Image Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
+  ![Image Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
 ## Refresh Search Index
 
@@ -147,11 +147,11 @@ After you make changes to an image list, you must refresh its index for changes 
  
   The **Image Lists - Refresh Search Index** API console opens.
 
-  ![Try Image Lists - Refresh Search Index page region selection](images/test-drive-region.png)
+  ![Image Lists - Refresh Search Index page region selection](images/test-drive-region.png)
 
 3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
 
-  ![Try Image Lists - Refresh Search Index console Response content box](images/try-image-list-refresh-1.png)
+  ![Image Lists - Refresh Search Index console Response content box](images/try-image-list-refresh-1.png)
 
 ## Next steps
 

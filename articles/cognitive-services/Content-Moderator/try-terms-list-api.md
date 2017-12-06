@@ -41,7 +41,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 2.	For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Term Lists - Create page region selection](images/test-drive-region.png)
+  ![Term Lists - Create page region selection](images/test-drive-region.png)
 
   The **Term Lists - Create** API console opens.
  
@@ -49,7 +49,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 4.	In the **Request body** box, enter values for **Name** (for example, MyList) and **Description**.
 
-  ![Try Term Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
+  ![Term Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
 
 5.	Use key-value pair placeholders to assign more descriptive metadata to your list. For example, enter something like this:
 
@@ -67,7 +67,7 @@ Before you can test-drive the API in the online console, you need your subscript
  
 6.	Select **Send**. Your list is created. Take note of the **Id** value that is associated with the new list. You will need this for other term list management functions.
 
-  ![Try Term Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
+  ![Term Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
 7.	Next, add terms to MyList. In the left menu, under **Term**, select **Add Term**. 
 
@@ -75,13 +75,13 @@ Before you can test-drive the API in the online console, you need your subscript
 
 8.	For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Term - Add Term page region selection](images/test-drive-region.png)
+  ![Term - Add Term page region selection](images/test-drive-region.png)
 
   The **Term - Add Term** API console opens.
  
 9.	In the **listId** box, enter the ID that you generated earlier, and select a value for **language**. Enter your subscription key, and then select **Send**.
 
-  ![Try Term - Add Term console query parameters](images/try-terms-list-create-3.png)
+  ![Term - Add Term console query parameters](images/try-terms-list-create-3.png)
  
 10.	To verify that the term has been added, in the left menu, select **Term**, and then select **Get All Terms**. 
 
@@ -91,7 +91,7 @@ Before you can test-drive the API in the online console, you need your subscript
 
 12. In the **Response content** box, verify the terms you entered.
 
-  ![Try Term - Get All Terms console Response content box lists the terms that you entered](images/try-terms-list-create-4.png)
+  ![Term - Get All Terms console Response content box lists the terms that you entered](images/try-terms-list-create-4.png)
  
 13.	Add a few more terms. Now that you have created a custom list of terms, try [scanning some text](try-text-api.md) by using the custom term list. 
 
@@ -111,19 +111,19 @@ This example deletes a single term:
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Term - Delete page region selection](images/test-drive-region.png)
+  ![Term - Delete page region selection](images/test-drive-region.png)
 
   The **Term - Delete** API console opens.
   
 3.	In the **listId** box, enter the ID of the list that you want to delete a term from. This is the number (in our example, **122**) that is returned in the **Term Lists - Get Details** console for MyList. Enter the term and select a language.
  
-  ![Try Term - Delete console query parameters](images/try-terms-list-delete-1.png)
+  ![Term - Delete console query parameters](images/try-terms-list-delete-1.png)
 
 4.	Enter your subscription key, and then select **Send**.
 
 5.	To verify that the term has been deleted, use the **Term Lists - Get All** console.
 
-  ![Try Term Lists - Get All console Response content box shows that term is deleted](images/try-terms-list-delete-2.png)
+  ![Term Lists - Get All console Response content box shows that term is deleted](images/try-terms-list-delete-2.png)
  
 ## Change list information
 
@@ -135,15 +135,15 @@ You can edit a list’s name and description, and add metadata items.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Term Lists - Update Details page region selection](images/test-drive-region.png)
+  ![Term Lists - Update Details page region selection](images/test-drive-region.png)
 
   The **Term Lists - Update Details** API console opens.
 
 3.	In the **listId** box, enter the list ID, and then enter your subscription key.
 
-4.	In the **Request Body** box, make your edits, and then select **Send**.
+4.	In the **Request body** box, make your edits, and then select **Send**.
 
-  ![Try Term Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
+  ![Term Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
 ## Refresh Search Index
 
@@ -155,13 +155,13 @@ After you make changes to a term list, you must refresh its index for changes to
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
+  ![Term Lists - Refresh Search Index page region selection](images/test-drive-region.png)
 
   The **Term Lists - Refresh Search Index** API console opens.
 
 3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
 
-  ![Try Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
+  ![Term Lists API - Refresh Search Index console Response content box](images/try-terms-list-refresh-1.png)
 
 ## Next steps
 

@@ -13,6 +13,7 @@ ms.author: sajagtap
 ---
 
 # Content Moderator API reference
+
 You can get started with Azure Content Moderator APIs in the following ways:
 
 - [Subscribe to the Content Moderator APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in the Azure portal.
@@ -38,3 +39,5 @@ The Review API has the following components:
 | **Jobs**<br /><br /> Initiate scan-and-review moderation workflows for both image and text content. A moderation job scans your content by using the Image Moderation API and the Text Moderation API. Moderation jobs use the defined and default workflows to generate reviews. <br /><br />After human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.<br /><br /> | [Job reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Job reference")   |
 | **Reviews**<br /><br />Use the Review tool to directly create image or text reviews for human moderators.<br /><br /> After your human moderators have reviewed the tags and metadata and submitted their final decision, the Review API submits all information to your API endpoint.<br /><br /> | [Review reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Review reference")   |
 | **Workflows**<br /><br />Create, update, and get details about the custom workflows that your team creates. You define workflows by using the Review tool. <br /> <br />Workflows typically use Content Moderator, but can also use certain other APIs that are available as connectors in the Review tool.<br /><br /> | [Workflow reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Workflow reference")   |
+
+

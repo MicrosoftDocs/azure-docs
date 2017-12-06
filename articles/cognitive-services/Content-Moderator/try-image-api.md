@@ -83,17 +83,17 @@ You can use the Content Moderator OCR capability to detect text in images.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
-  ![Try Image - OCR page region selection](images/test-drive-region.png)
+  ![Image - OCR page region selection](images/test-drive-region.png)
 
   The [Image - OCR](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66b) API console opens.
 
 3. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-4. In the **Request Body** box, use the default sample image. This is the same image that's used in the preceding section.
+4. In the **Request body** box, use the default sample image. This is the same image that's used in the preceding section.
 
 5. Select **Send**. The extracted text is displayed in JSON:
 
-  ![Try Image - OCR sample Response content box](images/try-image-api-ocr.PNG)
+  ![Image - OCR sample Response content box](images/try-image-api-ocr.PNG)
 
 ## Next steps
 

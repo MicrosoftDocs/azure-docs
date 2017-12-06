@@ -14,9 +14,13 @@ ms.author: sajagtap
 
 # Connectors
 
-Azure Content Manager workflows can use other APIs, not only Content Manager APIs. You access other APIs by using a connector in Content Manager. The connector provides a link to the other APIs.
+Azure Content Moderator workflows can use other APIs, not only Content Moderator APIs. You access other APIs by using a connector in Content Moderator. The connector provides a link to the other APIs.
 
-Content Moderator includes connectors by default, including these connectors:
+Content Moderator includes these default connectors:
+
+* Emotion API
+* Face API
+* PhotoDNA Cloud Service
 
 ![Content Moderator available connectors](images/connectors-1.png)
 
@@ -40,12 +44,12 @@ Before you define a workflow, ensure that you have valid credentials for the API
 
 1.	Before you add a connector, you need a subscription key. Go to **Settings** > **Credentials**. Select and copy the value in the **Ocp-Admin-Subscription-Key** box.
 
-2.	Select **Connectors**. From the available connectors that are displayed on the Review tool Dashboard, choose a connector, and then select **Connect**. 
+2.	Select **Connectors**. From the available connectors that are displayed on the Review tool Dashboard, select a connector. Then, select **Connect**. 
 
-  ![Content Moderator - Add Connector page](images/connectors-5.png)
+  ![Content Moderator Add Connector page](images/connectors-5.png)
 
 3.	In the **Ocp-Admin-Subscription-Key** box, paste the key that you copied. Then, select **Save**.
 
 ## Next steps
 
-To learn how to use connectors to define custom workflows, see [Workflows](workflows.md).
+* Learn how to use connectors to [define custom workflows](workflows.md).

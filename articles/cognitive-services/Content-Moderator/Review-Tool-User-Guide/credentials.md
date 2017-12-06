@@ -22,7 +22,7 @@ You can verify credentials that you use with Azure Content Moderator APIs in two
 
 If you are accessing the APIs from the Azure portal, on the Dashboard, select the account. Under **Resource Management**, select **Keys**. To copy the key, select the icon to the right of the key.
 
-![Content Moderator credentials in Azure](images/credentials-1-azure.png)
+![Content Moderator credentials in the Azure portal](images/credentials-1-azure.png)
 
 ## In the Review tool
 
@@ -38,4 +38,4 @@ When you build workflows in the Review tool, you likely will need a key for a co
 
 ## Next steps
 
-To learn how to use API credentials to define custom workflows, see the [workflows](workflows.md) article.
+* Learn how to use API credentials to [define custom workflows](workflows.md).
