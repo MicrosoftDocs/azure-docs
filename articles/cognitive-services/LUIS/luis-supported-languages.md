@@ -65,7 +65,7 @@ How tokenization is done depends on the application's culture.
 |French|✔|||
 |German|||✔|
 |Italian|✔|||
-|Korean|✔||||
+|Korean||✔|||
 |Portuguese (Brazil)|✔|||
 |Spanish|✔|||
 
