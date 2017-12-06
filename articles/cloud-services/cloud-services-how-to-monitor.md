@@ -7,7 +7,7 @@ author: thraka
 manager: timlt
 editor: ''
 
-ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
+ms.assetid: 
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -16,8 +16,28 @@ ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
 ---
-# How to Monitor Cloud Services
-[!INCLUDE [disclaimer](../../includes/disclaimer.md)]
+# Introduction to Cloud Service Monitoring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 You can monitor `key` performance metrics for your cloud services in the Azure classic portal. You can set the level of monitoring to minimal and verbose for each service role, and can customize the monitoring displays. Verbose monitoring data is stored in a storage account, which you can access outside the portal. 
 
