@@ -17,13 +17,13 @@ A key allows you to publish your LUIS app. LUIS has two different types of keys:
 
 ## Programmatic key
 
-A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. This key gives you unlimited authoring hits and 10,000 endpoint hits per month so you can start using your LUIS app now. You have one programmatic key across all your LUIS apps.
+A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. This key gives you one million (1,000,000) authoring hits and ten thousand (10,000) endpoint hits per month so you can start using your LUIS app now. You have one programmatic key across all your LUIS apps.
 
 To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.ai) and click on the account name in the upper-right navigation bar to open **Account Settings**, which displays the Programmatic Key.
 
 ## Endpoint Key
 
- When you need more than 10,000 endpoint hits per month, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+ When you need more than ten thousand (10,000) endpoint hits per month, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
 An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint key can be used for all your LUIS apps or for specific LUIS apps. When you publish each LUIS app, you set the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
  
