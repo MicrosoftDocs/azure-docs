@@ -17,7 +17,7 @@ Together with the [Kubernetes Service Catalog](https://github.com/kubernetes-inc
 ## Prerequisites
 * An Azure subscription
 
-* Azure CLI 2.0: You can [install it locally](cli/azure/install-azure-cli), or use it in the [Azure Cloud Shell](../cloud-shell/overview.md).
+* Azure CLI 2.0: You can [install it locally](/cli/azure/install-azure-cli), or use it in the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 * Helm CLI 2.7+: You can [install it locally](kubernetes-helm.md#install-helm-cli), or use it in the [Azure Cloud Shell](../cloud-shell/overview.md).
 
