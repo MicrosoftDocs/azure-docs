@@ -128,7 +128,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-5. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessages` (currently set to 10):
+5. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
