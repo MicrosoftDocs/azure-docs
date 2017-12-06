@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## Importing node configurations
 
-You can also import node configuratons (MOFs) that you have compiled outside of Azure. One advantage of this is that node confiturations can be signed.
+You can also import node configuratons (MOFs) that you have compiled outside of Azure. One advantage of this is that node configurations can be signed.
 A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comes from an
 authorized source.
 
