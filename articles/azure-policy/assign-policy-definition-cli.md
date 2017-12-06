@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -23,20 +23,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## Opt in to Azure Policy
-
-Azure Policy is now available in Public Preview and you need to register to request access.
-
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
-
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 
@@ -62,7 +48,7 @@ Next, provide the following information and run the following command to assign 
 - **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*
 - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 
-  Use the subscription (or resource group) you have previously registered when you opted into Azure Policy, in this example we are using this subscription ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** and the resource group name - **FabrikamOMS**. Be sure to change these to the ID of the subscription and the name of resource group you are working with.
+  Use the subscription (or resource group) you have previously registered. In this example we are using this subscription ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** and the resource group name - **FabrikamOMS**. Be sure to change these to the ID of the subscription and the name of resource group you are working with.
 
 This is what the command should look like:
 
