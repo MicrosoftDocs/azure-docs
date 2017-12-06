@@ -220,7 +220,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** window. The topic **Essentials** screen is displayed. In the subscription listed near the bottom of the window, notice that the **Message Count** value for the subscription should now be 10. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the topic increments the **Current** value in the **Essentials** window each time the app adds messages to the topic/subscription.
+3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** window. The topic **Essentials** screen is displayed. In the subscription listed near the bottom of the window, notice that the **Message Count** value for the subscription is now **10**. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the topic increments the **Current** value in the **Essentials** window each time the app adds messages to the topic.
    
       ![Message size][topic-message]
 
@@ -415,7 +415,7 @@ To receive the messages you just sent, create another .NET Core console applicat
         }
     }
     ```
-9. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
+9. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now **0**.
    
     ![Topic length][topic-message-receive]
 
