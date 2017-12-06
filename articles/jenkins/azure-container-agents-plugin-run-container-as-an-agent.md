@@ -19,7 +19,7 @@ ms.custom: jenkins
 
 # Run a container as an agent in Jenkins using the Azure Container Agents plugin
 
-Azure Container Instances makes it easy for you to get up and running without having to provision virtual machines or adopt a higher-level service. Azure Container Instances provides per-second billing based on the capacity you need; making it a lucrative option for transient workloads like starting a container agent to run a build, output the build artifacts to data store (such as Azure Storage), and shut down the agent when you no longer need it.
+Azure Container Instances makes it easy for you to get up and running without having to provision virtual machines or adopt a higher-level service. Azure Container Instances provides per-second billing based on the capacity you need; making it an attractive option for transient workloads such as performing a build.
 
 You learn how to:
 > [!div class="checklist"]
