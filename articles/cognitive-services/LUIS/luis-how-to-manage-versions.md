@@ -14,7 +14,9 @@ ms.author: cahann
 
 # Manage Versions
 
-You can build and publish different versions of your application. Versioning allows you to create a model definition that can be managed, changed, cloned or exported. 
+You can build and publish different versions of your application. Versioning allows you to create a model definition that can be managed, changed, cloned or exported.  
+
+Versions do not automatically tracking updates to a published endpoint.
 
 ## Active version
 When an app is first created, the default initial, active version is (0.1). When you make a change to intents, entities, or utterances, that change is made to the active version.
