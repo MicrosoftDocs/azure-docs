@@ -1,20 +1,12 @@
 ---
-title: Use Draft with AKS and Azure Container Registry | Microsoft Docs
+title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: draft, helm, aks, azure-container-service
-keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
-
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
