@@ -202,13 +202,13 @@ To run the PerfInsights script, follow these steps:
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, select **Properties**. In the **General** tab, select **Unblock** and then select **OK**. This will make sure that the script runs without any additional security prompts.  
+2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the script runs without any additional security prompts.  
 
-    ![Unlock the zip file](media/how-to-use-perfInsights/unlock-file.png)
+    ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, usually the D drive). The compressed file should contain the following files and folders:
+3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, this is usually the D drive). The compressed file should contain the following files and folders:
 
-    ![files in the zip folder](media/how-to-use-perfInsights/file-folder.png)
+    ![Screenshot of files in the zip folder](media/how-to-use-perfInsights/file-folder.png)
 
 4.  Open Windows PowerShell as an administrator, and then run the PerfInsights.ps1 script.
 
@@ -217,93 +217,84 @@ To run the PerfInsights script, follow these steps:
     Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
     ```
 
-    You might have to enter "y" to if you are asked to confirm that you want to change the execution policy.
+    You might have to enter "y" to confirm that you want to change the execution policy.
 
-    In the Disclaimer dialog box, you are given the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then click **Run Script**.
+    In the Notice and Consent dialog box, you have the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then select **Run Script**.
 
-    ![Disclaimer box](media/how-to-use-perfInsights/disclaimer.png)
+    ![Screenshot of Notice and Consent dialog box](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  Submit the case number, if it is available, when you run the script (This is for our statistics). Then, click **OK**.
+5.  Submit the case number, if it is available, when you run the script. Then select **OK**.
     
-    ![enter support ID](media/how-to-use-perfInsights/enter-support-number.png)
+    ![Screenshot of support ID dialog box](media/how-to-use-perfInsights/enter-support-number.png)
 
-6.  Select your temporary storage drive. The Script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here in the log\_collection folder. After you enter or accept the drive letter, click **OK**.
+6.  Select your temporary storage drive. The script can auto-detect the drive letter of the drive. If any problems occur in this stage, you might be prompted to select the drive (the default drive is D). Generated logs are stored here, in the log\_collection folder. After you enter or accept the drive letter, select **OK**.
 
-    ![enter drive](media/how-to-use-perfInsights/enter-drive.png)
+    ![Screenshot of temporary drive dialog box](media/how-to-use-perfInsights/enter-drive.png)
 
 7.  Select a troubleshooting scenario from the provided list.
 
-       ![Select support scenarios](media/how-to-use-perfInsights/select-scenarios.png)
+       ![Screenshot of troubleshooting scenarios list](media/how-to-use-perfInsights/select-scenarios.png)
 
-8.  You can also run PerfInsights without UI.
-
-    The following command runs the "Slow VM analysis" troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that are mentioned in step 4.
+You can also run PerfInsights without UI. The following command runs the "Slow VM analysis" troubleshooting scenario without UI. It prompts you to consent to the same disclaimer and EULA that are mentioned in step 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
-    If you want PerfInsights to run in silent mode, use the
+If you want PerfInsights to run in silent mode, use the
     **-AcceptDisclaimerAndShareDiagnostics** parameter. For example, use the following command:
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
 
 ### How do I troubleshoot issues while running the script?
 
-If the script terminates abnormally, you can clean up an inconsistent state by running the script together with the -Cleanup switch, as follows:
+If the script terminates abnormally, you can return to a consistent state by running the script together with the cleanup switch, as follows:
 
     powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
 
 If any problems occur during the automatic detection of the temporary drive, you might be prompted to select the drive (the default drive is D).
 
-![enter-drive](media/how-to-use-perfInsights/enter-drive.png)
+![Screenshot of temporary drive dialog box](media/how-to-use-perfInsights/enter-drive.png)
 
 The script uninstalls the utility tools and removes temporary folders.
 
-### Troubleshooting other script issues 
+### Troubleshoot other script issues 
 
-If any problems occur when you run the script, press Ctrl+C to interrupt the script execution. To remove temporary objects, see the "Clean up after abnormal termination" section.
-
-If you continue to experience script failure even after several attempts, we recommend that you run the script in "debug mode" by using the "-Debug" parameter option on startup.
+If any problems occur when you run the script, press Ctrl+C to interrupt the script. If you continue to experience script failure even after several attempts, run the script in debug mode by using the "-Debug" parameter option on startup.
 
 After the failure occurs, copy the full output of the PowerShell console, and send it to the Microsoft Support agent who is assisting you to help troubleshoot the problem.
 
-### How do I run the script in Custom slow VM analysis mode?
+### How do I run the script in "Custom slow VM analysis" mode?
 
 By selecting the **Custom slow VM analysis**, you can enable several traces
-in parallel (use Shift to multi-select):
+in parallel (to select multiple traces, use the Shift key):
 
-![select scenarios](media/how-to-use-perfInsights/select-scenario.png)
+![Screenshot of list of scenarios](media/how-to-use-perfInsights/select-scenario.png)
 
-When you select the Performance Counter Trace, XPerf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the dialog boxes, and try to reproduce the slow performance issue after you start the traces.
+When you select the Performance Counter Trace, XPerf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the subsequent dialog boxes. Try to reproduce the slow performance issue after you start the traces.
 
-The following dialog box lets you start a trace:
+You start a trace through the following dialog box:
 
-![start-trace](media/how-to-use-perfInsights/start-trace-message.png)
+![Screenshot of Start Performance Counter Trace dialog box](media/how-to-use-perfInsights/start-trace-message.png)
 
 To stop the traces, you have to confirm the command in a second dialog box.
 
-![stop-trace](media/how-to-use-perfInsights/stop-trace-message.png)
-![stop-trace](media/how-to-use-perfInsights/ok-trace-message.png)
+![Screenshot of Stopping Performance Counter Trace dialog box](media/how-to-use-perfInsights/stop-trace-message.png)
+![Screenshot of Stopping All traces dialog box](media/how-to-use-perfInsights/ok-trace-message.png)
 
-When the traces or operations are completed, a new file is generated in D:\\log\_collection (or the temporary drive) that is named **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** You can send this file to the Support agent for analysis.
+When the traces or operations are completed, a new file appears in D:\\log\_collection (or the temporary drive). The name of the file is **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** You can send this file to the support agent for analysis.
 
-## Review the diagnostics report created by PerfInsights
+## Review the diagnostics report
 
-Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip file,** that is generated by PerfInsights, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
+Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip file,**, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
 
 Select the **Findings** tab.
 
-![find tab](media/how-to-use-perfInsights/findingtab.png)
-![findings](media/how-to-use-perfInsights/findings.PNG)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findingtab.png)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
 
-**Notes**
+> [!NOTE] 
+> Findings categorized as critical are known issues that may cause performance issues. Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as informational are informative statements only.
 
--   Findings categorized as critical are known issues that may cause performance issues.
-
--   Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues.
-
--   Findings categorized as informational are informative statements only.
-
-Please review the recommendations and links for all critical and important findings to get more detailed information about the findings and how they can affect the performance or best practices for performance-optimized configurations.
+Review the recommendations and links for all critical and important findings. Learn about how they can affect performance, and also about best practices for performance-optimized configurations.
 
 ### Storage tab
 
