@@ -57,25 +57,16 @@ How tokenization is done depends on the application's culture.
 
 <!--TBD: write this after GA - In LUIS, generally you don't need to worry about tokenization. One place where tokenization is important is when manually adding labels to an exported application's JSON file.--> 
 
-|Language| Tokenization #1 | Tokenization #2|Tokenization #3
-|--|--|--|--|
+|Language|  every space or special character | character level|compounded words
+|--|:--:|:--:|:--:|
 |Chinese||✔||
 |Dutch|||✔|
 |English|✔ |||
 |French|✔|||
 |German|||✔|
 |Italian|✔|||
-|Korean||✔|||
+|Korean|✔||||
 |Portuguese (Brazil)|✔|||
 |Spanish|✔|||
 
-
-### Tokenization #1
-Token breaks are inserted at any whitespace, and around any punctuation.
-
-### Tokenization #2
-Token breaks are inserted before and after any character, and at any whitespace, and around any punctuation.
-
-### Tokenization #3
-Token breaks are inserted inside words. 
 
