@@ -13,6 +13,9 @@
     href: apache-hadoop-linux-tutorial-get-started.md
   - name: Hadoop sandbox
     href: apache-hadoop-emulator-get-started.md
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -176,9 +179,6 @@
       maintainContext: true
     - name: Build HDInsight applications
       items:
-      - name: Install HDInsight apps
-        href: ../hdinsight-apps-install-applications.md
-        maintainContext: true
       - name: Install custom apps
         href: ../hdinsight-apps-install-custom-applications.md
         maintainContext: true

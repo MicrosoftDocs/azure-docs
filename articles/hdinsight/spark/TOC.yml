@@ -19,6 +19,9 @@
       href: apache-spark-resource-manager.md
     - name: Debug Spark jobs
       href: apache-spark-job-debugging.md
+    - name: Install HDInsight apps
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
 - name: How to
   items:
     - name: Use cluster storage
@@ -148,9 +151,6 @@
         maintainContext: true
       - name: Build HDInsight applications
         items:
-          - name: Install HDInsight apps
-            href: ../hdinsight-apps-install-applications.md
-            maintainContext: true
           - name: Install custom apps
             href: ../hdinsight-apps-install-custom-applications.md
             maintainContext: true
