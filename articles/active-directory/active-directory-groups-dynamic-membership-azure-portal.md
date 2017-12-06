@@ -5,16 +5,16 @@ description: How to create advanced rules for dynamic group membership including
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: ''
 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 
