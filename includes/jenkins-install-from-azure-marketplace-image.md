@@ -1,4 +1,4 @@
-1. In your browser, open the [Azure Marketplace image for Jenkins.](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+1. In your browser, open the [The Azure Marketplace image for Jenkins allows you to install Jenkins on Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
 1. Select **GET IT NOW**.
 
