@@ -32,7 +32,7 @@ Limits on entities depend on the entity type, as shown in the following table:
 
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
-If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 80 intents. If 20 intents relate to scheduling meetings, 20 are about reminders, 20 are about getting information about colleagues, and 20 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
+If you cannot use fewer intents, divide your intents into multiple LUIS apps, and group related intents. This approach is a good best practice if you're using multiple apps for your system. For example, let's say you're developing an office assistant that has over 500 intents. If 100 intents relate to scheduling meetings, 100 are about reminders, 100 are about getting information about colleagues, and 100 are for sending email, you can put the intent for each of those categories in a separate LUIS app. 
 
 When your system receives an utterance, you can use a variety of techniques to determine how to direct user utterances to LUIS apps:
 
@@ -45,7 +45,7 @@ When you're deciding which approach to use with multiple LUIS apps, consider the
 
 If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. To do so, gather detailed information about your system, go to the [Language Understanding Intelligent Service](https://www.luis.ai) site, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/en-us/support/options/).
 
-## I want to build an app in LUIS with more than 30 entities. What should I do?
+## I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 
 
@@ -76,7 +76,10 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 ## How can I deal with spelling mistakes in utterances?
 
 You have one of two options: 
-* Use a spell checker on your utterances before sending them to the LUIS endpoint. This option might be the easier of the two.
+* Use a spell checker on your utterances before sending them to the LUIS endpoint. This option might be the easier of the two. To enable Bing Spell Check, do the following:
+   1. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
+   2. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
+
 * For greatest diversity, label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort.
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
