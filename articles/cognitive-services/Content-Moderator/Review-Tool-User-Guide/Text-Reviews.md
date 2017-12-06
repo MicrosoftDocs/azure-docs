@@ -26,6 +26,6 @@ The Review tool first calls the Text Moderation API. Then, it generates text rev
 
 ## Review text results
 
-Detailed results appear on the page, including the detected tags and terms that were returned by the Text Moderation API. To toggle a tag's selection status, select the tag. You can also work with any custom tags that you might have created.
+Detailed results appear in the windows. Results include detected tags and terms that were returned by the Text Moderation API. To toggle a tag's selection status, select the tag. You can also work with any custom tags that you might have created.
 
 ![Review text results](images/3-review-text-2.png)
