@@ -15514,9 +15514,14 @@
              "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
              "redirect_document_id": false
         },
-        {
-             "source_path": "articles/api-management/api-management-policy-reference.md",
-             "redirect_url": "/azure/api-management/api-management-policies",
+      {
+        "source_path": "articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+      },
+      {
+             "source_path": "articles/store-blitline-how-to-use.md",
+             "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
         }
     ]
