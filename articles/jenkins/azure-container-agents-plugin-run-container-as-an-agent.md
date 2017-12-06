@@ -1,6 +1,6 @@
 ---
-title: Run a container as an agent in Jenkins using the Azure Container Agents plugin | Microsoft Docs
-description: Learn how to run a container as an agent in Jenkins using the Azure Container Agents plugin
+title: Build a project in Azure using Jenkins and the Azure Container Agents plugin | Microsoft Docs
+description:  Learn how to install a Jenkins server on Azure, and use the Azure Container Instances plugin for Jenkins to build the Spring PetClinic Sample Application
 services: multiple
 documentationcenter: ''
 author: tomarcher
