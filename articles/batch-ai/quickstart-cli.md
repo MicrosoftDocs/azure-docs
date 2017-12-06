@@ -71,7 +71,7 @@ az storage account create --name mystorageaccount --sku Standard_LRS
 ```
 
 >[!NOTE]
->Each storage account must have an unique name. In the previous `az` command and other similar commands in this tutorial, replace the value for the `mystorageaccount` setting with your storage account name.
+>Each storage account must have a unique name. In the previous `az` command and other similar commands in this tutorial, replace the value for the `mystorageaccount` setting with your storage account name.
 
 ## Prepare Azure file share
 
