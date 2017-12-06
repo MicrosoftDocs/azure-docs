@@ -289,9 +289,6 @@
     - name: Configure Hive policies
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Capacity planning
-      href: ../hdinsight-capacity-planning.md
-      maintainContext: true
     - name: Manage clusters with enterprise security
       href: ../domain-joined/apache-domain-joined-manage.md
       maintainContext: true
