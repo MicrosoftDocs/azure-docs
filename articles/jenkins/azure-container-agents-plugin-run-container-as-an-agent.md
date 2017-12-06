@@ -31,7 +31,7 @@ You learn how to:
 
 - **Sign into Azure** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin, and sign into your account.  
 
-- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following products into which you'll enter commands:
+- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following products into which to enter Azure commands:
 
     - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
     - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
@@ -50,7 +50,7 @@ Once you've installed Jenkins on Azure, you need to connect to Jenkins. The foll
 
 ## 3. Update Jenkins DNS
 
-Jenkins needs to know it's own URL when it is creating links that point back to itself. For example, the URL needs to be used when Jennkins sends emails containing direct links to build results. Also, if you have a JNLP (Java Network Launch Protocol) type agent (which is being used in this tutorial), the agent initiates the connection to the server and the server  returns a message which contains a link back to Jenkins for downloading the agent software.
+Jenkins needs to know its own URL when it is creating links that point back to itself. For example, the URL needs to be used when Jenkins sends emails containing direct links to build results. 
 
 This section walks you through setting the Jenkins URL.
 
@@ -143,7 +143,7 @@ You need an Azure service principal to deploy to Azure. The following steps guid
 
 1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
-## 6. Create a Azure resource group for your Azure Container Instances
+## 6. Create an Azure resource group for your Azure Container Instances
 
 Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
 
@@ -287,19 +287,19 @@ It's time to build your project! This section explains how to build a project fr
 
     ![Build the project from the Jenkins dashboard.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-project.png)
 
-1. When you start a build in Jenkins, the build is queued. In the case of an Azure Container Agent, the build can't be run until the Azure Container Agent is started and brought online. Until then, you see a message indicating the agent name and the fact that the build pending. (This process takes about 5 minutes, but is only necessary the first time you use the agent for a build. Subsequent builds are much faster as the agent is online at that point.)
+1. When you start a build in Jenkins, the build is queued. In the case of an Azure Container Agent, the build can't be run until the Azure Container Agent is started and brought online. Until then, you see a message indicating the agent name and the fact that the build pending. (This process takes about five minutes, but is only necessary the first time you use the agent for a build. Subsequent builds are much faster as the agent is online at that point.)
 
     ![The build is queued until the agent is created and brought online.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-pending.png)
 
 Once the build starts, a barber pole progress bar indicates that the build is running:
 
-    ![The build is running once you see the barbar pole progress bar.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
+    ![The build is running once you see the barber pole progress bar.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
 
-1. When the barbar pole progress bar disappears, select the arrow next to the build number. From the context menu, select **Console output**.
+1. When the barber pole progress bar disappears, select the arrow next to the build number. From the context menu, select **Console output**.
 
     ![Click the Console Log menu item to view the build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-menu.png)
 
-1. The console log information emitted from the build process. To view all the build information - including information about the build being performed remotely on the Azure agent you created - select **Full log**.
+1. The console log information emitted from the build process. To view all the build information (including information about the build being performed remotely on the Azure agent you created), select **Full log**.
 
     ![Click the Full log link to view more detailed build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log.png)
 
@@ -307,7 +307,7 @@ Once the build starts, a barber pole progress bar indicates that the build is ru
 
     ![The full log displays more verbose build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-full.png)
     
-1. Scroll to the bottom of the log to view the build's disposition.
+1. To view the build's disposition, scroll to the bottom of the log.
 
     ![The build disposition displays at the bottom of the build log.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
 
