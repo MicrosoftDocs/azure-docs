@@ -90,7 +90,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 ## SLES 11 and openSUSE 13
 
-Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use those images. If you have a VM that's based on an older or custom SUSE image, do the following:
+Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, do the following:
 
 1. Install the `dhcp-client` package, if needed:
 
@@ -110,13 +110,9 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
 
 ## SLES 12 and openSUSE Leap
 
-Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when using those images. If you have a VM based on an older or custom SUSE image, use the following steps:
+Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, do the following:
 
-1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and replace this parameter
-
-        #BOOTPROTO='dhcp4'
-
-    with the following value:
+1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and replace the `#BOOTPROTO='dhcp4'` parameter with the following value:
 
         BOOTPROTO='dhcp'
 
@@ -132,7 +128,7 @@ Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. N
 
 ## CoreOS
 
-Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additional changes are required when using those images. If you have a VM based on an older or custom CoreOS image, use the following steps:
+Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM based on an older or custom CoreOS image, use the following steps:
 
 1. Edit the */etc/systemd/network/10_dhcp.network* file:
 
