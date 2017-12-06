@@ -115,6 +115,6 @@ Once you've defined and applied the various VM policy settings for your lab, her
   how to create a custom image from a VHD file.
 * [Configure Marketplace images](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs supports creating VMs based on Azure Marketplace images. This article
   illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
-* [Create a VM in a lab](devtest-lab-add-vm-with-artifacts.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with
+* [Create a VM in a lab](devtest-lab-add-vm.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with
   artifacts in your VM.
 

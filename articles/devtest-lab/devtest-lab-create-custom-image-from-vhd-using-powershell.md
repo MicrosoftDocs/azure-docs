@@ -117,4 +117,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 
 ##Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](devtest-lab-add-vm.md)
