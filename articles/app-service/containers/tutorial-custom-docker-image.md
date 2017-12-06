@@ -443,6 +443,12 @@ Confirm that the login succeeded.
 
 ### Push an image to Azure Container Registry
 
+> [!NOTE]
+> If you're using your own image, tag the image as follows:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Push the image by using the `docker push` command. Tag the image with the name of the registry, followed by your image name and tag.
 
 ```bash
