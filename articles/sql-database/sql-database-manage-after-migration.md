@@ -6,7 +6,6 @@ documentationcenter: ''
 author: joesackmsft
 manager: jhubbard
 editor: 
-
 ms.assetid: 
 ms.service: sql-database
 ms.custom: migrate
