@@ -2833,7 +2833,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Extend cloud intelligence to edge devices</p>
+                                                    <p>Extend cloud intelligence to Edge devices</p>
                                                 </div>
                                             </div>
                                         </div>
