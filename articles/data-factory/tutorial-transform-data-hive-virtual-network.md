@@ -67,15 +67,15 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    FROM hivesampletable
    ```
 2. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist.
-3. Create a folder named `hivescripts`.
-4. Upload the `hivescript.hql` file to the `hivescripts` subfolder.
+3. Create a folder named **hivescripts**.
+4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
  ​
 
 ## Create a data factory
 
 
-1. Set the resource group name. You create a resource group as part of this tutorial. However, you can use an existing an existing resource gorup if you like. 
+1. Set the resource group name. You create a resource group as part of this tutorial. However, you can use an existing resource group if you like. 
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup" 
@@ -230,7 +230,7 @@ Update values for the following properties in the linked service definition:
 - **clusterUri**. Specify the URL of your HDInsight cluster in format of  https://<clustername>.azurehdinsight.net.  This article assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at `https://clustername.azurehdinsight.net`. This address uses the public gateway, which is not available if you have used network security groups (NSGs) or user-defined routes (UDRs) to restrict access from the internet. For Data Factory to be able to submit jobs to HDInsight cluster in Azure Virtual Network, you need to configure your Azure Virtual Network such a way that the URL can be resolved to the private IP address of gateway used by HDInsight.
 
   1. From Azure portal, open the Virtual Network the HDInsight is in. Open the network interface with name starting with `nic-gateway-0`. Note down its private IP address. For example, 10.6.0.15. 
-  2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily workaround this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: 
+  2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily work around this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: 
   
 		`10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
@@ -286,7 +286,7 @@ In this step, you create a new pipeline with a Hive activity. The activity execu
 Note the following points:
 
 - **scriptPath** points to path to Hive script on the Azure Storage Account you used for MyStorageLinkedService. The path is case-sensitive.
-- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case sensitive. 
+- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case-sensitive. 
 
 Switch to the folder where you created JSON files, and run the following command to deploy the pipeline: 
 
