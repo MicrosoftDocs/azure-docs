@@ -13,7 +13,7 @@ ms.author: cahann
 ---
 
 # Manage intents 
-Add [intents](luis-concept-intent.md) to your LUIS app to categorize your client app user requests. 
+Add [intents](luis-concept-intent.md) to your LUIS app to group your client app user requests. 
 
 You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
 
