@@ -68,11 +68,11 @@ For later commands, set default storage account environment variables:
   ```azurecli
   export AZURE_STORAGE_ACCOUNT=mystorageaccount
 
-  export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
+  export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query '[0].value')
 
   export AZURE_BATCHAI_STORAGE_ACCOUNT=mystorageaccount
 
-  export AZURE_BATCHAI_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
+  export AZURE_BATCHAI_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query '[0].value')
 
   ```
 
