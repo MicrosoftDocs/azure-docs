@@ -314,8 +314,8 @@ It's time to build your project! This section explains how to build a project fr
 ## 11. (Optional) Clean up Azure resources
 
 In this tutorial, you created resources contained within two Azure resource groups: 
-    - `JenkinsServerResourceGroup` - Contains the Azure resources for the Jenkins server.
-    - `JenkinsAgentResourceGroup` - Contains the Azure resources for the Jenkins agent.
+    - `JenkinsResourceGroup` - Contains the Azure resources for the Jenkins server.
+    - `JenkinsAciResourceGroup` - Contains the Azure resources for the Jenkins agent.
     
 If you no longer need to use any of the resources in an Azure resource group, you can delete the resource group using the `az group delete` command as follows (replacing the &lt;resourceGroup> placeholder with the name of the resource group you want to delete):
 
