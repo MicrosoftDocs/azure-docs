@@ -49,9 +49,9 @@
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
 ## Security
-### [Encryption and service access)](search-security-overview.md)
+### [Service and data security](search-security-overview.md)
 ### [Identity access using filters](search-security-trimming-for-azure-search.md)
-### [Azure Active Directory identity access using filters](search-security-trimming-for-azure-search-with-aad.md)
+### [Active Directory identity access using filters](search-security-trimming-for-azure-search-with-aad.md)
 ## Load data
 ### [Indexer overview](search-indexer-overview.md)
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
