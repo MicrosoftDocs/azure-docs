@@ -39,13 +39,13 @@ Now, add the Service Catalog chart to the Helm repository:
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-Finally, install Service Catalog from its Helm chart:
+Finally, install Service Catalog with the Helm chart:
 
 ```Bash
 helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
 ```
 
-After you've installed the Helm chart, verify that `servicecatalog` appears in the output of the following command:
+After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
 
 ```Bash
 kubectl get apiservice
