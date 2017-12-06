@@ -73,9 +73,9 @@ After you have successfully created an enrollment, the Device Provisioning Servi
 
 ## Bulk operation on individual enrollments
 
-You can perform bulk operation to create, update or remove multiple individual enrollments following this workflow:
+You can perform bulk operation to create, update, or remove multiple individual enrollments following this workflow:
 
-1. Create a variable that contains multiple ```IndividualEnrollment```.  Implementation of this is different for every language.  Please review the bulk operation sample on GitHub for details.
+1. Create a variable that contains multiple ```IndividualEnrollment```.  Implementation of this variable is different for every language.  Review the bulk operation sample on GitHub for details.
 2. Call ```runBulkOperation``` with a ```BulkOperationMode``` for desired operation and your variable for individual enrollments. Four modes are supported: create, update, updateIfMatchEtag, and delete.
 
 After you have successfully performed an operation, the Device Provisioning Service would return a bulk operation result.
