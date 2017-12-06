@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -116,5 +116,11 @@ This article includes answers to frequently asked questions about Azure Active D
 **Q: How are IP addresses calculated in the sign-ins and risky sign-ins report?**
 
 **A:** IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. This is complicated by factors such as mobile providers and VPNs issuing IP addresses from central pools often very far from where the client device is actually used. Given the above, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information. 
+
+---
+
+**Q: What does the risk event "Sign-in with additional risk detected" signify?**
+
+**A:** To give you an insight into all the risky sign-ins in your environment we show the risk event "Sign-in with additional risk detected" for sign-ins considered risky because of detections exclusive to Azure AD Identity Protection subscribers.
 
 ---
