@@ -20,7 +20,7 @@ ms.author: kumud
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-SQL Server Always On availability groups now can run with an internal load balancer. An availability group is SQL Server's flagship solution for high availability and disaster recovery. The Availability Group Listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of replicas in the configuration.
+SQL Server Always On availability groups now can run with an internal load balancer. An availability group is SQL Server's flagship solution for high availability and disaster recovery. The availability group listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of replicas in the configuration.
 
 The listener (DNS) name is mapped to a load-balanced IP address. Azure Load Balancer directs the incoming traffic to only the primary server in the replica set.
 
@@ -34,7 +34,7 @@ By using an internal load balancer on the listener, the SQL Server endpoint (for
 
 ![Internal load balancer SQL Server Always On](./media/load-balancer-configure-sqlao/sqlao1.png)
 
-## Add Internal Load Balancer to the service
+## Add and internal load balancer to the service
 
 1. In the following example, you configure a virtual network that contains a subnet called 'Subnet-1':
 
@@ -50,7 +50,7 @@ By using an internal load balancer on the listener, the SQL Server endpoint (for
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-    In the previous example, you have two VMs called "sqlsvc1" and "sqlsvc2" that run in the cloud service "Sqlsvc". After you create the internal load balancer with the `DirectServerReturn` switch, you add load-balanced endpoints to the internal load balancer to allow SQL Server to configure the listeners for the availability groups.
+    In the previous example, you have two VMs called "sqlsvc1" and "sqlsvc2" that run in the cloud service "Sqlsvc". After you create the internal load balancer with the `DirectServerReturn` switch, you add load-balanced endpoints to the internal load balancer. The load-balanced endpoints allow SQL Server to configure the listeners for the availability groups.
 
 For more information about SQL Server Always On, see [Configure an internal load balancer for an Always On availability group in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

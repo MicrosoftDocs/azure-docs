@@ -1,5 +1,5 @@
 ---
-title: Configure High-Availability Ports for Azure Load Balancer| Microsoft Docs
+title: Configure high-availability ports for Azure Load Balancer| Microsoft Docs
 description: Learn how to use high-availability ports for load balancing internal traffic on all ports 
 services: load-balancer
 documentationcenter: na
@@ -28,7 +28,7 @@ This article provides an example deployment of high-availability ports on an int
 The illustration shows the following configuration of the deployment example described in this article:
 
 - The NVAs are deployed in the back-end pool of an internal load balancer behind the high-availability ports configuration. 
-- The UDR applied on the DMZ Subnet routes all traffic to the NVAs by making the next hop as the internal load balancer virtual IP. 
+- The user-defined route (UDR) applied on the DMZ subnet routes all traffic to the NVAs by making the next hop as the internal load balancer virtual IP. 
 - The internal load balancer distributes the traffic to one of the active NVAs according to the load balancer algorithm.
 - The NVA processes the traffic and forwards it to the original destination in the back-end subnet.
 - The return path can take the same route if a corresponding UDR is configured in the back-end subnet. 
@@ -38,16 +38,16 @@ The illustration shows the following configuration of the deployment example des
 
 ## Preview sign-up
 
-To participate in the preview of the High-Availability Ports feature in Load Balancer Standard, register your subscription to gain access by using either Azure CLI 2.0 or PowerShell. Register your subscription for [Load Balancer Standard Preview](https://aka.ms/lbpreview#preview-sign-up).
+To participate in the preview of the high-availability ports feature in standard Load Balancer, register your subscription to gain access by using either Azure CLI 2.0 or PowerShell. Register your subscription for [standard Load Balancer Preview](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Registration of the Load Balancer Standard previews can take up to an hour.
+>Registration of standard Load Balancer Preview can take up to an hour.
 
 ## Configure high-availability ports
 
 To configure high-availability ports, set up an internal load balancer with the NVAs in the back-end pool. Set up a corresponding load balancer health probe configuration to detect NVA health and the load balancer rule with high-availability ports. The general load balancer-related configuration is covered in [Get started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the high-availability ports configuration.
 
-The configuration essentially involves setting the front-end port and the back-end port value to **0**. Set the protocol value to **All**. This article describes how to configure high availability ports by using the Azure portal, PowerShell, and Azure CLI 2.0.
+The configuration essentially involves setting the front-end port and the back-end port value to **0**. Set the protocol value to **All**. This article describes how to configure high-availability ports by using the Azure portal, PowerShell, and Azure CLI 2.0.
 
 ### Configure a high-availability ports load balancer rule with the Azure portal
 
