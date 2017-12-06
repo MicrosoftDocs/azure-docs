@@ -22,7 +22,7 @@ ms.custom: mvc
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 > [!NOTE]
     > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
@@ -70,7 +70,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Create a file named **_X509individual.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
 
-1. Enter **N** for _Do you want to input Verification Code_ and keep the program output open for use later in the Quickstart. Note _Client Cert_ and _Client Cert Private Key_ values.
+1. Enter **N** for _Do you want to input Verification Code_ and keep the program output open for use later in the Quickstart. Note the _Client Cert_ and _Client Cert Private Key_ values.
 
     ![Certificate generator](./media/java-quick-create-simulated-device-x509/certificate.png)
 
@@ -145,7 +145,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
-    ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
