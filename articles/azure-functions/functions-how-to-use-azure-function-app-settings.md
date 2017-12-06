@@ -25,7 +25,7 @@ To begin, go to the [Azure portal](http://portal.azure.com) and sign in to your 
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Function app settings tab
+## <a name="manage-app-service-settings"></a>Settings tab
 
 ![Function app overview in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
