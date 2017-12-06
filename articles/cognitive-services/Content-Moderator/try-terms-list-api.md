@@ -14,13 +14,11 @@ ms.author: sajagtap
 
 # Moderate text by using custom terms in the API console
 
-The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization or industry. For example, you might want to tag competitor names for further review. 
+The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
 You can use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) to create custom lists of terms to use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, and also compares text against custom and shared blacklists.
 
-You can also create custom lists of images to be used with the List Moderation API. 
-
-This article focuses on lists of terms.
+You can also use the List Management API to create and custom lists of images. This article focuses on lists of terms.
 
 You can use the List Management API to do these tasks:
 - Create a list.
@@ -32,12 +30,12 @@ You can use the List Management API to do these tasks:
 - Refresh the index so that changes to the list are included in a new scan.
 
 ## Use the API console
-Before you can test-drive the API in the online console, you need your subscription key. This is found on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
 ## Create a term list
 1.	Go to the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-  The **Term Lists - Create** list management page opens.
+  The **Term Lists - Create** page opens.
 
 2.	For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -63,15 +61,15 @@ Before you can test-drive the API in the online console, you need your subscript
            }
         }
 
-  Note that we are adding list metadata as key-value pairs, and not actual terms.
+  Note that here we add list metadata as key-value pairs, and not actual terms.
  
 6.	Select **Send**. Your list is created. Take note of the **Id** value that is associated with the new list. You will need this for other term list management functions.
 
   ![Term Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
-7.	Next, add terms to MyList. In the left menu, under **Term**, select **Add Term**. 
+7.	Add terms to MyList. In the left menu, under **Term**, select **Add Term**. 
 
-  The **Term - Add Term** list management page opens. 
+  The **Term - Add Term** page opens. 
 
 8.	For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -79,11 +77,11 @@ Before you can test-drive the API in the online console, you need your subscript
 
   The **Term - Add Term** API console opens.
  
-9.	In the **listId** box, enter the ID that you generated earlier, and select a value for **language**. Enter your subscription key, and then select **Send**.
+9.	In the **listId** box, enter the list ID that you generated, and select a value for **language**. Enter your subscription key, and then select **Send**.
 
   ![Term - Add Term console query parameters](images/try-terms-list-create-3.png)
  
-10.	To verify that the term has been added, in the left menu, select **Term**, and then select **Get All Terms**. 
+10.	To verify that the term has been added to the list, in the left menu, select **Term**, and then select **Get All Terms**. 
 
   The **Term - Get All Terms** API console opens.
 
@@ -99,15 +97,15 @@ Before you can test-drive the API in the online console, you need your subscript
 
 Deleting a term or a list is straightforward. You can use the API to do the following tasks:
 
-- Delete a term. **(Term - Delete)**
-- Delete all the terms in a list without deleting the list. **(Term - Delete All Terms)**
-- Delete a list and all of its contents. **(Term Lists - Delete)**
+- Delete a term. (**Term - Delete**)
+- Delete all the terms in a list without deleting the list. (**Term - Delete All Terms**)
+- Delete a list and all of its contents. (**Term Lists - Delete**)
 
 This example deletes a single term:
 
 1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term**, and then select **Delete**. 
 
-  The **Term - Delete** list management page opens.
+  The **Term - Delete** opens.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -131,7 +129,7 @@ You can edit a list’s name and description, and add metadata items.
 
 1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Update Details**. 
 
-  The **Term Lists - Update Details** list management page opens.
+  The **Term Lists - Update Details** page opens.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -151,7 +149,7 @@ After you make changes to a term list, you must refresh its index for changes to
 
 1.	In the [Term List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), in the left menu, select **Term Lists**, and then select **Refresh Search Index**. 
 
-  The **Term Lists - Refresh Search Index** list management page opens.
+  The **Term Lists - Refresh Search Index** page opens.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 

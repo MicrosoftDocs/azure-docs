@@ -14,14 +14,14 @@ ms.author: sajagtap
 
 # Set up content moderation workflows in the API console
 
-Use the Review API's [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's job operations.
+Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's job operations.
 
 ## Use the API console
 To test-drive the API by using the online console, you need a few values to enter into the console:
 
 - **team**: The team name that you created when you set up your Review tool account. 
 - **workflowname**: The name that you created for your workflow.
-- **Ocp-Apim-Subscription-Key**: This is found on the **Settings** tab. For more information, see [Overview](overview.md).
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 The simplest way to access a testing console is from the **Credentials** window.
 
@@ -47,7 +47,7 @@ The simplest way to access a testing console is from the **Credentials** window.
 
   ![Workflow - Create Or Update console Response content displays true](images/test-drive-workflow-3.PNG)
   
-5.	In the Content Moderator Dashboard, select **Review** > **Settings** > **Workflows**. Your new workflow appears, and is ready to use.
+5.	On the Content Moderator Dashboard, select **Review** > **Settings** > **Workflows**. Your new workflow appears, and is ready to use.
 
   ![Review tool list of workflows](images/test-drive-workflow-4.PNG)
   

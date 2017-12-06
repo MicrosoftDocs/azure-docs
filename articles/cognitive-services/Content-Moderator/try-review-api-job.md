@@ -14,19 +14,19 @@ ms.author: sajagtap
 
 # Run content moderation jobs in the API console
 
-Use the Review API's [Job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
+Use the Review API's [job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 
-The moderation job scans your content by using the Content Moderator Image Moderation or Text Moderation APIs. Then, the moderation job uses the default and custom workflows (defined by using the Review tool) to generate reviews in the Review tool. 
+The moderation job scans your content by using the Content Moderator Image Moderation API or Text Moderation API. Then, the moderation job uses the default and custom workflows (defined by using the Review tool) to generate reviews in the Review tool. 
 
-After your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
+After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the Review API submits all information to your API endpoint.
 
 ## Use the API console
 To test-drive the API by using the online console, you need a few values to enter into the console:
 
 - **teamName**: The team name that you created when you set up your Review tool account. 
-- **ContentId**: This string is passed to the API and returned through the callback. The ContentId is useful for associating internal identifiers or metadata with the results of a moderation job.
+- **ContentId**: This string is passed to the API and returned through the callback. **ContentId** is useful for associating internal identifiers or metadata with the results of a moderation job.
 - **Workflowname**: The name of the workflow that you created. For a quick test, you can use the value **Default**.
-- **Ocp-Apim-Subscription-Key**: This is found on the **Settings** tab. For more information, see [Overview](overview.md).
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
 The simplest way to access a testing console is from the **Credentials** window.
 
@@ -40,7 +40,7 @@ The simplest way to access a testing console is from the **Credentials** window.
 
   The **Job - Create** API console opens. 
   
-3.	Enter values for the required query parameters and your subscription key. In the **Request body** box, specify the location of the information that you want to scan.
+3.	Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan.
 
   ![Job - Create console query parameters, headers, and Request body box](images/test-drive-job-2.png)
   
@@ -56,7 +56,7 @@ The simplest way to access a testing console is from the **Credentials** window.
 
   ![Job - Create console Response content box](images/test-drive-job-5.png)
   
-7.	In the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
+7.	On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
 
   ![Review tool image of three cyclists](images/test-drive-job-6.png)
 

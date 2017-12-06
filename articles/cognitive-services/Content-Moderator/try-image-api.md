@@ -1,5 +1,5 @@
 ---
-title: Image moderation with Azure Content Moderator | Microsoft Docs
+title: Moderate images with Azure Content Moderator | Microsoft Docs
 description: Test-drive image moderation in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
@@ -12,12 +12,12 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Image moderation in the API console
+# Moderate images by using the API console
 
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator to initiate scan-and-review moderation workflows for image content. The moderation job scans your content for profanity, and compares it against custom and shared blacklists.
 
 ## Use the API console
-Before you can test-drive the API in the online console, you need your subscription key. This is found on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
+Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
 1.	Go to [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
@@ -33,9 +33,9 @@ Before you can test-drive the API in the online console, you need your subscript
 
   ![Try Image - Evaluate console subscription key](images/try-image-api-1.PNG)
 
-4. In the **Request Body** box, use the default sample image, or specify an image to scan. You can submit the image itself as binary bit data, or specify a publicly accessible URL for an image. 
+4. In the **Request body** box, use the default sample image, or specify an image to scan. You can submit the image itself as binary bit data, or specify a publicly accessible URL for an image. 
 
-  For this example, use the path provided in the **Request Body** box, and then select **Send**. 
+  For this example, use the path provided in the **Request body** box, and then select **Send**. 
 
    ![Try Image - Evaluate console Request body](images/try-image-api-2.PNG)
 
@@ -51,11 +51,11 @@ Before you can test-drive the API in the online console, you need your subscript
 
 ## Face detection
 
-You can use the Image Moderation API to locate faces in an image. This option can be useful when you have privacy concerns and want to prevent a specific face from being posted on a website. 
+You can use the Image Moderation API to locate faces in an image. This option can be useful when you have privacy concerns and want to prevent a specific face from being posted on your platform. 
 
-1.	In the left menu, under **Image**, select **Find Faces**. 
+1.	In the [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in the left menu, under **Image**, select **Find Faces**. 
 
-  The [Image - Find Faces](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66a) page opens.
+  The **Image - Find Faces** page opens.
 
 2.	For **Open API testing console**, select the region that most closely describes your location. 
 
@@ -69,7 +69,7 @@ You can use the Image Moderation API to locate faces in an image. This option ca
 
   ![Try Image - Find Faces sample request](images/try-image-api-face-request.png)
 
-4. Submit **Send**. In this example, the API finds two faces, and returns their coordinates in the image.
+4. Select **Send**. In this example, the API finds two faces, and returns their coordinates in the image.
 
    ![Try Image - Find Faces  sample Response content box](images/try-image-api-face-response.png)
 
@@ -77,15 +77,15 @@ You can use the Image Moderation API to locate faces in an image. This option ca
 
 You can use the Content Moderator OCR capability to detect text in images.
 
-1. In the left menu, under **Image**, select **OCR**. 
+1. In the [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), in the left menu, under **Image**, select **OCR**. 
 
-  The [Image - OCR](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66b) page opens.
+  The **Image - OCR** page opens.
 
 2. For **Open API testing console**, select the region that most closely describes your location. 
 
   ![Image - OCR page region selection](images/test-drive-region.png)
 
-  The [Image - OCR](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66b) API console opens.
+  The **Image - OCR** API console opens.
 
 3. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
