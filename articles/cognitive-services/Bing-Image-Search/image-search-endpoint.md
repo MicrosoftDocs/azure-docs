@@ -28,7 +28,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 A GET request returns insights about an image, such as Web pages that include the image. Include the [insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter with a `GET` request.
 
-Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. This will return an {insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) for a subsequent request for information about people in the image.  Set `modules` to `All` to get other insights information in the results of the `POST`. To specify the image in the body of the `POST` request, you must include the `Content-Type` header and set its value to `multipart/form-data`.
+Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. This will return an [insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) for a subsequent request for information about people in the image.  Set `modules` to `All` to get other insights information in the results of the `POST`. To specify the image in the body of the `POST` request, you must include the `Content-Type` header and set its value to `multipart/form-data`.
 
 
 Endpoint 3 `GET`:
