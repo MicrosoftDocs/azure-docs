@@ -13,23 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/08/2017
+ms.date: 11/10/2017
 ms.author: v-semcev
 
 ---
-# Overview of the Azure Content Delivery Network (CDN)
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+# Overview of the Azure Content Delivery Network
+
+The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. The CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. 
 
 > [!NOTE]
 > This article describes the Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
-> 
 
 The benefits of using a CDN to cache web site assets include:
 
 * Better performance and improved user experience for end users, especially when using applications in which multiple round-trips are required to load content.
 * Large scaling to better handle instantaneous high loads, such as the start of a product launch event.
 * Distribution of user requests and serving of content directly from edge servers so that less traffic is sent to the origin.
-
 
 ## How it works
 ![CDN Overview](./media/cdn-overview/cdn-overview.png)
@@ -50,11 +49,13 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Dynamic Site Acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Adaptive Image Compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Object Prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
-| [Video Streaming Optimization](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
-| [Large File Optimization](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Video streaming optimization](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Large file optimization](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
 | [Global Server Load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
+| Cache/header settings (using [caching rules](cdn-caching-rules.md)) |**&#x2713;** |**&#x2713;** | |
+| Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | [Query string caching](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -77,7 +78,6 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | |**&#x2713;** |
-| Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Mobile device rules (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 
