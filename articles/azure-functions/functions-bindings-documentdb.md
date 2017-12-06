@@ -205,7 +205,7 @@ The Cosmos DB binding uses `Id` and `Maker` from the queue message to retrieve t
                 [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
-                log.Info( $"Selected Review - {document?.Review}");
+                log.Info( $"Selected Review - {document?.Review}"); 
             }
         }
     }
