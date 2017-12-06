@@ -82,7 +82,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
     ![Select a NuGet package][nuget-pkg]
 
-### Write code to send a message to the topic
+### Write code to send messages to the topic
 
 1. Add the following `using` statements to the top of the Program.cs file.
    
@@ -226,9 +226,11 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ## 5. Receive messages from the subscription
 
-1. To receive the message or messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
+To receive the message or messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 
-2. Add the following `using` statements to the top of the Program.cs file.
+### Write code to receive messages from the subscription
+
+1. Add the following `using` statements to the top of the Program.cs file.
    
     ```csharp
     using System.Text;
@@ -237,7 +239,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     using Microsoft.Azure.ServiceBus;
     ```
 
-3. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, set `TopicName` to the name that you used when creating the topic, and set `SubscriptionName` to the name that you used when creating the subscription to the topic:
+2. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, set `TopicName` to the name that you used when creating the topic, and set `SubscriptionName` to the name that you used when creating the subscription to the topic:
    
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -246,13 +248,13 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     static ISubscriptionClient subscriptionClient;
     ```
 
-4. Replace the default contents of `Main()` with the following line of code:
+3. Replace the default contents of `Main()` with the following line of code:
 
     ```csharp
     MainAsync().GetAwaiter().GetResult();
     ```
 
-5. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
+4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
 
     ```csharp
     static async Task MainAsync()
@@ -272,7 +274,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-6. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
+5. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -294,7 +296,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```    
 
-7. Add the following `ProcessMessagesAsync()` method to process the received messages:
+6. Add the following `ProcessMessagesAsync()` method to process the received messages:
  
     ```csharp
     static async Task ProcessMessagesAsync(Message message, CancellationToken token)
@@ -312,7 +314,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-8. Finally, add the following method to handle any exceptions that might occur:
+7. Finally, add the following method to handle any exceptions that might occur:
  
     ```csharp
     // Use this handler to examine the exceptions received on the message pump.
@@ -328,7 +330,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }    
     ```    
 
-9. Here is what your Program.cs file should look like:
+8. Here is what your Program.cs file should look like:
    
     ```csharp
     using System;
@@ -413,7 +415,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
         }
     }
     ```
-10. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
+9. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
    
     ![Topic length][topic-message-receive]
 
