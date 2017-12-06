@@ -248,7 +248,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt="">
                                                             Terraform
                                                         </a>
                                                     </li>
