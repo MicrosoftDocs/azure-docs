@@ -44,7 +44,7 @@
 ### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
 ## Administration & Analytics
 ### [Manage using Azure portal](search-manage.md)
-### [Manage using Azure PowerShell](search-manage-powershell.md)
+### [Manage using PowerShell](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
