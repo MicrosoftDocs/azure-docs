@@ -88,7 +88,7 @@ The Jenkins agent connects with the Jenkins server via the Java Network Launch P
 
 1. Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create an inbound rule for your Jenkins network security group:
 
-    ```shell```
+    ```shell
     az network nsg rule create  \
     --resource-group JenkinsResourceGroup \
     --nsg-name JenkinsNSG  \
@@ -149,13 +149,13 @@ Azure Container Instances must be placed in an Azure resource group. An Azure re
 
 Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `JenkinsAciResourceGroup` in location `eastus`:
 
-```shell```
+```shell
 az group create --name JenkinsAciResourceGroup --location eastus
 ```
 
 When finished, the `az group create` command displays results similar to the following example:
 
-```shell```
+```shell
 ~$ az group create --name JenkinsAciResourceGroup --location eastus
 {
   "id": "/subscriptions/<subscriptionId>/resourceGroups/JenkinsAciResourceGroup",
@@ -319,7 +319,7 @@ In this tutorial, you created resources contained within two Azure resource grou
     
 If you no longer need to use any of the resources in an Azure resource group, you can delete the resource group using the `az group delete` command as follows (replacing the &lt;resourceGroup> placeholder with the name of the resource group you want to delete):
 
-    ```shell```
+    ```shell
     az group delete -n <resourceGroup>
     ```
 
