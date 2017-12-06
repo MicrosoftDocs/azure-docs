@@ -15132,7 +15132,7 @@
         {
             "source_path": "articles/hdinsight/hdinsight-add-acls-at-file-folder-levels.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
-            "redirect_document_id": false,
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
@@ -15339,7 +15339,7 @@
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
         },
-	      {
+        {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
@@ -15454,7 +15454,7 @@
             "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path": "articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
             "redirect_document_id": false
