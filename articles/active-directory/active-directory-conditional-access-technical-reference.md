@@ -114,7 +114,7 @@ In your conditional access policy, you can select **Browsers** as client app.
 
 ![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following OSs and browsers are supported. These browsers support device authentication, allowing the device to be identified and validated against policy. The device check will fail if the browser is running in private mode. 
+This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
 | OS                     | Browsers                            | Support     |
@@ -135,6 +135,9 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 > [!NOTE]
 > For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
 > You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode. 
+
 
 ### Supported mobile applications and desktop clients
 
