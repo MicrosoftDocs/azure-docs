@@ -209,6 +209,8 @@
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Troubleshoot Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
+    - name: Troubleshoot Azure Backup Agent
+      href: backup-azure-mars-troubleshoot.md
 - name: Reference
   items:
   - name: Azure PowerShell
