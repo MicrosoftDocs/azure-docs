@@ -174,7 +174,7 @@ See the language-specific example that reads a single document:
 
 ### Input - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. ID and maker for a **CarReview** instance are passed to a queue. 
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. First, id and maker values for a **CarReview** instance are passed to a queue. 
 
  ```cs
     public class CarReview
@@ -188,7 +188,7 @@ The following example shows a [precompiled C# function](functions-dotnet-class-l
     }
  ```
 
-Then by partion key - **maker** property and id - **id** property from the **CarReview** instance, the CosmosDB binding retrieves the whole document stored in the database.
+Then by **maker** and **id** from the queue message, the CosmosDB binding retrieves the whole document stored in the database.
 
 ```cs
     using Microsoft.Azure.WebJobs;
