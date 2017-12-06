@@ -18,7 +18,7 @@ ms.author: eslesar
 
 ---
 
-# Integrate System Center Configuration Manager with OMS Update Management [Preview]
+# Integrate System Center Configuration Manager with OMS Update Management
 
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.  
 
@@ -40,12 +40,13 @@ How you manage clients hosted in Azure IaaS with your existing Configuration Man
 Perform the following steps if you are going to continue managing update deployments from Configuration Manager.  OMS connects to Configuration Manager to apply updates to the client computers connected to your Log Analytics workspace. Update content is available from the client computer cache as if the deployment were managed by Configuration Manager.  
 
 1. Create a software update deployment from the top-level site in your Configuration Manager hierarchy using the process described in [deploy software update process](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed by the OMS Update Management solution by creating a scheduled update deployment in the next step.  
-2. In the Azure portal, select your Automation account on the **Automation account** screen, and create a variable of boolean type named **UseOMSForSCCMUpdates** with a value of **true** by following [To create a new variable with the Azure portal](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. In the OMS portal, open the Update Management dashboard.  Create a new deployment following the steps described in [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) and select the appropriate Configuration Manager collection represented as an OMS computer group from the drop-down list.  Keep in mind the following important points:
+
+1. In the OMS portal, open the Update Management dashboard.  Create a new deployment following the steps described in [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) and select the appropriate Configuration Manager collection represented as an OMS computer group from the drop-down list.  Keep in mind the following important points:
     1. If a maintenance window is defined on the selected Configuration Manager device collection, members of the collection honors it instead of the **Duration** setting defined in the scheduled deployment in OMS.
-    2. Members of the target collection must have a connection to the Internet (either direct, through a proxy server or through the OMS Gateway).  
+    1. Members of the target collection must have a connection to the Internet (either direct, through a proxy server or through the OMS Gateway).  
 
 After completing the update deployment with the OMS solution, the target computers that are members of the selected computer group will install updates at the scheduled time from their local client cache.  You can [view update deployment status](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) to monitor the results of your deployment.  
+
 
 ### Manage software updates from OMS
 
