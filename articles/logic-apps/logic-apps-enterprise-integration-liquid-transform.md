@@ -105,9 +105,10 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 
 ## Test your logic app
+
    Post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or a similar tool. The transformed JSON output from your logic app looks like this example:
   
-  ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
 
 ## Next steps
