@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/18/2017
 ms.author: sethm
 
 ---
@@ -49,8 +49,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-
-1. Create the `ServiceBusManagementClient` object.
+2. Create the `ServiceBusManagementClient` object.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -59,8 +58,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-
-1. Set the `CreateOrUpdate` parameters to your specified values.
+3. Set the `CreateOrUpdate` parameters to your specified values.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -69,8 +67,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
        EnablePartitioning = true
    };
    ```
-
-1. Execute the call.
+4. Execute the call.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

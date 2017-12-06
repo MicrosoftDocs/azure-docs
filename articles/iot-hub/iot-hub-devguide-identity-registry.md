@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
@@ -25,8 +25,6 @@ Every IoT hub has an identity registry that stores information about the devices
 The device ID stored in the identity registry is case-sensitive.
 
 At a high level, the identity registry is a REST-capable collection of device identity resources. When you add an entry in the identity registry, IoT Hub creates a set of per-device resources such as the queue that contains in-flight cloud-to-device messages.
-
-### When to use
 
 Use the identity registry when you need to:
 
@@ -69,16 +67,15 @@ An IoT solution typically has a separate solution-specific store that contains a
 You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:
 
 * During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
-* If, for any reason, you consider a device is compromised or has become unauthorized.
+* If, for any reason, you think a device is compromised or has become unauthorized.
 
 ## Import and export device identities
 
-You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
+You can export device identities in bulk from an IoT hub's identity registry by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
+You can import device identities in bulk to an IoT hub's identity registry by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
 
-* For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis].
-* To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
+For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
 ## Device provisioning
 
@@ -140,17 +137,13 @@ Body: This section is in JSON format and represents the twin of the created devi
 }
 ```
 
-## Reference topics:
-
-The following reference topics provide you with more information about the identity registry.
-
 ## Device identity properties
 
 Device identities are represented as JSON documents with the following properties:
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232][lnk-rfc7232]. |
 | auth |optional |A composite object containing authentication information and security materials. |
@@ -177,7 +170,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 ## Next steps
 
-Now you have learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide topics:
+Now that you have learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide topics:
 
 * [Control access to IoT Hub][lnk-devguide-security]
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]

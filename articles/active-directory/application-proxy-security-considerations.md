@@ -42,7 +42,7 @@ If you choose Passthrough as your preauthentication method, you don't get this b
 
 Apply richer policy controls before connections to your network are established.
 
-With [conditional access](active-directory-conditional-access-azuread-connected-apps.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
+With [conditional access](active-directory-conditional-access-azure-portal-get-started.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
 You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. 
 
@@ -82,7 +82,7 @@ Applications published through Application Proxy are protected against Distribut
 
 The Application Proxy service monitors the amount of traffic attempting to reach your applications and network. If the number of devices requesting remote access to your applications spikes, Microsoft throttles access to your network. 
 
-Microsoft watches traffic patterns for individual applications and for your subscription as a whole. If one application receives higher than normal requests, then requests to access that application are denied for a short period of time. If you recieve higher than normal requests across your whole subscription, then requests to access any of your apps are denied. This preventative measure keeps your application servers from being overloaded by remote access requests, so that your on-premises users can keep accessing their apps. 
+Microsoft watches traffic patterns for individual applications and for your subscription as a whole. If one application receives higher than normal requests, then requests to access that application are denied for a short period of time. If you receive higher than normal requests across your whole subscription, then requests to access any of your apps are denied. This preventative measure keeps your application servers from being overloaded by remote access requests, so that your on-premises users can keep accessing their apps. 
 
 ## Under the hood
 

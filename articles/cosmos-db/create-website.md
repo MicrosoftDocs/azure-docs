@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template
@@ -135,7 +136,6 @@ Congratulations! You've deployed Azure Cosmos DB, App Service web app and a samp
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

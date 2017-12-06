@@ -46,6 +46,8 @@ Here's how you can add it in a logic app:
     The action will output a new array that contains only results that met the filter requirements.
 6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
+\* If you're calling an HTTP endpoint, and receiving a JSON response, use the _Parse JSON_ action to parse the JSON response. Without taking this step, _Filter Array_ will see only Body and not understand the structure of the JSON payload.
+
 ## Query action
 Here are the details for the action that this connector supports. The connector has one possible action.
 

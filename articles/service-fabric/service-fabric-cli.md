@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
 
 ---
@@ -21,11 +21,30 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Although both Python 2.7 and 3.6 are supported, we recommend that you use Python 3.6. The following section shows you how to install all the prerequisites and the CLI.
+The CLI supports Python versions 2.7, 3.5 and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
+
+### Service Fabric target runtime
+
+The Service Fabric CLI is meant to support the latest runtime version of the Service Fabric SDK. Use the following table to determine which version of CLI to install:
+
+| CLI version   | supported runtime version |
+|---------------|---------------------------|
+| Latest (~=3)  | Latest (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+Replace the following `pip install` command with the previously mentioned command when necessary.
+
+For more information on Service Fabric CLI releases, see the [GitHub documentation](https://github.com/Azure/service-fabric-cli/releases).
 
 ## Install pip, Python, and the Service Fabric CLI
 
- There are many ways to install pip and Python on your platform. Here are some steps to get major operating systems set up quickly with Python 3.6 and pip.
+There are many ways to install pip and Python on your platform. Here are some steps to get major operating systems set up quickly with Python 3 and pip.
 
 ### Windows
 
@@ -48,47 +67,45 @@ pip --version
 
 Then run the following command to install the Service Fabric CLI:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-If you run into an error stating that `sfctl` is not found, run the following commands:
+### Ubuntu and Windows subsystem for Linux
+
+To install the Service Fabric CLI, run the following commands:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### Ubuntu
-
-For Ubuntu 16.04 Desktop, you can install Python 3.6 by using a third-party personal package archive (PPA).
-
-From the terminal, run the following commands:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Then, to install the Service Fabric CLI for just your installation of Python 3.6, run the following command:
+Then you can test the installation with:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-If you run into an error stating that `sfctl` is not found, run the following commands:
+If you receive a command not found error such as:
+
+`sfctl: command not found`
+
+Be sure that `~/.local/bin` is accessible from the `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-These steps do not affect the system installation of Python 3.5 and 2.7. Don't attempt to modify these installations, unless you're familiar with Ubuntu.
+If the installation on Windows subsystem for Linux fails with incorrect folder permissions, it may be necessary to try again with elevated permissions:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### MacOS
 
 For MacOS, we recommend that you use the [HomeBrew package manager](https://brew.sh). If HomeBrew is not already installed, install it by running the following command:
@@ -104,17 +121,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-If you run into an error stating that `sfctl` is not found, run the following commands:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-These steps do not modify the system installation of Python 2.7.
 
 ## CLI syntax
 
@@ -236,10 +242,9 @@ sfctl application create -h
 To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## Next steps
 

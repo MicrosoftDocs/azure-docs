@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -63,7 +63,7 @@ There are two types of controls:
 - **Grant controls** - Grant controls govern whether or not a user can complete authentication and reach the resource that they’re attempting to sign-in to. If you have multiple controls selected, you can configure whether all of them are required when your policy is processed.
 The current implementation of Azure Active Directory enables you to configure the following grant control requirements:
 
-    ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Control](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Session controls** - Session controls enable limiting experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
 
@@ -105,7 +105,7 @@ For a complete list of the cloud apps you can use in your conditional access pol
 
 As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## Conditions
@@ -117,12 +117,13 @@ In the current implementation of Azure Active Directory, you can define conditio
 - Locations
 - Client apps
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+
+![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### Sign-in risk
 
 A sign-in risk is an object that is used by Azure Active Directory to track the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. In this object, the likelihood 
-(High, Medium, or Low) is stored in form of an attribute called [sign-in risk level](active-directory-reporting-risk-events.md#risk-level). This object is generated during a sign-in of a user if sign-in risks have been detected by Azure Active Directory. For more details, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
+(High, Medium, or Low) is stored in form of an attribute called [sign-in risk level](active-directory-reporting-risk-events.md#risk-level). This object is generated during a sign-in of a user if sign-in risks have been detected by Azure Active Directory. For more information, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
 You can use the calculated sign-in risk level as condition in a conditional access policy. 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/22.png)
@@ -130,37 +131,46 @@ You can use the calculated sign-in risk level as condition in a conditional acce
 ### Device platforms
 
 The device platform is characterized by the operating system that is running on your device:
-
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (preview). 
-
-![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
-
 You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
 To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
 
 
+![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
+
+For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
+
+
 ### Locations
 
-The location is identified by the IP address of the client you have used to connect to Azure Active Directory. This condition requires you to be familiar with **named locations** and **MFA trusted IPs**.  
+With locations, you have the option to define conditions that are based on where a connection attempt was initiated from. The entries in the locations list are either **named locations** or **MFA trusted IPs**.  
 
-**Named locations** is a feature of Azure Active Directory which allows you to label trusted IP address ranges in your organizations. In your environment, you can use named locations in the context of the detection of [risk events](active-directory-reporting-risk-events.md) as well as conditional access. For more details about configuring named locations in Azure Active Directory, see [named locations in Azure Active Directory](active-directory-named-locations.md).
+**Named locations** is a feature of Azure Active Directory that allows you to define labels for the locations connection attempts were made from. To define a location, you can either configure an IP address ranges or you select a country / region.  
 
-The number of locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
+![Conditions](./media/active-directory-conditional-access-azure-portal/42.png)
+
+Additionally, you can mark a named location as trusted location. For a conditional access policy, the trusted location is another filter option that enables you to select *All trusted locations* in your locations condition.
+Named locations are also important in the context of the detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of false-positives for the impossible travel to atypical locations risk event. 
+
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
  
  - One named location with up to 500 IP ranges
  - A maximum of 60 named locations (preview) with one IP range assigned to each of them 
 
-
-**MFA trusted IPs** is a feature of multi-factor authentication that enables you to define trusted IP address ranges representing your organization's local intranet. When you configure a location conditions, Trusted IPs enables you to distinguish between connections made from your organization's network and all other locations. For more details, see [trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
+For more information, see [named locations in Azure Active Directory](active-directory-named-locations.md).
 
 
-You can either include all locations or all trusted IPs and you can exclude all trusted IPs.
+**MFA trusted IPs** is a feature of multi-factor authentication that enables you to define trusted IP address ranges representing your organization's local intranet. When you configure a location condition, Trusted IPs enables you to distinguish between connections made from your organization's network and all other locations. For more information, see [trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
+In your conditional access policy, you can:
+
+- Include
+    - Any location
+    - All trusted locations
+    - Selected locations
+- Exclude
+    - All trusted locations
+    - Selected locations
+     
 ![Conditions](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -173,6 +183,7 @@ Legacy authentication refers to clients using basic authentication such as older
 
 
 For a complete list of the client apps you can use in your conditional access policy, see the [Azure Active Directory Conditional Access technical reference](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+
 
 
 

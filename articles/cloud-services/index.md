@@ -97,30 +97,34 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-cscfg-role">Role Schema</a></p>
+						<p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration Schema</a></p>
+					</div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/cloudservices">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
-
-

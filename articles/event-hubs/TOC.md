@@ -22,6 +22,7 @@
 
 # How to
 ## Plan and design
+### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
@@ -33,6 +34,7 @@
 #### [Diagnostic logs](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
+### [Monitor Event Hubs with Azure Monitoring](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)

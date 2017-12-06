@@ -48,7 +48,7 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
 
    - **Explicit acknowledgment of Online Service Terms:** In order to create an account, subscription Owners or Contributors (as defined by [Azure Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)) need to explicitly acknowledge the terms that apply to Cognitive Services in [Online Service Terms](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
 
-     The subscription Owner can disable the creation of Cognitive Services account for a specific resource group or subscription through [resource policy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy) by following the article [Using Azure portal to assign and manage resource policies](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-portal) and assigning a “Not allowed resource types” policy definition and specifying **Microsoft.CognitiveServices/accounts** as the target resource type.
+     The subscription Owner can disable the creation of Cognitive Services account for a specific resource group or subscription through [Azure policies](../azure-policy/azure-policy-introduction.md) by following the article [Using Azure portal to assign and manage resource policies](../azure-policy/assign-policy-definition.md) and assigning a “Not allowed resource types” policy definition and specifying **Microsoft.CognitiveServices/accounts** as the target resource type.
 
      If account creation was disabled, the following error would be displayed at the time of account creation:
 

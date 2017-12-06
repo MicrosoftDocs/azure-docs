@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 
 ---
@@ -39,6 +39,6 @@ Unlicensed users will be flagged when they access a service that has conditional
 This applies to MFA / Location policies as well as device polices that use Intune.
 
 ## See also
-* [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
-* [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access-azure-portal.md)
+* [Getting started with conditional access to Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

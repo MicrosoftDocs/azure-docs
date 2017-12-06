@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 10/09/2017
 ms.author: terrylan
 
 ---
@@ -79,7 +79,6 @@ Use the table below as a reference to help you understand the available recommen
 | [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections. |
 | [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW. |
 | [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md) |Recommends that you resolve endpoint protection failures. |
 | [Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md) |Recommends that you enable NSGs on subnets or VMs. |
 | [Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommends that you configure inbound traffic rules for NSGs. |
 | [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) |Recommends that you turn on auditing and threat detection for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.) |

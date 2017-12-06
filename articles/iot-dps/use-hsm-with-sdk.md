@@ -1,6 +1,6 @@
 ---
-title: Azure How to - Use different HSM with the Device Provisioning Service Client SDK | Microsoft Docs
-description: Azure How to - Use different HSM with physical devices and simulators with Device Provisioning Service Client SDK
+title: Azure How to - How to use different Hardware Security Module with the Device Provisioning Service Client SDK in Azure | Microsoft Docs
+description: Azure How to - How to use different Hardware Security Module with the Device Provisioning Service Client SDK in Azure
 services: iot-dps 
 keywords: 
 author: yzhong94

@@ -38,7 +38,7 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (`ttl` + `_ts` >= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 
@@ -146,6 +146,9 @@ To disable TTL entirely on a collection and stop the background process from loo
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## TTL and Index interaction
+TTL addition or change is a change to underlying index. When there is no TTL and you provide a valid TTL value - this results in re-index operation. For consistent Index - user will not see any change in Index state. In case of  lazy index - the index first of all is always catching up and with this change in ttl, index is recreated from scratch. The impact in latter case is that queries done during the index rebuild will not return complete or correct results. 
+Please do not change TTL for lazy index if you need exact data count etc as indexing mode itself is lazy.  Ideally consistent index should be always chosen. 
 
 ## FAQ
 **What will TTL cost me?**
