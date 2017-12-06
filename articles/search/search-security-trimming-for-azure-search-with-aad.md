@@ -1,5 +1,5 @@
 ---
-title: "Security Trimming in Azure Search with Azure Active Directory | Microsoft Docs"
+title: "Access control in Azure Search with Azure Active Directory | Microsoft Docs"
 description: Implement security trimming using Azure Search filter and Azure Active Directory.
 services: search
 author: "revitalbarletz"
@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
 ---
-# Security trimming in Azure Search with Azure Active Directory
+# Identity-based access control using Azure Search filters and Aure Active Directory (AAD)
 
-This article demonstrates how to use Azure Active Directory (AAD) together with Azure Search to restrict document access based on user group membership.
+This article demonstrates how to use Azure Active Directory (AAD) security identities together with filters in Azure Search to restrict document access based on user group membership.
 
 This article covers the following tasks:
 > [!div class="checklist"]

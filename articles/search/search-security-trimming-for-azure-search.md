@@ -1,5 +1,5 @@
 ---
-title: "Security trimming with Azure Search"
+title: "Identity-based access control using Azure Search filters | Microsoft Docs"
 description: Implement security trimming using Azure Search filters.
 ms.custom: ""
 ms.date: "08/07/2017"
@@ -14,9 +14,9 @@ ms.author: "revitalb"
 manager: "jlembicz"
 ---
 
-# Security trimming with Azure Search
+# Identity-based access control using Azure Search filters
 
-You can apply security filters on search results to restrict document access based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
+You can apply security filters on search results to restrict document access in Azure Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
 
 One way to achieve security filtering is through a complicated disjunction of equality expressions: for example, `Id eq 'id1' or Id eq 'id2'`, and so forth. This approach is error-prone, difficult to maintain, and in cases where the list contains hundreds or thousands of values, slows down query response time by many seconds. 
 

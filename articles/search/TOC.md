@@ -50,8 +50,8 @@
 ### [Performance and optimization](search-performance-optimization.md)
 ## Security
 ### [Service and data security](search-security-overview.md)
-### [Identity access using filters](search-security-trimming-for-azure-search.md)
-### [Active Directory identity access using filters](search-security-trimming-for-azure-search-with-aad.md)
+### [Identity-based access control](search-security-trimming-for-azure-search.md)
+### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
 ## Load data
 ### [Indexer overview](search-indexer-overview.md)
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
