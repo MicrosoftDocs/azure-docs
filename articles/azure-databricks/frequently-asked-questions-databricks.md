@@ -18,7 +18,7 @@ ms.author: nitinme
 ---
 # Frequently asked questions about Azure Databricks
 
-This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks?](what-is-azure-databricks.md) 
+This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks?](what-is-azure-databricks.md). 
 
 ## Can I use my own keys for local encryption? 
 In the current release, using your own keys from Azure Key Vault is not supported. 
@@ -62,9 +62,9 @@ Here are a few problems you might encounter with Databricks.
 
 The following are a couple of solutions to this issue:
 
-* To initialize the tenant, you must be logged in as a regular user of the tenant, not as a guest user. You must also have a contributor role on the Databricks workspace resource. You can grant a user access from the **Access control (IAM)** tab within your Databricks workspace in the Azure portal.
+* To initialize the tenant, you must be signed in as a regular user of the tenant, not as a guest user. You must also have a contributor role on the Databricks workspace resource. You can grant a user access from the **Access control (IAM)** tab within your Databricks workspace in the Azure portal.
 
-* This error might also occur if your email domain name is assigned to multiple directories in Azure AD. To work around this issue, create a new user in the Azure AD containing the subscription with your Databricks workspace.
+* This error might also occur if your email domain name is assigned to multiple directories in Azure AD. To work around this issue, create a new user in the directory that contains the subscription with your Databricks workspace.
 
     a. In the Azure portal, go to Azure AD. Select **Users and Groups** > **Add a user**.
 
