@@ -167,9 +167,49 @@ The DocumentDB API input binding retrieves one or more Azure Cosmos DB documents
 
 See the language-specific example that reads a single document:
 
+* [Precompiled C#](#input---c-example)
 * [C# script](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### Input - C# example
+
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. ID and maker for a **CarReview** instance are passed to a queue. 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+Then by partion key - **maker** property and id - **id** property from the **CarReview** instance, the CosmosDB binding retrieves the whole document stored in the database.
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] object document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document}");
+            }
+        }
+    }
+```
 
 ### Input - C# script example
 
