@@ -26,8 +26,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 > [!NOTE]
 > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
->     
-> ![DPS information][./media/java-quick-create-simulated-device/extract-dps-endpoints.png]
+>     ![DPS information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
@@ -67,6 +66,8 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
     private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
     ```
+
+    ![DPS information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
     > [!NOTE]
     > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
