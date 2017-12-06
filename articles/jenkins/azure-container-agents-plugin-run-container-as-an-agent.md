@@ -21,13 +21,11 @@ ms.custom: jenkins
 
 Azure Container Instances makes it easy for you to get up and running without having to provision virtual machines or adopt a higher-level service. Azure Container Instances provides per-second billing based on the capacity you need; making it a lucrative option for transient workloads like starting a container agent to run a build, output the build artifacts to data store (such as Azure Storage), and shut down the agent when you no longer need it.
 
-In this tutorial, you use the Jenkins Azure Container Agents plugin to add on-demand capacity and use Azure Container Instances to build the [Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic). 
-
 You learn how to:
 > [!div class="checklist"]
 > * Install and configure a Jenkins server on Azure
 > * Install and configure the Azure Container Agents plugin for Jenkins
-> * Create and build the Spring PetClinic Application job in Azure using Jenkins
+> * Use Azure Container Instances to build the [Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic)
 
 ## Prerequisites
 
@@ -313,7 +311,7 @@ It's time to build your project! This section explains how to build a project fr
 
     ![The build disposition displays at the bottom of the build log.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
 
-## 11. Clean up Azure resources
+## 11. (Optional) Clean up Azure resources
 
 In this tutorial, you created resources contained within two Azure resource groups: 
     - `JenkinsServerResourceGroup` - Contains the Azure resources for the Jenkins server.
@@ -322,7 +320,7 @@ In this tutorial, you created resources contained within two Azure resource grou
 If you no longer need to use any of the resources in an Azure resource group, you can delete the resource group using the `az group delete` command as follows (replacing the &lt;resourceGroup> placeholder with the name of the resource group you want to delete):
 
     ```shell```
-    az group delete -n &lt;resourceGroup>
+    az group delete -n <resourceGroup>
     ```
 
 ## Next steps
