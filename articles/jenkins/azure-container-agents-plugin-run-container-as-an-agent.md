@@ -319,9 +319,9 @@ In this tutorial, you created resources contained within two Azure resource grou
     
 If you no longer need to use any of the resources in an Azure resource group, you can delete the resource group using the `az group delete` command as follows (replacing the &lt;resourceGroup> placeholder with the name of the resource group you want to delete):
 
-    ```azurecli
-    az group delete -n <resourceGroup>
-    ```
+```azurecli
+az group delete -n <resourceGroup>
+```
 
 ## Next steps
 
