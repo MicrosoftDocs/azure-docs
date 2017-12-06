@@ -17,18 +17,10 @@
 ### [Configure Internal Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [Configure Internal Load Balancer (Template)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Configure Internal Load Balancer for Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
-### [Configure Internal Load Balancer for Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Configure Internal Load Balancer for Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
-
 ## [Configure Internet facing Load Balancer](load-balancer-get-started-internet-portal.md)
 ### [Configure Internet facing Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ### [Configure Internet facing Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configure Internet facing Load Balancer (Template)](load-balancer-get-started-internet-arm-template.md)
-
-## [Configure Internet facing Load Balancer - (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
-### [Configure Internet facing Load Balancer (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configure Internet facing Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
@@ -55,6 +47,13 @@
 ## [Create a public IP address in an availability zone (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Troubleshoot
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
+## Classic deployment model articles
+### [Configure Internal Load Balancer for Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Configure Internal Load Balancer for Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Configure Internal Load Balancer for Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [Configure Internet facing Load Balancer - (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
+#### [Configure Internet facing Load Balancer (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
+#### [Configure Internet facing Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
