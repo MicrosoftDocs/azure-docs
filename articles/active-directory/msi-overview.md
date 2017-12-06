@@ -50,7 +50,7 @@ Each Azure service that supports Managed Service Identity has its own method for
 ### User-assigned MSI
 
 > [!Note]
-> This feature is currently in a private preview. [Sign up here](https://aka.ms/MGPreviewSignup) to have your enrollment join the preview.   
+> This feature is currently in a private preview. [Sign up here](https://aka.ms/MSIPreviewSignup) to request enrollment in the preview.   
 
 ## Try Managed Service Identity
 
