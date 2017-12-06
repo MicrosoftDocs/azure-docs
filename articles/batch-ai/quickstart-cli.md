@@ -52,7 +52,9 @@ az configure --defaults group=myResourceGroup
 az configure --defaults location=eastus
 ```
 
-Changing of `az` defaults is an optional step, which allows to use shorter commands in this tutorial. It's recommended to remove those defaults after finishing with tutorial using the following commands:
+>[!NOTE]
+>Setting the default values for the `az` command is an optional step. You can choose to not set the default values. If you do choose to set the defaults, you should remove the default settings after you finish the tutorial. Remove the default settings by using the following commands:
+>
 
 ```azurecli
 az configure --defaults group=''
@@ -68,7 +70,8 @@ This quickstart uses an Azure storage account to host data and scripts for the t
 az storage account create --name mystorageaccount --sku Standard_LRS
 ```
 
-**Please note**, that each storage account must have an unique name, so replace `mystorageaccount` in the command above and other commands with your storage account name.
+>[!NOTE]
+>Each storage account must have an unique name. In the previous `az` command and other similar commands in this tutorial, replace the value for the `mystorageaccount` setting with your storage account name.
 
 ## Prepare Azure file share
 
@@ -395,15 +398,15 @@ Use the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluste
 az batchai cluster delete --name mycluster
 ```
 
-Use the `az group delete` command to delete the resource group you created for this quickstart:
+Use the `az group delete` command to delete the resource group that you created for this quickstart:
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## Restore Azure CLI 2.0 Default Settings
+## Restore Azure CLI 2.0 default settings
 
-Remove previously configured default location and resource group:
+Remove the previously configured default settings for the location and resource group:
 
 ```azurecli
 az configure --defaults group=''
@@ -415,4 +418,4 @@ az configure --defaults location=''
 
 In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different toolkits, see the [training recipes](https://github.com/Azure/BatchAI).
 
-To learn more about using Azure CLI 2.0 for managing Batch AI, see [github documentation](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).
+To learn more about using Azure CLI 2.0 for managing Batch AI, see the [github documentation](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).
