@@ -13,7 +13,7 @@ ms.author: cahann
 ---
 
 # Manage intents 
-Add [intents](luis-concept-intent.md) to your LUIS app to help your client app understand user requests and respond to them. 
+Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
 You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
 

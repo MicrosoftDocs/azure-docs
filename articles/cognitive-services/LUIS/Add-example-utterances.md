@@ -12,9 +12,9 @@ ms.date: 12/01/2017
 ms.author: cahann
 ---
 
-# Manage utterances
+# Example utterances
 
-Utterances are representative phrases of user queries or commands. [Utterances](luis-concept-utterance.md) need to be added to an [intent](luis-concept-intent.md) to teach LUIS the intent of the utterances.
+Utterances are examples of user questions or commands. A variety of [example utterances](luis-concept-utterance.md) need to be added to an [intent](luis-concept-intent.md) to teach LUIS.
 
 You can create entities and label utterances on the intent page after an utterance is added. If you would rather create entities first, see [Add entities](Add-entities.md).
 
