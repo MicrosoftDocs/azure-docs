@@ -17,7 +17,7 @@ ms.date: 12/25/2016
 ms.author: aasthan
 
 ---
-# Azure Cosmos DB: C++ console application tutorial for the DocumentDB API
+# Azure Cosmos DB: C++ console application tutorial for the SQL API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,7 +29,7 @@ ms.author: aasthan
 > 
  
 
-Welcome to the C++ tutorial for the Azure Cosmos DB DocumentDB API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
+Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
@@ -103,7 +103,7 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosm
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Now that you have the code to initialize the documentdb client, let's take a look at working with Azure Cosmos DB resources.
+    Now that you have the code to initialize the client, let's take a look at working with Azure Cosmos DB resources.
 
 ## <a id="CreateDBColl"></a>Step 5: Create a C++ database and collection
 Before we perform this step, let's go over how a database, collection and documents interact for those of you who are new to Azure Cosmos DB. A [database](documentdb-resources.md#databases) is a logical container of document storage portioned across collections. A [collection](documentdb-resources.md#collections) is a container of JSON documents and the associated JavaScript application logic. You can learn more about the Azure Cosmos DB hierarchical resource model and concepts in [Azure Cosmos DB hierarchical resource model and concepts](documentdb-resources.md).

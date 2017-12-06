@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: .NET examples for the DocumentDB API | Microsoft Docs'
-description: Find C# .NET examples on github for common tasks in DocumentDB, including CRUD operations.
+title: 'Azure Cosmos DB: .NET examples for the SQL API | Microsoft Docs'
+description: Find C# .NET examples on github for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
 keywords: NoSQL example
 services: cosmos-db
 author: rnagpal
@@ -18,12 +18,12 @@ ms.date: 02/22/2017
 ms.author: rnagpal
 
 ---
-# Azure Cosmos DB: .NET examples for the DocumentDB API
+# Azure Cosmos DB: .NET examples for the SQL API
 > [!div class="op_single_selector"]
 > * [.NET Examples](documentdb-dotnet-samples.md)
 > * [Node.js Examples](documentdb-nodejs-samples.md)
 > * [Python Examples](documentdb-python-samples.md)
-> * [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Azure Code Sample Gallery](hhttps://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 

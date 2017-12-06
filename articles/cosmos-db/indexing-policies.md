@@ -227,7 +227,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
-For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+For example, the following sample shows how to include a document explicitly using the [SQL API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -313,7 +313,7 @@ When would you make indexing policy changes to your Azure Cosmos DB collections?
 > 
 
 ## Performance tuning
-The DocumentDB APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
+The SQL APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request against the collection resource, and inspect the x-ms-request-quota and the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
 
@@ -407,7 +407,7 @@ For a practical comparison, here is one example custom indexing policy written u
 ## Next Steps
 Follow the links below for index policy management samples and to learn more about Azure Cosmos DB's query language.
 
-1. [DocumentDB API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [SQL API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [SQL API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Query with SQL](documentdb-sql-query.md)
 

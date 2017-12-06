@@ -18,13 +18,13 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
 ---
-# Partitioning in Azure Cosmos DB using the DocumentDB API
+# Partitioning in Azure Cosmos DB using the SQL API
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-This article provides an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. See [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
+This article provides an overview of how to work with partitioning of Cosmos DB containers with the SQL API. See [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
 To get started with code, download the project from [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -43,7 +43,7 @@ To get started with code, download the project from [Azure Cosmos DB Performance
 
 ## Partition keys
 
-In the DocumentDB API, you specify the partition key definition in the form of a JSON path. The following table shows examples of partition key definitions and the values corresponding to each. The partition key is specified as a path, e.g. `/department` represents the property department. 
+In the SQL API, you specify the partition key definition in the form of a JSON path. The following table shows examples of partition key definitions and the values corresponding to each. The partition key is specified as a path, e.g. `/department` represents the property department. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -105,7 +105,7 @@ await client.CreateDocumentCollectionAsync(
 This method makes a REST API call to Cosmos DB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a container as your performance needs evolve. 
 
 ### Reading and writing items
-Now, let's insert data into Cosmos DB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a container. This is an example leveraging the DocumentDB API:
+Now, let's insert data into Cosmos DB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a container. This is an example leveraging the SQL API:
 
 ```csharp
 public class DeviceReading
@@ -222,7 +222,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 In the next section, we look at how you can move to partitioned containers from single-partition containers.
 
 ## Next steps
-In this article, we provided an overview of how to work with partitioning of Azure Cosmos DB containers with the DocumentDB API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
+In this article, we provided an overview of how to work with partitioning of Azure Cosmos DB containers with the SQL API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
 * Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
 * Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](/rest/api/documentdb/)

@@ -1,7 +1,7 @@
 ---
 title: Java application development tutorial using Azure Cosmos DB | Microsoft Docs
-description: This Java web application tutorial shows you how to use the Azure Cosmos DB and the DocumentDB API to store and access data from a Java application hosted on Azure Websites.
-keywords: Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure
+description: This Java web application tutorial shows you how to use the Azure Cosmos DB and the SQL API to store and access data from a Java application hosted on Azure Websites.
+keywords: Application development, database tutorial, java application, java web application tutorial, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -18,7 +18,7 @@ ms.date: 08/22/2017
 ms.author: denlee
 
 ---
-# Build a Java web application using Azure Cosmos DB and the DocumentDB API
+# Build a Java web application using Azure Cosmos DB and the SQL API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -85,8 +85,8 @@ To create the JSP application:
    
     ![Hello World – Java Application Tutorial](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Step 3: Install the DocumentDB Java SDK
-The easiest way to pull in the DocumentDB Java SDK and its dependencies is through [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Step 3: Install the SQL Java SDK
+The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](http://maven.apache.org/).
 
 To do this, you will need to convert your project to a maven project by completing the following steps:
 
@@ -100,7 +100,7 @@ To do this, you will need to convert your project to a maven project by completi
    * In the **Artifact Id** box, enter azure-documentdb.
    * In the **Version** box, enter 1.5.1.
      
-   ![Install DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
+   ![Install SQL Java Application SDK](./media/documentdb-java-application/image13.png)
      
    * Or add the dependency XML for Group Id and Artifact Id directly to the pom.xml via a text editor:
      
@@ -109,7 +109,7 @@ To do this, you will need to convert your project to a maven project by completi
             <artifactId>azure-documentdb</artifactId>
             <version>1.9.1</version>
         </dependency>
-6. Click **OK** and Maven will install the DocumentDB Java SDK.
+6. Click **OK** and Maven will install the SQL Java SDK.
 7. Save the pom.xml file.
 
 ## <a id="UseService"></a>Step 4: Using the Azure Cosmos DB service in a Java application
@@ -282,7 +282,7 @@ To do this, you will need to convert your project to a maven project by completi
                 return null;
             }
         }
-7. We can also use the DocumentClient to get a collection or list of TodoItems using DocumentDB SQL:
+7. We can also use the DocumentClient to get a collection or list of TodoItems using SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

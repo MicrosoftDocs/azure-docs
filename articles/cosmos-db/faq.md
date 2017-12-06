@@ -33,9 +33,9 @@ The Azure Cosmos DB DocumentDB API or SQL (DocumentDB) API is now known as Azure
 
 If you had a DocumentDB API account before, you now have a SQL API account, with no change to your billing. 
 
-### What happened to DocumentDB as a service?
+### What happened to Azure DocumentDB as a service?
 
-The SQL API, which was formerly the DocumentDB service and also known as the DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API, MongoDB API, and Cassandra API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
+The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API (Preview), Table API, MongoDB API, and Cassandra API (Preview).
 
 ### What are the typical use cases for Azure Cosmos DB?
 Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md). 

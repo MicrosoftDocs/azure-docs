@@ -71,7 +71,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
 
     ```python
     # Create a database
-    db = client.CreateDatabase({ 'id': config['DOCUMENTDB_DATABASE'] })
+    db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
     ```
 
 * A new collection is created.
@@ -85,7 +85,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
     }
 
     # Create a collection
-    collection = client.CreateCollection(db['_self'], { 'id': config['DOCUMENTDB_COLLECTION'] }, options)
+    collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
     ```
 
 * Some documents are created.

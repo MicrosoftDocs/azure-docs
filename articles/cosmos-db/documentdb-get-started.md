@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB API getting started tutorial | Microsoft Docs'
-description: A tutorial that creates an online database and C# console application using the DocumentDB API.
+title: 'Azure Cosmos DB: SQL API getting started tutorial | Microsoft Docs'
+description: A tutorial that creates an online database and C# console application using the SQL API.
 keywords: nosql tutorial, online database, c# console application
 services: cosmos-db
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.date: 08/16/2017
 ms.author: anhoh
 
 ---
-# Azure Cosmos DB: DocumentDB API getting started tutorial
+# Azure Cosmos DB: SQL API getting started tutorial
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,7 +29,7 @@ ms.author: anhoh
 >  
 > 
 
-Welcome to the Azure Cosmos DB DocumentDB API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
@@ -75,7 +75,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
 6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
-   The package ID for the Azure Cosmos DB DocumentDB API Client Library is [Microsoft Azure DocumentDB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library ](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
    ![Screen shot of the Nuget Menu for finding Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
