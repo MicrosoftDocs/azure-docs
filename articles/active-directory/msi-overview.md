@@ -12,8 +12,8 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: skwan
+ms.date: 12/19/2017
+ms.author: bryanla
 
 ---
 
@@ -24,6 +24,12 @@ ms.author: skwan
 A common challenge when building cloud applications is how to manage the credentials that need to be in your code for authenticating to cloud services. Keeping these credentials secure is an important task. Ideally, they never appear on developer workstations or get checked into source control. Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
 ## How does it work?
+
+There are two types of MSI available:
+- System-assigned: provisioned automatically, and associated with a single Azure resource, such as a VM.
+- User-assigned: provisioned manually, and associated with a logical set of Azure resources, as defined by the user.
+
+### System-assigned MSI
 
 When you enable Managed Service Identity on an Azure service, Azure automatically creates an identity for the service instance in the Azure AD tenant used by your Azure subscription.  Under the covers, Azure provisions the credentials for the identity onto the service instance.  Your code can then make a local request to get access tokens for services that support Azure AD authentication.  Azure takes care of rolling the credentials used by the service instance.  If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 
@@ -40,6 +46,11 @@ Here's an example of how Managed Service Identity works with Azure Virtual Machi
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
 Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the tutorials for each service to find out the specific method to get a token.
+
+### User-assigned MSI
+
+> [!Note]
+> This feature is currently in a private preview. [Sign up here](https://aka.ms/MSIPreviewSignup) to request enrollment in the preview.   
 
 ## Try Managed Service Identity
 
