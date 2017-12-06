@@ -19,12 +19,12 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
     ```powershell
     Login-AzureRmAccount
     ```        
-2. If you have multiple Azure subscriptions, run the following command to view all the subscriptions for this account:
+2. Run the following command to view all the subscriptions for this account:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+3. If you see multiple subscriptions associated with your account, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	

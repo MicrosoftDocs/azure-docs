@@ -1,10 +1,10 @@
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
 | Storage Sync Services per subscription | 15 Storage Sync Services | No |
-| Sync Groups per Storage Sync Service | 20 Sync Groups | No |
-| Cloud Endpoints per Sync Group | 1 Cloud Endpoint | Yes |
-| Server Endpoints per Sync Group | 50 Server Endpoints | No |
-| Server Endpoints per server | 5-15 Server Endpoints | Yes, but varies based on configuration |
+| Sync groups per Storage Sync Service | 20 sync groups | No |
+| Cloud endpoints per Sync Group | 1 cloud endpoint | Yes |
+| Server endpoints per Sync Group | 50 server endpoints | No |
+| Server endpoints per server | 33-99 server endpoints | Yes, but varies based on configuration |
 | Endpoint size | 4 TiB | No |
-| File system objects (directories and files) per Sync Group | 6 million objects | No |
+| File system objects (directories and files) per sync group | 6 million objects | No |
 | File size | 100 GiB | No |

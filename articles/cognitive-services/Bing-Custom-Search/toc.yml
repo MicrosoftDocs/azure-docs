@@ -4,6 +4,8 @@
   items:
     - name: Customize your search
       href: overview.md
+    - name: Custom Search endpoint
+      href: endpoint-custom.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
 - name: Quickstarts
