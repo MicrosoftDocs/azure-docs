@@ -38,7 +38,7 @@ The following considerations apply when using REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.11
+        x-ms-version: 2.17
         Authorization: Bearer <token> 
         Host: media.windows.net
   
