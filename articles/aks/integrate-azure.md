@@ -75,7 +75,7 @@ helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 Create a [Service Principal](kubernetes-service-principal.md) with the following Azure CLI command:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 Output should be similar to the following. Take note of the `appId`, `password`, and `tenant` values, which you use in the next step.
@@ -160,7 +160,7 @@ Finally, list all available service plans. Service plans are the service tiers f
 In this step, you use Helm to install an updated Helm chart for WordPress. The chart provisions an external Azure Database for MySQL instance that WordPress can use. This process can take a few minutes.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
 ```
 
 In order to verify the installation has provisioned the right resources, list the installed service instances and bindings:
