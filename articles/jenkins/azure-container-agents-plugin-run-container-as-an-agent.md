@@ -106,7 +106,7 @@ The slave, or agent, connects with the Jenkins Master via the Java Network Launc
 
 ## 5. Create and add an Azure service principal to the Jenkins credentials
 
-You need an Azure service principal to deploy to Azure. 
+You need an Azure service principal to deploy to Azure. The following steps guide you through the process of creating a service principal (if you don't already have one), and updating Jenkins with your service principal.
 
 1. [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
 
@@ -171,6 +171,8 @@ When finished, the `az group create` command displays results similar to the fol
 
 ## 7. Install the Azure Container Agents plugin for Jenkins
 
+Once you have the Azure resource group created for your Jenkins agent, the following steps illustrate how to install the Azure Container Agents plugin:
+
 1. In the Jenkins dashboard, select **Manage Jenkins**.
 
     ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
@@ -198,6 +200,8 @@ When finished, the `az group create` command displays results similar to the fol
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
 ## 8. Configure the Azure Container Agents plugin
+
+Once the Azure Container Agents plugin is installed, this section guides you through configuring the plugin within the Jenkins dashboard.
 
 1. In the Jenkins dashboard, select **Manage Jenkins**.
 
@@ -273,6 +277,42 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
 ## 10. Build the Spring PetClinic Application job in Jenkins
 
+It's time to build your project! This section explains how to build a project from the Jenkins dashboard.
+
+1. In the Jenkins dashboard, select `myPetClinicProject`.
+
+    ![Select the project to build from the Jenkins dashboard.](./media/azure-container-agents-plugin-run-container-as-an-agent/select-project-to-build.png)
+
+1. Select **Build now**. 
+
+    ![Build the project from the Jenkins dashboard.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-project.png)
+
+1. When you start a build in Jenkins, the build is queued. In the case of an Azure Container Agent, the build can't be run until the Azure Container Agent is started and brought online. Until then, you see a message indicating the agent name and the fact that the build pending. (This process takes about 5 minutes, but is only necessary the first time you use the agent for a build. Subsequent builds are much faster as the agent is online at that point.)
+
+    ![The build is queued until the agent is created and brought online.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-pending.png)
+
+Once the build starts, a barber pole progress bar indicates that the build is running:
+
+    ![The build is running once you see the barbar pole progress bar.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
+
+1. When the barbar pole progress bar disappears, select the arrow next to the build number. From the context menu, select **Console output**.
+
+    ![Click the Console Log menu item to view the build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-menu.png)
+
+1. The console log information emitted from the build process. To view all the build information - including information about the build being performed remotely on the Azure agent you created - select **Full log**.
+
+    ![Click the Full log link to view more detailed build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log.png)
+
+    The full log displays more verbose build information:
+
+    ![The full log displays more verbose build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-full.png)
+    
+1. Scroll to the bottom of the log to view the build's disposition.
+
+    ![The build disposition displays at the bottom of the build log.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
+
 ## 11. Clean up Azure resources
+
+
 
 ## Next steps
