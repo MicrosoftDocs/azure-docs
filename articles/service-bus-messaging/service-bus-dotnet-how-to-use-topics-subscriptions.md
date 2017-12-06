@@ -226,7 +226,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ## 5. Receive messages from the subscription
 
-To receive the message or messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
+To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 
 ### Write code to receive messages from the subscription
 
