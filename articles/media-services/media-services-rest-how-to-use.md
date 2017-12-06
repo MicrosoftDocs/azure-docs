@@ -54,7 +54,7 @@ For every call you make into Media Services, there is a set of required headers 
 | Header | Type | Value |
 | --- | --- | --- |
 | Authorization |Bearer |Bearer is the only accepted authorization mechanism. The value must also include the access token provided by Azure Active Directory. |
-| x-ms-version |Decimal |2.15 (or most recent version)|
+| x-ms-version |Decimal |2.17 (or most recent version)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
 
