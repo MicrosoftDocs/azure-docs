@@ -7,13 +7,12 @@ author: miaojiang
 manager: erikre
 editor: ''
 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management transformation policies
@@ -699,4 +698,9 @@ OriginalUrl.
 -   **Policy scopes:** global, product, API, operation  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information, see the following topics:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

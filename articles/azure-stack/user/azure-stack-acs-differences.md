@@ -3,9 +3,9 @@ title: 'Azure Stack Storage: Differences and considerations'
 description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager:
-editor: ''
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,27 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
+ms.date: 11/08/2017
+ms.author: jeffgilb
 
 ---
 # Azure Stack Storage: Differences and considerations
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in
-Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account
-management functionality with Azure-consistent semantics.
+Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other
-considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Storage differences
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
+|Azure Storage Service Encryption for Data at Rest|256-bit AES encryption|Not yet supported
 |Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
 |Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee

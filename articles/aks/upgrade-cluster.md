@@ -1,24 +1,15 @@
 ---
-title: Upgrade an Azure Container Service (AKS) cluster | Microsoft Docs
+title: Upgrade an Azure Container Service (AKS) cluster
 description: Upgrade an Azure Container Service (AKS) cluster
 services: container-service
-documentationcenter: ''
 author: gabrtv
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
+ms.topic: article
+ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-
 ---
 
 # Upgrade an Azure Container Service (AKS) cluster
@@ -36,15 +27,15 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 Output:
 
 ```console
-Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
--------  ---------------  ---------------  ----------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
+-------  ---------------  ---------------  -------------------  ------------------  -------------------
+default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-We have two versions available for upgrade: 1.8.0 and 1.8.1.  We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
+We have three versions available for upgrade: 1.7.9, 1.8.1 and 1.8.2. We can use the `az aks upgrade` command to upgrade to the latest available version.  During the upgrade process, nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.  Before initiating a cluster upgrade, ensure that you have enough additional compute capacity to handle your workload as cluster nodes are added and removed.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Output:
@@ -52,7 +43,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
-  "location": "westus2",
+  "location": "eastus",
   "name": "myK8sCluster",
   "properties": {
     "accessProfiles": {
@@ -78,8 +69,8 @@ Output:
       }
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
-    "kubernetesVersion": "1.8.1",
+    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
+    "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -114,7 +105,7 @@ Output:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps

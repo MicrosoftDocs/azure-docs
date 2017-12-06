@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
 
 ---
@@ -47,12 +47,14 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 <br><br>
 | From MSI-enabled resource | Learn how to |
 | ------- | -------- |
-| Azure VM (Windows) | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+| Azure VM (Windows) | [Access Azure Data Lake Store with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Access Azure SQL with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Access Azure Storage via access key with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Access Azure Storage via SAS with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Access Azure SQL with a Windows VM Managed Service Identity](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
+| Azure VM (Linux)   | [Access Azure Data Lake Store with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Access Azure Storage via access key with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Access Azure Storage via SAS with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
@@ -69,7 +71,7 @@ The following Azure services support Managed Service Identity.
 
 | Service | Status | Date | Configure | Get a token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST](msi-how-to-get-access-token-using-msi.md#rest) |
+| Azure Virtual Machines | Preview | September 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 

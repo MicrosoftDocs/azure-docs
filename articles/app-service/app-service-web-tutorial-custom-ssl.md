@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -135,7 +135,7 @@ Export your merged SSL certificate with the private key that your certificate re
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
@@ -147,13 +147,13 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
 
-Click **Upload Certificate**.
+Click **Upload Certificate**. 
 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
-![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
@@ -211,61 +211,17 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 ## Enforce HTTPS
 
-App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
+By default, anyone can still access your web app using HTTP. You can redirect all HTTP requests to the HTTPS port.
 
-> [!NOTE]
-> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_.
+In your web app page, in the left navigation, select **Custom domains**. Then, in **HTTPS Only**, select **On**.
 
-If you're a .NET developer, you should be relatively familiar with this file. It is in the root of your solution.
+![Enforce HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generated this file on your behalf in App Service.
+When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
 
-Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
-
-This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ file in this folder with the following XML:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-For an existing _web.config_ file, copy the entire `<rule>` element into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` elements in your _web.config_, place the copied `<rule>` element before the other `<rule>` elements.
-
-This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
-
-For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
-
-## Enforce HTTPS for Web Apps on Linux
-
-App Service on Linux does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _.htaccess_ file for your web app. 
-
-Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
-
-In _/home/site/wwwroot_, create an _.htaccess_ file with the following code:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## Automate with scripts
 
@@ -308,6 +264,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## Public certificates (optional)
+You can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. You can use public certificates for apps in App Service Environments also. If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Environment. For more information, see [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## Next steps
 
@@ -323,3 +283,5 @@ Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
 > [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
+For more information, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md).

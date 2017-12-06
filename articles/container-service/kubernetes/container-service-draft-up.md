@@ -1,25 +1,15 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry | Microsoft Docs
+title: Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
 services: container-service
-documentationcenter: ''
 author: squillace
-manager: gamonroy
-editor: ''
-tags: draft, helm, acs, azure-container-service
-keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
-
+manager: timlt
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-
-
 ---
 
 # Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
@@ -41,7 +31,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
 
 2. Create an ACR image registry using [az acr create](/cli/azure/acr#create) and ensure that the `--admin-enabled` option is set to `true`.
       ```azurecli
-      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
+      az acr create --resource-group draft --name draftacs --sku Basic
       ```
 
 
@@ -271,16 +261,16 @@ The output looks something like:
   }
   ```
 5. Reinstall **draft**
-  1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
-  2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
+
+   1. Remove **draftd** from the cluster by typing `helm delete --purge draft`. 
+   2. Reinstall **draft** by using the same `draft-init` command, but with the `--ingress-enabled` option:
     ```bash
     draft init --ingress-enabled
     ```
-Respond to the prompts as you did the first time, above. However, you have one more question to respond to, using the complete domain path that you configured with the Azure DNS.
-```bash
-4. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
-```
-5. When you call `draft up` this time, you will be able to see your application (or `curl` it) at the URL of the form `<appname>.draft.<domain>.<top-level-domain>`. In the case of this example, `http://handy-labradoodle.draft.squillace.io`. 
+   Respond to the prompts as you did the first time, above. However, you have one more question to respond to, using the complete domain path that you configured with the Azure DNS.
+
+6. Enter your top-level domain for ingress (e.g. draft.example.com): draft.squillace.io
+7. When you call `draft up` this time, you will be able to see your application (or `curl` it) at the URL of the form `<appname>.draft.<domain>.<top-level-domain>`. In the case of this example, `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

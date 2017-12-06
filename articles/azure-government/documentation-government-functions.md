@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Quickstarts for Government | Microsoft Docs
+title: Azure Functions for Government | Microsoft Docs
 description: This provides a series of quickstarts for using Functions with Azure Government
 services: azure-government
 cloud: gov
@@ -17,7 +17,7 @@ ms.date: 9/6/2017
 ms.author: yujhong
 
 ---
-# Azure Functions Quickstarts for Azure Government
+# Azure Functions on Azure Government
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
 To learn more about Azure Functions, click [here](../azure-functions/functions-overview.md). 
@@ -31,10 +31,10 @@ Before running this sample, you must have the following:
 + An active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
-+ Installed [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
++ Installed [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!NOTE]
-> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 >
 >
 
@@ -44,13 +44,13 @@ You must first connect to Azure Government with Azure Command Line Interface (CL
 
 To connect to Azure Government through CLI, you set the cloud:
 
-```
+```azurecli-interactive
 az cloud set --name AzureUSGovernment
 ```
 
 After the cloud has been set, you can continue logging in:
 
-```
+```azurecli-interactive
 az login
 ```
 ### Create a Resource Group with CLI
@@ -60,7 +60,7 @@ az login
 > 
 > 
 
-Create a resource group with the [az group create](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
 The following example creates a resource group named `myResourceGroup` with the location set to `usgovvirginia`.
 If you are not using CLI, sign in first using the `az login` shown above.
@@ -104,7 +104,7 @@ After the storage account has been created, the Azure CLI shows information simi
 ```
 ### Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
 
 Before creating your function app, you must create an [App Service plan](../azure-functions/functions-scale.md#app-service-plan) that hosts your function app. 
 This can be done with the following command that creates a plan named "testPlan".
@@ -177,18 +177,18 @@ Use cURL to test the deployed function on a Mac or Linux computer or using Bash 
 Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
 ```bash
-curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+curl http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 ```
  
 ![Function response shown in a browser](./media/documentation-government-function2.png)  
 
 If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
 
-    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+    http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 
 ![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
-## Create function using Visual Studio 
+## Create function - Visual Studio 
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](documentation-government-get-started-connect-with-vs.md). 
 
@@ -219,10 +219,10 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
     >
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions.md#create-function-using-visual-studio). 
-* Installed [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+* Installed [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!NOTE]
-> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 >
 >
 
@@ -334,4 +334,6 @@ az group delete --name myResourceGroup
 Type `y` when prompted.
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

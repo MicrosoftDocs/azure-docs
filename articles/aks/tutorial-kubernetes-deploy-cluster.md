@@ -1,21 +1,13 @@
----
-title: Kubernertes on Azure tutorial  - Deploy Cluster | Microsoft Docs
+﻿---
+title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -35,24 +27,33 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
+## Enabling AKS preview for your Azure subscription
+While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+After registering, you are now ready to create a Kubernetes cluster with AKS.
+
 ## Create Kubernetes cluster
 
 The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
 
 ## Install the kubectl CLI
 
-To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
+To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.
 
 If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command:
 
 ```azurecli
-az aks install-cli 
+az aks install-cli
 ```
 
 ## Connect with kubectl

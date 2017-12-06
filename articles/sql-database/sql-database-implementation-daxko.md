@@ -13,7 +13,7 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "Inactive"
 ms.date: 01/10/2017
 ms.author: carlrab
 
@@ -90,5 +90,5 @@ Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fa
 * To learn more about active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).
+* To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale-portal.md).
 

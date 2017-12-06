@@ -2,19 +2,11 @@
 title: Azure Container Instances Container Groups
 description: Understand how Container Groups work in Azure Container Instances
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
-tags: 
-keywords: ''
 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/08/2017
 ms.author: seanmck
 ms.custom: mvc

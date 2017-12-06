@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
 ---
 # What does Azure Multi-Factor Authentication mean for me?

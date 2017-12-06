@@ -2,29 +2,21 @@
 title: Quickstart - Create a private Docker registry in Azure with the Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 services: container-registry
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: tysonn
-tags: ''
-keywords: ''
 
-ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quicksart
 ms.date: 10/16/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 
 # Create a container registry using the Azure CLI
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
-This quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -42,10 +34,7 @@ az group create --name myResourceGroup --location eastus
 
 In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs](container-registry-skus.md).
 
-Azure Container Registry is available in several SKUs: `Basic`, `Managed_Basic`, `Managed_Standard`, and `Managed_Premium`. Although the `Managed_*` SKUs provide advanced capabilities like managed storage and Webhooks, they're currently unavailable in some Azure regions when using the Azure CLI. We select the `Basic` SKU in this quickstart due to its availability in all regions.
-
->[!NOTE]
-> Managed registries are currently available in all regions. However, the current version of the Azure CLI does not yet support creating a managed registry in all regions. Support will be available in the next version of the Azure CLI. Prior to its release, please use the [Azure portal](container-registry-get-started-portal.md) to create managed registries.
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 

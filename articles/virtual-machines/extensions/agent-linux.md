@@ -136,29 +136,31 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
 
-```
-Provisioning.Enabled=y
-Provisioning.DeleteRootPassword=n
-Provisioning.RegenerateSshHostKeyPair=y
-Provisioning.SshHostKeyPairType=rsa
-Provisioning.MonitorHostName=y
-Provisioning.DecodeCustomData=n
-Provisioning.ExecuteCustomData=n
-Provisioning.PasswordCryptId=6
-Provisioning.PasswordCryptSaltLength=10
-ResourceDisk.Format=y
-ResourceDisk.Filesystem=ext4
-ResourceDisk.MountPoint=/mnt/resource
-ResourceDisk.MountOptions=None
-ResourceDisk.EnableSwap=n
-ResourceDisk.SwapSizeMB=0
-LBProbeResponder=y
-Logs.Verbose=n
-OS.RootDeviceScsiTimeout=300
-OS.OpensslPath=None
-HttpProxy.Host=None
-HttpProxy.Port=None
-```
+    ```
+    Provisioning.Enabled=y
+    Provisioning.DeleteRootPassword=n
+    Provisioning.RegenerateSshHostKeyPair=y
+    Provisioning.SshHostKeyPairType=rsa
+    Provisioning.MonitorHostName=y
+    Provisioning.DecodeCustomData=n
+    Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
+    Provisioning.PasswordCryptId=6
+    Provisioning.PasswordCryptSaltLength=10
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.MountOptions=None
+    ResourceDisk.EnableSwap=n
+    ResourceDisk.SwapSizeMB=0
+    LBProbeResponder=y
+    Logs.Verbose=n
+    OS.RootDeviceScsiTimeout=300
+    OS.OpensslPath=None
+    HttpProxy.Host=None
+    HttpProxy.Port=None
+    AutoUpdate.Enabled=y
+    ```
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -211,9 +213,15 @@ Default: n
 
 If set, waagent executes CustomData after provisioning.
 
+**Provisioning.AllowResetSysUser**
+Type: Boolean
+Default: n
+
+This option allows the password for the sys user to be reset; default is disabled.
+
 **Provisioning.PasswordCryptId**  
-Type:String  
-Default:6
+Type: String  
+Default: 6
 
 Algorithm used by crypt when generating password hash.  
  1 - MD5  
@@ -222,8 +230,8 @@ Algorithm used by crypt when generating password hash.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Type:String  
-Default:10
+Type: String  
+Default: 10
 
 Length of random salt used when generating password hash.
 
@@ -292,6 +300,14 @@ Type: String
 Default: None
 
 If set, the agent uses this proxy server to access the internet. 
+
+**AutoUpdate.Enabled**
+Type: Boolean
+Default: y
+
+Enable or disable auto-update for goal state processing; default is enabled.
+
+
 
 ## Ubuntu Cloud Images
 Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent. The following differences apply:

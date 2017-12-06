@@ -25,7 +25,8 @@
 #### [Secure connectors with Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Describe APIs with Postman](custom-connector-api-postman-collection.md)
 #### [Extend OpenAPI for custom connectors](custom-connector-openapi-extensions.md)
-#### [Register your connector](logic-apps-custom-connector-register.md)
+#### [Create and register OpenAPI connector](logic-apps-custom-connector-register.md)
+#### [Create and register SOAP connector](logic-apps-soap-connector-create-register.md)
 #### [Certify your connector](custom-connector-submit-certification.md)
 #### [FAQ for custom connectors](custom-connector-faq.md)
 ### Develop custom APIs
@@ -138,7 +139,7 @@
 ### [Schedule](../connectors/connectors-native-recurrence.md)
 ### [Service Bus](../connectors/connectors-create-api-servicebus.md)
 ### [SharePoint Online](../connectors/connectors-create-api-sharepointonline.md)
-### [SharePoint Server](../connectors/connectors-create-api-sharepointonline.md)
+### [SharePoint Server](../connectors/connectors-create-api-sharepointserver.md)
 ### [SQL Server](../connectors/connectors-create-api-sqlazure.md)
 ### [Transform XML](logic-apps-enterprise-integration-transform.md)
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
