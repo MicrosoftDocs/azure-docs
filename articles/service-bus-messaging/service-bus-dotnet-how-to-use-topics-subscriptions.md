@@ -162,10 +162,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
     ```csharp
     using System;
-    using Microsoft.Azure.ServiceBus;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Azure.ServiceBus;
 
     namespace CoreSenderApp
     {
@@ -337,10 +337,10 @@ To receive the messages you just sent, create another .NET Core console applicat
    
     ```csharp
     using System;
-    using Microsoft.Azure.ServiceBus;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Azure.ServiceBus;
 
     namespace CoreReceiverApp
     {
