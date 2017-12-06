@@ -18,7 +18,7 @@ ms.author: LADocs; divswa
 
 ---
 # Advanced JSON transformations using Liquid template
-Azure Logic Apps support basic JSON transformations through native Data Operation actions like Compose or Parse JSON. Logic Apps now also supports advanced JSON transformations with Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source template language for flexible web apps.
+Azure Logic Apps supports basic JSON transformations through native Data Operation actions like Compose or Parse JSON. Logic Apps now also supports advanced JSON transformations with Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source template language for flexible web apps.
  
 In this article, learn how to use a Liquid map or template, which can support more complex JSON transformations, such as iterations, control flows, variables, and so on. You must define JSON to JSON mapping with this Liquid map, and store that map in your integration account before you can perform a Liquid transformation in your logic app.
 
@@ -36,7 +36,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 ## Create and add Liquid template or map to integration account
 
-1. Create the sample Liquid template for this example. The liquid template defines how to transform JSON input as described here:
+1. Create the sample Liquid template for this example. The Liquid template defines how to transform JSON input as described here:
 
    ```
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -60,7 +60,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 2. Sign in to the [Azure portal](https://portal.azure.com).
 
-3. In the main Azure menu, choose **All services**
+3. In the main Azure menu, choose **All resources**. 
 
 4. In the search box, provide your integration account. Select your account.
 
@@ -96,17 +96,16 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
   ![Select-map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   If the list is empty, you likely most likely isn't linked to your integration account. To link your logic app to the integration account that has the Liquid template or map, follow these steps:
+   If the list is empty, your logic app most likely isn't linked to your integration account. To link your logic app to the integration account that has the Liquid template or map, follow these steps:
 
-   1. For your logic app, select **Workflow settings**. 
-   2. In **Integration Account** drop-down, select your integration account name and then choose **Save**.
+   1. On your logic app menu, select **Workflow settings**. 
+   2. From the **Select an Integration account** list, select your integration account, and choose **Save**.
 
      ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 
 ## Test your logic app
-* Post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or a similar tool. 
-The transformed JSON output from your logic app looks like this example:
+   Post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or a similar tool. The transformed JSON output from your logic app looks like this example:
   
   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
