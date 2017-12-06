@@ -53,9 +53,7 @@ In the `en-us` culture, LUIS learns to distinguish most English words, including
 ## Tokenization
 To perform machine learning, LUIS breaks an utterance into tokens. A token is the smallest unit that can be labeled in an entity.
 
-How tokenization is done depends on the application's culture.
-
-<!--TBD: write this after GA - In LUIS, generally you don't need to worry about tokenization. One place where tokenization is important is when manually adding labels to an exported application's JSON file.--> 
+Tokenization is based on the application's culture.
 
 |Language|  every space or special character | character level|compounded words
 |--|:--:|:--:|:--:|
