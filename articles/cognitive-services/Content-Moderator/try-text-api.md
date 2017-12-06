@@ -1,6 +1,6 @@
 ---
-title: Test drive the Text API in Azure Content Moderator | Microsoft Docs
-description: Use text moderation from the online console
+title: Moderate text by using the Text Moderation API in Azure Content Moderator | Microsoft Docs
+description: Test-drive text moderation by using the Text Moderation API in the online console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,33 +12,37 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Text moderation from the online console
+# Moderate text by using the online console
 
-Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) to scan-your text content. The operation scans your content for profanity, comparing it against custom and/or shared blacklists.
+Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content. The operation scans your content for profanity, and compares it against custom and shared blacklists.
 
 ## Use the API console
-Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
+Before you can test-drive the API in the online console, you need your subscription key. This is found on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
-1.	Navigate to the **[Text Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)** page. Click the button that most closely describes your location, under Open API testing console.
+1.	Go to the [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
-  ![Test Drive Text Moderation API Step 1](images/test-drive-region.png)
+  The **Text - Screen** page opens.
 
-2.  You will land on the **Text - Screen** API reference.
+2. For **Open API testing console**, select the region that most closely describes your location. 
+
+  ![Try Text - Screen page region selection](images/test-drive-region.png)
+
+  The **Text - Screen** API console opens.
+
+3.  Select the query parameters that you want to use in your text screen. For this example, use the default value for **language**. For **autocorrect** and **PII**, select **true**.
+
+  ![Try Text - Screen console query parameters](images/test-drive-text-api-1.png)
  
-3.	Fill in the desired values. For this example, use the default value for **language**, and select “**true**” for **autocorrect** and **PII**.
+4.	For **Content-Type**, select the type of content you want to screen. For this example, use the default **text/plain** content type. In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-  ![Test Drive Text Moderation API Step 1](images/test-drive-text-api-1.png)
- 
-4.	Specify the Content-Type and enter your subscription key. For this example, use the default “**text/plain**” text type.
+5.	In the **Request Body** box, enter some text. Deliberately include a typo or two.
 
-5.	Enter some text in the Request Body field. Deliberately include a typo or two.
+  ![Try Text - Screen console Response body text entry](images/test-drive-text-api-2.png)
 
-  ![Test Drive Text Moderation API Step 1](images/test-drive-text-api-2.png)
+6.	See how the API handled the misspelled words and personally identifiable information (PII).
 
-6.	Notice how the API handled the misspelled words and personally identifiable information.
-
-  ![Test Drive Text Moderation API Step 1](images/test-drive-text-api-3.png)
+  ![Try Text - Screen console Response content box results](images/test-drive-text-api-3.png)
 
 ## Next steps
 
-To learn how to use the image moderation API, see the [Try Image Moderation API](try-image-api.md) article.
+* Learn how to use the [Image Moderation API](try-image-api.md).
