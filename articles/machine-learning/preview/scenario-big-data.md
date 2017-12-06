@@ -201,7 +201,7 @@ The second argument is DEBUG. Setting it to FILTER_IP enables a faster iteration
 
 Start the command line from Machine Learning Workbench by selecting **File** > **Open Command Prompt**. Then run: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 The following two files are created in the aml_config folder of your project:
 
@@ -264,7 +264,7 @@ When you have successfully finished the experimentation on the small data, you c
 
 ##### 1. Create the compute target in Machine Learning Workbench for the HDInsight cluster
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 The following two files are created in the aml_config folder:
     
