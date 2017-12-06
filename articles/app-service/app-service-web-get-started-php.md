@@ -58,7 +58,7 @@ You see the **Hello World!** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [Create .ZIP file](../../includes/app-service-web-create-zip.md)]
+[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -103,7 +103,7 @@ http://<app name>.azurewebsites.net
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded .ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## Browse to the app locally
 
@@ -127,19 +127,19 @@ Using a local text editor, open the `index.php` file within the PHP app, and mak
 echo "Hello Azure!";
 ```
 
-In the local terminal window, navigate to your application's root directory, create a new .ZIP file for your updated project.
+In the local terminal window, navigate to your application's root directory, create a new ZIP file for your updated project.
 
 ```
 # Bash
-zip -r myUpdatedAppFiles .
+zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Upload this new .ZIP file to the Cloud Shell, using the same steps in [Upload the .ZIP file](#upload-the-.ZIP-file).
+Upload this new ZIP file to the Cloud Shell, using the same steps in [Upload the ZIP file](#upload-the-zip-file).
 
-Then, in the Cloud Shell, deploy your uploaded .ZIP file again.
+Then, in the Cloud Shell, deploy your uploaded ZIP file again.
 
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
 

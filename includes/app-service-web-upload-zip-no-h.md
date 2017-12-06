@@ -8,9 +8,9 @@ Select the automatically generated file share and select **Upload**. This file s
 
 ![Find Upload button](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
 
-Click the file selector and select your .zip file, then click **Upload**. 
+Click the file selector and select your ZIP file, then click **Upload**. 
 
-In the Cloud Shell, use `ls` to verify that you can see the uploaded .zip file in the default `clouddrive` share.
+In the Cloud Shell, use `ls` to verify that you can see the uploaded ZIP file in the default `clouddrive` share.
 
 ```azurecli-interactive
 ls clouddrive

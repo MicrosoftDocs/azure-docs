@@ -21,7 +21,7 @@ ms.author: cephalin;sisirap
 
 This article shows you how to use a ZIP file to deploy your web app to [Azure App Service](app-service-web-overview.md). 
 
-This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, which includes the following functionality: 
+This ZIP file deployment uses the same Kudu service that powers continuous integration-based deployments. Kudu supports the following functionality for ZIP file deployment: 
 
 - Deletion of files leftover from a previous deployment.
 - Option to turn on the default build process, which includes package restore.
@@ -36,10 +36,10 @@ To complete the steps in this article:
 
 * [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
 
-## Create a project .ZIP file
+## Create a project ZIP file
 
 >[!NOTE]
-> If you downloaded the files in a .zip file, extract the files first. For example, if you downloaded a .zip file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
+> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
 >
 
 In a local terminal window, navigate to the root directory of your app project. 
@@ -50,7 +50,7 @@ Create a ZIP archive of everything in your project. The following command uses t
 
 ```
 # Bash
-zip -r <file-name> .
+zip -r <file-name>.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath <file-name>.zip
@@ -60,27 +60,27 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Upload .ZIP file to Cloud Shell
+## Upload ZIP file to Cloud Shell
 
 If you choose to run the Azure CLI from your local terminal instead, skip this step.
 
-Follow the steps here to upload your .zip file to the Cloud Shell. 
+Follow the steps here to upload your ZIP file to the Cloud Shell. 
 
 [!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
 
 For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
-## Deploy .ZIP file
+## Deploy ZIP file
 
-Deploy the uploaded .zip file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) command. If you choose not to use Cloud Shell, make sure your Azure CLI version is 2.0.21 or later. To see which version you have, run `az --version` command in the local terminal window. 
+Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) command. If you choose not to use Cloud Shell, make sure your Azure CLI version is 2.0.21 or later. To see which version you have, run `az --version` command in the local terminal window. 
 
-The following example deploys the .zip file you uploaded. When using a local installation of Azure CLI, specify the path to your local .zip file for `--src`.   
+The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.   
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-This command deploys the files and directories from the .zip file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well. For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well. For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 To view the list of deployments for this app, you must use the REST APIs (see next section). 
 
