@@ -33,13 +33,13 @@ You can secure your container services by specifying a certificate. The certific
 
 For windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 For Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on linux are:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 Alternatively, if you already have the certificates in the required form and would simply want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
 
@@ -51,8 +51,8 @@ Alternatively, if you already have the certificates in the required form and wou
 The container service or process is responsible for importing the certificate files into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or execute custom code within the container process. Sample code in C# for importing the PFX file follows:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

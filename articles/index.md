@@ -992,6 +992,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Azure Location Based Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
                                                 <p>Event Hubs</p>
@@ -2834,6 +2840,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Location Based Services</h3>
+                                                    <p>Maps, directions, search, and other robust geospatial services</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                             <li>
                                 <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
