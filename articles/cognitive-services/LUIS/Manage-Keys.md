@@ -12,14 +12,12 @@ ms.date: 12/01/2017
 ms.author: cahann
 ---
 
-# Manage your keys
-A key is your passport to the server that allows you to create and publish your LUIS app. LUIS has two different types of keys: programmatic and endpoint keys.
+# Manage your LUIS keys
+A key allows you to publish your LUIS app. LUIS has two different types of keys: [programmatic](#programmatic-key) and [endpoint](#endpoint-key) keys. 
 
 ## Programmatic key
 
-A starter key, also known as a programmatic key, is created automatically for a LUIS account and it is free. This key gives you 10,000 endpoint hits per month so you can start using your LUIS app now. This programmatic key also gives you free, unlimited access for authoring and editing your application using the [LUIS Authoring APIs](https://aka.ms/luis-authoring-api) or the [LUIS authoring website](https://www.luis.ai/). 
-
-A starter or programmatic key is created for each user account. You have one programmatic key across all your LUIS apps.
+A programmatic key, also known as a starter key, is created automatically when you create a LUIS account and it is free. This key gives you unlimited authoring hits and 10,000 endpoint hits per month so you can start using your LUIS app now. You have one programmatic key across all your LUIS apps.
 
 To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.ai) and click on the account name in the upper-right navigation bar to open **Account Settings**, which displays the Programmatic Key.
 
