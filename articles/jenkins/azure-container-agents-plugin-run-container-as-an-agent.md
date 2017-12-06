@@ -25,7 +25,9 @@ In this tutorial, you use the Jenkins Azure Container Agents plugin to add on-de
 
 You learn how to:
 > [!div class="checklist"]
-> * 
+> * Install and configure a Jenkins server on Azure
+> * Install and configure the Azure Container Agents plugin for Jenkins
+> * Create and build the Spring PetClinic Application job in Azure using Jenkins
 
 ## Prerequisites
 
@@ -287,11 +289,11 @@ It's time to build your project! This section explains how to build a project fr
 
     ![Build the project from the Jenkins dashboard.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-project.png)
 
-1. When you start a build in Jenkins, the build is queued. In the case of an Azure Container Agent, the build can't be run until the Azure Container Agent is started and brought online. Until then, you see a message indicating the agent name and the fact that the build pending. (This process takes about five minutes, but is only necessary the first time you use the agent for a build. Subsequent builds are much faster as the agent is online at that point.)
+1. When you start a build in Jenkins, the build is queued. In the case of an Azure Container Agent, the build can't be run until the Azure Container Agent is started and brought online. Until then, you see a message indicating the agent name and the fact that the build is pending. (This process takes about five minutes, but is only necessary the first time you use the agent for a build. Subsequent builds are much faster as the agent is online at that point.)
 
     ![The build is queued until the agent is created and brought online.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-pending.png)
 
-Once the build starts, a barber pole progress bar indicates that the build is running:
+    Once the build starts, a barber pole progress bar indicates that the build is running:
 
     ![The build is running once you see the barber pole progress bar.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-running.png)
 
@@ -313,6 +315,16 @@ Once the build starts, a barber pole progress bar indicates that the build is ru
 
 ## 11. Clean up Azure resources
 
+In this tutorial, you created resources contained within two Azure resource groups: 
+    - `JenkinsServerResourceGroup` - Contains the Azure resources for the Jenkins server.
+    - `JenkinsAgentResourceGroup` - Contains the Azure resources for the Jenkins agent.
+    
+If you no longer need to use any of the resources in an Azure resource group, you can delete the resource group using the `az group delete` command as follows (replacing the &lt;resourceGroup> placeholder with the name of the resource group you want to delete):
 
+    ```shell```
+    az group delete -n &lt;resourceGroup>
+    ```
 
 ## Next steps
+
+- [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/en-us/azure/jenkins/).
