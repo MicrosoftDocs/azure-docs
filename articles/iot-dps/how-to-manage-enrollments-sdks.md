@@ -69,3 +69,12 @@ After you have successfully created an enrollment, the Device Provisioning Servi
 
 1. **Individual enrollment** can be deleted by calling ```deleteIndividualEnrollment``` using ```registrationId```.
 2. **Group enrollment** can be deleted by calling ```deleteEnrollmentGroup``` using ```enrollmentGroupId```.
+
+## Bulk operation on individual enrollments
+
+You can perform bulk operation to create, update or remove multiple individual enrollments following this workflow:
+
+1. Create a variable that contains multiple ```IndividualEnrollment```.  The exact implementation of this differs by language.  Please review the bulk operation sample on GitHub for details.
+2. Call ```runBulkOperation``` with a ```BulkOperationMode``` for desired operation and your variable for individual enrollments. Four modes are supported: create, update, updateIfMatchEtag, and delete.
+
+After you have successfully performed an operation, the Device Provisioning Service would return a bulk operation result.
