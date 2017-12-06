@@ -55,12 +55,12 @@ az configure --defaults location=eastus
 >[!NOTE]
 >Setting the default values for the `az` command is an optional step. You can choose to not set the default values. If you do choose to set the defaults, you should remove the default settings after you finish the tutorial. Remove the default settings by using the following commands:
 >
-
-```azurecli
-az configure --defaults group=''
-
-az configure --defaults location=''
-```
+>```azurecli
+>az configure --defaults group=''
+>
+>az configure --defaults location=''
+>```
+>
 
 ## Create a storage account
 
