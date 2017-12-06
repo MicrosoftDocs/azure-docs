@@ -20,11 +20,11 @@ ms.author: juliako;johndeu
 # Media Services operations REST API overview
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-The **Media Services Operations REST** API is used for creating Jobs, Assets, Access Policies, Live Channels and other operations on objects in a Media Services account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+The **Media Services Operations REST** API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-Media Services provides a REST API that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub XML format. Because Media Services conforms to Azure REST guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
+Media Services provides a REST API that accepts both JSON or atom+pub XML format. Media Services REST API requires specific HTTP headers that each client must send when connecting to Media Services, as well as a set of optional headers. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
-This article gives an overview of how to use REST v2 with Media Services.
+Authentication to the Media Serivces REST API is done through Azure Active Directory authentication which is outlined in the article [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md)
 
 ## Considerations
 
@@ -99,15 +99,17 @@ The following is a complete list of HTTP verbs that can be used when making HTTP
 | MERGE |Updates an existing object with named property changes. |
 | HEAD |Returns metadata of an object for a GET response. |
 
-## Discover Media Services model
-To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. The following example shows how to construct the URI: https://media.windows.net/API/$metadata.
+## Discover and browse the Media Services entity model
+To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. By adding the $metadata operation to the end of your Media Services REST API endpoint, you can access this discovery service.
+
+ /api/$metadata.
 
 You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.
 
 ## Authenticate with Media Services REST using Azure Active Directory
 
-Authentication on the REST API is done through Azure Active Directory.
-For details on how to get set up your Media Services account and get the required authentication infromation from the Azure Portal, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+Authentication on the REST API is done through Azure Active Directory(AAD).
+For details on how to get required authentication details for your Media Services account from the Azure Portal, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
 For details on writing code that connects to the REST API using Azure AD authentication, see the article [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md).
 
