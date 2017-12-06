@@ -74,7 +74,7 @@ In order to get a new LUIS application set up for the bot, you need to import th
 1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import new app**.
 2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the **Intents** page of the Hotel Finder app<!-- which looks like the following screen-->. 
 3. Click the **Train** button to train the app. 
-4. Once the app is trained, <!-- you need to change the [Assigned endpoint key][AssignedEndpointDoc]-->click **PUBLISH** tab to open the **Publish app** page. Then click the **Publish to production slot** button to publish the app. 
+4. Once the app is trained, <!-- you need to change the [Assigned endpoint key][AssignedEndpointDoc]-->click the **PUBLISH** tab to open the **Publish app** page. Then click the **Publish to production slot** button to publish the app. 
 5. Copy your the endpoint URL shown in the table entry for the key named `Starter_Key`. This URL contains your LUIS app ID and your LUIS subscription ID.
 
 The URL looks something like the following URL: 
