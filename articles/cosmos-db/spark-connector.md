@@ -170,7 +170,7 @@ Currently, the connector project uses maven. To build the connector without depe
 ```
 mvn clean package
 ```
-You can also download the latest versions of the JAR from the *releases* folder.
+You can also download the latest versions of the JAR from the [*releases* folder](https://github.com/Azure/azure-cosmosdb-spark/releases).
 
 ### Include the Azure Cosmos DB Spark JAR
 Before you execute any code, you need to include the Azure Cosmos DB Spark JAR.  If you are using the **spark-shell**, then you can include the JAR by using the **--jars** option.  

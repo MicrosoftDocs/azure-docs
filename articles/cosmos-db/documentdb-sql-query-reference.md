@@ -2791,6 +2791,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## Next steps  
  [SQL syntax and SQL query for Azure Cosmos DB](documentdb-sql-query.md)   
- [Azure Cosmos DB documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

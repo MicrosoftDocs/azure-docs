@@ -57,7 +57,7 @@ To complete this tutorial, you must have the following resources:
 
 3. Click **Save**.
 
-    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) instructions to register the account, then retry this procedure.
+    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) instructions to register the account, then retry this procedure.
 
     If you want to change how your diagnostic logs are saved at any point in the future, you can return to this page at anytime to modify the diagnostic log settings for your account.
 

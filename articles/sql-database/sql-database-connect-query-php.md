@@ -14,7 +14,7 @@ ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 11/29/2017
 ms.author: carlrab
 ---
 # Use PHP to query an Azure SQL database
@@ -84,3 +84,10 @@ To complete this quickstart tutorial, make sure you have the following:
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues)
+- [Retry logic example: Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

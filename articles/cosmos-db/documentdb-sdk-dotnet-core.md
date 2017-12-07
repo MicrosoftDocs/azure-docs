@@ -73,7 +73,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.5.1"/>1.5.1 
 
-* Internal changes related to supporting [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
+* Internal changes related to supporting [Microsoft.Azure.Graphs](https://docs.microsoft.com/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="1.5.0"/>1.5.0 
 

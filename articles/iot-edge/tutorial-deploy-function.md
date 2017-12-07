@@ -4,16 +4,16 @@ title: Deploy Azure Function with Azure IoT Edge | Microsoft Docs
 description: Deploy Azure Function as a module to an edge device
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
 
 # Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
+ms.custom: mvc
 # ms.devlang:devlang-from-white-list
 # ms.suite: 
 # ms.tgt_pltfrm:
@@ -46,7 +46,7 @@ In this tutorial, you use the Azure IoT Edge extension for VS Code to create an 
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
 
-- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
+- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
 
 - [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) offers one free private repository if you sign up for a (free) Docker ID. 
     1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
