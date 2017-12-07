@@ -81,5 +81,5 @@ sections:
     - title: REST APIs
       html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78"> Endpoint API</a></p><p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f"> Authoring API</a></p>
     - title: SDKs
-      html: <p><a href="https://github.com/Microsoft/Cognitive-LUIS-Android"> Android</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Node.js"> Node.js</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Python"> Python</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Windows"> .NET</a></p>
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
       
