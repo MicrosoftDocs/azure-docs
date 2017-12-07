@@ -24,8 +24,6 @@ ms.author: mimig
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.microsoft.com/cli/azure/cosmosdb).
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and containers**||

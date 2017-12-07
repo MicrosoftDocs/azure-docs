@@ -21,11 +21,11 @@ ms.custom: mvc
 
 # Azure CosmosDB: Develop with the SQL API in .NET
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a document database and collection with a [partition key](documentdb-partition-data.md#partition-keys) using the [SQL .NET API](documentdb-introduction.md). By defining a partition key when you create a collection, your application is prepared to scale effortlessly as your data grows. 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This tutorial covers the following tasks by using the [SQL .NET API](documentdb-sdk-dotnet.md):
 

@@ -20,9 +20,9 @@ ms.author: mimig
 ---
 # How to setup Azure Cosmos DB global distribution using the SQL API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
-
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
 
 This article covers the following tasks: 
 

@@ -28,12 +28,12 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-	* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* In addition:
+	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
+	* [Git](http://git-scm.com/)
 
 ## Create a database account
 

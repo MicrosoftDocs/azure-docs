@@ -52,7 +52,7 @@ This article only addresses the different roles that exist today. When you assig
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
-| [Azure Cosmos DB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
+| [DocumentDB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
 | Logic App Contributor | Can manage all aspects of a Logic App, but not create a new one. |
 | Logic App Operator |Can start and stop workflows defined within a Logic App. |
@@ -368,8 +368,8 @@ Can manage DNS zones and records.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/\* |Create and manage Support tickets |
 
-### Azure Cosmos DB Account Contributor
-Can manage Azure Cosmos DB accounts
+### DocumentDB Account Contributor
+Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB.
 
 | **Actions** |  |
 | --- | --- |

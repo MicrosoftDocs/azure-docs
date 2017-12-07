@@ -19,14 +19,15 @@ ms.author: arramac
 
 ---
 # Tuning query performance with Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB provides a [SQL API for querying data](documentdb-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
 * Details on query request and response headers, and client SDK options
 * Tips and best practices for query performance
 * Examples of how to utilize SQL execution statistics to debug query performance
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 ## About SQL query execution
 

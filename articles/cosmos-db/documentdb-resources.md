@@ -20,9 +20,10 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Azure Cosmos DB hierarchical resource model and core concepts
-The database entities that Azure Cosmos DB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers, and status codes. 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+The database entities that Azure Cosmos DB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers, and status codes. 
 
 This article answers the following questions:
 
