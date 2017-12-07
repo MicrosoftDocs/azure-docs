@@ -21,7 +21,7 @@ ms.custom: aaddev
 ## Test your code
 
 1. Deploy your code to your device/emulator.
-2. When you're ready to test your application, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft Account (live.com, outlook.com) to sign in. 
+2. When you're ready to test your application, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft account (live.com, outlook.com) to sign in. 
 
     ![Test your application](media/active-directory-mobileanddesktopapp-android-test/mainwindow.png)
     <br/><br/>
@@ -34,12 +34,12 @@ The first time that you sign in to your application, you're prompted to provide 
 
 
 ### View application results
-After signing in, you should see the results returned by the call to the Microsoft Graph API. The call to the Microsoft Graph API **me** endpoint returns the user profile https://graph.microsoft.com/v1.0/me. For a list of common Microsoft Graph endpoints, see [the Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
+After you sign in, you should see the results that are returned by the call to the Microsoft Graph API. The call to the Microsoft Graph API **me** endpoint returns the user profile https://graph.microsoft.com/v1.0/me. For a list of common Microsoft Graph endpoints, see [the Microsoft Graph API developer documentation](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your backend server, might require additional scopes. For example, for Microsoft Graph, the **Calendars.Read** scope is required to list the user’s calendars.
+The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the **Calendars.Read** scope to list the user’s calendars.
 
 To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call. 
 
