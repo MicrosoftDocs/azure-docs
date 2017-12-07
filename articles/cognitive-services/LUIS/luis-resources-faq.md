@@ -126,8 +126,8 @@ You can turn off the logging of user utterances by setting `log=false` in the En
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review user utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-## What are the transaction limits on the Authoring API?
-To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second.
+## How do I edit my LUIS app programmatically?
+To edit your LUIS app programmatically, you must use a programmatic key with the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv) for examples of how to call the Authoring API. The Authoring API requires that you use a programmatic key rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./Manage-Keys.md).
 
 ## What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
