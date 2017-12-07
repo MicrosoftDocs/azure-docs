@@ -1,5 +1,5 @@
 ---
-title: Build and Deploy a Node.js Express app to Azure Cloud Service
+title: Build and deploy a Node.js Express app to Azure Cloud Service
 description: Build and deploy a Express.js application in Node.js to Azure Cloud Service
 services: cloud-services
 documentationcenter: nodejs
