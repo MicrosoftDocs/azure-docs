@@ -300,59 +300,53 @@ Review the recommendations and links for all critical and important findings. Le
 
 The **Findings** section displays various findings and recommendations related to storage.
 
-The **DiskMap** and **VolumeMap** sections describe on a dual perspective how logical volumes and physical disks are related to each other.
+The **Disk Map** and **Volume Map** sections describe how logical volumes and physical disks are related to each other.
 
-In the PhysicalDisk perspective (DiskMap), the table shows all logical volumes that are running on the disk. In the following example, PhysicalDrive2 runs two Logical Volumes created on multiple partitions (J and H):
+In the physical disk perspective (Disk Map), the table shows all logical volumes that are running on the disk. In the following example, **PhysicalDrive2** runs two logical volumes created on multiple partitions (J and H):
 
-![data tab](media/how-to-use-perfInsights/disktab.png)
+![Screenshot of disk tab](media/how-to-use-perfInsights/disktab.png)
 
-In the Volume perspective (*VolumeMap*), the tables show all the physical disks under each logical volume. Notice that for RAID/Dynamic disks, you might run a logical volume upon multiple physical disks. In the following sample *C:\\mount* is a mountpoint configured as *SpannedDisk* on PhysicalDisks \#2 and \#3:
+In the volume perspective (Volume Map), the tables show all the physical disks under each logical volume. Notice that for RAID/Dynamic disks, you might run a logical volume on multiple physical disks. In the following example, *C:\\mount* is a mount point configured as *SpannedDisk* on physical disks 2 and 3:
 
-![volume tab](media/how-to-use-perfInsights/volumetab.png)
+![Screenshot of volume tab](media/how-to-use-perfInsights/volumetab.png)
 
 ### SQL tab
 
-If the target VM hosts any SQL Server instances, you see an additional tab in the report that is named **SQL**:
+If the target VM hosts any SQL Server instances, you see an additional tab in the report, named **SQL**:
 
-![sql tab](media/how-to-use-perfInsights/sqltab.png)
+![Screenshot of SQL tab](media/how-to-use-perfInsights/sqltab.png)
 
-This section contains an "Findings" tab and additional sub tabs for each of the SQL Server instances hosted on the VM.
+This section contains a **Findings** tab, and additional tabs for each of the SQL Server instances hosted on the VM.
 
-The "Findings" tab contains a list of all the SQL related performance issues found along with the recommendations.
+The **Findings** tab contains a list of all the SQL related performance issues found, along with the recommendations.
 
-In the following example, *PhysicalDrive0* (running the C drive) is displayed because both the *modeldev* and *modellog* files are located on the C drive, and they are of different types (such as Data File and Transaction Log, respectively):
+In the following example, **PhysicalDrive0** (running the C drive) is displayed. This is because both the **modeldev** and **modellog** files are located on the C drive, and they are of different types (such as data file and transaction log, respectively).
 
-![loginfo](media/how-to-use-perfInsights/loginfo.png)
+![Screenshot of log information](media/how-to-use-perfInsights/loginfo.png)
 
-The SQL Server instance-specific tabs contain a general section that displays basic information about the selected instance and additional sections for advanced information, including Settings, Configurations, and User Options.
+The tabs for specific instances of SQL Server contain a general section that displays basic information about the selected instance. The tabs also contain additional sections for advanced information, including settings, configurations, and user options.
 
 ### Diagnostic tab
-Diagnostic tab contains information about top CPU, Disk and memory consumers on the box for the duration of PerfInsights run. You can also find other useful information such as critical patches that the system might be missing, Task list and important System events. 
+The **Diagnostic** tab contains information about top CPU, disk, and memory consumers on the computer for the duration of the running of PerfInsights. You can also find information about critical patches that the system might be missing, the task list, and important system events. 
 
 ## References to the external tools used
 
-### Diskspd
+### DISKSPD
 
-DISKSPD is a storage load generator and performance test tool from the Windows and Windows Server and Cloud Server Infrastructure engineering teams. For more information, see [Diskspd](https://github.com/Microsoft/diskspd).
+DISKSPD is a storage load generator and performance test tool from Microsoft. For more information, see [Diskspd](https://github.com/Microsoft/diskspd).
 
-### XPerf
+### Xperf
 
-Xperf is a command-line tool to capture traces from the Windows Performance Tools Kit.
+Xperf is a command-line tool to capture traces from the Windows Performance Toolkit. For more information, see [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-For more information, see [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+## Next steps
 
-## Next Steps
+You can upload diagnostics logs and reports to Microsoft Support for further review. Support might request that you transmit the output that is generated by PerfInsights to assist with the troubleshooting process.
 
-### Upload diagnostics logs and reports to Microsoft Support for further review
+The following screenshot shows a message similar to what you might receive:
 
-When you work with the Microsoft Support staff, you may be requested to transmit the output that is generated by PerfInsights to assist the troubleshooting process.
+![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights/supportemail.png)
 
-The Support agent will create a DTM workspace for you, and you will receive an email message that includes a link to the [DTM portal (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) and a unique user ID and password.
+Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
-This message will be sent from **CTS Automated Diagnostics Services** (ctsadiag@microsoft.com).
-
-![Sample of the message](media/how-to-use-perfInsights/supportemail.png)
-
-For additional security, you will be required to change your password on first use.
-
-After you log in to DTM, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file that was collected by PerfInsights.
+After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file that was collected by PerfInsights.
