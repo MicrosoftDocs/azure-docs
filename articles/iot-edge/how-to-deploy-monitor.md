@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -169,7 +169,7 @@ When you delete a deployment, any devices take on their next highest priority de
 Learn more about [Deploying modules to Edge devices][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
