@@ -46,7 +46,7 @@ As an administrator, you can set:
 
 To open the related dialog, click **Alerts** in the **Settings** section of the **Identity Protection** page.
 
-![Users at risk detected email](./media/active-directory-identityprotection-notifications/02.png)
+![Users at risk detected email](./media/active-directory-identityprotection-notifications/05.png)
 
 
 ## Weekly digest email
