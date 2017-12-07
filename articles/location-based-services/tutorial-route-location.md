@@ -62,12 +62,12 @@ Use the following steps to create a static HTML page embedded with the Location 
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -76,68 +76,67 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
 
-    ```HTML
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```javascript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Add the following JavaScript code to the *script* block. This adds a layer of *linestrings* to the Map Control to show the route:
 
-    ```HTML
-            // Initialize the linestring layer for routes on the map
-            var routeLinesLayerName = "routes";
-            map.addLinestrings([], {
-                name: routeLinesLayerName,
-                color: "#2272B9",
-                width: 5,
-                cap: "round",
-                join: "round",
-                before: "labels"
-            });
+    ```javascript
+    // Initialize the linestring layer for routes on the map
+    var routeLinesLayerName = "routes";
+    map.addLinestrings([], {
+        name: routeLinesLayerName,
+        color: "#2272B9",
+        width: 5,
+        cap: "round",
+        join: "round",
+        before: "labels"
+    });
     ```
 
 5. Add the following JavaScript code to create start and end points for the route:
 
-    ```HTML
-            // Create the GeoJSON objects which represent the start and end point of the route
-            var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
-            var startPin = new atlas.data.Feature(startPoint, {
-                title: "Microsoft",
-                icon: "pin-round-blue"
-            });
+    ```javascript
+    // Create the GeoJSON objects which represent the start and end point of the route
+    var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
+    var startPin = new atlas.data.Feature(startPoint, {
+        title: "Microsoft",
+        icon: "pin-round-blue"
+    });
 
-            var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
-            var destinationPin = new atlas.data.Feature(destinationPoint, {
-                title: "Contoso Oil & Gas",
-                icon: "pin-blue"
-            });
+    var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
+    var destinationPin = new atlas.data.Feature(destinationPoint, {
+        title: "Contoso Oil & Gas",
+        icon: "pin-blue"
+    });
     ```
     This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. The end point is the latitude/longitude combination for one of the *gasoline stations* searched in the previous tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md).
 
 6. Add the following JavaScript code to add the pins for the start and end points to the map:
 
-    ```HTML
-            // Fit the map window to the bounding box defined by the start and destination points
-            var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
+    ```javascript
+    // Fit the map window to the bounding box defined by the start and destination points
+    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    map.setCameraBounds({
+        bounds: [swLon, swLat, neLon, neLat],
+        padding: 50
+    });
 
-            // Add pins to the map for the start and end point of the route
-            map.addPins([startPin, destinationPin], {
-                name: "route-pins",
-                textFont: "SegoeUi-Regular",
-                textOffset: [0, -20]
-            });
+    // Add pins to the map for the start and end point of the route
+    map.addPins([startPin, destinationPin], {
+        name: "route-pins",
+        textFont: "SegoeUi-Regular",
+        textOffset: [0, -20]
+    });
     ``` 
     The API **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
 
@@ -151,38 +150,38 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
 1. Open the **MapRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to illustrate the Route Service.
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting route on the map
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(xhttp.responseText);
+    ```javascript
+    // Perform a request to the route service and draw the resulting route on the map
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(xhttp.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
+        }
+    };
     ```
     This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it constructs an array of coordinates for line segments of the first route returned. It then adds this set of coordinates for this route to the map's *linestrings* layer.
 
 2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Location Based Services' Route Service:
 
-    ```HTML
-            var url = "https://atlas.microsoft.com/route/directions/json?";
-            url += "&api-version=1.0";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-    
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    ```javascript
+    var url = "https://atlas.microsoft.com/route/directions/json?";
+    url += "&api-version=1.0";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ```
     The request above shows the required parameters, which are your account's subscription key, and the coordinates for the start and end points, in the given order. 
 
