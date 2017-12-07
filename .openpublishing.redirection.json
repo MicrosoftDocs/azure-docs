@@ -415,6 +415,11 @@
             "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
             "redirect_document_id": false
         },
+        { 
+            "source_path": "articles/managed-applications/publish-marketplace-app.md", 
+            "redirect_url": "/azure/managed-applications/overview", 
+            "redirect_document_id": false 
+        }, 
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
@@ -15514,9 +15519,34 @@
              "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
              "redirect_document_id": false
         },
-        {
-             "source_path": "articles/api-management/api-management-policy-reference.md",
-             "redirect_url": "/azure/api-management/api-management-policies",
+	{
+             "source_path": "articles/storage/common/storage-premium-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-premium-storage-performance.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage-performance",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-standard-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/standard-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
+             "redirect_url": "/azure/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks",
+             "redirect_document_id": false
+        },
+      {
+        "source_path": "articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+      },
+      {
+             "source_path": "articles/store-blitline-how-to-use.md",
+             "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
         }
     ]
