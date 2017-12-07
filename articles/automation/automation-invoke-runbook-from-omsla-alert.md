@@ -40,7 +40,7 @@ If you have the Automation & Control offering installed and configured in your O
 
 ## Characteristics of a runbook (for both options)
 
-Both methods for calling the runbook from the Log Analytics alert have characteristics that need to be understood before you configure your alert rules.
+Both methods for calling the runbook from the Log Analytics alert have characteristics that need to be understood before you configure your alert rules. The alert data is in json format in a single property called **SearchResult**. This format is for runbook and webhook actions with a standard payload. For webhook actions with custom payloads including **IncludeSearchResults:True** in the **RequestBody** the property is **SearchResults**.
 
 * You must have a runbook input parameter called **WebhookData** that is **Object** type. It can be mandatory or optional. The alert passes the search results to the runbook using this input parameter.
 
@@ -58,6 +58,7 @@ Both methods for calling the runbook from the Log Analytics alert have character
     ```
 
 	*$SearchResult* is an array of objects; each object contains the fields with values from one search result
+
 
 ## Example walkthrough
 
@@ -77,6 +78,9 @@ $SearchResult.SvcDisplayName_CF
 When the service stops, the alert rule in Log Analytics detects a match and trigger the runbook and send the alert context to the runbook. The runbook takes action to verify the service is stopped, and if so attempt to restart the service and verify it started correctly and output the results.     
 
 Alternatively if you don't have your Automation account linked to your OMS workspace, you would configure the alert rule with a webhook action to trigger the runbook and configure the runbook to convert the JSON-formatted string and filter on \*.SearchResult\* following the guidance mentioned earlier.    
+
+>[!NOTE]
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## Next steps
 
