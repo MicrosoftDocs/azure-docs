@@ -209,7 +209,7 @@ For each sample, do these steps to set the variables for the authorization heade
 Alternatively, you can change the variables for the log type and JSON data.
 
 ### PowerShell sample
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -293,7 +293,7 @@ Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.E
 ```
 
 ### C# sample
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -379,7 +379,7 @@ namespace OIAPIExample
 ```
 
 ### Python sample
-```
+```python
 import json
 import requests
 import datetime
@@ -459,6 +459,92 @@ def post_data(customer_id, shared_key, body, log_type):
         print "Response code: {}".format(response.status_code)
 
 post_data(customer_id, shared_key, body, log_type)
+```
+
+### Golang Sample
+```Go
+package main
+
+import (
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/base64"
+	"net/http"
+	"time"
+	"unicode/utf8"
+	"strconv"
+	"bytes"
+	"strings"
+	"log"
+)
+
+const (
+	// Replace with your Workspace ID
+	customerId     = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+        // Replace with your Primary or Secondary ID
+	sharedKey      = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+	//Specify the name of the record type that you'll be creating
+	logType        = "GoLogType"
+
+	//Specify a field with the created time for the records
+	timeStampField = "DateValue"
+)
+
+func BuildSignature(message, secret string) (string, error) {
+
+	keyBytes, err := base64.StdEncoding.DecodeString(secret)
+	if err != nil {
+		return "", err
+	}
+
+	mac := hmac.New(sha256.New, keyBytes)
+	mac.Write([]byte(message))
+	return base64.StdEncoding.EncodeToString(mac.Sum(nil)), nil
+}
+
+func PostData(data string) (error) {
+
+	dateString := time.Now().UTC().Format(time.RFC1123)
+	dateString = strings.Replace(dateString, "UTC", "GMT", -1)
+
+	stringToHash := "POST\n" + strconv.Itoa(utf8.RuneCountInString(data)) + "\napplication/json\n" + "x-ms-date:" + dateString + "\n/api/logs"
+	hashedString, err := BuildSignature(stringToHash, sharedKey)
+	if err != nil {
+		log.Println(err.Error())
+		return err
+	}
+
+	signature := "SharedKey " + customerId + ":" + hashedString
+	url := "https://" + customerId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01"
+
+	client := &http.Client{}
+	req, err := http.NewRequest("POST", url, bytes.NewReader([]byte(data)))
+	if err != nil {
+		return err
+	}
+
+	req.Header.Add("Log-Type", logName)
+	req.Header.Add("Authorization", signature)
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("x-ms-date", dateString)
+	req.Header.Add("time-generated-field", timeStampField)
+
+	resp, err := client.Do(req)
+	defer resp.Body.Close()
+	if err == nil {
+		log.Println(resp.Status)
+		return nil
+	}
+	return err
+}
+
+func main() {
+	var json = `[{"DemoField1":"DemoValue1","DemoField2":"DemoValue2"},{"DemoField3":"DemoValue3"}]`
+	PostData(json)
+}
+
 ```
 
 ## Next steps
