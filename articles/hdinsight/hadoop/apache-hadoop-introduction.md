@@ -153,10 +153,16 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data int
 
 ## Next steps
 
-* [Get started with Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md): A quickstart tutorial for provisioning HDInsight Hadoop clusters and running sample Hive queries.
-* [Get started with Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md): A quickstart tutorial for creating a Spark cluster and running interactive Spark SQL queries.
-* [Use R Server on HDInsight](../r-server/r-server-get-started.md): Start using R Server in HDInsight.
-* [Provision HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md): Learn how to provision an HDInsight Hadoop cluster through the Azure portal, Azure CLI, or Azure PowerShell.
+* [Get started with Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+* [Get started with Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md)
+* [Get started with Kafka on HDInsight](../kafka/apache-kafka-get-started.md)
+* [Get started with Storm on HDInsight](../storm/apache-storm-tutorial-get-started-linux.md)
+* [Get started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Get started with Interactive Quer (LLAP) on HDInsight](../interactive-query/apache-interactive-query-get-started.md)
+* [Get started with R Server on HDInsight](../r-server/r-server-get-started.md)
+* [Manage HDInsight clusters](../hdinsight-administer-use-portal-linux.md)
+* [Secure your HDInsight clusters](../domain-joined/apache-domain-joined-introduction.md)
+* [Monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
 
 [component-versioning]: ../hdinsight-component-versioning.md
