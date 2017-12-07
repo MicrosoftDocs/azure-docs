@@ -33,7 +33,7 @@ Open the browser and type http://<span></span>localhost:8080 or http://<span></s
 
 ## Test your application
 
-After the browser loads your index.html file, select **Call Microsoft Graph API**. The first time that you run your application, the browser redirects you to the Microsoft Azure AD v2.0 endpoint and you're prompted to sign in:
+After the browser loads your index.html file, select **Call Microsoft Graph API**. The first time that you run your application, the browser redirects you to the Microsoft Azure Active Directory (Azure AD) v2.0 endpoint and you're prompted to sign in:
  
 ![Sign in to your JavaScript SPA account](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
 
