@@ -24,7 +24,7 @@ To test your application in Visual Studio, press **F5** to run your project. The
 
 ![Test your application](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
 
-When you're ready to run your test, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft account (live.com, outlook.com) to sign in. The first time that you run the application, you're prompted to sign in:
+When you're ready to run your test, use a Microsoft Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to sign in. The first time that you run the application, you're prompted to sign in:
 
 ![Sign in to the application](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
 
