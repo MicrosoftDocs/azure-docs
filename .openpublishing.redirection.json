@@ -15545,6 +15545,11 @@
         "redirect_document_id": false
       },
       {
+        "source_path": "articles/multi-factor-authentication/multi-factor-authentication-whats-next-pfweb.md",
+        "redirect_url": "/azure/multi-factor-authentication/multi-factor-authentication-whats-next",
+        "redirect_document_id": true
+      },
+      {
              "source_path": "articles/store-blitline-how-to-use.md",
              "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
