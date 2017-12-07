@@ -25,7 +25,7 @@ Azure CSP is a program for Microsoft Partners and provides a license channel for
 
 The [Partner Center portal](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) acts as an entry point for all Azure CSP partners. It provides rich customer management capabilities, automated processing, and more. Azure CSP partners can use Partner Center capabilities by using a web-based UI or by using PowerShell and various API calls.
 
-The following diagram illustrates how the CSP model works at a high-level. Contoso has an Azure AD Active Directory. They have a partnership with a CSP, who deploys and manages resources in their Azure CSP subscription. Contoso may also have regular (direct) Azure subscriptions, which are billed directly to Contoso.
+The following diagram illustrates how the CSP model works at a high level. Contoso has an Azure AD Active Directory. They have a partnership with a CSP, who deploys and manages resources in their Azure CSP subscription. Contoso may also have regular (direct) Azure subscriptions, which are billed directly to Contoso.
 
 ![Overview of the CSP model](./media/csp/csp_model_overview.png)
 
@@ -53,7 +53,7 @@ In this deployment model, the CSP provider's admin agents can administer identit
 
 
 ### Peered deployment model
-In this deployment model, Azure AD Domain Services is enabled within a virtual network belonging to the customer - i.e. a direct Azure subscription paid for by the customer. The CSP partner can then deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering. This enables the workloads/applications deployed by the CSP partner in the Azure CSP subscription to connect to the customer's managed domain provisioned in the customer's direct Azure subscription.
+In this deployment model, Azure AD Domain Services is enabled within a virtual network belonging to the customer - that is, a direct Azure subscription paid for by the customer. The CSP partner can then deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering. This enables the workloads/applications deployed by the CSP partner in the Azure CSP subscription to connect to the customer's managed domain provisioned in the customer's direct Azure subscription.
 
 This deployment model provides a separation of privileges and enables the CSP partner's helpdesk agents to administer the Azure subscription and deploy and manage resources within it. However, the CSP partner's helpdesk agents do not need to have global administrator privileges on the customer's Azure AD directory. The customer's identity administrators can continue to manage identities for their organization.
 
