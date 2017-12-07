@@ -99,7 +99,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 
 Get started with SQL Server on Azure virtual machines:
 
-* [Create a SQL Server VM in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md)
+* [Create a SQL Server VM in the Azure portal](quickstart-sql-vm-create-portal.md)
 
 Get answers to commonly asked questions about SQL VMs:
 
