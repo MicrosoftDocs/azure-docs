@@ -47,6 +47,7 @@ sections:
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Create a load balanced VM cluster using Azure Terraform modules</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Create a load balanced VM cluster in the Azure Cloud Shell</a>.
     - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configure a VM scale set with networking and storage.</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provision VM scale set from a Packer custom image.</a>
 - title: Samples
   items:
   - type: paragraph
