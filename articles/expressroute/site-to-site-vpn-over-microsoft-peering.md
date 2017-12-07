@@ -1,6 +1,6 @@
 ---
-title: Configure a Site-to-Site VPN over Microsoft Peering for Azure ExpressRoute | Microsoft Docs
-description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft Peering circuit using a Site-to-Site VPN gateway.
+title: Configure a site-to-site VPN over Microsoft peering for Azure ExpressRoute | Microsoft Docs
+description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -18,18 +18,18 @@ ms.author: cherylmc
 
 ---
 
-# Configure a Site-to-Site VPN over ExpressRoute Microsoft Peering
+# Configure a site-to-site VPN over ExpressRoute Microsoft peering
 
 This article helps you configure secure encrypted connectivity between your on-premises network and your Azure virtual networks (VNets) over an ExpressRoute private connection. Configuring a secure tunnel over ExpressRoute allows for data exchange with confidentiality, anti-replay, authenticity, and integrity.
 
 ## <a name="architecture"></a>Architecture
 
-You can leverage Microsoft peering to establish a Site-to-Site IPsec/IKE VPN tunnel between your selected on-premises networks and Azure VNets.
+You can leverage Microsoft peering to establish a site-to-site IPsec/IKE VPN tunnel between your selected on-premises networks and Azure VNets.
 
   ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 
 >[!NOTE]
->When you set up Site-to-Site VPN over Microsoft Peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
+>When you set up site-to-site VPN over Microsoft peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
 
@@ -50,13 +50,13 @@ VPN tunnels over Microsoft peering can be terminated either using VPN gateway, o
 2. Advertise selected Azure regional public prefixes to your on-premises network via Microsoft peering.
 3. Configure a VPN gateway and establish IPsec tunnels
 4. Configure the on-premises VPN device.
-5. Create the Site-to-Site IPsec/IKE connection.
+5. Create the site-to-site IPsec/IKE connection.
 6. (Optional) Configure firewalls/filtering on the on-premises VPN device.
 7. Test and validate the IPsec communication over the ExpressRoute circuit.
 
 ## <a name="peering"></a>1. Configure Microsoft peering
 
-To configure a Site-to-Site VPN connection over ExpressRoute, you must leverage ExpressRoute Microsoft peering.
+To configure a site-to-site VPN connection over ExpressRoute, you must leverage ExpressRoute Microsoft peering.
 
 * To configure a new ExpressRoute circuit, start with the [ExpressRoute prerequisites](expressroute-prerequisites.md) article, and then [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-arm.md).
 
@@ -131,7 +131,7 @@ The following diagram shows the abstracted overview of the example network:
 
 ### About the Azure Resource Manager template examples
 
-In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you are new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). The template in this section creates a greenfield Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you are not familiar with VPN gateway IPsec/IKE Site-to-Site configurations, see [Create a Site-to-Site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you are new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). The template in this section creates a greenfield Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you are not familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >You do not need to use Azure Resource Manager templates in order to create this configuration. You can create this configuration using the Azure portal, or PowerShell.
@@ -361,7 +361,7 @@ The Azure VPN gateway is compatible with many VPN devices from different vendors
 
 When configuring your VPN device, you need the following items:
 
-* A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
+* A shared key. This is the same shared key that you specify when creating your site-to-site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
 * The Public IP address of your VPN gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to Virtual network gateways, then click the name of your gateway.
 
 Typically eBGP peers are directly connected (often over a WAN connection). However, when you are configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
@@ -708,8 +708,8 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 2
 ```
 
-## Next Steps
+## Next steps
 
 * [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
 
-* [Add a Site-to-Site connection to a VNet with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Add a site-to-site connection to a VNet with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
