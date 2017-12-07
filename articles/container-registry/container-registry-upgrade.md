@@ -34,9 +34,9 @@ Some of the benefits of managed storage provided by Basic, Standard, and Premium
 
 ## Migration considerations
 
-When you change a Classic registry to a managed registry, Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. This process can take some time, especially if you have a very large number of container images, your images are very large, or both.
+When you change a Classic registry to a managed registry, Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the size of your registry, this process can take a few minutes to several hours.
 
-During conversion, all `docker push` operations are blocked, while `docker pull` continues to function.
+During the conversion process, all `docker push` operations are blocked, while `docker pull` continues to function.
 
 Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is longer used by ACR.
 
@@ -45,7 +45,7 @@ Once the migration is complete, the storage account in your subscription that or
 
 ## How to upgrade
 
-You can upgrade an unmanaged Classic registry to one of the managed SKUs in several ways. In the following sections, we describe the process for using the Azure CLI and the Azure portal.
+You can upgrade an unmanaged Classic registry to one of the managed SKUs in several ways. In the following sections, we describe the process for using the [Azure CLI][azure-cli] and the [Azure portal][azure-portal].
 
 ## Upgrade in Azure CLI
 
@@ -100,3 +100,5 @@ Submit and vote on new feature suggestions in [ACR UserVoice](https://feedback.a
 
 <!-- LINKS - internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update
+[azure-cli]: /cli/azure/install-azure-cli
+[azure-portal]: https://portal.azure.com

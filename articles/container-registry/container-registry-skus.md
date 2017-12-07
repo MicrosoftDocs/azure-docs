@@ -33,7 +33,7 @@ The Classic registry SKU enabled the initial release of the Azure Container Regi
 
 ## Managed and unmanaged registries
 
-In this article, we refer to Basic, Standard, and Premium registries as *managed* registries, and Classic registries as *unmanaged*. The primary differentiator between the two is how your container images are stored.
+The Basic, Standard, and Premium SKUs are collectively known as *managed* registries, and Classic registries as *unmanaged*. The primary difference between the two is how your container images are stored.
 
 ### Managed (Basic, Standard, Premium)
 
@@ -41,7 +41,7 @@ Managed registries are backed by an Azure Storage account managed by Azure. That
 
 ### Unmanaged (Classic)
 
-Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within your Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unamanaged registries, you can't switch between SKUs as your needs change (other than upgrading to a managed registry), and several features of managed registries are unavailable (for example, [geo-replication](container-registry-geo-replication.md) and [webhooks](container-registry-webhook.md)).
+Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unamanaged registries, you can't switch between SKUs as your needs change (other than upgrading to a managed registry), and several features of managed registries are unavailable (for example, [geo-replication](container-registry-geo-replication.md) and [webhooks](container-registry-webhook.md)).
 
 For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry](container-registry-upgrade.md).
 
