@@ -384,6 +384,21 @@ At what time does Safeway close?
 |GetPriceRange| Asks for the price range of a place.|Is Zucca cheap?<br/>Is the Cineplex half price on Wednesdays?<br/>How much does a whole lobster dinner cost at Sizzler?|
 |GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecase Factory<br/>Read Cineplex reviews in Yelp|
 |GetRoute|Ask for directions to a place.|How to walk to Bellevue square<br/>Show me the shortest way to 8th and 59th from here<br/>Get me directions to Mountain View CA|
+|GetStarRating|Ask for the star rating of a place.|How is Zucca rated according to Yelp?<br/>How many stars does the French Laundry have?<br/>Is the aquarium in Monterrey good?|
+|GetTransportationSchedule|Get the bus schedule for a place.|What time is the next bus to downtown?<br/>Show me the buses in King County|
+|GetTravelTime|Ask for the travel time to a specified destination.|How long will it take to get to San Francisco from here<br/>What's the driving time to Denver from SF|
+|MakeCall|Make a phone call to a place.|Call mom<br/>I would like to place a Skype call to Anna<br/>Call Jim|
+|MakeReservation|Request a reservation for a restaurant or other business.|Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 8|
+|MapQuestions|Request information about directions or whether a specified road goes to a destination.|Does 13 pass through downtown?<br/>Can I take 880 to Oakland?|
+|Rating|Get the rating description of a restaurant or place.|How many stars does the Contoso Inn have?|
+|ReadAloud|Read a list of places out loud.|Read me the first one<br/>Read me the details|
+|SelectItem|Choose an item from a list of choices relating to a place or places.|Pick the second one<br/>Select the first|
+|ShowMap|Show a map of an area.|Show a map for the second one<br/>Show map<br/>Find San Francisco on the map|
+|ShowNext|Show the next item in a series.|Show the next one<br/>go to the next page|
+|ShowPrevious|Show the previous item in a series.|show previous one<br/>previous<br/>go to previous|
+|StartOver|Restart the app or start a new session.|Start over<br/>New session<br/>
+restart|
+|TakesReservations|Ask whether a place accepts reservations.|Does the art gallery accept reservations<br/>Is it possible to make a reservation at the Olive Garden
 
 ### Entities
 | Entity name | Description | Examples |
