@@ -17,7 +17,7 @@ ms.author: jroth
 ---
 # How to create a Windows SQL Server virtual machine in the Azure portal
 
-This guide walks through the different options available when you create a Windows SQL Server virtual machine in the Azure portal. You can follow the steps to create your own SQL Server VM while learning about the different choices. Or, you can go to a specific section for reference on a partiular step in the portal.
+This guide walks through the different options available when you create a Windows SQL Server virtual machine in the Azure portal. You can follow the steps to create your own SQL Server VM while learning about the different choices. Or, you can go to a specific section for reference on a particular step in the portal.
 
 > [!TIP]
 > To get started quickly with default portal values, see the [Azure quickstart - Create a SQL Server VM in the portal](quickstart-sql-vm-create-portal.md).

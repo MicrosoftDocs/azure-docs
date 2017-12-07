@@ -131,9 +131,13 @@ After you connect to the SQL Server virtual machine, you can launch SQL Server M
 
 Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
 
+# Clean up resources
+
+If you do not need your SQL VM to run continually, you can avoid unnecessary charges by stopping it when not in use. You can also permanently delete all resources associated with the virtual machine by deleting its associated resource group in the portal. This permanently deletes the virtual machine as well, so use this command with care. For more information, see [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
+
 ## Next Steps
 
-In this quickstart, you created a SQL Server 2017 virtual machine using Azure PowerShell. To learn more about how to migrate your data to the new SQL Server, see the following article.
+In this quickstart, you created a SQL Server 2017 virtual machine in the Azure Portal. To learn more about how to migrate your data to the new SQL Server, see the following article.
 
 > [!div class="nextstepaction"]
 > [Migrate a database to a SQL VM](virtual-machines-windows-migrate-sql.md)
