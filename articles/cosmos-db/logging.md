@@ -53,7 +53,7 @@ To complete this tutorial, you must have the following resources:
     * **Send to Log Analytics**.     To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
     * **Log DataPlaneRequests**. Select this option to log diagnostics for SQL, Graph, and Table API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Log MongoRequests**. Select this option to log diagnostics for MongoDB API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
-    * **Metric Requests**. Select this option to store verbose data in [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Metric Requests**. Select this option to store verbose data in [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
 
 3. Click **Save**.
 

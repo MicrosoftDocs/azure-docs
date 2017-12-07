@@ -7,7 +7,7 @@ manager: jhubbard
 editor: ''
 tags: azure-service-management
 
-ms.assetid:s
+ms.assetid: 
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na

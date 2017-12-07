@@ -516,6 +516,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DeviceAssignments|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName, Status, Protocol|
 
+<a id="CosmosDB"></a>
+
 ## Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
