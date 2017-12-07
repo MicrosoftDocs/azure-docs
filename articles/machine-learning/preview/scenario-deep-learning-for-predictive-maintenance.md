@@ -22,7 +22,7 @@ Predictive maintenance is also a very popular area where many different techniqu
 
 In predictive maintenance scenarios, data is collected over time to monitor the state of equipment with the final goal of finding patterns to predict failures. Among the deep learning methods, [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks are especially appealing to the predictive maintenance domain due to the fact that they are very good at learning from sequences. This fact lends itself to their applications using time series data by making it possible to look back for longer periods of time to detect failure patterns.
 
-In this tutorial, we build an LSTM network for the data set and scenario described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3) to predict remaining useful life of aircraft engines. In summary, the template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future so that maintenance can be planned in advance.
+In this tutorial, we build a LSTM network for the data set and scenario described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3) to predict remaining useful life of aircraft engines. In summary, the template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future so that maintenance can be planned in advance.
 
 This tutorial uses [keras](https://keras.io/) deep learning library with Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) as backend.
 
@@ -59,14 +59,14 @@ To run on your local machine, from the AML Workbench `File` menu, select either 
 
  We suggest running on a  DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). Once the DSVM is configured, you need to run the following two commands:
 
-`az ml computetarget attach --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword] --type remotedocker`
+`az ml computetarget attach remotedocker --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]`
 
 `az ml experiment prepare --target [Desired_Connection_Name] --run-configuration [Desired_Connection_Name]`
 
 With the docker images _prepared_, open the jupyter notebook server either within the *AML Workbench* notebooks tab, or to start a browser-based server, run:
 `az ml notebook start`
 
-- Notebooks are stored in the `Code` directory found in the Jupyter environment. We run these notebooks sequentially as numbered, starting on (`Code\1_data_ingestion.ipynb`).
+- Notebooks are stored in the `Code` directory found in the Jupyter environment. We run these notebooks sequentially as numbered, starting on (`Code\1_data_ingestionand_and_preparation.ipynb`).
 
 - Select the kernel to match your [Project_Name]_Template [Desired_Connection_Name] and click Set Kernel
 
@@ -93,7 +93,7 @@ The Data Ingestion Jupyter Notebook in the `Code/1_data_ingestion_and_preparatio
 
 ### Task 2: Model Building & Evaluation
 
-The Model Building Jupyter Notebook in `Code/2_model_building_and_evaluation.ipnyb` that reads `PySpark` train and test data sets from blob storage. Then an LSTM network is built with the training data sets. The model performance is measured on the test set. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
+The Model Building Jupyter Notebook in `Code/2_model_building_and_evaluation.ipnyb` that reads `PySpark` train and test data sets from blob storage. Then a LSTM network is built with the training data sets. The model performance is measured on the test set. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
 
 ### Task 3: Operationalization
 
@@ -101,8 +101,8 @@ The operationalization Jupyter Notebook in `Code/3_operationalization.ipnyb` tha
 The zipped file contains:
 
 - `service_schema.json` The schema definition file for deployment. 
-- `pdmscore.py` The init() and run() functions required by the Azure web service
-- `pdmrfull.model` The model definition directory.
+- `lstmcore.py` The init() and run() functions required by the Azure web service
+- `lstmfull.model` The model definition directory.
 
 The notebook tests the functions with the model definition before packaging the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
 
