@@ -21,7 +21,7 @@ ms.author: andret
 
 This guide shows how a native iOS application (Swift) can call APIs that require access tokens from Azure Active Directory v2.0 endpoint. The guide explains how to obtain access tokens and use them in calls to the Microsoft Graph API and other APIs.
 
-After completing the exercises in this guide, your application can call a protected API from any company or organization that has Azure Active Directory (Azure AD). Your application can make protected API calls by using personal accounts like outlook.com, live.com, and others, as well as work and school accounts.
+After you complete the exercises in this guide, your application can call a protected API from any company or organization that has Azure Active Directory (Azure AD). Your application can make protected API calls by using personal accounts like outlook.com, live.com, and others, as well as work and school accounts.
 
 ## Prerequisites
 - XCode version 8.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
@@ -38,7 +38,7 @@ In this guide, the sample application enables an iOS application to query the Mi
 
 After the user authenticates, the sample application receives a token. The token is used to query the Microsoft Graph API or a web API that is secured by Azure AD v2.0 endpoint.
 
-APIs, such as Microsoft Graph, require an access token to allow access to specific resources. For example, to read a user’s profile, access a user’s calendar, or to send an email. Your application can request an access token by using MSAL and specifying API scopes. The access token is added to the HTTP **Authorization** header for every call that is made against the protected resource.
+APIs, such as Microsoft Graph, require an access token to allow access to specific resources. Tokens are required to read a user’s profile, access a user’s calendar, send an email, and so on. Your application can request an access token by using MSAL and specifying API scopes. The access token is added to the HTTP **Authorization** header for every call that is made against the protected resource.
 
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
