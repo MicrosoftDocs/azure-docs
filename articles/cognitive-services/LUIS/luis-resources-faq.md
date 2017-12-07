@@ -79,6 +79,7 @@ You can integrate your LUIS app with Bing Spell Check to spell check utterances 
    1. [Get an API key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api) for [Bing SpellCheck API v7](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).  Free trial keys provide 1,000 transactions per month, up to 1 per second. They expire after a 30-day period.
    2. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
    3. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
+   4. Include the `bing-spell-check-subscription-key` parameter in the query to the LUIS app's endpoint when you access the app from your client application. Set the parameter to the value of your Bing SpellCheck API key. If the **Enable Bing spell checker** checkbox is checked, a placeholder for this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
 
 If Bing Spell Check detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
 
