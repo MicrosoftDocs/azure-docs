@@ -172,106 +172,14 @@ Name | Purpose
 
 ## Azure CDN rules engine features reference
 
-### Deny Access
-**Purpose**: Determines whether all requests are rejected with a 403 Forbidden response.
-
-Value | Result
-------|-------
-Enabled| Causes all requests that satisfy the matching criteria to be rejected with a 403 Forbidden response.
-Disabled| Restores the default behavior. The default behavior is to allow the origin server to determine the type of response that will be returned.
-
-**Default Behavior**: Disabled
-
-> [!TIP]
-   > One possible use for this feature is to associate it with a Request Header match condition to block access to HTTP referrers that are using inline links to your content.
-
-### Token Auth
-**Purpose:** Determines whether Token-Based Authentication will be applied to a request.
-
-If Token-Based Authentication is enabled, then only requests that provide an encrypted token and comply to the requirements specified by that token will be honored.
-
-The encryption key that will be used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
-
-Value | Result
-------|---------
-Enabled | Protects the requested content with Token-Based Authentication. Only requests from clients that provide a valid token and meet its requirements will be honored. FTP transactions are excluded from Token-Based Authentication.
-Disabled| Restores the default behavior. The default behavior is to allow your Token-Based Authentication configuration to determine whether a request will be secured.
-
-**Default Behavior:** Disabled.
-
-### Token Auth Denial Code
-**Purpose:** Determines the type of response that will be returned to a user when a request is denied due to Token-Based Authentication.
-
-The available response codes are listed below.
-
-Response Code|Response Name|Description
-----------------|-----------|--------
-301|Moved Permanently|This status code redirects unauthorized users to the URL specified in the Location header.
-302|Found|This status code redirects unauthorized users to the URL specified in the Location header. This status code is the industry standard method of performing a redirect.
-307|Temporary Redirect|This status code redirects unauthorized users to the URL specified in the Location header.
-401|Unauthorized|Combining this status code with the WWW-Authenticate response header allows you to prompt a user for authentication.
-403|Forbidden|This is the standard 403 Forbidden status message that an unauthorized user will see when trying to access protected content.
-404|File Not Found|This status code indicates that the HTTP client was able to communicate with the server, but the requested content was not found.
-
-#### URL Redirection
-
-This feature supports URL redirection to a user-defined URL when it is configured to return a 3xx status code. This user-defined URL can be specified by performing the following steps:
-
-1. Select a 3xx response code for the Token Auth Denial Code feature.
-2. Select "Location" from the Optional Header Name option.
-3. Set the Optional Header Value option to the desired URL.
-
-If a URL is not defined for a 3xx status code, then the standard response page for a 3xx status code will be returned to the user.
-
-URL redirection is only applicable for 3xx response codes.
-
-The Optional Header Value option supports alphanumeric characters, quotation marks, and spaces.
-
-#### Authentication
-
-This feature supports the capability to include the WWW-Authenticate header when responding to an unauthorized request for content protected by Token-Based Authentication. If the WWW-Authenticate header has been set to "basic" in your configuration, then the unauthorized user will be prompted for account credentials.
-
-The above configuration can be achieved by performing the following steps:
-
-1. Select "401" as the response code for the Token Auth Denial Code feature.
-2. Select "WWW-Authenticate" from the Optional Header Name option.
-3. Set the Optional Header Value option to "basic."
-
-The WWW-Authenticate header is only applicable for 401 response codes.
-
-### Token Auth Ignore URL Case
-**Purpose:** Determines whether URL comparisons made by Token-Based Authentication will be case-sensitive.
-
-The parameters affected by this feature are:
-
-- ec_url_allow
-- ec_ref_allow
-- ec_ref_deny
-
-Valid values are:
-
+### Age Response Header
+**Purpose**: Determines whether an Age response header will be included in the response sent to the requester.
 Value|Result
----|----
-Enabled|Causes our edge server to ignore case when comparing URLs for Token-Based Authentication parameters.
-Disabled|Restores the default behavior. The default behavior is for URL comparisons for Token Authentication to be case-sensitive.
+--|--
+Enabled | The Age response header will be included in the response sent to the requester.
+Disabled | The Age response header will be excluded from the response sent to the requester.
 
-**Default Behavior:** Disabled.
- 
-### Token Auth Parameter
-**Purpose:** Determines whether the Token-Based Authentication query string parameter should be renamed.
-
-Key information:
-
-- The Value option defines the query string parameter name through which a token may be specified.
-- The Value option cannot be set to "ec_token."
-- Ensure that the name defined in the Value option contains only valid URL characters.
-
-Value|Result
-----|----
-Enabled|The Value option defines the query string parameter name through which tokens should be defined.
-Disabled|A token may be specified as an undefined query string parameter in the request URL.
-
-**Default Behavior:** Disabled. A token may be specified as an undefined query string parameter in the request URL.
+**Default Behavior**: Disabled.
 
 ### Bandwidth Parameters
 **Purpose:** Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) will be active.
@@ -326,6 +234,35 @@ Add if Missing|If a Cache-Control header was not received from the origin serv
 Remove| This option ensures that a Cache-Control header is not included with the header response. If a Cache-Control header has already been assigned, then it will be stripped from the header response.
 
 **Default Behavior:** Overwrite.
+
+### Cacheable HTTP Methods
+**Purpose:** Determines the set of additional HTTP methods that can be cached on our network.
+
+Key information:
+
+- This feature assumes that GET responses should always be cached. As a result, the GET HTTP method should not be included when setting this feature.
+- This feature only supports the POST HTTP method. Enable POST response caching by setting this feature to:POST 
+- By default, only requests whose body is smaller than 14 Kb will be cached. Use the Cacheable Request Body Size Feature to set the maximum request body size.
+
+**Default Behavior:** Only GET responses will be cached.
+
+### Cacheable Request Body Size
+
+**Purpose:** Defines the threshold for determining whether a POST response can be cached.
+
+This threshold is determined by specifying a maximum request body size. Requests that contain a larger request body will not be cached.
+
+Key information:
+
+- This Feature is only applicable when POST responses are eligible for caching. Use the Cacheable HTTP Methods Feature to enable POST request caching.
+- The request body is taken into consideration for:
+    - x-www-form-urlencoded values
+    - Ensuring a unique cache-key
+- Defining a large maximum request body size may impact data delivery performance.
+    - **Recommended Value:** 14 Kb
+    - **Minimum Value:** 1 Kb
+
+**Default Behavior:** 14 Kb
 
 ### Cache-Key Query String
 **Purpose:** Determines whether the cache-key will include or exclude query string parameters associated with a request.
@@ -408,6 +345,17 @@ Original Path| Define the relative path to the types of requests whose cache-key
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of HTTP variables
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
+### Comment
+**Purpose:** Allows a note to be added within a rule.
+
+One use for this feature is to provide additional information on the general purpose of a rule or why a particular match condition or feature was added to the rule.
+
+Key information:
+
+- A maximum of 150 characters may be specified.
+- Use only alphanumeric characters.
+- This feature does not affect the behavior of the rule. It is merely meant to provide an area where you can provide information for future reference or that may help when troubleshooting the rule.
+
 ### Complete Cache Fill
 **Purpose:** Determines what happens when a request results in a partial cache miss on an edge server.
 
@@ -448,6 +396,53 @@ Key information:
 - Wildcard characters, such as asterisks, are not supported.
 - Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
 
+### Custom Log Field 1
+**Purpose:** Determines the format and the content that will be assigned to the custom log field in a raw log file.
+
+The main purpose behind this custom field is to allow you to determine which request and response header values will be stored in your log files.
+
+By default, the custom log field is called "x-ec_custom-1." However, the name of this field can be customized from the [Raw Log Settings page]().
+
+The formatting that you should use to specify request and response headers is defined below.
+
+Header Type|Format|Examples
+-|-|-
+Request Header|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Response Header|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+
+Key information:
+
+- A custom log field can contain any combination of header fields and plain text.
+- Valid characters for this field include the following: alphanumeric (0-9, a-z, and A-Z), dashes, colons, semi-colons, apostrophes, commas, periods, underscores, equal signs, parentheses, brackets, and spaces. The percentage symbol and curly braces are only allowed when used to specify a header field.
+- The spelling for each specified header field must match the desired request/response header name.
+- If you would like to specify multiple headers, then it is recommended that you use a separator to indicate each header. For example, you could use an abbreviation for each header. Sample syntax is provided below.
+	- AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
+
+**Default Value:** -
+
+### Debug Cache Response Headers
+**Purpose:** Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
+
+Debug cache response headers will be included in the response when both of the following are true:
+
+- The Debug Cache Response Headers Feature has been enabled on the desired request.
+- The above request defines the set of debug cache response headers that will be included in the response.
+
+Debug cache response headers may be requested by including the following header and the desired directives in the request:
+
+X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+
+**Example:**
+
+X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
+
+Value|Result
+-|-
+Enabled|Requests for debug cache response headers will return a response that includes the X-EC-Debug header.
+Disabled|The X-EC-Debug response header will be excluded from the response.
+
+**Default Behavior:** Disabled.
+
 ### Default Internal Max-Age
 **Purpose:** Determines the default max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server will check whether a cached asset matches the asset stored on the origin server.
 
@@ -472,6 +467,19 @@ Key information:
     - URL Query Wildcard
 
 **Default Value:** 7 days
+
+### Deny Access
+**Purpose**: Determines whether all requests are rejected with a 403 Forbidden response.
+
+Value | Result
+------|-------
+Enabled| Causes all requests that satisfy the matching criteria to be rejected with a 403 Forbidden response.
+Disabled| Restores the default behavior. The default behavior is to allow the origin server to determine the type of response that will be returned.
+
+**Default Behavior**: Disabled
+
+> [!TIP]
+   > One possible use for this feature is to associate it with a Request Header match condition to block access to HTTP referrers that are using inline links to your content.
 
 ### Expires Header Treatment
 **Purpose:** Controls the generation of Expires headers by an edge server when the External Max-Age feature is active.
@@ -501,6 +509,20 @@ server, and can be customized with the Default Internal Max-Age and the Force
 - Setting the time unit to "Off" will disable this feature. The Cache-Control/Expires headers cached with the response of the origin server will pass through to the browser.
 
 **Default Behavior:** Off
+
+### Follow Redirects
+**Purpose:** Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server.
+
+Key information:
+
+- Requests can only be redirected to edge CNAMEs that correspond to the same platform.
+
+Value|Result
+-|-
+Enabled|Requests can be redirected.
+Disabled|Requests will not be redirected.
+
+**Default Behavior:** Disabled.
 
 ### Force Internal Max-Age
 **Purpose:** Determines the max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server can check whether a cached asset matches the asset stored on the origin server.
@@ -617,125 +639,27 @@ Key information:
 
 **Default Behavior:** Two minutes
 
-### Partial Cache Sharing
-**Purpose:** Determines whether a request can generate partially cached content.
-
-This partial cache may then be used to fulfill new requests for that content until the requested content is fully cached.
+### Log Query String
+**Purpose:** Determines whether a query string will be stored along with the URL in access logs.
 
 Value|Result
 -|-
-Enabled|Requests can generate partially cached content.
-Disabled|Requests can only generate a fully cached version of the requested content.
+Enabled|Allows the storage of query strings when recording URLs in an access log. If a URL does not contain a query string, then this option will not have an effect.
+Disabled|Restores the default behavior. The default behavior is to ignore query strings when recording URLs in an access log.
 
 **Default Behavior:** Disabled.
 
-### Prevalidate Cached Content
-**Purpose:** Determines whether cached content will be eligible for early revalidation before its TTL expires.
+### Maximum Keep-Alive Requests
+**Purpose:** Defines the maximum number of requests for a Keep-Alive connection before it is closed.
 
-Define the amount of time prior to the expiration of the requested content's TTL during which it will be eligible for early revalidation.
-
-Key information:
-
-- Selecting "Off" as the time unit requires revalidation to take place after the cached content's TTL has expired. Time should not be specified and it will be ignored.
-
-**Default Behavior:** Off. Revalidation may only take place after the cached content's TTL has expired.
-
-### Refresh Zero Byte Cache Files
-**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by our edge servers.
-
-Valid values are:
-
-Value|Result
---|--
-Enabled|Causes our edge server to refetch the asset from the origin server.
-Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
-This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by our edge servers. If you know that a 0-byte response is never a valid response 
-
-for such content, then this feature can prevent these types of assets from being served to your clients.
-
-**Default Behavior:** Disabled.
-
-### Set Cacheable Status Codes
-**Purpose:** Defines the set of status codes that can result in cached content.
-
-By default, caching is only enabled for 200 OK responses.
-
-Define a space-delimited set of the desired status codes.
+Setting the maximum number of requests to a low value is strongly discouraged and may result in performance degradation.
 
 Key information:
 
-- Enable the Ignore Origin No-Cache feature. If this feature is not enabled, then non-200 OK responses may not be cached.
-- The set of valid status codes for this feature are: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
-- This feature cannot be used to disable caching for responses that generate a 200 OK status code.
+- Specify this value as a whole integer.
+- Do not include commas or periods in the specified value.
 
-**Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.
-
-### Stale Content Delivery on Error
-**Purpose:** 
-
-Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
-
-Value|Result
--|-
-Enabled|Stale content will be served to the requester when an error occurs during a connection to an origin server.
-Disabled|The origin server's error will be forwarded to the requester.
-
-**Default Behavior:** Disabled
-
-### Stale While Revalidate
-**Purpose:** Improves performance by allowing our edge servers to serve stale content to the requester while revalidation takes place.
-
-Key information:
-
-- The behavior of this feature varies according to the selected time unit.
-    - **Time Unit:** Specify a length of time and select a time unit (for example, Seconds, Minutes, Hours, etc.) to allow stale content delivery. This type of setup allows the CDN to extend the length of time that it may deliver content before requiring validation according to the following formula:**TTL** + **Stale While Revalidate Time** 
-    - **Off:** Select "Off" to require revalidation before a request for stale content may be served.
-        - Do not specify a length of time since it is inapplicable and will be ignored.
-
-**Default Behavior:** Off. Revalidation must take place before the requested content can be served.
-
-### Comment
-**Purpose:** Allows a note to be added within a rule.
-
-One use for this feature is to provide additional information on the general purpose of a rule or why a particular match condition or feature was added to the rule.
-
-Key information:
-
-- A maximum of 150 characters may be specified.
-- Use only alphanumeric characters.
-- This feature does not affect the behavior of the rule. It is merely meant to provide an area where you can provide information for future reference or that may help when troubleshooting the rule.
-
-### Age Response Header
-**Purpose**: Determines whether an Age response header will be included in the response sent to the requester.
-Value|Result
---|--
-Enabled | The Age response header will be included in the response sent to the requester.
-Disabled | The Age response header will be excluded from the response sent to the requester.
-
-**Default Behavior**: Disabled.
-
-### Debug Cache Response Headers
-**Purpose:** Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
-
-Debug cache response headers will be included in the response when both of the following are true:
-
-- The Debug Cache Response Headers Feature has been enabled on the desired request.
-- The above request defines the set of debug cache response headers that will be included in the response.
-
-Debug cache response headers may be requested by including the following header and the desired directives in the request:
-
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
-
-**Example:**
-
-X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
-
-Value|Result
--|-
-Enabled|Requests for debug cache response headers will return a response that includes the X-EC-Debug header.
-Disabled|The X-EC-Debug response header will be excluded from the response.
-
-**Default Behavior:** Disabled.
+**Default Value:** 10,000 requests
 
 ### Modify Client Request Header
 **Purpose:** Each request contains a set of [request headers]() that describe it. This feature can either:
@@ -811,6 +735,69 @@ Key information:
     - warning
     - All header names that start with "x-ec" are reserved.
 
+### Partial Cache Sharing
+**Purpose:** Determines whether a request can generate partially cached content.
+
+This partial cache may then be used to fulfill new requests for that content until the requested content is fully cached.
+
+Value|Result
+-|-
+Enabled|Requests can generate partially cached content.
+Disabled|Requests can only generate a fully cached version of the requested content.
+
+**Default Behavior:** Disabled.
+
+### Prevalidate Cached Content
+**Purpose:** Determines whether cached content will be eligible for early revalidation before its TTL expires.
+
+Define the amount of time prior to the expiration of the requested content's TTL during which it will be eligible for early revalidation.
+
+Key information:
+
+- Selecting "Off" as the time unit requires revalidation to take place after the cached content's TTL has expired. Time should not be specified and it will be ignored.
+
+**Default Behavior:** Off. Revalidation may only take place after the cached content's TTL has expired.
+
+### Proxy Special Headers
+**Purpose:** Defines the set of [CDN-specific request headers]() that will be forwarded from an edge server to an origin server.
+
+Key information:
+
+- Each CDN-specific request header defined in this feature will be forwarded to an origin server.
+- Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
+
+**Default Behavior:** All [CDN-specific request headers]() will be forwarded to the origin server.
+
+### Refresh Zero Byte Cache Files
+**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by our edge servers.
+
+Valid values are:
+
+Value|Result
+--|--
+Enabled|Causes our edge server to refetch the asset from the origin server.
+Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
+This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by our edge servers. If you know that a 0-byte response is never a valid response 
+
+for such content, then this feature can prevent these types of assets from being served to your clients.
+
+**Default Behavior:** Disabled.
+
+### Set Cacheable Status Codes
+**Purpose:** Defines the set of status codes that can result in cached content.
+
+By default, caching is only enabled for 200 OK responses.
+
+Define a space-delimited set of the desired status codes.
+
+Key information:
+
+- Enable the Ignore Origin No-Cache feature. If this feature is not enabled, then non-200 OK responses may not be cached.
+- The set of valid status codes for this feature are: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
+- This feature cannot be used to disable caching for responses that generate a 200 OK status code.
+
+**Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.
+
 ### Set Client IP Custom Header
 **Purpose:** Adds a custom header that identifies the requesting client by IP address to the request.
 
@@ -830,104 +817,115 @@ Ensure that the specified header name does not match any of the following names:
     - x-forwarded-for
     - All header names that start with "x-ec" are reserved.
 
-### Custom Log Field 1
-**Purpose:** Determines the format and the content that will be assigned to the custom log field in a raw log file.
-
-The main purpose behind this custom field is to allow you to determine which request and response header values will be stored in your log files.
-
-By default, the custom log field is called "x-ec_custom-1." However, the name of this field can be customized from the [Raw Log Settings page]().
-
-The formatting that you should use to specify request and response headers is defined below.
-
-Header Type|Format|Examples
--|-|-
-Request Header|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Response Header|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
-
-Key information:
-
-- A custom log field can contain any combination of header fields and plain text.
-- Valid characters for this field include the following: alphanumeric (0-9, a-z, and A-Z), dashes, colons, semi-colons, apostrophes, commas, periods, underscores, equal signs, parentheses, brackets, and spaces. The percentage symbol and curly braces are only allowed when used to specify a header field.
-- The spelling for each specified header field must match the desired request/response header name.
-- If you would like to specify multiple headers, then it is recommended that you use a separator to indicate each header. For example, you could use an abbreviation for each header. Sample syntax is provided below.
-	- AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
-
-**Default Value:** -
-
-### Log Query String
-**Purpose:** Determines whether a query string will be stored along with the URL in access logs.
+### Stale Content Delivery on Error
+**Purpose:** Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
 
 Value|Result
 -|-
-Enabled|Allows the storage of query strings when recording URLs in an access log. If a URL does not contain a query string, then this option will not have an effect.
-Disabled|Restores the default behavior. The default behavior is to ignore query strings when recording URLs in an access log.
+Enabled|Stale content will be served to the requester when an error occurs during a connection to an origin server.
+Disabled|The origin server's error will be forwarded to the requester.
+
+**Default Behavior:** Disabled
+
+### Stale While Revalidate
+**Purpose:** Improves performance by allowing our edge servers to serve stale content to the requester while revalidation takes place.
+
+Key information:
+
+- The behavior of this feature varies according to the selected time unit.
+    - **Time Unit:** Specify a length of time and select a time unit (for example, Seconds, Minutes, Hours, etc.) to allow stale content delivery. This type of setup allows the CDN to extend the length of time that it may deliver content before requiring validation according to the following formula:**TTL** + **Stale While Revalidate Time** 
+    - **Off:** Select "Off" to require revalidation before a request for stale content may be served.
+        - Do not specify a length of time since it is inapplicable and will be ignored.
+
+**Default Behavior:** Off. Revalidation must take place before the requested content can be served.
+
+### Token Auth
+**Purpose:** Determines whether Token-Based Authentication will be applied to a request.
+
+If Token-Based Authentication is enabled, then only requests that provide an encrypted token and comply to the requirements specified by that token will be honored.
+
+The encryption key that will be used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
+
+Value | Result
+------|---------
+Enabled | Protects the requested content with Token-Based Authentication. Only requests from clients that provide a valid token and meet its requirements will be honored. FTP transactions are excluded from Token-Based Authentication.
+Disabled| Restores the default behavior. The default behavior is to allow your Token-Based Authentication configuration to determine whether a request will be secured.
 
 **Default Behavior:** Disabled.
 
-### Maximum Keep-Alive Requests
-**Purpose:** Defines the maximum number of requests for a Keep-Alive connection before it is closed.
+### Token Auth Denial Code
+**Purpose:** Determines the type of response that will be returned to a user when a request is denied due to Token-Based Authentication.
 
-Setting the maximum number of requests to a low value is strongly discouraged and may result in performance degradation.
+The available response codes are listed below.
 
-Key information:
+Response Code|Response Name|Description
+----------------|-----------|--------
+301|Moved Permanently|This status code redirects unauthorized users to the URL specified in the Location header.
+302|Found|This status code redirects unauthorized users to the URL specified in the Location header. This status code is the industry standard method of performing a redirect.
+307|Temporary Redirect|This status code redirects unauthorized users to the URL specified in the Location header.
+401|Unauthorized|Combining this status code with the WWW-Authenticate response header allows you to prompt a user for authentication.
+403|Forbidden|This is the standard 403 Forbidden status message that an unauthorized user will see when trying to access protected content.
+404|File Not Found|This status code indicates that the HTTP client was able to communicate with the server, but the requested content was not found.
 
-- Specify this value as a whole integer.
-- Do not include commas or periods in the specified value.
+#### URL Redirection
 
-**Default Value:** 10,000 requests
+This feature supports URL redirection to a user-defined URL when it is configured to return a 3xx status code. This user-defined URL can be specified by performing the following steps:
 
-### Proxy Special Headers
-**Purpose:** Defines the set of [CDN-specific request headers]() that will be forwarded from an edge server to an origin server.
+1. Select a 3xx response code for the Token Auth Denial Code feature.
+2. Select "Location" from the Optional Header Name option.
+3. Set the Optional Header Value option to the desired URL.
 
-Key information:
+If a URL is not defined for a 3xx status code, then the standard response page for a 3xx status code will be returned to the user.
 
-- Each CDN-specific request header defined in this feature will be forwarded to an origin server.
-- Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
+URL redirection is only applicable for 3xx response codes.
 
-**Default Behavior:** All [CDN-specific request headers]() will be forwarded to the origin server.
+The Optional Header Value option supports alphanumeric characters, quotation marks, and spaces.
 
-### Cacheable HTTP Methods
-**Purpose:** Determines the set of additional HTTP methods that can be cached on our network.
+#### Authentication
 
-Key information:
+This feature supports the capability to include the WWW-Authenticate header when responding to an unauthorized request for content protected by Token-Based Authentication. If the WWW-Authenticate header has been set to "basic" in your configuration, then the unauthorized user will be prompted for account credentials.
 
-- This feature assumes that GET responses should always be cached. As a result, the GET HTTP method should not be included when setting this feature.
-- This feature only supports the POST HTTP method. Enable POST response caching by setting this feature to:POST 
-- By default, only requests whose body is smaller than 14 Kb will be cached. Use the Cacheable Request Body Size Feature to set the maximum request body size.
+The above configuration can be achieved by performing the following steps:
 
-**Default Behavior:** Only GET responses will be cached.
+1. Select "401" as the response code for the Token Auth Denial Code feature.
+2. Select "WWW-Authenticate" from the Optional Header Name option.
+3. Set the Optional Header Value option to "basic."
 
-### Cacheable Request Body Size
+The WWW-Authenticate header is only applicable for 401 response codes.
 
-**Purpose:** Defines the threshold for determining whether a POST response can be cached.
+### Token Auth Ignore URL Case
+**Purpose:** Determines whether URL comparisons made by Token-Based Authentication will be case-sensitive.
 
-This threshold is determined by specifying a maximum request body size. Requests that contain a larger request body will not be cached.
+The parameters affected by this feature are:
 
-Key information:
+- ec_url_allow
+- ec_ref_allow
+- ec_ref_deny
 
-- This Feature is only applicable when POST responses are eligible for caching. Use the Cacheable HTTP Methods Feature to enable POST request caching.
-- The request body is taken into consideration for:
-    - x-www-form-urlencoded values
-    - Ensuring a unique cache-key
-- Defining a large maximum request body size may impact data delivery performance.
-    - **Recommended Value:** 14 Kb
-    - **Minimum Value:** 1 Kb
-
-**Default Behavior:** 14 Kb
-
-### Follow Redirects
-**Purpose:** Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server.
-
-Key information:
-
-- Requests can only be redirected to edge CNAMEs that correspond to the same platform.
+Valid values are:
 
 Value|Result
--|-
-Enabled|Requests can be redirected.
-Disabled|Requests will not be redirected.
+---|----
+Enabled|Causes our edge server to ignore case when comparing URLs for Token-Based Authentication parameters.
+Disabled|Restores the default behavior. The default behavior is for URL comparisons for Token Authentication to be case-sensitive.
 
 **Default Behavior:** Disabled.
+ 
+### Token Auth Parameter
+**Purpose:** Determines whether the Token-Based Authentication query string parameter should be renamed.
+
+Key information:
+
+- The Value option defines the query string parameter name through which a token may be specified.
+- The Value option cannot be set to "ec_token."
+- Ensure that the name defined in the Value option contains only valid URL characters.
+
+Value|Result
+----|----
+Enabled|The Value option defines the query string parameter name through which tokens should be defined.
+Disabled|A token may be specified as an undefined query string parameter in the request URL.
+
+**Default Behavior:** Disabled. A token may be specified as an undefined query string parameter in the request URL.
 
 ### URL Redirect
 **Purpose:** Redirects requests via the Location header.
