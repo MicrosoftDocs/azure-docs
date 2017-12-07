@@ -6,15 +6,13 @@ documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewers:jasonh, MicrosoftDocs/mlreview
 
 ---
 # Create and share an Azure Machine Learning workspace
@@ -36,7 +34,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 2. Click **+New**
 
-3. Select **Intelligence + analytics**, click **Machine Learning Workspace**, then click **Create**
+3. In the search box, type **Machine Learning Studio Workspace** to locate the matching item, select click **Create**
 
 4. Enter your workspace information
 
