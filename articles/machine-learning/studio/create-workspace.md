@@ -33,7 +33,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 2. Click **+New**
 
-3. In the search box, type **Machine Learning Studio Workspace** and select the matching item. Then select click **Create**.
+3. In the search box, type **Machine Learning Studio Workspace** and select the matching item. Then, select click **Create** at the bottom of the page.
 
 4. Enter your workspace information:
 
