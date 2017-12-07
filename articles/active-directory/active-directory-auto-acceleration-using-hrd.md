@@ -1,5 +1,5 @@
 ---
-title: Configure sign-in auto-acceleration for an application using Home Realm Discovery Policy | Microsoft Docs
+title: Configure sign-in auto-acceleration for an application using a Home Realm Discovery policy | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -14,7 +14,7 @@ ms.date: 11/09/2017
 ms.author: billmath
 ---
 
-# Configure sign-in auto-acceleration for an application by using Home Realm Discovery (HRD) policy
+# Configure sign-in auto-acceleration for an application by using a Home Realm Discovery policy
 
 The following document provides an introduction to Home Realm Discovery and auto-acceleration.
 
@@ -71,10 +71,10 @@ For more information about auto-acceleration using the domain hints that are sup
 >If a domain hint is included in an authentication request, its presence overrides any HRD policy that is set for the application.
 
 ## Home Realm Discovery policy
-Some applications do not provide a way to configure the authentication request they emit, and in these cases it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
+Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
 
 ### Set HRD policy
-There are three steps to setting sign-in auto-acceleration on an application.
+There are three steps to setting sign-in auto-acceleration on an application:
 
 
 1. Creating an HRD policy for auto-acceleration.
@@ -121,8 +121,8 @@ HRD policies can be created and then assigned to specific organizations and serv
 
 - If there is no domain hint, and no policy has been assigned to the service principal or the organization, the default HRD behavior is used.
 
-## Tutorial for setting sign-in auto-acceleration on an application by using HRD policy with Azure Active Directory PowerShell cmdlets
-We'll walk through a few scenarios, including:
+## Tutorial for setting sign-in auto-acceleration on an application by using an HRD policy
+We'll use Azure AD PowerShell cmdlets to walk through a few scenarios, including:
 
 
 - Setting up auto-acceleration for an application for a tenant with a single federated domain.
@@ -136,7 +136,7 @@ In the following examples, you create, update, link, and delete policies on appl
 
 1.	To begin, download the latest Azure AD PowerShell cmdlet preview. 
 
-2.	After you have downloaded the Azure AD PowerShell cmdlets, run the Connect command to sign into Azure AD with your admin account.
+2.	After you have downloaded the Azure AD PowerShell cmdlets, run the Connect command to sign in to Azure AD with your admin account:
 
     ``` powershell
     Connect-AzureAD -Confirm
@@ -150,14 +150,14 @@ In the following examples, you create, update, link, and delete policies on appl
 If nothing is returned, it means you have no policies created in your tenant.
 
 ### Example: Set auto-acceleration for an application 
-In this example, you create a policy that auto-accelerates users to an AD FS sign-in screen when they are signing in to an application. The user can sign into AD FS withou having to enter a username on the Azure AD sign-in page first. 
+In this example, you create a policy that auto-accelerates users to an AD FS sign-in screen when they are signing in to an application. Users can sign in to AD FS without having to enter a username on the Azure AD sign-in page first. 
 
-#### Step 1: Create an HRD policy.
+#### Step 1: Create an HRD policy
 ``` powershell
 New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
-If you have a single federated domain that authenticates users for applications, you only need to create one HRD policy.  
+If you have a single federated domain that authenticates users for applications, you need to create only one HRD policy.  
 
 To see your new policy and get its **ObjectID**, run the following command:
 
@@ -168,12 +168,12 @@ Get-AzureADPolicy
 
 To enable auto-acceleration after you have an HRD policy, you can assign it to multiple application service principles.
 
-#### Step 2: Locate the service principal to which to assign the policy.  
+#### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your organization's service principals. Since you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principles and their IDs.
+You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principles and their IDs.
 
-#### Step 3: Assign the policy to your service principal.  
+#### Step 3: Assign the policy to your service principal  
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
 ``` powershell
@@ -182,7 +182,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 You can repeat this command for each service principal to which you want to add the policy.
 
-#### Step 4: Check which application service principals your auto-acceleration policy is assigned to.
+#### Step 4: Check which application service principals your auto-acceleration policy is assigned to
 To check which applications have auto-acceleration policy configured, use the **Get-AzureADPolicyAppliedObject** cmdlet. Pass it the **ObjectID** of the policy that you want to check on.
 
 ``` powershell
@@ -193,7 +193,7 @@ Try the application to check that the new policy is working.
 
 ### Example: List the applications for which an auto-acceleration policy is configured
 
-#### Step 1: List all policies that were created in your organization. 
+#### Step 1: List all policies that were created in your organization 
 
 ``` powershell
 Get-AzureADPolicy
@@ -201,22 +201,23 @@ Get-AzureADPolicy
 
 Note the **ObjectID** of the policy that you want to list assignments for.
 
-#### Step 2: List the service principals to which the policy is assigned.  
+#### Step 2: List the service principals to which the policy is assigned  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
 ### Example: Remove an auto-acceleration policy for an application
-#### Step 1: Use the previous example to get the **ObjectID** of the policy, and that of the application service principal from which you wish to remove it. 
+#### Step 1: Get the ObjectID
+Use the previous example to get the **ObjectID** of the policy, and that of the application service principal from which you want to remove it. 
 
-#### Step 2: Remove the policy assignment from the application service principal.  
+#### Step 2: Remove the policy assignment from the application service principal  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### Step 3: Check removal by listing the service principals to which the policy is assigned. 
+#### Step 3: Check removal by listing the service principals to which the policy is assigned 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
