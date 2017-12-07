@@ -164,9 +164,6 @@ HDInsight clusters support the following languages that are specific to the Hado
 * Pig Latin for Pig jobs
 * HiveQL for Hive jobs and SparkSQL
 
-## HDInsight Standard and HDInsight Premium
-HDInsight provides big data cloud offerings in two categories, Standard and Premium. HDInsight Standard provides an enterprise-scale cluster that organizations can use to run their big data workloads. HDInsight Premium builds on Standard capabilities and provides advanced analytical and security capabilities for an HDInsight cluster. For more information, see [Azure HDInsight Premium](../hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
-
 ## Microsoft business intelligence and HDInsight
 Familiar business intelligence (BI) tools retrieve, analyze, and report data integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver:
 
@@ -181,7 +178,7 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data int
 
 * [Get started with Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md): A quick-start tutorial for provisioning HDInsight Hadoop clusters and running sample Hive queries.
 * [Get started with Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md): A quick-start tutorial for creating a Spark cluster and running interactive Spark SQL queries.
-* [Use R Server on HDInsight](../r-server/r-server-get-started.md): Start using R Server in HDInsight Premium.
+* [Use R Server on HDInsight](../r-server/r-server-get-started.md): Start using R Server in HDInsight.
 * [Provision HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md): Learn how to provision an HDInsight Hadoop cluster through the Azure portal, Azure CLI, or Azure PowerShell.
 
 
