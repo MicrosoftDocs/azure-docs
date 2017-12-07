@@ -1,6 +1,6 @@
 ---
-title: Migrate from Azure Access Control service | Microsoft Docs
-description: Options for moving apps and services from Azure Access Control service
+title: Migrate from the Azure Access Control service | Microsoft Docs
+description: Options for moving apps and services from the Azure Access Control service
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
@@ -18,9 +18,9 @@ ms.author: dastrock
 ---
 
 
-# Migrate from Azure Access Control service
+# Migrate from the Azure Access Control service
 
-Azure Access Control service (Access Control), a service of Azure Active Directory, will be retired in November 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
+Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired in November 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
 
 ## Overview
@@ -85,7 +85,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | Azure Service Bus Relay | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Azure Redis Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migrate to Azure Logic Apps](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Upgrade the Azure Backup agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
@@ -111,28 +111,28 @@ For web applications that use Access Control for user authentication, Access Con
     - Adding additional custom claims.
     - Simple if-then logic to issue claims under certain conditions.
 
-Unfortunately, there isn't one service that offers all of these equivalent capabilities. You should evaluate which capabilities of Access Control you need, and then choose between using [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/) (Azure AD), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C), or another cloud authentication service.
+Unfortunately, there isn't one service that offers all of these equivalent capabilities. You should evaluate which capabilities of Access Control you need, and then choose between using [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C), or another cloud authentication service.
 
 #### Migrate to Azure Active Directory
 
-A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work and school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
+A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
 
 The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not the solution for you. 
 
 Azure AD also doesn't necessarily support the exact same authentication protocols as Access Control. For example, although both Access Control and Azure AD support OAuth, there are subtle differences between each implementation. Different implementations require you to modify code as part of a migration.
 
-However, Azure AD does provide several potential advantages to Access Control customers. It natively supports Microsoft work and school accounts hosted in the cloud, which are commonly used by Access Control customers. 
+However, Azure AD does provide several potential advantages to Access Control customers. It natively supports Microsoft work or school accounts hosted in the cloud, which are commonly used by Access Control customers. 
 
 An Azure AD tenant can also be federated to one or more instances of on-premises Active Directory via AD FS. This way, your app can authenticate cloud-based users and users that are hosted on-premises. It also supports the WS-Federation protocol, which makes it relatively straightforward to integrate with a web application by using WIF.
 
 The following table compares the features of Access Control that are relevant to web applications with those features that are available in Azure AD. 
 
-At a high level, **Azure Active Directory is probably the best choice for your migration if you let users sign in only with their Microsoft work and school accounts**.
+At a high level, *Azure Active Directory is probably the best choice for your migration if you let users sign in only with their Microsoft work or school accounts*.
 
 | Capability | Access Control support | Azure AD support |
 | ---------- | ----------- | ---------------- |
 | **Types of accounts** | | |
-| Microsoft work and school accounts | Supported | Supported |
+| Microsoft work or school accounts | Supported | Supported |
 | Accounts from Windows Server Active Directory and AD FS |- Supported via federation with an Azure AD tenant <br />- Supported via direct federation with AD FS | Only supported via federation with an Azure AD tenant | 
 | Accounts from other enterprise identity management systems |- Possible via federation with an Azure AD tenant <br />- Supported via direct federation | Possible via federation with an Azure AD tenant |
 | Microsoft accounts for personal use | Supported | Supported via the Azure AD v2.0 OAuth protocol, but not over any other protocols | 
@@ -146,7 +146,7 @@ At a high level, **Azure Active Directory is probably the best choice for your m
 | JWT | Supported In Beta | Supported |
 | SAML 1.1 | Supported | Supported |
 | SAML 2.0 | Supported | Supported |
-| SWT | Supported | Not Supported |
+| SWT | Supported | Not supported |
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Not supported |
 | Upload custom token-signing certificates | Supported | Supported |
@@ -190,12 +190,12 @@ Like Access Control, one of the most attractive features of Azure AD B2C is that
 
 However, Azure AD B2C doesn't support the breadth of authentication protocols and token formats that Access Control customers might require. You also can't use Azure AD B2C to get tokens and query for additional information about the user from the identity provider, Microsoft or otherwise.
 
-The following table compares the features of Access Control that are relevant to web applications with those that are available in Azure AD B2C. At a high level, **Azure AD B2C is probably the right choice for your migration if your application is consumer facing, or if it supports many different types of accounts.**
+The following table compares the features of Access Control that are relevant to web applications with those that are available in Azure AD B2C. At a high level, *Azure AD B2C is probably the right choice for your migration if your application is consumer facing, or if it supports many different types of accounts.*
 
 | Capability | Access Control support | Azure AD B2C support |
 | ---------- | ----------- | ---------------- |
 | **Types of accounts** | | |
-| Microsoft work and school accounts | Supported | Supported via custom policies  |
+| Microsoft work or school accounts | Supported | Supported via custom policies  |
 | Accounts from Windows Server Active Directory and AD FS | Supported via direct federation with AD FS | Supported via SAML federation by using custom policies |
 | Accounts from other enterprise identity management systems | Supported via direct federation through WS-Federation | Supported via SAML federation by using custom policies |
 | Microsoft accounts for personal use | Supported | Supported | 
@@ -213,7 +213,7 @@ The following table compares the features of Access Control that are relevant to
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Fully customizable UI via custom CSS |
 | Upload custom token-signing certificates | Supported | Custom signing keys, not certificates, supported via custom policies |
-| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Can pass through claims from identity providers; custom policies required for some claims<br />- Cannot get access token from identity provider as a claim<br />- Can issue output claims based on values of input claims via custom policies<br />- Can issue output claims with constant values via custom policies. |
+| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Can pass through claims from identity providers; custom policies required for some claims<br />- Cannot get access token from identity provider as a claim<br />- Can issue output claims based on values of input claims via custom policies<br />- Can issue output claims with constant values via custom policies |
 | **Automation** | | |
 | Automate configuration and management tasks | Supported via Access Control Management Service |- Creation of users allowed via Azure AD Graph API<br />- Cannot create B2C tenants, applications, or policies programmatically |
 
@@ -263,9 +263,9 @@ For web services that are secured with tokens issued by Access Control, Access C
 
 - Ability to register one or more *service identities* in your Access Control namespace. Service identities can be used to request tokens.
 - Support for the OAuth WRAP and OAuth 2.0 Draft 13 protocols for requesting tokens, by using the following types of credentials:
-    - A simple password that's created for the service identity.
-    - A signed SWT by using a symmetric key or X509 certificate.
-    - A SAML token issued by a trusted identity provider (typically, an AD FS instance).
+    - A simple password that's created for the service identity
+    - A signed SWT by using a symmetric key or X509 certificate
+    - A SAML token issued by a trusted identity provider (typically, an AD FS instance)
 - Support for the following token formats: JWT, SAML 1.1, SAML 2.0, and SWT.
 - Simple token transformation rules.
 
@@ -273,7 +273,7 @@ Service identities in Access Control are typically used to implement server-to-s
 
 #### Migrate to Azure Active Directory
 
-Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work and school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. 
+Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. 
 
 You can also use Azure AD for server-to-server authentication by using the Azure AD implementation of the OAuth client credentials grant. The following table compares the capabilities of Access Control in server-to-server authentication with those that are available in Azure AD.
 
@@ -282,7 +282,7 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 | How to register a web service | Create a relying party in the Access Control management portal | Create an Azure AD web application in the Azure portal |
 | How to register a client | Create a service identity in Access Control management portal | Create another Azure AD web application in the Azure portal |
 | Protocol used |- OAuth WRAP protocol<br />- OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
-| Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />Signed JWT |
+| Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />- Signed JWT |
 | Token formats |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT only |
 | Token transformation |- Add custom claims<br />- Simple if-then claim issuance logic | Add custom claims | 
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
