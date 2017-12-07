@@ -82,7 +82,7 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 In this document, we would use the service fabric RM powershell and CLI module to deploy a cluster, the powershell or the CLI module command allows for multiple scenarios. Let us go through each of the them
 
 
-### 1) Create new cluster  - using a system generated self signed certificate
+### Create new cluster  - using a system generated self signed certificate
 
 Use the following command to create cluster, if you have want the system to generate a self signed certificate and use it to secure your cluster. This command sets up a primary cluster certificate that is used for cluster security and to set up admin access to perform management operations using that certificate.
 
@@ -565,7 +565,7 @@ You can now deploy you cluster using the steps outlined earlier in the document,
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-In case you run into issues and get cryptic messages, then "-Debug" is your friend.
+In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
@@ -653,12 +653,11 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 
 
 <!-- Links -->
-[azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
-[service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
