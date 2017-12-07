@@ -80,8 +80,19 @@ You can integrate your LUIS app with Bing Spell Check to spell check utterances 
    2. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
    3. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
 
-<!-- https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference 
-https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/ -->
+If Bing Spell Check detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
+
+```json
+{
+  "query": "boook a flight",
+  "alteredQuery": "book a flight",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.9714768
+  },
+  "entities": []
+}
+```
 
 If you don't want to use a spell check service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
 
