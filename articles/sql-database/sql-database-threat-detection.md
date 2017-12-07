@@ -75,7 +75,7 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
 
 * Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
-* Learn more about [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * For more details on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 

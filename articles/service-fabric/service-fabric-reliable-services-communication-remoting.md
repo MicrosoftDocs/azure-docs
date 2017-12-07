@@ -83,18 +83,18 @@ The remoting framework propagates exceptions thrown by the service to the client
 ServiceProxy creation is a lightweight operation, so users can create as many as they need. Service Proxy instances can be reused as long as users need it. If a remote procedure call throws an Exception, users can still reuse the same proxy instance. Each ServiceProxy contains a communication client used to send messages over the wire. While invoking remote calls, we internally check to see if the communication client is valid. Based on that result, we re-create the communication client if needed. Hence if an exception occurs, users do not need to recreate `ServiceProxy` because it is done so transparently.
 
 ### ServiceProxyFactory Lifetime
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the api `ServiceProxy.Create` for creating proxy, then the framework creates a singleton ServiceProxy.
-It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) properties.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the api `ServiceProxy.Create` for creating proxy, then the framework creates a singleton ServiceProxy.
+It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) properties.
 Factory creation is an expensive operation. ServiceProxyFactory maintains an internal cache of communication client.
 Best practice is to cache ServiceProxyFactory for as long as possible.
 
 ## Remoting Exception Handling
-All remote exceptions thrown by the service API are sent back to the client as AggregateException. RemoteExceptions should be DataContract serializable; if they are not, the proxy API throws [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) with the serialization error in it.
+All remote exceptions thrown by the service API are sent back to the client as AggregateException. RemoteExceptions should be DataContract serializable; if they are not, the proxy API throws [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) with the serialization error in it.
 
 ServiceProxy handles all failover exceptions for the service partition it is created for. It re-resolves the endpoints if there are failover exceptions (non-transient exceptions) and retries the call with the correct endpoint. The number of retries for failover exceptions are indefinite.
 If transient exceptions occur, the proxy retries the call.
 
-Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 ## How to use Remoting V2 stack
 With 2.8 NuGet Remoting package, you have the option to use Remoting V2 stack. Remoting V2 stack is more performant and provides features like custom serializable and more pluggable Api's.
@@ -144,7 +144,7 @@ Here are the steps to follow.
   </Resources>
   ```
 
-2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
+2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2" and must be defined in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -160,7 +160,7 @@ Here are the steps to follow.
     }
   ```
 
-3. Use V2 [Client Factory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Use V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

@@ -16,7 +16,7 @@ You can enable inventory tracking for an Azure virtual machine from the virtual 
 
 ## Before you begin
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-If you don't have an Azure virtual machine, [create a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal).
+If you don't have an Azure virtual machine, [create a virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to the Azure portal
 Sign in to the [Azure portal](https://portal.azure.com/).

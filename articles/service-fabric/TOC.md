@@ -101,7 +101,6 @@
 
 ## Manage applications
 ### [Overview](service-fabric-application-lifecycle.md)
-### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Application upgrade
 #### [Overview](service-fabric-application-upgrade.md)
 #### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 #### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 ### [Fault analysis overview](service-fabric-testability-overview.md)
+### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrate with API Management](service-fabric-api-management-overview.md)
-
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
@@ -164,13 +162,14 @@
 #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrate with API Management](service-fabric-api-management-overview.md)
+
 # How-to guides
 ## Set up your development environment
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Set up the Service Fabric CLI](service-fabric-cli.md)
+### [Set up the Service Fabric CLI](service-fabric-cli.md)
 
 ## Build an application
 ### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
