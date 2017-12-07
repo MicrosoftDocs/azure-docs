@@ -79,6 +79,7 @@ You can integrate your LUIS app with Bing Spell Check to spell check utterances 
    1. [Get an API key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api) for [Bing SpellCheck API v7](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).  Free trial keys provide 1,000 transactions per month, up to 1 per second. They expire after a 30-day period.
    2. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
    3. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
+   4. Include the `bing-spell-check-subscription-key` parameter in the query to the LUIS app's endpoint when you access the app from your client application. Set the parameter to the value of your Bing SpellCheck API key. If the **Enable Bing spell checker** checkbox is checked, a placeholder for this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
 
 If Bing Spell Check detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
 
@@ -126,8 +127,8 @@ You can turn off the logging of user utterances by setting `log=false` in the En
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review user utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-## What are the transaction limits on the Authoring API?
-To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second.
+## How do I edit my LUIS app programmatically?
+To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use a programmatic key rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./Manage-Keys.md).
 
 ## What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
