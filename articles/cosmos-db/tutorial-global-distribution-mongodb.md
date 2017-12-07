@@ -97,7 +97,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

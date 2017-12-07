@@ -55,7 +55,7 @@ The following table lists the throughput available for containers:
 
 <a id="set-throughput-sdk"></a>
 
-## To set the throughput by using the DocumentDB API for .NET
+## To set the throughput by using the SQL API for .NET
 
 ```C#
 //Fetch the resource to be updated
@@ -79,7 +79,7 @@ await client.ReplaceOfferAsync(offer);
 
 **How do I set througput using the MongoDB API?**
 
-There's no MongoDB API extension to set throughput. The recommendation is to use the DocumentDB API, as shown in [To set the throughput by using the DocumentDB API for .NET](#set-throughput-sdk).
+There's no MongoDB API extension to set throughput. The recommendation is to use the SQL API, as shown in [To set the throughput by using the SQL API for .NET](#set-throughput-sdk).
 
 ## Next steps
 

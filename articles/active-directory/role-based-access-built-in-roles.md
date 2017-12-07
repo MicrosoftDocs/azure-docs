@@ -374,7 +374,7 @@ Can manage Azure Cosmos DB accounts
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Read roles and role Assignments |
-| Microsoft.DocumentDb/databaseAccounts/* |Create and manage DocumentDB accounts |
+| Microsoft.DocumentDb/databaseAccounts/* |Create and manage Azure Cosmos DB accounts |
 | Microsoft.Insights/alertRules/* |Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |

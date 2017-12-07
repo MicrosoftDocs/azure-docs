@@ -50,13 +50,13 @@ Officially supported versions:
 |---------|-------|
 |Apache Spark|2.0+|
 | Scala| 2.11|
-| Azure DocumentDB Java SDK | 1.10.0 |
+| Azure Cosmos DB SQL Java SDK | 1.10.0 |
 
 This article helps you run some simple samples by using Python (via pyDocumentDB) and the Scala interfaces.
 
 There are two approaches to connect Apache Spark and Azure Cosmos DB:
-- Use pyDocumentDB via the [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python).
-- Create a Java-based Spark to Azure Cosmos DB connector by utilizing the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
+- Use pyDocumentDB via the [Azure Cosmos DB SQL Python SDK](https://github.com/Azure/azure-documentdb-python).
+- Create a Java-based Spark to Azure Cosmos DB connector by utilizing the [Azure Cosmos DB SQL Java SDK](https://github.com/Azure/azure-documentdb-java).
 
 ## pyDocumentDB implementation
 The current [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) enables you to connect Spark to Azure Cosmos DB as shown in the following diagram:
@@ -152,7 +152,7 @@ Connecting Spark to Azure Cosmos DB by using pyDocumentDB is typically for scena
 
 ## Spark to Azure Cosmos DB connector
 
-The Spark to Azure Cosmos DB connector utilizes the [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) and moves data between the Spark worker nodes and Azure Cosmos DB as shown in the following diagram:
+The Spark to Azure Cosmos DB connector utilizes the [Azure Cosmos DB SQL Java SDK](https://github.com/Azure/azure-documentdb-java) and moves data between the Spark worker nodes and Azure Cosmos DB as shown in the following diagram:
 
 ![Data flow in the Spark to Azure Cosmos DB connector](./media/spark-connector/spark-connector.png)
 
@@ -196,7 +196,7 @@ If you are using a notebook service such as Azure HDInsight Jupyter notebook ser
 }
 ```
 
-The **jars** command enables you to include the two JARs that are needed for **azure-cosmosdb-spark** (itself and the Azure DocumentDB Java SDK) and exclude **scala-reflect** so that it does not interfere with the Livy calls (Jupyter notebook > Livy > Spark).
+The **jars** command enables you to include the two JARs that are needed for **azure-cosmosdb-spark** (itself and the Azure Cosmos DB SQL Java SDK) and exclude **scala-reflect** so that it does not interfere with the Livy calls (Jupyter notebook > Livy > Spark).
 
 ### Connect Spark to Azure Cosmos DB using the connector
 Although the communication transport is a little more complicated, executing a query from Spark to Azure Cosmos DB by using the connector is significantly faster.

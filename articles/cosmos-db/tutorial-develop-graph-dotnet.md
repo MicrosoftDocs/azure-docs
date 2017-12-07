@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Graph API in .NET | Microsoft Docs'
-description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
+description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: dennyglee
@@ -40,7 +40,7 @@ Gremlin is a functional programming language that supports write operations (DML
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure DocumentDB Emulator](local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [local emulator](local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create database account
@@ -92,7 +92,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Create a database 
 
-Now, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).  
+Now, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [SQL .NET SDK](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

@@ -33,7 +33,7 @@ This article covers the following tasks:
 
 ## Connecting to a preferred region using the Graph API using the .NET SDK
 
-The Graph API is exposed as an extension library on top of the DocumentDB SDK.
+The Graph API is exposed as an extension library on top of the SQL API.
 
 In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations.
 
@@ -83,7 +83,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

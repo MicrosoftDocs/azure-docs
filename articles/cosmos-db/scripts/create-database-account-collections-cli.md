@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB DocumentDB API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB DocumentDB API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and collection | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB SQL API account, database, and collection
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -19,9 +19,9 @@ ms.date: 06/06/2017
 ms.author: mimig
 ---
 
-# Azure Cosmos DB: Create an DocumentDB API account using CLI
+# Azure Cosmos DB: Create an SQL API account using CLI
 
-This sample CLI script creates an Azure Cosmos DB DocumentDB API account, database, and collection.  
+This sample CLI script creates an Azure Cosmos DB SQL API account, database, and collection.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
 
 ## Clean up deployment
 

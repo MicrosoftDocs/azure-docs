@@ -1,6 +1,6 @@
 ---
-title: DocumentDB API performance levels | Microsoft Docs
-description: Learn about how DocumentDB API performance levels enable you to reserve throughput on a per container basis.
+title: Retired Azure Cosmos DB performance levels | Microsoft Docs
+description: Learn about the S1, S2, and S3 performance levels previously available in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 # Retiring the S1, S2, and S3 performance levels
 
 > [!IMPORTANT] 
-> The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB API accounts.
+> The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
 >
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
@@ -43,7 +43,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 
 ## Why are the S1, S2, and S3 performance levels being retired?
 
-The S1, S2, and S3 performance levels do not offer the flexibility that DocumentDB API collections offer. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set and did not offer elasticity. Azure Cosmos DB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
+The S1, S2, and S3 performance levels do not offer the flexibility that the standard Azure Cosmos DB offer provides. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set and did not offer elasticity. Azure Cosmos DB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
 
 <a name="compare"></a>
 
@@ -140,7 +140,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 **To migrate to single partition collections using the .NET SDK**
 
-Another option for changing your collections' performance levels is through the Azure Cosmos DB SDKs. This section only covers changing a collection's performance level using the [DocumentDB .NET API](documentdb-sdk-dotnet.md), but the process is similar for our other SDKs.
+Another option for changing your collections' performance levels is through the Azure Cosmos DB SDKs. This section only covers changing a collection's performance level using the [SQL .NET API](documentdb-sdk-dotnet.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     

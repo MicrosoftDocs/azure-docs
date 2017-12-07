@@ -63,7 +63,7 @@ Example:
 * The preceding example creates a database account with two regions. It is also possible to create a database account with either one region (which is designated as the write region and have a failover priority value of 0) or more than two regions. For more information, see [multi-region database accounts][scaling-globally].
 * The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a> Update a DocumentDB Database Account
+## <a id="update-documentdb-account-powershell"></a> Update an Azure Cosmos DB database account
 
 This command allows you to update your Azure Cosmos DB database account properties. This includes the consistency policy and the locations which the database account exists in.
 
@@ -94,7 +94,7 @@ Example:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> Delete a DocumentDB Database Account
+## <a id="delete-documentdb-account-powershell"></a> Delete an Azure Cosmos DB database account
 
 This command allows you to delete an existing Azure Cosmos DB database account.
 
@@ -107,7 +107,7 @@ Example:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> Get Properties of a DocumentDB Database Account
+## <a id="get-documentdb-properties-powershell"></a> Get properties of an Azure Cosmos DB database account
 
 This command allows you to get the properties of an existing Azure Cosmos DB database account.
 

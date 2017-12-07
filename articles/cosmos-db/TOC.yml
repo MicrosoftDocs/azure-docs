@@ -370,7 +370,7 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
-    - name: Use Spring Boot Starter with DocumentDB APIs
+    - name: Use Spring Boot Starter with SQL APIs
       href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:

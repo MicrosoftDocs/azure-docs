@@ -2,7 +2,7 @@
 title: Azure Cosmos DB global distribution tutorial for the SQL API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the SQL API.
 services: cosmos-db
-keywords: global distribution, documentdb
+keywords: global distribution
 documentationcenter: ''
 author: mimig1
 manager: jhubbard

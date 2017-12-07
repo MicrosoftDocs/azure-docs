@@ -70,7 +70,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
-|<ul><li>Have there been any database or collection requests not served due to a DocumentDB service unavailability?</li><li>Have there been any document requests not served due to a DocumentDB service unavailability?</li></ul>|
+|<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|

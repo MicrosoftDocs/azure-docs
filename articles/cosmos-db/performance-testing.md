@@ -53,7 +53,7 @@ The quickest way to get started is to compile and run the .NET sample, as descri
 
 **Step 3:** Compile and run the console app from the command line. You should see output like the following:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

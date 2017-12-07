@@ -22,7 +22,7 @@ ms.author: jingwang
 > * [Version 1 - GA](v1/data-factory-azure-documentdb-connector.md)
 > * [Version 2 - Preview](connector-azure-cosmos-db.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (DocumentDB API). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (SQL API). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Cosmos DB connnector in V1](v1/data-factory-azure-documentdb-connector.md).
@@ -33,7 +33,7 @@ You can copy data from Azure Cosmos DB to any supported sink data store, or copy
 
 Specifically, this Azure Cosmos DB connector supports:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [SQL API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
 - Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc.
 
 To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).

@@ -24,7 +24,7 @@ ms.author: rafats
 Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
 
 > [!NOTE]
-> Unique keys are supported by the latest versions of the [.NET](documentdb-sdk-dotnet.md) and [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB (SQL) SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
+> Unique keys are supported by the latest versions of the [.NET](documentdb-sdk-dotnet.md) and [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
 > 
 >
 
@@ -52,7 +52,7 @@ Unique keys must be defined when the container is created, and the unique key is
 
 Existing containers cannot be updated to use unique keys.
 
-Once a container is created with a unique key policy, the policy cannot be changed unless you recreate the container. If you have existing data that you'd like to implement unique keys on, create the new container, and then use the appropriate data migration tool to move the data to the new container. For DocumentDB (SQL) containers, use the [Data Migration Tool](import-data.md). For MongoDB containers, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md).
+Once a container is created with a unique key policy, the policy cannot be changed unless you recreate the container. If you have existing data that you'd like to implement unique keys on, create the new container, and then use the appropriate data migration tool to move the data to the new container. For SQL containers, use the [Data Migration Tool](import-data.md). For MongoDB containers, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md).
 
 A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
@@ -62,9 +62,9 @@ Request unit charges for creating, updating, and deleting an item are slightly h
 
 Sparse unique keys are not supported. If values for some unique paths are missing, they are treated as a special null value, which takes part in the uniqueness constraint.
 
-## DocumentDB (SQL) API sample
+## SQL API sample
 
-The following code sample shows how to create a new DocumentDB (SQL) container with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address/zipCode. A sample JSON file that uses the paths in this unique key policy follows the code example. 
+The following code sample shows how to create a new SQL container with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address/zipCode. A sample JSON file that uses the paths in this unique key policy follows the code example. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
