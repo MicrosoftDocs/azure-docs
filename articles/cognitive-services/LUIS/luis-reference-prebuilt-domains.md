@@ -327,8 +327,7 @@ Close video player
 Cancel playback
 Can you make the screen brighter?
 ```
-<!--27Intents
-6Entities -->
+
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
@@ -344,6 +343,21 @@ Can you make the screen brighter?
 |OpenApplication|Open an application on the device.|Open the alarm please<br/>Turn on camera<br/>Launch calendar|
 |OpenSetting|Open a setting on the device.|Open network settings.|
 |PairDevice|Pair the device.|Can you help me in pairing Bluetooth signal to phone<br/>Turn the bluetooth on and pair it with laptop<br/>Pair Bluetooth signal to my laptop|
+|PowerOff | Turn off the device.|Can you shut down my computer<br/>Shutdown<br/>Turn off my mobile|
+|QueryBattery|Get information about battery life.|Show me battery life.<br/>What's my battery status<br/>How much battery left now?<br/>Show me battery|
+|QueryWifi|Get information about WiFi.|Get WiFi info.|
+|Restart|Restart the device.|Please restart.|
+|RingDevice| Ask the device to ring, in order to find it when it's lost.|Ring my phone.| 
+|SetBrightness|Set the device brightness.|Set brightness to medium<br/>Set brightness to high<br/>Set brightness to low|
+|SetupDevice|Initiate device setup.|I want to install OS setup<br/>Setup please<br/>Do setup for me|
+|ShowAppBar|Show an app bar.|Show me the application bar<br/>Application bar please<br/>Let me see the application bar|
+|ShowContextMenu|Show a context menu.|Let me see the context menu<br/>Context menu please<br/>Can you show me the context menu|
+|Sleep|Put the device to sleep.|Go to sleep<br/>Sleep<br/>My computer sleep|
+|SwitchApplication|Switch the application to use on the device.|Switch to my media player.|
+|TurnDownBrightness|Turn down device brightness.|Dim the screen.|
+|TurnOffSetting|Turn off a device setting.|Deactivate Bluetooth<br/>Disable data<br/>Disconnect bluetooth|
+|TurnOnSetting|Turn on a device setting.|On <br/> Off|
+|TurnUpBrightness|Turn up device brightness.|Can you make the screen brighter?|
 
 ### Entities
 | Entity name | Description | Examples |
@@ -353,7 +367,7 @@ Can you make the screen brighter?
 | ContactName | The name of a contact on the device.|Paul<br/>Marlen Max|
 | DeviceType | The type of device. |Phone<br/>Kindle<br/>Laptop|
 | MediaType | The media type handled by the device.|Music<br/>Movie<br/>TV shows|
-| SettingType | A type of setting or settings panel that the user wants to edit.|WiFi<br/>Wireless Network<br/>Color Scheme<br/>Notification [Center]|
+| SettingType | A type of setting or settings panel that the user wants to edit.|WiFi<br/>Wireless Network<br/>Color Scheme<br/>Notification Center|
 
 ## Places  
 The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
@@ -364,7 +378,7 @@ Save this location to my favorites
 How far away is Holiday Inn?
 At what time does Safeway close?
 ```
-<!--30Intents -->
+
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
