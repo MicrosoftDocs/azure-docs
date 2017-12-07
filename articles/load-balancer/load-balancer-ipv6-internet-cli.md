@@ -1,6 +1,6 @@
 ---
-title: Create an internet-facing load balancer with IPv6 - Azure CLI | Microsoft Docs
-description: Learn how to create an internet-facing load balancer with IPv6 in Azure Resource Manager by using Azure CLI.
+title: Create a public load balancer with IPv6 - Azure CLI | Microsoft Docs
+description: Learn how to create a public load balancer with IPv6 in Azure Resource Manager by using Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,7 +18,7 @@ ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# Create an internet-facing load balancer with IPv6 in Azure Resource Manager by using Azure CLI
+# Create a public load balancer with IPv6 in Azure Resource Manager by using Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -31,7 +31,7 @@ An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers pro
 
 ## Example deployment scenario
 
-The following diagram illustrates the load-balancing solution that's deployed by using the example template described in this article.
+The following diagram illustrates the load balancing solution that's deployed by using the example template described in this article.
 
 ![Load balancer scenario](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
@@ -39,13 +39,13 @@ In this scenario, you create the following Azure resources:
 
 * Two virtual machines (VMs)
 * A virtual network interface for each VM with both IPv4 and IPv6 addresses assigned
-* An internet-facing load balancer with an IPv4 and an IPv6 public IP address
+* A public load balancer with an IPv4 and an IPv6 public IP address
 * An availability set that contains the two VMs
-* Two load-balancing rules to map the public VIPs to the private endpoints
+* Two load balancing rules to map the public VIPs to the private endpoints
 
 ## Deploy the solution by using Azure CLI
 
-The following steps show how to create an internet-facing load balancer by using Azure Resource Manager with Azure CLI. With Azure Resource Manager, you create and configure each object individually, and then put them together to create a resource.
+The following steps show how to create a public load balancer by using Azure Resource Manager with Azure CLI. With Azure Resource Manager, you create and configure each object individually, and then put them together to create a resource.
 
 To deploy a load balancer, create and configure the following objects:
 
@@ -53,7 +53,7 @@ To deploy a load balancer, create and configure the following objects:
 * **Back-end address pool**: Contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
 * **Load balancing rules**: Contains rules that map a public port on the load balancer to a port in the back-end address pool.
 * **Inbound NAT rules**: Contains network address translation (NAT) rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
-* **Probes**: Contains health probes that are used to check the availability of virtual-machine instances in the back-end address pool.
+* **Probes**: Contains health probes that are used to check the availability of virtual machine instances in the back-end address pool.
 
 For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
@@ -166,7 +166,7 @@ In this section, you create the following IP pools:
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Create a front-end IP pool that associates the public IP that's created in the previous step and the load balancer.
+2. Create a front-end IP pool, and associate it with the public IP that you created in the previous step and the load balancer.
 
     ```azurecli
     $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
@@ -182,9 +182,9 @@ This example creates the following items:
 * A probe rule to check for connectivity to TCP port 80.
 * A NAT rule to translate all incoming traffic on port 3389 to port 3389 for RDP.\*
 * A NAT rule to translate all incoming traffic on port 3391 to port 3389 for remote desktop protocol (RDP).\*
-* A load-balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
+* A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
 
-\* NAT rules are associated to a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You cannot assign both protocols to the same port.
+\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You cannot assign both protocols to the same port.
 
 1. Set up the PowerShell variables:
 
@@ -211,7 +211,7 @@ This example creates the following items:
     $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Create load-balancer rules that send traffic to different back-end ports, depending on the front end that received the request.
+4. Create load balancer rules that send traffic to different back-end ports, depending on the front end that received the request.
 
     ```azurecli
     $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
@@ -266,7 +266,7 @@ This example creates the following items:
 
 ## Create NICs
 
-Create NICs and associate them to NAT rules, load balancer rules, and probes.
+Create NICs and associate them with NAT rules, load balancer rules, and probes.
 
 1. Set up the PowerShell variables:
 
@@ -291,7 +291,7 @@ Create NICs and associate them to NAT rules, load balancer rules, and probes.
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## Create the back-end VM resources and attach each NIC
+## Create the back-end VM resources, and attach each NIC
 
 To create VMs, you must have a storage account. For load balancing, the VMs need to be members of an availability set. For more information about creating VMs, see [Create an Azure VM by using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
