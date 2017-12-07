@@ -36,7 +36,7 @@ If you don't have licenses for Azure Multi-Factor Authentication, you can create
 
 There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
-## Create an MFA Provider - Public preview
+## Create an MFA Provider
 
 Use the following steps to create an Azure Multi-Factor Authentication Provider in the Azure portal:
 
@@ -54,42 +54,6 @@ Use the following steps to create an Azure Multi-Factor Authentication Provider 
       * You do not need an Azure AD directory to create a Provider. Leave this box blank if you are only planning to download the Azure Multi-Factor Authentication Server.
       * The Provider must be associated with an Azure AD directory to take advantage of the advanced features.
       * Only one Provider can be associated with any one Azure AD directory.
-
-## Create an MFA Provider
-Use the following steps to create an Azure Multi-Factor Authentication Provider in the classic portal:
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, at the top, select **Multi-Factor Authentication Providers**.
-   
-   ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
-
-4. At the bottom, click **New**.
-   
-   ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
-
-5. Under App Services, select **Multi-Factor Auth Provider**
-   
-   ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
-
-6. Select **Quick Create**.
-   
-   ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
-
-7. Fill in the following fields and select **Create**.
-   1. **Name** – The name of the Provider.
-   2. **Usage Model** – Choose one of two options:
-      * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
-      * Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365. Choose this option if you have some users that are already licensed for Azure MFA.
-   3. **Directory** – The Azure Active Directory tenant that the Provider is associated with.
-      * You do not need an Azure AD directory to create a Provider. Leave this box blank if you are only planning to download the Azure Multi-Factor Authentication Server.
-      * The Provider must be associated with an Azure AD directory to take advantage of the advanced features.
-      * Only one Provider can be associated with any one Azure AD directory.  
-      ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
-
-8. Once you click create, the Multi-Factor Authentication Provider is created and you should see a message stating: **Successfully created Multi-Factor Authentication Provider**. Click **Ok**.  
-   
-   ![Creating an MFA Provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
 
 ## Manage your MFA Provider
 
