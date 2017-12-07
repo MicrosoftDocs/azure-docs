@@ -236,7 +236,7 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Deploy to Azure
                                                         </a>
                                                     </li>
@@ -249,7 +249,7 @@ featureFlags:
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt="">
-                                                            Terraform
+                                                            Terraform                                                       
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -992,9 +992,21 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
                                                 <p>Azure IoT Suite</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Azure Location Based Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1044,7 +1056,7 @@ featureFlags:
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -2822,6 +2834,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Edge</h3>
+                                                    <p>Extend cloud intelligence to Edge devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2840,6 +2871,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Location Based Services</h3>
+                                                    <p>Maps, directions, search, and other robust geospatial services</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                             <li>
                                 <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2991,7 +3041,7 @@ featureFlags:
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>

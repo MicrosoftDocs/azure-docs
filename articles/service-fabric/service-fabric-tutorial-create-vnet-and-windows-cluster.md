@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-
+ms.custom: mvc
 ---
 
 # Deploy a Service Fabric Windows cluster into an Azure virtual network

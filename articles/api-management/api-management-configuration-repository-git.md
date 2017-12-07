@@ -155,7 +155,7 @@ Once your local changes are committed and pushed to the server repository, you c
 
 ![Deploy][api-management-configuration-deploy]
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
 The files and folders in the local git repository contain the configuration information about the service instance.
@@ -280,7 +280,7 @@ For information on other ways to manage your service instance, see:
   * [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Manage your service instance in the publisher portal
-  * [Manage your first API](api-management-get-started.md)
+  * [Manage your first API](import-and-publish.md)
 * Manage your service instance using the REST API
   * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

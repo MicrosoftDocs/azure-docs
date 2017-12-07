@@ -25,6 +25,16 @@ Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
 * .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
 
+The following environments are supported:
+* Azure App Service.
+* Azure Cloud Service running OS family 4 or later.
+* Azure Service Fabric services running on Windows Server 2012 R2 or later.
+* Azure Virtual Machines running Windows Server 2012 R2 or later.
+* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+
+> [!NOTE]
+> Client applications (for example, WPF, Windows Forms or UWP) are not supported.
+
 ### Configure snapshot collection for ASP.NET applications
 
 1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
@@ -286,6 +296,6 @@ If you still don't see an exception with that snapshot ID, then the exception te
 
 ## Next steps
 
-* [Set snappoints in your code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
+* [Set snappoints in your code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.
