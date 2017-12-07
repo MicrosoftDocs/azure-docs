@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
 
 ---
@@ -43,13 +43,13 @@ No. Azure AD Domain Services needs access to the password hashes of user account
 The service itself does not directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. See how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
-PowerShell/automated deployment of Azure AD Domain Services is not available currently.
+Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### Is Azure AD Domain Services available in the new Azure portal?
 Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). The [classic Azure portal](https://manage.windowsazure.com) is no longer supported.
 
 #### Can I enable Azure AD Domain Services using a Resource Manager template?
-No. Some tasks need to be performed as part of enabling Azure AD Domain Services. These tasks are not possible through a Resource Manager template. Use the new Azure portal to enable Azure AD Domain Services for your directory.
+Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
