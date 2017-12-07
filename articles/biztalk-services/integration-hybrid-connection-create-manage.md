@@ -46,13 +46,9 @@ This topic lists these steps.
 > 
 
 ## <a name="CreateHybridConnection"></a>Create a Hybrid Connection
-A Hybrid Connection can be created in the Azure portal using Web Apps **or** using BizTalk Services. 
+A Hybrid Connection can be created in [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) **or** using [BizTalk Services REST APIs](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
-
-**To create Hybrid Connections in BizTalk Services**:
-
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
 
 #### Additional
 * Multiple Hybrid Connections can be created. See the [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) for the number of connections allowed. 
