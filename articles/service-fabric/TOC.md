@@ -338,6 +338,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Service model XML schema](service-fabric-service-model-schema.md)
+## [Environment Variables](service-fabric-environment-variables-reference.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
