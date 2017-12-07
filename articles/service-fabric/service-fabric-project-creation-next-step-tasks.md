@@ -20,10 +20,10 @@ ms.author: rwike77
 # Your Service Fabric application and next steps
 Your Azure Service Fabric application has been created. This article describes some tutorials to try out, the makeup of your project, some more information you might be interested in, and potential next steps.
 
-## Get started with tutorials and walk-throughs
+## Get started with tutorials, walk-throughs, and samples
 Ready to get started?  
 
-Try out the .NET application tutorial. Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET Core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), and [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md).
+Work through the .NET application tutorial. Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET Core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), and [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md).
 
 Or, try out one of the following walk-throughs and create your first...
 - [C# Reliable Services service on Windows](service-fabric-reliable-services-quick-start.md) 
@@ -31,7 +31,7 @@ Or, try out one of the following walk-throughs and create your first...
 - [Guest executable service on Windows](quickstart-guest-app.md) 
 - [Windows container application](service-fabric-get-started-containers.md) 
 
-You may also be interested in looking through our [sample applications](http://aka.ms/servicefabricsamples).
+You may also be interested in trying out our [sample applications](http://aka.ms/servicefabricsamples).
 
 ## Have questions or feedback?  Need to report an issue?
 Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.
