@@ -96,7 +96,7 @@ When you've created a dashboard, you can share it with other users.
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
 ## Create dashboards programmatically
-You can automate dashboards creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
+You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
 
 ## App navigation
 The overview blade is the gateway to more information about your app.
