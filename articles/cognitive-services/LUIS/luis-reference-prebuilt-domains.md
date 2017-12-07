@@ -340,6 +340,10 @@ Can you make the screen brighter?
 |LocateDevice|Locate the device.|Can you locate my phone<br/>Find tom's iphone<br/>Find my phone|
 |LogIn|Log in to a service using the device.|Login please<br/>Facebook log in<br/>Log into LinkedIn|
 |LogOut|Log out of a service using the device.|Log off my phone<br/>Log on to twitter<br/>Log out|
+|MainMenu|View the main menu of a device.|View menu.|
+|OpenApplication|Open an application on the device.|Open the alarm please<br/>Turn on camera<br/>Launch calendar|
+|OpenSetting|Open a setting on the device.|Open network settings.|
+|PairDevice|Pair the device.|Can you help me in pairing Bluetooth signal to phone<br/>Turn the bluetooth on and pair it with laptop<br/>Pair Bluetooth signal to my laptop|
 
 ### Entities
 | Entity name | Description | Examples |
