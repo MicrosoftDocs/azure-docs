@@ -19,33 +19,33 @@ ms.author: rli
 ---
 
 # Azure CDN rules engine features
-This topic lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+This article lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
-The third part of a rule is the feature. A feature defines the type of action that will be applied to the type of request identified by a set of match conditions.
+The third part of a rule is the feature. A feature defines the type of action that is applied to the type of request identified by a set of match conditions.
 
-## Access
+## Access features
 
 These features are designed to control access to content.
 
 
 Name | Purpose
 -----|--------
-[Deny Access](#deny-access) | Determines whether all requests are rejected with a 403 Forbidden response.
-[Token Auth](#token-auth) | Determines whether Token-Based Authentication will be applied to a request.
-[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that will be returned to a user when a request is denied due to Token-Based Authentication.
-[Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Determines whether URL comparisons made by Token-Based Authentication will be case-sensitive.
+[Deny Access (403)](#deny-access-403) | Determines whether all requests are rejected with a 403 Forbidden response.
+[Token Auth](#token-auth) | Determines whether Token-Based Authentication is applied to a request.
+[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to Token-Based Authentication.
+[Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
 [Token Auth Parameter](#token-auth-parameter) | Determines whether the Token-Based Authentication query string parameter should be renamed.
 
 
-## Caching
+## Caching features
 
 These features are designed to customize when and how content is cached.
 
 Name | Purpose
 -----|--------
-[Bandwidth Parameters](#bandwidth-parameters) | Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) will be active.
-[Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by our edge servers.
-[Bypass Cache](#bypass-cache) | Determines whether the request can leverage our caching technology.
+[Bandwidth Parameters](#bandwidth-parameters) | Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) are active.
+[Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the edge servers.
+[Bypass Cache](#bypass-cache) | Determines whether the request should bypass caching.
 [Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of Cache-Control headers by the edge server when External Max-Age feature is active.
 [Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key will include or exclude query string parameters associated with a request.
 [Cache-Key Rewrite](#cache-key-rewrite) | Rewrites the cache-key associated with a request.
@@ -55,36 +55,40 @@ Name | Purpose
 [Expires Header Treatment](#expires-header-treatment) | Controls the generation of Expires headers by an edge server when the External Max-Age feature is active.
 [External Max-Age](#external-max-age) | Determines the max-age interval for browser to edge server cache revalidation.
 [Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for edge server to origin server cache revalidation.
-[H.264 Support (HTTP Progressive Download)](#h-264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
+[H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
 [Honor No-Cache Request](#honor-no-cache-request) | Determines whether an HTTP client's no-cache requests will be forwarded to the origin server.
-[Ignore Origin No-Cache](#ignore-origin-no-cache) | Determines whether our CDN will ignore certain directives served from an origin server.
-[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Determines the response that will be returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
+[Ignore Origin No-Cache](#ignore-origin-no-cache) | Determines whether the CDN ignores certain directives served from an origin server.
+[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Determines the response that is returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
 [Internal Max-Stale](#internal-max-stale) | Controls how long past the normal expiration time a cached asset may be served from an edge server when the edge server is unable to revalidate the cached asset with the origin server.
 [Partial Cache Sharing](#partial-cache-sharing) | Determines whether a request can generate partially cached content.
 [Prevalidate Cached Content](#prevalidate-cached-content) | Determines whether cached content will be eligible for early revalidation before its TTL expires.
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by our edge servers.
+[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) | Defines the set of status codes that can result in cached content.
 [Stale Content Delivery on Error](#stale-content-delivery-on-error) | Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
-[Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing our edge servers to serve stale client to the requester while revalidation takes place.
-[Comment](#comment) | The Comment feature allows a note to be added within a rule.
+[Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing the edge servers to serve stale client to the requester while revalidation takes place.
 
+## Comment feature
 
+This feature is designed to provide additional information within a rule.
+
+Name | Purpose
+-----|--------
+[Comment](#comment) | Allows a note to be added within a rule.
  
-## Headers
+## Header features
 
 These features are designed to add, modify, or delete headers from the request or response.
 
 Name | Purpose
 -----|--------
 [Age Response Header](#age-response-header) | Determines whether an Age response header will be included in the response sent to the requester.
-[Debug Cache Response Headers](#debug-cache-response-headers) | Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
+[Debug Cache Response Headers](#debug-cache-response-headers) | Determines whether a response may include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
 [Modify Client Request Header](#modify-client-request-header) | Overwrites, appends, or deletes a header from a request.
 [Modify Client Response Header](#modify-client-response-header) | Overwrites, appends, or deletes a header from a response.
 [Set Client IP Custom Header](#set-client-ip-custom-header) | Allows the IP address of the requesting client to be added to the request as a custom request header.
 
 
- 
-## Logs
+## Logging features
 
 These features are designed to customize the data stored in raw log files.
 
@@ -138,7 +142,7 @@ If the desired site does not appear in the list, then you should edit its config
 **Default Behavior:** Site configurations are inactive by default.
 --->
 
-## Origin
+## Origin features
 
 These features are designed to control how the CDN communicates with an origin server.
 
@@ -148,17 +152,17 @@ Name | Purpose
 [Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
 
 
-## Specialty
+## Specialty features
 
-These features provide advanced functionality that should only be used by advanced users.
+These features provide advanced functionality for advanced users.
 
 Name | Purpose
 -----|--------
-[Cacheable HTTP Methods](#cacheable-http-methods) | Determines the set of additional HTTP methods that can be cached on our network.
+[Cacheable HTTP Methods](#cacheable-http-methods) | Determines the set of additional HTTP methods that can be cached on the network.
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
 
  
-## URL
+## URL features
 
 These features allow a request to be redirected or rewritten to a different URL.
 
@@ -176,8 +180,8 @@ Name | Purpose
 **Purpose**: Determines whether an Age response header will be included in the response sent to the requester.
 Value|Result
 --|--
-Enabled | The Age response header will be included in the response sent to the requester.
-Disabled | The Age response header will be excluded from the response sent to the requester.
+Enabled | The Age response header is included in the response sent to the requester.
+Disabled | The Age response header is excluded from the response sent to the requester.
 
 **Default Behavior**: Disabled.
 
@@ -188,25 +192,25 @@ Bandwidth throttling parameters determine whether the data transfer rate for a c
 
 Value|Result
 --|--
-Enabled|Allows our edge servers to honor bandwidth throttling requests.
-Disabled|Causes our edge servers to ignore bandwidth throttling parameters. The requested content will be served normally (that is, without bandwidth throttling).
+Enabled|Allows the edge servers to honor bandwidth throttling requests.
+Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The requested content will be served normally (that is, without bandwidth throttling).
 
 **Default Behavior:** Enabled.
 
 ### Bandwidth Throttling
-**Purpose:** Throttles the bandwidth for the response provided by our edge servers.
+**Purpose:** Throttles the bandwidth for the response provided by the edge servers.
 
 Both of the following options must be defined to properly set up bandwidth throttling.
 
 Option|Description
 --|--
 Kbytes per second|Set this option to the maximum bandwidth (Kb per second) that may be used to deliver the response.
-Prebuf seconds|Set this option to the number of seconds that our edge servers will wait until throttling bandwidth. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
+Prebuf seconds|Set this option to the number of seconds that the edge servers will wait until throttling bandwidth. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
 
 **Default Behavior:** Disabled.
 
 ### Bypass Cache
-**Purpose:** Determines whether the request can leverage our caching technology.
+**Purpose:** Determines whether the request should bypass caching.
 
 Value|Result
 --|--
@@ -221,22 +225,8 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 - **ADN:** Enabled
 --->
 
-### Cache Control Header Treatment
-**Purpose:** Controls the generation of Cache-Control headers by the edge server when External Max-Age Feature is active.
-
-The easiest way to achieve this type of configuration is to place the External Max-Age and the Cache-Control Header Treatment features in the same statement.
-
-Value|Result
---|--
-Overwrite|Ensures that the following actions will take place:<br/> - Overwrites the Cache-Control header generated by the origin server. <br/>- Adds the Cache-Control header produced by the External Max-Age feature to the response.
-Pass Through|Ensures that the Cache-Control header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces a Cache-Control header, it will pass through to the end-user. <br/> If the origin server does not produce a Cache-Control header, then this option may cause the response header to not contain a Cache-Control header.
-Add if Missing|If a Cache-Control header was not received from the origin server, then this option adds the Cache-Control header produced by the External Max-Age feature. This option is useful for ensuring that all assets will be assigned a Cache-Control header.
-Remove| This option ensures that a Cache-Control header is not included with the header response. If a Cache-Control header has already been assigned, then it will be stripped from the header response.
-
-**Default Behavior:** Overwrite.
-
 ### Cacheable HTTP Methods
-**Purpose:** Determines the set of additional HTTP methods that can be cached on our network.
+**Purpose:** Determines the set of additional HTTP methods that can be cached on the network.
 
 Key information:
 
@@ -263,6 +253,20 @@ Key information:
     - **Minimum Value:** 1 Kb
 
 **Default Behavior:** 14 Kb
+
+### Cache-Control Header Treatment
+**Purpose:** Controls the generation of `Cache-Control` headers by the edge server when the External Max-Age Feature is active.
+
+The easiest way to achieve this type of configuration is to place the External Max-Age and the Cache-Control Header Treatment features in the same statement.
+
+Value|Result
+--|--
+Overwrite|Ensures that the following actions will take place:<br/> - Overwrites the Cache-Control header generated by the origin server. <br/>- Adds the `Cache-Control` header produced by the External Max-Age feature to the response.
+Pass Through|Ensures that the `Cache-Control` header produced by the External Max-Age feature is never added to the response. <br/> If the origin server produces a `Cache-Control` header, it will pass through to the end-user. <br/> If the origin server does not produce a `Cache-Control` header, then this option may cause the response header to not contain a `Cache-Control` header.
+Add if Missing|If a `Cache-Control` header was not received from the origin server, then this option adds the `Cache-Control` header produced by the External Max-Age feature. This option is useful for ensuring that all assets will be assigned a `Cache-Control` header.
+Remove| This option ensures that a `Cache-Control` header is not included with the header response. If a `Cache-Control` header has already been assigned, then it will be stripped from the header response.
+
+**Default Behavior:** Overwrite.
 
 ### Cache-Key Query String
 **Purpose:** Determines whether the cache-key will include or exclude query string parameters associated with a request.
@@ -335,7 +339,7 @@ This type of configuration would generate the following query string parameter c
 ### Cache-Key Rewrite
 **Purpose:** Rewrites the cache-key associated with a request.
 
-A cache-key is the relative path that identifies an asset for the purposes of caching. In other words, our servers will check for a cached version of an asset according to its path as defined by its cache-key.
+A cache-key is the relative path that identifies an asset for the purposes of caching. In other words, the servers will check for a cached version of an asset according to its path as defined by its cache-key.
 
 Configure this feature by defining both of the following options:
 
@@ -379,7 +383,7 @@ Disabled|Prevents an edge server from performing a background fetch for the asse
 ### Compress File Types
 **Purpose:** Defines the file formats that will be compressed on the server.
 
-A file format can be specified using its Internet media type (for example, Content-Type). Internet media type is platform-independent metadata that allows our servers to identify the file format of a particular asset. A list of common Internet media types is provided below.
+A file format can be specified using its Internet media type (for example, Content-Type). Internet media type is platform-independent metadata that allows the servers to identify the file format of a particular asset. A list of common Internet media types is provided below.
 
 Internet Media Type|Description
 --|--
@@ -391,7 +395,7 @@ application/javascript|Javascript
 Key information:
 
 - Specify multiple Internet media types by delimiting each one with a single space. 
-- This feature will only compress assets whose size is less than 1 MB. Larger assets will not be compressed by our servers.
+- This feature will only compress assets whose size is less than 1 MB. Larger assets will not be compressed by the servers.
 - Certain types of content, such as images, video, and audio media assets (for example, JPG, MP3, MP4, etc.), are already compressed. Additional compression on these types of assets will not significantly diminish file size. Therefore, it is recommended that you do not enable compression on these types of assets.
 - Wildcard characters, such as asterisks, are not supported.
 - Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
@@ -468,7 +472,7 @@ Key information:
 
 **Default Value:** 7 days
 
-### Deny Access
+### Deny Access (403)
 **Purpose**: Determines whether all requests are rejected with a 403 Forbidden response.
 
 Value | Result
@@ -498,14 +502,14 @@ Remove| Ensures that an Expires header is not included with the header respons
 ### External Max-Age
 **Purpose:** Determines the max-age interval for browser to edge server cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from an edge server.
 
-Enabling this feature will generate Cache-Control:max-age and Expires headers from our edge servers and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
+Enabling this feature will generate Cache-Control:max-age and Expires headers from the edge servers and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
 
 Key information:
 
 - This action does not affect edge server to origin server cache revalidations. These types of revalidations are determined by the Cache-Control/Expires headers received from the origin
 server, and can be customized with the Default Internal Max-Age and the Force Internal Max-Age features.
 - Configure this feature by specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.).
-- Setting this feature to a negative value causes our edge servers to send a Cache-Control:no-cache and an Expires time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect our edge servers' ability to cache the response from the origin server.
+- Setting this feature to a negative value causes the edge servers to send a Cache-Control:no-cache and an Expires time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect the edge servers' ability to cache the response from the origin server.
 - Setting the time unit to "Off" will disable this feature. The Cache-Control/Expires headers cached with the response of the origin server will pass through to the browser.
 
 **Default Behavior:** Off
@@ -529,9 +533,9 @@ Disabled|Requests will not be redirected.
 
 Key information:
 
-- This feature will override the max-age interval defined in Cache-Control or Expires headers generated from an origin server.
-- This feature does not affect browser to edge server cache revalidations. These types of revalidations are determined by the Cache-Control or Expires headers sent to the browser.
-- This feature does not have an observable effect on the response delivered by an edge server to the requester. However, it may have an effect on the amount of revalidation traffic sent from our edge servers to the origin server.
+- This feature will override the max-age interval defined in `Cache-Control` or `Expires` headers generated from an origin server.
+- This feature does not affect browser to edge server cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser.
+- This feature does not have an observable effect on the response delivered by an edge server to the requester. However, it may have an effect on the amount of revalidation traffic sent from the edge servers to the origin server.
 - Configure this feature by:
     - Selecting the status code for which an internal max-age will be applied.
     - Specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the request's max-age interval.
@@ -558,7 +562,7 @@ Key information:
 
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
-### Honor no-cache request
+### Honor No-Cache Request
 **Purpose:** Determines whether an HTTP client's no-cache requests will be forwarded to the origin server.
 
 A no-cache request occurs when the HTTP client sends a Cache-Control:no-cache and/or Pragma:no-cache header in the HTTP request.
@@ -574,13 +578,13 @@ The cache status that will be reported for a request that is allowed to be forwa
 
 **Default Behavior:** Disabled.
 
-### Ignore Origin no-cache
-**Purpose:** Determines whether our CDN will ignore the following directives served from an origin server:
+### Ignore Origin No-Cache
+**Purpose:** Determines whether the CDN will ignore the following directives served from an origin server:
 
-- Cache-Control: private
-- Cache-Control: no-store
-- Cache-Control: no-cache
-- Pragma: no-cache
+- `Cache-Control: private`
+- `Cache-Control: no-store`
+- `Cache-Control: no-cache`
+- `Pragma: no-cache`
 
 Key information:
 
@@ -605,7 +609,7 @@ By default, this status code is returned when the specified byte-range request c
 
 Value|Result
 -|-
-Enabled|Prevents our edge servers from responding to an invalid byte-range request with a 416 Requested Range Not Satisfiable status code. Instead our servers will deliver the requested asset and return a 200 OK to the client.
+Enabled|Prevents the edge servers from responding to an invalid byte-range request with a 416 Requested Range Not Satisfiable status code. Instead the servers will deliver the requested asset and return a 200 OK to the client.
 Disabled|Restores the default behavior. The default behavior is to honor the 416 Requested Range Not Satisfiable status code.
 
 **Default Behavior:** Disabled.
@@ -617,9 +621,9 @@ Normally, when an asset's max-age time expires, the edge server will send a re
 
 If the edge server is unable to establish a connection with the origin server while attempting such a revalidation, then this Internal Max-Stale feature controls whether, and for how long, the edge server may continue to serve the now-stale asset.
 
-Note that this time interval starts when the asset's max-age expires, not when the failed revalidation occurs. Therefore, the maximum period during which an asset can be served without successful revalidation is the amount of time specified by the combination of max-age plus max-stale. For example, if an asset was cached at 9:00 with a max-age of 30 minutes and a max-stale of 15 minutes, then a failed revalidation attempt at 9:44 would result in an end-user receiving the stale cached asset, while a failed revalidation attempt at 9:46 would result in the end user receiving a 504 Gateway Timeout.
+Note that this time interval starts when the asset's max-age expires, not when the failed revalidation occurs. Therefore, the maximum period during which an asset can be served without successful revalidation is the amount of time specified by the combination of max-age plus max-stale. For example, if an asset was cached at 9:00 with a max-age of 30 minutes and a max-stale of 15 minutes, then a failed revalidation attempt at 9:44 would result in an end user receiving the stale cached asset, while a failed revalidation attempt at 9:46 would result in the end user receiving a 504 Gateway Timeout.
 
-Any value configured for this feature is superseded by Cache-Control:must-revalidate or Cache-Control:proxy-revalidate headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the edge server will not serve a stale cached asset. In such a case, if the edge server is unable to revalidate with the origin when the asset's max-age interval has expired, then the edge server will return a 504 Gateway Timeout.
+Any value configured for this feature is superseded by `Cache-Control:must-revalidate` or `Cache-Control:proxy-revalidate` headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the edge server will not serve a stale cached asset. In such a case, if the edge server is unable to revalidate with the origin when the asset's max-age interval has expired, the edge server returns a 504 Gateway Timeout error.
 
 Key information:
 
@@ -662,7 +666,7 @@ Key information:
 **Default Value:** 10,000 requests
 
 ### Modify Client Request Header
-**Purpose:** Each request contains a set of [request headers]() that describe it. This feature can either:
+**Purpose:** Each request contains a set of request headers that describe it. This feature can either:
 
 - Append or overwrite the value assigned to a request header. If the specified request header does not exist, then this feature will add it to the request.
 - Delete a request header from the request.
@@ -685,7 +689,7 @@ Key information:
     - CACHE-CONTROL
     - cachE-Control
 - When specifying a header name, use only alphanumeric characters, dashes, or underscores.
-- Deleting a header will prevent it from being forwarded to an origin server by our edge servers.
+- Deleting a header will prevent it from being forwarded to an origin server by the edge servers.
 - The following headers are reserved and cannot be modified by this feature:
     - forwarded
     - host
@@ -695,12 +699,12 @@ Key information:
     - All header names that start with "x-ec" are reserved.
 
 ### Modify Client Response Header
-Each response contains a set of [response headers]() that describe it. This feature can either:
+Each response contains a set of response headers that describe it. This feature can either:
 
 - Append or overwrite the value assigned to a response header. If the specified response header does not exist, then this feature will add it to the response.
 - Delete a response header from the response.
 
-By default, response header values are defined by an origin server and by our edge servers.
+By default, response header values are defined by an origin server and by the edge servers.
 
 One of the following actions can be performed on a response header:
 
@@ -717,7 +721,7 @@ Key information:
 	- cache-control
 	- CACHE-CONTROL
 	- cachE-Control
-- Deleting a header will prevent it from being forwarded to the requester.
+- Deleting a header prevents it from being forwarded to the requester.
 - The following headers are reserved and cannot be modified by this feature:
     - accept-encoding
     - age
@@ -759,25 +763,25 @@ Key information:
 **Default Behavior:** Off. Revalidation may only take place after the cached content's TTL has expired.
 
 ### Proxy Special Headers
-**Purpose:** Defines the set of [CDN-specific request headers]() that will be forwarded from an edge server to an origin server.
+**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
 
 Key information:
 
 - Each CDN-specific request header defined in this feature will be forwarded to an origin server.
 - Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
 
-**Default Behavior:** All [CDN-specific request headers]() will be forwarded to the origin server.
+**Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 
-### Refresh Zero Byte Cache Files
-**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by our edge servers.
+### Refresh Zero-Byte Cache Files
+**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
 
 Valid values are:
 
 Value|Result
 --|--
-Enabled|Causes our edge server to refetch the asset from the origin server.
+Enabled|Causes the edge server to refetch the asset from the origin server.
 Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
-This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by our edge servers. If you know that a 0-byte response is never a valid response 
+This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by the edge servers. If you know that a 0-byte response is never a valid response 
 
 for such content, then this feature can prevent these types of assets from being served to your clients.
 
@@ -801,7 +805,7 @@ Key information:
 ### Set Client IP Custom Header
 **Purpose:** Adds a custom header that identifies the requesting client by IP address to the request.
 
-The Header name option defines the name of the custom request header where the client's IP address will be stored.
+The Header name option defines the name of the custom request header where the client's IP address is stored.
 
 This feature allows a customer origin server to find out client IP addresses through a custom request header. If the request is served from cache, then the origin server will not be informed of the client's IP address. Therefore, it is recommended that this feature be used with ADN or assets that will not be cached.
 
@@ -822,13 +826,13 @@ Ensure that the specified header name does not match any of the following names:
 
 Value|Result
 -|-
-Enabled|Stale content will be served to the requester when an error occurs during a connection to an origin server.
-Disabled|The origin server's error will be forwarded to the requester.
+Enabled|Stale content is served to the requester when an error occurs during a connection to an origin server.
+Disabled|The origin server's error is forwarded to the requester.
 
 **Default Behavior:** Disabled
 
 ### Stale While Revalidate
-**Purpose:** Improves performance by allowing our edge servers to serve stale content to the requester while revalidation takes place.
+**Purpose:** Improves performance by allowing the edge servers to serve stale content to the requester while revalidation takes place.
 
 Key information:
 
@@ -844,7 +848,7 @@ Key information:
 
 If Token-Based Authentication is enabled, then only requests that provide an encrypted token and comply to the requirements specified by that token will be honored.
 
-The encryption key that will be used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
+The encryption key that is used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
 
 Value | Result
 ------|---------
@@ -894,7 +898,7 @@ The above configuration can be achieved by performing the following steps:
 The WWW-Authenticate header is only applicable for 401 response codes.
 
 ### Token Auth Ignore URL Case
-**Purpose:** Determines whether URL comparisons made by Token-Based Authentication will be case-sensitive.
+**Purpose:** Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
 
 The parameters affected by this feature are:
 
@@ -906,7 +910,7 @@ Valid values are:
 
 Value|Result
 ---|----
-Enabled|Causes our edge server to ignore case when comparing URLs for Token-Based Authentication parameters.
+Enabled|Causes the edge server to ignore case when comparing URLs for Token-Based Authentication parameters.
 Disabled|Restores the default behavior. The default behavior is for URL comparisons for Token Authentication to be case-sensitive.
 
 **Default Behavior:** Disabled.
@@ -941,7 +945,7 @@ It is highly recommended to use an absolute URL. The use of a relative URL may 
 
 **Sample Scenario**
 
-In this example, we will demonstrate how to redirect an edge CNAME URL that resolves to this base CDN URL:
+This example, demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
 http://marketing.azureedge.net/brochures
 
 Qualifying requests will be redirected to this base edge CNAME URL:
@@ -977,11 +981,11 @@ Option|Description
 -|-
  Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
- This feature allows our edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
+ This feature allows the edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**
 
-In this example, we will demonstrate how to redirect an edge CNAME URL that resolves to this base CDN URL:
+This example demonstrates how to redirect an edge CNAME URL that resolves to this base CDN URL:
 http://marketing.azureedge.net/brochures/
 
 Qualifying requests will be redirected to this base edge CNAME URL:
@@ -992,7 +996,7 @@ This URL redirection may be achieved through the following configuration:
 
 **Sample Scenario 2**
 
-In this example, we will demonstrate how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
+This example demonstrates how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
 
 This URL redirection may be achieved through the following configuration:
 ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
