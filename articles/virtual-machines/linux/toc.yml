@@ -83,20 +83,26 @@
     - name: High performance compute
       href: sizes-hpc.md    
     - name: Azure compute units (ACU)
-      href: sizes-general.md        
+      href: acu.md        
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
-    href: azure-vm-storage-overview.md
+  - name: Disk storage
+    href: about-disks-and-vhds.md
     items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -143,8 +149,23 @@
         href: ssh-from-windows.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    items:
+      - name: Back up a single VM
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore a disk
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore individual files
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -153,8 +174,6 @@
       href: change-vm-size.md
     - name: Tag a VM
       href: tag.md
-    - name: Use cloud-init
-      href: using-cloud-init.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
     - name: Use Remote Desktop
@@ -233,6 +252,22 @@
         href: terraform-install-configure.md
       - name: Create a complete VM
         href: terraform-create-complete-vm.md
+    - name: Cloud-init
+      items:
+      - name: Cloud-init overview
+        href: using-cloud-init.md
+      - name: Configure VM hostname
+        href: cloudinit-update-vm-hostname.md
+      - name: Update packages in a VM
+        href: cloudinit-update-vm.md
+      - name: Add a user on a VM
+        href: cloudinit-add-user.md
+      - name: Configure swapfile
+        href: cloudinit-configure-swapfile.md
+      - name: Run existing bash script
+        href: cloudinit-bash-script.md
+      - name: Prepare existing VM for cloud-init
+        href: cloudinit-prepare-custom-image.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
@@ -301,8 +336,6 @@
         href: n-series-driver-setup.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -317,8 +350,6 @@
       href: expand-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert to Managed Disks

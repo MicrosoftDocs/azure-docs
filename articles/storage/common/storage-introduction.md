@@ -77,7 +77,7 @@ For example, say you want your customers to be able to upload pictures, and you 
 
 ## Table storage
 
-[Azure Table storage](../../cosmos-db/table-storage-overview.md) is a schemaless key/value store optimized for low cost. The [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md) uses the same SDK as Azure Table storage but is optimized for throughput, global distribution, and automatic secondary indexes. To learn which table offering will best meet your needs, see [Table offerings](../../cosmos-db/table-introduction.md#table-offerings).
+Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
 ## Disk storage
 

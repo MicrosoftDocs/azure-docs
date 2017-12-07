@@ -825,7 +825,7 @@ The Item function is useful together with the Contains function since the latter
 Throws an error if index is out of bounds.
 
 **Example:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returns the primary email address.
 
 - - -

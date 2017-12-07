@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 11/20/2017
 ms.author: xshi
 
 ---
@@ -26,7 +26,7 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 ## What you do
 Connect the [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
-Don't have a DevKit yet? [Try the simulator](https://aka.ms/iot-devkit-simulator) or [get one](https://aka.ms/iot-devkit-purchase).
+Don't have a DevKit yet? Try [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [get one](https://aka.ms/iot-devkit-purchase).
 
 ## What you learn
 
@@ -194,42 +194,45 @@ The .zip file contains the following tools and packages. If you already have som
 
 In the Finder, locate the .zip and extract it:
 
+![macOS finder](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 Launch Terminal app, locate the folder you extract .zip file and run:
 
 ```bash
 ./install.sh
 ```
 
+![macOS install](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
+
 > [!NOTE] 
 > If you meet Homebrew permission error, run `brew doctor` to get it fixed. Check [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) for more details.
 
 You now have all the necessary tools and packages installed for macOS.
 
-## Open the project folder
 
-You start to create an Azure IoT Hub, connect DevKit to it, and collect the temperature and humidity data from sensors and send the data to the IoT hub.
+## Open the project folder
 
 ### Start VS Code
 
 Make sure your DevKit is not connected. Start VS Code first and connect the DevKit to your computer. VS Code automatically finds the DevKit and opens an introduction page:
 
-![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
-> Occasionally, when you launch VS Code, you are prompted with error that cannot find Arduino IDE or related board package. Close VS Code, launch Arduino IDE once again, and VS Code should locate Arduino IDE path correctly.
+> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
 
 
 ### Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **GetStarted**. This will open a new VS Code window with project folder in it.
+On the **Arduino Examples** tab, browse to **Examples for MXCHIP AZ3166** > **AzureIoT**, and select **GetStarted**.
 
-![Arduino Examples tab](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![Arduino Examples tab](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Provision Azure services
 
-In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by entering `task cloud-provision`:
+In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by entering `task cloud-provision`.
 
 In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services:
 
@@ -237,28 +240,26 @@ In the VS Code terminal, an interactive command line guides you through provisio
 
 ## Build and upload the Arduino sketch
 
-### Install the required library
+### Windows
 
-1. Press `F1` or `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Library Manager**.
-
-2. Search for the **ArduinoJson** library and select **Install**:
-![Install Arduino library](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
-
-### Build and upload the device code (Windows)
 1. Use `Ctrl+P` to run `task device-upload`.
 2. The terminal prompts you to enter configuration mode. To do so, hold down button A, then push and release the reset button. The screen displays the DevKit id and 'Configuration'.
 
 This is to set the connection string that retrieves from `task cloud-provision` step.
 
-Then the terminal starts verifying and uploading the Arduino sketch:
+Then VS Code starts verifying and uploading the Arduino sketch:
 
 ![Verification and upload of the Arduino sketch](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
 The DevKit reboots and starts running the code.
 
-### Build and upload the device code (Mac)
+> [!NOTE] 
+> Occasionally, you get error "Error: AZ3166: Unknown package". This is due to the board package index is not refreshed. Check this [FAQ steps](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) to solve it.
 
-1. Put DevKit into configuration mode: Hold down button A, then push and release the reset button. The screen displays 'Configuration'.
+### macOS
+
+1. Put DevKit into configuration mode:
+  Hold down button A, then push and release the reset button. The screen displays 'Configuration'.
 2. Use `Cmd+P` to run `task device-upload`.
 
 This is to set the connection string that retrieves from `task cloud-provision` step.
@@ -269,15 +270,19 @@ Then VS Code starts verifying and uploading the Arduino sketch:
 
 The DevKit reboots and starts running the code.
 
+> [!NOTE] 
+> Occasionally, you get error "Error: AZ3166: Unknown package". This is due to the board package index is not refreshed. Check this [FAQ steps](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) to solve it.
+
+
 ## Test the project
 
 In VS Code, following these steps to open and set up the Serial Monitor:
 
 1. Click the `COM[X]` word on the status bar to set the right COM port with `STMicroelectronics`:
-   ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
+  ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
 2. Click power plug icon on the status bar to open the Serial Monitor:
-  ![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+  ![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
 3. On the status bar, click the number that represents the Baud Rate and set to `115200`:
   ![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)

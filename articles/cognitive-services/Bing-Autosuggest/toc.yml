@@ -4,6 +4,8 @@
   items:
   - name: About Bing Autosuggest API
     href: get-suggested-search-terms.md
+  - name: Autosuggest endpoint
+    href: autosuggest-endpoint.md
   - name: Supported languages
     href: bing-autosuggest-supported-languages.md
 - name: Quickstarts

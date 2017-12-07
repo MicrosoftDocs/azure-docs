@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
 
 ---
@@ -102,66 +102,60 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. On the **Front Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
+3. On the **Front Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.frontapp.com`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Check **Show advanced URL settings**, If you wish to configure the application in **SP** initiated mode:
-
-	![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.frontapp.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier and Reply URL which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
 
-5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
 	
-7. On the **Front Configuration** section, click **Configure Front** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Front Configuration** section, click **Configure Front** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Sign-on to your Front tenant as an administrator.
+7. Sign-on to your Front tenant as an administrator.
 
-9. Go to **Settings (cog icon at the bottom of the left sidebar) > Preferences**.
+8. Go to **Settings (cog icon at the bottom of the left sidebar) > Preferences**.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Click **Single Sign On** link.
+9. Click **Single Sign On** link.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Select **SAML** in the drop-down list of **Single Sign On**.
+10. Select **SAML** in the drop-down list of **Single Sign On**.
    
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. In the **Entry Point** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
+11. In the **Entry Point** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Signing certificate** textbox.
+12. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Signing certificate** textbox.
     
     ![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. On the **Service provider settings** section, perform the following steps:
+13. On the **Service provider settings** section, perform the following steps:
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
 	a. Copy the value of **Entity ID** and paste it into the **Identifier** textbox in **Front Domain and URLs** section in Azure portal.
 
-	b. Copy the value of **ACS URL** and paste it into the **Sign-on URL** textbox in **Front Domain and URLs** section in Azure portal.
+	b. Copy the value of **ACS URL** and paste it into the **Reply URL** textbox in **Front Domain and URLs** section in Azure portal.
 	
-15. Click **Save** button.
+14. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)

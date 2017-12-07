@@ -83,7 +83,7 @@ In this case, start with the list of attributes in this topic and identify those
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |

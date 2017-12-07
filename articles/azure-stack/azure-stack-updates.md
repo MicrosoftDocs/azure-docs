@@ -21,7 +21,9 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+Microsoft will release update packages for Azure Stack integrated systems on a regular cadence that will typically fall on the fourth Tuesday of every month, starting at general availability. Ask your OEM about their specific notification process to ensure update notifications reach your organization, or check here under Concepts\Release notes\Integrated systems release notes for more information about specific releases.
+
+Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
 
 Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
 

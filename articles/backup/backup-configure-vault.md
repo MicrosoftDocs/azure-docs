@@ -183,7 +183,7 @@ If your machine/proxy has limited internet access, ensure that firewall settings
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 
 ## Create the backup policy

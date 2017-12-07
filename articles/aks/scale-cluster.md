@@ -1,24 +1,15 @@
 ---
-title: Scale an Azure Container Service (AKS) cluster | Microsoft Docs
+title: Scale an Azure Container Service (AKS) cluster
 description: Scale an Azure Container Service (AKS) cluster.
 services: container-service
-documentationcenter: ''
 author: gabrtv
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/11/2017
+ms.topic: article
+ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-
 ---
 
 # Scale an Azure Container Service (AKS) cluster
@@ -30,7 +21,7 @@ It is easy to scale an AKS cluster to a different number of nodes.  Select the d
 Use the `az aks scale` command to scale the cluster nodes. The following example scales a cluster named *myK8SCluster* to a single node.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --agent-count 1
+az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Output:
