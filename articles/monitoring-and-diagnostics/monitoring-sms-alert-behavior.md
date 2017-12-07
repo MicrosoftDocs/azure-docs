@@ -34,15 +34,15 @@ An SMS receiver, who is configured as part of an action group, will receive an S
 - Title of the alert
 
 ### Unsubscribing from SMS alerts for one action group
-A user can unsubscribe from SMS for alerts for one action group by responding to the shortcode 20873 with the keywords: “DISABLE &lt;Shortname of action group&gt;”.
+A user can unsubscribe from SMS for alerts for one action group by responding to the shortcode 29873 with the keywords: “DISABLE &lt;Shortname of action group&gt;”.
 
-Ex. A user wishing to unsubscribe from alerts for an action group with the shortname “Azure”, would send an SMS to the shortcode 20873 that says “DISABLE Azure”
+Ex. A user wishing to unsubscribe from alerts for an action group with the shortname “Azure”, would send an SMS to the shortcode 29873 that says “DISABLE Azure”
 
 ### Unsubscribing from SMS alerts for all action groups
-A user can unsubscribe from all SMS alerts for all action groups by responding to the shortcode 20873 with any of the following keywords:
+A user can unsubscribe from all SMS alerts for all action groups by responding to the shortcode 29873 with any of the following keywords:
 * STOP
 
-Ex. A user wishing to unsubscribe from all SMS alerts for all action groups, would send an SMS to the shortcode 20873 that says “STOP”
+Ex. A user wishing to unsubscribe from all SMS alerts for all action groups, would send an SMS to the shortcode 29873 that says “STOP”
 
 >[!NOTE]
 >If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
@@ -50,19 +50,19 @@ Ex. A user wishing to unsubscribe from all SMS alerts for all action groups, wou
 >
 
 ### Resubscribing to SMS alerts for one action group
-A user can resubscribe to SMS for alerts for one action group by responding to the shortcode 20873 with the keywords: “ENABLE &lt;Shortname of action group&gt;”.
+A user can resubscribe to SMS for alerts for one action group by responding to the shortcode 29873 with the keywords: “ENABLE &lt;Shortname of action group&gt;”.
 
-Ex. A user wishing to resubscribe to alerts for an action group with the shortname “Azure”, would send an SMS to the shortcode 20873 that says “ENABLE Azure”
+Ex. A user wishing to resubscribe to alerts for an action group with the shortname “Azure”, would send an SMS to the shortcode 29873 that says “ENABLE Azure”
 
 ### Resubscribing to SMS alerts for all action groups
-A user can resubscribe to all SMS for alerts for all action groups by responding to the shortcode 20873 with any of the following keywords:
+A user can resubscribe to all SMS for alerts for all action groups by responding to the shortcode 29873 with any of the following keywords:
 
 * START
 
-Ex. A user wishing to unsubscribe from all SMS alerts for all action groups, would send an SMS to the shortcode 20873 that says “START”
+Ex. A user wishing to unsubscribe from all SMS alerts for all action groups, would send an SMS to the shortcode 29873 that says “START”
 
 ### Requesting help via SMS
-A user can ask for more information about the SMS they have received by responding to the shortcode 20873 with any of the following keywords:
+A user can ask for more information about the SMS they have received by responding to the shortcode 29873 with any of the following keywords:
 * HELP
 
 A response will be sent to the user with a link to this article.
