@@ -4,7 +4,7 @@ description: A step-by-step guide to enabling conditional access to on-premises 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05

@@ -4,7 +4,7 @@ description: Step-by-step instructions for assigning an MSI on one resource acce
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory

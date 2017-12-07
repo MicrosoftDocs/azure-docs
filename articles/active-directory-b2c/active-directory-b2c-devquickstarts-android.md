@@ -4,7 +4,7 @@ description: This article will show you how to create an Android app that uses A
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: d00947c3-dcaa-4cb3-8c2e-d94e0746d8b2

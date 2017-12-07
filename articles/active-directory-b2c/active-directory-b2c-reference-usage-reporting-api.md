@@ -4,7 +4,7 @@ description: Guide and samples on getting reports on Azure AD B2C tenant users, 
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
-manager: mbaldwin
+manager: mtillman
 
 
 ms.service: active-directory-b2c

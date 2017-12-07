@@ -4,7 +4,7 @@ description: Learn about how to create and manage Azure Active Directory B2C cus
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c

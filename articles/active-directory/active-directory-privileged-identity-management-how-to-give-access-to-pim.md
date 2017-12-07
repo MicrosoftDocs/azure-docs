@@ -4,7 +4,7 @@ description: Learn how to add roles to users with the Azure Active Directory Pri
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897

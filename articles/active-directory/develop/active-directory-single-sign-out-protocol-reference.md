@@ -4,7 +4,7 @@ description: This article describes the Single Sign-Out SAML Protocol in Azure A
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6

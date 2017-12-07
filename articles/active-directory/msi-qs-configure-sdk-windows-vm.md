@@ -4,7 +4,7 @@ description: Step by step instructions for configuring and using a Managed Servi
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.service: active-directory

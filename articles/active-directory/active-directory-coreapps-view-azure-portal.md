@@ -4,7 +4,7 @@ description: How to see a list of the enterprise apps that you have the permissi
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d

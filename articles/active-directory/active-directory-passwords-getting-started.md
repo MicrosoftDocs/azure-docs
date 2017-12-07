@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec

@@ -4,7 +4,7 @@ description: Step by step instructions and examples for using an Azure VM MSI to
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory

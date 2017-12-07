@@ -4,7 +4,7 @@ description: Build a .NET MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e15a41a4-dc5d-4c90-b3fe-5dc33b9a1e96

@@ -4,7 +4,7 @@ description: Management concepts and how-tos for managing a domain name in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a

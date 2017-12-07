@@ -4,7 +4,7 @@ description: Frequently asked questions about Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: saeeda
-manager: krassk
+manager: mtillman
 editor: bryanla
 
 ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a

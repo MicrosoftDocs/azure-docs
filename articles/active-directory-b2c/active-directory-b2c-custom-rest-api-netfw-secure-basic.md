@@ -4,7 +4,7 @@ description: Secure your custom REST API claims exchanges in your Azure AD B2C b
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

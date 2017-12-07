@@ -4,7 +4,7 @@ description: How to manage RBAC with Azure PowerShell, including listing roles, 
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory

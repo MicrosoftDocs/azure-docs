@@ -4,7 +4,7 @@ description: How to build an Windows Universal app that signs users in with both
 services: active-directory
 documentationcenter: ''
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b

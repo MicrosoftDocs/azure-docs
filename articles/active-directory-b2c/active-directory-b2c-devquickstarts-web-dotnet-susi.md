@@ -4,7 +4,7 @@ description: How to build a web application that has sign-up/sign-in, profile ed
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: barbaraselden
 
 ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25

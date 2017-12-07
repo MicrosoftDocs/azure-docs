@@ -5,7 +5,7 @@ description: What can Azure AD self-service password reset do for your organizat
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: 

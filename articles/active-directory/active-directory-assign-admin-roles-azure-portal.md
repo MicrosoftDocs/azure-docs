@@ -4,7 +4,7 @@ description: An admin role can create or edit users, assign administrative roles
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731

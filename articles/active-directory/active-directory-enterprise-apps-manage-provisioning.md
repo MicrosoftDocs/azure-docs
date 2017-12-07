@@ -4,7 +4,7 @@ description: Learn how to manage user account provisioning for enterprise apps u
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793

@@ -4,7 +4,7 @@ description: Step-by-step guide to enable billing for Azure AD B2C tenant into a
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: parakhj
-manager: krassk
+manager: mtillman
 
 
 ms.service: active-directory-b2c

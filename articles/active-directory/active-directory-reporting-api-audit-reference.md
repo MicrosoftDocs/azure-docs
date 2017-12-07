@@ -4,7 +4,7 @@ description: How to get started with the Azure Active Directory audit API
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792

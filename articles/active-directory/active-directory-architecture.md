@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 writer: v-lorisc
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

@@ -4,7 +4,7 @@ description: How to build a .NET MVC Web App that calls web services using perso
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 56be906e-71de-469d-9a5c-9fc08aae4223

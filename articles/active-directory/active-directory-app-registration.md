@@ -4,7 +4,7 @@ description: This article describes how to use the Azure portal to register an a
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15

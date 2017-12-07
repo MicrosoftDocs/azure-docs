@@ -4,7 +4,7 @@ description: The types of tokens and claims emitted by the Azure AD v2.0 endpoin
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd

@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Facebook accounts in 
 services: active-directory-b2c
 documentationcenter: ''
 author: sromeroz
-manager: krassk
+manager: mtillman
 editor: sromeroz
 
 ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32

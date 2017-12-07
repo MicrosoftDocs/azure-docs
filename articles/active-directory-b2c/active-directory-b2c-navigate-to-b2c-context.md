@@ -4,7 +4,7 @@ description: How to switch into the context of your Active Directory B2C tenant
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 0eb1b198-44d3-4065-9fae-16591a8d3eae

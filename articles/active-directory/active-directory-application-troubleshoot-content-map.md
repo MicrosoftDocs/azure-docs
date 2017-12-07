@@ -4,7 +4,7 @@ description: Resolve the most common issues related to Azure Active Directory Ap
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity

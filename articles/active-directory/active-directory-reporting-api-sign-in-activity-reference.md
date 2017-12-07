@@ -4,7 +4,7 @@ description: Reference for the Azure Active Directory sign-in activity report AP
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634

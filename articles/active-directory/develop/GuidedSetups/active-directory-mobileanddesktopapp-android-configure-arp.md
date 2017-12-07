@@ -4,7 +4,7 @@ description: How an Android app can get an access token and call Microsoft Graph
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06

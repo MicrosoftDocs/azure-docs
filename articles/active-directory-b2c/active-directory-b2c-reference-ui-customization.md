@@ -4,7 +4,7 @@ description: A topic on the user interface (UI) customization features in Azure 
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d

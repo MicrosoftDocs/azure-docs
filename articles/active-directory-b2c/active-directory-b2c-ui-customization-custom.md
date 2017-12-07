@@ -4,7 +4,7 @@ description: Learn about customizing a user interface (UI) while you use custom 
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d

@@ -4,7 +4,7 @@ description: Compatible client libraries and server middleware libraries, and re
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746

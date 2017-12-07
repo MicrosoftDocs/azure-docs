@@ -4,7 +4,7 @@ description: How to build a .NET MVC web API that integrates with Azure AD for a
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f

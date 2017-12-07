@@ -4,7 +4,7 @@ description: How to get an Azure Active Directory tenant for registering and bui
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd

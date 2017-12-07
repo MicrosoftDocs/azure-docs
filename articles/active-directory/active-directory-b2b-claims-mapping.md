@@ -4,7 +4,7 @@ description: claims mapping reference for Azure Active Directory B2B collaborati
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

@@ -4,7 +4,7 @@ description: Code and PowerShell samples for Azure Active Directory B2B collabor
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

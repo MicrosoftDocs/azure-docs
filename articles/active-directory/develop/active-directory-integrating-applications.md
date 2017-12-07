@@ -4,7 +4,7 @@ description: How to add, update, or remove an application in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845

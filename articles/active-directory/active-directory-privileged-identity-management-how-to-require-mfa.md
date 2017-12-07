@@ -4,7 +4,7 @@ description: Learn how to require multi-factor authentication (MFA) for privileg
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c

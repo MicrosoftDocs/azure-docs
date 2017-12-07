@@ -4,7 +4,7 @@ title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Do
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory

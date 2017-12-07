@@ -4,7 +4,7 @@ description: How to build a Windows Phone application that integrates with Azure
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416

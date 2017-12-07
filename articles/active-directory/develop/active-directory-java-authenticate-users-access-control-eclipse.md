@@ -4,7 +4,7 @@ description: Learn how to develop and use Access Control with Java in Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: ''
 
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7

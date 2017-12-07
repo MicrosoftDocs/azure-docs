@@ -4,7 +4,7 @@ description: Learn how to build a Node.js Express MVC web app that integrates wi
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99

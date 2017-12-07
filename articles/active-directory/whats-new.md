@@ -4,7 +4,7 @@ description: Learn what is new with Azure Active Directory (Azure AD) including 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 featureFlags:
  - clicktale

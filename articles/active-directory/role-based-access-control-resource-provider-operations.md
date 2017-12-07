@@ -4,7 +4,7 @@ description: Details the operations available on the Microsoft Azure Resource Ma
 services: active-directory
 documentationcenter:
 author: jboeshart
-manager: 
+manager: mtillman
 
 
 ms.service: active-directory

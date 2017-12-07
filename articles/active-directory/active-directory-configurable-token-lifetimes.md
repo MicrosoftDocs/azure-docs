@@ -4,7 +4,7 @@ description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735

@@ -4,7 +4,7 @@ description: Covers the basics about how to integrate an on-premises SharePoint 
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory

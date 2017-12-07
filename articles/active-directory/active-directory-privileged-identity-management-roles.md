@@ -4,7 +4,7 @@ description: Learn what roles are used for privileged identities with the Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed

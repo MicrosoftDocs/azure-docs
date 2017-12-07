@@ -4,7 +4,7 @@ description: Publish on-premises applications to the cloud with Azure AD Applica
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory

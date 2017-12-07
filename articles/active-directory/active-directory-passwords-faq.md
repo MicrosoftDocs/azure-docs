@@ -5,7 +5,7 @@ services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid: 

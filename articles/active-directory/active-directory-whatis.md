@@ -4,7 +4,7 @@ description: Use Azure Active Directory to extend your existing on-premises iden
 services: active-directory
 documentationcenter: ''
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca

@@ -5,7 +5,7 @@ keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,depl
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory

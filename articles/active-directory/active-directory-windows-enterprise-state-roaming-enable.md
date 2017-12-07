@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, windows cloud, how to enable enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4

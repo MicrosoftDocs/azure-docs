@@ -4,7 +4,7 @@ description: A How-To article about setting up a LinkedIn application by using t
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

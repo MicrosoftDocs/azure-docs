@@ -4,7 +4,7 @@ description: How to register your application with Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69

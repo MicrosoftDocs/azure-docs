@@ -5,7 +5,7 @@ description: Add a guest user to a role in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

@@ -4,7 +4,7 @@ description: A walkthrough on adding claims to sign up and configure the user in
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: tbd
 
 ms.assetid:

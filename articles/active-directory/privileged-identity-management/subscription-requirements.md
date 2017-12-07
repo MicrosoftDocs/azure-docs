@@ -4,7 +4,7 @@ description: Explains the subscription and licensing requirements for managing a
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory

@@ -5,7 +5,7 @@ description: Explains how to add the user profile, including profile picture, in
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3

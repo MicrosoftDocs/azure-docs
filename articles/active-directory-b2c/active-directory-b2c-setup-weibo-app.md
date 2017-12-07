@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Weibo accounts in you
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230

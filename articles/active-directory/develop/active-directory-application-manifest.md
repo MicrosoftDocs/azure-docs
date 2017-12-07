@@ -4,7 +4,7 @@ description: Detailed coverage of the Azure Active Directory application manifes
 services: active-directory
 documentationcenter: ''
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184

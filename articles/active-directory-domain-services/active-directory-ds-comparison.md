@@ -4,7 +4,7 @@ description: Comparing Azure Active Directory Domain Services to DIY domain cont
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9

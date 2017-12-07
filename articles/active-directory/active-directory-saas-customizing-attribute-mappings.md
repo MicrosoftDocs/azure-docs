@@ -4,7 +4,7 @@ description: Learn what attribute mappings for SaaS apps in Azure Active Directo
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77

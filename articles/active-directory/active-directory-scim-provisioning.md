@@ -4,7 +4,7 @@ description: Azure Active Directory can automatically provision users and groups
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0

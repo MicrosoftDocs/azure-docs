@@ -4,7 +4,7 @@ description: An introduction to how you can use Azure AD to automatically provis
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62

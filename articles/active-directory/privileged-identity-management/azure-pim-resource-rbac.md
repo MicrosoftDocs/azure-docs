@@ -4,7 +4,7 @@ description: Get an overview of the RBAC feature in PIM including Terminology an
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid:

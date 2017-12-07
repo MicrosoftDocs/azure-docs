@@ -4,7 +4,7 @@ description: How to build a Node.js web app that signs in users by using a B2C t
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27

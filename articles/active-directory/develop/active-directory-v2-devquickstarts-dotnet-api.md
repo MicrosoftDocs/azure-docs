@@ -4,7 +4,7 @@ description: How to build a .NET MVC Web Api that accepts tokens from both perso
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206

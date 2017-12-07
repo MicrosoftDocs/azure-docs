@@ -4,7 +4,7 @@ description: Describes what happens to your WebApi project when you connect to A
 services: active-directory
 documentationcenter: ''
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: ''
 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0

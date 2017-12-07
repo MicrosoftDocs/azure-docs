@@ -4,7 +4,7 @@ description: How to create a group in Azure Active Directory and add members to 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c

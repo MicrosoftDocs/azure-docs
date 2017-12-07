@@ -4,7 +4,7 @@ description: This topic explains concepts about using subscription administrator
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory

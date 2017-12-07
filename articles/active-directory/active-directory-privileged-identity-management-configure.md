@@ -4,7 +4,7 @@ description: A topic that explains what Azure AD Privileged Identity Management 
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25

@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with LinkedIn accounts in 
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef

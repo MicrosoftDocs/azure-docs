@@ -4,7 +4,7 @@ description: How to disable an enterprise application so that no users may sign 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a27562f9-18dc-42e8-9fee-5419566f8fd7

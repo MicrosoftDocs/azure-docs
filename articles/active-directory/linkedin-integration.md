@@ -4,7 +4,7 @@ title: Configure LinkedIn integration in Azure AD | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory.
 services: active-directory
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity

@@ -4,7 +4,7 @@ description: A topic demonstrating how to set up self-service password reset for
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: curtand
 
 ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310

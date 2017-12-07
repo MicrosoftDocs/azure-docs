@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Windows VM
 services: active-directory
 documentationcenter: ''
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.service: active-directory

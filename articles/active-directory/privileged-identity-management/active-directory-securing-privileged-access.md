@@ -4,7 +4,7 @@ description: A topic that explains the approaches for securing privileged access
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08

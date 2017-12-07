@@ -4,7 +4,7 @@ description: Building web applications by using the Azure Active Directory imple
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede

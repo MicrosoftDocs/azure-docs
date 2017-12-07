@@ -4,7 +4,7 @@ description: This topic describes how to use Connect when you have an existing A
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid:

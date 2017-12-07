@@ -4,7 +4,7 @@ description: How to configure complexity requirements for passwords in Custom Po
 services: active-directory-b2c
 documentationcenter: ''
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc

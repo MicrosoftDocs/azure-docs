@@ -4,7 +4,7 @@ description: This topic describes the prevent accidental deletes (preventing acc
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7

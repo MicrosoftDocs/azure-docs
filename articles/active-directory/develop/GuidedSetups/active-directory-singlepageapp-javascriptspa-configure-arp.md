@@ -4,7 +4,7 @@ description: How JavaScript SPA applications can call an API that require access
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.service: active-directory 

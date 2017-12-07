@@ -4,7 +4,7 @@ description: Covers how to provide single sign-on using Azure AD Application Pro
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory

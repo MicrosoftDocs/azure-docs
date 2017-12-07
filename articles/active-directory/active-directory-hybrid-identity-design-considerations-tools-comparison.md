@@ -4,7 +4,7 @@ description: This is page provides a comprehensive table that compares the vario
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52

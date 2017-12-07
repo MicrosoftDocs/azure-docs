@@ -5,7 +5,7 @@ description: Learn how to find Azure Active Directory activity reports in the Az
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812

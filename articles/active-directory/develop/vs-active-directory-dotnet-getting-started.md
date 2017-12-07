@@ -4,7 +4,7 @@ description: How to get started using Azure Active Directory in MVC projects aft
 services: active-directory
 documentationcenter: ''
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: ''
 
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b

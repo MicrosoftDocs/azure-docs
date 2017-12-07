@@ -4,7 +4,7 @@ description: You define the data protection strategy for your hybrid identity so
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396

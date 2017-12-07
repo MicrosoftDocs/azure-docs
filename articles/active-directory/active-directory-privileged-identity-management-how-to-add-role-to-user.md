@@ -4,7 +4,7 @@ description: Learn how to add roles to privileged identities with the Azure Acti
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22

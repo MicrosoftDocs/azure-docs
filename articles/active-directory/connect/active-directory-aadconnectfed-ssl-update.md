@@ -4,7 +4,7 @@ description: This document details the steps to update the SSL certificate of an
 services: active-directory
 keywords: azure ad connect, adfs ssl update, adfs certificate update, change adfs certificate, new adfs certificate, adfs certificate, update adfs ssl certificate, update ssl certificate adfs, configure adfs ssl certificate, adfs, ssl, certificate, adfs service communication certificate, update federation, configure federation, aad connect
 authors: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: billmath
 
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c

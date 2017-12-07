@@ -4,7 +4,7 @@ description: Learn how to use Central Desktop with Azure Active Directory to ena
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory

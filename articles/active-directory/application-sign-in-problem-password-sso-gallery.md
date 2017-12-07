@@ -3,7 +3,7 @@ title: Problems signing in to an Azure AD Gallery application configured for fed
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
