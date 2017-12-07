@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS cluster
+  - name: Create an AKS cluster - CLI
     href: kubernetes-walkthrough.md
+  - name: Create an AKS cluster - Portal
+    href: kubernetes-walkthrough-portal.md
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -29,6 +31,8 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: How-to guides
   items:
+  - name: Integrate with Azure using OSBA
+    href: integrate-azure.md
   - name: Scale an AKS cluster
     href: scale-cluster.md
   - name: Upgrade an AKS cluster

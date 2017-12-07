@@ -4,16 +4,16 @@ title: Deploy Azure Function with Azure IoT Edge | Microsoft Docs
 description: Deploy Azure Function as a module to an edge device
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
 
 # Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
+ms.custom: mvc
 # ms.devlang:devlang-from-white-list
 # ms.suite: 
 # ms.tgt_pltfrm:

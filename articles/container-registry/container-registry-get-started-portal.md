@@ -2,22 +2,14 @@
 title: Quickstart - Create a private Docker registry in Azure with the Azure portal
 description: Quickly learn to create a private Docker container registry with the Azure portal.
 services: container-registry
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: tysonn
-tags: ''
-keywords: ''
 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/31/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Create a container registry using the Azure portal
