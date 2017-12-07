@@ -102,7 +102,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
     </body>
 
@@ -112,7 +112,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
  
 3.  Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key. 
 
-    ```HTML/JavaScript
+    ```javascript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -123,7 +123,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
 
 4. Add the following JavaScript code to the *script* block, to add a layer of search pins to the Map Control:
 
-    ```HTML/JavaScript
+    ```javascript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
     map.addPins([], {
@@ -143,7 +143,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
 This section shows how to use the Azure Location Based Services' Search Service API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest and other geographical information. The Search Service assigns a latitude and longitude information to a specified address. 
 
 1. Open the **MapSearch.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to illustrate the Search Service. 
-    ```HTML/JavaScript
+    ```javascript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -186,7 +186,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
 
 2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Location Based Services' Search Service:
 
-    ```HTML/JavaScript
+    ```javascript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
@@ -202,7 +202,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
 
 3. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
-    ```HTML/JavaScript
+    ```javascript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
     var popup = new atlas.Popup();
     map.addEventListener("mouseover", searchLayerName, (e) => {
