@@ -52,7 +52,7 @@ To test access to the **Authorize** controller for the user's claims as an anony
 1. Select the link to sign out the user and complete the sign-out process.
 2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the **Authorize** attribute.
 
-#### Expected results for accessing a protected controller
+#### Expected results after access to a protected controller
 You're prompted to authenticate to use the protected controller view.
 
 ## Additional information
@@ -69,11 +69,11 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ### Restrict sign-in access to your application
 By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work and school accounts in organizations that are integrated with Azure AD can also sign in by default.
 
-Several options are available for restricting user sign-in access for your application.
+To restrict user sign-in access for your application, several options are available.
 
 #### Restrict access to a single organization
 You can restrict sign-in access for your application to only user accounts that are in a single Azure AD organization:
-1. In the **web.config** file, change the value for the **Tenant** parameter from **Common** to the tenant name of the organization. For example, **contoso.onmicrosoft.com**.
+1. In the **web.config** file, change the value for the **Tenant** parameter. Change the value from **Common** to the tenant name of the organization, such as **contoso.onmicrosoft.com**.
 2. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
 
 #### Restrict access to a list of organizations
