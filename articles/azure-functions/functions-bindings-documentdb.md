@@ -311,7 +311,8 @@ Here's the binding data in the *function.json* file:
   "type": "documentDB",
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
-  "id" : "{queueTrigger}",
+  "id" : "{queueTrigger payload property}",
+  "partitionKey": "{queueTrigger payload property}",
   "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
@@ -469,10 +470,10 @@ The DocumentDB API output binding lets you write a new document to an Azure Cosm
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
+* [Precompiled C#](#output---c-example)
+* [C# script](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
