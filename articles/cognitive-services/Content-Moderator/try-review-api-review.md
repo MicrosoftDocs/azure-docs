@@ -46,11 +46,11 @@ The simplest way to access a testing console is from the **Credentials** window.
 
   ![Review - Create console Response content box displays the review ID](images/test-drive-review-2.PNG)
   
-5.	Select **Get**, and then open the API by selecting the button that matches your region.
+5.	Select **Get**, and then open the API by selecting the button that matches your region. On the resulting page, enter the values for **teamName**, **ReviewID**, and **subscription key**. Select the **Send** button on the page. 
 
   ![Review - Create console Get results](images/test-drive-review-3.PNG)
   
-6.	Enter values for **teamName** and **ReviewID**. Enter your subscription key, and then select **Send**. The results of the scan are returned.
+6.	You will see the results of the scan.
 
   ![Review - Create console Response content box](images/test-drive-review-4.PNG)
   
