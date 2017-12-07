@@ -1,4 +1,4 @@
-﻿---
+---
 title: Require secure transfer in Azure Storage | Microsoft Docs
 description: Learn about the "Secure transfer required" feature for Azure Storage, and how to enable it.
 services: storage
@@ -50,8 +50,8 @@ You can turn on the "Secure transfer required" setting when you create a storage
 
 To require secure transfer programmatically, use the setting _supportsHttpsTrafficOnly_ in storage account properties with REST API, tools, or libraries:
 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (version: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (version: 4.1.0)
+* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (version: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (version: 4.1.0)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (version: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (version: 1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (version: 6.3.0)
