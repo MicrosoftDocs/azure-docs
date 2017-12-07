@@ -22,20 +22,20 @@ ms.custom: aaddev
 
 To test your application in Visual Studio, press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign in with Microsoft** button. Select the button to start the sign-in process.
 
-When you're ready to run your test, use a Microsoft Azure AD account (work or school account) or a personal Microsoft Account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
+When you're ready to run your test, use a Microsoft Azure AD account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
 
 ![Sign in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
 
 #### View application results
-After signing in, the user is redirected to the home page of your web site. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>", a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
+After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>," a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
 
 ### Browse to see the user's claims
 To see the user's claims, select the link to browse to the controller view that is available only to authenticated users.
 
 #### View the claims results
-After browsing to the controller view, you should see a table that contains the basic properties for the user:
+After you browse to the controller view, you should see a table that contains the basic properties for the user:
 
 |Property |Value |Description |
 |---|---|---|
@@ -44,11 +44,11 @@ After browsing to the controller view, you should see a table that contains the 
 |**Subject** |Subject |A string that uniquely identifies the user across the web.|
 |**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization.|
 
-In addition, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an Azure AD **ID Token**](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+In addition, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an Azure AD ID Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 
-### Test accessing a method that has an Authorize attribute (Optional)
-To test accessing the **Authorize** controller for the user's claims as an anonymous user, follow these steps:
+### Test access to a method that has an Authorize attribute (optional)
+To test access to the **Authorize** controller for the user's claims as an anonymous user, follow these steps:
 1. Select the link to sign out the user and complete the sign-out process.
 2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the **Authorize** attribute.
 
@@ -82,6 +82,6 @@ You can restrict sign-in access to only user accounts that are in an Azure AD or
 2. Set the value of the **ValidIssuers** parameter to the list of allowed organizations.
 
 #### Use a custom method to validate issuers
-You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [**TokenValidationParameters** class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
+You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
 [!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
