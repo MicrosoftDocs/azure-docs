@@ -56,7 +56,7 @@ Then create a second directory called c:\chef\cookbooks.
 We now need to download our Azure settings file so Chef can communicate with our Azure subscription.
 
 <!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
-Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
