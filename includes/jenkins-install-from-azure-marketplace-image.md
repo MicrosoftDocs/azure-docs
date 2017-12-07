@@ -21,7 +21,7 @@
     - **Confirm password** - Reenter the password to use when signing into the virtual machine on which Jenkins is running.
     - **Jenkins release type** - Select **LTS**.
     - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
-    - **Resource group** - Select **Create new**, and enter a name for the resource group that server as a logical container for the collection of resources that make up your Jenkins installation.
+    - **Resource group** - Select **Create new**, and enter a name for the resource group that serves as a logical container for the collection of resources that make up your Jenkins installation.
     - **Location** - Select **East US**.
 
     ![Enter authentication and resource group information for Jenkins in the Basic tab.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
