@@ -102,6 +102,11 @@ The errors indicate that there is some discrepancy between your labels and the p
 * To help LUIS improve discrimination among intents, add more labels.
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
+## Why don't I see my endpoint hits in my app's Dashboard?
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure Portal are updated more frequently. If you don't see updated endpoint hits in the Dashboard, log in to the Azure Portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure Portal shows the aggregate number of calls from all LUIS apps that use it.
+
+## How do I transfer ownership of a LUIS app?
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. The LUIS app's ID will need to be updated in the client application that calls it. The new app may return slightly different LUIS scores from the original app. 
 
 ## I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
 1. Export your app.
