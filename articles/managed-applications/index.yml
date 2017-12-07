@@ -32,7 +32,8 @@ sections:
   - type: paragraph
     text: Learn how to develop managed applications and offer them through the Azure Marketplace.
   - type: list
-    style: ordered
+    style: unordered
+    className: spaced noBullet
     items:
     - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publish managed application for internal users</a>
 - title: Reference
