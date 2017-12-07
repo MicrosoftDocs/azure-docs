@@ -10,7 +10,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 * Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 
-## Esv3-series*
+## Esv3-series <sup>1</sup>
 
 ACU: 160-190
 
@@ -23,12 +23,13 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 | Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
-| Standard_E32s_v3** | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / extremely high                             |
-| Standard_E64s_v3** | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremely high                             |
-*Esv3-series VM’s feature Intel® Hyper-Threading Technology
-**Constrained core sizes available 
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / extremely high                             |
+| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremely high                             |
 
-## Ev3-series*
+<sup>1</sup> Esv3-series VM’s feature Intel® Hyper-Threading Technology
+<sup>2</sup> Constrained core sizes available 
+
+## Ev3-series <sup>1</sup>
 
 ACU: 160 - 190 
 
@@ -45,7 +46,8 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / high                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / extremely high           |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / extremely high           |
-*Ev3-series VM’s feature Intel® Hyper-Threading Technology
+
+<sup>1</sup> Ev3-series VM’s feature Intel® Hyper-Threading Technology
 
 ## M-series*
 
