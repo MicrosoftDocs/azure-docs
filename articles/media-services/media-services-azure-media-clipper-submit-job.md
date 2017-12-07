@@ -159,7 +159,7 @@ The job output contract for rendered clipping is a JSON object with the followin
 }
 ```
 
-To perform the encoding job, submit the Media Encoder Standard encoding job with the associated preset. See this article for details on submitting encoding jobs using the [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) or [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+To perform the encoding job, submit the Media Encoder Standard encoding job with the associated preset. See this article for details on submitting encoding jobs using the [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) or [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## Quickly creating video clips without encoding
 Alternative to creating an encoding job, you can use Azure Media Clipper to create dynamic manifest filters. Filters do not require encoding and can be created quickly as a new asset is not created. The output contract for a filter clipping is a JSON object with the following properties:
@@ -235,4 +235,4 @@ Alternative to creating an encoding job, you can use Azure Media Clipper to crea
 }
 ```
 
-To submit the REST call to create dynamic manifest filter, submit the associated filter payload using the [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+To submit the REST call to create dynamic manifest filter, submit the associated filter payload using the [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).
