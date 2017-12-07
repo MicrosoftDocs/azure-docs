@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
 
 ---
@@ -28,126 +28,38 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 >
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-## Prerequisites
-
-### Azure subscription
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-### Azure roles
-To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription. In the Azure portal, click your **user name** at the top-right corner, and select **Permissions** to view the permissions you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
-
-### Azure Storage Account
-You use a general-purpose Azure Storage Account (specifically Blob Storage) as both **source** and **destination** data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
-
-#### Get storage account name and account key
-You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account. 
-
-1. Launch a Web browser and navigate to [Azure portal](https://portal.azure.com). Log in using your Azure user name and password. 
-2. Click **More services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
-
-    ![Search for storage account](media/quickstart-create-data-factory-powershell/search-storage-account.png)
-3. In the list of storage accounts, filter for your storage account (if needed), and then select **your storage account**. 
-4. In the **Storage account** page, select **Access keys** on the menu.
-
-    ![Get storage account name and key](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
-
-#### Create input folder and files
-In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named **input** in the container, and then upload a sample file to the input folder. 
-
-1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
-
-    ![Select Blobs option](media/quickstart-create-data-factory-powershell/select-blobs.png)
-2. In the **Blob service** page, click **+ Container** on the toolbar. 
-
-    ![Add container button](media/quickstart-create-data-factory-powershell/add-container-button.png)    
-3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
-
-    ![Enter container name](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
-4. Click **adftutorial** in the list of containers. 
-
-    ![Select the container](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
-1. In the **Container** page, click **Upload** on the toolbar.  
-
-    ![Upload button](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
-6. In the **Upload blob** page, click **Advanced**.
-
-    ![Click Advanced link](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
-7. Launch **Notepad** and create a file named **emp.txt** with the following content: Save it in the **c:\ADFv2QuickStartPSH** folder: Create the folder **ADFv2QuickStartPSH** if it does not already exist.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
-9. Enter **input** as a value **Upload to folder** filed. 
-
-    ![Upload blob settings](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
-10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
-11. You should see the **emp.txt** file and the status of the upload in the list. 
-12. Close the **Upload blob** page by clicking **X** in the corner. 
-
-    ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Azure PowerShell
-
-#### Install Azure PowerShell
-Install the latest Azure PowerShell if you don't have it on your machine. 
-
-1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
-2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
-3. To install Azure PowerShell, run the **MSI** file. 
-
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
-
-#### Log in to Azure PowerShell
-
-1. Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
-
-    ![Launch PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. If you have multiple Azure subscriptions, run the following command to view all the subscriptions for this account:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
-    ```
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`.
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Define a variable for the data factory name. 
+
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. To create the Azure resource group, run the following command: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
-5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again. 
+3. Define a variable for the data factory name. 
+
+    > [!IMPORTANT]
+    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $DataFactoryName = "ADFQuickStartFactory";
+    ```
+
+5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
     ```
 
 Note the following points:
@@ -183,13 +95,17 @@ Create linked services in a data factory to link your data stores and compute se
         }
     }
     ```
+    If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
+2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
-2. In **Azure PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
+```powershell
+Set-Location 'C:\ADFv2QuickStartPSH'
+```
 
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
     Here is the sample output:
@@ -233,7 +149,7 @@ In this step, you define a dataset that represents the data to copy from a sourc
 2. To create the dataset: **BlobDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
     Here is the sample output:
@@ -303,7 +219,7 @@ In this quickstart, you create a pipeline with one activity that takes two param
 2. To create the pipeline: **Adfv2QuickStartPipeline**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
     Here is the sample output:
@@ -331,7 +247,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 2. Run the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet to create a pipeline run and pass in the parameter values. The cmdlet returns the pipeline run ID for future monitoring.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
     ```
 
 ## Monitor the pipeline run
@@ -340,19 +256,19 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -PipelineRunId $RunId
 
-        if ($run) {
+        if ($Run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                $run
+                Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
+                $Run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output  "Pipeline is running...status: InProgress"
         }
 
         Start-Sleep -Seconds 10
-    }
+    }   
     ```
 
     Here is the sample output of pipeline run:
@@ -396,15 +312,15 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 1. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    $result
-    
-    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
-    $result.Output -join "`r`n"
-    
-    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n"
+    Write-Output "Activity run details:"
+    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result
+
+    Write-Output "Activity 'Output' section:"
+    $Result.Output -join "`r`n"
+
+    Write-Output "Activity 'Error' section:"
+    $Result.Error -join "`r`n"
     ```
 3. Confirm that you see the output similar to the following sample output of activity run result:
 
@@ -434,30 +350,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     "billedDuration": 14
     ```
 
-## Verify the output
-The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
-
-1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder. 
-    
-    ![Refresh](media/quickstart-create-data-factory-powershell/output-refresh.png)
-2. Click **output** in the folder list. 
-2. Confirm that the **emp.txt** is copied to the output folder. 
-
-    ![Refresh](media/quickstart-create-data-factory-powershell/output-file.png)
-
-## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
-
-Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
-```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-If you want to delete just the data factory, not the entire resource group, run the following command: 
-
-```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

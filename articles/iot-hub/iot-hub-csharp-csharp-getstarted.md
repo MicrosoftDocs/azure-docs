@@ -192,7 +192,7 @@ In this section, you create a .NET console app that simulates a device that send
     ```csharp
     Console.WriteLine("Simulated device\n");
     deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey ("myFirstDevice", deviceKey), TransportType.Mqtt);
-
+    deviceClient.ProductInfo = "HappyPath_Simulated-CSharp";
     SendDeviceToCloudMessagesAsync();
     Console.ReadLine();
     ```
