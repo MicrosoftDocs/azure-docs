@@ -118,11 +118,12 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and click on the ellipsis (***...***) in the listing for your app. Then click **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
 
 ## How can I disable the logging of utterances?
-You can turn off the logging of user utterances by setting `log=false` in the URL when your client application queries LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of user utterances from LUIS or use those utterances to improve your app.
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you won't be able to download a record of those user utterances from LUIS or use those utterances to improve your app.
 
 ## Can I delete data from LUIS? 
 
 * You can always delete example utterances used for training LUIS. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+* You can delete utterances from the list of user utterances that LUIS suggests in the **Review user utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
 ## What are the transaction limits on the Authoring API?
