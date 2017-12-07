@@ -1,6 +1,6 @@
 ---
-title: Build and deploy a Node.js Express app to Azure Cloud Service
-description: Build and deploy a Express.js application in Node.js to Azure Cloud Service
+title: Build and deploy a Node.js Express app to Azure Cloud Services
+description: Build and deploy a Express.js application in Node.js to Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -18,7 +18,7 @@ ms.author: cshoe
 
 ---
 
-# Build and deploy a Node.js web application using Express on an Azure Cloud Service
+# Build and deploy a Node.js web application using Express on an Azure Cloud Services
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
