@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
 
 ---
@@ -150,7 +150,7 @@ Azure AD protects you from accidental deletion of user objects. When you delete 
 
 The user account remains in the disabled state in your managed domain, even if you re-create a user account with the same UPN in your Azure AD directory. To remove the user account from your managed domain, you need to forcibly delete it from your Azure AD tenant.
 
-To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the Remove-MsolUser PowerShell cmdlet with the '-RemoveFromRecycleBin' option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the `Remove-MsolUser` PowerShell cmdlet with the `-RemoveFromRecycleBin` option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
