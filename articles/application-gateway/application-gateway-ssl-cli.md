@@ -28,7 +28,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 ## Prerequisite: Install the Azure CLI 2.0
 
-To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## Required components
 

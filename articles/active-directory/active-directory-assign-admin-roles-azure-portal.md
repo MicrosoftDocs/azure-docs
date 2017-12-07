@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 
 ms.reviewer: Vince.Smith
@@ -22,7 +22,7 @@ ms.custom: it-pro;
 ---
 # Assigning administrator roles in Azure Active Directory
 
-Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators have access to various features in the Azure portal or Azure classic portal and, depending on their role, can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
+Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators have access to various features in the Azure portal and, depending on their role, can create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services to which your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure portal, or by using the Azure AD module for Windows PowerShell.
 
 The following administrator roles are available:
 
