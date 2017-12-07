@@ -364,8 +364,7 @@ Save this location to my favorites
 How far away is Holiday Inn?
 At what time does Safeway close?
 ```
-<!--30Intents
-20Entities -->
+<!--30Intents -->
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
@@ -395,11 +394,20 @@ At what time does Safeway close?
 | Cuisine | The cuisine of a place. |Mediterranean<br/>Italian<br/>Indian|
 | DestinationAddress| A destination location or address.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| The name of a destination that is a business, restaurant, public attraction, or institution.|central park<br/>safeway<br/>walmart|
+| DestinationPlaceType | The type of a destination that is a local business, restaurant, public attraction, or institution. |Restaurant<br/>Opera<br/>Cinema|
 | Distance | The distance to a place.|15 miles<br/>5 miles<br/>10 miles away|
 | MealType | Type of meal like breakfast or lunch. |breakfast<br/>dinner<br/>lunch<br/>supper|
 | OpenStatus | Indicates whether a place is open or closed.|Open<br/>closed<br/>opening|
 | PlaceName | The name of a place.|Cheesecake Factory|
 | PlaceType | The type of a place.|Cafe<br/>Theatre<br/>Library|
+| PreferredRoute | The preferred route specified by the user. | 101 <br/>202 <br/>Route 401|
+| Product | The product offered by a place. | Clothes<br/>Digital ASR Cameras<br/>Fresh fish | 
+| PublicTransportationRoute | The name of the public transportation route that the user is searching for. | Northeast corridor train<br/>Bus route 3X |
+| Rating | The rating of a place. | 5 stars<br/>3 stars<br/>4 stars|
+| RouteAvoidanceCriteria | Criteria for avoiding specific routes like avoiding accidents, constructions or tolls | Tolls <br/>Constructions<br/>Route 11|
+| ServiceProvided | This is the service provided by a business or place such as haircut, snow plowing, landscaping. | haircut<br/>mechanic<br/>plumber|
+| TransportationCompany | The name of a transport provider.|Amtrak<br/>Acela<br/>Greyhound|
+| TransportationType | The transportation type.|Bus<br/>Train<br/>Driving|
 
 ## Reminder 
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
