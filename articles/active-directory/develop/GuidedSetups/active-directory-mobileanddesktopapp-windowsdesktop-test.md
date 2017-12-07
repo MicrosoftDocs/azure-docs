@@ -24,7 +24,7 @@ To test your application in Visual Studio, press **F5** to run your project. The
 
 ![Test your application](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
 
-When you're ready to run your test, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft Account (live.com, outlook.com) to sign in. The first time that you run the application, you're prompted to sign in:
+When you're ready to run your test, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft account (live.com, outlook.com) to sign in. The first time that you run the application, you're prompted to sign in:
 
 ![Sign in to the application](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
 
@@ -34,7 +34,7 @@ The first time that you sign in to your application, you're prompted to provide 
 ![Provide your consent for application access](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
 
 ### View application results
-After signing in, you should see the user profile information returned by the call to the Microsoft Graph API. The results are displayed in the **API Call Results** box. Basic information about the token that was acquired via the call to **AcquireTokenAsync** or **AcquireTokenSilentAsync** should be visible in the **Token Info** box. The results contain the following properties:
+After you sign in, you should see the user profile information returned by the call to the Microsoft Graph API. The results are displayed in the **API Call Results** box. Basic information about the token that was acquired via the call to **AcquireTokenAsync** or **AcquireTokenSilentAsync** should be visible in the **Token Info** box. The results contain the following properties:
 
 |Property  |Format  |Description |
 |---------|---------|---------|
@@ -46,7 +46,7 @@ After signing in, you should see the user profile information returned by the ca
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your backend server, might require additional scopes. For example, for Microsoft Graph, the **Calendars.Read** scope is required to list the user’s calendars.
+The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your backend server, might require additional scopes. The Microsoft Graph API requires the **Calendars.Read** scope to list the user’s calendars.
 
 To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call. 
 
