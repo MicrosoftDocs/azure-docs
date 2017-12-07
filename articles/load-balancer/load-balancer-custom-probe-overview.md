@@ -18,7 +18,7 @@ ms.date: 09/25/2017
 ms.author: kumud
 ---
 
-# Understand load balancer probes
+# Understand Load Balancer probes
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
@@ -46,7 +46,7 @@ The probe configuration of all load-balanced instances for an endpoint (that is,
 
 A guest agent probe is available for Azure Cloud Services only. Load Balancer utilizes the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
 
-For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating an internet-facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating a public load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
 ### What makes a guest agent probe mark an instance as unhealthy?
 
@@ -78,7 +78,7 @@ TCP custom probes initiate a connection by performing a three-way handshake with
 * The TCP server doesn't respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 * The probe receives a TCP reset from the role instance.
 
-For more information about how to configure an HTTP health probe or a TCP probe, see [Get started creating an internet-facing load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md).
+For more information about how to configure an HTTP health probe or a TCP probe, see [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md).
 
 ## Add healthy instances back into the load balancer rotation
 

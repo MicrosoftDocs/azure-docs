@@ -55,7 +55,7 @@ By using an internal load balancer on the listener, the SQL Server endpoint (for
 For more information about SQL Server Always On, see [Configure an internal load balancer for an Always On availability group in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## See also
-* [Get started configuring an internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+* [Get started configuring a public load balancer](load-balancer-get-started-internet-arm-ps.md)
 * [Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 * [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
