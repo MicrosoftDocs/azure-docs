@@ -102,6 +102,7 @@
 ## Manage applications
 ### [Overview](service-fabric-application-lifecycle.md)
 ### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
+### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 ### Application upgrade
 #### [Overview](service-fabric-application-upgrade.md)
 #### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
@@ -234,7 +235,6 @@
 ## Work in a Windows dev environment
 ### [Manage applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -252,6 +252,9 @@
 
 ## Manage application lifecycle
 ### [Package an application](service-fabric-package-apps.md)
+### [Use parameters with configuration files](service-fabric-how-to-parameterize-configuration-files.md)
+### [Specify port numbers using parameters](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Specify environment variables](service-fabric-how-to-specify-environment-variables.md)
 
 ### Deploy or remove applications
 #### [Deploy applications on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
