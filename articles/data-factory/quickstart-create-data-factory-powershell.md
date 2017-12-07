@@ -36,19 +36,17 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 ### Log in to PowerShell
 
 1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
-
-    ![Launch PowerShell](media/data-factory-quickstart-prerequisites-2/search-powershell.png)
-1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
+2. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
        
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Run the following command to view all the subscriptions for this account:
+3. Run the following command to view all the subscriptions for this account:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. If you see multiple subscriptions associated with your account, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+4. If you see multiple subscriptions associated with your account, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
