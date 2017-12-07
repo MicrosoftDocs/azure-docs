@@ -88,9 +88,9 @@ Typical scenarios for using **SetupEntryPoint** are when you run an executable b
 * Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
-For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
+For more details on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** provides a list of environment variables that are set for this code package. Environmentment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
+**EnvironmentVariables** provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
 
 **DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
@@ -123,7 +123,7 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
+Thus, an application manifest describes elements at the application level and references one or more services manifests to compose an application type. Here is a simple example application manifest:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

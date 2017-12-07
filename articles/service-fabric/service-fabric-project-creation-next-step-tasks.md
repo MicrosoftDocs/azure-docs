@@ -13,12 +13,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2017
+ms.date: 12/07/2017
 ms.author: rwike77
 
 ---
 # Your Service Fabric application and next steps
-Your Azure Service Fabric application has been created. This article describes the makeup of your project, some tutorials to try out, more information you might be interested in, and some potential next steps.
+Your Azure Service Fabric application has been created. This article describes some tutorials to try out, the makeup of your project, some more information you might be interested in, and potential next steps.
 
 ## Get started with tutorials and walk-throughs
 Ready to get started?  
@@ -31,6 +31,11 @@ Or, try out one of the following walk-throughs and create your first...
 - [Guest executable service on Windows](quickstart-guest-app.md) 
 - [Windows container application](service-fabric-get-started-containers.md) 
 
+## Have questions or feedback?  Need to report an issue?
+Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.
+
+[Support options](service-fabric-support.md) lists forums on StackOverflow and MSDN for asking questions as well as options for reporting issues, getting support, and submitting product feedback.
+
 ## The application project
 Every new application includes an application project. There may be one or two additional projects, depending on the type of service chosen.
 
@@ -41,6 +46,8 @@ The application project consists of:
 * Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service. Learn how to [configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 * A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline. Learn more about [deploying applications using PowerShell](service-fabric-deploy-remove-applications.md).
 * The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder. Learn more about [application and service manifests](service-fabric-application-model.md).
+
+
 
 ## Learn more about the programming models
 Service Fabric offers multiple ways to write and manage your services.  Here's overview and conceptual information on [stateless and stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [guest executables](service-fabric-deploy-existing-app.md), and [stateless and stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
@@ -60,4 +67,5 @@ As with other platforms, a Service Fabric application usually goes through the f
 - [Create a Windows cluster in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualize your cluster, including deployed applications and physical layout, with [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Version and upgrade your services](service-fabric-application-upgrade-tutorial.md)
+
 
