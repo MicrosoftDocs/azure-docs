@@ -54,13 +54,10 @@ Check to see if there is an application with the name 'Azure AD Domain Services 
 
 Perform the following steps to check for the presence of the application and to delete it, if the application exists:
 
-1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Select the **Active Directory** node on the left pane.
-3. Select the Azure AD tenant (directory) for which you would like to enable Azure AD Domain Services.
-4. Navigate to the **Applications** tab.
-5. Select the **Applications my company owns** option in the dropdown.
-6. Check for an application called **Azure AD Domain Services Sync**. If the application exists, proceed to delete it.
-7. Once you have deleted the application, try to enable Azure AD Domain Services once again.
+1. Navigate to the **Applications** section of your Azure AD directory in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Select **All Applications** in the **Show** dropdown. Select **Any** in the **Applications status** dropdown. Select **Any** in the **Application visibility** dropdown.
+3. Type **Azure AD Domain Services Sync** in the search box. If the application exists, click on it and click the **Delete** button in the toolbar to delete it.
+4. Once you have deleted the application, try to enable Azure AD Domain Services once again.
 
 ### Invalid configuration
 **Error message:**
