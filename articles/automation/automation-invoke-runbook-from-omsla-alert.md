@@ -80,7 +80,7 @@ When the service stops, the alert rule in Log Analytics detects a match and trig
 Alternatively if you don't have your Automation account linked to your OMS workspace, you would configure the alert rule with a webhook action to trigger the runbook and configure the runbook to convert the JSON-formatted string and filter on \*.SearchResult\* following the guidance mentioned earlier.    
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
+> If your workspace has been upgraded to the [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## Next steps
 
