@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
 ---
@@ -46,7 +46,7 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Locate and choose the **Azure CosmosDBTrigger** template for your desired language.
+2. In the search field, type `cosmos` and then choose your desired language for the Azure Cosmos DB trigger template.
 
     ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
@@ -56,10 +56,10 @@ Next, you create a function in the new function app.
     
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Name your function** | Default | Use the default function name suggested by the template. |
-    | **Database name** | Tasks | Name of database with the collection to be monitored. |
+    | **Name** | Default | Use the default function name suggested by the template. |
     | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
+    | **Database name** | Tasks | Name of database with the collection to be monitored. |
 
 4. Select **New** next to the **Azure Cosmos DB account connection** label, and choose an existing Cosmos DB account or **+ Create new**. 
  
