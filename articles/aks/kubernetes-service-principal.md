@@ -81,7 +81,7 @@ When working with AKS and Azure AD service principals, keep the following in min
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
-* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not deleted. You can use `az ad sp delete --id $clientID` to delete it.
+* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. You can use `az ad sp delete --id $clientID` to delete it.
 
 ## Next steps
 

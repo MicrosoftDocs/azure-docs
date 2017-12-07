@@ -20,7 +20,7 @@ ms.author: juliako
 # Using PlayReady and/or Widevine dynamic common encryption
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-drm.md)
+> * [.NET](media-services-protect-with-playready-widevine.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >
@@ -65,7 +65,7 @@ You will find a complete .NET example at the end of the topic.
 
 The following image demonstrates the workflow described above. Here the token is used for authentication.
 
-![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![Protect with PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above.
 
@@ -576,7 +576,7 @@ Make sure to update variables to point to folders where your input files are loc
 	}
 
 
-## Next step
+## Next steps
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
