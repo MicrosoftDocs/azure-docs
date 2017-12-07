@@ -19,9 +19,9 @@ ms.author: joflore
 
 ---
 # Install a new Active Directory forest on an Azure virtual network
-This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network.
+This article shows how to create a new Windows Server Active Directory environment on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network.
 
-You might also be interested in these related topics:
+You might also be interested in these related articles:
 
 * For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
@@ -85,7 +85,7 @@ After the DC installation finishes, connect to the VM again and log on to the DC
    3. On the **Forwarders** tab, click the IP address of the forwarder and click **Edit**.  Select the IP address and click **Delete**.
    4. Click **OK** to close the editor and **Ok** again to close the DNS server properties.
 2. Update the DNS server setting for the virtual network.
-   1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the DIP of one of the VMs that runs the DC/DNS server role and click **Save**.
+   1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the IP of one of the VMs that runs the DC/DNS server role and click **Save**.
    2. Select the VM and click **Restart** to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server.
 
 ## Create VMs for domain members
