@@ -240,5 +240,4 @@ After the deployment finishes, the managed application exists in a resource grou
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For example projects, see [Sample projects for Azure managed applications](sample-projects.md).
-* For information about publishing managed applications to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
