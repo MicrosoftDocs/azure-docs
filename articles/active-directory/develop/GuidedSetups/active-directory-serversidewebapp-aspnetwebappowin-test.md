@@ -58,8 +58,8 @@ You're prompted to authenticate to use the protected controller view.
 ## Additional information
 
 <!--start-collapse-->
-### Protect your entire web site
-To protect your entire web site, in the **Global.asax** file, add the **AuthorizeAttribute** attribute to the **GlobalFilters** filter in the **Application_Start** method:
+### Protect your entire website
+To protect your entire website, in the **Global.asax** file, add the **AuthorizeAttribute** attribute to the **GlobalFilters** filter in the **Application_Start** method:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
