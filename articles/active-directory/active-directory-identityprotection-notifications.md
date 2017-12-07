@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -72,7 +72,7 @@ As an administrator, you can switch sending a weekly digest email off.
 
 To open the related dialog, click **Weekly Digest** in the **Settings** section of the **Identity Protection** page.
 
-![Users at risk detected email](./media/active-directory-identityprotection-notifications/02.png)
+![Users at risk detected email](./media/active-directory-identityprotection-notifications/04.png)
 
 
 ## See also
