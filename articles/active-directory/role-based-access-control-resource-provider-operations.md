@@ -21,7 +21,7 @@ ms.author: jaboes
 This document lists the operations available for each Microsoft Azure Resource Manager resource provider. These can be used in custom roles to provide granular Role-Based Access Control (RBAC) permissions to resources in Azure. Please note this is not a comprehensive list and operations may be added or removed as each provider is updated. Operation strings follow the format of `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
 
 > [!NOTE]
-> For a comprehensive and current list please use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers.
+> For a comprehensive and current list please use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operation list` (in Azure CLI) to list operations of Azure resource providers.
 
 ## Microsoft.ADHybridHealthService
 
@@ -2195,7 +2195,6 @@ This provider is not a full ARM provider and does not provide any ARM operations
 ## Next steps
 
 - Learn how to [create a custom role](role-based-access-control-custom-roles.md).
-
 - Review the [built in RBAC roles](role-based-access-built-in-roles.md).
-
 - Learn how to manage access assignments [by user](role-based-access-control-manage-assignments.md) or [by resource](role-based-access-control-configure.md) 
+- Learn how to [View activity logs to audit actions on resources](~/articles/azure-resource-manager/resource-group-audit.md)
