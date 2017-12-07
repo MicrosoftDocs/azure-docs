@@ -29,6 +29,36 @@ To get started with Azure Storage, you first need to create a new storage accoun
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+# [Portal](#tab/portal)
+
+None.
+
+# [PowerShell](#tab/powershell)
+
+This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
+# [Azure CLI](#tab/azure-cli)
+
+You can log in to Azure and run Azure CLI commands in one of two ways:
+
+- You can run CLI commands from within the Azure portal, in Azure Cloud Shell 
+- You can install the CLI and run CLI commands locally  
+
+### Use Azure Cloud Shell
+
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
+
+[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+The button launches an interactive shell that you can use to run the steps in this quickstart:
+
+[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### Install the CLI locally
+
+You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+
+
 ## Log in to Azure
 
 # [Portal](#tab/portal)
@@ -45,26 +75,7 @@ Login-AzureRmAccount
 
 # [Azure CLI](#tab/azure-cli)
 
-You can try this quickstart using the Azure CLI in one of two ways:
-
-- You can run CLI commands from within the Azure portal, in Azure Cloud Shell 
-- You can install the CLI and run CLI commands locally  
-
-### Use Azure Cloud Shell
-
-Log in to the [Azure portal](https://portal.azure.com) to launch Azure Cloud Shell.
-
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
-
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
-
-The button launches an interactive shell that you can use to run the steps in this quickstart:
-
-[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
-
-### Install the CLI locally
-
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
 To log into your local installation of the CLI, run the login command:
 
@@ -76,15 +87,22 @@ az login
 
 ## Create a resource group
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 # [Portal](#tab/portal)
 
-xxx
+To create a resource group in the Azure portal, follow these steps:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups**.
+2. Click the **Add** button to add a new resource group.
+3. Enter a name for the new resource group.
+4. Select the subscription in which to create the new resource group.
+5. Choose the location for the resource group.
+6. Click the **Create** button.  
 
 # [PowerShell](#tab/powershell)
 
-Create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -93,17 +111,24 @@ $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
+If you're not sure which region to specify for the `-Location` parameter, you can retrieve a list of supported regions for your subscription with the [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) command:
+
+```powershell
+Get-AzureRmLocation | select Location 
+$location = "westus"
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. 
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#create) command. 
 
 ```azurecli-interactive
 az group create \
     --name myResourceGroup \
-    --location eastus
+    --location westus
 ```
 
-If you're unsure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#list) command.
+If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#list) command.
 
 ```azurecli-interactive
 az account list-locations \
@@ -115,40 +140,22 @@ az account list-locations \
 
 # Create a general-purpose storage account
 
+A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default). For information about premium general-purpose storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md).
 
+When naming your storage account, keep these rules in mind:
 
-
-
-   > [!NOTE]
-   > Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-   > 
-   > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
-   > 
-   > 
-
+- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
 # [Portal](#tab/portal)
 
-
-2. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
-3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
-   
-4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md).
-   
-   > [!NOTE]
-   > Blob storage accounts can only be created using the Resource Manager deployment model.
-
-5. Select the type of storage account: **General purpose** or **Blob storage**. **General purpose** is the default.
-   
-    If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
-   
-    If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](../blobs/storage-blob-storage-tiers.md) for more details.
-6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
-7. Select the subscription in which you want to create the new storage account.
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
-9. Select the geographic location for your storage account. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
-10. Click **Create** to create the storage account.
-
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
+2. Enter a name for your storage account.
+3. Leave these fields set to their defaults: **Deployment model**, **Account kind**, **Performance**, **Replication**, **Secure transfer required**.
+4. Choose the subscription in which you want to create the storage account.
+5. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
+6. Choose the location for your new storage account.
+7. Click **Create** to create the storage account.      
 
 # [PowerShell](#tab/powershell)
 ps
