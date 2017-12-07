@@ -104,7 +104,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
       -NetworkSecurityGroupId $Nsg.Id
    ```
 
-# Create the SQL VM
+## Create the SQL VM
 
 1. Define your credentials to sign into the VM. The user name is "azureadmin". Make sure to change the password before running the command.
 
@@ -132,7 +132,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
    > [!TIP]
    > It takes several minutes to create the VM.
 
-# Install the SQL Iaas Agent
+## Install the SQL Iaas Agent
 
 To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it is created.
 
@@ -140,7 +140,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
-# Remote desktop into the VM
+## Remote desktop into the VM
 
 1. Use the following command retrieves the Public IP address for the new VM.
 
@@ -156,7 +156,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 1. When prompted for credentials, choose to enter credentials for a different account. Enter the user name with a preceding backslash (for example, `\azureadmin`, and the password that you set previously in this quickstart.
 
-# Connect to SQL Server
+## Connect to SQL Server
 
 1. After logging into the Remote Desktop session, launch **SQL Server Management Studio 2017** from the start menu.
 
@@ -164,7 +164,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 You are now connected to SQL Server locally. If you want to connect remotely, you have to [configure connectivity](virtual-machines-windows-sql-connect.md) from the portal or manually.
 
-# Clean up resources
+## Clean up resources
 
 If you do not need the VM running continually, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
 
@@ -174,7 +174,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. This permanently deletes the virtual machine as well, so use this command with care.
 
-# Next steps
+## Next steps
 
 In this quickstart, you created a SQL Server 2017 virtual machine using Azure PowerShell. To learn more about how to migrate your data to the new SQL Server, see the following article.
 

@@ -91,7 +91,7 @@ On the **SQL Server settings** window, configure the following options.
 
    ![SQL Server settings](./media/quickstart-sql-vm-create-portal/sql-settings.png)
 
-## Review the summary
+## Create the SQL Server VM
 
 On the **Summary** window, review the summary and click **Purchase** to create SQL Server, resource group, and resources specified for this VM.
 
@@ -100,7 +100,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 > [!TIP]
 > Deploying a Windows SQL Server VM can take several minutes.
 
-### Connect to SQL Server remotely
+## Connect to SQL Server
 
 1. In the portal, find the **Public IP address** of your VM in the **Overview** section of your virtual machine's properties.
 
@@ -121,7 +121,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 
     ![ssms connect](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Open the VM with Remote Desktop
+## <a id="remotedesktop"></a> Log into to the VM remotely
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
@@ -131,7 +131,7 @@ After you connect to the SQL Server virtual machine, you can launch SQL Server M
 
 Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
 
-# Clean up resources
+## Clean up resources
 
 If you do not need your SQL VM to run continually, you can avoid unnecessary charges by stopping it when not in use. You can also permanently delete all resources associated with the virtual machine by deleting its associated resource group in the portal. This permanently deletes the virtual machine as well, so use this command with care. For more information, see [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 
