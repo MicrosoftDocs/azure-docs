@@ -296,6 +296,6 @@ If you still don't see an exception with that snapshot ID, then the exception te
 
 ## Next steps
 
-* [Set snappoints in your code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
+* [Set snappoints in your code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.
