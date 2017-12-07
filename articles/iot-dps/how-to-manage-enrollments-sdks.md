@@ -28,14 +28,14 @@ This article reviews the high level concepts for managing device enrollments for
     * Individual enrollment: Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator.
     * Enrollment group does not apply to TPM attestation.
 * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-    * Individual enrollment: Client certificate from physical device or from DICE Emulator.
-    * Enrollment group: Signing certificate, which can be the [root certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device.  It can be generated from DICE Emulator.
+    * Individual enrollment: The [Leaf certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) from physical device or from DICE Emulator.
+    * Enrollment group: The [root certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on a physical device.  It can also be generated from DICE Emulator.
 
 ## Create a device enrollment
 
 There are two ways you can enroll your devices with the provisioning service:
 
-1. An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the same signing certificate. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Note that you can only enroll devices that use the X.509 attestation mechanism as *enrollment groups*. 
+1. An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the [root certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Note that you can only enroll devices that use the X.509 attestation mechanism as *enrollment groups*. 
 
     You can create an enrollment group with the SDKs following this workflow:
 
