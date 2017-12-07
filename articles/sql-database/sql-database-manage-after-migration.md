@@ -59,7 +59,7 @@ If an auto-failover group is not configured, then your application needs to acti
 ### How does my disaster recovery plan change from on-premises to SQL Database?
 In summary, the traditional on-premises SQL Server setup required you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, Log Shipping etc. and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs). 
 
-To learn more about Disaster recovery, see: [Azure SQL Db Disaster Recovery 101](https://azure.microsoft.com/en-us/azure-sql-databases-disaster-recovery-101/)
+To learn more about Disaster recovery, see: [Azure SQL Db Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
 ## Security and compliance
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
