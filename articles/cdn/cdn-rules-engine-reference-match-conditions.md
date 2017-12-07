@@ -64,11 +64,41 @@ Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the
 
 These match conditions are designed to identify requests based on the requester's location.
 
-Name | Purpose | Key Information
------|-------- | ------------------
-AS Number | Identifies requests that originate from a particular network.<br><br>This network is defined by its Autonomous System Number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified AS number. | Specify multiple AS numbers by delimiting each one with a single space. For example, 64514 64515 matches requests arriving from either 64514 or 64515.<br> - Certain requests may not return a valid AS number. A question mark (i.e., ?) will match requests for which a valid AS number could not be determined.<br> - The entire AS number for the desired network must be specified. Partial values will not be matched.<br> - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:<br>  - Complete Cache Fill<br>  - Default Internal Max-Age<br>  - Force Internal Max-Age<br>  - Ignore Origin No-Cache<br>  - Internal Max-Stale
-Country | Identifies requests that originate from the specified countries.<br><br>A country can be specified through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified value(s). | Specify multiple country codes by delimiting each one with a single space.<br> - Wildcards are not supported when specifying a country code.<br>The "EU" and "AP" country codes do not encompass all IP addresses in those regions.<br> - Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.<br>Country codes are case-sensitive.<br> - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:<br>  - Complete Cache Fill<br>  - Default Internal Max-Age<br>  - Force Internal Max-Age<br>  - Ignore Origin No-Cache<br>  - Internal Max-Stale
+Name | Purpose
+-----|--------
+AS Number | Identifies requests that originate from a particular network.
+Country | Identifies requests that originate from the specified countries.
 
+### AS Number 
+This network is defined by its Autonomous System Number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified AS number.
+
+**Key Information**
+- Specify multiple AS numbers by delimiting each one with a single space. For example, 64514 64515 matches requests arriving from either 64514 or 64515.
+- Certain requests may not return a valid AS number. A question mark (i.e., ?) will match requests for which a valid AS number could not be determined.
+- The entire AS number for the desired network must be specified. Partial values will not be matched.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Country
+A country can be specified through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified value(s).
+
+
+**Key Information**
+- Specify multiple country codes by delimiting each one with a single space.
+- Wildcards are not supported when specifying a country code.
+- The "EU" and "AP" country codes do not encompass all IP addresses in those regions.
+- Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.
+- Country codes are case-sensitive.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
 
 ## Origin
 
@@ -79,6 +109,25 @@ Name | Purpose
 CDN Origin | Identifies requests for content stored on CDN storage.
 Customer Origin | Identifies requests for content stored on a specific customer origin server.
 
+### CDN Origin
+This match condition is met when both of the following conditions are met:
+- Content from CDN storage was requested.
+- The request URI leverages the content access point (e.g., /000001) defined in this match condition.
+  - CDN URL: The request URI must contain the selected content access point.
+  - Edge CNAME URL: The corresponding edge CNAME configuration must point to the selected content access point.
+  
+*Notes:*
+ - The content access point identifies the service that should serve the requested content.
+ - An AND IF statement should not be used to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this very same reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
+ 
+### Customer Origin
+
+**Key Information** 
+- This match condition will be satisfied regardless of whether content is requested using a CDN or an edge CNAME URL that points to the selected customer origin.
+- A customer origin configuration referenced by a rule may not be deleted from the Customer Origin page. Before attempting to delete a customer origin configuration, make sure that the following configurations do not reference it:
+  - Customer Origin match condition
+  - An edge CNAME configuration.
+- An AND IF statement should not be used to combine certain match conditions. For example, combining a Customer Origin match condition with a CDN Origin match condition would create a match pattern that could never be matched. For this very same reason, two Customer Origin match conditions cannot be combined through an AND IF statement.
 
 ## Request
 
@@ -96,6 +145,195 @@ Request Header Regex | Identifies requests that contain the specified header set
 Request Header Wildcard | Identifies requests that contain the specified header set to a value that matches the specified pattern.
 Request Method | Identifies requests by their HTTP method.
 Request Scheme | Identifies requests by their HTTP protocol.
+
+### Client IP Address
+An option is provided to indicate whether this condition will be met when a client's IP address "Matches" or "Does Not Match" the specified IP address(es).
+
+**Key information:**
+- Make sure to use CIDR notation.
+- Specify multiple IP addresses and/or IP address blocks by delimiting each one with a single space.
+  - **IPv4 Example:** 1.2.3.4 10.20.30.40 matches any requests arriving from either 1.2.3.4 or 10.20.30.40.
+  - **IPv6 Example:** 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 matches any requests arriving from either 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+- The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size.
+  - **IPv4 Example:** 5.5.5.64/26 matches any requests arriving from 5.5.5.64 through 5.5.5.127.
+  - **IPv6 Example:** 1:2:3:/48 matches any requests arriving from 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Cookie Parameter
+The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
+- **Matches:** Requires a request to contain the specified cookie with a value that matches at least one of the values defined in this match condition.
+- **Does Not Match:** Requires that the request satisfy either of the following criteria:
+  - It does not contain the specified cookie.
+  - It contains the specified cookie, but its value does not match any of the values defined in this match condition.
+  
+**Key information:**
+- **Cookie name:** 
+  - Special characters, including an asterisk, are not supported when specifying a cookie name. This means that only exact cookie name matches are eligible for comparison.
+  - Only a single cookie name may be specified per instance of this match condition.
+  - Cookie name comparisons are case-insensitive.
+- **Cookie value:** 
+  - Specify multiple cookie values by delimiting each one with a single space.
+  - A cookie value can take advantage of special characters. 
+  - If a wildcard character has not been specified, then only an exact match will satisfy this match condition. 
+   - **Example:** Specifying "Value" will match "Value," but not "Value1" or "Value2."
+  - The **Ignore Case** option determines whether a case-sensitive comparison will be made against the request's cookie value.
+  - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+   - Complete Cache Fill
+   - Default Internal Max-Age
+   - Force Internal Max-Age
+   - Ignore Origin No-Cache
+   - Internal Max-Stale
+
+### Cookie Parameter Regex
+**Note:** This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it.
+
+This Match condition defines a cookie name and value. Regular expressions may be used to define the desired cookie value. 
+
+The **Matches/Does Not Match** option determines the conditions under which this Match condition will be satisfied.
+- **Matches:** Requires a request to contain the specified cookie with a value that matches the specified regular expression.
+- **Does Not Match:** Requires that the request satisfy either of the following criteria:
+  - It does not contain the specified cookie.
+  - It contains the specified cookie, but its value does not match the specified regular expression.
+  
+**Key information:**
+- **Cookie name:** 
+  - Regular expressions and special characters, including an asterisk, are not supported when specifying a cookie name. This means that only exact cookie name matches are eligible for comparison.
+  - Only a single cookie name may be specified per instance of this Match condition.
+  - Cookie name comparisons are case-insensitive.
+- **Cookie value:** 
+  - A cookie value can take advantage of regular expressions.
+  - The **Ignore Case** option determines whether a case-sensitive comparison will be made against the request's cookie value.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Edge Cname
+**Key Information** 
+- The list of available edge CNAMEs is limited to those that have been configured on the Edge CNAMEs page corresponding to the platform on which HTTP Rules Engine is being configured.
+- Before attempting to delete an edge CNAME configuration, make sure that an Edge Cname match condition does not reference it. Edge CNAME configurations that have been defined in a rule cannot be deleted from the Edge CNAMEs page. 
+- An AND IF statement should not be used to combine certain match conditions. For example, combining an Edge Cname match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this very same reason, two Edge Cname match conditions cannot be combined through an AND IF statement.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Referring Domain
+The hostname associated with the referrer through which content was requested determines whether this condition is met. An option is provided to indicate whether this condition will be met when the referring hostname "Matches" or "Does Not Match" the specified value(s).
+**Key information:**
+- Specify multiple hostnames by delimiting each one with a single space.
+- This match condition supports special characters.
+- If the specified value does not contain an asterisk, then it must be an exact match for the referrer's hostname. For example, specifying "mydomain.com" would not match "www.mydomain.com."
+- The Ignore Case option determines whether a case-sensitive comparison will be performed.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+  
+ ### Request Header Literal
+The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
+- **Matches:** Requires the request to contain the specified header and its value must match the one defined in this match condition.
+- **Does Not Match:** Requires that the request satisfy either of the following criteria:
+  - It does not contain the specified header.
+  - It contains the specified header, but its value does not match the one defined in this match condition.
+  
+**Key information:**
+- Header name comparisons are always case-insensitive. The case-sensitivity of header value comparisons is determined by the Ignore Case option.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+  
+### Request Header Regex
+**Note:** This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it. 
+
+The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
+- **Matches:** Requires the request to contain the specified header and its value must match the pattern defined in the specified regular expression.
+- **Does Not Match:** Requires that the request satisfy either of the following criteria:
+  - It does not contain the specified header.
+  - It contains the specified header, but its value does not match the specified regular expression.
+
+**Key information:**
+- Header name: 
+  - Header name comparisons are case-insensitive.
+  - Spaces in the header name should be replaced with "%20." 
+- Header value: 
+  - A header value may take advantage of regular expressions.
+  - The case-sensitivity of header value comparisons is determined by the Ignore Case option.
+  - Only exact header value matches to at least one of the specified patterns will satisfy this condition.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale 
+
+### Request Header Wildcard
+The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
+- **Matches:** Requires the request to contain the specified header and its value must match at least one of the values defined in this match condition.
+- **Does Not Match:** Requires that the request satisfy either of the following criteria:
+  - It does not contain the specified header.
+  - It contains the specified header, but its value does not match any of the specified values.
+  
+**Key information:**
+- Header name: 
+  - Header name comparisons are case-insensitive.
+  - Spaces in the header name should be replaced with "%20." This value may also be used to specify spaces in a header value.
+- Header value: 
+  - A header value can take advantage of special characters.
+  - The case-sensitivity of header value comparisons is determined by the Ignore Case option.
+  - Only exact header value matches to at least one of the specified patterns will satisfy this condition.
+  - Specify multiple values by delimiting each one with a single space.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Request Method
+Only assets that are requested using the selected request method will satisfy this condition. The available request methods are:
+- GET
+- HEAD 
+- POST 
+- OPTIONS 
+- PUT 
+- DELETE 
+- TRACE 
+- CONNECT 
+
+**Key information:**
+- By default, only the GET request method can generate cached content on our network. All other request methods are simply proxied through our network.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+### Request Scheme
+Only assets that are requested using the selected protocol will satisfy this condition. The available protocols are HTTP and HTTPS.
+
+**Key information:**
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
 
 ## URL
 
