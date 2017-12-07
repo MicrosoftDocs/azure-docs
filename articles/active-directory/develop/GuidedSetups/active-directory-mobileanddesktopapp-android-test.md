@@ -21,7 +21,7 @@ ms.custom: aaddev
 ## Test your code
 
 1. Deploy your code to your device/emulator.
-2. When you're ready to test your application, use a Microsoft Azure Active Directory account (organizational account) or a Microsoft account (live.com, outlook.com) to sign in. 
+2. When you're ready to test your application, use a Microsoft Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to sign in. 
 
     ![Test your application](media/active-directory-mobileanddesktopapp-android-test/mainwindow.png)
     <br/><br/>
