@@ -17,8 +17,8 @@ ms.date: 12/07/2017
 ms.author: ryanwi
 
 ---
-# Model an application in Service Fabric
-This article provides an overview of the Azure Service Fabric application model and how to define an application and service via manifest files.
+# Service Fabric application and service manifests
+This article describes how Service Fabric applications and services are defined using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
 ## Describe a service in ServiceManifest.xml
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
