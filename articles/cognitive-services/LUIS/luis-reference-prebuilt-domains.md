@@ -377,6 +377,14 @@ At what time does Safeway close?
 |Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
 |Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
 |FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
+|GetAddress| Ask for the address of a place.|Show me the address of Guu on Robson street<br/>What is the address of the nearest Starbucks?| 
+|GetDistance|Ask about distance to a specific place.|How far away is Holiday Inn?<br/>how far is it to Bellevue square from here<br/>what's the distance to Tahoe|
+|GetHours|Ask about the operating hours for a place.|At what time does Safeway close?<br/>What are the hours for Home Depot?<br/>Is Starbucks still open?|
+|GetMenu|Ask for the menu items for a restaurant.|Does Zucca serve anything vegan?<br/>What's on the menu at Sizzler<br/>Show me Applebee's menu|
+|GetPhoneNumber| Ask for the phone number of a place.|What is the phone number of the nearest Starbucks?<br/>Give the number for Home Depot| 
+|GetPriceRange| Asks for the price range of a place.|Is Zucca cheap?<br/>Is the Cineplex half price on Wednesdays?<br/>How much does a whole lobster dinner cost at Sizzler?|
+|GetReviews|Ask for reviews of a place.|Show me reviews for Cheesecase Factory<br/>Read Cineplex reviews in Yelp|
+|GetRoute|Ask for directions to a place.|How to walk to Bellevue square<br/>Show me the shortest way to 8th and 59th from here<br/>Get me directions to Mountain View CA|
 
 ### Entities
 | Entity name | Description | Examples |
@@ -387,6 +395,11 @@ At what time does Safeway close?
 | Cuisine | The cuisine of a place. |Mediterranean<br/>Italian<br/>Indian|
 | DestinationAddress| A destination location or address.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| The name of a destination that is a business, restaurant, public attraction, or institution.|central park<br/>safeway<br/>walmart|
+| Distance | The distance to a place.|15 miles<br/>5 miles<br/>10 miles away|
+| MealType | Type of meal like breakfast or lunch. |breakfast<br/>dinner<br/>lunch<br/>supper|
+| OpenStatus | Indicates whether a place is open or closed.|Open<br/>closed<br/>opening|
+| PlaceName | The name of a place.|Cheesecake Factory|
+| PlaceType | The type of a place.|Cafe<br/>Theatre<br/>Library|
 
 ## Reminder 
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
