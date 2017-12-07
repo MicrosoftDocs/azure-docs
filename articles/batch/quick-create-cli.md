@@ -103,7 +103,7 @@ az batch job create --id myjob-windows --pool-id mypool-windows
 
 ## Create tasks
 
-Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, the task is a bash command line that runs the `printenv` command on a Linux compute node to show environment variables and then waits 90 seconds. When you use Batch, this command line is where you specify your app or script.
+Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, the task is a bash command line that runs the `printenv` command on a Linux compute node to show environment variables and then waits 90 seconds. When you use Batch, this command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 The following script creates 4 parallel tasks (*testtask1* to *testtask4*), which Batch distributes to the Linux pool nodes.
 

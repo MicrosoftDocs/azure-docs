@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job in the portal
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs  *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs  *tasks* on the pool. This example is basic but introduces you to key concepts of the Batch service.
 
 ## Log in to Azure 
 
@@ -52,7 +52,7 @@ View and manage Batch account settings and properties by using the left menu. Fo
 
   ![View account keys][account_keys]
 
-To see the linked storage account name and keys, click **Storage**.
+To see the linked storage account name and keys, click **Storage account**.
 
 ## Create a Batch pool
 
@@ -96,7 +96,7 @@ After the job is crated, the **Tasks** page opens.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command dispays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. 
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command dispays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 1. Click **Add**.
 

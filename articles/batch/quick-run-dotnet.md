@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/04/2017
+ms.date: 12/06/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run a sample Batch job and tasks with the .NET client
+# Run your first Batch job using the .NET SDK
 
-This quickstart shows how to use the Azure Batch .NET library to build a client app that runs an Azure Batch job. This example is basic but introduces the key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+This quickstart shows how to use the Azure Batch .NET SDK to build a local client app that runs an Azure Batch job. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -47,9 +47,9 @@ Change to the directory that contains the sample code
 cd <wherever>
 ```
 
-## Build the project
+## Build and run the app
 
-Open the solution in Visual Studio. Before you run the sample, enter your Batch and Storage account credentials in the project's Program.cs file. Get the necessary information from the Batch account in the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands.
+Open the solution in Visual Studio. Before you run the app, enter your Batch and Storage account credentials in the project's `Program.cs` file. Get the necessary information from the Batch account in the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands.
 
 ```csharp
 // Update the Batch and Storage account credential strings below with the values
@@ -74,9 +74,9 @@ When you run the sample application, the console output is similar to the follow
 Sample start: 12/4/2017 4:02:54 PM
 
 Container [input] created.
-Uploading file ..\..\taskdata0.txt to container [input]...
-Uploading file ..\..\taskdata1.txt to container [input]...
-Uploading file ..\..\taskdata2.txt to container [input]...
+Uploading file taskdata0.txt to container [input]...
+Uploading file taskdata1.txt to container [input]...
+Uploading file taskdata2.txt to container [input]...
 Creating pool [DotNetQuickstartPool]...
 Creating job [DotNetQuickstartJob]...
 Adding 3 tasks to job [DotNetQuickstartJob]...
@@ -100,7 +100,7 @@ Typical execution time is approximately 5 minutes when you run the application i
 
 
 
-## Explanation of the quickstart
+## Explanation of the sample app
 
 The .NET app in this quickstart does the following:
 
@@ -110,11 +110,11 @@ The .NET app in this quickstart does the following:
 * Displays the standard output and standard error files returned by each task.
 * After task completion, deletes the blob container and optionally the Batch job and pool.
 
-Additional details follow.
+See the file `Program.cs` and the following sections for details. 
 
 ### Blob and Batch clients
 
-The app creates a blob client, to interact with Azure Storage, and a Batch client, to interact with the Batch service. The Batch client in the sample uses shared key authentication:
+The app creates a [blob client](../storage/blobs/storage-dotnet-how-to-use-blobs.md), to interact with Azure Storage, and a Batch client, to interact with the Batch service. The Batch client in the sample uses shared key authentication:
 
 ```csharp
 // Get a Batch client using account creds
@@ -127,7 +127,7 @@ BatchClient batchClient = BatchClient.Open(cred);
 
 ### File upload
 
-The app uses the blob client to connect to a container in Azure Storage and upload the input text files.
+The Storage blob client connects to a container in Azure Storage and uploads the input text files.
 
 ```csharp
 List<string> inputFilePaths = new List<string>
@@ -170,7 +170,7 @@ foreach (string filePath in inputFilePaths)
 
 ### Create a Batch pool
 
-To create a Batch pool, the app specifies the number of nodes, the node size, and the OS settings. The sample configuration includes three nodes running Windows Server 2016 in the `CloudServiceConfiguration`. In this configuration, the nodes are worker instances in an Azure cloud service. Batch pools can alternatively specify a `VirtualMachineConfiguration` where nodes are Azure VMs created from a custom VM image or an image from the Azure Marketplace.
+To create a Batch pool, the app specifies the number of nodes, the node size, and the OS settings. The sample configuration includes three nodes running Windows Server 2016 in the `CloudServiceConfiguration`. In this configuration, the nodes are worker instances in an Azure cloud service. Batch pools can alternatively specify a `VirtualMachineConfiguration` where nodes are Azure VMs created from a custom VM image or an image in the Azure Marketplace.
 
 When configuration is complete, commit the pool:
 
@@ -197,9 +197,9 @@ job.Commit();
 ```
 
 ### Create tasks
-The app creates a list of tasks to process each input file using a basic `taskCommandLine`. In the sample, the command line runs the Windows `type` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. 
+The app creates a list of tasks to process each input file using a basic `taskCommandLine`. In the sample, the command line runs the Windows `type` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job, which queues them to run on the compute nodes.
+Then, the app adds tasks to the job, which queues them to run on the compute nodes. Each task processes one of the input files.
 
 ```csharp
 foreach (ResourceFile inputFile in inputFiles)
@@ -222,7 +222,7 @@ batchClient.JobOperations.AddTaskAsync(JobId, tasks).Wait();
  
 ### View task output
 
-The app monitors the tasks to make sure they complete. Then, the app displays the stdout and stderr files generated by each task. In this sample, the output of the `type` command is written to stdout:
+The app monitors the tasks to make sure they complete. Then, the app displays the stdout.txt and stderr.txt files generated by each task. When the task runs successfully, the output of the `type` command is written to stdout.txt, and stderr.txt is an empty file:
 
 ```csharp
 foreach (CloudTask task in completedtasks)

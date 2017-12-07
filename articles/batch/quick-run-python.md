@@ -14,14 +14,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/30/2017
+ms.date: 12/06/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job using the Python SDK
 
-This quickstart shows how to use the Azure Python client library to...  This example is very basic but introduces you to the key concepts of the Batch service.
+This quickstart shows how to use the Azure Batch Python SDK to build a local client app that runs an Azure Batch job. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -66,7 +66,181 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 
 ```
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the Azure portal to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
+```
+Sample start: 12/4/2017 4:02:54 PM
+
+Container [input] created.
+Uploading file taskdata0.txt to container [input]...
+Uploading file taskdata1.txt to container [input]...
+Uploading file taskdata2.txt to container [input]...
+Creating pool [PythonQuickstartPool]...
+Creating job [PythonQuickstartJob]...
+Adding 3 tasks to job [PythonQuickstartJob]...
+Awaiting task completion, timeout in 00:30:00...
+```
+
+After tasks complete, you see output similar to the following for each task:
+
+```
+Printing task output.
+Task Task0
+Node tvm-2850684224_3-20171205t000401z
+stdout:
+Processing file taskdata0.txt in task Task0:
+Batch processing began with mainframe computers and punch cards. Today it still plays a central role in business, engineering, science, and other pursuits that require running lots of automated tasks....
+stderr:
+...
+```
+
+Typical execution time is approximately 5 minutes when you run the application in its default configuration. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
+
+## Explanation of the sample app
+
+The Python app in this quickstart does the following:
+
+* Uploads three small text files to a blob container named *input* in your Azure storage account. These files are inputs for processing by Batch tasks.
+* Creates a pool of three compute nodes running Ubuntu 16.04 LTS.
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a basic **Command line**. For simplicity, the app only types the content of each input file. 
+* Displays the standard output and standard error files returned by each task.
+* After task completion, deletes the blob container and optionally the Batch job and pool.
+
+See the file `python_quickstart_client.py` and the following sections for details. 
+
+### Blob and Batch clients
+
+The app creates a [blob client](../storage/blobs/storage-dotnet-how-to-use-blobs.md), to interact with Azure Storage, and a Batch client, to interact with the Batch service. The Batch client in the sample uses shared key authentication:
+
+```python
+credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+                                                 _BATCH_ACCOUNT_KEY)
+
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=_BATCH_ACCOUNT_URL)
+```
+
+
+
+### File upload
+
+The Storage blob client connects to a container in Azure Storage and uploads the input text files.
+
+```python
+input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
+                    os.path.realpath('./data/taskdata1.txt'),
+                    os.path.realpath('./data/taskdata2.txt')]
+
+# Upload the data files. 
+input_files = [
+    upload_file_to_container(blob_client, input_container_name, file_path)
+    for file_path in input_file_paths]
+```
+
+### Create a Batch pool
+
+To create a Batch pool, the app specifies the number of nodes, the node size, and the OS settings. The sample configuration includes three nodes running Ubuntu Server 16.04 LTS in the `VirtualMachineConfiguration`. In this configuration, the nodes Azure VMs created here are from an image in the Azure Marketplace.
+
+When configuration is complete, add the pool:
+
+```python
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+            publisher="Canonical",
+             offer="UbuntuServer",
+             sku="16.04.0-LTS",
+             version="latest"
+            ),
+    node_agent_sku_id="batch.node.ubuntu 16.04"),
+    vm_size=_POOL_VM_SIZE,
+    target_dedicated_nodes=_POOL_NODE_COUNT
+)
+    try:
+        batch_service_client.pool.add(new_pool)
+    except batchmodels.batch_error.BatchErrorException as err:
+        print_batch_exception(err)
+        raise
+```
+### Create a Batch job
+
+A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The app creates a job on the pool you created, and adds it. Initially the job has no tasks.
+
+```python
+job = batch.models.JobAddParameter(
+    job_id,
+    batch.models.PoolInformation(pool_id=pool_id))
+
+try:
+    batch_service_client.job.add(job)
+except batchmodels.batch_error.BatchErrorException as err:
+    print_batch_exception(err)
+    raise
+```
+
+### Create tasks
+The app creates a list of tasks to process each input file using a basic command line. In the sample, the command line runs the bash shell `cat` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+
+Then, the app adds tasks to the job, which queues them to run on the compute nodes. Each task processes one of the input files.
+
+```python
+tasks = list()
+
+for idx, input_file in enumerate(input_files): 
+
+    command = "/bin/bash -c \"echo \'Processing file {} in task {}\'; cat {}\"".format(input_file.file_path, idx, input_file.file_path)
+    tasks.append(batch.models.TaskAddParameter(
+            'Task{}'.format(idx),
+            command,
+            resource_files=[input_file]
+            )
+     )
+
+batch_service_client.task.add_collection(job_id, tasks)
+```
+
+### View task output
+
+The app monitors the tasks to make sure they complete. Then, the app displays the stdout.txt and stderr.txt files generated by each task. When the task runs successfully, the output of the `type` command is written to stdout.txt, and stderr.txt is an empty file:
+
+```python
+
+tasks = batch_service_client.task.list(job_id)
+
+task_ids = [task.id for task in tasks]
+
+for task_id in task_ids:
+    
+    print("Task {}".format(task_id))
+
+    stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_OUT_FILE_NAME)
+
+    file_text = _read_stream_as_string(
+        stream,
+        encoding)
+    print("{} content for task {}: ".format(
+        _STANDARD_OUT_FILE_NAME,
+        task_id))
+    print(file_text)
+
+    stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_ERROR_FILE_NAME)
+
+file_text = _read_stream_as_string(
+        stream,
+        encoding)
+    print("{} content for task {}: ".format(
+        _STANDARD_ERROR_FILE_NAME,
+        task_id))
+    print(file_text)
+```
+
+## Clean up resources
+
+The app automatically deletes the storage container it creates, and by default deletes the Batch pool and job it runs. 
+
+When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
 
 ## Next steps
 
