@@ -23,7 +23,7 @@ ms.author: rnagpal
 > * [.NET Examples](documentdb-dotnet-samples.md)
 > * [Node.js Examples](documentdb-nodejs-samples.md)
 > * [Python Examples](documentdb-python-samples.md)
-> * [Azure Code Sample Gallery](hhttps://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+> * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 
