@@ -160,7 +160,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 If you need to author a custom template to suit your needs, it is highly recomended that you start with one of the templates that are available on the [azure service fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
 
-If you already have a custom tempalte, then make sure to double check, that all the three certificate  related parameters in the template and the parameter file are named  as follows and values are null as follows.
+If you already have a custom template, then make sure to double check, that all the three certificate  related parameters in the template and the parameter file are named  as follows and values are null as follows.
 
 ```Json
    "certificateThumbprint": {
@@ -262,7 +262,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 #### Use the custom template that you have 
 If you need to author a custom template to suit your needs, it is highly recomended that you start with one of the templates that are available on the [azure service fabric template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Follow guidance and explanations to [customize your cluster template][customize-your-cluster-template] section below.
 
-If you already have a custom tempalte, then make sure to double check, that all the three certificate  related parameters in the template and the parameter file are named  as follows and values are null as follows.
+If you already have a custom template, then make sure to double check, that all the three certificate  related parameters in the template and the parameter file are named  as follows and values are null as follows.
 
 ```Json
    "certificateThumbprint": {
@@ -599,7 +599,7 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 
 ![Resource Manager dependency map][cluster-security-arm-dependency-map]
 
-## Create the cluster using Azure resource tempalte 
+## Create the cluster using Azure resource template 
 
 You can now deploy you cluster using the steps outlined earlier in the document, or if you have 
  the values in the parameter file, populated, then You are now ready to create the cluster by using [Azure resource template deployment][resource-group-template-deploy] directly.
@@ -632,7 +632,7 @@ After you have created the applications to represent your cluster, assign your u
 >
 
 
-## Troubleshooting help in setting up Azure Active Directory for client authentication
+## Troubleshooting help in setting up Azure Active Directory
 Setting up Azure AD and using it, can be challenging, so here are some pointers on what you can do to debug the issue.
 
 ### Service Fabric Explorer prompts you to select a certificate
