@@ -24,7 +24,7 @@ If you're using Visual Studio, press **F5** to run your project. The browser ope
 <p/><!-- --> 
 
 ### Test with Python or other web server
-If you're not using Visual Studio, make sure your web server is started. Configure the server to listen to a TCP port that's based on the location of your **index.html** file. For Python, you can start listening to the port by running the command prompt terminal from the application folder:
+If you're not using Visual Studio, make sure your web server is started. Configure the server to listen to a TCP port that's based on the location of your **index.html** file. For Python, start to listen to the port by running the command prompt terminal from the application folder:
  
 ```bash
 python -m http.server 8080
@@ -45,7 +45,7 @@ The first time that you sign in to your application, you're prompted to provide 
 ![Provide your consent for application access](media/active-directory-singlepageapp-javascriptspa-test/javascriptspaconsent.png)
 
 ### View application results
-After signing in, you should see your user profile information in the **Graph API Call Response** box.
+After you sign in, you should see your user profile information in the **Graph API Call Response** box.
  
 ![Expected results from Microsoft Graph API call](media/active-directory-singlepageapp-javascriptspa-test/javascriptsparesults.png)
 
@@ -54,14 +54,14 @@ You should also see basic information about the token that was acquired in the *
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your backend server, might require additional scopes. For example, for Microsoft Graph, the **Calendars.Read** scope is required to list the user’s calendars.
+The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the **Calendars.Read** scope to list the user’s calendars.
 
 To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call. 
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
 
-If a backend API doesn't require a scope (not recommended), you can use the **clientId** as the scope in the **acquireTokenSilent** and **acquireTokenRedirect** calls.
+If a back-end API doesn't require a scope (not recommended), you can use the **clientId** as the scope in the **acquireTokenSilent** and **acquireTokenRedirect** calls.
 
 <!--end-collapse-->
 
