@@ -25,11 +25,11 @@ Azure CSP is a program for Microsoft Partners and provides a license channel for
 
 The [Partner Center portal](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) acts as an entry point for all Azure CSP partners. It provides rich customer management capabilities, automated processing, and more. Azure CSP partners can use Partner Center capabilities by using a web-based UI or by using PowerShell and various API calls.
 
-The following diagram illustrates how the CSP model works at a high-level. Contoso has an Azure AD Active Directory. They have a partnership with a CSP, who deploys and manages resources in their Azure CSP subscription. Note that Contoso may also have regular (direct) Azure subscriptions, which are billed directly to Contoso. 
+The following diagram illustrates how the CSP model works at a high-level. Contoso has an Azure AD Active Directory. They have a partnership with a CSP, who deploys and manages resources in their Azure CSP subscription. Contoso may also have regular (direct) Azure subscriptions, which are billed directly to Contoso.
 
 ![Overview of the CSP model](./media/csp/csp_model_overview.png)
 
-The CSP partner's tenant has 3 special agent groups - Admin agents, Helpdesk agents and Sales agents. The Admin agents group is assigned to the tenant administrator role  in Contoso's Azure AD directory. As a result, a user belonging to the CSP partner's admin agents group has tenant admin privileges in Contoso's Azure AD directory. When the CSP partner provisions an Azure CSP subscription for Contoso, their admin agents group is assigned to the owner role for that subscription. This gives Contoso's admin agents the required privileges to provision Azure resources such as virtual machines, virtual networks and Azure AD Domain Services on behalf of Contoso.
+The CSP partner's tenant has three special agent groups - Admin agents, Helpdesk agents, and Sales agents. The Admin agents group is assigned to the tenant administrator role  in Contoso's Azure AD directory. As a result, a user belonging to the CSP partner's admin agents group has tenant admin privileges in Contoso's Azure AD directory. When the CSP partner provisions an Azure CSP subscription for Contoso, their admin agents group is assigned to the owner role for that subscription. As a result, the CSP partner's admin agents have the required privileges to provision Azure resources such as virtual machines, virtual networks, and Azure AD Domain Services on behalf of Contoso.
 
 For more information, see the [Azure CSP overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
 
