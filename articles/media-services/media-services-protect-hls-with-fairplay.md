@@ -30,12 +30,12 @@ Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming
 
 The following image shows the **HLS + FairPlay or PlayReady dynamic encryption** workflow.
 
-![Diagram of dynamic encryption workflow](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram of dynamic encryption workflow](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-This topic demonstrates how to use Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
+This article demonstrates how to use Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 
 > [!NOTE]
-> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md).
+> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -62,14 +62,14 @@ The following things must be set on Media Services key delivery side:
         Go to the folder where the FairPlay certificate and other files delivered by Apple are.
     2. Run the following command from the command line. This converts the .cer file to a .pem file.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password**: The password for creating the .pfx file.
   * **App Cert password ID**: You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
   * **iv**: This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.
-  * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team will receive a unique ASK. Save a copy of the ASK, and store it in a safe place. You will need to configure ASK as FairPlayAsk to Media Services later.
+  * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team receives a unique ASK. Save a copy of the ASK, and store it in a safe place. You need to configure ASK as FairPlayAsk to Media Services later.
   * **ASK ID**: This ID is obtained when you upload ASK into Media Services. You must upload ASK by using the **ContentKeyType.FairPlayAsk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
 
 The following things must be set by the FPS client side:
@@ -122,7 +122,7 @@ You can develop player apps by using the iOS SDK. To be able to play FairPlay co
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player doesn’t support FairPlay playback out of the box. To get FairPlay playback on MAC OS X, obtain the sample player from the Apple developer account.
+> Azure Media Player supports FairPlay playback. See [Azure Media Player documentation](https://amp.azure.net/libs/amp/latest/docs/index.html) for further information.
 >
 >
 
@@ -154,7 +154,7 @@ The following sample demonstrates the ability to use Media Services to deliver y
 Overwrite the code in your Program.cs file with the code shown in this section.
 
 >[!NOTE]
->There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 Make sure to update variables to point to folders where your input files are located.
 

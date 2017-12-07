@@ -176,7 +176,7 @@ When the breakpoint stops in the **SearchHotels** intent's method of **Search**,
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
 [LUIS-website]: https://luis.ai
-[AssignedEndpointDoc]:https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/manage-keys
+[AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
 
 <!-- tested on Win10 -->

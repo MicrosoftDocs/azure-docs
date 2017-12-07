@@ -123,25 +123,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. On the **Cezanne HR Software Configuration** section, click **Configure Cezanne HR Software** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Cezanne HR Software Configuration** section, click **Configure Cezanne HR Software** to open **Configure sign-on** window.
 
-	![Cezanne HR Software Configuration](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+	![Cezanne HR Software Configuration](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. In a different web browser window, sign-on to your Cezanne HR Software tenant as an administrator.
+7. Scroll down to the **Quick Reference** section. Copy the **SAML Single Sign-On Service URL and SAML Entity ID** from the **Quick Reference section.**
 
-8. On the left navigation pane, click **System Setup**. Go to **Security Settings**. Then navigate to **Single Sign-On Configuration**.
+	![Cezanne HR Software Configuration](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. In a different web browser window, sign-on to your Cezanne HR Software tenant as an administrator.
+
+9. On the left navigation pane, click **System Setup**. Go to **Security Settings**. Then navigate to **Single Sign-On Configuration**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. In the **Allow users to log in using the following Single Sign-On (SSO) Service** panel, check the **SAML 2.0** box and select the **Advanced Configuration** option.
+10. In the **Allow users to log in using the following Single Sign-On (SSO) Service** panel, check the **SAML 2.0** box and select the **Advanced Configuration** option.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Click **Add New** button.
+11. Click **Add New** button.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Perform the following steps on **SAML 2.0 IDENTITY PROVIDERS** section.
+12. Perform the following steps on **SAML 2.0 IDENTITY PROVIDERS** section.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 	
@@ -159,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	g. Click the **Ok** button. 
 
-12. Click **Save** button.
+13. Click **Save** button.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -17,20 +17,6 @@ The first step in understanding compliance in Azure is knowing where you stand w
 At the end of this process, you will have successfully identified virtual machines that are not using managed disks, and are therefore *non-compliant*.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Opt in to Azure Policy
-
-Azure Policy is now available in Public Preview and you need to register to request access.
-
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
-
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt-in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 
@@ -61,7 +47,7 @@ In this quickstart, we create a policy assignment and assign the *Audit Virtual 
    There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Select the **Scope** you would like the policy to be applied to.  A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
-8. Select the subscription (or resource group) you previously registered when you opted into Azure Policy. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ.
+8. Select the subscription (or resource group) you previously registered. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ.
 
    ![Find the correct policy definition](media/assign-policy-definition/assign-policy.png)
 

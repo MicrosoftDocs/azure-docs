@@ -1,6 +1,6 @@
 ---
-title: Test drive Workflows in Azure Content Moderator | Microsoft Docs
-description: Use moderation workflows from the online console
+title: Set up content moderation workflows in Azure Content Moderator | Microsoft Docs
+description: Learn how to use content moderation workflows in the API console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,49 +12,53 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Content moderation workflows from the online console
+# Configure content moderation workflows in the API console
 
-Use the Review API's [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) to create or update or get workflow details by using the Review API. You can define simple or complex and even nested expressions for your workflows by using this API. These workflows appear within the review tool for your team and are used by the Review API's Job operations.
+Use the Review API's [workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator to create or update or get workflow details by using the Review API. You can define simple, complex, and even nested expressions for your workflows by using this API. The workflows appear in the Review tool for your team to use. The workflows are also used by the Review API's job operations.
 
 ## Use the API console
-Before you can test-drive the API from the online console, you will need a few values.
+To test-drive the API by using the online console, you need a few values to enter into the console:
 
-- **team**: The team name you created when you set up your review tool account. 
-- **workflowname**: The name for your workflow
-- **Ocp-Apim-Subscription-Key**: This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
+- **team**: The team name that you created when you set up your Review tool account. 
+- **workflowname**: The name that you created for your workflow.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
+The simplest way to access a testing console is from the **Credentials** window.
 
-The simplest way to access a testing console is from the Credentials window.
-1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)**.
+1.	In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59).
 
-2.	Navigate to the **Review – Create** operation. Click the button that most closely describes your location, under Open API testing console.
+  The **Workflow - Create Or Update** page opens.
 
-  ![Test Drive Workflow Step 2](images/test-drive-region.png)
+2.	For **Open API testing console**, select the region that most closely describes your location.
 
-3.  Enter the **team**, **workflowname**, and **Ocp-Apim-Subscription-Key**.
+  ![Workflow - Create Or Update page region selection](images/test-drive-region.png)
 
-  ![Test Drive Workflow Step 3](images/test-drive-workflow-1.PNG)
+  The **Workflow - Create Or Update** API console opens.
+
+3.  Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key** (your subscription key).
+
+  ![Workflow - Create Or Update console query parameters and headers](images/test-drive-workflow-1.PNG)
   
-3.	Edit the Request Body to complete the **description**, **type** (image or text workflow) and the **expression** details.
+3.	Edit the **Request body** box to enter details for **description**, **type** (image or text workflow), and **expression**.
 
-  ![Test Drive Workflow Step 4](images/test-drive-workflow-2.PNG)
+  ![Workflow - Create Or Update Request body edits](images/test-drive-workflow-2.PNG)
   
-4.	Click **Send**. if the operation succeeds, your will see **True** on your screen.
+4.	Select **Send**. If the operation succeeds, the **Response content** box displays **true**.
 
-  ![Test Drive Review Step 4](images/test-drive-workflow-3.PNG)
+  ![Workflow - Create Or Update console Response content displays true](images/test-drive-workflow-3.PNG)
   
-5.	Log in to the review tool and navigate to the Settings section. You should see your new workflow listed and ready for use.
+5.	On the Content Moderator Dashboard, select **Review** > **Settings** > **Workflows**. Your new workflow appears, and is ready to use.
 
-  ![Test Drive Review Step 5](images/test-drive-workflow-4.PNG)
+  ![Review tool list of workflows](images/test-drive-workflow-4.PNG)
   
-6.	Select the edit option for your workflow to see the designer view of the workflow.
+6.	To see the designer view of the workflow, select the **Edit** option for your workflow, and then select the **Designer** tab.
 
-  ![Test Drive Review Step 6](images/test-drive-workflow-5.PNG)
+  ![Review tool Designer tab for a selected workflow](images/test-drive-workflow-5.PNG)
   
-7.	Select the JSON TAB to see the JSON view of the workflow.
+7.	To see the JSON view of the workflow, select the **JSON** tab.
 
-  ![Test Drive Review Step 7](images/test-drive-workflow-6.PNG)
+  ![Review tool JSON tab for a selected workflow](images/test-drive-workflow-6.PNG)
 
 ## Next steps
 
-To learn how to use workflows with **Jobs**, see the [Try Moderation Jobs](try-review-api-job.md) article.
+* Learn how to use workflows with [content moderation jobs](try-review-api-job.md).

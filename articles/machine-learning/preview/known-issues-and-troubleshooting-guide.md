@@ -37,6 +37,17 @@ If you run into issue during installation, the installer log files are here:
 ```
 You can zip up the contents of these directories and send it to us for diagnostics.
 
+### App Update 
+#### No update notification on Windows desktop 
+This issue will be addressed in an upcoming update. In the meantime, the workaround is to avoid launching the app from the shortcut pinned to the Taskbar. Instead to launch the app by using the Start menu or Start search-bar, or the shortcut on your desktop (if you have one). 
+
+#### No update notification on an Ubuntu Data Sciece Virtual Machine (DSVM)
+Perform the following steps to download the latest application :   
+   - remove the folder \Users\AppData\Local\amlworkbench
+   - remove script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remove desktop shortcut that launches the above script
+   - install cleanly using [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
+
 ### Workbench desktop app
 If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
 ```
@@ -98,6 +109,19 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
    - remove script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - remove desktop shortcut that launches the above script
    - download the installer https://aka.ms/azureml-wb-msi and reinstall.
+
+## Get stuck at "Checking experimentation account" screen after logging in
+After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
+1. Shutdown the app
+2. Delete the following file:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Restart the app.
 
 ## Can't delete Experimentation Account
 You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
@@ -171,9 +195,9 @@ A quick fix is to remove all Docker images you no longer use. The following Dock
 $ docker system prune -a
 ```
 
-You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## Sharing C drive on Windows
 If you are executing in a local Docker container on Windows, setting `sharedVolumes` to `true` in the `docker.compute` file under `aml_config` can improve execution performance. However, this requires you share C drive in the _Docker for Windows Tool_. If you are not able to share C drive, try the following tips:

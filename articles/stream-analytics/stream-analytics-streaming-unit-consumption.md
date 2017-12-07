@@ -25,7 +25,7 @@ Azure Stream Analytics aggregates the performance "weight" of running a job into
 
 In order to achieve low latency streaming processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated in order to keep the jobs running 24/7.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -81,7 +81,7 @@ In order to ameliorate issues caused by high cardinality in the previous query, 
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of clusterid coming into each node is reduced thereby reducing the cardinality of the group by operator. 
 
-Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. Additional details are covered [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. Additional details are covered [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### Temporal join
 The state size of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. 
 
