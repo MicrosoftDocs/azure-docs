@@ -107,7 +107,7 @@ LicenseType              :
 >
 
 ## Next Steps
-- Learn more about [Configuring VDA for Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Learn more about [Configuring VDA for Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

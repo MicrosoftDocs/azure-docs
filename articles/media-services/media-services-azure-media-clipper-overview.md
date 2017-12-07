@@ -36,8 +36,12 @@ Azure Media Clipper enables you to:
 
 To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
 
+The following image illustrates the Clipper interface:
+![Azure Media Clipper](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## Release notes
-The following list describes various known issues and changelog for the latest release of the Clipper:
+See the following list for the Clipper blog post, various known issues, and changelog for the latest release of the Clipper:
+- [Blog post](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Known issues list](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

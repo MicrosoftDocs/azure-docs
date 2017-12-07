@@ -89,7 +89,7 @@ Storm binaries for the current HDP stack are in /usr/hdp/current/storm-client. T
  
 There might be multiple binaries for specific HDP versions in /usr/hdp (for example, /usr/hdp/2.5.0.1233/storm). The /usr/hdp/current/storm-client folder is symlinked to the latest version that is running on the cluster.
 
-For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
+For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
 [Storm](http://storm.apache.org/).
  
 ## How do I determine the deployment topology of a Storm cluster?
@@ -126,10 +126,10 @@ Storm worker nodes run the following services:
 For more information about using Storm event hub spout .jar files with your topology, see the following resources.
  
 ### Java-based topology
-[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### Latest Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
 To learn how to use the latest Storm event hub spout that works with HDInsight 3.5+ Linux Storm clusters, see the mvn-repo [readme file](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
