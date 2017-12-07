@@ -396,7 +396,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
     
     # Specify the base image's VHD URI (from phase one step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
-    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
     $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 iOS Getting Started - Test | Microsoft Docs
-description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+title: "Azure AD v2.0 iOS getting started: Test your application | Microsoft Docs"
+description: How iOS (Swift) applications can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -18,25 +18,30 @@ ms.author: andret
 ---
 ## Test querying the Microsoft Graph API from your iOS application
 
-Press `Command` + `R` to run the code in the simulator.
+To run the code in the simulator, press **Command** + **R**.
 
-![Sample screen shot](media/active-directory-mobileanddesktopapp-ios-test/iostestscreenshot.png)
+![Test your application in the simulator](media/active-directory-mobileanddesktopapp-ios-test/iostestscreenshot.png)
 
-When you're ready to test, tap *‘Call Microsoft Graph API’* and you will be prompted to type your username and password.
+When you're ready to test, select **Call Microsoft Graph API**. When prompted, enter your username and password.
 
-### Consent
-The first time you sign in to your application, you will be presented with a consent screen similar to the below, where you need to explicitly accept:
+### Provide consent for application access
+The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in:
 
-![Consent Screen](media/active-directory-mobileanddesktopapp-ios-test/iosconsentscreen.png)
+![Provide your consent for application access](media/active-directory-mobileanddesktopapp-ios-test/iosconsentscreen.png)
 
-### Expected results
-You should see user profile information returned by the Microsoft Graph API call in the *Logging* section.
+### View application results
+After you sign in, you should see your user profile information returned by the Microsoft Graph API call in the **Logging** section. 
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the `user.read` scope to read the user's profile. This scope is automatically added by default in every application being registered on our registration portal. Some other APIs for Microsoft Graph as well as custom APIs for your backend server may require additional scopes. For example, for Microsoft Graph, the scope `Calendars.Read` is required to list the user’s calendars. In order to access the user’s calendar in a context of an application, you need to add the `Calendars.Read` delegated permission to the application registration’s information and then add the `Calendars.Read` scope to the `acquireTokenSilent` call. The user may be prompted for additional consents as you increase the number of scopes.
+The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the **Calendars.Read** scope to list the user’s calendars.
+
+To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call. 
+
+>[!NOTE]
+>The user might be prompted for additional consents as you increase the number of scopes.
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]

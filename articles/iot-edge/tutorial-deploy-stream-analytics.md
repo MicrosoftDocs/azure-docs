@@ -224,9 +224,9 @@ In this tutorial, you configured an Azure storage container and a Streaming Anal
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/en-us/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/en-us/azure/storage/
-[azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
+[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
+[azure-storage]: https://docs.microsoft.com/azure/storage/
+[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
