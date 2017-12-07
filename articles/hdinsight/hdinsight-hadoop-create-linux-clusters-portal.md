@@ -61,7 +61,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 		* **Operating System**: Select **Linux**.
 		
 		* **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-		* **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+		
 
 	* For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
