@@ -203,6 +203,8 @@
     items:
     - name: SaaS design patterns
       href: saas-tenancy-app-design-patterns.md
+    - name: SaaS video indexer
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
     - name: SaaS app security
       href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases

@@ -10,14 +10,6 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 ## B-series
 
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> This preview will be limited to the following regions:
-> - US - West 2
-> - US - East
-> - Europe - West
-> - Asia Pacific - Southeast
-
 The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-Series provides these customers the ability to purchase a VM size with a price conscience baseline performance that allows the VM instance to build up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the VM’s baseline using up to 100% of the CPU when your application requires the higher CPU performance.
 
 
