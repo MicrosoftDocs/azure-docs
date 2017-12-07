@@ -63,7 +63,7 @@ The maximum length of an utterance is 500 characters. You can have a maximum of 
 
 ## What is the best way to start building my app in LUIS?
 
-The best way to build your app is through an incremental process. You could start by defining the schema of your app (intents and entities). For every intent and entity model, you can provide a few dozen labels. Train and publish your app to get an endpoint. Then, upload 100 to 200 unlabeled utterances to your app. As you select the most informative utterances to label, you can use the suggestion feature to take advantage of LUIS intelligence. You can select the intent or entity that you want to improve, and then label the utterances that are suggested by LUIS. Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge.
+The best way to build your app is through an incremental process. First start by defining what intents and entities your app requires. For every intent and entity model, you can start by providing a few examples. Train and publish your app to get an endpoint. Then, begin to [review user utterances](./label-suggested-utterances.md) to select the most informative utterances to label. You can select the intent or entity that you want to improve, and then label the utterances that are suggested by LUIS. <!-- Labeling a few hundred utterances should result in a decent accuracy for intents. Entities might need more examples to converge. -->
 
 ## What is a good practice to model the intents of my app? Should I create more specific or more generic intents?
 
@@ -75,12 +75,15 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 
 ## How can I deal with spelling mistakes in utterances?
 
-You have one of two options: 
-* Use a spell checker on your utterances before sending them to the LUIS endpoint. This option might be the easier of the two. To enable Bing Spell Check, do the following:
-   1. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
-   2. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
+You can integrate your LUIS app with Bing Spell Check to spell check utterances before sending them to the LUIS endpoint. To enable Bing Spell Check, do the following steps:
+   1. [Get an API key](https://azure.microsoft.com/en-us/try/cognitive-services/?api=spellcheck-api) for [Bing SpellCheck API v7](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).  Free trial keys provide 1,000 transactions per month, up to 1 per second. They expire after a 30-day period.
+   2. Check the **Enable Bing spell checker** checkbox in the [Publish app](./PublishApp.md) page when you publish your app.
+   3. Include `spellCheck=true` in the query to the LUIS app's endpoint when you access the app from your client application. If the **Enable Bing spell checker** checkbox is checked, this parameter is prepopulated in the endpoint URL that the **Publish app** page displays.
 
-* For greatest diversity, label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort.
+<!-- https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference 
+https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/ -->
+
+If you don't want to use a spell check service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
 
 ## I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
