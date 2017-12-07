@@ -142,7 +142,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 6. Here is what your Program.cs file should look like.
    
     ```csharp
-    namespace BasicSendReceiveUsingQueueClient
+    namespace CoreSenderApp
     {
         using Microsoft.Azure.ServiceBus;
         using System;
@@ -318,7 +318,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 8. Here is what your Program.cs file should look like:
    
     ```csharp
-    namespace BasicSendReceiveUsingQueueClient
+    namespace CoreReceiverApp
     {
         using Microsoft.Azure.ServiceBus;
         using System;
