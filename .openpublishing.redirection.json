@@ -15519,6 +15519,26 @@
              "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
              "redirect_document_id": false
         },
+	{
+             "source_path": "articles/storage/common/storage-premium-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-premium-storage-performance.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage-performance",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-standard-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/standard-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
+             "redirect_url": "/azure/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks",
+             "redirect_document_id": false
+        },
       {
         "source_path": "articles/api-management/api-management-policy-reference.md",
         "redirect_url": "/azure/api-management/api-management-policies",
