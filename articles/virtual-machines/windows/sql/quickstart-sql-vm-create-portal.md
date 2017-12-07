@@ -106,7 +106,7 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 
 1. On a different computer connected to the Internet, open SQL Server Management Studio (SSMS).
 
-   > [TIP] 
+   > [!TIP]
    > If you do not have SQL Server Management Studio, you can download it [here](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma, and add the custom port, **1401**, that we specified when you configured the new VM. For example, `11.22.33.444,1401`.

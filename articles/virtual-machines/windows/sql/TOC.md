@@ -3,8 +3,8 @@
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Quickstarts
-## [Create a SQL VM - Portal]()
-## [Create a SQL VM - Azure PowerShell]()
+## [Create a SQL VM - Portal](quickstart-sql-vm-create-portal.md)
+## [Create a SQL VM - Azure PowerShell](quickstart-sql-vm-create-powershell.md)
 
 # Concepts
 ## Best practices
