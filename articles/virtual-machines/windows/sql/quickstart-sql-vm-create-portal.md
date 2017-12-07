@@ -25,7 +25,7 @@ This quickstart steps through creating a SQL Server virtual machine in the Azure
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## <a id="select"></a> Select a SQL VM image from the gallery
+## <a id="select"></a> Select a SQL Server VM image
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 
@@ -64,12 +64,10 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** win
 
 1. Click **View all** to see all available machine sizes.
 
-1. For this quickstart, select **D2S_V3**.
-
-   Note the estimated monthly machine cost for continuous use. This is only the cost of the VM and not the [SQL Server VM licensing costs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). But for this quickstart, using the Developer Edition means that there is no additional SQL Server licensing costs.
+1. For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
-   > This machine size saves money during testing. But for production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+   > The **D2S_V3** machine size saves money while testing. But for production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 1. Click **Select** to continue.
 
