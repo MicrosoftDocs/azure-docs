@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
