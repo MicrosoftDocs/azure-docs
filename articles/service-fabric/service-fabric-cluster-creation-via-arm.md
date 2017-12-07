@@ -32,7 +32,7 @@ The guide covers the following procedures:
 * Setting up Azure Active Directory (Azure AD) for authenticating users performing management operations on the cluster.
 * Authoring a custom Azure Resource Manager template for your cluster and deploying it.
 
-## Key concepts that you need to be aware off
+## Key concepts to be aware of
 In Azure, Service fabric mandates that you to use an x509 certificate to secure your cluster and its endpoints. Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For client access/performing management operations on the cluster,including deploying, upgrading, and deleting applications, services, and the data they contain, you can use certificates or Azure Active Directory credentials. The use of Azure Active Directory is highly encouraged, since that is the only way to prevent sharing of certificates on your clients.  For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
 
 Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use [Key Vault][key-vault-get-started] to manage certificates for Service Fabric clusters in Azure. 
