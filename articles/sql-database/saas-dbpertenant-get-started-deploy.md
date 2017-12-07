@@ -15,14 +15,14 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 12/07/2017
 ms.author: genemi
 ---
 # Deploy and explore a multi-tenant SaaS application that uses the database per tenant pattern with Azure SQL Database
 
-In this tutorial, you deploy and explore the Wingtip Tickets SaaS *database per tenant* application. The app uses a database per tenant pattern, to store the data of multiple tenants. The app is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
+In this tutorial, you deploy and explore the Wingtip Tickets SaaS *database per tenant* application (Wingtip). The app uses a database per tenant pattern, to store the data of multiple tenants. The app is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
 
-Later in this article there is a blue button labeled **Deploy to Azure**. Five minutes after you click the button, you have a multi-tenant SaaS application. The app includes an Azure SQL Database running in the Microsoft cloud. The app is deployed with three sample tenants, each with its own database. All the databases are deployed into a SQL *elastic pool*. The app is deployed to your Azure subscription. You have full access to explore and work with the individual components of the app. The application C# source code, and the management scripts, are available in the [WingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
+Five minutes after you click the blue button labeled **Deploy to Azure**, you have a multi-tenant SaaS application. The app includes an Azure SQL Database running in the Microsoft Azure cloud. The app is deployed with three sample tenants, each with its own database. All the databases are deployed into a SQL *elastic pool*. The app is deployed to your Azure subscription. You have full access to explore and work with the individual components of the app. The application C# source code, and the management scripts, are available in the [WingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
 
 In this tutorial you learn:
 
@@ -59,18 +59,12 @@ Deploy the app:
 
 3. Into the template, enter values for the required parameters:
 
+    > [!IMPORTANT]
+    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. We recommend that you *create a new resource group*. Do not use existing resource groups, servers, or pools. Do not use this application, scripts, or any deployed resources for production. Delete this resource group when you are finished with the application to stop related billing.
+
     - **Resource group** - Select **Create new** and provide the unique **Name** you chose earlier for the resource group. 
     - **Location** - Select a **Location** from the drop-down list.
     - **User** - Use the User name value you chose earlier.
-
-    > [!IMPORTANT]
-    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**. Do not use existing resource groups, servers, or pools. Do not use this application, scripts, or any deployed resources for production. Delete this resource group when you are finished with the application to stop related billing.
-
-<!--
-Edit the Above??:
-Unclear why the above IMPORTANT alert has the full sentence of the following??:
-**Create a new resource group**.
--->
 
 4. Deploy the application.
 
@@ -124,23 +118,27 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
-The application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests.
-Each tenant has its own events webpage. The app design requires that the tenant name must be part of the URL.
-All the tenant URLs include your specific *User* value and follow this format:
-Also, the events webpage URL includes your specific *User* value. For each tenant, the events page URL matches the following format:
+#### Azure Traffic Manager
 
-- http://events.wingtipp-dpt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) to control the distribution of incoming requests. The URL to access the events hub for one tenant must obey the following format:
 
-The events app parses the tenant name from the URL. The app uses the tenant name to create a key to access a catalog.
-The catalog maps the key to the tenant's database location.
-The catalog is implemented by using [*shard map management*](sql-database-elastic-scale-shard-map-management.md).
-The **Events Hub** webpage lists the events webpage URLs for all tenants.
-The hub uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
+- http://events.wingtip-dpt.&lt;USER&gt;.trafficmanager.net/fabrikamjazzclub
 
-<!--
-Edit the Above??:
-Unclear how the preceding final sentence ("The hub uses extended...") explains the purpose of the earlier first sentence ("The application uses Azure Traffic Manager to...")?
--->
+The parts of the preceding format are explained in the following table.
+
+| URL part | Description |
+| :------- | :---------- |
+| http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br />the ***-dpt*** portion distinguishes the *Database Per Tenant* implementation of Wingtip from other slightly different implementations. For example, other documentation articles offer Wingtip for *Standalong* (*-sa*), or for *Multi-tenant DB*. |
+| .*&lt;USER&gt;* | *af1* in our example. |
+| .trafficmanager.net/ | Azure Traffic Manager, base URL. |
+| fabrikamjazzclub | For the tenant named *Fabrikam Jazz Club*. |
+| &nbsp; | &nbsp; |
+
+1. The tenant name is parsed from the URL, by the events app.
+2. The tenant name is used to create a key.
+3. The key is used to access the catalog, to obtain the location of the tenant's database.
+    - The catalog is implemented by using *shard map management*.
+4. The *Events Hub* uses extended metadata in the catalog to obtain a list of event URLs.
 
 In a production environment, typically you create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
 
