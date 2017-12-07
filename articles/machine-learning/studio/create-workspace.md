@@ -1,8 +1,7 @@
 ---
-title: Create a Machine Learning workspace | Microsoft Docs
+title: Create a Machine Learning Studio Workspace | Microsoft Docs
 description: How to create a workspace for Azure Machine Learning Studio
 services: machine-learning
-documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -12,9 +11,9 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: garye
-ms.reviewers:jasonh, MicrosoftDocs/mlreview
-
+ms.reviewers:jasonwhowell, MicrosoftDocs/mlreview
 ---
+
 # Create and share an Azure Machine Learning workspace
 This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
 
@@ -34,16 +33,16 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 2. Click **+New**
 
-3. In the search box, type **Machine Learning Studio Workspace** to locate the matching item, select click **Create**
+3. In the search box, type **Machine Learning Studio Workspace** and select the matching item. Then select click **Create**.
 
-4. Enter your workspace information
+4. Enter your workspace information:
 
     - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
     - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
 
     ![Create a new workspace](./media/create-workspace/create-new-workspace.png)
 
-5. Click **Create**
+5. Click **Create**.
 
 Once the workspace is deployed, you can open it in Machine Learning Studio.
 
