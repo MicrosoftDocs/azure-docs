@@ -25,12 +25,6 @@ A common challenge when building cloud applications is how to manage the credent
 
 ## How does it work?
 
-There are two types of MSI available:
-- System-assigned: provisioned automatically, and associated with a single Azure resource, such as a VM.
-- User-assigned: provisioned manually, and associated with a logical set of Azure resources, as defined by the user.
-
-### System-assigned MSI
-
 When you enable Managed Service Identity on an Azure service, Azure automatically creates an identity for the service instance in the Azure AD tenant used by your Azure subscription.  Under the covers, Azure provisions the credentials for the identity onto the service instance.  Your code can then make a local request to get access tokens for services that support Azure AD authentication.  Azure takes care of rolling the credentials used by the service instance.  If the service instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 
 Here's an example of how Managed Service Identity works with Azure Virtual Machines.
@@ -46,11 +40,6 @@ Here's an example of how Managed Service Identity works with Azure Virtual Machi
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
 Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the tutorials for each service to find out the specific method to get a token.
-
-### User-assigned MSI
-
-> [!Note]
-> This feature is currently in a private preview. [Sign up here](https://aka.ms/MSIPreviewSignup) to request enrollment in the preview.   
 
 ## Try Managed Service Identity
 
