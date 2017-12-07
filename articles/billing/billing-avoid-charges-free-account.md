@@ -50,7 +50,7 @@ Your free services and quantities expire at the end of 12 months. You can find o
 
 4.	Select the subscription that you created when you signed up for free account.
 
-5.  Scroll down to find free services grid. Click the tooltip located on the top right of the grid.
+5.  Scroll down to find free services grid. Click the tooltip located on the top left of the grid.
 
 ![Screenshot that shows where to find free account benefits expiration date](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
 
