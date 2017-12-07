@@ -1,5 +1,5 @@
 ---
-title: Get started with elastic database tools - Azure | Microsoft Docs
+title: Get started with Elastic Database Tools - Azure | Microsoft Docs
 description: Basic explanation of the Elastic Database tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 11/16/2017
 ms.author: anjangsh
 
 ---
-# Get started with Elastic Database tools
+# Get started with Elastic Database Tools
 This document introduces you to the developer experience for the [elastic database client library](sql-database-elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database feature of SQL Database tools. It focuses on use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java. 
 
-## Elastic Database tools for Java
+## Elastic Database Tools for Java
 ### Prerequisites
 * A Java Developer Kit (JDK), version 1.8 or later
 * [Maven](http://maven.apache.org/download.cgi)
@@ -29,10 +29,12 @@ This document introduces you to the developer experience for the [elastic databa
 ### Download and run the sample app
 To build the JAR files and get started with the sample project, do the following: 
 1. Clone the [GitHub repository](https://github.com/Microsoft/elastic-db-tools-for-java) containing the client library, along with the sample app. 
+
 2. Edit the _./sample/src/main/resources/resource.properties_ file to set the following:
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
+
 3. To build the sample project, in the _./sample_ directory, run the following command:
 
     ```
@@ -49,7 +51,7 @@ To build the JAR files and get started with the sample project, do the following
 
     ![Progress-java][5]
     
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created. 
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on Azure SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created. 
 
 To add the client library to your own Maven project, add the following dependency in your POM file:
 
@@ -61,7 +63,7 @@ To add the client library to your own Maven project, add the following dependenc
 </dependency> 
 ```
 
-## Elastic Database tools for .NET 
+## Elastic Database Tools for .NET 
 ### Prerequisites
 * Visual Studio 2012 or later with C#. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 or later. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
@@ -83,7 +85,7 @@ To download and run the sample, follow these steps:
    
     ![Progress][4]
 
-Congratulations! You have successfully built and run your first sharded application by using Elastic Database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations! You have successfully built and run your first sharded application by using Elastic Database Tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
 > We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -105,18 +107,18 @@ Congratulations! You have successfully built and run your first sharded applicat
 * **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## Cost
-The Elastic Database tools are free. When you use Elastic Database tools, you incur no additional charges on top of the cost of your Azure usage. 
+The Elastic Database Tools are free. When you use Elastic Database Tools, you incur no additional charges on top of the cost of your Azure usage. 
 
 For example, the sample application creates new databases. The cost for this depends on the SQL Database edition you choose and the Azure usage of your application.
 
 For pricing information, see [SQL Database pricing details](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Next steps
-For more information about Elastic Database tools, see the following articles:
+For more information about Elastic Database Tools, see the following articles:
 
 * Code samples: 
-  * Elastic Database tools ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
-  * [Elastic DB Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * Elastic Database Tools ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * [Elastic Database Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * Microsoft Virtual Academy: [Implementing Scale-Out Using Sharding with the Elastic Database Client Library Video](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
