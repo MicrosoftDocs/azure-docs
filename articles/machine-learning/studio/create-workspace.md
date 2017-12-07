@@ -12,6 +12,7 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: garye
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+
 ---
 
 # Create and share an Azure Machine Learning workspace
