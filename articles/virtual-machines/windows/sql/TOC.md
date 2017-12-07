@@ -1,10 +1,9 @@
 # Overview
 ## [About Windows SQL Server VMs](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Quickstarts
 ## [Create SQL VM - Portal](quickstart-sql-vm-create-portal.md)
-## [Create SQL VM - Azure PowerShell](quickstart-sql-vm-create-powershell.md)
+## [Create SQL VM - PowerShell](quickstart-sql-vm-create-powershell.md)
 
 # Concepts
 ## Best practices
@@ -49,6 +48,7 @@
 ## [REST](/rest/api/)
 
 # Resources
+## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
 ## [Pricing](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PaaS or IaaS?](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
