@@ -66,7 +66,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
     ![Select a NuGet package][nuget-pkg]
 
-### Write code to send a message to the queue
+### Write code to send messages to the queue
 
 1. Add the following `using` statements to the top of the Program.cs file.
    
@@ -206,7 +206,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-3. 3. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** window. The queue **Essentials** screen is displayed. Notice that the **Active Message Count** value for the queue is now **10**. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the queue increments the **Current** value in the **Essentials** window each time the app adds messages to the queue.
+7. Run the program, and check the Azure portal: click the name of your queue in the namespace **Overview** window. The queue **Essentials** screen is displayed. Notice that the **Active Message Count** value for the queue is now **10**. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the queue increments the **Current** value in the **Essentials** window each time the app adds messages to the queue.
    
       ![Message size][queue-message]
 
@@ -404,7 +404,7 @@ To receive the messages you just sent, create another .NET Core console applicat
    
     ![Queue length][queue-message-receive]
 
-Congratulations! You have now created a queue, sent a message to that queue, and received a message from the same queue.
+Congratulations! You have now created a queue, sent a set of messages to that queue, and received those messages from the same queue.
 
 ## Next steps
 
