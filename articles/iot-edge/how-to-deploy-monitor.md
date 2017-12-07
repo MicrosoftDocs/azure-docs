@@ -38,7 +38,7 @@ For more information about device twins and tags, see [Understand and use device
 
 ## Create a deployment
 
-1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
+1. In the [Azure portal][lnk-portal], go to your IoT hub. 
 1. Select **IoT Edge (preview)**.
 1. Select **Add IoT Edge Deployment**.
 
@@ -59,26 +59,25 @@ If you create a deployment with no modules, it removes any existing modules from
 >[!NOTE]
 >Azure Machine Learning and Azure Functions don't support the automated Azure service deployment yet. Use the custom module deployment to manually add those services to your deployment. 
 
-To add a module from an Azure service follow these steps:
-1. Select **Add Azure service IoT Edge module**.
+To add a module from Azure Stream Analytics, follow these steps:
+1. Select **Import Azure Stream Analytics IoT Edge module**.
 1. Use the drop-down menus to select the Azure service instances that you want to deploy.
-1. Select **Save** to add your modules to the deployment. 
+1. Select **Save** to add your module to the deployment. 
 
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
-1. Select **Add custom IoT Edge module**.
+1. Select **Add IoT Edge module**.
 1. Give your module a **Name**.
-1. For the **Image** field, enter the Docker container image for this module: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Use the drop-down menus under **OS** and **Architecture** to identify the properties of the Docker container that represents this module. 
-1. Specify any **Create options** that should be passed to the container. For more information, see [docker create][lnk-docker-create].
+1. For the **Image URI** field, enter the Docker container image for your module. 
+1. Specify any **Container Create Options** that should be passed to the container. For more information, see [docker create][lnk-docker-create].
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
    * **Always** - The module always restarts if it shuts down for any reason.
    * **Never** - The module never restarts if it shuts down for any reason.
    * **On-failed** - The module restarts if it crashes, but not if it shuts down cleanly. 
    * **On-unhealthy** - The module restarts if it crashes or returns an unhealthy status. It's up to each module to implement the health status function. 
-1. Use the drop-down menu to select the startup **Status** for the module. Choose from the following options:
+1. Use the drop-down menu to select the **Desired Status** for the module. Choose from the following options:
    * **Running** - This is the default option. The module will start running immediately after being deployed.
    * **Stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
-1. Select **Edit module twin** if you want to add any tags or desired properties to the module. 
+1. Select **Enable** if you want to add any tags or desired properties to the module twin. 
 1. Select **Save** to add your module to the deployment. 
 
 Once you have all the modules for a deployment configured, select **Next** to move to step three.
