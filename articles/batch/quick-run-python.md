@@ -94,9 +94,9 @@ stderr:
 ...
 ```
 
-Typical execution time is approximately 5 minutes when you run the application in its default configuration. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
+Typical execution time is approximately 3 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
-## Explanation of the sample app
+## Walkthrough
 
 The Python app in this quickstart does the following:
 
@@ -108,41 +108,43 @@ The Python app in this quickstart does the following:
 
 See the file `python_quickstart_client.py` and the following sections for details. 
 
-### Blob and Batch clients
+### Preliminaries
 
-The app creates a [blob client](../storage/blobs/storage-dotnet-how-to-use-blobs.md), to interact with Azure Storage, and a Batch client, to interact with the Batch service. The Batch client in the sample uses shared key authentication:
+To interact with a storage account, the app uses the [azure-storage](https://pypi.python.org/pypi/azure-storage) package to create a [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) object.
 
-```python
-credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-                                                 _BATCH_ACCOUNT_KEY)
+  ```python
+  blob_client = azureblob.BlockBlobService(
+      account_name=STORAGE_ACCOUNT_NAME,
+      account_key=STORAGE_ACCOUNT_KEY)
+  ```
 
-batch_client = batch.BatchServiceClient(
-        credentials,
-        base_url=_BATCH_ACCOUNT_URL)
-```
+* The app uses the `blob_client` reference to create a container in the storage account and also to upload data files to the container from a set of input file paths. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
-
-
-### File upload
-
-The Storage blob client connects to a container in Azure Storage and uploads the input text files.
-
-```python
-input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
-                    os.path.realpath('./data/taskdata1.txt'),
-                    os.path.realpath('./data/taskdata2.txt')]
-
-# Upload the data files. 
-input_files = [
+  ```python
+  input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
+                      os.path.realpath('./data/taskdata1.txt'),
+                      os.path.realpath('./data/taskdata2.txt')]
+  input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
-```
+  ```
+* The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication:
+
+  ```python
+  credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+     _BATCH_ACCOUNT_KEY)
+
+  batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=_BATCH_ACCOUNT_URL)
+  ```
+
 
 ### Create a Batch pool
 
-To create a Batch pool, the app specifies the number of nodes, the node size, and the OS settings. The sample configuration includes three nodes running Ubuntu Server 16.04 LTS in the `VirtualMachineConfiguration`. In this configuration, the nodes Azure VMs created here are from an image in the Azure Marketplace.
+To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure.batch.models.imagereference) to an Ubuntu Server 16.04 LTS image published in the Azure Marketplace.
 
-When configuration is complete, add the pool:
+The [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) method submits the pool to the Batch service.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -166,7 +168,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 ### Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The app creates a job on the pool you created, and adds it. Initially the job has no tasks.
+A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The app uses the [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) method to create a job on your pool. The [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) method submits the pool to the Batch service. Initially the job has no tasks.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -181,29 +183,28 @@ except batchmodels.batch_error.BatchErrorException as err:
 ```
 
 ### Create tasks
-The app creates a list of tasks to process each input file using a basic command line. In the sample, the command line runs the bash shell `cat` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job, which queues them to run on the compute nodes. Each task processes one of the input files.
+The app creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the `command_line` runs the bash shell `cat` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+
+Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) method, which queues them to run on the compute nodes. 
 
 ```python
 tasks = list()
 
 for idx, input_file in enumerate(input_files): 
-
     command = "/bin/bash -c \"echo \'Processing file {} in task {}\'; cat {}\"".format(input_file.file_path, idx, input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
-            'Task{}'.format(idx),
-            command,
+            id='Task{}'.format(idx),
+            command_line=command,
             resource_files=[input_file]
             )
      )
-
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
 ### View task output
 
-The app monitors the tasks to make sure they complete. Then, the app displays the stdout.txt and stderr.txt files generated by each task. When the task runs successfully, the output of the `type` command is written to stdout.txt, and stderr.txt is an empty file:
+The app monitors task state to make sure the tasks complete. Then, the app displays the stdout.txt and stderr.txt files generated by each completed task. When the task runs successfully, the output of the `cat` command is written to stdout.txt, and stderr.txt is an empty file:
 
 ```python
 
@@ -213,7 +214,9 @@ task_ids = [task.id for task in tasks]
 
 for task_id in task_ids:
     
+    node_id = batch_service_client.task.get(job_id, task_id).node_info.node_id
     print("Task {}".format(task_id))
+    print("Node {}".format(node_id))
 
     stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_OUT_FILE_NAME)
 
@@ -227,7 +230,7 @@ for task_id in task_ids:
 
     stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_ERROR_FILE_NAME)
 
-file_text = _read_stream_as_string(
+    file_text = _read_stream_as_string(
         stream,
         encoding)
     print("{} content for task {}: ".format(

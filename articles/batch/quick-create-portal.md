@@ -84,7 +84,7 @@ While the compute nodes are starting, you see a **Resizing** message. You can go
 
 ## Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job on the pool you created. Initially the job has no tasks.
+A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The following example creates a job on the pool you created. Initially the job has no tasks.
 
 1. In the account view, click **Jobs** > **Add**. 
 

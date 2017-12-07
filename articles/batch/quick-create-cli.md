@@ -88,7 +88,7 @@ You can go ahead and schedule a job while the pool is resizing. The pool is comp
 
 ## Create a Batch job
 
-Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. A job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job *myjob-linux* on the pool *mypool-linux*. Initially the job has no tasks.
+A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. The following example creates a job *myjob-linux* on the pool *mypool-linux*. Initially the job has no tasks.
 
 ```azurecli-interactive 
 az batch job create --id myjob-linux --pool-id mypool-linux
