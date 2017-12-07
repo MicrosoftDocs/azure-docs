@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
-ms.author: support@blitline.com
+ms.author: cwatson
 
 ---
 # How to use Blitline with Azure and Azure Storage

@@ -1,6 +1,6 @@
 ---
 title: Named locations in Azure Active Directory | Microsoft Docs
-description: By configuring named locations, you can avoid having IP addresses that are owned by your organization generate false positives for the Impossible travel to atypical locations risk event type.
+description: Learn what named locations are and how to configure them.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,18 +12,46 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
 # Named locations in Azure Active Directory
 
-With the named locations feature of Azure Active Directory, you can label trusted IP address ranges in your organizations. In your environment, you can use named locations in the context of the detection of [risk events](active-directory-reporting-risk-events.md). The feature helps reduce the number of reported false positives for the *Impossible travel to atypical locations* risk event type. 
+With named locations, you can label trusted IP address ranges in your organization. Azure Active Directory uses  named locations in the context of:
 
-## Configuration
+- The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
 
-To configure a named location:
+- [Location-based conditional access](active-directory-conditional-access-azure-portal.md#locations).
+
+
+This article explains, how you can configure named locations in your environment.
+
+
+## Entry points
+
+You can access the named location configuration page in the **Security** section of the Azure Active Directory page by clicking:
+
+![Entry points](./media/active-directory-named-locations/34.png)
+
+- **Conditional access:**
+
+    - In the **Manage** section, click **Named locations**.
+    
+	    ![The Named locations command](./media/active-directory-named-locations/06.png)
+
+- **Risky sign-ins:**
+
+    - In the toolbar on the top, click **Add known IP address ranges**.
+
+	   ![The Named locations command](./media/active-directory-named-locations/35.png)
+
+
+
+## Configuration example
+
+**To configure a named location:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as global administrator.
 
@@ -31,22 +59,22 @@ To configure a named location:
 
 	![The Azure Active Directory link in the left pane](./media/active-directory-named-locations/01.png)
 
-3. On the **Azure Active Directory** blade, in the **Security** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
 	![The Conditional access command](./media/active-directory-named-locations/05.png)
 
 
-4. On the **Conditional Access** blade, in the **Manage** section, click **Named locations**.
+4. On the **Conditional Access** page, in the **Manage** section, click **Named locations**.
 
 	![The Named locations command](./media/active-directory-named-locations/06.png)
 
 
-5. On the **Named locations** blade, click **New location**.
+5. On the **Named locations** page, click **New location**.
 
 	![The New location command](./media/active-directory-named-locations/07.png)
 
 
-6. On the **New** blade, do the following:
+6. On the **New** page, do the following:
 
 	![The New blade](./media/active-directory-named-locations/56.png)
 
@@ -70,5 +98,10 @@ To configure a named location:
 
 ## Next steps
 
-To learn more about risk events, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+To learn more about:
 
+- **Risk events**, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
+
+- **Conditional access**, see [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Risky sign-ins reports**, see [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  
