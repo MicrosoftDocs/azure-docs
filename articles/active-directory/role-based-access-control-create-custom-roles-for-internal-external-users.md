@@ -1,5 +1,5 @@
 ---
-title: Create custom Role-Based Access Control roles and assign to internal and external users in Azure | Microsoft Docs
+title: Create custom role-based access control roles and assign to internal and external users in Azure | Microsoft Docs
 description: Assign custom RBAC roles created using PowerShell and CLI for internal and external users
 services: active-directory
 documentationcenter: ''
@@ -9,12 +9,14 @@ editor: 'kgremban'
 
 ms.assetid:
 ms.service: active-directory
-ms.devlang: na
+ms.devlang:
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
+ms.reviewer: skwan
+ms.custom: it-pro
 
 ---
 # Intro on role-based access control
@@ -32,7 +34,7 @@ Using RBAC in the Azure environment requires:
 * Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't qualify for using RBAC.
+> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the Office 365 Admin center don't qualify for using RBAC.
 
 ## How can RBAC be used
 RBAC can be applied at three different scopes in Azure. From the highest scope to the lowest one, they are as follows:
@@ -100,7 +102,7 @@ Being external to the organization, the new user does not have any existing attr
 
 ![email invitation message for RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed both in the Azure portal and in the classic portal.
+The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed in the Azure portal.
 
 
 
@@ -110,14 +112,7 @@ The external user shows in the Azure Active Directory tenant from now on as exte
 
 
 
-
-
-![users blade azure active-directory Azure classic portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-In the **Users** view in both portals the external users can be recognized by:
-
-* The different icon type in the Azure portal
-* The different sourcing point in the classic portal
+In the **Users** view, the external users can be recognized by the different icon type in the Azure portal.
 
 However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type** which has two common parameters, **Member** and **Guest** can be identified. A member is a user which is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](active-directory-b2b-admin-add-users.md).
 
@@ -143,9 +138,6 @@ Assigning the built-in RBAC role of **Virtual Machine Contributor** at a subscri
 * Can't view any other resource types in the subscription
 * Can't operate any changes from a billing perspective
 
-> [!NOTE]
-> RBAC being an Azure portal only feature, it doesn't grant access to the classic portal.
-
 ## Assign a built-in RBAC role to an external user
 For a different scenario in this test, the external user "alflanigan@gmail.com" is added as a **Virtual Machine Contributor**.
 
@@ -154,9 +146,7 @@ For a different scenario in this test, the external user "alflanigan@gmail.com" 
 
 ![virtual machine contributor built-in role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal, regardless some can still be deployed in the classic portal as well (for example: virtual machines).
-
-
+The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal.
 
 
 

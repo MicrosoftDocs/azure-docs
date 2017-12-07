@@ -58,7 +58,7 @@ Grafana uses an Azure Active Directory service principal to connect to Azure Mon
 
 1. See [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID, client ID, and a client secret.
 
-2. See [Assign application to role](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the reader role to the Azure Active Directory application. 	
+2. See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the reader role to the Azure Active Directory application. 	
 
 3. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

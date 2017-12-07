@@ -487,6 +487,6 @@ Here are the principal tools:
 
 - [Best practices for creating Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-- [Examples of implementing Azure subscription governance](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Examples of implementing Azure subscription governance](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/).
