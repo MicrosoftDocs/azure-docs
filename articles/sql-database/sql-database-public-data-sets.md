@@ -4,19 +4,19 @@ description: Learn about public data sets that you can use to prototype and test
 services: sql-database
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: ''
 ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
-ms.custom: 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
+ms.workload: "Inactive"
 
 ---
 # Public data sets for testing and prototyping

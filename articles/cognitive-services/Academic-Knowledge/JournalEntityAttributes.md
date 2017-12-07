@@ -15,7 +15,7 @@ ms.author: alch
 # Journal Entity
 
 <sub>
-*Below attributes are specific to journal entity. (Ty = '2')
+*Following attributes are specific to journal entity. (Ty = '2')
 </sub>
 
 Name	|Description							|Type       | Operations
@@ -25,4 +25,3 @@ DJN		|Journal normalized name				|String		|none
 JN		|Journal display name					|String		|Equals
 CC		|Journal total citation count			|Int32		|none  
 ECC		|Journal total estimated citation count	|Int32		|none
-SSD		|Satori data 							|String		|none

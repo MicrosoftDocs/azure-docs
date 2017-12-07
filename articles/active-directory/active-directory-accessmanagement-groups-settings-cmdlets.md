@@ -1,10 +1,10 @@
 ﻿---
-title: Configure group settings using Azure Active Directory cmdlets | Microsoft Docs
-description: How manage the settings for groups using Azure Active Directory cmdlets.
+title: Configure group settings using PowerShell in Azure Active Directory | Microsoft Docs
+description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: ''
 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
@@ -13,23 +13,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 12/06/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
 
 ---
 # Azure Active Directory cmdlets for configuring group settings
+This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups. 
 
 > [!IMPORTANT]
-> This content applies only to Unified groups, also known as Office 365 groups. These cmdlets are in Public Preview at this moment.
+> Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
 
-Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure group settings for your directory, you will use the template named "Group.Unified". To configure group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to a group. 
+For more information on how to prevent non-administrator users to create *security* groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
-The cmdlets are part of the Azure Active Directory PowerShell V2 module. For more information about this module and for instructions how to download and install the module on your computer, please refer to [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Please note that since these cmdlets are in public preview right now you will need to install the preview release of the module, which can be found [here](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you don't see any Settings objects in your directory, because your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
+
+The cmdlets are part of the Azure Active Directory PowerShell V2 module. For instructions how to download and install the module on your computer, see the article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [the PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
+
+## Retrieve a specific settings value
+If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current settings value. In this example, we're retrieving the value for a setting named "UsageGuidelinesUrl." You can read more about directory settings and their names further down in this article.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## Create settings at the directory level
-These steps create settings at directory level, which apply to all Unified groups in the directory.
+These steps create settings at directory level, which apply to all Office 365 groups (Unified groups) in the directory.
 
-1. In the DirectorySettings cmdlets you will need to specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate
@@ -64,7 +76,7 @@ These steps create settings at directory level, which apply to all Unified group
 5. Finally, apply the settings:
   
   ```
-  New-AzureADDirectorySetting -DirectorySetting $settings
+  New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 Upon successful completion, the cmdlet returns the ID of the new settings object:
@@ -73,22 +85,24 @@ Upon successful completion, the cmdlet returns the ID of the new settings object
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Here are the settings defined in the Group.Unified SettingsTemplate.
+## Template settings
+Here are the settings defined in the Group.Unified SettingsTemplate. Unless otherwise indicated, these features require an Azure Active Directory Premium P1 license. 
 
 | **Setting** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory. |
+|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Unified Groups even when EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. |
 |  <ul><li>DefaultClassification<li>Type: String<li>Default: “” | The classification that is to be used as the default classification for a group if none was specified.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” |Not implemented yet
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” | Do not use. Not implemented. |
+| <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Do not use. Not implemented. |
+| <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: “False” | Do not use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Unified groups' content. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Unified groups' content.  This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
-|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is is allowed to add guests to this directory.|
+|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
 |  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Unified Groups. |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True | A boolean indicating whether or not non-admin users can create new Unified groups. |
 
 
 ## Read settings at the directory level

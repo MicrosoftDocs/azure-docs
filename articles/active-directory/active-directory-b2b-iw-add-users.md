@@ -1,12 +1,12 @@
 ---
 
 title: How do information workers add B2B collaboration users to Azure Active Directory? | Microsoft Docs
-description: Azure Active Directory B2B collaboration allows information workers to add users from their  organization to Azure AD for access to your corporate applications
+description: B2B collaboration allows information workers to add users from their organization to Azure AD for access | Microsoft Docs
 services: active-directory
 documentationcenter: ''
 author: sasubram
 manager: femila
-editor: ''
+editor: 'curtand'
 tags: ''
 
 ms.assetid:
@@ -15,17 +15,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-
 ---
 
 # How do information workers add B2B collaboration users to Azure Active Directory?
 
-Information workers can use the [Application Access Panel](http://myapps.microsoft.com) to add B2B collaboration users to groups and applications that they are administer.
+Information workers can use the [Application Access Panel](http://myapps.microsoft.com) to add B2B collaboration users to groups and applications that they administer.
 
 ## Information workers adding B2B collaboration users to an application
-Assign B2B collaboration users to a app as an information worker in a partner organization, as shown in the following video:
+Assign B2B collaboration users to an app as an information worker in a partner organization, as shown in the following video:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
@@ -46,7 +45,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
 * [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
 * [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
 * [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
 * [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)

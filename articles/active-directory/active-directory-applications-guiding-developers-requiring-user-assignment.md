@@ -3,7 +3,7 @@ title: Require user assignment - Azure AD | Microsoft Docs'
 description: How to require user assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
-author: IHenkel
+author: kgremban
 manager: femila
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: inhenk
+ms.date: 05/16/2017
+ms.author: kgremban
 
+robots: noindex
 ---
 # Azure AD and applications: Require user assignment
 ## Requiring User Assignment

@@ -3,18 +3,18 @@ title: Redeploy Windows virtual machines in Azure | Microsoft Docs
 description: How to redeploy Windows virtual machines in Azure to mitigate RDP connection issues.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: genlin
 manager: timlt
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/16/2016
-ms.author: iainfou
+ms.date: 11/03/2017
+ms.author: genli
 
 ---
 # Redeploy Windows virtual machine to new Azure node

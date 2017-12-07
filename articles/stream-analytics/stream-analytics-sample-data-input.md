@@ -1,10 +1,10 @@
 ---
-title:  Sampling inputs in Azure Stream Analytics | Microsoft Docs
+title:  Query testing in Azure Stream Analytics | Microsoft Docs
 description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
 keywords: troubleshoot input, input sampling
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
+ms.author: jeanb
 
 ---
-# Azure Stream Analytics input-stream sampling
+# Azure Stream Analytics query testing and input-stream sampling
 
 By using Azure Stream Analytics, you can sample input events that come from a file and test queries in the portal without needing to start or stop a job.
 
@@ -54,11 +54,11 @@ After you are satisfied with the results, you can save your query, start your jo
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

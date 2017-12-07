@@ -3,7 +3,7 @@ title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -66,7 +66,7 @@ Many Azure resources are able to write diagnostic logs and metrics directly to L
 Azure resources that support [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) can send their logs and metrics directly to Log Analytics.
 
 * For the details of the available metrics, refer to [supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).

@@ -2,7 +2,7 @@
 title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
 description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -38,9 +38,12 @@ When rule conditions are met, one or more autoscale actions are triggered. You c
 
 The following explanation applies to the pieces of the previous diagram.   
 
-## Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
+## Resource Metrics
+Resources emit metrics, these metrics are later processed by rules. Metrics come via different methods.
 Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
+
+## Custom Metrics
+You can also leverage your own custom metrics that your application(s) may be emitting. If you have configured your application(s) to send metrics to Application Insights you can leverage those metrics to make decisions on whether to scale or not. 
 
 ## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
@@ -104,7 +107,7 @@ You can set up autoscale via
 | Service | Schema & Docs |
 | --- | --- |
 | Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
+| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

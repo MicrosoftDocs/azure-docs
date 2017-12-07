@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: "On Demand"
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
 

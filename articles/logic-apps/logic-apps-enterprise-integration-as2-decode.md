@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
@@ -95,6 +95,9 @@ The Decode AS2 connector performs these tasks:
 
 To try deploying a fully operational logic app and sample AS2 scenario, 
 see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## View the swagger
+See the [swagger details](/connectors/as2/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 

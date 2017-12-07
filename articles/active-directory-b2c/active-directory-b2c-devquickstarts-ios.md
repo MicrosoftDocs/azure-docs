@@ -1,11 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Acquiring a token using an iOS application | Microsoft Docs'
+title: 'Acquiring a token using an iOS application - Azure AD B2C | Microsoft Docs'
 description: This article will show you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 documentationcenter: ios
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: ''
+editor: parakhj
 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
+ms.author: saeedakhter-msft
 
 ---
 # Azure AD B2C: Sign-in using an iOS application
@@ -27,8 +27,6 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 >
 
 If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
-
-Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
 ## Get an Azure AD B2C directory
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.

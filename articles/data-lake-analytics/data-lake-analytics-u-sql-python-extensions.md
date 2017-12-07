@@ -4,7 +4,7 @@ description: 'Learn how to run Python code in U-SQL Scripts'
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 06/20/2017
 ms.author: saveenr
 
 ---
@@ -22,10 +22,10 @@ ms.author: saveenr
 
 Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The following example illustrates the basic steps:
 
-* Use the REFERENCE ASSEMBLY statement to enable Python extensions for the U-SQL Script
-* Using the REDUCE operation to partition the input data on a key
-* The Python extensions for U-SQL include a built-in reducer (Extension.Python.Reducer) that runs Python code on each vertex assigned to the reducer
-* The U-SQL script contains the embedded Python code that has a function called usqlml_main that accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
+* Use the `REFERENCE ASSEMBLY` statement to enable Python extensions for the U-SQL Script
+* Using the `REDUCE` operation to partition the input data on a key
+* The Python extensions for U-SQL include a built-in reducer (`Extension.Python.Reducer`) that runs Python code on each vertex assigned to the reducer
+* The U-SQL script contains the embedded Python code that has a function called `usqlml_main` that accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
 
 --
 
@@ -65,7 +65,7 @@ Python Extensions for U-SQL enable developers to perform massively parallel exec
 ### Datatypes
 
 * String and numeric columns from U-SQL are converted as-is between Pandas and U-SQL
-* U-SQL Nulls are converted to and from Pandas "NA" values
+* U-SQL Nulls are converted to and from Pandas `NA` values
 
 ### Schemas
 
@@ -96,4 +96,4 @@ Every vertex has a limited amount of memory assigned to it. Currently, that limi
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
+* [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

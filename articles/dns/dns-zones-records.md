@@ -52,6 +52,16 @@ Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS
 
 To create a wildcard record set, use the record set name '\*'. Alternatively, you can also use a name with '\*' as its left-most label, for example, '\*.foo'.
 
+### CAA records
+
+CAA records allow domain owners to specify which Certificate Authorities (CAs) are authorized to issue certificates for their domain. This allows CAs to avoid mis-issuing certificates in some circumstances. CAA records have three properties:
+* **Flags**: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tag**: an ASCII string which can be one of the following:
+    * **issue**: use this if you want to specify CAs that are permitted to issue certs (all types)
+    * **issuewild**: use this if you want to specify CAs that are permitted to issue certs (wildcard certs only)
+    * **iodef**: specify an email address or hostname to which CAs can notify for unauthorized cert issue requests
+* **Value**: the value for the specific Tag chosen
+
 ### CNAME records
 
 CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name 'www' and an A record with the relative name 'www' at the same time.
@@ -62,9 +72,11 @@ These constraints arise from the DNS standards and are not limitations of Azure 
 
 ### NS records
 
-An NS record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted (it cannot be deleted separately).  You can modify the TTL of this record set, but you cannot modify the records, which are pre-configured to refer to the Azure DNS name servers assigned to the zone.
+The NS record set at the zone apex (name '@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
 
-You can create and delete other NS records within the zone, other than at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md).)
+This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be created, modified and deleted without constraint.
 
 ### SOA records
 

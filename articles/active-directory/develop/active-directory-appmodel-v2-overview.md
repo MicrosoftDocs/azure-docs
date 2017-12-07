@@ -1,6 +1,6 @@
 ---
-title: Resources for the Azure AD v2.0 endpoint | Microsoft Docs
-description: An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.
+title: Azure Active Directory v2.0 endpoint | Microsoft Docs
+description: An introduction to building applications with both Microsoft Account and Azure Active Directory sign-in.
 services: active-directory
 documentationcenter: ''
 author: dstrockis
@@ -13,43 +13,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
-# Sign-in Microsoft Account & Azure AD users in a single app
-In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems.  We've now introduced a new authentication API version that enables you to sign in users in with both types of accounts using the Azure AD system.  This converged authentication system is known as **the v2.0 endpoint**.  With the v2.0 endpoint, one simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.
+# Sign in Microsoft Account and Azure Active Directory users in a single application
+In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory had to integrate with two separate systems. The Azure Active Directory (Azure AD) v2.0 endpoint introduces a new authentication API version that simplifies this process. The Azure AD v2.0 endpoint enables sign-in from both types of accounts by using a single integration. Applications that use the Azure AD v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
 
-Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft Graph](https://graph.microsoft.io) and [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) using either type of account.
+## Getting started
+Choose your favorite platform from the following list to build an application by using the Microsoft open source libraries and frameworks. You can also use the OAuth 2.0 and OpenID Connect protocols to send and receive protocol messages directly without using an authentication library.
+<br />
 
-<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## Getting Started
->[!VIDEO https://channel9.msdn.com/Events/Build/2016/P530/player]
+## Learn more about the Azure AD v2.0 endpoint
+Learn about what you can do with the Azure AD v2.0 endpoint:
 
+* Discover the [types of applications that you can build with the Azure AD v2.0 endpoint](active-directory-v2-flows.md).
+* Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the Azure AD v2.0 endpoint.
+* Watch this video for an overview of the Azure AD v2.0 endpoint:
 
-Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
+>[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-<!-- TODO: Finalize this table  -->
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+## Additional resources
+Explore in-depth information about the Azure AD v2.0 endpoint platform:
 
-## What's New
-The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
+* [Azure AD v2.0 protocols reference](active-directory-v2-protocols.md)
+* [Azure AD v2.0 tokens reference](active-directory-v2-tokens.md)
+* [Azure AD v2.0 authentication libraries reference](active-directory-v2-libraries.md)
+* [Scopes and consent in the Azure AD v2.0 endpoint](active-directory-v2-scopes.md)
+* [The Microsoft Graph API](https://graph.microsoft.io)
 
-* Learn about the [types of apps you can build with the v2.0 endpoint](active-directory-v2-flows.md).
-* Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
-* We've recently added support for [admin restricted scopes](active-directory-v2-scopes.md) and the [OAuth2 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md).  Try them out!
+> [!NOTE]
+> If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](active-directory-developers-guide.md). The Azure AD v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
-## Reference
-These links will be useful for exploring the platform in depth:
-
-* Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
-* Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-* [v2.0 Protocol Reference](active-directory-v2-protocols.md)
-* [v2.0 Token Reference](active-directory-v2-tokens.md)
-* [v2.0 Library Reference](active-directory-v2-libraries.md)
-* [Scopes and Consent in the v2.0 endpoint](active-directory-v2-scopes.md)
-* [The Microsoft App Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
-* [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
-* [The Microsoft Graph](https://graph.microsoft.io)
-
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

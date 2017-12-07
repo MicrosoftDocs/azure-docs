@@ -13,22 +13,15 @@ ms.date: 06/21/2016
 ms.author: scottwhi
 ---
 
-# Spell Check API Upgrade Guide
-
-> [!NOTE]
-> Version 7 is a Preview release. All aspects of the API and documentation are subject to change. Use only for testing in a non-production environment.
+# Spell Check API upgrade guide
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Spell Check API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
-## Subscription Keys
-
-- Your version 5 paid and free trial subscription key will continue working with version 7.
-
-## Breaking Changes
+## Breaking changes
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\**v7.0**/spellcheck.
+- The endpoint's version number changed from v5 to v7. For example, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/spellcheck.
 
 ### Error response objects and error codes
 
@@ -72,3 +65,7 @@ ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
 Blocked|InvalidRequest.Blocked
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use and display requirements](./UseAndDisplayRequirements.md)

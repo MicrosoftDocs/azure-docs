@@ -158,38 +158,13 @@ This document lists the operations available for each Microsoft Azure Resource M
 |/service/authorizationServers/write|Create a new authorization server or Update details of an existing authorization server|
 |/service/authorizationServers/delete|Remove existing authorization server|
 |/service/reports/bySubscription/read|Get report aggregated by subscription.|
-|/service/reports/byRequest/read|Get requests reposting data|
+|/service/reports/byRequest/read|Get requests reporting data|
 |/service/reports/byOperation/read|Get report aggregated by operations|
 |/service/reports/byGeo/read|Get report aggregated by geographical region|
 |/service/reports/byUser/read|Get report aggregated by developers.|
 |/service/reports/byTime/read|Get report aggregated by time periods|
 |/service/reports/byApi/read|Get report aggregated by APIs|
 |/service/reports/byProduct/read|Get report aggregated by products.|
-
-## Microsoft.AppService
-
-| Operation | Description |
-|---|---|
-|/appidentities/Read|Returns the resource (web site) registered with the Gateway.|
-|/appidentities/Write|Creates a new App Identity.|
-|/appidentities/Delete|Deletes an existing App Identity.|
-|/deploymenttemplates/listMetadata/Action|Lists UI Metadata associated with the API App package.|
-|/deploymenttemplates/generate/Action|Returns a Deployment Template to provision API App instance(s).|
-|/gateways/Read|Returns the Gateway instance.|
-|/gateways/Write|Creates a new Gateway or updates existing one.|
-|/gateways/Delete|Deletes an existing Gateway instance.|
-|/gateways/listLoginUris/Action|Populates token store and returns OAuth login URIs.|
-|/gateways/listKeys/Action|Returns Gateway secrets.|
-|/gateways/tokens/Write|Creates a new Zumo Token with the given name.|
-|/gateways/registrations/Read|Returns the resource (web site) registered with the Gateway.|
-|/gateways/registrations/Write|Registers a resource (web site) with the Gateway.|
-|/gateways/registrations/Delete|Unregisters a resource (web site) from the Gateway.|
-|/apiapps/Read|Returns the API App instance.|
-|/apiapps/Write|Creates a new API App or updates existing one.|
-|/apiapps/Delete|Deletes an existing API App instance.|
-|/apiapps/listStatus/Action|Returns API App status.|
-|/apiapps/listKeys/Action|Returns API App secrets.|
-|/apiapps/apidefinitions/Read|Returns API App's API definition.|
 
 ## Microsoft.Authorization
 

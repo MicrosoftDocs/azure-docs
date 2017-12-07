@@ -1,71 +1,55 @@
 ---
-title: Bing Speech API in Microsoft Cognitive Services | Microsoft Docs
-description: Use the Bing Speech API to add speech-driven actions to your apps, including real-time interaction with users.
+title: Microsoft Speech Service | Microsoft Docs
+description: Use Microsoft Speech API to add speech-driven actions to your apps, including real-time interaction with users.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: zhouwangzw
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: prrajan
+ms.date: 09/15/2017
+ms.author: zhouwang
 ---
+# Microsoft Speech API overview
 
-# Bing Speech API Overview
+The cloud-based Microsoft Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. The Microsoft Speech API supports both *Speech to Text* and *Text to Speech* conversion.
 
-Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, including real-time interaction with the user.
+- **Speech to Text** API converts human speech to text that can be used as input or commands to control your application.
+- **Text to Speech** API converts text to audio streams that can be played back to the user of your application.
 
-Bing Speech API has two components:
-* [Speech To Text API](#SpeechRecognition):  For apps converting spoken words to text.
-* [Text To Speech API](#TextToSpeech): For apps converting text into audio that can be played back to the user. 
+## Speech to text (speech recognition)
 
-Bing Speech APIs and libraries enables speech capabilities on all internet-connected devices. Every major platform including Android, iOS, Windows, and 3rd party IoT devices are supported. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud.
+Microsoft speech recognition API *transcribes* audio streams into text that your application can display to the user or act upon as command input. It provides two ways for developers to add Speech to their apps.
 
-Microsoft uses Bing Speech API for Windows applications like [Cortana](https://www.microsoft.com/en-us/mobile/experiences/cortana/) and [Skype Translator](https://www.skype.com/en/features/skype-translator/) as well as Android applications like [Bing Torque](https://play.google.com/store/apps/details?id=com.microsoft.bing.torque) for Android Wear and Android Phone.
+- [REST APIs](GetStarted/GetStartedREST.md): Developers can use HTTP calls from their apps to the service for speech recognition.
+- [Client libraries](GetStarted/GetStartedClientLibraries.md): For advanced features, developers can download Microsoft Speech client libraries, and link into their apps.  The client libraries are available on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
 
-<a name="SpeechRecognition"></a>
-## Speech Recognition API
-Bing Speech Recognition API provides the ability to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Developers have a choice of using the REST API, Client Library or the Service Library. 
+| Use cases | [REST APIs](GetStarted/GetStartedREST.md) | [Client Libraries](GetStarted/GetStartedClientLibraries.md) |
+|-----|-----|-----|
+| Convert a short spoken audio, for example, commands (audio length < 15 s) without interim results | Yes | Yes |
+| Convert a long audio (> 15 s) | No | Yes |
+| Stream audio with interim results desired | No | Yes |
+| Understand the text converted from audio using LUIS | No | Yes |
 
-### Speech Recognition - REST API versus Client Library versus Service Library
-* Using the **REST API** means getting only one recognition result back with no partial results. Documentation for the REST API can be found [here](API-Reference-REST/BingVoiceRecognition.md) and code samples [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
-*	Using the **client library** allows for real-time streaming, meaning that as audio is being sent or spoken to the server, partial recognition results are returned at the same time. Real-time streaming is supported on Android, iOS, and Windows. The client library also supports speech intent recognition in addition to returning recognized text from audio inputs. Structured information about the speech to apps that parse the intent of the speaker can also be retrieved to drive further actions. Models trained by [Project LUIS](https://www.luis.ai/) service are used to generate the intent. To use intent, you will need to train a model after getting an AppID and a Secret. Once you have a trained model, you can use the Speech Recognition API for intent parsing on reco results via the “WithIntent” clients.
-* Using the **service library** allows for real-time streaming audio from a service to the speech cloud allowing for partial results. Service Library is supported for Windows.  
+Whichever approach developers choose (REST APIs or client libraries), Microsoft speech service supports the following:
 
-#### Supported languages
-Locales supported by the Speech Recognition API include:
+- Advanced speech recognition technologies from Microsoft that are used by Cortana, Office Dictation, Office Translator, and other Microsoft products.
+- Real-time continuous recognition. The speech recognition API enables users to transcribe audio into text in real time, and supports to receive the intermediate results of the words that have been recognized so far. The speech service also supports end-of-speech detection. In addition, users can choose additional formatting capabilities, like capitalization and punctuation, masking profanity, and text normalization.
+- Supports optimized speech recognition results for *interactive*, *conversation*, and *dictation* scenarios. For user scenarios which require customized language models and acoustic models, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) allows you to create speech models that tailored to your application and your users.
+- Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [recognition languages](api-reference-rest/supportedlanguages.md).
+- Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](../LUIS/Home.md) to extract intents and entities from the recognized text.
 
-language-Country |language-Country | language-Country |language-Country 
----------|----------|--------|------------------
-ar-EG*   |  en-NZ  | it-IT  |  ru-RU
-ca-ES    |  en-US  | ja-JP  |  sv-SE
-da-DK    |  es-ES  | ko-KR  |  zh-CN
-de-DE    |  es-MX  | nb-NO  |  zh-HK
-en-AU    |  fi-FI  | nl-NL  |  zh-TW
-en-CA    |  fr-CA  | pl-PL  |    
-en-GB    |  fr-FR  | pt-BR  |      
-en-IN    |  hi-IN  | pt-PT  |
-*ar-EG supports Modern Standard Arabic (MSA)
+### What's next
 
-<a name="TextToSpeech"></a>
-## Text To Speech API
-When applications need to “talk” back to their users, this API can be used to convert text generated by the app into audio that can played back to the user. Text to speech conversion (TTS) is done via a REST API. The TTS demo can be found on the [Speech landing page](https://www.microsoft.com/cognitive-services/en-us/speech-api), documentation for the REST API can be found [here](API-Reference-REST/BingVoiceOutput.md), and code samples [here](https://github.com/Microsoft/Cognitive-Speech-TTS/tree/master/Samples-Http/CSharp/TTSProgram.cs).
+- Get started to use Microsoft speech recognition service with [REST APIs](GetStarted/GetStartedREST.md) or [client libraries](GetStarted/GetStartedClientLibraries.md).
+- Check out [sample applications](samples.md) in your preferred programming language.
+- Go to the Reference section to find [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) details and API references.
 
-#### Supported languages
-Locales supported by Text to Speech API include:
+## Text to speech (speech synthesis)
 
-language-Country |language-Country | language-Country | language-Country
----------|----------|------------|------------
-ar-EG*   |   en-GB  |   hi-IN  |   pt-PT
-ar-SA    |   en-IE  |   hu-HU  |   ro-RO
-ca-ES    |   en-IN  |   id-ID  |   ru-RU
-cs-CZ    |   en-US  |   it-IT  |   sk-SK
-da-DK    |   es-ES  |   ja-JP  |   sv-SE
-de-AT    |   es-MX  |   ko-KR  |   th-TH
-de-CH    |   fi-FI  |   nb-NO  |   tr-TR
-de-DE    |   fr-CA  |   nl-NL  |   zh-CN
-el-GR    |   fr-CH  |   pl-PL  |   zh-HK
-en-AU    |   fr-FR  |   pt-BR  |   zh-TW     
+*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech conversion in various voices and languages. In addition users also have the ability to change audio characteristics like pronunciation, volume, pitch etc. using SSML tags.
 
-*ar-EG supports Modern Standard Arabic (MSA)
+### What's next
+
+- Get started to use Microsoft text to speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).

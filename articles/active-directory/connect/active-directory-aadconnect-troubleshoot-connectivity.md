@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -93,6 +93,9 @@ If the proxy is not correctly configured, you get an error:
 | --- | --- | --- |
 | 403 |Forbidden |The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
 | 407 |Proxy Authentication Required |The proxy server required a sign-in and none was provided. If your proxy server requires authentication, make sure to have this setting configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard and for the service account. |
+
+### Proxy idle timeout setting
+When Azure AD Connect sends an export request to Azure AD, Azure AD can take up to 5 minutes to process the request before generating a response. This can happen especially if there are a number of group objects with large group memberships included in the same export request. Ensure the Proxy idle timeout is configured to be greater than 5 minutes. Otherwise, intermittent connectivity issue with Azure AD may be observed on the Azure AD Connect server.
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these preceding steps and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored when you are reading the network logs.

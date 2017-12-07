@@ -7,28 +7,28 @@ manager: ehansen
 
 ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.technology: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Paging News
+# Paging news
 
-When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#totalestimatedmatches) field.  
+When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a News answer includes.  
   
 ```  
 {  
     "_type" : "News",  
-    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies",  
+    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v7\/news\/search?q=sailing+dinghies",  
     "totalEstimatedMatches" : 88400,  
     "value" : [...]  
 }  
 ```  
   
-To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#offset) query parameters.  
+To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) query parameters.  
   
 The `count` parameter specifies the number of results to return in the response. The maximum number of results that you may request in the response is 100. The default is 10. The actual number delivered may be less than requested.
 
@@ -39,36 +39,18 @@ If you want to display 20 articles per page, you would set `count` to 20 and `of
 The following shows an example that requests 20 news articles beginning at offset 40.  
   
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
-
-> [!NOTE]
-> Version 7 Preview request:
-
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> Host: api.cognitive.microsoft.com  
-> ```  
   
 If the default `count` value works for your implementation, specify only the `offset` query parameter as shown in the following example:  
   
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
-
-> [!NOTE]
-> Version 7 Preview request:
-
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/news/search??q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> Host: api.cognitive.microsoft.com  
-> ```  
   
 > [!NOTE]
 > Paging applies only to news search (/news/search), and not to trending topics (/news/trendingtopics) or news categories (/news).

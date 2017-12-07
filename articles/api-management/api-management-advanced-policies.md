@@ -3,48 +3,37 @@ title: Azure API Management advanced policies | Microsoft Docs
 description: Learn about the advanced policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management advanced policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a> Advanced policies  
   
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).  
-  
--   [Forward request](#ForwardRequest) - Forwards the request to the backend service.  
-  
+-   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+-   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity. 
-
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
-  
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.  
-  
--   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.  
-  
+-   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller. 
 -   [Send one way request](#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.  
-  
 -   [Send request](#SendRequest) - Sends a request to the specified URL.  
-  
--   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
-  
+-   [Set HTTP proxy](#SetHttpProxy) - Allows you to route forwarded requests via an HTTP proxy.  
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.  
-  
 -   [Set status code](#SetStatus) - Changes the HTTP status code to the specified value.  
-  
+-   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
 -   [Trace](#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output.  
-  
 -   [Wait](#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.  
   
 ##  <a name="choose"></a> Control flow  
@@ -256,9 +245,56 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** backend  
-  
 -   **Policy scopes:** all scopes  
   
+##  <a name="LimitConcurrency"></a> Limit concurrency  
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+  
+###  <a name="LimitConcurrencyStatement"></a> Policy statement  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### Examples  
+  
+#### Example  
+ The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|Root element.|Yes|  
+  
+### Attributes  
+  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|--------------|  
+|key|A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies.|Yes|N/A|  
+|max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound, outbound, backend, on-error  
+  
+-   **Policy scopes:** all scopes  
+
 ##  <a name="log-to-eventhub"></a> Log to Event Hub  
  The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
   
@@ -616,107 +652,45 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **Policy scopes:** all scopes  
   
-##  <a name="set-variable"></a> Set variable  
- The `set-variable` policy declares a [context](api-management-policy-expressions.md#ContextVariables) variable and assigns it a value specified via an [expression](api-management-policy-expressions.md) or a string literal. if the expression contains a literal it will be converted to a string and the type of the value will be `System.String`.  
+##  <a name="SetHttpProxy"></a> Set HTTP proxy  
+ The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only.
   
-###  <a name="set-variablePolicyStatement"></a> Policy statement  
+### Policy statement  
   
 ```xml  
-<set-variable name="variable name" value="Expression | String literal" />  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
 ```  
   
-###  <a name="set-variableExample"></a> Example  
- The following example demonstrates a set variable policy in the inbound section. This set variable policy creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.  
+### Example  
+Note the use of [properties](api-management-howto-properties.md) as values of the username and password to avoid storing sensitive information in the policy document.  
   
 ```xml  
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
 ```  
   
 ### Elements  
   
 |Element|Description|Required|  
 |-------------|-----------------|--------------|  
-|set-variable|Root element.|Yes|  
-  
+|proxy|Root element|Yes|  
+
 ### Attributes  
   
-|Attribute|Description|Required|  
-|---------------|-----------------|--------------|  
-|name|The name of the variable.|Yes|  
-|value|The value of the variable. This can be an expression or a literal value.|Yes|  
-  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|-------------|  
+|url="string"|Proxy URL in the form of http://host:port.|Yes|N/A|  
+|username="string"|Username to be used for authentication with the proxy.|No|N/A|  
+|password="string"|Password to be used for authentication with the proxy.|No|N/A|  
+
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Policy sections:** inbound, outbound, backend, on-error  
+-   **Policy sections:** inbound  
   
 -   **Policy scopes:** all scopes  
-  
-###  <a name="set-variableAllowedTypes"></a> Allowed types  
- Expressions used in the `set-variable` policy must return one of the following basic types.  
-  
--   System.Boolean  
-  
--   System.SByte  
-  
--   System.Byte  
-  
--   System.UInt16  
-  
--   System.UInt32  
-  
--   System.UInt64  
-  
--   System.Int16  
-  
--   System.Int32  
-  
--   System.Int64  
-  
--   System.Decimal  
-  
--   System.Single  
-  
--   System.Double  
-  
--   System.Guid  
-  
--   System.String  
-  
--   System.Char  
-  
--   System.DateTime  
-  
--   System.TimeSpan  
-  
--   System.Byte?  
-  
--   System.UInt16?  
-  
--   System.UInt32?  
-  
--   System.UInt64?  
-  
--   System.Int16?  
-  
--   System.Int32?  
-  
--   System.Int64?  
-  
--   System.Decimal?  
-  
--   System.Single?  
-  
--   System.Double?  
-  
--   System.Guid?  
-  
--   System.String?  
-  
--   System.Char?  
-  
--   System.DateTime?  
-  
+
 ##  <a name="SetRequestMethod"></a> Set request method  
  The `set-method` policy allows you to change the HTTP request method for a request.  
   
@@ -813,9 +787,78 @@ status code and media type. If no example or schema found, the content is empty.
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** outbound, backend, on-error  
+-   **Policy scopes:** all scopes  
+
+##  <a name="set-variable"></a> Set variable  
+ The `set-variable` policy declares a [context](api-management-policy-expressions.md#ContextVariables) variable and assigns it a value specified via an [expression](api-management-policy-expressions.md) or a string literal. if the expression contains a literal it will be converted to a string and the type of the value will be `System.String`.  
   
+###  <a name="set-variablePolicyStatement"></a> Policy statement  
+  
+```xml  
+<set-variable name="variable name" value="Expression | String literal" />  
+```  
+  
+###  <a name="set-variableExample"></a> Example  
+ The following example demonstrates a set variable policy in the inbound section. This set variable policy creates an `isMobile` Boolean [context](api-management-policy-expressions.md#ContextVariables) variable that is set to true if the `User-Agent` request header contains the text `iPad` or `iPhone`.  
+  
+```xml  
+<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />  
+```  
+  
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|  
+|set-variable|Root element.|Yes|  
+  
+### Attributes  
+  
+|Attribute|Description|Required|  
+|---------------|-----------------|--------------|  
+|name|The name of the variable.|Yes|  
+|value|The value of the variable. This can be an expression or a literal value.|Yes|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound, outbound, backend, on-error  
 -   **Policy scopes:** all scopes  
   
+###  <a name="set-variableAllowedTypes"></a> Allowed types  
+ Expressions used in the `set-variable` policy must return one of the following basic types.  
+  
+-   System.Boolean  
+-   System.SByte  
+-   System.Byte  
+-   System.UInt16  
+-   System.UInt32  
+-   System.UInt64  
+-   System.Int16  
+-   System.Int32  
+-   System.Int64  
+-   System.Decimal  
+-   System.Single  
+-   System.Double  
+-   System.Guid  
+-   System.String  
+-   System.Char  
+-   System.DateTime  
+-   System.TimeSpan  
+-   System.Byte?  
+-   System.UInt16?  
+-   System.UInt32?  
+-   System.UInt64?  
+-   System.Int16?  
+-   System.Int32?  
+-   System.Int64?  
+-   System.Decimal?  
+-   System.Single?  
+-   System.Double?  
+-   System.Guid?  
+-   System.String?  
+-   System.Char?  
+-   System.DateTime?  
+
 ##  <a name="Trace"></a> Trace  
  The             `trace` policy adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output. The policy will execute only when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key associated with the admin account.  
   
@@ -909,13 +952,16 @@ status code and media type. If no example or schema found, the content is empty.
 |for|Determines whether the `wait` policy waits for all immediate child policies to be completed or just one. Allowed values are:<br /><br /> -   `all` - wait for all immediate child policies to complete<br />-   any - wait for any immediate child policy to complete. Once the first immediate child policy has completed, the `wait` policy completes and execution of any other immediate child policies is terminated.|No|all|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend  
-  
--   **Policy scopes:**all scopes  
+-   **Policy scopes:** all scopes  
   
 ## Next steps
+
 For more information working with policies, see:
--	[Policies in API Management](api-management-howto-policies.md) 
--	[Policy expressions](api-management-policy-expressions.md)
++ [Policies in API Management](api-management-howto-policies.md) 
++ [Policy expressions](api-management-policy-expressions.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

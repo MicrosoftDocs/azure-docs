@@ -1,9 +1,9 @@
-﻿---
+---
 title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # Troubleshooting Azure SQL Data Warehouse
@@ -96,7 +96,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features

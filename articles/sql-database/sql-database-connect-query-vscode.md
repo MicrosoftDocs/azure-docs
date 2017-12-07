@@ -11,23 +11,25 @@ editor: ''
 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
-ms.workload: data-management
+ms.custom: mvc,DBs & servers
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 04/17/2017
+ms.topic: quickstart
+ms.date: 06/22/2017
 ms.author: carlrab
-
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+## Prerequisites
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
+This quickstart uses as its starting point the resources created in one of these quickstarts:
+
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+#### Install VS Code
 
 Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
@@ -53,17 +55,11 @@ No special configuration needed.
 
 No special configuration needed.
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option.
-
-   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
-
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## Set language mode to SQL
 
@@ -76,7 +72,7 @@ Set the language mode is set to **SQL** in Visual Studio Code to enable mssql co
 
    ![SQL language mode](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## Connect to your database in the SQL Database logical server
+## Connect to your database
 
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
@@ -92,17 +88,15 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 4. Follow the prompts to specify the connection properties for the new connection profile. After specifying each value, press **ENTER** to continue. 
 
-   The following table describes the Connection Profile properties.
-
-   | Setting | Description |
-   |-----|-----|
-   | **Server name** | Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net** |
-   | **Database name** | Enter your database name, such as **mySampleDatabase** |
-   | **Authentication** | Select SQL Login |
-   | **User name** | Enter your server admin account |
-   | **Password (SQL Login)** | Enter the password for your server admin account | 
-   | **Save Password?** | Select **Yes** or **No** |
-   | **[Optional] Enter a name for this profile** | Enter a connection profile name, such as **mySampleDatabase**. 
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Database name** | mySampleDatabase | The name of the database to which to connect. |
+   | **Authentication** | SQL Login| SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **User name** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password (SQL Login)** | The password for your server admin account | This is the password that you specified when you created the server. |
+   | **Save Password?** | Yes or No | Select Yes if you do not want to enter the password each time. |
+   | **Enter a name for this profile** | A profile name, such as **mySampleDatabase** | A saved profile name speeds your connection on subsequent logins. | 
 
 5. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 
@@ -171,7 +165,7 @@ Use the following code to update the new product that you previously added using
 
 ## Delete data
 
-Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
+Use the following code to delete the new product that you previously added using the [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement.
 
 1. In the **Editor** window, delete the previous query and enter the following query:
 
@@ -184,10 +178,6 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md).
+- For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

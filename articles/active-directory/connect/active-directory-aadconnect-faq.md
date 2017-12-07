@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 08/12/2017
 ms.author: billmath
 
 ---
@@ -28,7 +28,7 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 With the builds from February 2016, this is supported.
 
 **Q: Does the AD DS health agent work on server core?**  
-Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+Yes. After installing the agent, you can complete the registration process using the following PowerShell cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -39,8 +39,14 @@ All networking software, physical devices, or anything else that limits the maxi
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
+**Q: Are Forests with disjoint AD domains supported?**  
+No, Azure AD Connect does not support on-premises forests containing disjoint namespaces.
+
 **Q: Are "dotted" NetBios named supported?**  
 No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
+
+**Q: Is pure IPv6 environment supported?**  
+No, Azure AD Connect does not support pure IPv6 environment.
 
 ## Federation
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**  
@@ -99,7 +105,7 @@ No.
 
 * You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
-[Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
+[How to get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use this link to get support through the Azure portal.
 

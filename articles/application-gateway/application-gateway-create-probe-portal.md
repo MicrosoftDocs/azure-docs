@@ -3,7 +3,7 @@ title: Create a custom probe - Azure Application Gateway - Azure Portal | Micros
 description: Learn how to create a custom probe for Application Gateway by using the portal
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 # Create a custom probe for Application Gateway by using the portal
@@ -69,7 +69,7 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 1. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
 When complete, click **Save** and the settings are applied.
 
-The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend servers. Based on the criteria that was defined, the application gateway checks the path specified in the probe. If the call to host:Port/path does not return an HTTP 200-299 status response, the server is taken out of rotation after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend servers. Based on the criteria that was defined, the application gateway checks the path specified in the probe. If the call to host:Port/path does not return an HTTP 200-399 status response, the server is taken out of rotation after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
 ## Next steps
 

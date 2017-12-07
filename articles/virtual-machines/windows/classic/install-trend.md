@@ -21,6 +21,7 @@ ms.author: iainfou
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. Deep Security as a Service includes anti-malware protection, a firewall, an intrusion prevention system, and integrity monitoring.
 
@@ -31,8 +32,6 @@ An existing VM created using the classic portal, the Azure CLI, or PowerShell mi
 If you have a current subscription from Trend Micro for an on-premises solution, you can use it to help protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see the Trend Micro blog post [Microsoft Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## Install the Deep Security Agent on a new VM
-
-<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
 
 The [Azure portal](http://portal.azure.com) lets you install the Trend Micro security extension when you use an image from the **Marketplace** to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
 

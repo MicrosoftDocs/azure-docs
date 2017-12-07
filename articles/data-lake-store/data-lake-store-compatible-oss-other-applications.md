@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/07/2017
+ms.date: 10/03/2017
 ms.author: nitinme
 
 ---
@@ -22,17 +22,17 @@ This article lists the open source big data applications that work with Azure Da
 
 | Open Source Software | Distribution |
 | --- | --- |
-| [Apache Sqoop](http://sqoop.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Hive](http://hive.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Mahout](http://mahout.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Pig/Pig Latin](http://pig.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Oozie](http://oozie.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Zookeeper](http://zookeeper.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Tez](http://tez.apache.org/) |HDInsight 3.2, 3.4 and 3.5 |
-| [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 and 3.5 |
+| [Apache Sqoop](http://sqoop.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Hive](http://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Mahout](http://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Pig/Pig Latin](http://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Oozie](http://oozie.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Zookeeper](http://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Tez](http://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
+| [Apache Spark](http://spark.apache.org/) |HDInsight 3.4, 3.5, and 3.6 |
 
 
 ## See also

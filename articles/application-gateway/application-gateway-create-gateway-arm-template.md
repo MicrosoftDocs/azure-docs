@@ -3,18 +3,17 @@ title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
-ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-ms.author: gwallace
+ms.date: 07/31/2017
+ms.author: davidmu
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -26,14 +25,11 @@ ms.author: gwallace
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are in the cloud or on-premises.
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
-To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
+This article walks you through downloading and modifying an existing [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
 
-You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
-
-If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
+If you are simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
 ## Scenario
 
@@ -76,9 +72,6 @@ You can download the existing Azure Resource Manager template to create a virtua
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
-
-   > [!NOTE]
-   > For more information on templates visit: [Resource Manager templates reference](/templates/)
 
 1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
@@ -205,8 +198,15 @@ Click-to-deploy is another way to use Azure Resource Manager templates. It's an 
 
 ## Providing certificate data to Resource Manager templates
 
-When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This snippet converts the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
+When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string use one of the following commands. The following commands convert the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
 
+### macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

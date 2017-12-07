@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 10/17/2017
 ms.author: magoedte;banders
 ---
 
@@ -43,7 +43,7 @@ The following diagram shows data flow from direct agents to OMS using the gatewa
 
 The following diagram shows data flow from an Operations Manager management group to OMS.   
 
-![Operations Manager communication with OMS diagram](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
+![Operations Manager communication with OMS diagram](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## Prerequisites
 
@@ -74,6 +74,9 @@ The OMS Gateway is available in the following languages:
 - Portuguese (Portugal)
 - Russian
 - Spanish (International)
+
+### Supported encryption protocols
+The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
 ## Download the OMS Gateway
 
@@ -264,7 +267,7 @@ The following table shows the event IDs and descriptions for OMS Gateway Log eve
 | 104 |Not an HTTP CONNECT command |
 | 105 |Destination server is not in allowed list or the destination port is not secure port (443) <br> <br> Ensure that the MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
 | 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Ensure that: <br>    <br> &#149; You are using a Gateway with version number 1.0.395.0 or greater. <br> &#149; The MMA agent on your Gateway server and the agents communicating with the Gateway are connected to the same Log Analytics workspace. |
-| 106 |Any reason that the TLS session is suspicious and rejected |
+| 106 |The OMS Gateway only supports TLS 1.0, TLS 1.1 and 1.2.  It does not support SSL. For any unsupported TLS/SSL protocol version, OMS Gateway generates event ID 106.|
 | 107 |The TLS session has been verified |
 
 **Performance counters to collect**
@@ -289,4 +292,4 @@ To request assistance, click the question mark symbol in the top right corner of
 You can also leave feedback about OMS or Log Analytics at the [Microsoft Azure feedback forum](https://feedback.azure.com/forums/267889).
 
 ## Next steps
-* [Add data sources](log-analytics-data-sources.md) to collect data from the Connected Sources in your OMS workspace and store it in the OMS repository.
+* [Add data sources](log-analytics-data-sources.md) to collect data from the Connected Sources in your Log Analytics workspace and store it in the Log Analytics repository.

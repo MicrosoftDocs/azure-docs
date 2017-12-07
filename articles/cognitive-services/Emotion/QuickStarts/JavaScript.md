@@ -8,49 +8,93 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: emotion
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
 # Emotion API JavaScript Quick Start
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with JavaScript to recognize the emotions expressed by one or more people in an image.
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/), or if you have an Azure Subscription create an Emotion API resource and get your Subscription Key and Endpoint there.
+
+![Create Emotion API Resource](../Images/create-resource.png)
 
 ## Recognize Emotions JavaScript Example Request
 
-```JavaScript
+Copy the following and save it to a file such as `test.html`. Change the request `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key. These can be found in the Azure portal in the Overview and Keys sections of your Emotion API resource, respectively. 
+
+![API Endpoint](../Images/api-url.png)
+
+![API Subscription Key](../Images/keys.png)
+
+and change the request body to the location of an image you want to use. To run the sample, drag-and-drop the file into your browser.
+
+```javascript
 <!DOCTYPE html>
 <html>
 <head>
     <title>JSSample</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
+
+<h2>Face Rectangle</h2>
+<ul id="faceRectangle">
+<!-- Will populate list with response content -->
+</ul>
+
+<h2>Emotions</h2>
+<ul id="scores">
+<!-- Will populate list with response content -->
+</ul>
+
 <body>
 
 <script type="text/javascript">
     $(function() {
-        var params = {
-            // Request parameters
-        };
+        // No query string parameters for this API call.
+        var params = { };
       
         $.ajax({
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   URL below with "westcentralus".
             url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function(xhrObj){
-                // Request headers
+                // Request headers, also supports "application/octet-stream"
                 xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+
+                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","<your subscription key>");
             },
             type: "POST",
             // Request body
-            data: "{body}",
-        })
-        .done(function(data) {
-            alert("success");
-        })
-        .fail(function() {
-            alert("error");
+            data: '{"url": "<your image url>"}',
+        }).done(function(data) {
+            // Get face rectangle dimensions
+            var faceRectangle = data[0].faceRectangle;
+            var faceRectangleList = $('#faceRectangle');
+
+            // Append to DOM
+            for (var prop in faceRectangle) {
+                faceRectangleList.append("<li> " + prop + ": " + faceRectangle[prop] + "</li>");
+            }
+            
+            // Get emotion confidence scores
+            var scores = data[0].scores;
+            var scoresList = $('#scores');
+
+            // Append to DOM
+            for(var prop in scores) {
+                scoresList.append("<li> " + prop + ": " + scores[prop] + "</li>")
+            }
+        }).fail(function(err) {
+            alert("Error: " + JSON.stringify(err));
         });
     });
 </script>

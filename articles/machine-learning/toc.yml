@@ -1,0 +1,9 @@
+- name: Machine Learning preview features
+  href: preview/index.yml
+- name: Machine Learning Studio
+  href: studio/index.md
+- name: Data Science Virtual Machine
+  href: data-science-virtual-machine/overview.md
+- name: Team Data Science Process
+  href: team-data-science-process/overview.md
+

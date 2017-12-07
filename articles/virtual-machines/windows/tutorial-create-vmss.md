@@ -14,22 +14,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang:
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 08/11/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Windows
-In this tutorial, you learn how virtual machine scale sets in Azure allow you to quickly scale the number of virtual machines (VMs) running your app. A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. To see a virtual machine scale set in action, you build a basic IIS website that runs across multiple Windows VMs.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azureps-cmdlets-docs/) module.
+> [!div class="checklist"]
+> * Use the Custom Script Extension to define an IIS site to scale
+> * Create a load balancer for your scale set
+> * Create a virtual machine scale set
+> * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Scale Set overview
-Scale sets use similar concepts as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are distributed across fault and update domains just like VMs in an availability set.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
 
 VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
-Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 300 VMs in a scale set when using a custom image.
 
 
 ## Create an app to scale
@@ -51,7 +59,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
@@ -156,7 +164,7 @@ Add-AzureRmVmssNetworkInterfaceConfiguration `
 New-AzureRmVmss `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig     
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -189,7 +197,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -229,10 +237,10 @@ Rather than manually scaling the number of instances in your scale set, you defi
 
 ```powershell
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
+$mySubscriptionId = (Get-AzureRmSubscription).Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
-$myLocation = "West US"
+$myLocation = "East US"
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
@@ -277,8 +285,20 @@ Add-AzureRmAutoscaleSetting `
   -AutoscaleProfiles $myScaleProfile
 ```
 
+For more design information on the use of autoscale, see [autoscale best practices](/azure/architecture/best-practices/auto-scaling).
+
 
 ## Next steps
-In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
+In this tutorial, you created a virtual machine scale set. You learned how to:
 
-[Load balance virtual machines](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * Use the Custom Script Extension to define an IIS site to scale
+> * Create a load balancer for your scale set
+> * Create a virtual machine scale set
+> * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
+
+Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
+
+> [!div class="nextstepaction"]
+> [Load balance virtual machines](tutorial-load-balancer.md)

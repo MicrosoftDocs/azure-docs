@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Python) | Microsoft Docs
-description: This article shows you how to send messages from a simulated device to your Azure IoT hub using the Azure IoT SDKs for Python.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for Python. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -11,7 +11,7 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
 
@@ -35,6 +35,10 @@ To complete this tutorial, you need the following:
 * If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 * [Node.js 4.0 or later][lnk-node-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. This is needed to install the [IoT Hub Explorer tool][lnk-iot-hub-explorer].
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
+
+> [!NOTE]
+> The *pip* packages for `azure-iothub-service-client` and `azure-iothub-device-client` are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python][lnk-python-devbox] post.
+> 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -69,6 +73,8 @@ This section lists the steps to create a Python console app, that creates a devi
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Add the following function to print some of the device information.
 
     ```python
@@ -184,6 +190,7 @@ This section lists the steps to create a Python console app, that simulates a de
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. Add the following function to format and send a message from your simulated device to your IoT hub.
@@ -281,9 +288,10 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-python-getstarted/createdevice.png
@@ -306,6 +314,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
 
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
@@ -313,5 +322,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

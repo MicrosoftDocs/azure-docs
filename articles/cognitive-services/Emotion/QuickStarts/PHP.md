@@ -8,30 +8,42 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: emotion
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
 # Emotion API PHP Quick Start
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+
 This article provides information and code samples to help you quickly get started using PHP and the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 ## Recognize Emotions PHP Example Request
 
-```PHP
+Change the REST URL to use the location where you obtained your subscription keys, change the body to a URL of an image you want to test, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```php
 <?php
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
+// NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
 
 $headers = array(
     // Request headers
     'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => '{subscription key}',
+
+    // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key' => '13hc77781f7e4b19b5fcdd72a8df7156',
 );
 
 $request->setHeader($headers);
@@ -45,7 +57,7 @@ $url->setQueryVariables($parameters);
 $request->setMethod(HTTP_Request2::METHOD_POST);
 
 // Request body
-$request->setBody("{body}");
+$request->setBody('{"url": "http://www.example.com/images/image.jpg"}');
 
 try
 {

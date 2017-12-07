@@ -1,4 +1,4 @@
----
+﻿---
 title: Lotus Domino Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Lotus Domino Connector.
 services: active-directory
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
-ms.author: billmath
+ms.date: 10/119/2017
+ms.author: barclayn
 
 ---
 # Lotus Domino Connector technical reference
@@ -36,7 +36,7 @@ From a high-level perspective, the following features are supported by the curre
 | Connected data source |Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | Scenarios |<li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations |<li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li> |
-| Schema |<li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li> |
+| Schema |<li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li><li>Support up to 250 custom certifiers with an organization & organization units (OU)</li> |
 
 The Lotus Domino connector uses the Lotus Notes client to communicate with Lotus Domino Server. As a consequence of this dependency, a supported Lotus Notes Client must be installed on the synchronization server. The communication between the client and the server is implemented through the Lotus Notes .NET Interop (Interop.domino.dll) interface. This interface facilitates the communication between the Microsoft.NET platform and Lotus Notes client and supports access to Lotus Domino documents and views. For delta import, it is also possible that the C++ native interface is used (depending on the selected delta import method).
 

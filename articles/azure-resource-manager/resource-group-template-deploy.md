@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2017
+ms.date: 12/06/2017
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure PowerShell
 
-This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
+This article explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -32,7 +32,7 @@ The Resource Manager template you deploy can either be a local file on your mach
 When deploying resources to Azure, you:
 
 1. Log in to your Azure account
-2. Create a resource group that serves as the container for the deployed resources
+2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It cannot end in a period.
 3. Deploy to the resource group the template that defines the resources to create
 
 A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU.
@@ -41,6 +41,8 @@ The following example creates a resource group, and deploys a template from your
 
 ```powershell
 Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -66,6 +68,15 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
+
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
+
+In the Cloud Shell, use the following commands:
+
+```powershell
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+```
 
 ## Parameter files
 
@@ -149,7 +160,7 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## Sample template
 
-The following template is used for the examples in this topic. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
+The following template is used for the examples in this article. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
 
 ```json
 {

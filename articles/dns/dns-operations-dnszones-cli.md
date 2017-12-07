@@ -19,9 +19,11 @@ ms.author: gwallace
 # How to manage DNS Zones in Azure DNS using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
+> * [Portal](dns-operations-dnszones-portal.md)
+> * [PowerShell](dns-operations-dnszones.md)
 > * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
-> * [PowerShell](dns-operations-dnszones.md)
+
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
@@ -62,7 +64,7 @@ Check the subscriptions for the account.
 az account list
 ```
 
-### Choose which of your Azure subscriptions to use.
+Choose which of your Azure subscriptions to use.
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -98,7 +100,7 @@ The following example creates a DNS zone called *contoso.com* in the resource gr
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
 ```
 
-### To create a DNS zone with tags.
+### To create a DNS zone with tags
 
 The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*, by using the `--tags` parameter (short form `-t`):
 
@@ -169,7 +171,7 @@ The following example shows how to update the tags on a DNS zone. The existing t
 az network dns zone update --resource-group myresourcegroup --name contoso.com --set tags.team=support
 ```
 
-## Delete a DNS Zone
+## Delete a DNS zone
 
 DNS zones can be deleted using `az network dns zone delete`. For help, see `az network dns zone delete --help`.
 

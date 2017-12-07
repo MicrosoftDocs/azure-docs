@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to load balance Windows virtual machines in Azure | Microsoft Docs
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Windows VMs
 services: virtual-machines-windows
@@ -14,14 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 08/11/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
-In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use the Custom Script Extension to create a basic IIS site
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Azure load balancer overview
@@ -97,12 +107,20 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
+Update the load balancer with [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+
+```powershell
+Set-AzureRmLoadBalancer -LoadBalancer $lb
+```
+
 ### Create a load balancer rule
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
 
 Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). The following example creates a load balancer rule named *myLoadBalancerRule* and balances traffic on port *80*:
 
 ```powershell
+$probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
+
 Add-AzureRmLoadBalancerRuleConfig `
   -Name myLoadBalancerRule `
   -LoadBalancer $lb `
@@ -110,7 +128,8 @@ Add-AzureRmLoadBalancerRuleConfig `
   -BackendAddressPool $lb.BackendAddressPools[0] `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -Probe $probe
 ```
 
 Update the load balancer with [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
@@ -127,9 +146,12 @@ Before you deploy some VMs and can test your balancer, create the supporting vir
 Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). The following example creates a virtual network named *myVnet* with *mySubnet*:
 
 ```powershell
+# Create subnet config
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
+
+# Create the virtual network
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
@@ -143,6 +165,7 @@ Create a network security group rule with [New-AzureRmNetworkSecurityRuleConfig]
 The following example creates a network security group rule named *myNetworkSecurityGroup* and applies it to *mySubnet*:
 
 ```powershell
+# Create security rule config
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRule `
   -Protocol Tcp `
@@ -153,16 +176,22 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80 `
   -Access Allow
+
+# Create the network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
+
+# Apply the network security group to a subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -NetworkSecurityGroup $nsg `
   -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
@@ -232,7 +261,7 @@ for ($i=1; $i -le 3; $i++)
   $nic = Get-AzureRmNetworkInterface `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Name myNic$i
-  $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
+  $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
     -Location EastUS `
@@ -309,6 +338,18 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next steps
 
-In this tutorial, you learned how to create a load balanced IIS website. Advance to the next tutorial to learn how to manage VM networking.
+In this tutorial, you created a load balancer and attached VMs to it. You learned how to:
 
-[Manage Azure VM networking](./tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Create an Azure load balancer
+> * Create a load balancer health probe
+> * Create load balancer traffic rules
+> * Use the Custom Script Extension to create a basic IIS site
+> * Create virtual machines and attach to a load balancer
+> * View a load balancer in action
+> * Add and remove VMs from a load balancer
+
+Advance to the next tutorial to learn how to manage VM networking.
+
+> [!div class="nextstepaction"]
+> [Manage VMs and virtual networks](./tutorial-virtual-network.md)

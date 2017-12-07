@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
 
 ---
 # Create a Windows virtual machine with PowerShell and the classic deployment model
 > [!div class="op_single_selector"]
-> * [Azure classic portal - Windows](tutorial.md)
+> * [Azure portal - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -29,6 +29,7 @@ ms.author: cynthn
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
@@ -164,7 +165,7 @@ Option 1: Create the virtual machine in an existing cloud service.
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure classic portal or in the list of Resource Groups in the Azure portal.
+The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure portal or in the list of Resource Groups in the Azure portal.
 
 Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
@@ -180,7 +181,7 @@ If you are using a text editor, copy the command set to the clipboard and then r
 If you will be creating this virtual machine again or a similar one, you can:
 
 * Save this command set as a PowerShell script file (*.ps1).
-* Save this command set as an Azure Automation runbook in the **Automation** section of the Azure classic portal.
+* Save this command set as an Azure Automation runbook in the **Automation Accounts** section of the Azure portal.
 
 ## <a id="examples"></a>Examples
 Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.

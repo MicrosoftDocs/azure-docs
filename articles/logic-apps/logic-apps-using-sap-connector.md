@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
-ms.author: padmavc; LADocs
+ms.author: LADocs; padmavc
 ---
 
 # Connect to an on-premises SAP system from logic apps with the SAP connector 
@@ -34,9 +34,7 @@ requests an IDOC over HTTP and sends the response back.
 
 - Download and install the latest SAP client library on the same machine where you installed the data gateway. Use any of the following SAP versions: 
 	- SAP Server
-		- SAP ECC 6.0 Unicode
-		- SAP ECC 6.0 Unicode with EHP 4.0
-		- SAP ECC 6.0 with EHP 7.0 and all EHP previous versions
+		- Any SAP Server that support the .NET Connector (NCo) 3.0
  
 	- SAP Client
 		- SAP .NET Connector (NCo) 3.0

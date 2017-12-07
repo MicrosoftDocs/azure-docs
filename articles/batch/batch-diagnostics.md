@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -29,7 +29,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 
 ## Prerequisites
 * [Azure Batch account](batch-account-create-portal.md)
-* [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. You specify this Storage account when you [enable diagnostic logging](#enable-diagnostic-logging) for your Batch account. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
   
@@ -41,7 +41,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 ## Enable diagnostic logging
 Diagnostic logging is not enabled by default for your Batch account. You must explicitly enable diagnostic logging for each Batch account you want to monitor:
 
-[How to enable collection of Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[How to enable collection of Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 We recommend that you read the full [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article to gain an understanding of not only how to enable logging, but the log categories supported by the various Azure services. For example, Azure Batch currently supports one log category: **Service Logs**.
 
@@ -61,7 +61,7 @@ Azure Batch Service Logs contain events emitted by the Azure Batch service durin
         "subnetId": " "
     },
     "resizeTimeout": "300000",
-    "targetDedicated": 2,
+    "targetDedicatedComputeNodes": 2,
     "maxTasksPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,

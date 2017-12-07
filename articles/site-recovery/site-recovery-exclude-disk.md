@@ -9,16 +9,21 @@ editor:
 
 ms.assetid:
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/24/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
 
 ---
 # Exclude disks from replication
 This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. The feature is supported for scenarios of VMware to Azure and Hyper-V to Azure.
+
+## Supported scenarios
+**Feature** | **VMware to Azure** | **Hyper-V to Azure** | **Azure to Azure**| **Hyper-V to Hyper-V** 
+--|--|--|--|--
+Exclude disk | Yes | Yes | No | No
 
 ## Prerequisites
 
@@ -46,7 +51,7 @@ Similarly, you can use the following steps to optimize a disk that has both the 
 ## How to exclude disks from replication?
 
 ### VMware to Azure
-Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replication) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
+Follow the [Enable replication](site-recovery-vmware-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
 
 ![Exclude disks from replication and enable replication for VMware to Azure failback](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -62,7 +67,7 @@ Follow the [Enable replication](site-recovery-vmware-to-azure.md#enable-replicat
 >
 
 ### Hyper-V to Azure
-Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md#enable-replication) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
+Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
 
 ![Exclude disks from replication and enable replication for Hyper-V to Azure failback](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 

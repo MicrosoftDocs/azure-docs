@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # ASP.NET web app sign-in and sign-out with Azure AD
@@ -84,6 +85,15 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
                  ClientId = clientId,
                  Authority = authority,
                  PostLogoutRedirectUri = postLogoutRedirectUri,
+                 Notifications = new OpenIdConnectAuthenticationNotifications
+                    {
+                        AuthenticationFailed = context =>
+                        {
+                            context.HandleResponse();
+                            context.Response.Redirect("/Error?message=" + context.Exception.Message);
+                            return Task.FromResult(0);
+                        }
+                    }
              });
      }
      ```
@@ -96,7 +106,7 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
 ## Step 3: Use OWIN to issue sign-in and sign-out requests to Azure AD
 The app is now properly configured to communicate with Azure AD by using the OpenID Connect authentication protocol. OWIN has handled all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is to give your users a way to sign in and sign out.
 
-1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About controller.
+1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About action.
 
      ```C#
      [Authorize]

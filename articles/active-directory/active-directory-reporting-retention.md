@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
-ms.author: dhanyahk;markvi
+ms.date: 10/17/2017
+ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory report retention policies
@@ -55,7 +56,8 @@ This topic provides you with answers to the most common questions in conjunction
 | Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Directory Audit        | 7 days        | 30 days             | 30 days             |
-| Sign-in Activity       | 7 days        | 30 days             | 30 days             |
+| Sign-in Activity       | N/A           | 30 days             | 30 days             |
+| Azure MFA Usage        | 90 days       | 90 days             | 90 days             |
 
 **Security Signals**
 

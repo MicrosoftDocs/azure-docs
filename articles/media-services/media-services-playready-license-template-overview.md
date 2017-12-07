@@ -2,7 +2,7 @@
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses.
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 06/29/2017
 ms.author: juliako
 
 ---
 # Media Services PlayReady license template overview
-Azure Media Services now provides a service for delivering Microsoft PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
+Azure Media Services now provides a service for delivering Microsoft PlayReady licenses. When the end-user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and can be used to decrypt and play the specified content.
 
-Media Services also provides APIs that let you configure your PlayReady licenses. Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.
+Media Services also provides APIs that let you configure your PlayReady licenses. Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content.
 Below are some examples of PlayReady license restrictions that you can specify:
 
 * The DateTime from which the license is valid.
@@ -31,13 +31,13 @@ Below are some examples of PlayReady license restrictions that you can specify:
 * For more information, see the Output Controls section (3.5) in the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 > [!NOTE]
-> Currently, you can only configure the PlayRight of the PlayReady license (this right is required). The PlayRight gives the client the ability to playback the content. The PlayRight also allows configuring restrictions specific to playback. For more information, see [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Currently, you can only configure the PlayRight of the PlayReady license (this right is required). The PlayRight gives the client the ability to play back the content. The PlayRight also allows configuring restrictions specific to play back. For more information, see [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
 To configure PlayReady licenses using Media Services, you must configure the Media Services PlayReady license template. The template is defined in XML.
 
-The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients would be able to playback your PlayReady protected content.
+The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients would be able to play back your PlayReady protected content.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -52,9 +52,9 @@ The following example shows the simplest (and most common) template that configu
 
 The XML conforms to the PlayReady license template XML schema defined in the PlayReady license template XML schema section.
 
-Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see [Media Services .NET classes](media-services-playready-license-template-overview.md#classes). that are used to configure license templates.
+Media Services also defines a set of .NET classes that could be used to serialized and deserialized to and from the XML. For description of main classes, see the [Media Services .NET classes](media-services-playready-license-template-overview.md#classes) that are used to configure license templates.
 
-For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Using PlayReady Dynamic Encryption and License Delivery Service](media-services-protect-with-drm.md).
+For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Using PlayReady Dynamic Encryption and License Delivery Service](media-services-protect-with-playready-widevine.md).
 
 ## <a id="classes"></a>Media Services .NET classes that are used to configure license templates
 The following are the main .NET classes are used to configure Media Services PlayReady license templates. These classes map to the types defined in [PlayReady license template XML schema](media-services-playready-license-template-overview.md#schema).
@@ -70,10 +70,10 @@ This is the “top level” class in the template hierarchy. Meaning that the re
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - The class represents a license template for creating PlayReady licenses to be returned to the end users. It contains the data on the content key in the license and any rights or restrictions to be enforced by the PlayReady DRM runtime when using the content key.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - This class represents the PlayRight of a PlayReady license. It grants the user the ability to playback the content subject to the zero or more restrictions configured in the license and on the PlayRight itself (for playback specific policy). Much of the policy on the PlayRight has to do with output restrictions which control the types of outputs that the content can be played over and any restrictions that must be put in place when using a given output. For example, if the DigitalVideoOnlyContentRestriction is enabled, then the DRM runtime will only allow the video to be displayed over digital outputs (analog video outputs won’t be allowed to pass the content).
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - This class represents the PlayRight of a PlayReady license. It grants the user the ability to play back the content subject to the zero or more restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on the PlayRight has to do with output restrictions that control the types of outputs that the content can be played over and any restrictions that must be put in place when using a given output. For example, if the DigitalVideoOnlyContentRestriction is enabled, then the DRM runtime will only allow the video to be displayed over digital outputs (analog video outputs won’t be allowed to pass the content).
 
 > [!IMPORTANT]
-> These types of restrictions can be very powerful but can also affect the consumer experience. If the output protections are configured too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
+> These types of restrictions can be powerful but can also affect the consumer experience. If the output protections are configured too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 > 
 > 
 

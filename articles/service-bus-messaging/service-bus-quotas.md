@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Service Bus quotas and limits | Microsoft Docs
-description: Limits and quotas for Azure Service Bus
+description: Find limits and quotas for Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 10/18/2017
 ms.author: sethm
 
 ---
 # Service Bus quotas
-This section lists basic quotas and throttling thresholds in Microsoft Azure Service Bus Messaging.
+This section lists basic quotas and throttling thresholds in Azure Service Bus messaging.
 
 ## Messaging quotas
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]

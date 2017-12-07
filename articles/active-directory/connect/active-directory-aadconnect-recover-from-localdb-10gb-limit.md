@@ -3,7 +3,7 @@ title: 'Azure AD Connect: How to recover from LocalDB 10GB limit issue | Microso
 description: This topic describes how to recover Azure AD Connect Synchronization Service when it encounters LocalDB 10GB limit issue.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: cychua
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: cychua
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect: How to recover from LocalDB 10-GB limit
@@ -61,11 +61,11 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 * The Sync Service account that is used as the operating context of Azure AD Connect Synchronization Service.
 * The local group ADSyncAdmins that was created during installation.
 
-1. Back up the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` to a safe location.
+1. Back up the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\Microsoft Azure AD Sync\Data` to a safe location.
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigate to folder `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 08/30/2017
 ms.author: sethm
 
 ---
@@ -92,7 +92,7 @@ At least one executable program in the application should be actively running th
 4. Receive from the primary.
 
 ## Close/fault behavior
-Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted/closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon will fault the still open [MessagingFactory][MessagingFactory].
+Within an application that hosts the syphon, once the primary or secondary [MessagingFactory][MessagingFactory] faults or is closed without its partner also being faulted or closed and the syphon detects this state, the syphon acts. If the other [MessagingFactory][MessagingFactory] is not closed within 5 seconds, the syphon faults the still open [MessagingFactory][MessagingFactory].
 
 ## Next steps
 See [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 

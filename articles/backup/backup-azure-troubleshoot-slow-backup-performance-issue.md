@@ -12,8 +12,8 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: genli
 
 ---

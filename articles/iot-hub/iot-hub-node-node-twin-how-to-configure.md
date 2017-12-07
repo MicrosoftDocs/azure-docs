@@ -13,7 +13,7 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
 
 ---
@@ -32,7 +32,7 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 To complete this tutorial you need the following:
 
-* Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
@@ -91,7 +91,7 @@ In this section, you create a Node.js console app that connects to your hub as *
    
     The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
    
-    Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
+    Note that for the sake of simplicity, the previous code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
    > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
@@ -165,7 +165,7 @@ In this section, you will create a Node.js console app that updates the *desired
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
+3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **setdesiredandqueryapp** folder.
 4. Add the following code to the **SetDesiredAndQuery.js** file, and substitute the **{iot hub connection string}** placeholder with the IoT Hub connection string you copied when you created your hub:
    
         'use strict';
@@ -204,7 +204,7 @@ In this section, you will create a Node.js console app that updates the *desired
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
 
     > [!IMPORTANT]
-    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
+    > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events, use [twin notifications][lnk-twin-notifications].
     > 
     >.
 
@@ -257,7 +257,7 @@ Use the following resources to learn how to:
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -265,7 +265,7 @@ Use the following resources to learn how to:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 

@@ -3,8 +3,8 @@ title: Create a Cordova app on Azure App Service Mobile Apps | Microsoft Docs
 description: Follow this tutorial to get started with using Azure mobile app backends for Apache Cordova development
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: ''
 tags: ''
 keywords: cordova,javascript,mobile,client
@@ -15,30 +15,30 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
+ms.date: 07/07/2017
+ms.author: glenga
 
 ---
 # Create an Apache Cordova app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using 
-an Azure mobile app backend.  You create both a new mobile app backend and a simple *Todo list* Apache Cordova 
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using
+an Azure mobile app backend.  You create both a new mobile app backend and a simple *Todo list* Apache Cordova
 app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile 
+Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile
 Apps feature in Azure App Service.
 
 ## Prerequisites
 To complete this tutorial, you need the following prerequisites:
 
-* A PC with [Visual Studio Community 2015] or newer.
+* A PC with [Visual Studio Community 2017] or newer.
 * [Visual Studio Tools for Apache Cordova].
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 You may also bypass Visual Studio and use the Apache Cordova command line directly.  Using the command line
-is useful when completing the tutorial on a Mac computer.  Compiling Apache Cordova client applications using 
+is useful when completing the tutorial on a Mac computer.  Compiling Apache Cordova client applications using
 the command line is not covered by this tutorial.
 
 ## Create an Azure mobile app backend
@@ -75,7 +75,7 @@ Learn how to use the SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Offline Data]: app-service-mobile-offline-data-sync.md
 [Authentication]: app-service-mobile-auth.md

@@ -1,6 +1,6 @@
----
-title: Azure log integration FAQ | Microsoft Docs
-description: This FAQ answers questions about Azure log integration.
+﻿---
+title: Azure Log Integration FAQ | Microsoft Docs
+description: This article answers questions about Azure Log Integration.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,26 +12,39 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/07/2017
+ms.workload8: na
+ms.date: 08/07/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
-# Azure log integration frequently asked questions (FAQ)
-This FAQ answers questions about Azure log integration, a service that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
+# Azure Log Integration FAQ
+This article answers frequently asked questions (FAQ) about Azure Log Integration. 
+
+Azure Log Integration is a Windows operating system service that you can use to integrate raw logs from your Azure resources into your on-premises security information and event management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud. You can then aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 ## Is the Azure Log Integration software free?
 Yes. There is no charge for the Azure Log Integration software.
 
 ## Where is Azure Log Integration available?
 
-It is currently available in Azure commercial and Azure Government and not available in China, or Germany.
+It is currently available in Azure Commercial and Azure Government and is not available in China or Germany.
 
-## How can I see the storage accounts from which Azure log integration is pulling Azure VM logs from?
+## How can I see the storage accounts from which Azure Log Integration is pulling Azure VM logs?
 Run the command **azlog source list**.
 
+## How can I tell which subscription the Azure Log Integration logs are from?
+
+In the case of audit logs that are placed in the **AzureResourcemanagerJson** directories, the subscription ID is in the log file name. This is also true for logs in the **AzureSecurityCenterJson** folder. For example:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Azure Active Directory audit logs include the tenant ID as part of the name.
+
+Diagnostic logs that are read from an event hub do not include the subscription ID as part of the name. Instead, they include the friendly name specified as part of the creation of the event hub source. 
+
 ## How can I update the proxy configuration?
-If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After update is done, stop and start the service using commands **net stop azlog** and **net start azlog**.
+If your proxy setting does not allow Azure storage access directly, open the **AZLOG.EXE.CONFIG** file in **c:\Program Files\Microsoft Azure Log Integration**. Update the file to include the **defaultProxy** section with the proxy address of your organization. After the update is done, stop and start the service by using the commands **net stop azlog** and **net start azlog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -50,41 +63,42 @@ If your proxy setting does not allow Azure storage access directly, open the **A
       </system.diagnostics>   
 
 ## How can I see the subscription information in Windows events?
-Append the **subscriptionid** to the friendly name while adding the source.
+Append the subscription ID to the friendly name while adding the source:
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-The event XML has the metadata as shown below, including the subscription id.
+The event XML has the following metadata, including the subscription ID:
 
 ![Event XML][1]
 
 ## Error messages
-### When running command **azlog createazureid**, why do I get the following error?
+### When I run the command **azlog createazureid**, why do I get the following error?
 Error:
 
   *Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'*
 
-**Azlog createazureid** attempts to create a service principal in all the Azure AD tenants for the subscriptions on which the Azure login has access to. If your Azure login is only a Guest user in that Azure AD tenant, then the command fails with ‘Insufficient privileges to complete the operation.’ Request Tenant admin to add your account as a user in the tenant.
+The **azlog createazureid** command attempts to create a service principal in all the Azure AD tenants for the subscriptions that the Azure login has access to. If your Azure login is only a guest user in that Azure AD tenant, the command fails with "Insufficient privileges to complete the operation." Ask the tenant admin to add your account as a user in the tenant.
 
-### When running command **azlog authorize**, why do I get the following error?
+### When I run the command **azlog authorize**, why do I get the following error?
 Error:
 
   *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
-**Azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **Azlog createazureid**) to the subscriptions provided. If the Azure login is not a Co-Administrator or an Owner of the subscription, it fails with ‘Authorization Failed’ error message. Azure role-based access control (RBAC) of Co-Administrator or Owner is needed to complete this action.
+The **azlog authorize** command assigns the role of reader to the Azure AD service principal (created with **azlog createazureid**) to the provided subscriptions. If the Azure login is not a co-administrator or an owner of the subscription, it fails with an "Authorization Failed" error message. Azure Role-Based Access Control (RBAC) of co-administrator or owner is needed to complete this action.
 
-## Where can I find the definition of the properties in audit log?
+## Where can I find the definition of the properties in the audit log?
 See:
 
-* [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
-* [List the management events in a subscription in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
+* [Audit operations with Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
+* [List the management events in a subscription in the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
 See [Managing and responding to security alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## How can I modify what is collected with VM diagnostics?
-See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
+For details on how to get, modify, and set the Azure Diagnostics configuration, see [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-### Get the WAD config
+The following example gets the Azure Diagnostics configuration:
+
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
@@ -93,22 +107,25 @@ See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Win
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-### Modify the WAD Config
-The following example is a configuration where only EventID 4624 and EventId 4625 are collected from the security event log. Microsoft Antimalware events are collected from the System event log. See [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) for details on the use of XPath expressions.
+The following example modifies the Azure Diagnostics configuration. In this configuration, only event ID 4624 and event ID 4625 are collected from the security event log. Microsoft Antimalware for Azure events are collected from the system event log. For details on the use of XPath expressions, see [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85)).
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
         <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>
     </WindowsEventLog>
 
-### Set the WAD configuration
+The following example sets the Azure Diagnostics configuration:
+
     $diagnosticsconfig_path = "d:\WADConfig.xml"
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
-After making changes, check the storage account to ensure that the correct events are collected.
+After you make changes, check the storage account to ensure that the correct events are collected.
 
-If you run into any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), select **Log Integration** as the service for which you are requesting support.
+If you have any issues during the installation and configuration, please open a [support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Select **Log Integration** as the service for which you are requesting support.
 
+## Can I use Azure Log Integration to integrate Network Watcher logs into my SIEM?
+
+Azure Network Watcher generates large quantities of logging information. These logs are not meant to be sent to a SIEM. The only supported destination for Network Watcher logs is a storage account. Azure Log Integration does not support reading these logs and making them available to a SIEM.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

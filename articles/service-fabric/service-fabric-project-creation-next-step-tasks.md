@@ -3,7 +3,7 @@ title: Service Fabric project creation next steps | Microsoft Docs
 description: This article contains links to a set of core development tasks for Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/28/2017
-ms.author: seanmck
+ms.date: 09/28/2017
+ms.author: rwike77
 
 ---
 # Your Service Fabric application and next steps
@@ -73,7 +73,7 @@ To learn how you can set up a continuous integration process for your Service Fa
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[publish-app-to-azure]: service-fabric-manage-application-in-visual-studio.md
 [visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md

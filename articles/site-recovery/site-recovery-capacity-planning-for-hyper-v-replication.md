@@ -1,5 +1,5 @@
 ---
-title: Run the Hyper-V capacity planner tool for Site Recovery | Microsoft Docs
+title: Hyper-V capacity planner tool for Azure Site Recovery | Microsoft Docs
 description: This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery
 services: site-recovery
 documentationcenter: na
@@ -13,11 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
 
 ---
-# Run the Hyper-V capacity planner tool for Site Recovery
+
+New enhanced version of [Azure Site Recovery deployment planner for Hyper-V to Azure](site-recovery-hyper-v-deployment-planner.md) is now available and replacing old tool. Use the new tool for your deployment planning. 
+The tool provides following guideline: 
+* VM eligibility assessment, based on number of disks, disk size, IOPS, churn, and few VM characteristics.
+* Network bandwidth need versus RPO assessment.
+* Azure infrastructure requirements.
+* On-premises infrastructure requirements.
+* Initial replication batching guidance.
+* Estimated total DR cost to Azure.
+
+
+# Hyper-V capacity planner tool for Site Recovery
 
 As part of your Azure Site Recovery deployment, you need to figure out your replication and bandwidth requirements. The Hyper-V capacity planner tool for Site Recovery helps you to do this, for Hyper-V virtual machine replication.
 
