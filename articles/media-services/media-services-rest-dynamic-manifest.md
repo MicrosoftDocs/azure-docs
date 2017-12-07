@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
 
 ---
@@ -24,11 +24,11 @@ ms.author: juliako;cenkdin
 > 
 > 
 
-Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
-This topic shows how to use REST APIs to create, update, and delete filters. 
+This article shows how to use REST APIs to create, update, and delete filters. 
 
 ## Types used to create filters
 The following types are used when creating filters:  
@@ -45,9 +45,6 @@ The following types are used when creating filters:
 ## Connect to Media Services
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Create filters
 ### Create global Filters
@@ -194,9 +191,9 @@ To list filters, use the following HTTP requests:
 
 
 ## Update filters
-Use PATCH, PUT or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
 
-If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
+If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
 
 ### Update global Filters
 To update a global filter, use the following HTTP requests: 
