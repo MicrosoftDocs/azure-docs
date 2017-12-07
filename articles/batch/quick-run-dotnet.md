@@ -68,7 +68,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 Right-click the solution in Solution Explorer and click **Build Solution**. Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the Azure portal to monitor the pool, compute nodes, job, and tasks in your Batch account.
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks.
 
 ```
 Sample start: 12/4/2017 4:02:54 PM
@@ -100,93 +100,87 @@ Typical execution time is approximately 5 minutes when you run the application i
 
 
 
-## Explanation of the sample app
+## Walkthrough
 
 The .NET app in this quickstart does the following:
 
 * Uploads three small text files to a blob container named *input* in your Azure storage account. These files are inputs for processing by Batch tasks.
-* Creates a pool of three compute nodes running Windows Server 2016.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a basic **Command line**. For simplicity, the app only types the content of each input file. 
+* Creates a pool of three compute nodes (virtual machines) running Windows Server 2016.
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. For simplicity, the app only types the content of each input file. 
 * Displays the standard output and standard error files returned by each task.
 * After task completion, deletes the blob container and optionally the Batch job and pool.
 
 See the file `Program.cs` and the following sections for details. 
 
-### Blob and Batch clients
+### Preliminaries
 
-The app creates a [blob client](../storage/blobs/storage-dotnet-how-to-use-blobs.md), to interact with Azure Storage, and a Batch client, to interact with the Batch service. The Batch client in the sample uses shared key authentication:
+* To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
 
-```csharp
-// Get a Batch client using account creds
-BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+  ```csharp
+  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+  ```
 
-BatchClient batchClient = BatchClient.Open(cred);
-```
+* The app uses the `blobClient` reference to create a container in the storage account and also to upload data files to the container from a set of input file paths. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes.
 
+  ```csharp
+  List<string> inputFilePaths = new List<string>
+  {
+      @"..\..\taskdata0.txt",
+      @"..\..\taskdata1.txt",
+      @"..\..\taskdata2.txt"
+  };
+  
+  List<ResourceFile> inputFiles = new List<ResourceFile>();
+    
+  foreach (string filePath in inputFilePaths)
+  {
+      inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
+  }
+  ```
+* The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication:
 
+  ```csharp
+  BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
-### File upload
-
-The Storage blob client connects to a container in Azure Storage and uploads the input text files.
-
-```csharp
-List<string> inputFilePaths = new List<string>
-{
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
-};
-
-// Upload the data files to Azure Storage. This is the data that will be processed by each of the tasks.
-List<ResourceFile> inputFiles = new List<ResourceFile>();
-
-foreach (string filePath in inputFilePaths)
-{
-    Console.WriteLine("Uploading file {0} to container [{1}]...", filePath, inputContainerName);
-
-    string blobName = Path.GetFileName(filePath);
-
-    // CloudBlobContainer container = blobClient.GetContainerReference(inputContainerName);
-    CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-    blobData.UploadFromFileAsync(filePath);
-
-    // Set the expiry time and permissions for the blob shared access signature. In this case, no start time is specified,
-    // so the shared access signature becomes valid immediately
-    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
-    {
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
-        Permissions = SharedAccessBlobPermissions.Read
-    };
-
-    // Construct the SAS URL for blob
-    string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
-    string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
-
-    ResourceFile resourceFile = new ResourceFile(blobSasUri, blobName);
-
-    inputFiles.Add(resourceFile);
-}
-```
+  BatchClient batchClient = BatchClient.Open(cred);
+  ```
 
 ### Create a Batch pool
 
-To create a Batch pool, the app specifies the number of nodes, the node size, and the OS settings. The sample configuration includes three nodes running Windows Server 2016 in the `CloudServiceConfiguration`. In this configuration, the nodes are worker instances in an Azure cloud service. Batch pools can alternatively specify a `VirtualMachineConfiguration` where nodes are Azure VMs created from a custom VM image or an image in the Azure Marketplace.
+To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Servder 2016 image published in the Azure Marketplace.
 
-When configuration is complete, commit the pool:
+The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits the pool to the Batch service.
 
 ```csharp
-CloudPool pool = batchClient.PoolOperations.CreatePool(
+ImageReference imageReference = new ImageReference(
+    publisher: "MicrosoftWindowsServer",
+    offer: "WindowsServer",
+    sku: "2016-Datacenter",
+    version: "latest");
+
+VirtualMachineConfiguration virtualMachineConfiguration =
+new VirtualMachineConfiguration(
+   imageReference: imageReference,
+   nodeAgentSkuId: "batch.node.windows amd64"
+   );
+
+try
+{
+    CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: PoolId,
     targetDedicatedComputeNodes: 3,
-    virtualMachineSize: "Small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5")
+    virtualMachineSize: "STANDARD_A1_v2",
+    virtualMachineConfiguration: virtualMachineConfiguration
     );
 
-pool.Commit();
+    pool.Commit();
+}
+...
+
 ```
 ### Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The app creates a job on the pool you created, and commits it. Initially the job has no tasks.
+A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The app uses the [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) method create a job on your pool. The [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) method submits the job to the Batch service. Initially the job has no tasks.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
@@ -197,9 +191,9 @@ job.Commit();
 ```
 
 ### Create tasks
-The app creates a list of tasks to process each input file using a basic `taskCommandLine`. In the sample, the command line runs the Windows `type` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects to process the input `ResourceFile` objects using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. In the sample, the command line runs the Windows `type` command to display a text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job, which queues them to run on the compute nodes. Each task processes one of the input files.
+Then, the app adds tasks to the job with the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) method, which queues them to run on the compute nodes. Each task processes one of the input files.
 
 ```csharp
 foreach (ResourceFile inputFile in inputFiles)
@@ -222,7 +216,7 @@ batchClient.JobOperations.AddTaskAsync(JobId, tasks).Wait();
  
 ### View task output
 
-The app monitors the tasks to make sure they complete. Then, the app displays the stdout.txt and stderr.txt files generated by each task. When the task runs successfully, the output of the `type` command is written to stdout.txt, and stderr.txt is an empty file:
+The app monitors the tasks to make sure they complete. Then, the app uses the [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) property to display the stdout.txt and stderr.txt files generated by each task. When the task runs successfully, the output of the `type` command is written to stdout.txt, and stderr.txt is an empty file:
 
 ```csharp
 foreach (CloudTask task in completedtasks)
