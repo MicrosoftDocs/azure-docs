@@ -113,7 +113,7 @@ The VM Agent might have been corrupted or the service might have been stopped. R
 6. Then you should be able to view Windows Guest Agent services in services
 7. Try running an on-demand/adhoc backup by clicking "Backup Now" in the portal.
 
-Also verify your Virtual Machine has **[.NET 4.5 installed in the system](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. It is required for the VM agent to communicate with the service
+Also verify your Virtual Machine has **[.NET 4.5 installed in the system](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. It is required for the VM agent to communicate with the service
 
 ### The agent installed in the VM is out of date (for Linux VMs)
 
