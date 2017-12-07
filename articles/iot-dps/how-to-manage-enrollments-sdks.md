@@ -16,7 +16,7 @@ ms.custom: mvc
 ---
 
 # How to manage device enrollments in the IoT Hub Device Provisioning Service with the Service SDKs
-A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  The SDKs are available on GitHub in the same repository as Azure IoT SDKs. 
+A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  The SDKs are available on GitHub in the same repository as Azure IoT SDKs.
 
 This article reviews the high level concepts for managing device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  Exact API calls may be different due to language differences.  Please review the samples we provide on GitHub for details:
 * [Java Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
