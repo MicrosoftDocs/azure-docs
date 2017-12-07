@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: jroth
 ---
 
@@ -83,6 +83,8 @@ On the **SQL Server settings** window, configure the following options.
 
 1. In the **SQL connectivity** drop-down, select **Public (Internet)**. This allows SQL Server connections over the internet.
 
+1. Change the **Port** to **1401** to avoid using a well-known port name in the public scneario.
+
 1. Under **SQL Authentication**, click **Enable**. The SQL Login is set to the same user name and password that you configured for the VM.
 
 1. Change any other settings if needed, and click **OK** to complete the configuration of the SQL Server VM.
@@ -98,24 +100,6 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 > [!TIP]
 > Deploying a Windows SQL Server VM can take several minutes.
 
-## <a id="remotedesktop"></a> Open the VM with Remote Desktop
-
-Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
-
-After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
-
-Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
-
-## Enable TCP/IP for internet connections
-
-When provisioning a new SQL Server VM, Azure does not automatically enable the TCP/IP protocol for SQL Server Developer and Express editions. The steps below explain how to manually enable TCP/IP so that you can connect remotely by IP address.
-
-The following steps use **SQL Server Configuration Manager** to enable the TCP/IP protocol for SQL Server Developer and Express editions.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
-
 ### Connect to SQL Server remotely
 
 1. In the portal, find the **Public IP address** of your VM in the **Overview** section of your virtual machine's properties.
@@ -125,7 +109,7 @@ The following steps use **SQL Server Configuration Manager** to enable the TCP/I
    > [TIP] 
    > If you do not have SQL Server Management Studio, you can download it [here](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address.
+1. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter your VM's public IP address. Then add a comma, and add the custom port, **1401**, that we specified when you configured the new VM. For example, `11.22.33.444,1401`.
 
 1. In the **Authentication** box, select **SQL Server Authentication**.
 
@@ -136,6 +120,16 @@ The following steps use **SQL Server Configuration Manager** to enable the TCP/I
 1. Click **Connect**.
 
     ![ssms connect](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
+
+## <a id="remotedesktop"></a> Open the VM with Remote Desktop
+
+Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
+
+> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+
+After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
+
+Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
 
 ## Next Steps
 
