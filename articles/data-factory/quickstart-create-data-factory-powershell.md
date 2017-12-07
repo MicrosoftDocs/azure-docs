@@ -33,6 +33,27 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 ### Azure PowerShell
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
+### Log in to PowerShell
+
+1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
+
+    ![Launch PowerShell](media/data-factory-quickstart-prerequisites-2/search-powershell.png)
+1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
+       
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+2. Run the following command to view all the subscriptions for this account:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+3. If you see multiple subscriptions associated with your account, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
+    ```
+
 ## Create a data factory
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
@@ -44,7 +65,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
     ``` 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again. 
 3. Define a variable for the data factory name. 
@@ -53,7 +74,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
     >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
 
     ```powershell
-    $DataFactoryName = "ADFQuickStartFactory";
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
@@ -98,10 +119,9 @@ Create linked services in a data factory to link your data stores and compute se
     If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
 2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
-```powershell
-Set-Location 'C:\ADFv2QuickStartPSH'
-```
-
+    ```powershell
+    Set-Location 'C:\ADFv2QuickStartPSH'
+    ```
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
 
     ```powershell
