@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-
+ms.custom: mvc
 ---
 
 # Upgrade the runtime of a Service Fabric cluster

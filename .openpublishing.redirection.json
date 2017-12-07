@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
+        "redirect_url": "/azure/media-services/media-services-content-protection-overview",
+        "redirect_document_id": false 
+    },
+    {
         "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
         "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
         "redirect_document_id": false
@@ -11415,6 +11420,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-nodejs-stage-application.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-manage-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-get-started",
             "redirect_document_id": false
@@ -15609,9 +15619,14 @@
              "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
              "redirect_document_id": false
         },
-        {
-             "source_path": "articles/api-management/api-management-policy-reference.md",
-             "redirect_url": "/azure/api-management/api-management-policies",
+      {
+        "source_path": "articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+      },
+      {
+             "source_path": "articles/store-blitline-how-to-use.md",
+             "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
         }
     ]
