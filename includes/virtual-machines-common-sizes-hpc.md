@@ -17,10 +17,10 @@ ACU: 290-300
 | Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
 | Standard_H8m |8 |112 |1000 |32 |32 x 500 |2  |
 | Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |64 |64 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |64 |64 x 500 |4 |
+| Standard_H16r <sup>1</sup> |16 |112 |2000 |64 |64 x 500 |4  |
+| Standard_H16mr <sup>1</sup> |16 |224 |2000 |64 |64 x 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+<sup>1</sup> For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 
 <br>
 
@@ -32,12 +32,12 @@ ACU: 225
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |32 |32x500 |2 |
-| Standard_A9* |16 |112 |382 |64 |64x500 |4 |
+| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
+| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+<sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
 
 <br>
 

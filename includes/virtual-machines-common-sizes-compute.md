@@ -12,7 +12,7 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
-## Fsv2-series*
+## Fsv2-series <sup>1</sup>
 
 ACU: 195 - 210
 
@@ -25,9 +25,10 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
-*Fsv2-series VM’s feature Intel® Hyper-Threading Technology
 
-## Fs-series*
+<sup>1</sup>Fsv2-series VM’s feature Intel® Hyper-Threading Technology
+
+## Fs-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -41,7 +42,7 @@ ACU: 210 - 250
 
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-*The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>
