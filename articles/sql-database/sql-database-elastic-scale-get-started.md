@@ -1,6 +1,6 @@
 ---
 title: Get started with Elastic Database Tools - Azure | Microsoft Docs
-description: Basic explanation of the Elastic Database tools feature of Azure SQL Database, including an easy-to-run sample app.
+description: Basic explanation of the Elastic Database Tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
 documentationcenter: ''
 manager: jstrauss
@@ -18,7 +18,7 @@ ms.author: anjangsh
 
 ---
 # Get started with Elastic Database Tools
-This document introduces you to the developer experience for the [elastic database client library](sql-database-elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database feature of SQL Database tools. It focuses on use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java. 
+This document introduces you to the developer experience for the [elastic database client library](sql-database-elastic-database-client-library.md) by helping you run a sample app. The sample app creates a simple sharded application and explores key capabilities of the Elastic Database Tools feature of Azure SQL Database. It focuses on use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). The client library is available for .NET as well as Java. 
 
 ## Elastic Database Tools for Java
 ### Prerequisites
