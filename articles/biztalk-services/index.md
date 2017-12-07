@@ -65,7 +65,7 @@ Learn how to use BizTalk services to provide cloud to on-premises and line-of-bu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with BizTalk Services using the Azure Portal</h3>
+                        <h3>Get Started with BizTalk Services</h3>
                     </div>
                 </div>
             </div>

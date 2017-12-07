@@ -92,7 +92,7 @@ The following TCP ports are used by Hybrid Connections:
 ## See Also
 [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)<br/>
-[Create a BizTalk Service using Azure portal](biztalk-provision-services.md)<br/>
+[Create a BizTalk Service](biztalk-provision-services.md)<br/>
 [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
