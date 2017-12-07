@@ -25,7 +25,12 @@ ms.service: media-services
 # Submit clipping jobs from Azure Media Clipper
 Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. This function is for implementing an HTTP POST of the Clipper output to a web service. This web service is where you can submit the encoding job. The output of the Clipper is either a Media Encoder Standard encoding preset for rendered jobs or the REST API payload for dynamic manifest filter calls. This pass-through model is necessary because media services account credentials are not secure in the client's browser.
 
-The following code sample illustrates a sample **submitSubclipCallback** method. In this method, you implement the HTTP POST of the MES encoding preset. If the POST was successful (**result**), the **Promise** is resolved, otherwise, it is rejected with error details.
+The following sequence diagram illustrates the workflow between the browser client, your web service, and Azure Media Services:
+![Azure Media Clipper Sequence Diagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+In the preceding diagram, the four entities are: the end user's browser, your web service, the CDN endpoint hosting the Clipper resources, and Azure Media Services. When the end user navigates to your web page, the page gets the Clipper JavaScript and CSS resources from the hosting CDN endpoint. The end user configures the clipping job or dynamic manifest filter creation call from their browser. When the end user submits the job or filter creation call, the browser puts the job payload to a web service that you must deploy. This web service ultimately submits the clipping job or filter creation call to Azure Media Services using your media services account credentials.
+
+The following code sample illustrates a sample **submitSubclipCallback** method. In this method, you implement the HTTP POST of the Media Encoder Standard encoding preset. If the POST was successful (**result**), the **Promise** is resolved, otherwise, it is rejected with error details.
 
 ```javascript
 // Submit Subclip Callback
@@ -56,9 +61,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-The output of the job submission is either the MES encoding preset for rendered job or the REST API payload for dynamic manifest filters.
+The output of the job submission is either the Media Encoder Standard encoding preset for rendered job or the REST API payload for dynamic manifest filters.
 
-## Rendered output
+## Submitting encoding job to create video
+You can submit a Media Encoder Standard encoding job to create a frame-accurate video clip. Encoding job produce rendered videos, a new fragmented MP4 file.
+
 The job output contract for rendered clipping is a JSON object with the following properties:
 
 ```json
@@ -152,8 +159,10 @@ The job output contract for rendered clipping is a JSON object with the followin
 }
 ```
 
-## Filter output
-The output contract for a filter clipping is a JSON object with the following properties:
+To perform the encoding job, submit the Media Encoder Standard encoding job with the associated preset. See this article for details on submitting encoding jobs using the [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) or [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## Quickly creating video clips without encoding
+Alternative to creating an encoding job, you can use Azure Media Clipper to create dynamic manifest filters. Filters do not require encoding and can be created quickly as a new asset is not created. The output contract for a filter clipping is a JSON object with the following properties:
 
 ```json
 {
@@ -225,3 +234,5 @@ The output contract for a filter clipping is a JSON object with the following pr
   }
 }
 ```
+
+To submit the REST call to create dynamic manifest filter, submit the associated filter payload using the [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
