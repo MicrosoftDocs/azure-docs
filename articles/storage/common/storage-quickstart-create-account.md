@@ -58,6 +58,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
+---
 
 ## Log in to Azure
 
@@ -149,6 +150,8 @@ When naming your storage account, keep these rules in mind:
 
 # [Portal](#tab/portal)
 
+To create a storage account in the Azure portal, follow these steps:
+
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
 3. Leave these fields set to their defaults: **Deployment model**, **Account kind**, **Performance**, **Replication**, **Secure transfer required**.
@@ -156,6 +159,8 @@ When naming your storage account, keep these rules in mind:
 5. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
 6. Choose the location for your new storage account.
 7. Click **Create** to create the storage account.      
+
+
 
 # [PowerShell](#tab/powershell)
 ps
