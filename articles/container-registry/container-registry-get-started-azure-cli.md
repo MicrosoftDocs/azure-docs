@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quicksart
-ms.date: 12/06/2017
+ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -60,9 +60,8 @@ When the registry is created, the output is similar to the following:
     "name": "Basic",
     "tier": "Basic"
   },
-  "storageAccount": {
-    "name": "mycontainerregistr223140"
-  },
+  "status": null,
+  "storageAccount": null,
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
