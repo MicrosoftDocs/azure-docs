@@ -6,7 +6,9 @@
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 ## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
-## [Deploy a Java application](service-fabric-quickstart-java.md)
+## Java Quickstarts
+### [Deploy a Spring Boot application](service-fabric-quickstart-java-spring-boot.md)
+### [Deploy a Reliable Services application](service-fabric-quickstart-java-reliable-services.md)
 
 # Tutorials
 ## Deploy a .NET app
@@ -29,7 +31,9 @@
 #### [1a- Create a Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Scale the cluster](service-fabric-tutorial-scale-cluster.md)
-### [3- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Upgrade the cluster runtime](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Samples
@@ -97,7 +101,6 @@
 
 ## Manage applications
 ### [Overview](service-fabric-application-lifecycle.md)
-### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 ### Application upgrade
 #### [Overview](service-fabric-application-upgrade.md)
 #### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
@@ -105,6 +108,7 @@
 #### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 #### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 ### [Fault analysis overview](service-fabric-testability-overview.md)
+### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 
 ## Create and manage clusters
 ### [Overview](service-fabric-deploy-anywhere.md)
@@ -132,8 +136,6 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrate with API Management](service-fabric-api-management-overview.md)
-
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
@@ -160,13 +162,14 @@
 #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrate with API Management](service-fabric-api-management-overview.md)
+
 # How-to guides
 ## Set up your development environment
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Set up the Service Fabric CLI](service-fabric-cli.md)
+### [Set up the Service Fabric CLI](service-fabric-cli.md)
 
 ## Build an application
 ### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
