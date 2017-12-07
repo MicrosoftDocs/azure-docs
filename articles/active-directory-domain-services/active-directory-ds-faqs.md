@@ -21,7 +21,7 @@ ms.author: maheshu
 This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ### Troubleshooting guide
-Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
+Refer to the [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
 
 ### Configuration
 #### Can I create multiple managed domains for a single Azure AD directory?
@@ -31,10 +31,10 @@ No. You can only create a single managed domain serviced by Azure AD Domain Serv
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. This functionality is currently in preview.
 
 #### Can I migrate my existing managed domain from a classic virtual network to a Resource Manager virtual network?
-Not currently. We will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
+Not currently. Microsoft will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
 
 #### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
-No. We are working on adding support for CSP subscriptions.
+No. The product team is working on adding support for CSP subscriptions.
 
 #### Can I enable Azure AD Domain Services in a federated Azure AD directory? I use ADFS to authenticate users for access to Office 365 and do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?
 No. Azure AD Domain Services needs access to the password hashes of user accounts, to authenticate users via NTLM or Kerberos. In a federated directory, password hashes are not stored in the Azure AD directory. Therefore, Azure AD Domain Services does not work with such Azure AD directories.
