@@ -110,7 +110,7 @@ See the file `python_quickstart_client.py` and the following sections for detail
 
 ### Preliminaries
 
-To interact with a storage account, the app uses the [azure-storage](https://pypi.python.org/pypi/azure-storage) package to create a [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) object.
+* To interact with a storage account, the app uses the [azure-storage](https://pypi.python.org/pypi/azure-storage) package to create a [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) object.
 
   ```python
   blob_client = azureblob.BlockBlobService(
@@ -241,13 +241,13 @@ for task_id in task_ids:
 
 ## Clean up resources
 
-The app automatically deletes the storage container it creates, and by default deletes the Batch pool and job it runs. 
+The app automatically deletes the storage container it creates, and by default deletes the Batch pool and job it runs. When you delete the pool, all task output on the nodes is deleted.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
 
 ## Next steps
 
-In this quick start, you ... To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you ... To learn more about Azure Batch, continue to the XXX tutorial.
 
 
 > [!div class="nextstepaction"]

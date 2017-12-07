@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Run your first Batch job with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs *tasks* on the pool. This example is basic but introduces you to the key concepts of the Batch service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-As shown in this quickstart, you can link an Azure general purpose storage account with your Batch account. The storage account is useful to deploy applications and store input and output data. Create a storage acccount in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+As shown in this quickstart, you can link an Azure general purpose storage account with your Batch account. The storage account is useful to deploy applications and store input and output data. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create --resource-group myResourceGroup --name myStorageAccount --location eastus --sku Standard_LRS
@@ -197,7 +197,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
 
 
 > [!div class="nextstepaction"]

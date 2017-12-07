@@ -88,7 +88,7 @@ A Batch job specifies a pool to run tasks on and optional settings such as a pri
 
 1. In the account view, click **Jobs** > **Add**. 
 
-2. Enter a **Job ID**, such as *myjob-windows*. In **Pool**, select the pool you created. Keep the defaults for the remaining setttings, and click **OK**.
+2. Enter a **Job ID**, such as *myjob-windows*. In **Pool**, select the pool you created. Keep the defaults for the remaining settings, and click **OK**.
 
   ![Create a job][job_create]
 
@@ -96,13 +96,13 @@ After the job is crated, the **Tasks** page opens.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command dispays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command displays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 1. Click **Add**.
 
 2. Enter a **Task ID**, such as *mytask-windows*. 
 
-3. In **Command line**, enter `cmd /c "set & timeout /t 90 > NUL"`. Keep the defaults for the remaining setttings, and click **OK**.
+3. In **Command line**, enter `cmd /c "set & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and click **OK**.
 
   ![Create a task][task_create]
 
@@ -132,7 +132,7 @@ When no longer needed, delete the resource group, Batch account, and all related
 
 ## Next steps
 
-In this quick start, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)

@@ -14,7 +14,7 @@ ms.devlang: r
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/30/2017
+ms.date: 12/07/2017
 ms.author: danlep
 ms.custom: jiata
 ---
@@ -103,7 +103,7 @@ generateClusterConfig("cluster.json")
  
 Open the file to view the default configuration, which includes 3 dedicated nodes and 3 [low priority](batch-low-pri-vms.md) nodes. 
 
-For this tutorial, increase the `maxTasksPerNode` to 2, and set `dedicatedNodes` to 0. Set the `min` of `lowPriorityNodes` to 2. and the `max` to 10, or a smaller number if desired. Leave defaults for the remaing settings, and save the file. It should look similar to the following:
+For this tutorial, increase the `maxTasksPerNode` to 2, and set `dedicatedNodes` to 0. Set the `min` of `lowPriorityNodes` to 2. and the `max` to 10, or a smaller number if desired. Leave defaults for the remaining settings, and save the file. It should look similar to the following:
 
 ```json
 {
@@ -234,7 +234,7 @@ The simulation distributes tasks to the nodes in the Batch pool. You can see the
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 
-After a f minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
+After a few minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
 
 
 

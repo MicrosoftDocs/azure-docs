@@ -105,7 +105,7 @@ Typical execution time is approximately 5 minutes when you run the application i
 The .NET app in this quickstart does the following:
 
 * Uploads three small text files to a blob container named *input* in your Azure storage account. These files are inputs for processing by Batch tasks.
-* Creates a pool of three compute nodes (virtual machines) running Windows Server 2016.
+* Creates a pool of three compute nodes (virtual machines) running Windows Server.
 * Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. For simplicity, the app only types the content of each input file. 
 * Displays the standard output and standard error files returned by each task.
 * After task completion, deletes the blob container and optionally the Batch job and pool.
@@ -155,7 +155,7 @@ The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits 
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2016-Datacenter",
+    sku: "2012-R2-Datacenter",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
