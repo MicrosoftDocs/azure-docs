@@ -107,9 +107,9 @@ Congratulations! You have successfully built and run your first sharded applicat
 * **Merging existing shards**: Shard merges are also performed by using the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## Cost
-The Elastic Database Tools are free. When you use Elastic Database Tools, you incur no additional charges on top of the cost of your Azure usage. 
+The Elastic Database Tools library is free. When you use Elastic Database Tools, you incur no additional charges beyond the cost of your Azure usage. 
 
-For example, the sample application creates new databases. The cost for this depends on the SQL Database edition you choose and the Azure usage of your application.
+For example, the sample application creates new databases. The cost of this capability depends on the SQL Database edition you choose and the Azure usage of your application.
 
 For pricing information, see [SQL Database pricing details](https://azure.microsoft.com/pricing/details/sql-database/).
 
