@@ -130,7 +130,7 @@ You can edit a list’s name and description, and add metadata items.
  
 3.	In the **listId** box, enter the list ID, and then enter your subscription key.
 
-4.	In the **Request body** box, make your edits, and then select **Send**.
+4.	In the **Request body** box, make your edits, and then select the **Send** button on the page.
 
   ![Image Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
