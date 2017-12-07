@@ -18,7 +18,7 @@ ms.author: chackdan
 
 ---
 # Service Fabric cluster security scenarios
-An Azure Service Fabric cluster is a resource that you own. You must secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. Although it's possible to create an unsecured cluster, if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
+An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. Although it's possible to create an unsecured cluster, if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
 
 This article is an overview of security scenarios for Azure clusters and standalone clusters, and the various technologies you can use to implement them:
 
@@ -55,7 +55,7 @@ Clusters running on Azure and standalone clusters running on Windows both can us
 ### Client-to-node certificate security
 Set up client-to-node certificate security when you create the cluster, either in the Azure portal, by using a Resource Manager template, or by using a standalone JSON template. To create the certificate, specify an admin client certificate or a user client certificate. As a best practice, the admin client and user client certificates you specify should be different from the primary and secondary certificates you specify for [node-to-node security](#node-to-node-security). By default, the cluster certificates for node-to-node security are added to the allowed client admin certificates list.
 
-Clients that connect to the cluster by using the admin certificate have full access to management capabilities. Clients that connect to the cluster by using the read-only user client certificate have only read access to management capabilities. These certificates are used for the RBAC that we described later in this article.
+Clients that connect to the cluster by using the admin certificate have full access to management capabilities. Clients that connect to the cluster by using the read-only user client certificate have only read access to management capabilities. These certificates are used for the RBAC that is described later in this article.
 
 To learn how to set up certificate security in a cluster for Azure, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
