@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing video search
 
-The [Bing Video Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
 
 1. Download or install the [gson library](https://github.com/google/gson).
 2. Create a new Java project in your favorite IDE or editor.
