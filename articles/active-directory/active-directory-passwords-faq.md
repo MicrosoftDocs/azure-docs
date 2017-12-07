@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -82,7 +82,7 @@ This FAQ is split into the following sections:
 
   > **A:** Yes, there are security features built into password reset to protect it from misuse. 
   >
-  > Users can try only five password reset attempts within an hour before they're locked out for 24 hours. 
+  > Users can try only five password reset attempts within a 24 hour period before they're locked out for 24 hours. 
   >
   > Users can try to validate a phone number, send a SMS, or validate security questions and answers only five times within an hour before they're locked out for 24 hours. 
   >
