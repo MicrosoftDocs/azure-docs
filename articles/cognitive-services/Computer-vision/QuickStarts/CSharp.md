@@ -24,7 +24,7 @@ This article provides information and code samples to help you quickly get start
 ## Prerequisites
 
 * Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
-* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
@@ -34,7 +34,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 * Does the image contain adult or sexually suggestive content?
 
 ### Analyze an image C# example request

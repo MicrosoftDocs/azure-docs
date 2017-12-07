@@ -151,7 +151,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
     The **Create App Service** window opens. In it you can begin to create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    > For more information about publishing, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > For more information about publishing, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, A-Z, 0-9, and the hyphen (-). The URL of the web app is `http://<app_name>.azurewebsites.NET`, where `<app_name>` is your web app name. You can accept the automatically generated name, which is unique.
 

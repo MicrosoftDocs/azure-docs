@@ -22,7 +22,7 @@ In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.m
 
 In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy. 
 
-For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## Prerequisites
 Complete the steps in the [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md) article.

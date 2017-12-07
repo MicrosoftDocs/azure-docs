@@ -21,7 +21,7 @@ ms.author: yoelh
 When you migrate your identity provider to Azure Active Directory B2C (Azure AD B2C), you might also need to migrate the user account. This article explains how to migrate existing user accounts from any identity provider to Azure AD B2C. The article is not meant to be prescriptive but, rather, it describes two of several approaches. The developer is responsible for the suitability of each approach.
 
 ## User migration flows
-With Azure AD B2C, you can migrate users through [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). The user migration process falls into two flows:
+With Azure AD B2C, you can migrate users through [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). The user migration process falls into two flows:
 
 * **Pre-migration**: This flow applies when you either have clear access to a user's credentials (user name and password) or the credentials are encrypted, but you can decrypt them. The pre-migration process involves reading the users from the old identity provider and creating new accounts in the Azure AD B2C directory.
 
@@ -97,7 +97,7 @@ Read and write directory data permissions do *not* include the right to delete u
 > You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
-> The following PowerShell script requires [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> The following PowerShell script requires [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 In this PowerShell script, do the following:
 1. Connect to your online service. To do so, run the `Connect-AzureAD` cmdlet at the Windows PowerShell command prompt, and provide your credentials. 
@@ -275,7 +275,7 @@ To track the password change, you use an Azure table. When you run the pre-migra
     ```
 
 ### Step 4.2: Deploy your web application to Azure App Service
-Publish your API service to Azure App Service. For more information, see [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publish your API service to Azure App Service. For more information, see [Deploy your app to Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### Step 4.3: Add a technical profile and technical profile validation to your policy 
 1. In your working directory, open the *TrustFrameworkExtensions.xml* extension policy file. 
@@ -381,7 +381,7 @@ You can view and monitor logging information in near-real time.
 
 6. Check the output of the RESTful API.
 
-For more information, see [Streaming logs and the console](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+For more information, see [Streaming logs and the console](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Use the diagnostics logs only during development and testing. The RESTful API output might contain confidential information that should not be exposed in production.

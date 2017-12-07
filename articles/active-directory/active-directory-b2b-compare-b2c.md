@@ -34,7 +34,7 @@ Single sign-on (SSO) to all Azure AD-connected apps is supported. For example, y
 Partner lifecycle: Managed by the host/inviting organization.  | Customer lifecycle: Self-serve or managed by the application.
 Security policy and compliance: Managed by the host/inviting organization.  | Security policy and compliance: Managed by the application.
 Branding: Host/inviting organization’s brand is used.  |	Branding: Managed by application. Typically tends to be product branded, with the organization fading into the background.
-More info: [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | More info: [Product page](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [Documentation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+More info: [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | More info: [Product page](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [Documentation](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### Next steps

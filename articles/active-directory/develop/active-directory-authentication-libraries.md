@@ -26,7 +26,7 @@ The Azure Active Directory Authentication Library (ADAL) enables application dev
  - And more
 
 > [!NOTE]
-> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -56,7 +56,7 @@ The Azure Active Directory Authentication Library (ADAL) enables application dev
 
 ### v2.0 Client Libraries (MSAL)
 
-The [Azure AD v2.0 endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) combines Azure AD and Microsoft Accounts behind a single endpoint. To access this endpoint, developers can use the [production-supported preview MSAL libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) instead of ADAL.
+The [Azure AD v2.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) combines Azure AD and Microsoft Accounts behind a single endpoint. To access this endpoint, developers can use the [production-supported preview MSAL libraries](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) instead of ADAL.
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |

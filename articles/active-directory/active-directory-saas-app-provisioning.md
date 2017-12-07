@@ -61,7 +61,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## What applications and systems can I use with Azure AD automatic user provisioning?
 
-Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Azure AD features pre-integrated support for a variety of popular SaaS apps and human resources systems, as well as generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 All of the "Featured" apps in the Azure AD application gallery support automated user provisioning. [The list of featured apps can be viewed here.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

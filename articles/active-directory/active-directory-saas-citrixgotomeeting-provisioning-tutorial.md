@@ -87,6 +87,6 @@ It starts the initial synchronization of any users and/or groups assigned to GoT
 
 * [Managing user account provisioning for Enterprise Apps](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure Single Sign-on](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 
