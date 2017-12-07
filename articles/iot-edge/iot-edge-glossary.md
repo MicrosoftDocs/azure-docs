@@ -21,7 +21,7 @@ ms.author: menchi
 This article lists some of the common terms used in the IoT Edge articles.
 
 ## IoT Edge
-Azure IoT Edge enables cloud-driven deployment of Azure services and solution-specific code to on-premise devices. IoT Edge devices can aggregate data from other devices to perform computing and analytics before the data is sent to the cloud. For more information please see [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/).
+Azure IoT Edge enables cloud-driven deployment of Azure services and solution-specific code to on-premises devices. IoT Edge devices can aggregate data from other devices to perform computing and analytics before the data is sent to the cloud. For more information please see [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/).
 
 ## IoT Edge agent
 The part of the IoT Edge runtime responsible for deploying and monitoring modules.
@@ -68,4 +68,9 @@ When two IoT Edge deployments target the same device, the deployment with higher
 ## Target Condition
 In an IoT Edge deployment, Target condition is any Boolean condition on device twins’ tags to select the target devices of the deployment, e.g. "tag.environment = prod". The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do. Learn more about [target condition](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
-Go to this [article](#iot-hub-devguide-glossary.md) to see IoT Hub glossary.
+
+## Next steps
+
+* See [IoT Hub glossary](#iot-hub-devguide-glossary.md)
+* Learn IoT Edge [module development](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules)
+* Learn IoT Edge [deployment](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring)
