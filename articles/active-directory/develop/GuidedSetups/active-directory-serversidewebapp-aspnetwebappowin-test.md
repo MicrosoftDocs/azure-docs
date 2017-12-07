@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 To test your application in Visual Studio, press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign in with Microsoft** button. Select the button to start the sign-in process.
 
-When you're ready to run your test, use a Microsoft Azure AD account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
+When you're ready to run your test, use a Microsoft Azure Active Directory (Azure AD) account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
 
 ![Sign in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
 <br/><br/>
@@ -67,7 +67,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### Restrict sign-in access to your application
-By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work and school accounts in organizations that are integrated with Azure AD can also sign in by default.
+By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work or school accounts in organizations that are integrated with Azure AD can also sign in by default.
 
 To restrict user sign-in access for your application, several options are available.
 
