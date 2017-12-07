@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 12/6/2017
 ---
 # Model management setup
 
@@ -20,8 +20,8 @@ Using Azure ML model management, you can efficiently deploy and manage Machine L
 By the end of this document, you should be able to have your model management environment set up and ready for deploying your machine learning models.
 
 ## What you need to get started
-To get the most out of this guide, you should have owner access to an Azure subscription that you can deploy your models to.
-The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+To get the most out of this guide, you should have contributer access to an Azure subscription or a resource group that you can deploy your models to.
+The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## Using the CLI
 To use the command-line interfaces (CLIs) from the Workbench, click **File** -> **Open Command Prompt**. 
@@ -123,7 +123,7 @@ The cluster environment setup command creates the following resources in your su
 - An Application insights account
 
 >[!IMPORTANT]
-> In order to successfully create a cluster environment, you will need to be an owner on the Azure subscription, and also have the ability to create a Service Principal. To check whether you have sufficient privileges, follow the instructions on this page: [Creating a Service Principal in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> In order to successfully create a cluster environment, you will need to be have contributor access on the Azure subscription or the resource group.
 
 The resource group, storage account, and ACR are created quickly. The ACS deployment can take up to 20 minutes. 
 

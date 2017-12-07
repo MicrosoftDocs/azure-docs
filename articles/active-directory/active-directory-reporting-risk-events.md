@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -28,9 +28,13 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) 
 - [Sign-ins from infected devices](#sign-ins-from-infected-devices) 
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) (exclusive to **Azure Active Directory Premium P2** editions)
+- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
+
+The insight you get for a detected risk event is tied to your Azure AD subscription. If you have an Azure AD Premium P1 edition (included in EMS E3 offering), detections that are not covered by your license are reported as  **Sign-in with additional risk detected**. In other words, you see a risk event Sign-in with additional risk detected for detections exclusive to Azure AD Identity Protection subscribers.
+
 
 This topic gives you a detailed overview of what risk events are and how you can use them to protect your Azure AD identities.
 

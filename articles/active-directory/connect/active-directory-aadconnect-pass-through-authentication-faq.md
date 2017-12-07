@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
 ---
 
@@ -95,24 +95,20 @@ Yes. Multi-forest environments are supported if there are forest trusts between 
 
 Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
 
-Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300,000 to 400,000 authentications per second on a standard 4-core CPU, 16-GB RAM server. For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity.
+Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
 
-You should install Authentication Agents close to your domain controllers to improve sign-in latency.
+To estimate network traffic, use the following sizing guidance:
+- Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; i.e., data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
+- Each response has a payload size of 1K bytes; i.e., data from the Authentication Agent to Azure AD.
+
+For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
+
+>[!NOTE]
+>There is a system limit of 12 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
 No, this scenario is _not_ supported.
-
-## How many Pass-through Authentication Agents should I install?
-
-We recommend that:
-
-- You install two or three Authentication Agents in total. This configuration is sufficient for most customers.
-- You install Authentication Agents on your domain controllers (or as close to them as possible) to improve sign-in latency.
-- You ensure that you add the servers where you installed the Authentication Agents to the same Active Directory forest as the users whose passwords you need to validate.
-
->[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
 
 ## How can I disable Pass-through Authentication?
 
