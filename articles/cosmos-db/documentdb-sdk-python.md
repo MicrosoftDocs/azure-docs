@@ -80,8 +80,8 @@ ms.custom: H1Hack27Feb2017
 * Added support for TOP/ORDERBY queries for partitioned collections.
 
 ### <a name="1.9.0"/>1.9.0
-* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
-* Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
+* Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overridden in the RetryOptions property on ConnectionPolicy object.
+* Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cumulative time the request waited between the retries.
 * Removed the RetryPolicy class and the corresponding property (retry_policy) exposed on the document_client class and instead introduced a RetryOptions class exposing the RetryOptions property on ConnectionPolicy class that can be used to override some of the default retry options.
 
 ### <a name="1.8.0"/>1.8.0
@@ -91,7 +91,7 @@ ms.custom: H1Hack27Feb2017
 * Added the support for Time To Live(TTL) feature for documents.
 
 ### <a name="1.6.1"/>1.6.1
-* Bug fixes related to server side partitioning to allow special characters in partitionkey path.
+* Bug fixes related to server-side partitioning to allow special characters in partition key path.
 
 ### <a name="1.6.0"/>1.6.0
 * Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md). 
@@ -118,11 +118,11 @@ ms.custom: H1Hack27Feb2017
 * GA SDK.
 
 ## Release & retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+New features and functionality and optimizations are only added to the current SDK, as such it is recommend that you always upgrade to the latest SDK version as early as possible. 
 
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 > [!WARNING]
 > All versions of the Azure SQL SDK for Python prior to version **1.0.0** were retired on **February 29, 2016**. 
