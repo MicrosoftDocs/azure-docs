@@ -35,7 +35,6 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publish managed application for internal users</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Publish managed application for external users</a>
 - title: Reference
   items:
   - type: list
