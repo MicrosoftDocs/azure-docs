@@ -117,5 +117,4 @@ After the deployment finishes successfully, you see the managed application is c
 
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For examples of the files, see [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* For information about publishing managed applications to the Azure Marketplace, see [Create marketplace application](publish-marketplace-app.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
