@@ -25,7 +25,7 @@ You might have your Azure subscription disabled because your credit is expired, 
 
 ## Your credit is expired
 
-When you signup for Azure free account, you get a Free Trial subscription, which provides you $200 in Azure credits for 30 days and 12 months of free services. At the end of 30 days,we disable your subscription. Your subscription is disabled to protect you from accidentally incurring charges for usage beyond the credit and free services included with your subscription. To continue using Azure services, you have to enable your subscription by [upgrading it to a Pay-As-You-Go subscription](billing-upgrade-azure-subscription). Once upgraded, you still have access to free services for 12 months. You only get charged for usage beyond the free services and quantities.
+When you signup for Azure free account, you get a Free Trial subscription, which provides you $200 in Azure credits for 30 days and 12 months of free services. At the end of 30 days,we disable your subscription. Your subscription is disabled to protect you from accidentally incurring charges for usage beyond the credit and free services included with your subscription. To continue using Azure services, you have to enable your subscription by [upgrading it to a Pay-As-You-Go subscription](billing-upgrade-azure-subscription.md). Once upgraded, you still have access to free services for 12 months. You only get charged for usage beyond the free services and quantities.
 
 ## You reached your spending limit
 
