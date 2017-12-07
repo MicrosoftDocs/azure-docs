@@ -82,7 +82,7 @@ Here PUT, POST, DELETE refers to all the write operations activity log contains 
 ![Activity Log](./media/azure-log-audit/azure-log-audit-fig1.png)
 
 
-You can retrieve events from your Activity Log using the Azure portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlets, and [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Activity logs have 19-day data retention period.
+You can retrieve events from your Activity Log using the Azure portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlets, and [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Activity logs have 90-day data retention period.
 
 Integration Scenarios
 -	[Create an email or webhook alert that triggers off an Activity Log event.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email)
