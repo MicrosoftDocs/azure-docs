@@ -1,6 +1,6 @@
 ---
-title: Create a Windows SQL Server VM in Azure PowerShell | Microsoft Docs
-description: Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images.
+title: How to create create SQL Server VMs with Azure PowerShell | Microsoft Docs
+description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -18,27 +18,13 @@ ms.date: 11/29/2017
 ms.author: jroth
 
 ---
-# Provision a Windows SQL Server 2017 virtual machine with Azure PowerShell
+# How to create create SQL Server virtual machines with Azure PowerShell
 
-## Overview
+This guide explains your options to create Windows SQL Server VMs with Azure PowerShell. For a streamlined Azure PowerShell example with more default values, see the [SQL VM Azure PowerShell quickstart](quickstart-sql-vm-create-powershell.md).
 
-In this quick start tutorial, you run Azure PowerShell commands to create a single SQL Server 2017 Azure virtual machine (VM). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The tutorial follows the following basic steps:
-
-- Identify a target SQL Server virtual machine image.
-- Configure new providers for storage, network, and compute.
-- Create a VM using a single disk drive.
-
-> [!NOTE]
-> This tutorial uses the recommended **Azure Resource Manager** deployment model. If you need PowerShell commands for the classic model, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](../classic/ps-sql-create.md).
-
-## Prerequisites
-
-For this tutorial you need:
-
-- An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell)](/powershell/azure/overview), minimum version of 1.5.0 or later (this tutorial is tested with version 5.0.0). To retrieve your version, type **Get-Module Azure -ListAvailable**.
+This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Configure your subscription
 
@@ -50,25 +36,8 @@ For this tutorial you need:
 
 1. You should see a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
-1. After successfully signing in, review the information on the screen that includes the Subscription Name and ID of your default subscription. This is the subscription in which the resources for this tutorial are created unless you change to a different subscription. 
-
-1. If you have multiple subscriptions, run the following cmdlet to return a list of all of your subscriptions:
-
-   ```PowerShell
-   Get-AzureRmSubscription
-   ```
-
-   > [!NOTE]
-   > This step and the following step are only necessary if you need to change your default subscription before proceeding.
-
-1. To change to another subscription, run the following command with your target SubscriptionName.
-
-   ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName YourTargetSubscriptionName
-   ```
-
 ## Define image variables
-To simplify usability and understanding of the completed script from this tutorial, we start by defining a number of variables. Change the parameter values as you see fit, but beware of naming restrictions related to name lengths and special characters when modifying the values provided.
+To simplify resuse and script creations, start by defining a number of variables. Change the parameter values as you see fit, but beware of naming restrictions related to name lengths and special characters when modifying the values provided.
 
 ### Location and Resource Group
 Use two variables to define the data region and the resource group into which you create the other resources for the virtual machine.
@@ -77,7 +46,7 @@ Modify as desired and then execute the following cmdlets to initialize these var
 
 ```PowerShell
 $Location = "SouthCentralUS"
-$ResourceGroupName = "sqlvm1"
+$ResourceGroupName = "sqlvm2"
 ```
 
 ### Storage properties
