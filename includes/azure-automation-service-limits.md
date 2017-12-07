@@ -7,4 +7,4 @@
 | Job Run Time - Free tier |500 minutes per subscription per calendar month |
 | Max amount of memory given to a job |400 MB |
 | Max number of network sockets allowed per job |1000 |
-
+| Max number of Automation Accounts in a subscription |No Limit |
