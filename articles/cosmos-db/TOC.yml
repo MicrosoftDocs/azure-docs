@@ -187,7 +187,9 @@
         href: programming.md
       - name: Performance testing
         href: performance-testing.md
-      - name: Performance tips
+      - name: Performance tips for .NET
+        href: performance-tips.md
+      - name: Performance tips for Java
         href: performance-tips.md
       - name: Multi-master setup
         href: multi-region-writers.md

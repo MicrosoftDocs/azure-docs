@@ -1,5 +1,5 @@
-﻿---
-title: Azure Cosmos DB performance tips for .NET | Microsoft Docs
+---
+title: Azure Cosmos DB performance tips for Java | Microsoft Docs
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
 services: cosmos-db
@@ -8,18 +8,18 @@ manager: jhubbard
 editor: ''
 documentationcenter: ''
 
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
+ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 12/07/2017
 ms.author: mimig
 
 ---
-# Performance tips for Azure Cosmos DB and .NET
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Cosmos DB. Scaling up and down is as easy as making a single API call or [SDK method call](set-throughput.md#set-throughput-sdk). However, because Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
+# Performance tips for Azure Cosmos DB and Java
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Cosmos DB. Scaling up and down is as easy as making a single API call or [SDK method call](set-throughput.md#set-throughput-java). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 

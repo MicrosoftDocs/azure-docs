@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/07/2017
 ms.author: mimig
 
 ---
@@ -69,6 +69,28 @@ offer = new OfferV2(offer, 12000);
 
 //Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
+```
+
+<a id="set-throughput-java"></a>
+
+## To set the throughput by using the SQL API for Java
+
+This snippet is taken from the OfferCrudSamples.java file in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repo. 
+
+```Java
+// find offer associated with this collection
+Iterator < Offer > it = client.queryOffers(
+    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
+assertThat(it.hasNext(), equalTo(true));
+
+Offer offer = it.next();
+assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
+assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
+
+// update the offer
+int newThroughput = 10300;
+offer.getContent().put("offerThroughput", newThroughput);
+client.replaceOffer(offer);
 ```
 
 ## Throughput FAQ
