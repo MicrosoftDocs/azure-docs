@@ -1,7 +1,7 @@
 ---
 
 title: Find Azure Active Directory user activity reports in Azure portal | Microsoft Docs
-description: Learn where the Azure Active Directory user activity reports you already know in the Azure portal.
+description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -21,7 +21,7 @@ ms.reviewer: dhanyahk
 ---
 # Find activity reports in the Azure portal
 
-In this article, we describe how to find Azure Active Directory user activity reports from the Azure classic portal in the Azure portal.
+In this article, we describe how to find Azure Active Directory user activity reports in the Azure portal.
 
 ## What's new
 
