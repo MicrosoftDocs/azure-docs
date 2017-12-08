@@ -27,7 +27,7 @@ Security Center automatically creates a default security policy for each of your
 * Monitor policy compliance.
 
 > [!NOTE]
-> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security polices in Security Center, do the following:

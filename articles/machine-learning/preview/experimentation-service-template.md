@@ -14,7 +14,7 @@ ms.date: 11/14/2017
 # Configure the Azure Machine Learning Experimentation Service
 
 ## Overview
-Azure Machine Learning Experimentation Service account, workspace, and project are Azure Resources. As such, they can be deployed using Resources Manager templates. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Azure Machine Learning Experimentation Service account, workspace, and project are Azure Resources. As such, they can be deployed using Resources Manager templates. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Deploy a template
 Deploying a template requires only a couple of steps in the Azure Command Line Interface or in the Azure portal.
@@ -132,7 +132,7 @@ Create a file with below content and save it as <parameters.json>.
 There are three values that you can change. 
 * AccountName: The name of the experimentation account.
 * Location: One of the supported Azure regions.
-* Storage Account SKU: Azure ML only supports standard storage, not premium. For more information about storage, see [storage introduction](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Storage Account SKU: Azure ML only supports standard storage, not premium. For more information about storage, see [storage introduction](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

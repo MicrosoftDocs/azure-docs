@@ -4,7 +4,7 @@ description: Publish on-premises applications to the cloud with Azure AD Applica
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: michael.tillman
 
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 12/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,10 +20,6 @@ ms.custom: it-pro
 
 
 # Publish applications using Azure AD Application Proxy
-
-> [!div class="op_single_selector"]
-> * [Azure portal](application-proxy-publish-azure-portal.md)
-> * [Azure classic portal](active-directory-application-proxy-publish.md)
 
 Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. You can publish these applications through the Azure portal to provide secure remote access from outside your network.
 
