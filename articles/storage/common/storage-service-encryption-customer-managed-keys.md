@@ -47,7 +47,7 @@ You can enable SSE for the storage account using the [Azure portal](https://port
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Enable SSE for Blob Service*
 
-If you want to programmatically enable or disable the Storage Service Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), or the [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+If you want to programmatically enable or disable the Storage Service Encryption on a storage account, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 On this screen, if you can’t see the “use your own key” checkbox, you have not been approved for the preview. Send an e-mail to [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) and request approval.
 
@@ -68,10 +68,10 @@ If the storage account does not have access to the Key Vault, you can run the fo
 You can also grant access via the Azure portal by going to the Azure Key Vault in the Azure portal and granting access to the storage account.
 
 ## Step 4: Copy data to storage account
-If you would like to transfer data into your new storage account so that it’s encrypted, refer to [Step 3 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+If you would like to transfer data into your new storage account so that it’s encrypted, refer to [Step 3 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## Step 5: Query the status of the encrypted data
-To query the status of the encrypted data, refer to [Step 4 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+To query the status of the encrypted data, refer to [Step 4 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## Frequently asked questions about Storage Service Encryption for Data at Rest
 **Q: I'm using Premium storage; can I use SSE with customer managed keys?**
@@ -88,7 +88,7 @@ A: There is a cost associated for using Azure Key Vault. For more details visit 
 
 **Q: Can I revoke access to the encryption keys?**
 
-A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) and [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
+A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
 
 **Q: Can I create a storage account and key in different region?**
 
@@ -120,6 +120,6 @@ A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) f
 
 ## Next steps
 
-*	For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*	For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*	For more information on the comprehensive set of security capabilities that help developers build secure applications, see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*	For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *	For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-get-started.md).

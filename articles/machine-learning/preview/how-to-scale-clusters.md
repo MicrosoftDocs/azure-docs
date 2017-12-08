@@ -51,7 +51,7 @@ The following command sets the count of agent nodes in the cluster:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-This will take a few minutes to complete. For more information on scaling the number of nodes in the cluster, see [Scale agent nodes in a Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+This will take a few minutes to complete. For more information on scaling the number of nodes in the cluster, see [Scale agent nodes in a Container Service cluster](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### Scaling the number of Kubernetes pod replicas in a cluster
  
