@@ -47,11 +47,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. In the search field, type `blob` and then choose your desired language for the blob storage trigger template.
+2. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
 
     ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
  
-4. Use the settings as specified in the table below the image.
+3. Use the settings as specified in the table below the image.
 
     ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 

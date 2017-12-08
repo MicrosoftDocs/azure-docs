@@ -47,9 +47,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Select the **GitHub WebHook** template for your desired language. **Name your function**, then select **Create**.
+2. In the search field, type `github` and then choose your desired language for the GitHub webhook trigger template. 
 
-     ![Create a GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Choose the GitHub webhook trigger template](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Type a name for your function, then select **Create**. 
+
+     ![Configure the GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. In your new function, click **</> Get function URL**, then copy and save the values. Do the same thing for **</> Get GitHub secret**. You use these values to configure the webhook in GitHub.
 
