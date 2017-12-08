@@ -42,9 +42,9 @@
     href: tutorial-bing-image-search-single-page-app.md
   - name: Single-page Web app (source code)
     href: tutorial-bing-image-search-single-page-app-source.md
-  - name: Bing Image Upload for Insights
+  - name: Bing image upload for insights
     href: tutorial-image-post.md
-  - name: Bing Image Upload for Insights (source code)
+  - name: Bing image upload for insights (source code)
     href: tutorial-image-post-source.md
 - name: Reference
   items:

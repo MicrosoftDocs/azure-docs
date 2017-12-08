@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-gedod
 ---
-# Tutorial: Bing Image Upload for Image Insights
+# Tutorial: Bing image upload for image insights
 
 This is the complete source code for the [Bing Image Upload for Insights](tutorial-image-post.md) tutorial, which uses the Image Search endpoint with a `POST` request. To run the app, copy the source code into a C# console application. Build, and run in the Visual Studio debugger.
 
