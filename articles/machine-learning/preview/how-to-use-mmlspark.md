@@ -26,7 +26,7 @@ ms.date: 09/26/2017
 
 To step through this how-to guide, you need to:
 - [Install Azure Machine Learning Workbench](quickstart-installation.md)
-- [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
+- [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## Run Your Experiment in Docker Container
 
@@ -38,7 +38,7 @@ After the run has completed, you can view the results in run history view of Azu
 
 ## Install MMLSpark on Azure HDInsight Spark Cluster.
 
-To complete this and the following step, you need to first [create an Azure HDInsight Spark cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+To complete this and the following step, you need to first [create an Azure HDInsight Spark cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 By default, Azure Machine Learning Workbench installs MMLSpark package on your cluster when you run your experiment. You can control this behavior and install other Spark packages by editing a file named _aml_config/spark_dependencies.yml_ in your project folder.
 
@@ -65,7 +65,7 @@ Open CLI window from Azure Machine Learning Workbench by going to "File" Menu an
 In CLI Window, run following commands:
 
 ```
-az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach cluster --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> 
 ```
 
 ```

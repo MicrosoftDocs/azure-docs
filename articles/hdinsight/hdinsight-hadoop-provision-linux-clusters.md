@@ -96,15 +96,6 @@ For more information, see [Default node configuration and virtual machine sizes 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="cluster-tiers"></a>Cluster tier: HDInsight service tiers
-
-Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-The following screenshot shows the Azure portal information for choosing cluster types.
-
-![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
-
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 

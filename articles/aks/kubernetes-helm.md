@@ -1,24 +1,17 @@
 ---
-title: Deploy containers with Helm in Kubernetes on Azure | Microsoft Docs
+title: Deploy containers with Helm in Kubernetes on Azure
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
+
 # Use Helm with Azure Container Service (AKS)
 
 [Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
@@ -54,16 +47,16 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Helm is pre-installed in AKS clusters, so only the client-side configuration is needed. Run the following command to configure the Helm client.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Output:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
+$HELM_HOME has been configured at /Users/user/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```

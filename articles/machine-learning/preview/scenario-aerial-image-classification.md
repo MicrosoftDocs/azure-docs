@@ -55,10 +55,15 @@ The following instructions guide you through the process of setting up execution
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI 2.0
-    - Install the Batch AI SDK and Azure CLI 2.0 by following the instructions in the [Recipes Prerequisites section](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - As of this writing, the Azure Machine Learning Workbench uses a separate fork of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
-    - Create an Azure Active Directory application and service principal by following [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Record the client ID, secret, and tenant ID.
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
+    - Complete the following sections in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Prerequisites"
+        - "Create and get your Azure Active Directory (AAD) application"
+        - "Register BatchAI Resource Providers" (under "Run Recipes Using Azure CLI 2.0")
+        - "Install Azure Batch AI Management Client"
+        - "Install Azure Python SDK"
+    - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
+    - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
 

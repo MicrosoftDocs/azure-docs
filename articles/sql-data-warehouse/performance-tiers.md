@@ -20,9 +20,10 @@ ms.author: jrj;barbkess
 # Azure SQL Data Warehouse performance tiers (Preview)
 SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. This article explains the concepts of performance tiers to help you choose the most suitable performance tier for your workload. 
 
-
 ## What is a performance tier?
 A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
