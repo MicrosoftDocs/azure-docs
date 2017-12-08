@@ -101,6 +101,8 @@ To create a resource group in the Azure portal, follow these steps:
 5. Choose the location for the resource group.
 6. Click the **Create** button.  
 
+![Screen shot showing resource group creation in the Azure portal](./media/storage-quickstart-create-account/create-resource-group.png)
+
 # [PowerShell](#tab/powershell)
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
@@ -108,7 +110,7 @@ To create a new resource group with PowerShell, use the [New-AzureRmResourceGrou
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
-$resourceGroup = "myResourceGroup"
+$resourceGroup = "storage-quickstart-resource-group"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
@@ -125,7 +127,7 @@ To create a new resource group with Azure CLI, use the [az group create](/cli/az
 
 ```azurecli-interactive
 az group create \
-    --name myResourceGroup \
+    --name storage-quickstart-resource-group \
     --location westus
 ```
 
@@ -141,7 +143,7 @@ az account list-locations \
 
 # Create a general-purpose storage account
 
-A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default). For information about premium general-purpose storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md).
+A general-purpose storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. A general-purpose storage account can be created in either a standard or a premium tier. The examples in this article show how to create a general-purpose storage account in the standard tier (the default). For more information about storage account options, see [Introduction to Microsoft Azure Storage](storage-introduction.md).
 
 When naming your storage account, keep these rules in mind:
 
@@ -150,7 +152,7 @@ When naming your storage account, keep these rules in mind:
 
 # [Portal](#tab/portal)
 
-To create a storage account in the Azure portal, follow these steps:
+To create a general-purpose storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
@@ -163,15 +165,77 @@ To create a storage account in the Azure portal, follow these steps:
 ![Screen shot showing storage account creation in the Azure portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # [PowerShell](#tab/powershell)
-ps
 
+To create a general-purpose storage account from PowerShell, use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command: 
+
+```powershell
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name "storagequickstart" `
+  -Location $location `
+  -SkuName Standard_LRS `
+  -Kind Storage 
+```
 
 # [Azure CLI](#tab/azure-cli)
-cli
+
+To create a general-purpose storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account#create) command.
+
+```azurecli-interactive
+az storage account create \
+    --name storagequickstart \
+    --resource-group storage-quickstart-resource-group \
+    --location westus \
+    --sku Standard_LRS 
+```
 
 ---
 
-Any objects contained in a given storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
+## Clean up resources
 
+If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
+# [Portal](#tab/portal)
+
+To remove a resource group using the Azure portal:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
+2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
+3. Select **Delete resource group**, and confirm.
+
+# [PowerShell](#tab/powershell)
+
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command: 
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#delete) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
+---
+
+## Next steps
+
+In this quick start, you've created a general-purpose standard storage account. To learn how to upload and download blobs to and from your storage account, continue to the Blob storage quickstart.
+
+# [Portal](#tab/portal)
+
+TBD
+
+# [PowerShell](#tab/powershell)
+
+> [!div class="nextstepaction"]
+> [Transfer objects to/from Azure Blob storage using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+
+# [Azure CLI](#tab/azure-cli)
+
+> [!div class="nextstepaction"]
+> [Transfer objects to and from Azure Blob storage using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+
+---
