@@ -1,21 +1,4 @@
----
-title: "Azure AD v2.0 JavaScript SPA guided setup: Test your code | Microsoft Docs"
-description: How JavaScript SPA applications can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.
-services: active-directory
-documentationcenter: dev-center-name     
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/01/2017
-ms.author: andret
-
----
 ## Test your code
 
 ### Test with Visual Studio
@@ -65,4 +48,4 @@ If a back-end API doesn't require a scope (not recommended), you can use the **c
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]

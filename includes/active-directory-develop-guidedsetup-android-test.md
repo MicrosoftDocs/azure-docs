@@ -1,23 +1,4 @@
----
-title: "Azure AD v2.0 Android getting started: Test your code | Microsoft Docs"
-description: How an Android application can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-ms.custom: aaddev
-
----
 ## Test your code
 
 1. Deploy your code to your device/emulator.
@@ -48,4 +29,4 @@ To access the user’s calendars in the context of an application, add the **Cal
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](active-directory-develop-help-support-include.md)]
