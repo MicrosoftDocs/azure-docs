@@ -101,7 +101,7 @@ The operationalization Jupyter Notebook in `Code/3_operationalization.ipnyb` tha
 The zipped file contains:
 
 - `service_schema.json` The schema definition file for deployment. 
-- `lstmcore.py` The init() and run() functions required by the Azure web service
+- `lstmscore.py` The init() and run() functions required by the Azure web service
 - `lstmfull.model` The model definition directory.
 
 The notebook tests the functions with the model definition before packaging the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
