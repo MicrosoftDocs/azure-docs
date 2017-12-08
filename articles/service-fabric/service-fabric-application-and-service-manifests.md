@@ -175,17 +175,12 @@ For more information about other features supported by application manifests, re
 
 
 ## Next steps
-[Package an application](service-fabric-package-apps.md) and make it ready to deploy.
-
-[Deploy and remove applications](service-fabric-deploy-remove-applications.md) describes how to use PowerShell to manage application instances.
-
-[Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md) describes how to configure parameters and environment variables for different application instances.
-
-[Configure security policies for your application](service-fabric-application-runas-security.md) describes how to run services under security policies to restrict access.
-
-[Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
-
-[Encrypt secrets in the application manifest](service-fabric-application-secret-management.md)
+- [Package an application](service-fabric-package-apps.md) and make it ready to deploy.
+- [Deploy and remove applications](service-fabric-deploy-remove-applications.md).
+- [Configure parameters and environment variables for different application instances](service-fabric-manage-multiple-environment-app-configuration.md).
+- [Configure security policies for your application](service-fabric-application-runas-security.md).
+- [Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
+- [Encrypt secrets in the application manifest](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

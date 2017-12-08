@@ -48,7 +48,7 @@ The following example shows how to change the default value of FabricTransport O
 
 ## Config package
 
-You can use a [config package](service-fabric-application-model.md) to modify the default configuration.
+You can use a [config package](service-fabric-application-and-service-manifests.md) to modify the default configuration.
 
 ### Configure FabricTransport settings for the actor service
 
