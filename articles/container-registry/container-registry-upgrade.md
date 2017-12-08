@@ -58,7 +58,7 @@ az acr update -n myclassicregistry --sku Premium
 When the migration is complete, you should see output similar to the following:
 
 ```
-SUCESS OUTPUT HERE
+SUCCESS OUTPUT HERE
 ```
 
 If you specify a managed registry SKU whose maximum capacity is less than the size of your Classic registry, you'll receive the following error:
