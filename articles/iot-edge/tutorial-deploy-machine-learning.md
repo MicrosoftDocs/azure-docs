@@ -78,14 +78,14 @@ Check that your container image was successfully created and stored in the Azure
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This command gives the runtime access to pull the container.
 
 Linux:
-    ```cmd
-    sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
-    ```
+   ```cmd
+   sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   ```
 
 Windows:
-    ```cmd
-    iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
-    ```
+   ```cmd
+   iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+   ```
 
 ## Run the solution
 
