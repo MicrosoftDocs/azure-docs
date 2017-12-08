@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 To complete this tutorial, you need to:
 
-- Download and instanll [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
+- Download and install [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
