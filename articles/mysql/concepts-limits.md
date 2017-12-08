@@ -8,10 +8,10 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/09/2017
 ---
-# Limitations in Azure Database for MySQL (Preview)
-The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
+# Limitations in Azure Database for MySQL
+The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
 Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  
@@ -37,6 +37,31 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
+## Storage engine support
+
+### Supported
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### Unsupported
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## Privilege support
+
+### Unsupported
+- [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+
+## Data manipulation statement support
+
+### Supported
+- LOAD DATA INFILE - Supported, but it must specify the [LOCAL] parameter that is directed to a UNC path (Azure storage mounted through XSMB).
+
+### Unsupported
+- SELECT ... INTO OUTFILE
+
 ## Preview functional limitations
 
 ### Scale operations
@@ -47,12 +72,14 @@ When too many connections are reached, you may receive the following error:
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported.
 
-### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
-
 ### Point-in-time-restore
 - Restoring to different service tier and/or Compute Units and Storage size is not allowed.
-- Restoring a dropped server is not supported.
+- Restoring a deleted server is not supported.
+
+## Functional limitations
+
+### Subscription management
+- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ## Next steps
 - [What’s available in each service tier](concepts-service-tiers.md)
