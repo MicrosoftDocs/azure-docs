@@ -48,7 +48,7 @@ The prerequisites to run this example are as follows:
 3. A Windows machine. Windows OS is necessary since the Workbench supports only Windows and MacOS, while Microsoft's Cognitive Toolkit (which we use as deep learning library) only supports Windows and Linux.
 4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
 5. Various Python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` after downloading the OpenCV wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/ (the exact filename and version can change)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -58,10 +58,11 @@ The prerequisites to run this example are as follows:
 ### Troubleshooting / Known bugs
 - A GPU is needed for part 2, and otherwise the error "Batch normalization training on CPU is not yet implemented" is thrown when trying to refine the DNN.
 - Out-of-memory errors during DNN training can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
-- The code was tested using CNTK 2.0 and 2.1, and should run also on newer versions without any (or only minor) changes.
+- The code was tested using CNTK 2.2, and should run also on older (up to v2.0) and newer versions without any or only minor changes.
 - At the time of writing, the Azure Machine Learning Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After performing these steps, the notebook will open properly inside the Azure Machine Learning Workbench again.
+- All scripts provided in this sample have to be executed locally, and not on e.g. a docker remote environment. All notebooks need to be executed with kernel set to the local project kernel with name "<projectname> local" (e.g. "myImgClassUsingCNTK local").
 
-
+    
 ## Create a new workbench project
 
 To create a new project using this example as a template:
@@ -88,7 +89,7 @@ Performing these steps creates the project structure shown below. The project di
 
 This tutorial uses as running example an upper body clothing texture dataset consisting of up to 428 images. Each image is annotated as one of three different textures (dotted, striped, leopard). We kept the number of images small so that this tutorial can be executed quickly. However, the code is well-tested and works with tens of thousands of images or more. All images were scraped using Bing Image Search and hand-annotated as is explained in [Part 3](#using-a-custom-dataset). The image URLs with their respective attributes are listed in the */resources/fashionTextureUrls.tsv* file.
 
-The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fashionTexture/* directory. Some of the 428 URLs are likely broken. This is not an issue, and just means that we have slightly fewer images for training and testing.
+The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fashionTexture/* directory. Some of the 428 URLs are likely broken. This is not an issue, and just means that we have slightly fewer images for training and testing. All scripts provided in this sample have to be executed locally, and not on e.g. a docker remote environment.
 
 The following figure shows examples for the attributes dotted (left), striped (middle), and leopard (right). Annotations were done according to the upper body clothing item.
 
@@ -111,7 +112,7 @@ All important parameters are specified, and a short explanation provided, in a s
 ### Step 1: Data preparation
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-The notebook `showImages.ipynb` can be used to visualize the images, and to correct their annotation as needed. To run the notebook, open it in Azure Machine Learning Workbench, click on "Start Notebook Server" if this option is shown, and then execute all cells in the notebook. See the troubleshooting section in this document if you get an error complaining that the notebook is too large to be displayed.
+The notebook `showImages.ipynb` can be used to visualize the images, and to correct their annotation as needed. To run the notebook, open it in Azure Machine Learning Workbench, click on "Start Notebook Server" if this option is shown, change to the local project kernel with name "<projectname> local" (e.g. "myImgClassUsingCNTK local"), and then execute all cells in the notebook. See the troubleshooting section in this document if you get an error complaining that the notebook is too large to be displayed.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -175,7 +176,7 @@ In addition to accuracy, the ROC curve is plotted with respective area-under-cur
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Finally, the notebook `showResults.py` is provided to scroll through the test images and visualize their respective classification scores:
+Finally, the notebook `showResults.py` is provided to scroll through the test images and visualize their respective classification scores. As explained in step1, every notebook in this sample needs to use the local project kernel with name "<projectname> local":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -187,7 +188,7 @@ Finally, the notebook `showResults.py` is provided to scroll through the test im
 ### Step 6: Deployment
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-The trained system can now be published it as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench. See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+The trained system can now be published as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench (remember to set as kernel the local project kernel with name "<projectname> local"). See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for more deployment related information.
 
 Once deployed, the web service can be called using the script `6_callWebservice.py`. Note that the IP address (either local or on the cloud) of the web service needs to be set first in the script. The notebook `deploy.ipynb` explains how to find this IP address.
 
