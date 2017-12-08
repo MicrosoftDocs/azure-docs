@@ -166,7 +166,7 @@ The rest of the code parses the JSON result and prints it to the console.
         }
 ```
 ## GET Request using the ImageInsightsToken
-To use the `ImageInsightsToken` returned with results of a `POST`, simply create a `GET` request like the following:
+To use the `ImageInsightsToken` returned with results of a `POST`, create a `GET` request like the following:
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
 ```
