@@ -183,5 +183,6 @@ In this walkthrough, you learned techniques for using AAD sign-ins to filter doc
 
 ## See also
 
-+ [Security trimming with Azure Search](search-security-trimming-for-azure-search.md)
++ [Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)
 + [Filters in Azure Search](search-filters.md)
++ [Data security and access control in Azure Search operations](search-security-overview.md)

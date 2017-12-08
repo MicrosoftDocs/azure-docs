@@ -33,6 +33,10 @@
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
+## Secure
+### [Data security & access control](search-security-overview.md)
+### [Identity-based access control](search-security-trimming-for-azure-search.md)
+### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
 ## Develop
 ### [API versions](search-api-versions.md)
 ### [Develop in Node.js](search-get-started-nodejs.md)
@@ -42,16 +46,6 @@
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
 ### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
-## Administration & Analytics
-### [Manage using Azure portal](search-manage.md)
-### [Manage using PowerShell](search-manage-powershell.md)
-### [Monitor usage and statistics](search-monitor-usage.md)
-### [Search traffic analytics](search-traffic-analytics.md)
-### [Performance and optimization](search-performance-optimization.md)
-## Security
-### [Data security and access control](search-security-overview.md)
-### [Identity-based access control](search-security-trimming-for-azure-search.md)
-### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
 ## Load data
 ### [Indexer overview](search-indexer-overview.md)
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
@@ -83,6 +77,12 @@
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
 ### [moreLikeThis preview](search-more-like-this.md)
+## Administration & Analytics
+### [Manage using Azure portal](search-manage.md)
+### [Manage using PowerShell](search-manage-powershell.md)
+### [Monitor usage and statistics](search-monitor-usage.md)
+### [Search traffic analytics](search-traffic-analytics.md)
+### [Performance and optimization](search-performance-optimization.md)
 
 # Reference
 
