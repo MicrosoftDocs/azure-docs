@@ -89,7 +89,7 @@ Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting
 
 If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
 #### Diagnostic Logs
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.

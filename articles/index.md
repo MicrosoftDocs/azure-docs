@@ -236,14 +236,20 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Deploy to Azure
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                        <a class="barLink" href="/azure/jenkins">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
-                                                            Jenkins on Azure VMs
+                                                            Jenkins
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/terraform">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt="">
+                                                            Terraform                                                       
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -998,7 +1004,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Location Based Services</p>
                                             </a>
@@ -2866,7 +2872,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                <a href="https://docs.microsoft.com/azure/location-based-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: rasquill
+ms.author: cwatson
 "\"/": ''
 
 ---
