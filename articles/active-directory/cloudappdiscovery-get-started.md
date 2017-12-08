@@ -81,6 +81,7 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 * Barracuda - Web App Firewall (W3C)
 * Blue Coat Proxy SG - Access log (W3C)
 * Check Point
+* Cisco ASA FirePOWER
 * Cisco ASA Firewall (For Cisco ASA firewalls, set the information level to 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
