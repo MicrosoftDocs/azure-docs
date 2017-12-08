@@ -36,8 +36,8 @@ The following table lists the latency information for activity reports.
 
 | Report | Minimum | Average | Maximum |
 | :-- | --- | --- | --- |
-| Audit logs             | 30 minutes  | 45 Minutes | 1 hour     |
-| Sign-ins               | 15 minutes  | 15 minutes | 2 hours*   |
+| Audit logs             | 30 minutes  | 1 hour | 2 hours     |
+| Sign-ins               | 15 minutes  | 2 hours* | 24 hours  |
 
 >[!NOTE]
 > For some sign-ins activity data coming from legacy office applications, it can take to 8 hours for the reporting data to show up. 

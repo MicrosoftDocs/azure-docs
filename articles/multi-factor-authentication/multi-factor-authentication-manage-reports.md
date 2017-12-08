@@ -40,13 +40,13 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
-## Powershell reporting
+## PowerShell reporting
 
-Identify users who have registered for MFA using the Powershell that follows.
+Identify users who have registered for MFA using the PowerShell that follows.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identify users who have not registered for MFA using the Powershell that follows.
+Identify users who have not registered for MFA using the PowerShell that follows.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
