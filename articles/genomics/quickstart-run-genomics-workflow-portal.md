@@ -19,7 +19,7 @@ ms.date: 12/7/2017
 Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
 Get started in just a few steps: 
 1.	Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics python client in your local environment. 
-2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files, which should be paired end reads (fastq or bam files).
+2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files. The input files should be paired end reads (fastq or bam files).
 3.	Run: Use the Microsoft Genomics command-line interface to run workflows through the Microsoft Genomics service. 
 
 For more information on Microsoft Genomics, see [What is Microsoft Genomics?](overview-what-is-microsoft-genomics.md)
@@ -63,7 +63,7 @@ The Microsoft Genomics python client is compatible with python 2.7. We recommend
 Use python pip to install the Microsoft Genomics client `msgen`. The follow instructions assume python is already in your system path. If you have issues with pip install not recognized, you need to add python and the scripts subfolder to your system path.
 
 
-```Command line
+```
 pip install --upgrade --no-deps msgen
 pip install msgen
 ```
@@ -110,7 +110,7 @@ If you don’t yet have a Microsoft Azure Storage account, you need to create on
 
 ![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
 
-Configure your Storage account with the following information, as shown in the above image. We typically use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose, as blob storage can be 2-5x faster for downloads and uploads. 
+Configure your Storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads. 
 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
@@ -124,7 +124,7 @@ Configure your Storage account with the following information, as shown in the a
  |Access tier                  | Hot                   |     |
  |Subscription         | Your Azure subscription |For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
  |Resource group       | MyResourceGroup       |  You can select the same resource group as your genomics account. For valid resource group names, see [Naming Rules](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
- |Location                  | West US 2                  | We suggest you use the same location as the location of your genomics account, to reduce egress charges and reduce latency. The Genomics service is available in West US2, West US 2, West Europe, and Southeast Asia    |
+ |Location                  | West US 2                  | Use the same location as the location of your genomics account, to reduce egress charges, and reduce latency. The Genomics service is available in West US2, West US 2, West Europe, and Southeast Asia    |
  |Virtual networks                | disabled                   |     |
 
 
@@ -143,14 +143,14 @@ The Microsoft Genomics service expects paired end reads as input files. You can 
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-Within your storage account, you will need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 
 
 ## Run a workflow through the Microsoft Genomics service using the python client 
 
 To run a workflow through the Microsoft Genomics service, edit the config.txt file to specify the input and output storage container for your data.
-Open the config.txt file that you downloaded from your Genomics account. The sections you need to specify are your subscription key and the six items at the bottom, the storage account name, key and container name for both the input and output. You can find this information by navigating in the portal to your storage account --> Access keys, or directly from the Azure Storage Explorer.  
+Open the config.txt file that you downloaded from your Genomics account. The sections you need to specify are your subscription key and the six items at the bottom, the storage account name, key and container name for both the input and output. You can find this information by navigating in the portal to **Access keys** for your storage account, or directly from the Azure Storage Explorer.  
 
 
 ![Genomics config](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics config")
@@ -175,4 +175,4 @@ Once your workflow completes, you can view the output files in your Azure Storag
 
 
 ## Next steps
-In this article, you uploaded your input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. To learn more about the capabilities available in the `msgen` client, please advance to the next article in the documentation.
+In this article, you uploaded your input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. To learn more about the capabilities available in the `msgen` client, advance to the next article in the documentation.
