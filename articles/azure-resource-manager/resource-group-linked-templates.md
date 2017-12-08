@@ -468,7 +468,7 @@ url=$(az storage blob url \
     --name parent.json \
     --output tsv \
     --connection-string $connection)
-parameter='{"containerSasToken":{"value":"?'$token'"}}'
+parameter='{"containerSasToken":{"value":"'$token'"}}'
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
