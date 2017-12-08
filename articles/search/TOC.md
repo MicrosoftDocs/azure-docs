@@ -49,7 +49,7 @@
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
 ## Security
-### [Service and data security](search-security-overview.md)
+### [Data security and access control](search-security-overview.md)
 ### [Identity-based access control](search-security-trimming-for-azure-search.md)
 ### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
 ## Load data
