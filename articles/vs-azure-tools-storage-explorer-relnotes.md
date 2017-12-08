@@ -23,13 +23,64 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 
 [Microsoft Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
+## Version 0.9.3
+12/08/2017
+
+### Download Azure Storage Explorer 0.9.2 (Preview)
+- [Azure Storage Explorer 0.9.3 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.3 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.3 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+* Your existing Storage Explorer window will be re-used when:
+	* Opening direct links generated in Storage Explorer.
+	* Opening Storage Explorer from portal.
+	* Opening Storage Explorer from Azure Storage VS Code extension (coming soon).
+* Added ability to open a new Storage Explorer window from within Storage Explorer.
+	* For Windows, there is a 'New Window' option under File Menu and in the context menu of the task bar.
+	* For Mac, there is a 'New Window' option under App Menu.
+
+### Fixes
+* Old activities were not appropriately being cleaned up. This affected the performance of long running jobs. They are now being cleaned up correctly.
+* Actions involving large numbers of files and directories would occasionally cause Storage Explorer to freeze. Requests to Azure for File Shares are now trottled to limit system resource use.
+
+### Known Issues
+* Storage Explorer does not support ADFS accounts.
+* Shortcut keys for "View Explorer" and "View Account Management" should be Ctrl/Cmd+Shift+E and Ctrl/Cmd+Shift+A respectively.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* The account settings panel may show that you need to reenter credentials to filter subscriptions.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+```
+./StorageExplorer --disable-gpu
+```
+* For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
 ## Version 0.9.2
 11/01/2017
 
 ### Download Azure Storage Explorer 0.9.2 (Preview)
-- [Azure Storage Explorer 0.9.2 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.2 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.2 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Download Azure Storage Explorer 0.9.2 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download Azure Storage Explorer 0.9.2 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download Azure Storage Explorer 0.9.2 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### Hotfixes
 * Unexpected data changes were possible when editing Edm.DateTime values for table entities depending on the local time zone. The editor now uses a plain text box, giving precise, consistent control over Edm.DateTime values.
@@ -92,13 +143,32 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 
 
 
+
+
+
+## Previous releases
+
+* [Version 0.9.1 / 0.9.0](#version-091)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## Version 0.9.1 / 0.9.0 (Preview)
 10/20/2017
-### Download Azure Storage Explorer 0.9.1 (Preview)
-* [Download Azure Storage Explorer 0.9.1 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.9.1 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.9.1 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### New
 * Preview support for Azure Cosmos DB:
 	* [Online Documentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
@@ -150,28 +220,6 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 	```
 	sudo apt-get install libgconf-2-4
 	```
-
-
-
-## Previous releases
-
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## Version 0.8.16
 8/21/2017
