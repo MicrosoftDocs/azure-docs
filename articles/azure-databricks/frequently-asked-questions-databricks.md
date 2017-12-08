@@ -91,7 +91,7 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 #### Solution
 
-Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
+Databricks clusters use one public IP address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, and **Networking: ARM** as the **Quota Type**. In **Details**, request a Public IP Address quota increase. For example, if your limit is currently 60, and you want to create a 100-node cluster, request a limit increase to 160.
 
 ### A second type of cloud provider launch failure while setting up the cluster
 
