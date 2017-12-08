@@ -19,8 +19,8 @@ ms.custom: aaddev
 
 ---
 
-[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-ios-introduction.md)]
-[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-ios-setup.md)]
-[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-ios-use.md)]
-[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-ios-configure.md)]
-[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-ios-test.md)]
+[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-introduction.md)]
+[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetupios-setup.md)]
+[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-use.md)]
+[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-configure.md)]
+[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-test.md)]
