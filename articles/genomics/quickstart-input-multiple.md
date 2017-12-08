@@ -96,7 +96,9 @@ Paired FASTQ files not only need to come from the same sample, but they also nee
 Below are example submissions from a command line in Windows, in Unix, and using a configuration file. Line breaks are added for clarity:
 
 
-```Windows console
+For Windows:
+
+```
 msgen submit ^
   --api-url-base <Genomics API URL> ^
   --access-key <Genomics access key> ^
@@ -112,7 +114,9 @@ msgen submit ^
 ```
 
 
-```Unix console
+For Unix:
+
+```
 msgen submit \
   --api-url-base <Genomics API URL> \
   --access-key <Genomics access key> \
@@ -130,7 +134,7 @@ msgen submit \
 
 If you prefer using a configuration file, here is what it would contain:
 
-``` config.txt
+```
 api_url_base:                     <Genomics API URL>
 access_key:                       <Genomics access key>
 process_args:                     R=b37m1

@@ -84,14 +84,14 @@ You can install these packages using `pip`, `easy_install` or through standard `
 
 ### Test the Microsoft Genomics client
 To test the Microsoft Genomics client, download the config file from your genomics account. 
-Navigate to your genomics account by clicking More services in the bottom left, filtering and selecting for genomics accounts.
+Navigate to your genomics account by clicking **More services** in the bottom left, filtering, and selecting for genomics accounts.
 
 
 ![Filter for Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filter for Microsoft Genomics on Azure portal")
 
 
 
-Select the genomics account you just made, and navigate to Access Keys and download the configuration file.
+Select the genomics account you just made, navigate to **Access Keys** and download the configuration file.
 
 ![Download config file from Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Download config file from Microsoft Genomics")
 
@@ -99,7 +99,7 @@ Select the genomics account you just made, and navigate to Access Keys and downl
 Test that the Microsoft Genomics python client is working with the following command
 
 
-```Command line
+```
 msgen list -f “<full path where you saved the config file>”
 ```
 

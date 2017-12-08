@@ -18,7 +18,7 @@ ms.date: 12/7/2017
 This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
 
 ## Set up: Upload your BAM file to Azure storage
-Let’s assume you have a single BAM file , *reads.bam*, and you have uploaded it to your storage account *myaccount* in Azure as **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. You have the API URL and your access key. You want to have outputs in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Let’s assume you have a single BAM file, *reads.bam*, and you have uploaded it to your storage account *myaccount* in Azure as **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. You have the API URL and your access key. You want to have outputs in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
 
