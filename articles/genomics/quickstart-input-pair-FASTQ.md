@@ -25,7 +25,7 @@ Let’s assume you have two files, *reads_1.fq.gz* and *reads_2.fq.gz*, and you 
 
 Here is the minimal set of arguments that you will need to provide to the `msgen` client; line breaks are added for clarity:
 
-For windows:
+For Windows:
 
 ```
 msgen submit ^

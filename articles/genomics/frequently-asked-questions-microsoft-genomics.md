@@ -17,9 +17,6 @@ ms.date: 12/7/2017
 This article lists the top queries you might have relate to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-microsoft-genomics.md) 
 
 
-## What is the current version of the Microsoft Genomics command-line client?
-The current version of the Microsoft Genomics CLI is SQL Database is V12. Version V11 has been retired.
-
 ## What is the SLA for Microsoft Genomics?
 We guarantee that 99.9% of the time Microsoft Genomics service will be available to receive workflow API requests. For more information, see [SLA](https://azure.microsoft.com/en-in/support/legal/sla/genomics/v1_0/).
 
