@@ -65,7 +65,7 @@ Azure Cosmos DB supports three indexing modes which can be configured via the in
 
 **Consistent**: If an Azure Cosmos DB collection’s policy is designated as "consistent", the queries on a given Azure Cosmos DB collection follow the same consistency level as specified for the point-reads (i.e. strong, bounded-staleness, session or eventual). The index is updated synchronously as part of the document update (i.e. insert, replace, update, and delete of a document in an Azure Cosmos DB collection).  Consistent indexing supports consistent queries at the cost of possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level”. Consistent indexing mode is designed for “write quickly, query immediately” workloads.
 
-**Lazy**: To allow maximum document ingestion throughput, an Azure Cosmos DB collection can be configured with lazy consistency; meaning queries are eventually consistent. The index is updated asynchronously when an Azure Cosmos DB collection is quiescent i.e. when the collection’s throughput capacity is not fully utilized to serve user requests. For "ingest now, query later" workloads requiring unhindered document ingestion, "lazy" indexing mode may be suitable.
+**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent i.e. when the collection’s throughput capacity is not fully utilized to serve user requests. For "ingest now, query later" workloads requiring document ingestion, "lazy" indexing mode may be suitable. Please note that you might get inconsistent results as data gets ingested and indexed slowly. This means your count queries or specific query results are not guaranteed to be correct or repeatable till data is indexed. Index is generally in catch up mode. WRT Lazy indexing - TTL change results in index getting dropped and recreated, so this activity can result in unexpected results. Majority of the customers should use consistent indexing.
 
 **None**: A collection marked with index mode of “None” has no index associated with it. This is commonly used if Azure Cosmos DB is utilized as a key-value storage and documents are accessed only by their ID property. 
 
@@ -227,7 +227,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
-For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

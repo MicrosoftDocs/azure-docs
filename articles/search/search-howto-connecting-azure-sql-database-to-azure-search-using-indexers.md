@@ -41,7 +41,7 @@ You can set up and configure an Azure SQL indexer using:
 
 * Import Data wizard in the [Azure portal](https://portal.azure.com)
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Search [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 In this article, we'll use the REST API to create **indexers** and **data sources**.
 

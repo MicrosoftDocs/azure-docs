@@ -90,7 +90,7 @@ After authenticating, queries can then be executed against the Azure Monitor RES
 
 ## Retrieve Metric Definitions (Multi-Dimensional API)
 
-Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
+Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
 
 **Method**: GET
 

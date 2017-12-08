@@ -23,21 +23,30 @@ Following is the link to the public GitHub repository:
 
 Many machine learning algorithms have one or more knobs, called hyperparameters. These knobs allow tuning of algorithms to optimize their performance over future data, measured according to user-specified metrics (for example, accuracy, AUC, RMSE). Data scientist needs to provide values of hyperparameters when building a model over training data and before seeing the future test data. How based on the known training data can we set up the values of hyperparameters so that the model has a good performance over the unknown test data? 
 
-A popular technique for tuning hyperparameters is a *grid search* combined with *cross-validation*. Cross-validation is a technique that assesses how well a model, trained on a training set, predicts over the test set. Using this technique, initially we divide the dataset into K folds and then train the algorithm K times, in a round-robin fashion, on all but one of the folds, called held-out fold. We compute the average value of the metrics of K models over K held-out folds. This average value, called *cross-validated performance estimate*, depends on the values of hyperparameters used when creating K models. When tuning hyperparameters, we search through the space of candidate hyperparameter values to find the ones that optimize cross-validation performance estimate. Grid search is a common search technique, where the space of candidate values of multiple hyperparameters is a cross-product of sets of candidate values of individual hyperparameters. 
+A popular technique for tuning hyperparameters is a *grid search* combined with *cross-validation*. Cross-validation is a technique that assesses how well a model, trained on a training set, predicts over the test set. Using this technique, we first divide the dataset into K folds and then train the algorithm K times in a round-robin fashion. We do this on all but one of the folds called the "held-out fold". We compute the average value of the metrics of K models over K held-out folds. This average value, called *cross-validated performance estimate*, depends on the values of hyperparameters used when creating K models. When tuning hyperparameters, we search through the space of candidate hyperparameter values to find the ones that optimize cross-validation performance estimate. Grid search is a common search technique. In grid search, the space of candidate values of multiple hyperparameters is a cross-product of sets of candidate values of individual hyperparameters. 
 
-Grid search using cross-validation can be time-consuming. If an algorithm has 5 hyperparameters, each with 5 candidate values and we use K=5 folds, then to complete a grid search we need to train 5<sup>6</sup>=15625 models. Fortunately, grid-search using cross-validation is an embarrassingly parallel procedure and all these models can be trained in parallel.
+Grid search using cross-validation can be time-consuming. If an algorithm has five hyperparameters each with five candidate values, we use K=5 folds. We then complete a grid search by training 5<sup>6</sup>=15625 models. Fortunately, grid-search using cross-validation is an embarrassingly parallel procedure and all these models can be trained in parallel.
 
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [Install and create Quickstart](./quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
-* To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
-* To run this scenario with a Spark cluster, provision HDInsight cluster by following the [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least six worker nodes and at least 8 cores and 28 Gb of memory in both header and worker nodes. D4 instances of virtual machines have such capacity. To maximize performance of the cluster, we recommend to change the parameters spark.executor.instances, spark.executor.cores, and spark.executor.memory by following the [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) and editing the definitions in "custom spark defaults" section.
+* To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
+* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least 
+- six worker nodes
+- eight cores
+- 28 Gb of memory 
+in both header and worker nodes. D4 instances of virtual machines have such capacity. We recommend changing the following parameters to maximize performance of the cluster.
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.memory 
+
+You can follow these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) and edit the definitions in "custom spark defaults" section.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Create an Azure storage account that is used for storing the dataset. Please follow the [instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) to create a storage account.
+* Create an Azure storage account that is used for storing the dataset. Follow the [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create a storage account.
 
 ## Data description
 
@@ -68,7 +77,7 @@ We use [scikit-learn](https://anaconda.org/conda-forge/scikit-learn), [xgboost](
 
 The modified conda\_dependencies.yml file is stored in aml_config directory of tutorial. 
 
-In the next steps, we connect execution environment to Azure account. Open command line window (CLI) by clicking File menu in the top left corner of AML Workbench and choosing "Open Command Prompt." Then run in CLI
+In the next steps, we connect execution environment to Azure account. Click File Menu from the top left corner of AML Workbench. And choose "Open Command Prompt". Then run in CLI
 
     az login
 
@@ -80,19 +89,19 @@ Go to this web page, enter the code and sign into your Azure account. After this
 
     az account list -o table
 
-and find the subscription ID of Azure subscription that has your AML Workbench Workspace account. Finally, run in CLI
+and find the Azure subscription ID that has your AML Workbench Workspace account. Finally, run in CLI
 
     az account set -s <subscription ID>
 
 to complete the connection to your Azure subscription.
 
-In the next two sections we show how to complete configuration of remote docker and Spark cluster.
+In the next two sections, we show how to complete configuration of remote docker and Spark cluster.
 
 #### Configuration of remote Docker container
 
  To set up a remote Docker container, run in CLI
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 with IP address, user name and password in DSVM. IP address of DSVM can be found in Overview section of your DSVM page in Azure portal:
 
@@ -102,7 +111,7 @@ with IP address, user name and password in DSVM. IP address of DSVM can be found
 
 To set up Spark environment, run in CLI
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 with the name of the cluster, cluster's SSH user name and password. The default value of SSH user name is `sshuser`, unless you changed it during provisioning of the cluster. The name of the cluster can be found in Properties section of your cluster page in Azure portal:
 
@@ -132,13 +141,13 @@ To download data from Kaggle, go to [dataset page](https://www.kaggle.com/c/talk
 ![Open blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![Open container](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-After that select dataset container from the list and click Upload button. Azure portal allows to upload multiple files concurrently. In "Upload blob" section click folder button, select all files from the dataset, click Open, and then click Upload. The screenshot below illustrates these steps:
+After that, select dataset container from the list and click Upload button. Azure portal allows you to upload multiple files concurrently. In "Upload blob" section click folder button, select all files from the dataset, click Open, and then click Upload. The following screenshot illustrates these steps:
 
 ![Upload blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Upload of the files takes several minutes, depending on your Internet connection. 
 
-In our code, we use [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. Account name is shown in the top left corner of Azure page of your storage account. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
+In our code, we use [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. You can see the account name in the top left corner of your storage account's Azure page. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
  
 ![access key](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -157,7 +166,7 @@ The following code from load_data() function downloads a single file:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Notice that you do not need to run load_data.py file manually. Later on it will be called from other files.
+Notice that you do not need to run load_data.py file manually. It is called from other files later on.
 
 ### Feature engineering
 The code for computing all features is in feature\_engineering.py file. You do not need to run feature_engineering.py file manually. Later on it will be called from other files.
@@ -170,11 +179,11 @@ We create multiple feature sets:
 * Fraction of events generated by user in each app (one\_hot\_app_labels function)
 * Fraction of events generated by user in each app label (one\_hot\_app_labels function)
 * Fraction of events generated by user in each app category (text\_category_features function)
-* Indicator features for categories of apps that were used by used to generated events (one\_hot_category function)
+* Indicator features for categories of apps that were used to generated events (one\_hot_category function)
 
 These features were inspired by Kaggle kernel [A linear model on apps and labels](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels).
 
-The computation of these features requires significant amount of memory. Initially we tried to compute features in the local environment with 16 Gb RAM. We were able to compute the first four sets of features, but received 'Out of memory' error when computing the fifth feature set. The computation of the first four feature sets is in singleVMsmall.py file and it can be executed in the local environment by running 
+The computation of these features requires significant amount of memory. Initially we tried to compute features in the local environment with 16-GB RAM. We were able to compute the first four sets of features, but received 'Out of memory' error when computing the fifth feature set. The computation of the first four feature sets is in singleVMsmall.py file and it can be executed in the local environment by running 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -186,7 +195,7 @@ Since local environment is too small for computing all feature sets, we switch t
 We use [xgboost](https://anaconda.org/conda-forge/xgboost) implementation [1] of gradient tree boosting. We use [scikit-learn](http://scikit-learn.org/) package to tune hyperparameters of xgboost. Although xgboost is not part of scikit-learn package, it implements scikit-learn API and hence can be used together with hyperparameter tuning functions of scikit-learn. 
 
 Xgboost has eight hyperparameters:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -195,8 +204,10 @@ Xgboost has eight hyperparameters:
 * colsample\_by_level
 * subsample
 * objective
-A description of these hyperparameters can be found [here](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) and [here](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-Initially we use remote DSVM and tune hyperparameters from a small grid of candidate values:
+A description of these hyperparameters can be found at
+- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Initially, we use remote DSVM and tune hyperparameters from a small grid of candidate values:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
@@ -222,7 +233,7 @@ After creating the model, we save the results of the hyperparameter tuning. We u
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-We also create sweeping_results.txt file with cross-validated negative log losses of all combinations of hyperparameter values in the grid:
+We also create sweeping_results.txt file with cross-validated, negative log losses of all combinations of hyperparameter values in the grid.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -247,13 +258,13 @@ This command finishes in 1 hour 38 minutes when DSVM has 8 cores and 28 Gb of me
 
 ![run history](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-By default Run History window shows values and graphs of the first 1-2 logged values. To see the full list of the chosen values of hyperparameters, click on the settings icon marked with red circle in the previous screenshot and select the hyperparameters to be shown in the table. Also, to select the graphs that are shown in the top part of Run History window, click on the setting icon marked with blue circle and select the graphs from the list. 
+By default Run History window shows values and graphs of the first 1-2 logged values. To see the full list of the chosen values of hyperparameters, click on the settings icon marked with red circle in the previous screenshot. Then, select the hyperparameters to be shown in the table. Also, to select the graphs that are shown in the top part of Run History window, click on the setting icon marked with blue circle and select the graphs from the list. 
 
 The chosen values of hyperparameters can also be examined in Run Properties window: 
 
 ![run properties](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-In the top right corner of Run Properties window there is a section Output Files with the list of all files that were created in '.\output' folder in the execution environment. sweeping\_results.txt can be downloaded from there by selecting it and clicking Download button. sweeping_results.txt should have the following output:
+In the top right corner of Run Properties window, there is a section Output Files with the list of all files that were created in '.\output' folder. sweeping\_results.txt can be downloaded from there by selecting it and clicking Download button. sweeping_results.txt should have the following output:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -295,16 +306,16 @@ in CLI windows. This installation takes several minutes. After that we run distr
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-This command finishes in 1 hour 6 minutes when Spark cluster has 6 worker nodes with 28 Gb of memory. The results of tuning hyperparameters in Spark cluster, namely logs, best values of hyperparameters and sweeping_results.txt file, can be accessed in Azure Machine Learning Workbench in the same way as in remote DSVM execution. 
+This command finishes in 1 hour 6 minutes when Spark cluster has 6 worker nodes with 28 Gb of memory. The results of hyperparameter-tuning can be accessed in Azure Machine Learning Workbench the same way as remote DSVM execution. (namely logs, best values of hyperparameters, and sweeping_results.txt file)
 
 ### Architecture diagram
 
-The following diagram shows the end-to-end workflow:
+The following diagram shows the overall workflow:
 ![architecture](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## Conclusion 
 
-In this scenario, we showed how to use Azure Machine Learning Workbench to perform tuning of hyperparameter in remote virtual machine and in remote Spark cluster. We saw that Azure Machine Learning Workbench provides tools for easy configuration of execution environments and switching between them. 
+In this scenario, we showed how to use Azure Machine Learning Workbench to perform tuning of hyperparameters in remote virtual machines and Spark clusters. We saw that Azure Machine Learning Workbench provides tools for easy configuration of execution environments. It also allows easily switching between them. 
 
 ## References
 
