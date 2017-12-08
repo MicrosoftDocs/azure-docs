@@ -76,7 +76,7 @@ Use the **sync** operation.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### PowerShell
-In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## Connections
 

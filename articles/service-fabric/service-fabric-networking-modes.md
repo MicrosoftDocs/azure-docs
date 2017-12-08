@@ -220,6 +220,6 @@ When a container service restarts or moves to another node in the cluster, the I
 
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
-* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

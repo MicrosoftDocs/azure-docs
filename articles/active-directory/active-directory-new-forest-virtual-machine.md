@@ -1,6 +1,6 @@
 ﻿---
 title: Install an Active Directory forest on an Azure virtual network | Microsoft Docs
-description: A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network.
+description: A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure virtual network.
 services: active-directory, virtual-network
 keywords: 'active directory virtual machine, install active directory forest, azure active directory videos '
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
 
 ---
@@ -43,7 +43,7 @@ There is not much difference between installing a domain controller on Azure ver
 | **Active Directory database storage** |Optionally change the default storage location from C:\ |You need to change default storage location from C:\ |
 
 ## Create an Azure virtual network
-1. Sign in to the Azure classic portal.
+1. Sign in to the Azure portal.
 2. Create a virtual network. Click **Networks** > **Create a virtual network**. Use the values in the following table to complete the wizard.
 
    | On this wizard page… | Specify these values |
@@ -57,7 +57,7 @@ Repeat the following steps to create VMs to host the DC role as needed. You shou
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. In the classic portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
+1. In the Azure portal, select **New** > **Compute**, and then select a virtual machine. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
    | On this wizard page… | Specify these values |
    | --- | --- |

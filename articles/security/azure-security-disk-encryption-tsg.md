@@ -33,7 +33,7 @@ This error is most likely to happen when OS disk encryption is attempted on a ta
 - The OS disk uses a Logical Volume Manager (LVM) scheme. Although limited LVM data disk support is available, an LVM OS disk is not.
 - Minimum memory requirements are not met (7 GB is suggested for OS disk encryption).
 - Data drives are recursively mounted under the /mnt/ directory, or each other (for example, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Other Azure Disk Encryption [prerequisites](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for Linux are not met.
+- Other Azure Disk Encryption [prerequisites](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) for Linux are not met.
 
 ## Unable to encrypt
 

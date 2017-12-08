@@ -24,15 +24,15 @@ You can troubleshoot errors encountered while using Azure Backup Server with inf
 
 ## Invalid vault credentials provided 
 
-Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
+Follow these [troubleshooting steps] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
 ## The agent operation failed because of a communication error with the DPM Agent Coordinator service on Server 
 
-Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
+Follow these [troubleshooting steps] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
 ## Setup could not update registry metadata
 
-Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) to resolve this issue.
+Follow these [troubleshooting steps] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) to resolve this issue.
 
 
 ## Installation issues
