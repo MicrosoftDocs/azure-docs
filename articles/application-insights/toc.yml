@@ -144,6 +144,8 @@
         href: app-insights-proactive-performance-diagnostics.md
       - name: Trace degradation
         href: app-insights-proactive-trace-severity.md
+      - name: Abnormal exception volume
+        href: app-insights-proactive-exception-volume.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
