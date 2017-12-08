@@ -21,7 +21,7 @@ The results, briefly, are JSON objects such as the following:
 This tutorial explains how to:
 
 > [!div class="checklist"]
-> * Use the Image Search `/details` endpoint in a POST request
+> * Use the Image Search `/details` endpoint in a `POST` request
 > * Specify headers for the request
 > * Use URL parameters to specify results
 > * Upload the image data and send the `POST` request
@@ -33,11 +33,11 @@ The tutorial application includes three parts:
 
 > [!div class="checklist"]
 > * Endpoint configuration to specify the Bing Image Search endpoint and required headers
-> * Image file upload for POST request to the endpoint
-> * Parsing the JSON results that are the details returned from the POST request
+> * Image file upload for `POST` request to the endpoint
+> * Parsing the JSON results that are the details returned from the `POST` request
 
 ## Scenario overview
-There are [three Image Search endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-endpoint). The `/details` endpoint uses a `POST` request.
+There are [three Image Search endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-endpoint). The `/details` endpoint can use a `POST` request with image data in the body of the request.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -170,6 +170,7 @@ To use the ImageInsightsToken returned with results of a `POST`, simply create a
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
 ```
+If there are identifiable people or places in the image, this request will return information about them.
 The [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search) contain numerous code examples.
 
 ## Next steps
