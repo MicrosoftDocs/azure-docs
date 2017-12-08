@@ -178,7 +178,6 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 > [!NOTE]
 > 
 > * The name of the data factory must be globally unique. If you receive the following error, change the name and try again.
->
 >    ```
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
