@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
 
 ---
@@ -75,19 +75,19 @@ Under Settings section, you can configure target site properties
 	> [!TIP]
 	> It is recommended to keep target location same as of your recovery services vault.
 
-2. **Target resource group:** It is the resource group to which all your replicated virtual machines will belong. By default Azure Site Recovery will create a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it will be reused. You can also choose to customize it as shown in the section below.    
-3. **Target Virtual Network:** By default, Azure Site Recovery will create a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
+2. **Target resource group:** It is the resource group to which all your replicated virtual machines belong. By default Azure Site Recovery creates a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it will be reused. You can also choose to customize it as shown in the section below.    
+3. **Target Virtual Network:** By default, Azure Site Recovery creates a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
 
 	> [!NOTE]
 	> [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping.
 
-4. **Target Storage accounts:** By default, Azure Site Recovery will create the new target storage account mimicking your source VM storage configuration. In case storage account created by Azure Site Recovery already exist, it will be reused.
+4. **Target Storage accounts:** By default, Azure Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account created by Azure Site Recovery already exist, it will be reused.
 
 5. **Cache Storage accounts:** Azure Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.
 
-6. **Availability set:** By default, Azure Site Recovery will create a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it will be reused.
+6. **Availability set:** By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it is reused.
 
-7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
+7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -101,7 +101,7 @@ In case you want to change the defaults used by Azure Site Recovery, you can cha
 
 3. **Target Virtual Network:** You can find the list of all the virtual network in the target location.
 
-4. **Availability set:** You can only add availability sets settings to the virtual machines which are a part of availability in source region.
+4. **Availability set:** You can only add availability sets settings to the virtual machines that are a part of availability in source region.
 
 5. **Target Storage accounts:**
 
@@ -109,7 +109,7 @@ In case you want to change the defaults used by Azure Site Recovery, you can cha
 Click on **Create target resource** and Enable Replication
 
 
-Once virtual machines are protected you can check the status of VMs health under **Replicated items**
+Once virtual machines are protected, you can check the status of VMs health under **Replicated items**
 
 >[!NOTE]
 >During the time of initial replication there could be a possibility that status takes time to refresh and you don't see progress for some time. You can click the Refresh button on the top of the blade to get the latest status.
