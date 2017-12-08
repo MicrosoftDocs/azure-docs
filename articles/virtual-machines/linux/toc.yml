@@ -73,6 +73,9 @@
       href: sizes-compute.md    
     - name: Memory optimized
       href: sizes-memory.md    
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md    
     - name: GPU optimized
@@ -164,6 +167,8 @@
     items:
     - name: Prepay for VMs - Reserved Instances
       href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
