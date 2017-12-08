@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 12/10/2017
 ms.author: kgremban
 ms.custom: 
 ---
 
-# Connect Modbus TCP devices with Azure using an IoT Edge device as a gateway - preview
+# Connect Modbus TCP devices through an IoT Edge device gateway - preview
 
 If you want to connect IoT devices that use Modbus TCP protocol to an Azure IoT hub, use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol. 
 

@@ -28,6 +28,9 @@
   items:
   - name: Create a transparent gateway
     href: how-to-create-transparent-gateway.md
+    items:
+    - name: Modbus gateway
+      href: deploy-modbus-gateway.md
   - name: Deploy and monitor at scale
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
