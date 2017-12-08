@@ -53,7 +53,7 @@ Azure services provide multiple tools and technologies to help you protect perso
 
 ### Azure Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) provides secure storage for the keys used to encrypt data at rest in Azure services and is the recommended key storage and management solution. Encryption key management is essential to securing stored data.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) provides secure storage for the keys used to encrypt data at rest in Azure services and is the recommended key storage and management solution. Encryption key management is essential to securing stored data.
 
 #### How do I use Azure Key Vault to protect keys that encrypt personal data?
 
@@ -75,13 +75,13 @@ Azure Key Vault can provide a software-protected key for you, or you can import 
 
 You can also generate a key in your local HSM and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary.
 
-For detailed instructions on using Azure Key Vault, follow the steps in [Get Started with Azure Key Vault.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+For detailed instructions on using Azure Key Vault, follow the steps in [Get Started with Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-For a list of PowerShell Cmdlets used with Azure Key Vault, see [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+For a list of PowerShell Cmdlets used with Azure Key Vault, see [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### Azure Disk Encryption for Windows
 
-[Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) protects personal data at rest on Azure virtual machines and integrates with Azure Key Vault. Azure Disk Encryption uses
+[Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) protects personal data at rest on Azure virtual machines and integrates with Azure Key Vault. Azure Disk Encryption uses
 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) in Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux to encrypt both the OS and the data disks. Azure Disk Encryption is supported on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, and on Windows 8 and Windows 10 clients.
 
 #### How do I use Azure Disk Encryption to protect personal data?
@@ -101,11 +101,11 @@ When you set up your key vault to support Azure Disk Encryption, you can add a k
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Detailed instructions for specific deployment scenarios and user experiences are included in [Azure Disk Encryption for Windows and Linux IaaS VMs.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Detailed instructions for specific deployment scenarios and user experiences are included in [Azure Disk Encryption for Windows and Linux IaaS VMs.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### Azure Storage Service Encryption
 
-[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) helps you protect and safeguard your data to meet your organizational security and compliance commitments. Azure Storage automatically encrypts your data using 256-bit AES encryption prior to persisting to storage, and decrypts it prior to retrieval. This service is available for Azure Blobs and Files.
+[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption) helps you protect and safeguard your data to meet your organizational security and compliance commitments. Azure Storage automatically encrypts your data using 256-bit AES encryption prior to persisting to storage, and decrypts it prior to retrieval. This service is available for Azure Blobs and Files.
 
 #### How do I use Storage Service Encryption to protect personal data?
 
@@ -128,13 +128,13 @@ New data will be encrypted. Data in existing files in this storage account will 
 
 After enabling encryption, copy data to the storage account using one of the following methods:
 
-1. Copy blobs or files with the [AzCopy Command Line utility](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Copy blobs or files with the [AzCopy Command Line utility](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Mount a file share using SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) so you can use a utility such as Robocopy to copy files.
+2. [Mount a file share using SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) so you can use a utility such as Robocopy to copy files.
 
-3. Copy blob or file data to and from blob storage or between storage accounts using [Storage Client Libraries such as .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Copy blob or file data to and from blob storage or between storage accounts using [Storage Client Libraries such as .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Use a [Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) to upload blobs to your storage account with encryption enabled.
+4.  Use a [Storage Explorer](https://docs.microsoft.com/azure/storage/storage-explorers) to upload blobs to your storage account with encryption enabled.
 
 ### Transparent Data Encryption
 
@@ -158,7 +158,7 @@ You can configure TDE through the Azure portal, by using the REST API, or by usi
 
 ![Enabling data encryption](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Instructions on how to enable TDE and information on decrypting TDE-protected databases and more can be found in the article [Transparent Data Encryption with Azure SQL Database.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Instructions on how to enable TDE and information on decrypting TDE-protected databases and more can be found in the article [Transparent Data Encryption with Azure SQL Database.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## Summary
 
@@ -170,10 +170,10 @@ To protect the keys that are used to encrypt data in Azure, the company can use 
 
 ## Next steps
 
-- [Azure Disk Encryption Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Azure Disk Encryption Troubleshooting Guide](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Encrypt an Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Encrypt an Azure Virtual Machine](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Encryption of data in Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Encryption of data in Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Azure Cosmos DB database encryption at rest](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Azure Cosmos DB database encryption at rest](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)
