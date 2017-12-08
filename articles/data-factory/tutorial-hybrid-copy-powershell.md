@@ -176,15 +176,16 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
     ```
 
 > [!NOTE]
-> * The name of the data factory must be globally unique. If you receive the following error, change the name and try again.
+> 
+> The name of the data factory must be globally unique. If you receive the following error, change the name and try again.
 >
->   ```
->   The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
->   ```
->
-> * To create data-factory instances, the user account that you use to sign in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription.
->
-> * Currently, by using Data Factory version 2, you can create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, and so on) and computes (Azure HDInsight and so on) used by the data factory can be in other regions.
+> ```
+> The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
+> ```
+> 
+> To create data-factory instances, the user account that you use to sign in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription.
+> 
+> Currently, by using Data Factory version 2, you can create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, and so on) and computes (Azure HDInsight and so on) used by the data factory can be in other regions.
 > 
 > 
 
@@ -210,7 +211,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     Name              : myonpremirsp0914
     Description       :
     ```
-​
+
 3. Run the following command to retrieve the status of the created integration runtime:
 
     ```powershell
