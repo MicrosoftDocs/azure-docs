@@ -13,9 +13,7 @@ ms.author: v-gedod
 ---
 # Tutorial: Bing Image Upload for Image Insights
 
-# Tutorial: Single-page News Search app
-
-This is the complete source code discussed in the [](tutorial-image-post.md) for Bing Image Search endpoint using a `POST` request. To run the app, copy the source code into a C# console application. Run in the Visual Studo debugger.
+This is the complete source code discussed in the [Bing Image Upload for Insights](tutorial-image-post.md) tutorial for the Image Search endpoint that uses a `POST` request. To run the app, copy the source code into a C# console application. Build, and run in the Visual Studo debugger.
 
 ```
 using System;

@@ -13,8 +13,8 @@ ms.author: v-gedod
 ---
 # Tutorial: Bing Image Upload for Image Insights
 
-The Bing Image Search API provides a `POST` option to upload an image and search for information pertinent to the image. This tutorial is a C# console application that uploads an image using the Image Search endpoint to get details about the image.
-The JSON results in brief are shown in the following output:
+The Bing Image Search API provides a `POST` option to upload an image and search for information pertinent to the image. This C# console application uploads an image using the Image Search endpoint to get details about the image.
+The results, briefly, are JSON objects such as the following:
 
 ![[JSON results]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 
@@ -22,10 +22,10 @@ This tutorial explains how to:
 
 > [!div class="checklist"]
 > * Use the Image Search `/details` endpoint in a POST request
-> * Specify the headers for the request
+> * Specify headers for the request
 > * Use URL parameters to specify results
-> * Upload the image data
-> * Print the JSON result to the console
+> * Upload the image data and send the `POST` request
+> * Print the JSON resultS to the console
 
 ## App components
 
@@ -34,14 +34,14 @@ The tutorial application includes three parts:
 > [!div class="checklist"]
 > * Endpoint configuration to specify the Bing Image Search endpoint and required headers
 > * Image file upload for POST request to the endpoint
-> * Parsing the JSON results of details returned from the POST request
+> * Parsing the JSON results that are the details returned from the POST request
 
 ## Scenario overview
-There are [three Image Search endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-endpoint). A `POST` request uses the `/details` endpoint.
+There are [three Image Search endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-endpoint). The `/details` endpoint uses a `POST` request.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-The `modules` URL parameter following `/details?` specifies which details the results contain:
+The `modules` URL parameter following `/details?` specifies what kind of details the results contain:
 * `modules=All`
 * `modules=RecognizedEntities` (people visible in the image)
 
