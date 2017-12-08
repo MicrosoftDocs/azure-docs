@@ -40,7 +40,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -152,7 +152,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
     
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -160,7 +160,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | spatialKeys | true |
 
-    When the [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
+    When the [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
 
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -168,7 +168,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnSpeedLimit | true |
     
-    When the [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -176,7 +176,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnRoadUse | true |
 
-    When the [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
+    When the [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
 8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -184,7 +184,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | roadUse | true |
 
-    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
+    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
     
 ## Search for the cross street using Reverse Address Cross Street Search
 
@@ -211,4 +211,4 @@ You can pass a complete or partial street address to the Search Address API and 
 4. Click **Send** and review the response body. 
 
 ## Next steps
-- Explore the [Azure Location Based Serices Search service](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API documentation 
+- Explore the [Azure Location Based Serices Search service](https://docs.microsoft.com/rest/api/location-based-services/search) API documentation 

@@ -116,7 +116,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 * Encrypt (can take multiple hours or even days depending on vm characteristics and size of any attached data disks)
 * Customize, and add software to the image as needed.
 
-If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+If this workflow is not possible, relying on [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
 
 **Q:** What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?
 

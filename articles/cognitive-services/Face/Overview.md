@@ -50,7 +50,7 @@ Given one set of unknown faces, face grouping API automatically divides them int
 
 Face API can be used to identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time.
 
-The following figure is an example of a person group named "myfriends". Each group may contain up to 1,000 person objects. Meanwhile, each person object can have one or more faces registered.
+The following figure is an example of a person group named "myfriends". Each group may contain up to 10,000 person objects. Meanwhile, each person object can have up to 248 faces registered.
 
 ![Overview - Person Group](./Images/person.group.clare.jpg)
 
