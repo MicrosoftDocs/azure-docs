@@ -33,7 +33,7 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 ### Azure PowerShell
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-### Log in to PowerShell
+#### Log in to PowerShell
 
 1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
 2. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
