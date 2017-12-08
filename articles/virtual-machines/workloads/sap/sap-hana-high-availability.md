@@ -84,11 +84,13 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 1. Create a Load Balancer (internal)  
    Select VNET of step above
 1. Create Virtual Machine 1  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 1  
    Select Availability Set  
 1. Create Virtual Machine 2  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 2   
