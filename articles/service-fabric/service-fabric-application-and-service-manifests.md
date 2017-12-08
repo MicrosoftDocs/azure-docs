@@ -21,7 +21,7 @@ ms.author: ryanwi
 This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
 ## Describe a service in ServiceManifest.xml
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,7 +76,7 @@ For more details on how to configure the **SetupEntryPoint**, see [Configure the
 
 **EnvironmentVariables** (not set in the preceding example) provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
 
-**DataPackage** (not set in the preceding example)declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
+**DataPackage** (not set in the preceding example) declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. The settings file contains sections of user-defined, key-value pair settings that the process reads back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml* file:
 
@@ -89,16 +89,13 @@ For more details on how to configure the **SetupEntryPoint**, see [Configure the
 </Settings>
 ```
 
-> [!NOTE]
-> A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
-> 
-> 
+**Resources**, such as endpoints, that are used by the service to be declared/changed without changing the compiled code.  Access to the resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest.  When an **Endpoint** resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly.  Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
+
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
 
 *TODO: LoadMetrics, PlacementConstraints, ServicePlacementPolicies
-*TODO: Resources
 *TODO: Health properties
 *TODO: Trace filters
 *TODO: Configuration overrides
@@ -151,9 +148,10 @@ Thus, an application manifest describes elements at the application level and re
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. Version attributes are also used to version each component for upgrades.
 
+**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instatiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation.
+
 **ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type. 
 Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. 
-
 
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
@@ -167,7 +165,6 @@ To learn how to maintain different application and service parameters for indivi
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
-*TODO: Application parameters
 *TODO: Security, Principals, RunAs, SecurityAccessPolicy
 *TODO: Service Templates
 -->
