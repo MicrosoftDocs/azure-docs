@@ -18,8 +18,9 @@ ms.author: andret
 ms.custom: aaddev 
 
 ---
-[!INCLUDE [1. Introduction](active-directory-mobileanddesktopapp-ios-introduction.md)]
-[!INCLUDE [2. Setup](active-directory-mobileanddesktopapp-ios-setup.md)]
-[!INCLUDE [3. Use](active-directory-mobileanddesktopapp-ios-use.md)]
-[!INCLUDE [4. Configure](active-directory-mobileanddesktopapp-ios-configure.md)]
-[!INCLUDE  [5. Test and Validate](active-directory-mobileanddesktopapp-ios-test.md)]
+
+[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-introduction.md)]
+[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-setup.md)]
+[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-use.md)]
+[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-configure.md)]
+[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-ios-test.md)]
