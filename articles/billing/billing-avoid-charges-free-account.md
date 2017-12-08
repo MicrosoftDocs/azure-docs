@@ -18,13 +18,13 @@ ms.author: amberb
 ---
 # Avoid getting charged for your Azure free account
 
-Azure free account gives you $200 in Azure credits for the first 30 days and limited quantity of free services for 12 months. For more information, see [Azure free account](https://azure.microsoft.com/free/). Depending on the status of your credit, you may use your credit or get charged for usage beyond the free services and quantities.
+Azure free account gives you $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months. For more information, see [Azure free account](https://azure.microsoft.com/free/). Depending on the status of your credit, you may use your credit or get charged for usage beyond the free services and quantities.
 
 ## You still have active Azure free account credit 
 If you still have Azure credit that hasn't expired, Azure uses your credit to pay for usage beyond the free services and quantities.
 
 ## Your credit ran out or has expired
-If your credit ran out or expired at the end of 30 days, Azure disables your subscription. To continue using Azure services, you have to enable your subscription by upgrading it to a Pay-As-You-Go subscription. For more information, see [Upgrade your Free Trial Azure subscription to Pay-As-You-Go](billing-upgrade-azure-subscription.md). Once upgraded, your subscription still has access to free services for 12 months. You only get charged for usage beyond the free services and quantities.
+If your credit ran out or expired at the end of 30 days, Azure disables your subscription. To continue using Azure services, you must upgrade your subscription to a Pay-As-You-Go subscription. For more information, see [Upgrade your Free Trial Azure subscription to Pay-As-You-Go](billing-upgrade-azure-subscription.md). After you upgrade, your subscription still has access to free services for 12 months. You only get charged for usage beyond the free services and quantities.
 
 
 Let's look at some of the reasons you can incur charges on your Azure free account.
