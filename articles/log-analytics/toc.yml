@@ -41,6 +41,8 @@
     href: log-analytics-usage.md
   - name: Manage access
     href: log-analytics-manage-access.md
+  - name: Monitor hybrid environments
+    href: log-analytics-concept-hybrid.md 
   - name: Features for service providers
     href: log-analytics-service-providers.md 
   - name: Log Search
@@ -58,11 +60,7 @@
     - name: Connected sources
       items:
       - name: Windows agents
-        href: log-analytics-windows-agents.md
-      - name: Linux agents
-        href: log-analytics-agent-linux.md
-      - name: Azure virtual machines
-        href: log-analytics-azure-vm-extension.md
+        href: log-analytics-agent-windows.md
       - name: Azure resources
         href: log-analytics-azure-storage.md
       - name: Azure PaaS resources
@@ -75,6 +73,8 @@
         href: log-analytics-sccm.md
       - name: OMS Gateway
         href: log-analytics-oms-gateway.md
+      - name: Troubleshoot Linux agent
+        href: log-analytics-agent-linux-support.md
     - name: Data sources
       items:
       - name: Data sources overview
@@ -158,6 +158,8 @@
       href: log-analytics-solution-alert-management.md
   - name: Manage
     items:
+    - name: Agent management
+      href: log-analytics-agent-manage.md
     - name: Manage workspace cost
       href: log-analytics-manage-cost-storage.md
     - name: Delete a workspace
