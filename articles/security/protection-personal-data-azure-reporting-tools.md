@@ -90,7 +90,7 @@ Visit the [Azure Active Directory audit API reference](https://docs.microsoft.co
 
 ### Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) can [collect data from Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage)
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) can [collect data from Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 to correlate it with other data and provide additional analysis. Azure Monitor collects and analyzes monitoring data for your Azure environment. 
 
 Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data, providing you with centralized analysis of your entire environment. Log Analytics can aggregate and analyze Windows Event logs, IIS logs, and Syslogs, which can help detect potential personal data breaches that could expose personal data to unauthorized users.

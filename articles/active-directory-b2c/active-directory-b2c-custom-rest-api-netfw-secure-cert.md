@@ -38,7 +38,7 @@ This article details how to:
 To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is available through the management experience in the Azure portal. To locate the setting, on your RESTful application's **Settings** menu, under **Development tools**, select **Resource Explorer**.
 
 >[!NOTE]
->Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Use [Azure Resource Explorer (Preview)](https://resources.azure.com) to set the **clientCertEnabled** property to *true*, as shown in the following image:
@@ -46,7 +46,7 @@ Use [Azure Resource Explorer (Preview)](https://resources.azure.com) to set the 
 ![Setting clientCertEnabled through Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->For more information about setting the **clientCertEnabled** property, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>For more information about setting the **clientCertEnabled** property, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Alternatively, to make it easier to craft the REST API call, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) tool.
@@ -162,7 +162,7 @@ The client certificate that Azure AD B2C sends to your RESTful service does not 
 In this section, you add sample ASP.NET code that validates the certificate properties for authentication purposes.
 
 > [!NOTE]
->For more information about configuring Azure App Service for client certificate authentication, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>For more information about configuring Azure App Service for client certificate authentication, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### 6.1 Add application settings to your project's web.config file
 In the Visual Studio project that you created earlier, add the following application settings to the *web.config* file after the `appSettings` element:

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Set up the IoT Hub Device Provisioning Service (preview) with the Azure portal
+# Set up the IoT Hub Device Provisioning Service with the Azure portal
 
 These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This includes creating your IoT hub, creating a new IoT Hub Device Provisioning Service and linking the two services together. 
 
@@ -43,7 +43,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Device Provisioning Service (preview)** and click the **Create** button. 
+2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Device Provisioning Service** and click the **Create** button. 
 
 3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this instance, and name a new or existing resource group. Select the location. When complete, click **Create**.
 

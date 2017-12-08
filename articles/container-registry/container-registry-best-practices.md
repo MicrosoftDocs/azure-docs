@@ -2,22 +2,13 @@
 title: Best practices in Azure Container Registry
 description: Learn how to use your Azure container registry effectively by following these best practices.
 services: container-registry
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: ''
-keywords: ''
 
-ms.assetid:
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/05/2017
 ms.author: marsma
-ms.custom:
 ---
 
 # Best practices for Azure Container Registry
