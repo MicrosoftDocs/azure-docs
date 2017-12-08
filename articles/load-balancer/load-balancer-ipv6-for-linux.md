@@ -1,4 +1,4 @@
---
+---
 title: Configure DHCPv6 for Linux VMs | Microsoft Docs
 description: How to configure DHCPv6 for Linux VMs.
 services: load-balancer
