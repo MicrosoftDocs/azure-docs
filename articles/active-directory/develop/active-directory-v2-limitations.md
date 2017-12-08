@@ -107,7 +107,7 @@ The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open 
 * The v2.0 endpoint does not support issuing role or group claims in ID tokens.
 * The [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) is not supported by the v2.0 endpoint.
 
-In addtion, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
+In addition, the v2.0 endpoint does not support any form of the SAML or WS-Federation protocols.
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 

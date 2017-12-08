@@ -48,8 +48,8 @@ ms.author: sedusch
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework and install a highly available SAP NetWeaver 7.50 system.
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02 and SAP System ID NWS is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [converged template][template-converged] with SAP system ID NWS to create the resources.
+This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system.
+In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02, and SAP System ID NWS is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [converged template][template-converged] with SAP system ID NWS to create the resources.
 
 Read the following SAP Notes and papers first
 
@@ -83,7 +83,7 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/img_001.png)
 
-The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
 
 ### NFS Server
 * Frontend configuration
@@ -141,7 +141,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS and the
 ### Deploying Linux
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
-You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [SAP file server template][template-file-server] in the Azure portal   
@@ -152,8 +152,8 @@ Follow these steps to deploy the template:
       Select one of the Linux distributions. For this example, select SLES 12
    3. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
-   4. Subnet Id  
-      The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription id&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+   4. Subnet ID  
+      The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Installation
 
@@ -254,7 +254,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
+1. **[A]** Configure corosync to use other transport and add nodelist. Cluster does not work otherwise.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory Id. This is the **tenant id**.
+   Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
 1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
@@ -503,7 +503,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
+1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
@@ -523,13 +523,13 @@ After you edited the permissions for the virtual machines, you can configure the
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -540,7 +540,7 @@ crm(live)configure# exit
 #### **[1]** Enable the use of a STONITH device
 
 <pre><code>
-sudo crm configure property stonith-enabled=true 
+sudo crm configure property stonith-enabled=true 
 </code></pre>
 
 ## Setting up (A)SCS
@@ -549,7 +549,7 @@ sudo crm configure property stonith-enabled=true 
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines. The marketplace image contains the resource agent for SAP NetWeaver.
 
-You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal
@@ -557,8 +557,8 @@ Follow these steps to deploy the template:
 1. Enter the following parameters
    1. Resource Prefix (ASCS/SCS Multi SID template only)  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
-   3. Sap System Id (converged template only)  
-      Enter the SAP system Id of the SAP system you want to install. The Id is used as a prefix for the resources that are deployed.
+   3. Sap System ID (converged template only)  
+      Enter the SAP system ID of the SAP system you want to install. The ID is used as a prefix for the resources that are deployed.
    4. Stack Type  
       Select the SAP NetWeaver stack type
    5. Os Type  
@@ -566,13 +566,13 @@ Follow these steps to deploy the template:
    6. Db Type  
       Select HANA
    7. Sap System Size  
-      The amount of SAPS the new system provides. If you are not sure how many SAPS the system requires, please ask your SAP Technology Partner or System Integrator
+      The amount of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator
    8. System Availability  
       Select HA
    9. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
-   10. Subnet Id  
-   The ID of the subnet to which the virtual machines should be connected to.  Leave empty if you want to create a new virtual network or select the same subnet that you used or created as part of the NFS server deployment. The ID usually looks like /subscriptions/**&lt;subscription id&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+   10. Subnet ID  
+   The ID of the subnet to which the virtual machines should be connected to.  Leave empty if you want to create a new virtual network or select the same subnet that you used or created as part of the NFS server deployment. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Installation
 
@@ -702,7 +702,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
+1. **[A]** Configure corosync to use other transport and add nodelist. Cluster does not work otherwise.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -969,7 +969,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1010,7 +1010,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install SAP NetWeaver ASCS  
 
-   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS for example <b>nws-ascs</b>, <b>10.0.0.10</b> and the instance number that you used for the probe of the load balancer for example <b>00</b>.
+   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nws-ascs</b>, <b>10.0.0.10</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -1043,7 +1043,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1094,7 +1094,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Install SAP NetWeaver ERS  
 
-   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS for example <b>nws-ers</b>, <b>10.0.0.11</b> and the instance number that you used for the probe of the load balancer for example <b>02</b>.
+   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nws-ers</b>, <b>10.0.0.11</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -1103,7 +1103,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
    > [!NOTE]
-   > Please use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
+   > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
    > 
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
@@ -1138,7 +1138,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Please read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
    
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
@@ -1230,7 +1230,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory Id. This is the **tenant id**.
+   Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
 1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
@@ -1238,7 +1238,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
+1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
@@ -1258,13 +1258,13 @@ After you edited the permissions for the virtual machines, you can configure the
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1277,12 +1277,12 @@ crm(live)configure# exit
 Enable the use of a STONITH device
 
 <pre><code>
-sudo crm configure property stonith-enabled=true 
+sudo crm configure property stonith-enabled=true 
 </code></pre>
 
 ## Install database
 
-In this example an SAP HANA System Replication is installed and configured. SAP HANA will run in the same cluster as the SAP NetWeaver ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. See [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha] for more information.
+In this example, an SAP HANA System Replication is installed and configured. SAP HANA runs in the same cluster as the SAP NetWeaver ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. For more information, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha].
 
 ### Prepare for SAP HANA installation
 
@@ -1328,7 +1328,7 @@ We generally recommend using LVM for volumes that store data and log files. For 
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1442,7 +1442,7 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1463,7 +1463,7 @@ The following steps are based on chapter 4 of the [SAP HANA SR Performance Optim
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
