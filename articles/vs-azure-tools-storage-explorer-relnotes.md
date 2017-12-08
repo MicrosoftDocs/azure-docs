@@ -26,7 +26,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 ## Version 0.9.3
 12/08/2017
 
-### Download Azure Storage Explorer 0.9.2 (Preview)
+### Download Azure Storage Explorer 0.9.3 (Preview)
 - [Azure Storage Explorer 0.9.3 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Azure Storage Explorer 0.9.3 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 0.9.3 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
