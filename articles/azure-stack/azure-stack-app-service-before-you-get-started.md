@@ -267,7 +267,7 @@ Follow these steps:
 5. In the **Credential** window, enter your Azure AD service admin account and password. Select **OK**.
 6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is sso.appservice.local.azurestack.external.pfx.
 7. The script creates a new application in the tenant Azure AD instance. Make note of the application ID that's returned in the PowerShell output. You need this information during installation.
-8. Open a new browser window, and sign in to the [Azure portal](portal.azure.com) as the Azure Active Directory service admin.
+8. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com) as the Azure Active Directory service admin.
 9. Open the Azure AD resource provider.
 10. Select **App Registrations**.
 11. Search for the application ID returned as part of step 7. An App Service application is listed.
