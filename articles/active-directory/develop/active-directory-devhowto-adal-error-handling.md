@@ -17,7 +17,7 @@ ms.custom:
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
 
-This article provides guidance on errors developers may encounter when using ADAL to authenticate users. When using ADAL, there are several cases where a developer may need to step in and handle errors. Proper error handling ensures a great end-user experience, and limits the number of times the end user needs to sign in.
+This article provides guidance on the type of errors that developers may encounter, when using ADAL to authenticate users. When using ADAL, there are several cases where a developer may need to step in and handle errors. Proper error handling ensures a great end-user experience, and limits the number of times the end user needs to sign in.
 
 In this article, we explore the specific cases for each platform supported by ADAL, and how your application can handle each case properly. The error guidance is split into two broader categories, based on the token acquisition patterns provided by ADAL APIs:
 
