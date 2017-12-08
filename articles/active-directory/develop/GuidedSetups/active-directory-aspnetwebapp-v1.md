@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 12/08/2017
 ms.author: andret
 
 ---
@@ -126,7 +126,7 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 2.	Select `MVC (.NET version) Controller – Empty`.
 3.	Click *Add*
 4.	Name it `HomeController` and click *Add*
-5.	Add *OWIN* references to the class:
+5.	Add *OWIN* namespaces to the class:
 
 [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
@@ -151,7 +151,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 
 <!--start-collapse-->
 ### More Information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## Display user's claims by adding a controller
@@ -226,6 +226,9 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 7. Copy the guid under `Application ID` to the clipboard
 8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered
 
+> [!TIP]
+> If your account is configured to access to multiple directories, make sure you have selected the right directory for the organization you want the application to be registered by clicking on your account name in the top right in the Azure Portal, and then verifying the selected directory as indicated:<br/>![Selecting the right directory](media/active-directory-aspnetwebapp-v1/tenantselector.png)
+
 ## Configure sign-in options
 
 You can configure your application to allow only users that belong to one organization's Azure Active Directory instance to sign-in, or accept sign-ins from users that belong to any organization. Please follow the instructions of one of choices below:
@@ -258,7 +261,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
 2.	Change `SSL Enabled` to `True`
-3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
+3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/vsprojectproperties.png)<br />
 4.	Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
 
 ```xml
@@ -276,9 +279,9 @@ Press `F5` to run your project in Visual Studio. The browser opens and directs y
 
 When you're ready to test, use a work account (Azure Active Directory) to sign in. 
 
-![Sign in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
+![Sign in with Microsoft browser window](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin.png)
 
-![Sign in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
+![Sign in with Microsoft browser window](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin2.png)
 
 #### Expected results
 After sign-in, the user is redirected to the home page of your web site, which is the HTTPS URL specified in your application's registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
