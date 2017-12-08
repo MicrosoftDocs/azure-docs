@@ -34,6 +34,7 @@ A hierarchy tree can be created to support any number of scenarios that might be
 - Each management group can only support one parent
 - Each management group can have multiple children 
 - Each directory has a root management group by default
+    - This root management group cannot be moved or deleted
 
 # API commands 
 Management group functions are only available through an API.  Users can create, search, update, delete, and link other groups/ subscriptions to a management group through the API.  
