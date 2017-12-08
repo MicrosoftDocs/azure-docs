@@ -1,4 +1,4 @@
-﻿---
+---
 title: Change feed for HL7 FHIR resources - Azure Cosmos DB | Microsoft Docs
 description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
 keywords: hl7 fhir
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/08/2017
 ms.author: b-hoedid
 
 ---
