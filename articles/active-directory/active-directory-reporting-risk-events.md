@@ -33,7 +33,7 @@ Currently, Azure Active Directory detects six types of risk events:
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
 
-The insight you get for a detected risk event is tied to your Azure AD subscription. If you have an Azure AD Premium P1 edition (included in EMS E3 offering), detections that are not covered by your license are reported as **Sign-in with additional risk detected**. In other words, you see a risk event Sign-in with additional risk detected for detections exclusive to Azure AD Identity Protection subscribers.
+The insight you get for a detected risk event is tied to your Azure AD subscription. With the Azure AD Premium P2 edition, you get the most detailed information about all underlying detections. With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**.
 
 
 This topic gives you a detailed overview of what risk events are and how you can use them to protect your Azure AD identities.
