@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-restore/backup-restore.sh?highlight=4,9 "Restore a web app from a backup")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-restore/backup-restore.sh?highlight=3-4,9 "Restore a web app from a backup")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -39,8 +39,8 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az webapp config backup list](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Gets a list of backups for a web app. |
-| [az webapp config backup restore](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Restores a web app from a backup. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Gets a list of backups for a web app. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Restores a web app from a backup. |
 
 ## Next steps
 
