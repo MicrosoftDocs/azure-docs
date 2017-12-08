@@ -18,14 +18,14 @@
 | Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included |
 | Integrated Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | |12 per day |Once every 5 minutes<sup>8</sup> |
+| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | | Scheduled backups every 2 hours, a max of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a max of 50 backups per day (manual + scheduled) |
 | [Auto Scale](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Staging Slots](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Custom domains per app</a> | |500 |500 |500 |500 |
-| SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| SLA | |<p> |99.9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
@@ -35,7 +35,6 @@
 same App Service plan. More storage options are available in [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
 <sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
-<sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.  
-<sup>9</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.   
-<sup>10</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.  
+<sup>8</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.   
+<sup>9</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.  
 
