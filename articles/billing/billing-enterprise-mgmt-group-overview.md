@@ -20,7 +20,7 @@ ms.author: rithorn
 
 If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. As an example, you can apply policies to a management group that limgit stait which resource types can be created. These policies inherit to all the resources contained under that management group. 
 
->[NOTE]This feature in a Private Preview. More information will be released soon on the public preview of Azure Management Groups
+>![NOTE] This feature in a Private Preview. More information will be released soon on the public preview of Azure Management Groups
 
 Management groups, along with your subscriptions, can be organized into a hierarchy. The structure shown is a sample representation of a management group hierarchy that can exist:
 
