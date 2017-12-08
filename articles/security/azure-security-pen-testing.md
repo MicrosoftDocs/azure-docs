@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
 
 ---
@@ -26,11 +26,12 @@ You might already know that Microsoft performs [penetration testing of our Azure
 
 We don’t pen test your application for you, but we do understand that you will want and need to perform pen testing on your own applications. That’s a good thing, because when you enhance the security of your applications, you help make the entire Azure ecosystem more secure.
 
-When you pen test your applications, it might look like an attack to us. We [continuously monitor](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) for attack patterns and will initiate an incident response process if we need to. It doesn’t help you and it doesn’t help us if we trigger an incident response due to your own due diligence pen testing.
-
 What to do?
 
-When you’re ready to pen test your Azure-hosted applications, you have an option to [let us know](https://portal.msrc.microsoft.com/en-us/engage/pentest). Once notified, Microsoft will no inadvertently shut you down (such as blocking the IP address that you’re testing from). Your tests must conform to the Azure pen testing terms and conditions described in [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683).
+As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a penetration tests against Azure resources. Customers who wish to formally document upcoming penetration testing engagements against Microsoft Azure are encouraged to fill out the [Azure Service Penetration Testing Notification form](https://portal.msrc.microsoft.com/engage/pentest). This process is only related to Microsoft Azure, and not applicable to any other Microsoft Cloud Service. 
+
+[!IMPORTANT]
+While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683). 
 
 Standard tests you can perform include:
 
