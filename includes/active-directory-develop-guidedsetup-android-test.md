@@ -23,14 +23,14 @@ ms.custom: aaddev
 1. Deploy your code to your device/emulator.
 2. When you're ready to test your application, use a Microsoft Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to sign in. 
 
-    ![Test your application](media/active-directory-mobileanddesktopapp-android-test/mainwindow.png)
+    ![Test your application](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>
-    ![Enter username and password](media/active-directory-mobileanddesktopapp-android-test/usernameandpassword.png)
+    ![Enter username and password](media/active-directory-develop-guidedsetup-android-test/usernameandpassword.png)
 
 ### Provide consent for application access
 The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in: 
 
-![Provide your consent for application access](media/active-directory-mobileanddesktopapp-android-test/androidconsent.png)
+![Provide your consent for application access](media/active-directory-develop-guidedsetup-android-test/androidconsent.png)
 
 
 ### View application results

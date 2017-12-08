@@ -29,7 +29,7 @@ After you complete the exercises in this guide, your application can call a prot
 
 ## How this guide works
 
-![How this guide works](media/active-directory-mobileanddesktopapp-ios-introduction/iosintro.png)
+![How this guide works](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
 In this guide, the sample application enables an iOS application to query the Microsoft Graph API or a web API that accepts tokens from the Azure AD v2.0 endpoint. For this scenario, a token is added to HTTP requests by using the **Authorization** header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
 

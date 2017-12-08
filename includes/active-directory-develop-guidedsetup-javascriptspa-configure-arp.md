@@ -28,7 +28,7 @@ Configure the `Redirect URL` field above with the URL for your index.html page b
 > #### Visual Studio instructions for obtaining redirect URL
 > To obtain your redirect URL, follow the instructions below:
 > 1.	In *Solution Explorer*, select the project and look at the `Properties` window (if you don’t see a Properties window, press `F4`)
-> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3.	Paste the value as a `Redirect URL` on the top of this page, then click `Update`
 
 <p/>

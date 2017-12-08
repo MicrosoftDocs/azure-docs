@@ -20,14 +20,14 @@ ms.author: andret
 
 To run the code in the simulator, press **Command** + **R**.
 
-![Test your application in the simulator](media/active-directory-mobileanddesktopapp-ios-test/iostestscreenshot.png)
+![Test your application in the simulator](media/active-directory-develop-guidedsetup-ios-test/iostestscreenshot.png)
 
 When you're ready to test, select **Call Microsoft Graph API**. When prompted, enter your username and password.
 
 ### Provide consent for application access
 The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in:
 
-![Provide your consent for application access](media/active-directory-mobileanddesktopapp-ios-test/iosconsentscreen.png)
+![Provide your consent for application access](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### View application results
 After you sign in, you should see your user profile information returned by the Microsoft Graph API call in the **Logging** section. 

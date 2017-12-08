@@ -40,7 +40,7 @@ Now you need to register your application in the *Microsoft Application Registra
 > #### Visual Studio instructions for obtaining redirect URL
 > Follow the instructions to obtain your redirect URL:
 > 1.	In *Solution Explorer*, select the project and look at the `Properties` window (if you don’t see a Properties window, press `F4`)
-> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3.	Switch back to the *Application Registration Portal* and paste the value as a `Redirect URL` and click 'Save'
 
 <p/>

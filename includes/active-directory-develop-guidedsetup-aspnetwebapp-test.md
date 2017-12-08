@@ -24,9 +24,9 @@ To test your application in Visual Studio, press **F5** to run your project. The
 
 When you're ready to run your test, use a Microsoft Azure Active Directory (Azure AD) account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
 
-![Sign in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
+![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Sign in to your Microsoft account](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
+![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### View application results
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>," a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
