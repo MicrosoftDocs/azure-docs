@@ -24,4 +24,3 @@ ms.custom: aaddev
 [!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-windowsdesktop-use.md)]
 [!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-windowsdesktop-configure.md)]
 [!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-windowsdesktop-test.md)]
-
