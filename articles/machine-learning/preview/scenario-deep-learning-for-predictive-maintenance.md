@@ -41,7 +41,7 @@ This tutorial uses the example of simulated aircraft engine run-to-failure event
 - An installed copy of Azure Machine Learning Workbench with a workspace created.
 - For model operationalization: Azure Machine Learning Operationalization with a local deployment environment setup and a [model management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
 
-## Create a new Workbench project
+## Create a new workbench project
 
 Create a new project using this example as a template:
 
@@ -87,11 +87,11 @@ In the repository, there is a [Readme] (https://github.com/Azure/MachineLearning
 
 Next we describe the step-by-step scenario workflow:
 
-### Task 1: Data Ingestion & Preparation
+### Task 1: Data ingestion & preparation
 
 The Data Ingestion Jupyter Notebook in the `Code/1_data_ingestion_and_preparation.ipnyb` loads the three input data sets into `Pandas` dataframe format, prepares the data for the modeling part and does some preliminary data visualization. The data is then transformed into `PySpark` format and stored in an Azure Blob storage container on your subscription for use in the next modeling task.
 
-### Task 2: Model Building & Evaluation
+### Task 2: Model building & evaluation
 
 The Model Building Jupyter Notebook in `Code/2_model_building_and_evaluation.ipnyb` that reads `PySpark` train and test data sets from blob storage. Then a LSTM network is built with the training data sets. The model performance is measured on the test set. The resulting model is serialized and stored in the local compute context for use in the operationalization task.
 
