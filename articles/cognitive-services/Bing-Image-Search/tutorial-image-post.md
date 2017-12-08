@@ -2,7 +2,7 @@
 title: Bing Image Upload for Insights | Microsoft Docs
 description: Console application that uses the Bing Image Search API to upload an image and get image insights.
 services: cognitive-services
-author: v-gedod
+author: mikedodaro
 manager: rosh
 
 ms.service: cognitive-services
