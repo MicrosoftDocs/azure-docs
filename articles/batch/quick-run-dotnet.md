@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Run Batch job - .NET | Microsoft Docs
-description: Quickly run a Batch job and tasks with the Batch .NET client SDK.
+description: Quickly run a Batch job and tasks with the Batch .NET client library.
 services: batch
 documentationcenter: 
 author: dlepow
@@ -14,14 +14,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/06/2017
+ms.date: 12/08/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run your first Batch job using the .NET SDK
+# Run your first Batch job using the .NET API
 
-This quickstart shows how to use the Azure Batch .NET SDK to build a local client app that runs an Azure Batch job. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+This quickstart runs an Azure Batch job from an app built on the Azure Batch .NET API. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+
+![Quickstart app workflow](./media/quick-run-dotnet/sampleapp.png)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -104,9 +106,9 @@ Typical execution time is approximately 5 minutes when you run the application i
 
 The .NET app in this quickstart does the following:
 
-* Uploads three small text files to a blob container named *input* in your Azure storage account. These files are inputs for processing by Batch tasks.
+* Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
 * Creates a pool of three compute nodes (virtual machines) running Windows Server.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. For simplicity, the app only types the content of each input file. 
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. 
 * Displays the standard output and standard error files returned by each task.
 * After task completion, deletes the blob container and optionally the Batch job and pool.
 

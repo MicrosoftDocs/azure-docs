@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Run Batch job - Python | Microsoft Docs
-description: Quickly run a Batch job and tasks with the Batch Pythnon client SDK.
+description: Quickly run a Batch job and tasks using the Batch Python client library.
 services: batch
 documentationcenter: 
 author: dlepow
@@ -14,14 +14,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/06/2017
+ms.date: 12/08/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Run your first Batch job using the Python SDK
+# Run your first Batch job using the Python API
 
-This quickstart shows how to use the Azure Batch Python SDK to build a local client app that runs an Azure Batch job. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+This quickstart runs an Azure Batch job from an app built on the Azure Batch Python API. This example is basic but introduces key concepts of the Batch service. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+
+![Quickstart app workflow](./media/quick-run-python/sampleapp.png)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,7 +58,7 @@ pip install azure.batch
 pip install azure.storage
 ```
 
-Open the file python_quickstart_client.py in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands.
+Open the file `python_quickstart_client.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands.
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -100,9 +102,9 @@ Typical execution time is approximately 3 minutes when you run the application i
 
 The Python app in this quickstart does the following:
 
-* Uploads three small text files to a blob container named *input* in your Azure storage account. These files are inputs for processing by Batch tasks.
+* Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
 * Creates a pool of three compute nodes running Ubuntu 16.04 LTS.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a basic **Command line**. For simplicity, the app only types the content of each input file. 
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a bash shell command line.
 * Displays the standard output and standard error files returned by each task.
 * After task completion, deletes the blob container and optionally the Batch job and pool.
 
