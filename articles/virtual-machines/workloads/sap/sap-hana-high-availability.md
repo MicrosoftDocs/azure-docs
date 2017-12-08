@@ -100,7 +100,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
     1. Create a frontend IP pool
         1. Open the load balancer, select frontend IP pool and click Add
         1. Enter the name of the new frontend IP pool (for example hana-frontend)
-       1. Click OK
+        1. Click OK
         1. After the new frontend IP pool is created, write down its IP address
     1. Create a backend pool
         1. Open the load balancer, select backend pools and click Add
@@ -110,7 +110,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the virtual machines of the SAP HANA cluster
         1. Click OK
     1. Create a health probe
-       1. Open the load balancer, select health probes and click Add
+        1. Open the load balancer, select health probes and click Add
         1. Enter the name of the new health probe (for example hana-hp)
         1. Select TCP as protocol, port 625**03**, keep Interval 5 and Unhealthy threshold 2
         1. Click OK
@@ -120,7 +120,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the frontend IP address, backend pool and health probe you created earlier (for example hana-frontend)
         1. Keep protocol TCP, enter port 3**03**15
         1. Increase idle timeout to 30 minutes
-       1. **Make sure to enable Floating IP**
+        1. **Make sure to enable Floating IP**
         1. Click OK
         1. Repeat the steps above for port 3**03**17
 
