@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
-description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
+description: This article describes setting up a secure Service Fabric cluster in Azure using Resource Manager, Key Vault, and Active Directory (Azure AD) for client authentication.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -10,9 +10,9 @@ ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 06/22/2017
+ms.tgt_pltfrm:
+ms.workload:
+ms.date: 11/28/2017
 ms.author: chackdan
 
 ---
@@ -33,7 +33,7 @@ The guide covers the following procedures:
 
 A secure cluster is a cluster that prevents unauthorized access to management operations. This includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
 
-The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. For more information and helper scripts for creating secure Linux clusters, see [Creating secure clusters on Linux](#secure-linux-clusters).
+The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. For more information and helper scripts for creating secure Linux clusters, see [Creating secure clusters on Linux](#Create-secure-clusters-on-Linux).
 
 ## Sign in to your Azure account
 This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -82,14 +82,13 @@ The output should look like this:
     ResourceId        : /subscriptions/<guid>/resourceGroups/westus-mykeyvault
 
 ```
-<a id="new-key-vault"></a>
 
 ### Create a key vault in the new resource group
 The key vault _must be enabled for deployment_ to allow the compute resource provider to get certificates from it and install it on virtual machine instances:
 
 ```powershell
-
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    $vaultName = 'mywestusvault'
+    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
 
 ```
 
@@ -118,7 +117,6 @@ The output should look like this:
 
     Tags                             :
 ```
-<a id="existing-key-vault"></a>
 
 ## Use an existing key vault
 
@@ -129,8 +127,6 @@ To use an existing key vault, you _must enable it for deployment_ to allow the c
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ```
-
-<a id="add-certificate-to-key-vault"></a>
 
 ## Add certificates to your key vault
 
@@ -154,137 +150,36 @@ Any number of additional certificates can be installed on a cluster for applicat
 * Encryption and decryption of application configuration values.
 * Encryption of data across nodes during replication.
 
-### Formatting certificates for Azure resource provider use
-You can add and use private key files (.pfx) directly through your key vault. However, the Azure compute resource provider requires keys to be stored in a special JavaScript Object Notation (JSON) format. The format includes the .pfx file as a base 64-encoded string and the private key password. To accommodate these requirements, the keys must be placed in a JSON string and then stored as "secrets" in the key vault.
-
-To make this process easier, a [PowerShell module is available on GitHub][service-fabric-rp-helpers]. To use the module, do the following:
-
-1. Download the entire contents of the repo into a local directory.
-2. Go to the local directory.
-2. Import the ServiceFabricRPHelpers module in your PowerShell window:
-
-```powershell
-
- Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-```
-
-The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to the key vault. Use the command to add the cluster certificate and any additional application certificates to the key vault. Repeat this step for any additional certificates you want to install in your cluster.
+### Managing certificates in Azure Key Vault
+Key Vault supports creating, uploading and managing lifetime of certificates. See blog post on [Getting started with Azure Key Vault certificates](key-vault-certificates-getting-started) for details and options.
 
 #### Uploading an existing certificate
+In the powershell window created earlier, run the following commands to upload an existing certificate to Azure Key Vault.
 
 ```powershell
+# Change values as required
+# Password of PFX as secure string
+$securepfxpwd = ConvertTo-SecureString –String '<password>' –AsPlainText –Force
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName westus-mykeyvault -Location "West US" -VaultName mywestusvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
+Import-AzureKeyVaultCertificate -VaultName '<vault_name>' -Name '<certificate_name>' -FilePath '<path_to_pfx_file>' -Password $securepfxpwd
 ```
 
-If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name.
-
-```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-
-```
-
-After the conflict is resolved, the output should look like this:
-
-```
-
-    Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup westus-mykeyvault in West US
-    WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing value mywestusvault in West US
-    Reading pfx file from C:\path\to\key.pfx
-    Writing secret to mywestusvault in vault mywestusvault
-
-
-Name  : CertificateThumbprint
-Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
-
-Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/westus-mykeyvault/providers/Microsoft.KeyVault/vaults/mywestusvault
-
-Name  : CertificateURL
-Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
-```
-
->[!NOTE]
->You need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric cluster and to obtain any application certificates that you might be using for application security. If you do not save the strings, it can be difficult to retrieve them by querying the key vault later.
-
-<a id="add-self-signed-certificate-to-key-vault"></a>
-
-#### Creating a self-signed certificate and uploading it to the key vault
-
-If you have already uploaded your certificates to the key vault, skip this step. This step is for generating a new self-signed certificate and uploading it to your key vault. After you change the parameters in the following script and then run it, you should be prompted for a certificate password.  
+#### Creating a self-signed certificate in key vault
+Following commands create a self signed certificate with 12 month validity in Azure Key Vault.
 
 ```powershell
+# Change values as required. Make sure that Subject Name matches URL of cluster
+$policy = New-AzureKeyVaultCertificatePolicy -SubjectName "CN=<Url_of_SF_cluster>" -IssuerName Self -ValidityInMonths 12
 
-$ResourceGroup = "chackowestuskv"
-$VName = "chackokv2"
-$SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-$locationRegion = "westus"
-$newCertName = "chackotestcertificate1"
-$dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-
+Add-AzureKeyVaultCertificate -VaultName '<vaultName>' -Name <certificate_name> -CertificatePolicy $policy
 ```
-
-If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name, RG name, and so forth.
-
-```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-
-```
-
-After the conflict is resolved, the output should look like this:
-
-```
-PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-Ensuring ResourceGroup chackowestuskv in westus
-WARNING: The output object type of this cmdlet will be modified in a future release.
-Creating new vault westuskv1 in westus
-Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
-Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-Writing secret to chackonewcertificate1 in vault westuskv1
-
-
-Name  : CertificateThumbprint
-Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
-
-Name  : SourceVault
-Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackowestuskv/providers/Microsoft.KeyVault/vaults/westuskv1
-
-Name  : CertificateURL
-Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
-
-```
-
->[!NOTE]
->You need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric cluster and to obtain any application certificates that you might be using for application security. If you do not save the strings, it can be difficult to retrieve them by querying the key vault later.
 
  At this point, you should have the following elements in place:
 
 * The key vault resource group.
-* The key vault and its URL (called SourceVault in the preceding PowerShell output).
+* The key vault and its URL.
 * The cluster server authentication certificate and its URL in the key vault.
 * The application certificates and their URLs in the key vault.
-
-
-<a id="add-AAD-for-client"></a>
 
 ## Set up Azure Active Directory for client authentication
 
@@ -455,8 +350,7 @@ The Azure AD configuration that you created earlier can be inserted directly int
 }
 ```
 
-### <a "configure-arm" ></a>Configure Resource Manager template parameters
-<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
+### Configure Resource Manager template parameters
 Finally, use the output values from the key vault and Azure AD PowerShell commands to populate the parameters file:
 
 ```json
@@ -531,8 +425,6 @@ If the Resource Manager template test passes, use the following PowerShell comma
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-<a name="assign-roles"></a>
-
 ## Assign users to roles
 After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure classic portal][azure-classic-portal].
 
@@ -550,9 +442,6 @@ After you have created the applications to represent your cluster, assign your u
 > For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 >
 >
-
- <a name="secure-linux-clusters"></a>
- <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
 ## Create secure clusters on Linux
 To make the process easier, we have provided a [helper script](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Before you use this helper script, ensure that you already have Azure command-line interface (CLI) installed, and it is in your path. Make sure that the script has permissions to execute by running `chmod +x cert_helper.py` after downloading it. The first step is to sign in to your Azure account by using CLI with the `azure login` command. After signing in to your Azure account, use the helper script with your CA signed certificate, as the following command shows:
@@ -586,7 +475,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
-These subject names are the entries you need to create a secure Service Fabric cluster (without Azure AD), as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). Linux clusters do not support Azure AD authentication. You can assign admin and client roles as described in the [Assign roles to users](#assign-roles) section. When you specify admin and client roles for a Linux cluster, you have to provide certificate thumbprints for authentication. You do not provide the subject name, because no chain validation or revocation is being performed.
+These subject names are the entries you need to create a secure Service Fabric cluster (without Azure AD), as described at [Configure Resource Manager template parameters](#Configure-Resource-Manager-template-parameters). You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). Linux clusters do not support Azure AD authentication. You can assign admin and client roles as described in the [Assign roles to users](#Assign-users-to-roles) section. When you specify admin and client roles for a Linux cluster, you have to provide certificate thumbprints for authentication. You do not provide the subject name, because no chain validation or revocation is being performed.
 
 If you want to use a self-signed certificate for testing, you can use the same script to generate one. You can then upload the certificate to your key vault by providing the flag `ss` instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
@@ -654,7 +543,7 @@ Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web
 FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
 
 <!-- Links -->
-[azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]:https://docs.microsoft.com/en-us/powershell/
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
@@ -666,8 +555,9 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
-[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[resource-group-template-deploy]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
+[key-vault-certificates-getting-started]:https://blogs.technet.microsoft.com/kv/2016/09/26/get-started-with-azure-key-vault-certificates/
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
