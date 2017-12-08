@@ -82,7 +82,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 <!--start-collapse-->
 > ### About these packages
->The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.
+>The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to re-authenticate, and no additional verification is needed.
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
@@ -95,9 +95,9 @@ The steps below are used to create an OWIN middleware *Startup Class* to configu
 > Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
 
-1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
+1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedDirectives "Startup.cs")]
+[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
@@ -128,7 +128,7 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 4.	Name it `HomeController` and click *Add*
 5.	Add *OWIN* references to the class:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedDirectives "HomeController.cs")]
+[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
