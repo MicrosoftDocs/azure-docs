@@ -160,7 +160,7 @@ To create a storage account in the Azure portal, follow these steps:
 6. Choose the location for your new storage account.
 7. Click **Create** to create the storage account.      
 
-
+![Screen shot showing storage account creation in the Azure portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # [PowerShell](#tab/powershell)
 ps
