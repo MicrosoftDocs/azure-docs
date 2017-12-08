@@ -43,9 +43,10 @@ In this scenario, you focus on workload prediction for each machine (or server).
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Machine Learning Workbench](./overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](./quickstart-installation.md).
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](./quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (the instructions in this example are generally the same for macOS systems).
-* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. You need the DSVM IP address, user name, and password to try out this example. Save the following table with the DSVM info for later steps:
+* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. 
+Follow the [instruction](./known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
 
  Field name| Value |  
  |------------|------|
@@ -53,9 +54,10 @@ DSVM IP address | xxx|
  User name  | xxx|
  Password   | xxx|
 
+
  You can choose to use any VM with [Docker Engine](https://docs.docker.com/engine/) installed.
 
-* An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type `D12 V2` for head node, and `D14 V2` for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
+* An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type `D12 V2` for head node, and `D14 V2` for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
 
  Field name| Value |  
  |------------|------|
@@ -268,7 +270,7 @@ When you have successfully finished the experimentation on the small data, you c
 
 The following two files are created in the aml_config folder:
     
--  myhdo.compute: This file contains connection and configuration information for a remote execution target.
+-  myhdi.compute: This file contains connection and configuration information for a remote execution target.
 -  myhdi.runconfig: This file is set of run options used within the Workbench application.
 
 
