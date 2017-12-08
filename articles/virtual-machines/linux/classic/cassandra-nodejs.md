@@ -1,9 +1,9 @@
 ---
-title: Run Cassandra with Linux on Azure | Microsoft Docs
+title: Run a Cassandra cluster on Linux in Azure from Node.js
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: ''
 tags: azure-service-management
@@ -15,10 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
+ms.author: cshoe
 
 ---
-# Running Cassandra with Linux on Azure and Accessing it from Node.js
+
+# Run a Cassandra cluster on Linux in Azure with Node.js
+
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 

@@ -28,19 +28,28 @@
 ### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Configure a site-to-site VPN over Microsoft peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Configure a virtual network gateway for ExpressRoute
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md)
 ## Configure route filters for Microsoft peering
 ### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [Move from public peering to Microsoft peering](how-to-move-peering.md)
 ## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
 ### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)
+## [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
+## Classic deployment model articles
+### [Modify a circuit](expressroute-howto-circuit-classic.md)
+### [Create and modify peering configuration](expressroute-howto-routing-classic.md)
+### [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+### [Configure ExpressRoute and S2S coexisting connections](expressroute-howto-coexist-classic.md)
+### [Add a gateway to a VNet](expressroute-howto-add-gateway-classic.md)
 
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
@@ -50,6 +59,7 @@
 
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
+### [Reset a failed circuit](reset-circuit.md)
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
@@ -81,7 +91,7 @@
 ### [Create a virtual network gateway for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
 ### [Create an ExpressRoute circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Evolve your network infrastructure for connectivity](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [How to set up Private Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
+### [How to set up private peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Hybrid partnerships: Enabling on-premises scenarios](https://go.microsoft.com/fwlink/p/?LinkId=615125)
-### [Set up Microsoft Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
-### [Set up Public Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
+### [Set up Microsoft peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
+### [Set up public peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)

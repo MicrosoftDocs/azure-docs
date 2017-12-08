@@ -10,11 +10,11 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: overview-samples
+ms.custom: overview-samples, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
-ms.workload: database
+ms.workload: "On Demand"
 ms.date: 06/23/2017
 ms.author: janeng
 ---

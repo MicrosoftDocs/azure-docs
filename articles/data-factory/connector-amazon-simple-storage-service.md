@@ -23,7 +23,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon S3 connnector in V1](v1/data-factory-amazon-simple-storage-service-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from any supported source data store to Azure Data Lake Store, or copy data from Azure Data Lake Store to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -50,7 +50,7 @@ The following properties are supported for Amazon S3 linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonS3**. | Yes |
-| accessKeyID | ID of the secret access key. |Yes |
+| accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a SecureString. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 

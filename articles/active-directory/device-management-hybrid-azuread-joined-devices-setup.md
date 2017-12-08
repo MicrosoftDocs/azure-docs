@@ -295,7 +295,7 @@ In the claim above,
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

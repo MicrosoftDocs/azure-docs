@@ -19,7 +19,7 @@ Azure Stack can be deployed using Azure Active Directory (Azure AD) or Active Di
 The following table shows the differences between the two identity choices:
 
 
-||Physically diconnected|Physically connected|
+||Physically disconnected|Physically connected|
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
@@ -256,7 +256,7 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - Various applications
 - You require a non-interactive logon
 
-For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## Troubleshooting

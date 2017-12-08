@@ -31,7 +31,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 
 ## Resource Policy
 
-[Azure resource policies](../azure-resource-manager/resource-manager-policy.md) are not available in Azure Government.
+[Azure resource policies](../azure-policy/azure-policy-introduction.md) are not available in Azure Government.
 
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
@@ -89,7 +89,7 @@ Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting
 
 If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
 #### Diagnostic Logs
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.

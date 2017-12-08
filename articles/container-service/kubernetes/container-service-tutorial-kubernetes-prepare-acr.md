@@ -1,20 +1,12 @@
 ---
-title: Azure Container Service tutorial - Prepare ACR | Microsoft Docs
+title: Azure Container Service tutorial - Prepare ACR
 description: Azure Container Service tutorial - Prepare ACR
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -52,14 +44,14 @@ az group create --name myResourceGroup --location westeurope
 Create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. The name of a Container Registry **must be unique**.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name.
 
 ## Container registry login
 
-Use the [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) command to log in to the ACR instance. You need to provide the unique name given to the container registry when it was created.
+Use the [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) command to log in to the ACR instance. You need to provide the unique name given to the container registry when it was created.
 
 ```azurecli
 az acr login --name <acrName>

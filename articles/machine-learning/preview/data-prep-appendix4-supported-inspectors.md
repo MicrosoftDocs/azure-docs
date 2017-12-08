@@ -1,6 +1,6 @@
 ---
 title: Supported inspectors available with Azure Machine Learning Data Preparation  | Microsoft Docs
-description: This document provides a complete list of inspectors available for Azure ML data prep
+description: This document provides a complete list of inspectors available for Azure Machine Learning data preparation
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -14,96 +14,113 @@ ms.topic: article
 ms.date: 09/11/2017
 ---
 
-# Supported Inspectors for this preview
-This document outlines the set of inspectors available in this preview.
+# Supported inspectors for the Azure Machine Learning data preparation preview
+This document outlines the set of inspectors that are available in this preview.
 
 ## The halo effect 
-Some Inspectors support the Halo effect, this effect uses two different colors to immediately show the change visually from a transform. The gray represents the previous value prior to the latest transform, the blue shows the current value. This effect can be enabled/disabled in options.
+Some inspectors support the halo effect. This effect uses two different colors to immediately show the change visually from a transform. The gray represents the value prior to the latest transform, and the blue shows the current value. This effect can be enabled and disabled in options.
 
 ## Graphical filtering 
-Some of the Inspectors support filtering of data by using the Inspector as an editor. Doing so involves selection of graphical elements and then the use of the toolbar in the top right of the Inspector window to filter in or out the selected values. 
+Some of the inspectors support the filtering of data by using the inspector as an editor. Using the inspector as an editor involves selecting graphical elements, and then using the toolbar in the upper-right part of the inspector window to filter in or out the selected values. 
 
 ## Column statistics
-For numeric columns, this inspector provides a variety of different stats about the column. Statistics include;
+For numeric columns, this inspector provides a variety of different stats about the column. Statistics include the following measurements: 
 - Minimum
-- Lower Quartile
+- Lower quartile
 - Median
-- Upper Quartile
+- Upper quartile
 - Maximum
 - Average
-- Standard Deviation
+- Standard deviation
 
 
 ### Options 
 - None
 
 ## Histogram 
-Computes and displays a Histogram of a single numeric column. Default number of buckets is calculated using Scott’s Rule, the rule can be overridden via the Options.
-This Inspector supports the Halo effect.
+Computes and displays a histogram of a single numeric column. The default number of buckets is calculated using Scott’s Rule. However, the rule can be overridden via the options.
+
+This Inspector supports the halo effect.
 
 
 ### Options
-- Minimum Number of Buckets (applies even when default bucketing is checked)
-- Default Number of Buckets (Scott's Rule) 
+- Minimum number of buckets (applies even when default bucketing is checked)
+- Default number of buckets (Scott's Rule) 
 - Show halo
-- Kernel Density Plot Overlay (Gaussian Kernel) 
+- Kernel density plot overlay (Gaussian kernel) 
 
 
 ### Actions
-This Inspector supports filtering via the buckets, single or multi select buckets and apply filters as previously described.
+This inspector supports filtering via buckets, which can include single or multi-select buckets. Apply filters as previously described.
 
-## Value Counts
-This Inspector presents a frequency table of values for the currently select column. The default display is for the top 6, the limit can be changed to be any number or to count from the bottom not top. This Inspector supports the Halo effect.
+## Value counts
+This inspector presents a frequency table of values for the column that is currently selected. The default display is for the top six values. You can change the limit to any number, however. You can also set the display to count from the bottom instead of the top. This inspector supports the halo effect.
 
 ### Options 
-- Number of Top Values
+- Number of top values
 - Descending
 - Include null/error values
 - Show halo
 
 
 ### Actions 
-This Inspector supports filtering via the bars, single or multi select bars and apply filters as previously described.
+This inspector supports filtering via bars, which can include single or multi-select bars. Apply filters as previously described.
 
-## Box Plot 
-A box whisker plot of a numeric column
+## Box plot 
+A box whisker plot of a numeric column.
 
 ### Options 
-- Group By Column
+- Group by column
 
-## Scatter Plot
-A scatter plot for two numeric columns, the data is down sampled for performance reasons, the sample size can be overridden in the options.
+## Scatter plot
+A scatter plot for two numeric columns. The data is down-sampled for performance reasons. The sample size can be overridden in the options.
 
 ### Options  
-- X-Axis Column
-- Y-Axis Column
-- Sample Size
-- Group by Column
+- X-axis column
+- Y-axis column
+- Sample size
+- Group by column
 
 
-## Time Series
-A line graph with time awareness on the X- Axis
+## Time series
+A line graph with time awareness on the x-axis.
 
 ### Options
-- Date Column
-- Numeric Column
-- Sample Size
+- Date column
+- Numeric column
+- Sample size
 
 
 ### Actions
-This inspector supports filtering via a Click and Drag Select method to select a range on the graph. After completing selection, apply filters as previously described.
+This inspector supports filtering via a click-and-drag select method to select a range on the graph. After you complete selection, apply filters as previously described.
 
 
 ## Map 
-A map with points plotted assuming latitude and longitude have been specified. Latitude must be selected first.
+A map with points that are plotted, assuming that latitude and longitude have been specified. Latitude must be selected first.
 
 ### Options
-- Latitude Column
-- Longitude Column
-- Clustering On
-- Group by Column
+- Latitude column
+- Longitude column
+- Clustering on
+- Group by column
 
 
 ### Actions
-This Inspector supports filtering via point selection on the map. Press the control key and then click and drag with the mouse to form a square around the points. Then apply filters as previously described.
-It is possible to quickly size the map to show all the possible points and no more by pressing the **E** on the left-hand side of the map.
+This inspector supports filtering via point selection on the map. Press the **Ctrl** key, and then click and drag with the mouse to form a square around the points. Then apply filters as previously described.
+
+You can quickly size the map to show only the possible points by pressing the **E** on the left side of the map.
+
+
+## Pattern Frequency 
+
+This inspector shows a list of patterns in the selected String column. The patterns are represented using a regular expression like syntax. Hovering on the pattern shows the examples of values represented by that pattern. Along with the patterns, the approximate coverages in terms of percentage is also shown.
+
+![Image of the pattern inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### Options
+- Number of top values
+- Descending
+- Show halo
+
+### Actions
+This inspector supports filtering based on displayed patterns. Press the **Ctrl** key, and then select the filled bars in pattern inspector. Then apply filters as previously described. As a result of the user acion, an Advanced filter step is added. You can see and modify the generated Python code by invoking the edit option of the Advanced Filter step.

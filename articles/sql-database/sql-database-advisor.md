@@ -13,7 +13,7 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 09/20/2017
 ms.author: sstein
 
@@ -54,7 +54,12 @@ To help you estimate the impact of this recommendation, you are provided with a 
 
 Once you apply this recommendation, it will enable forced parameterization within minutes on your database and it starts the monitoring process which approximately lasts for 24 hours. After this period, you will be able to see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation in case a performance regression has been detected.
 
-## Fix schema issues recommendations
+## Fix schema issues recommendations (preview)
+
+> [!IMPORTANT]
+> Microsoft is in the process of deprecating "Fix schema issue" recommendations. You should start using [Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance issues, which include schema issues that previously "Fix schema issue" recommendations covered.
+> 
+
 **Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, etc.) within an hour.
 
 “Schema issues” are a class of syntax errors in SQL Server that happen when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns expected by the query may be missing in the target table, or vice versa. 

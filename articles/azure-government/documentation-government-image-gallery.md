@@ -42,7 +42,7 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of October 10, 2017.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of Dcember 2, 2017.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
@@ -128,6 +128,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | mediawiki | 1-26 |
 | bitnami | memcached | 1-4 |
 | bitnami | memcached | default |
+| bitnami | memcached | memcached |
 | bitnami | modx | 2-4 |
 | bitnami | mongodb | 3-2 |
 | bitnami | mongodb | default |
@@ -178,6 +179,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | bitnami | redash | 0-10 |
 | bitnami | redis | 3-2 |
 | bitnami | redis | default |
+| bitnami | redis | redis |
 | bitnami | redmine | 3 |
 | bitnami | redmineplusagile | public |
 | bitnami | refinerycms | 2-1 |
@@ -288,7 +290,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v2220 |
 | infoblox | infoblox-vnios-te-v1420 | vnios-te-v820 |
 | infoblox | infoblox-vnios-te-v1420 | vsot |
+| jamcracker | jamcracker-cloudanalytics-version4 | jamcracker-cloud-analytics-version4 |
 | jamcracker | jamcracker-csb-standard-v3 | jamcracker-csb-standard-v3 |
+| jamcracker | jamcracker-csb-standard-version4 | jamcracker-csb-standard-version4 |
+| jamcracker | jamcracker-hybrid-cloud-management-version4 | jamcracker-hybrid-cloud-management-version4 |
+| jamcracker | jamcracker_cloud_control_appliance_version4 | jamcracker-cloud-control-appliance-version4 |
+| jamcracker | jsdnapp_csb_serviceprovider-version4 | jc-csbsp-version4 |
 | jamcracker | jsdnapp_hybrid_v3 | jsdnapp_hybrid_v3 |
 | juniper-networks | vsrx-next-generation-firewall | vsrx-byol-azure-image |
 | juniper-networks | vsrx-next-generation-firewall-solution-template | vsrx-byol-azure-image-solution-template |
@@ -300,7 +307,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | kemptech | vlm-azure | vlm-spla |
 | kemptech | vlm-azure | vlm-spla-lts |
 | kinetica | kineticadbbyol | centos73-601 |
+| liebsoft | enterprise_random_password_manager | redim5521 |
 | mapr-technologies | mapr52-base-dev | 5202 |
+| marklogic | marklogic-9-byol | ml9031_centos_byol |
+| marklogic | marklogic-developer-9 | ml9031_centos |
 | mico | mobile-impact-platform | mipvm |
 | microsoft-ads | linux-data-science-vm-ubuntu | linuxdsvmubuntubyol |
 | microsoft-ads | windows-data-science-vm | windows2016byol |
@@ -311,6 +321,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftOSTC | FreeBSD | 10.3 |
 | MicrosoftOSTC | FreeBSD | 11 |
 | MicrosoftOSTC | FreeBSD | 11.0 |
+| MicrosoftRServer | MLServer-CentOS | Enterprise |
+| MicrosoftRServer | MLServer-RedHat | Enterprise |
+| MicrosoftRServer | MLServer-Ubuntu | Enterprise |
+| MicrosoftRServer | MLServer-WS2016 | Enterprise |
 | MicrosoftRServer | RServer-CentOS | Enterprise |
 | MicrosoftRServer | RServer-RedHat | Enterprise |
 | MicrosoftRServer | RServer-Ubuntu | Enterprise |
@@ -326,6 +340,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Web |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2012SP3-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Enterprise |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Express |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Standard |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2 | Web |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2012SP4-WS2012R2-BYOL | Standard |
 | MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Enterprise |
 | MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Express |
 | MicrosoftSQLServer | SQL2014SP1-WS2012R2 | Standard |
@@ -359,19 +379,27 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
 | MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
+| MicrosoftSQLServer | SQL2017-WS2016 | Enterprise |
+| MicrosoftSQLServer | SQL2017-WS2016 | Express |
+| MicrosoftSQLServer | SQL2017-WS2016 | SQLDEV |
+| MicrosoftSQLServer | SQL2017-WS2016 | Standard |
+| MicrosoftSQLServer | SQL2017-WS2016 | Web |
+| MicrosoftSQLServer | SQL2017-WS2016-BYOL | Enterprise |
+| MicrosoftSQLServer | SQL2017-WS2016-BYOL | Standard |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-Latest-WS2016 |
-| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
-| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
+| MicrosoftWindowsDesktop | Windows-10 | RS3-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | RS3-ProN |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
@@ -385,10 +413,14 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-R2-Datacenter-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2016-Datacenter-HUB |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
+| naaraaadvertising | naaraahosting | partyhard |
 | netapp | netapp-oncommand-cloud-manager | occm-byol |
 | netapp | netapp-ontap-cloud | ontap_cloud_byol |
+| noobaa | noobaa-hybrid-s3-archive-05 | pay-per-usage |
 | nuxeo | nuxeo-6-lts | nuxeo-6-lts |
 | nuxeo | nuxeo-lts | nuxeo-lts-2015 |
 | nuxeo | nuxeo-lts | nuxeo-lts-2016 |
@@ -407,6 +439,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
 | paloaltonetworks | vmseries1 | byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
+| qlik | qlik-sense | qliksense |
+| rapid7 | nexpose-scan-engine | nexpose-scan-engine |
+| rapid7 | rapid7-vm-console | rapid7-vm-console |
 | RedHat | RHEL | 6.8 |
 | RedHat | RHEL | 6.9 |
 | RedHat | RHEL | 6.9-LVM |
@@ -420,6 +455,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | RedHat | RHEL | 7.4.Beta |
 | RedHat | RHEL | 7.4.Beta-LVM |
 | RedHat | rhel-byol | rhel74 |
+| RedHat | rhel-ocp-marketplace | rhel74 |
 | RedHat | RHEL-SAP-APPS | 6.8 |
 | RedHat | RHEL-SAP-APPS | 7.3 |
 | RedHat | RHEL-SAP-HANA | 6.7 |
@@ -432,8 +468,11 @@ The table below contains a snapshot of the list of virtual machine images availa
 | scalegrid | centos | free |
 | silver-peak-systems | silver_peak_edgeconnect | silver_peak_edgeconnect_8_1 |
 | silver-peak-systems | silver_peak_vx | silver-peak-vx-8-1 |
+| softnas | mp_nas_byol | mp_nas_byol_16pb |
 | sophos | sophos-xg | byol |
 | splunk | splunk-enterprise-base-image | splunk-on-ubuntu-14-04-lts |
+| starwind | starwindvirtualsan | starwindbyol |
+| starwind | starwindvtl | starwindvtl |
 | stonefly | stonefly-cloud-drive | byol_stonefly |
 | SUSE | openSUSE-Leap | 42.2 |
 | SUSE | openSUSE-Leap | 42.3 |
@@ -461,6 +500,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | vidizmo | vidizmo-separate-servers | vidizmo-application |
 | vidizmo | vidizmo-separate-servers | vidizmo-database |
 | winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
+| wowza | wowzastreamingengine | linux-byol |
+| wowza | wowzastreamingengine | windows-byol |
+| zerto | zerto-cloud-appliance-50 | zerto55u2zca |
 
 ## Next steps
 * [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)

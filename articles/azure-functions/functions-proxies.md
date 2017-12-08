@@ -17,14 +17,14 @@ ms.date: 04/11/2017
 ms.author: alkarche
 
 ---
-# Work with Azure Functions Proxies (preview)
-
-> [!NOTE] 
-> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+# Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Create a proxy
 
@@ -41,7 +41,7 @@ Your proxy now exists as a new endpoint on your function app. From a client pers
 
 ## <a name="modify-requests-responses"></a>Modify requests and responses
 
-With Azure Functions Proxies, you can modify requests to and responses from the back end. These transformations can use variables as defined in [Use variables].
+With Azure Functions Proxies, you can modify requests to and responses from the back-end. These transformations can use variables as defined in [Use variables].
 
 ### <a name="modify-backend-request"></a>Modify the back-end request
 
@@ -57,7 +57,7 @@ Currently, there is no portal experience for modifying responses. To learn how t
 
 ## <a name="using-variables"></a>Use variables
 
-The configuration for a proxy does not need to be static. You can condition it to use variables from the original request, the back-end response, or application settings.
+The configuration for a proxy does not need to be static. You can condition it to use variables from the original client request, the back-end response, or application settings.
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -90,7 +90,7 @@ You can also reference [application settings defined for the function app](https
 For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* would have "%ORDER_PROCESSING_HOST%" replaced with the value of the ORDER_PROCESSING_HOST setting.
 
 > [!TIP] 
-> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back end for that environment.
+> Use application settings for back-end hosts when you have multiple deployments or test environments. That way, you can make sure that you are always talking to the right back-end for that environment.
 
 ## Advanced configuration
 
@@ -132,9 +132,9 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 
 The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
-* **backend.request.method**: The HTTP method that's used to call the back end.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
+* **backend.request.method**: The HTTP method that's used to call the back-end.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 

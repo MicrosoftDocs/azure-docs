@@ -27,7 +27,7 @@ Following is the link to the public GitHub repository:
 
 ## Use case overview
 
-A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. The goal is to reduce the costs by reducing downtime and possibly increase safety. Refer to the [playbook for predictive maintenance](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) for a detailed explanation of common use cases as well as the modeling approach used for predictive maintenance.
+A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. The goal is to reduce the costs by reducing downtime and possibly increase safety. Refer to the [playbook for predictive maintenance](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) for a detailed explanation of common use cases as well as the modeling approach used for predictive maintenance.
 
 This scenario leverages the ideas from the playbook with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
 
@@ -37,7 +37,7 @@ The business problem for this simulated data is to predict issues caused by comp
 
 * An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
-* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization requires a local deployment environment and a [model management account](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
 This example can be run on any AML Workbench compute context. However, it is recommended to run it with at least of 16-GB memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -60,7 +60,7 @@ To run on your local machine, from the AML Workbench `File` menu, select either 
 
 We suggest running on a Data Science Virtual Machine for Linux (Ubuntu). Once the DSVM is configured, run the following two commands:
 
-`az ml computetarget attach --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword] --type remotedocker`
+`az ml computetarget attach remotedocker --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]`
 
 `az ml experiment prepare --target [Desired_Connection_Name] --run-configuration [Desired_Connection_Name]`
 
@@ -109,7 +109,7 @@ This scenario gives the reader an overview of how to build an end to end predict
 
 This use case has been previously developed on multiple platforms:
 
-* [Predictive Maintenance Solution Template](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)

@@ -21,7 +21,7 @@ This article provides information and code samples to help you quickly get start
 * [Detect and extract printed text from an image](#OCR)
 * [Detect and extract handwritten text from an image](#RecognizeText)
 
-To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API Using Python <a name="AnalyzeImage"> </a>
 
@@ -31,7 +31,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+* The category defined in this [taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 * Does the image contain adult or sexually suggestive content?
 
 ### Analyze an Image Python Example Request
@@ -146,7 +146,86 @@ except Exception as e:
     print(e)
 
 ####################################
+
+########### Python 3.6 #############
+import requests, base64
+
+headers = {
+    # Request headers.
+    'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
+}
+
+params = {
+    # Request parameters. All of them are optional.
+    'visualFeatures': 'Categories',
+    'details': 'Celebrities',
+    'language': 'en',
+}
+
+# Replace the three dots below with the URL of a JPEG image of a celebrity.
+body = {'url':'...'
+}
+
+try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    response = requests.post(url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+                             headers = headers,
+                             params = params,
+                             json = body)
+    data = response.json()
+    print(data)
+except Exception as e:
+    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+####################################
 ```
+
+
+### Analyze an Image Python Example Request for an Image Stored on Your Premises
+
+Copy the appropriate section for your version of Python and save it to a file such as `analyzePrem.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, change the file path to a photograph of a celebrity to the `image` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
+########### Python 3.6 #############
+import requests, base64
+
+headers = {
+    # Request headers.
+    'Content-Type': 'application/octet-stream',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
+}
+
+params = {
+    # Request parameters. All of them are optional.
+    'visualFeatures': 'Categories',
+    'details': 'Celebrities',
+    'language': 'en',
+}
+
+# Replace the three dots below with the full file path to a JPEG image of a celebrity on your computer or network.
+image = open('...','rb').read() # Read image file in binary mode
+
+try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    response = requests.post(url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+                             headers = headers,
+                             params = params,
+                             data = image)
+    data = response.json()
+    print(data)
+except Exception as e:
+    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+####################################
+```
+
 
 ### Analyze an Image Response
 
@@ -563,7 +642,7 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomis
 
 try:
     # Execute the REST API call and get the response.
-    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+    conn = httplib.HTTPSConnection(uri_base)
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -617,7 +696,7 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomis
 
 try:
     # Execute the REST API call and get the response.
-    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+    conn = http.client.HTTPSConnection(uri_base)
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()

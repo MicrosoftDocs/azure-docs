@@ -3,8 +3,8 @@ title: Delegate your domain to Azure DNS | Microsoft Docs
 description: Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
+ms.author: kumud
 ---
 
 # Delegate a domain to Azure DNS
@@ -27,11 +27,11 @@ For example, suppose you purchase the domain 'contoso.net' and create a zone wit
 ## Create a DNS zone
 
 1. Sign in to the Azure portal
-1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
+1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone page.
 
     ![DNS zone](./media/dns-domain-delegation/dns.png)
 
-1. On the **Create DNS zone** blade enter the following values, then click **Create**:
+1. On the **Create DNS zone** page enter the following values, then click **Create**:
 
    | **Setting** | **Value** | **Details** |
    |---|---|---|
@@ -47,9 +47,9 @@ For example, suppose you purchase the domain 'contoso.net' and create a zone wit
 
 Before you can delegate your DNS zone to Azure DNS, you first need to know the name server names for your zone. Azure DNS allocates name servers from a pool each time a zone is created.
 
-1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.net** DNS zone in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter **contoso.net** in the Filter by name… box to easily access the application gateway. 
+1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **contoso.net** DNS zone in the **All resources** page. If the subscription you selected already has several resources in it, you can enter **contoso.net** in the Filter by name… box to easily access the application gateway. 
 
-1. Retrieve the name servers from the DNS zone blade. In this example, the zone 'contoso.net' has been assigned name servers 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', and 'ns4-01.azure-dns.info':
+1. Retrieve the name servers from the DNS zone page. In this example, the zone 'contoso.net' has been assigned name servers 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', and 'ns4-01.azure-dns.info':
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -119,7 +119,7 @@ Now that the DNS zone is created and you have the name servers, the parent domai
 
 When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS. It is recommended to use all four name server names, regardless of the name of your domain. Domain delegation does not require the name server name to use the same top-level domain as your domain.
 
-You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future. Delegations using name server names in your own zone, sometimes called 'vanity name servers', are not currently supported in Azure DNS.
+Do not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future. Delegations using name server names in your own zone, sometimes called 'vanity name servers', are not currently supported in Azure DNS.
 
 ## Verify name resolution is working
 
@@ -158,11 +158,11 @@ If you want to set up a separate child zone, you can delegate a sub-domain in Az
 ### Create a DNS zone
 
 1. Sign in to the Azure portal
-1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
+1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone page.
 
     ![DNS zone](./media/dns-domain-delegation/dns.png)
 
-1. On the **Create DNS zone** blade enter the following values, then click **Create**:
+1. On the **Create DNS zone** page enter the following values, then click **Create**:
 
    | **Setting** | **Value** | **Details** |
    |---|---|---|
@@ -176,9 +176,9 @@ If you want to set up a separate child zone, you can delegate a sub-domain in Az
 
 ### Retrieve name servers
 
-1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **partners.contoso.net** DNS zone in the **All resources** blade. If the subscription you selected already has several resources in it, you can enter **partners.contoso.net** in the Filter by name… box to easily access the DNS zone.
+1. With the DNS zone created, in the Azure portal **Favorites** pane, click **All resources**. Click the **partners.contoso.net** DNS zone in the **All resources** page. If the subscription you selected already has several resources in it, you can enter **partners.contoso.net** in the Filter by name… box to easily access the DNS zone.
 
-1. Retrieve the name servers from the DNS zone blade. In this example, the zone 'contoso.net' has been assigned name servers 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', and 'ns4-01.azure-dns.info':
+1. Retrieve the name servers from the DNS zone page. In this example, the zone 'contoso.net' has been assigned name servers 'ns1-01.azure-dns.com', 'ns2-01.azure-dns.net', 'ns3-01.azure-dns.org', and 'ns4-01.azure-dns.info':
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -188,7 +188,7 @@ Azure DNS automatically creates authoritative NS records in your zone containing
 
 1. Navigate to the **contoso.net** DNS zone in the Azure portal.
 1. Click **+ Record set**
-1. On the **Add record set** blade, enter the following values, then click **OK**:
+1. On the **Add record set** page, enter the following values, then click **OK**:
 
    | **Setting** | **Value** | **Details** |
    |---|---|---|
@@ -294,8 +294,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 To delete all resources created in this article, complete the following steps:
 
-1. In the Azure portal **Favorites** pane, click **All resources**. Click the **contosorg** resource group in the All resources blade. If the subscription you selected already has several resources in it, you can enter **contosorg** in the **Filter by name…** box to easily access the resource group.
-1. In the **contosorg** blade, click the **Delete** button.
+1. In the Azure portal **Favorites** pane, click **All resources**. Click the **contosorg** resource group in the All resources page. If the subscription you selected already has several resources in it, you can enter **contosorg** in the **Filter by name…** box to easily access the resource group.
+1. In the **contosorg** page, click the **Delete** button.
 1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Type *contosorg* for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 
 ## Next steps

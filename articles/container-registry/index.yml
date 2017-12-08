@@ -43,9 +43,9 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry geo-replication</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry geo-replication (preview)</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry with Azure Container Service</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry with Azure Container Service (AKS)</a>
     - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry with Service Fabric</a>
 
 - title: Reference
@@ -56,5 +56,7 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
     - title: REST
-      html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p>
+      html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager template</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook schema</a></p>

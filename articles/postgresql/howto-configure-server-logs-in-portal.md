@@ -13,7 +13,7 @@ ms.date: 10/19/2017
 
 # Configure and access server logs in the Azure portal
 
-You can configure, list, and download the [Azure Database for MySQL server logs](concepts-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for PostgreSQL server logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
 To step through this how-to guide, you need:

@@ -1,20 +1,12 @@
----
-title: Kubernertes on Azure tutorial - Update application | Microsoft Docs
+﻿---
+title: Kubernetes on Azure tutorial - Update application
 description: AKS tutorial - Update Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc

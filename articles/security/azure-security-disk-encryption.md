@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
 
 ---
@@ -146,6 +146,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | Ubuntu | 14.04.5-DAILY-LTS | OS and Data disk |
 | Ubuntu | 12.10 | Data disk |
 | Ubuntu | 12.04 | Data disk |
+| RHEL | 7.4 | OS and Data disk |
 | RHEL | 7.3 | OS and Data disk |
 | RHEL | LVM 7.3 | OS and Data disk |
 | RHEL | 7.2 | OS and Data disk |
@@ -199,7 +200,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
   > [!NOTE]
   > If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs.
   >
-  >To configure and access Azure Key Vault behind a firewall(https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >To configure and access Azure Key Vault behind a firewall(https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +219,9 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 * Bitlocker policy on domain joined virtual machines with custom group policy must include the following setting: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key`  Azure Disk Encryption will fail when custom group policy settings for Bitlocker are incompatible. On machines that did not have the correct policy setting, applying the new policy, forcing the new policy to update (gpupdate.exe /force), and then restarting may be required.  
 * To create an Azure AD application, create a key vault, or set up an existing key vault and enable encryption, see the [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * To configure disk-encryption prerequisites using the Azure CLI, see [this Bash script](https://github.com/ejarvi/ade-cli-getting-started).
-* To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using no-KEK or KEK configurations. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using no-KEK or KEK configurations. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
+* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
 
 * Azure Disk Encryption for Linux requires data disks to have a mounted file system in Linux prior to encryption
 
@@ -248,8 +249,8 @@ Use the following PowerShell cmdlet to create an Azure AD application:
 > [!NOTE]
 > $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-##### Setting up the Azure AD client ID and secret from the Azure classic portal
-You can also set up your Azure AD client ID and secret by using the [Azure classic portal]( https://manage.windowsazure.com). To perform this task, do the following:
+##### Setting up the Azure AD client ID and secret from the Azure portal
+You can also set up your Azure AD client ID and secret by using the Azure Portal. To perform this task, do the following:
 
 1. Click the **Active Directory** tab.
 
@@ -271,8 +272,6 @@ You can also set up your Azure AD client ID and secret by using the [Azure class
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > The preceding flow is not supported on the Azure classic portal.
 
 ##### Use an existing application
 To execute the following commands, obtain and use the [Azure AD PowerShell module](https://technet.microsoft.com/library/jj151815.aspx).
@@ -398,7 +397,7 @@ To create a key vault, use one of the following options:
 * ["101-Key-Vault-Create" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell key vault cmdlets](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* How to [Secure your key vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* How to [Secure your key vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > If you have already set up a key vault for your subscription, skip to the next section.
@@ -635,12 +634,12 @@ You can enable disk encryption on your encrypted VHD by installing and using the
  ```
 
 ### Get the encryption status of an encrypted IaaS VM
-You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure classic portal and CLI commands to get the encryption status.
+You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure Portal and CLI commands to get the encryption status.
 
 #### Get the encryption status of an encrypted Windows VM by using Azure Resource Manager
 You can get the encryption status of the IaaS VM from Azure Resource Manager by doing the following:
 
-1. Sign in to the [Azure classic portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
+1. Sign in to the [Azure Portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
 
 2. At the top of the **Virtual machines** page, click **Columns**.
 

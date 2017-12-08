@@ -3,8 +3,8 @@ title: Diagnose performance issues using Azure Application Insights | Microsoft 
 description: Tutorial to find and diagnose performance issues in your application using Azure Application Insights.
 services: application-insights
 keywords:
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/18/2017
 ms.service: application-insights
 ms.custom: mvc
@@ -31,7 +31,7 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md).
-- [Enable the Application Insights profiler](app-insights-profiler.md#enable-the-profiler) for your application.
+- [Enable the Application Insights profiler](app-insights-profiler.md#installation) for your application.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 
 robots: noindex
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, you can create a free trial account in 
 You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
 #### Azure Batch account
-Create an Azure Batch account using the [Azure portal](http://manage.windowsazure.com/). See [Create and manage an Azure Batch account](../../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
+Create an Azure Batch account using the [Azure portal](http://portal.azure.com/). See [Create and manage an Azure Batch account](../../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
 
 The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of virtual machines).
 

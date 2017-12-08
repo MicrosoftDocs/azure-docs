@@ -96,9 +96,6 @@ Manage your solution with help from the following resources:
 * [Revert the listing price to production values](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Revert the billing model to production values](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Revert the visibility setting of a listed SKU to the production value](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-* [Understand your payout reporting](marketplace-publishing-report-payout.md)
-* [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 
 ## Additional resources
 [Set up Azure PowerShell](marketplace-publishing-powershell-setup.md)

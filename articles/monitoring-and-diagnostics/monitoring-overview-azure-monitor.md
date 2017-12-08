@@ -1,3 +1,4 @@
+
 ---
 title: Azure Monitor Overview | Microsoft Docs
 description:  Azure Monitor collects stats for use in alerts, webhooks, autoscale, and automation. Article also list other Microsoft monitoring options.
@@ -15,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
+ms.custom: mvc
 
 ---
 

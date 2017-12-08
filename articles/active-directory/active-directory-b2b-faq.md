@@ -27,7 +27,7 @@ These frequently asked questions (FAQs) about Azure Active Directory (Azure AD) 
 No. Azure AD B2B collaboration features are available only in the [Azure portal](https://portal.azure.com) and in the [Access Panel](https://myapps.microsoft.com/). 
 
 ### Can we customize our sign-in page so it is more intuitive for our B2B collaboration guest users?
-Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your organization's sign-in page, see [Add company branding to sign in and Access Panel pages](active-directory-add-company-branding.md).
+Absolutely! See our [blog post about this feature](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). For more information about how to customize your organization's sign-in page, see [Add company branding to sign in and Access Panel pages](customize-branding.md).
 
 ### Can B2B collaboration users access SharePoint Online and OneDrive?
 Yes. However, the ability to search for existing guest users in SharePoint Online by using the people picker is **Off** by default. To turn on the option to search for existing guest users, set **ShowPeoplePickerSuggestionsForGuestUsers** to **On**. You can turn this setting on either at the tenant level or at the site collection level. You can change this setting by using the Set-SPOTenant and Set-SPOSite cmdlets. With these cmdlets, members can search all existing guest users in the directory. Changes in the tenant scope do not affect SharePoint Online sites that have already been provisioned.
@@ -113,7 +113,7 @@ We recommend that you invite one user from the partner organization to join the 
 If the partner has an Azure AD tenant that is federated to the on-premises authentication infrastructure, on-premises single sign-on (SSO) is automatically achieved. If the partner doesn't have an Azure AD tenant, an Azure AD account is created for new users. 
 
 ### I thought Azure AD B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
-We are removing the differences between B2B and business-to-company (B2C) collaboration in terms of which identities are supported. The identity used is not a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
+We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used is not a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### What applications and services support Azure B2B guest users?
 All Azure AD-integrated applications support Azure B2B guest users. 
