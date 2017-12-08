@@ -92,7 +92,13 @@ We currently do not support modifying the HTML attributes of the sign-in page. W
 **Q: Is there a way to prevent concurrent sessions?**</br>
 No.
 
+## Infreqently Asked Questions
 
+**Q: Does AADConnect support syncing from two domains to on Azure AD?
+Yes, this is supported. Refer to [Multiple Domains](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-multiple-domains)
+
+**Q: Do we support having multiple connectors for same Active Directory domain in Azure AD connect?
+No, this is not supported
 
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
