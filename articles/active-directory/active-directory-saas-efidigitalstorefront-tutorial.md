@@ -106,9 +106,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![EFI Digital StoreFront Domain and URLs single sign-on information](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL: `https://<companyname>.myprintdesk.net/DSF`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.myprintdesk.net/DSF`
 
-	b. In the **Identifier** textbox, type a URL: `https://<companyname>.myprintdesk.net/DSF/asp4/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.myprintdesk.net/DSF/asp4/`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
