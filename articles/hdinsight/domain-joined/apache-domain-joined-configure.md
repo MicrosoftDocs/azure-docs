@@ -14,13 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 12/07/2017
 ms.author: saurinsh
 
 ---
 # Configure Domain-joined HDInsight clusters
 
-Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies.  Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
+Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
+
+Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTTP users acccount, and a SSH user account.  The multi-user authentication can be achieved using:
+
+-	A standalone Active Directory running on Azure IaaS
+-	Azure Active Directory
+-	Active Directory running on the customer on-premises environment.
+
+Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. 
+
 
 > [!IMPORTANT]
 > Oozie is not enabled on domain-joined HDInsight.
@@ -46,18 +55,81 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 
 ## Prerequisite:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
-* Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 * An SSL certificate that is signed by a signing authority or a Self-signed certificate for your domain. The certificate is required for configuring secure LDAP.
 
-## Procedures
-1. Create an HDInsight VNet in the Azure resource management mode.
-2. Create and configure Azure AD and Azure AD DS.
-3. Create an HDInsight cluster.
+## Create a domain controller virtual machine
 
-> [!NOTE]
-> This tutorial assumes that you do not have an Azure AD. If you have one, you can skip that portion.
-> 
-> 
+Azure Resource Manager template makes it easier to create Azure resources. In this section, you use a [Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
+
+**To create a domain with two domain controllers**
+
+1. Click the following image to open the template in the Azure portal.
+  <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    The template looks like:
+
+    ![HDInsight domain joined create forest domain virtual machines](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-arm-template.png)
+
+2. Enter the following values:
+
+    - Subscription: 
+    - Resource group name:
+    - Location:
+    - Admin username: This the domain administrator username. This user is n administrator on the HDInsight cluster. This is the account you use throughout the tutorial.
+    - Admin password: 
+    - Domain name: The domain name must be a two-part name. For example: contoso.com, or contoso.local, or hdinsight.test.
+    - DNS prefiex:
+    - PDC RDP Port:
+    - BDC RDP Port:
+    - artifacts location: (use the default value for this tutorial)
+    - artifacts location SAS token: (Leave it empty for this tutorial.)
+
+It takes about 20 minutes to create the resources.
+
+## Setup LDAPS
+
+
+**To connect to the PDC using remote desktop**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Open the resource group, and then open the primary domain controller (PDC) virtual machine. The default PDC name is adPDC. 
+3. Click **Connect** to connect to the PDC using remote desktop.
+
+    ![HDInsight domain joined connect PDC remote desktop](./media/apache-domain-joined-configure/hdinsight-domain-joined-remote-desktop-pdc.png)
+
+
+**To add the Active Directory Certificate services**
+
+4. Open **Server Manager** if it is not opened.
+5. Click **Manage**, and then click **Add Roles and Features**.
+
+    ![HDInsight domain joined add roles and features](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
+5. From "Before you begin", click **Next**.
+6. Select **Role-based or feature-based installation**, and then click **Next**.
+7. Select the PDC, and then click **Next**.  The default PDC name is adPDC.
+8. Select **Active Directory Certificate Services**.
+9. Click **Add Features** from the popup dialog.
+10. Follow the wizard, use the default settings for the rest of the procedure.
+11. Click **Close** to close the wizard.
+
+**To configure AD certificate**
+1. From Server Manager, click the yellow notification icon, and then click **Configure Active Directory Certificate services**.
+
+    ![HDInsight domain joined configure AD certificate](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
+
+2. Click **role Services on the left, select **Certification Authority**, and then click **Next**.
+3. Follow the wizard, use the default settings for the rest of the procedure (click **Configure** at the last step).
+4. Click **Close** to close the wizard.
+
+To create users and groups in the AD
+1. Open **Active Directory Users and Computers**.
+2. Select your domain name in the left pane.
+3. Click the **Create a new users in the current container** icon on the top menu.
+
+> [!IMPORTANT]
+> You must reboot the PDC before creating a domain-joined HDInsight cluster.
+
+
 
 ## Create a Resource Manager VNet for HDInsight cluster
 In this section, you will create an Azure Resource Manager VNet that will be used for the HDInsight cluster. For more information on creating Azure VNet using other methods, see [Create a virtual network](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
