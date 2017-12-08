@@ -7,7 +7,7 @@
 ### [Overview](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
+### [.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [Windows](active-directory-devquickstarts-windowsstore.md)
 ### [Xamarin](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)

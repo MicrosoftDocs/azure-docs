@@ -15553,6 +15553,11 @@
              "source_path": "articles/store-blitline-how-to-use.md",
              "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+            "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+            "redirect_document_id": true
         }
     ]
 }
