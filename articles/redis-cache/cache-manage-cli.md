@@ -36,7 +36,7 @@ To create and manage Azure Redis Cache instances using Azure CLI, you must compl
 
 * You must have an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a few moments.
 * [Install the Azure CLI](../cli-install-nodejs.md).
-* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
+* Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md).
 
 ## Redis Cache properties
