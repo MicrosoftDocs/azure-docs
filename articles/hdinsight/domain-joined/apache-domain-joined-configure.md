@@ -129,6 +129,51 @@ To create users and groups in the AD
 > [!IMPORTANT]
 > You must reboot the PDC before creating a domain-joined HDInsight cluster.
 
+## Ceate a HDInsight cluster in the VNet
+
+In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the resouce manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
+
+**To create a domain-joined HDInsight cluster**
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Open the resource group you created using the resource manager template earlier in the tutorial.
+3. Add a HDInsight cluster to the resource group.
+4. Select **Custom** option:
+
+    ![HDInsight domain joined custom create option](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-custom-configuration-option.png)
+
+    There are six sections using the custom configuration option: Basics, Storage, Application, Cluster size, Advanced settings, and Summary.
+5. In the **Basics** section:
+
+    - Cluster type: Choose **PREMIUM**. Currently you can only create premium cluster with the following cluster types: Hadoop, Interactive Query, and Spark.
+
+        ![HDInsight domain joined Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+    - Cluster login username: The is the Hadoop HTTP user. This account is different from the domain administrator account.
+    - Resource group: Select the resource group you created earlier using the resource manager template.
+    - Location:  The location must be the same as the one you used when you create the vnet and the DCs using the resource manager template.
+
+6. In the **Advanced settings** section:
+
+    - Domain settings:
+
+        ![HDInsight domain joined advanced settings domain](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
+        
+        - Domain name:
+        - Domain user name:
+        - Organization Unit:
+        - LDAPS URL:
+        - Access user group:
+    - Virtual network:
+    - Subnet: 
+
+
+
+
+
+
+
+
+
 
 
 ## Create a Resource Manager VNet for HDInsight cluster
