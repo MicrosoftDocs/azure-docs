@@ -32,7 +32,7 @@ Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set o
 4. Provide a **Name** for the custom attribute (for example, "ShoeSize") and optionally, a **Description**. Click **Create**.
    
    > [!NOTE]
-   > Only the "String" **Data Type** is currently available.
+   > Only the "String", "Boolean" and "Int" **Data Types** are currently available.
    > 
    > 
 
