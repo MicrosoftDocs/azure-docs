@@ -153,6 +153,8 @@ Adal.js makes it easy to incorporate common identity features into your applicat
 
 For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
+For Angular 2.0,the completed sample is available in [Angular 2.0 sample](https://github.com/karthikeyanVK/ng2AzureAD)
+
 ## Next steps
 You can now move on to additional scenarios. You might want to try: [Call a CORS web API from a single-page app](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
