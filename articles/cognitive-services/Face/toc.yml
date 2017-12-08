@@ -9,7 +9,7 @@
   - name: Identify faces in image
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Add faces
-    href: Face-API-How-to-Topics/HowtoAddFaces.md
+    href: Face-API-How-to-Topics/how-to-add-faces.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
