@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
 
 ---
@@ -21,7 +21,7 @@ ms.author: maheshu
 This page answers frequently asked questions about the Azure Active Directory Domain Services. Keep checking back for updates.
 
 ### Troubleshooting guide
-Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
+Refer to the [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
 
 ### Configuration
 #### Can I create multiple managed domains for a single Azure AD directory?
@@ -31,10 +31,10 @@ No. You can only create a single managed domain serviced by Azure AD Domain Serv
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. This functionality is currently in preview.
 
 #### Can I migrate my existing managed domain from a classic virtual network to a Resource Manager virtual network?
-Not currently. We will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
+Not currently. Microsoft will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
 
 #### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
-No. We are working on adding support for CSP subscriptions.
+No. The product team is working on adding support for CSP subscriptions.
 
 #### Can I enable Azure AD Domain Services in a federated Azure AD directory? I use ADFS to authenticate users for access to Office 365 and do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?
 No. Azure AD Domain Services needs access to the password hashes of user accounts, to authenticate users via NTLM or Kerberos. In a federated directory, password hashes are not stored in the Azure AD directory. Therefore, Azure AD Domain Services does not work with such Azure AD directories.
@@ -43,13 +43,13 @@ No. Azure AD Domain Services needs access to the password hashes of user account
 The service itself does not directly support this scenario. Your managed domain is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. See how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
-PowerShell/automated deployment of Azure AD Domain Services is not available currently.
+Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### Is Azure AD Domain Services available in the new Azure portal?
 Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). The [classic Azure portal](https://manage.windowsazure.com) is no longer supported.
 
 #### Can I enable Azure AD Domain Services using a Resource Manager template?
-No. Some tasks need to be performed as part of enabling Azure AD Domain Services. These tasks are not possible through a Resource Manager template. Use the new Azure portal to enable Azure AD Domain Services for your directory.
+Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.

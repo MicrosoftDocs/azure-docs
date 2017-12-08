@@ -66,6 +66,9 @@
     - name: Compute optimized
       href: sizes-compute.md    
     - name: Memory optimized
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
       href: sizes-memory.md    
     - name: Storage optimized
       href: sizes-storage.md    
@@ -164,6 +167,8 @@
     items:
     - name: Prepay for VMs - Reserved Instances
       href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM

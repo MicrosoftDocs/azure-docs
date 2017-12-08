@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing video search
 
-The [Bing Video Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
 
 1. Create a new Node.js project in your favorite IDE or editor.
 2. Add the code provided below.
