@@ -1,6 +1,6 @@
 ---
-title: Build a project in Azure using Jenkins and the Azure Container Agents plugin | Microsoft Docs
-description:  Learn how to install a Jenkins server on Azure, and use the Azure Container Instances plugin for Jenkins to build the Spring PetClinic Sample Application
+title: Build a project in Azure using Jenkins and Azure Container Instances
+description:  Learn how to use the Azure Container Agent plugin for Jenkins to build a project in Azure with Azure Container Instances
 services: multiple
 documentationcenter: ''
 author: tomarcher
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/06/2017
+ms.date: 12/08/2017
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -80,7 +80,7 @@ The Jenkins agent connects with the Jenkins server via the Java Network Launch P
 
     ![Configure global security in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-global-security.png)
 
-1. Under **Agents**, select **Fixed**, and enter a port. 
+1. Under **Agents**, select **Fixed**, and enter a port. The screen shot shows a port value of 12345 as an example. You should specify a port that makes sense for your environment.
 
     ![Update Jenkins global security settings to allow JNLP](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-set-jnlp.png)
 
@@ -324,5 +324,4 @@ az group delete -n <resourceGroup>
 ```
 
 ## Next steps
-
 - [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/en-us/azure/jenkins/).
