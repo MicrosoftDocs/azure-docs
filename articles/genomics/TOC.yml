@@ -3,20 +3,20 @@
 - name: Overview
   items:
   - name: What is Microsoft Genomics?
-    href: what-is-Microsoft-Genomics.md
+    href: overview-what-is-microsoft-genomics.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Run a sample Genomics workflow
     href: quickstart-run-genomics-workflow-portal.md
-  - name: Submit a workflow using different input file formats
+  - name: Use various input file formats
     items:
     - name: Pair of FASTQ files
-      href: connect-php.md
+      href: quickstart-input-pair-fastq.md
     - name: BAM file
-      href: connect-java.md
+      href: quickstart-input-bam.md
     - name: Multiple FASTQ or BAM files
-      href: connect-csharp.md    
+      href: quickstart-input-multiple.md    
 - name: Resources
   items:
   - name: Common questions

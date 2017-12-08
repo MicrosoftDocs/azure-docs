@@ -2,18 +2,14 @@
 title: 'Quickstart: Submit a workflow using different input file formats, multiple inputs | Microsoft Docs'
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
 services: microsoft-genomics
-documentationcenter: ''
 author: grhuynh
-manager: geramill
-editor: geramill
-
+manager: jhubbard
+editor: jasonwhowell
+ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/17/2017
-ms.author: grhuynh
+ms.topic: quickstart
+ms.date: 12/7/2017
 
 ---
 

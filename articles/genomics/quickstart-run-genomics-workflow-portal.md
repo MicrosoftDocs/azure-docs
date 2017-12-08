@@ -2,18 +2,15 @@
 title: 'Quickstart: Run a workflow through the Microsoft Genomics service | Microsoft Docs'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
 services: microsoft-genomics
-documentationcenter: ''
 author: grhuynh
-manager: geramill
-editor: geramill
-
+manager: jhubbard
+editor: jasonwhowell
+ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/17/2017
-ms.author: grhuynh
+ms.topic: quickstart
+ms.date: 12/7/2017
+
 
 ---
 
@@ -23,25 +20,25 @@ Microsoft Genomics is a scalable, secure service for secondary analysis that can
 Get started in just a few steps: 
 1.	Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics python client in your local environment. 
 2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files, which should be paired end reads (fastq or bam files).
-3.	Run: Use the Microsoft Genomics command line interface to run workflows through the Microsoft Genomics service. 
+3.	Run: Use the Microsoft Genomics command-line interface to run workflows through the Microsoft Genomics service. 
 
 For more information on Microsoft Genomics, see [What is Microsoft Genomics?](what-is-Microsoft-Genomics.md)
 
 ## Set up: Create a Microsoft Genomics account in the Azure portal
 
-To create a Microsoft Genomics account, navigate to the [Azure portal](https://portal.azure.com/#create/Microsoft.Genomics). If you don’t have an Azure subscription yet, please create one before creating a Microsoft Genomics account. 
+To create a Microsoft Genomics account, navigate to the [Azure portal](https://portal.azure.com/#create/Microsoft.Genomics). If you don’t have an Azure subscription yet, create one before creating a Microsoft Genomics account. 
 
 ![Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-create-blade.png "Microsoft Genomics on Azure portal")
 
 
 
-Configure your Genomics account with the following information, as shown in the above image. 
+Configure your Genomics account with the following information, as shown in the preceding image. 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------       |:-------------         |:----------            |
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (ie storage account, genomics account etc) into a single group for simple management. For more information, see [Resource Groups] (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups] (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
 
@@ -54,7 +51,7 @@ You can click Notifications in the top menu bar to monitor the deployment proces
 
 ## Set up: Create a Microsoft Genomics account in the Azure portal
 
-Users will need to install both python and the Microsoft Genomics python client in their local environment. 
+Users need to install both python and the Microsoft Genomics python client in their local environment. 
 
 ### Install python
 
@@ -63,7 +60,7 @@ The Microsoft Genomics python client is compatible with python 2.7. We recommend
 
 ### Install the Microsoft Genomics client
 
-Use python pip to install the Microsoft Genomics client `msgen`. The follow instructions assume python is already in your system path. If you have issues with pip install not recognized, you will need to add python and the scripts subfolder to your system path.
+Use python pip to install the Microsoft Genomics client `msgen`. The follow instructions assume python is already in your system path. If you have issues with pip install not recognized, you need to add python and the scripts subfolder to your system path.
 
 
 ```Command line
@@ -73,7 +70,7 @@ pip install msgen
 
 
 If you do not want to install `msgen` as a system-wide binary and modify system-wide python packages, use the `–-user` flag with `pip`.
-If you use the package based installation or setup.py, all necessary required packages will be installed. Otherwise, the basic required packages for msgen are 
+If you use the package-based installation or setup.py, all necessary required packages are installed. Otherwise, the basic required packages for msgen are 
 
  * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
  * [Requests](https://pypi.python.org/pypi/requests). 
@@ -86,7 +83,7 @@ You can install these packages using `pip`, `easy_install` or through standard `
 
 
 ### Test the Microsoft Genomics client
-To test the Microsoft Genomics client, you will need to download the config file from your genomics account. 
+To test the Microsoft Genomics client, download the config file from your genomics account. 
 Navigate to your genomics account by clicking More services in the bottom left, filtering and selecting for genomics accounts.
 
 
@@ -107,9 +104,9 @@ msgen list -f “<full path where you saved the config file>”
 ```
 
 ## 2. Upload input data: create a Microsoft Azure Storage Account 
-The Microsoft Genomics service expects inputs to be stored as block blobs in an Azure storage account. It will also write output files as block blobs to a user-specified container in an Azure storage account. The inputs and outputs can reside in different storage accounts.
-If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account, otherwise egress charges will be incurred when running the Genomics service. 
-If you don’t yet have a Microsoft Azure Storage account, you will need to sign up for one and upload your data. You can find more information about Azure Storage accounts [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create a Microsoft Azure Storage account, navigate to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
+The Microsoft Genomics service expects inputs to be stored as block blobs in an Azure storage account. It also writes output files as block blobs to a user-specified container in an Azure storage account. The inputs and outputs can reside in different storage accounts.
+If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account. Otherwise, egress charges are incurred when running the Genomics service. 
+If you don’t yet have a Microsoft Azure Storage account, you need to create one and upload your data. You can find more information about Azure Storage accounts [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create a Microsoft Azure Storage account, navigate to the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
 ![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
 
