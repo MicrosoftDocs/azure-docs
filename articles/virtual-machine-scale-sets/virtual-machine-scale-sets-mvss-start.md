@@ -119,7 +119,7 @@ In this case, there is only one element in the list, the virtual network from th
        ],
 ```
 ## Specify scale set properties
-Scale sets have many properties for customizing the VMs in the scale set. For a full list of these properties, see the [scale set REST API documentation](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). For this tutorial, we will set only a few commonly used properties.
+Scale sets have many properties for customizing the VMs in the scale set. For a full list of these properties, see the [scale set REST API documentation](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). For this tutorial, we will set only a few commonly used properties.
 ### Supply VM size and capacity
 The scale set needs to know what size of VM to create ("sku name") and how many such VMs to create ("sku capacity"). To see which VM sizes are available, see the [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

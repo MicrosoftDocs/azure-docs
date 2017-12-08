@@ -94,9 +94,9 @@ Data can be consumed from Azure blobs in a variety of ways, through both Microso
 - Azure Machine Learning Workbench: Open the .csv file in Azure Machine Learning Workbench by adding the .csv file as a data source.
 - Excel: Open the daily .csv files as a spreadsheet.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): Create charts with data pulled from .csv data in blobs.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): Create a data frame with a large portion of .csv data.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Create a data frame with a large portion of .csv data.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Load .csv data into a Hive table and perform SQL queries directly against the blob.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Load .csv data into a Hive table and perform SQL queries directly against the blob.
 
