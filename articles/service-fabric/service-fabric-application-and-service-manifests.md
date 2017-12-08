@@ -18,36 +18,46 @@ ms.author: ryanwi
 
 ---
 # Service Fabric application and service manifests
-This article describes how Service Fabric applications and services are defined using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
 
 ## Describe a service in ServiceManifest.xml
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Description>An example service manifest</Description>
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="VotingWebPkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <StatelessServiceType ServiceTypeName="MyServiceType" />
+    <!-- This is the name of your ServiceType. 
+         This name must match the string used in RegisterServiceType call in Program.cs. -->
+    <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
-  <CodePackage Name="MyCode" Version="CodeVersion1">
-    <SetupEntryPoint>
-      <ExeHost>
-        <Program>MySetup.bat</Program>
-      </ExeHost>
-    </SetupEntryPoint>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
       <ExeHost>
-        <Program>MyServiceHost.exe</Program>
+        <Program>VotingWeb.exe</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </EntryPoint>
-    <EnvironmentVariables>
-      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
-      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
-    </EnvironmentVariables>
   </CodePackage>
-  <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
-  <DataPackage Name="MyData" Version="DataVersion1" />
+
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
+    </Endpoints>
+  </Resources>
 </ServiceManifest>
 ```
 
@@ -55,7 +65,7 @@ The service manifest declaratively defines the service type and version. It spec
 
 **ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
-**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. If the process ever terminates or crashes, the resulting process is monitored and restarted (beginning again with **SetupEntryPoint**).  
+The executable specified by **EntryPoint** is typically the long-running service host. **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point.  The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. If the process ever terminates or crashes, the resulting process is monitored and restarted (beginning again with **SetupEntryPoint**).  
 
 Typical scenarios for using **SetupEntryPoint** are when you run an executable before the service starts or you perform an operation with elevated privileges. For example:
 
@@ -64,9 +74,9 @@ Typical scenarios for using **SetupEntryPoint** are when you run an executable b
 
 For more details on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
+**EnvironmentVariables** (not set in the preceding example) provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
 
-**DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
+**DataPackage** (not set in the preceding example)declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. The settings file contains sections of user-defined, key-value pair settings that the process reads back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml* file:
 
@@ -97,27 +107,44 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application in ApplicationManifest.xml
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ApplicationManifest
-      ApplicationTypeName="MyApplicationType"
-      ApplicationTypeVersion="AppManifestVersion1"
-      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Description>An example application manifest</Description>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
+    <Parameter Name="VotingData_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VotingWeb_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
-    <ConfigOverrides/>
-    <EnvironmentOverrides CodePackageRef="MyCode"/>
+    <ServiceManifestRef ServiceManifestName="VotingDataPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
   </ServiceManifestImport>
   <DefaultServices>
-     <Service Name="MyService">
-         <StatelessService ServiceTypeName="MyServiceType" InstanceCount="1">
-             <SingletonPartition/>
-         </StatelessService>
-     </Service>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.
+         
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="VotingData">
+      <StatefulService ServiceTypeName="VotingDataType" TargetReplicaSetSize="[VotingData_TargetReplicaSetSize]" MinReplicaSetSize="[VotingData_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[VotingData_PartitionCount]" LowKey="0" HighKey="25" />
+      </StatefulService>
+    </Service>
+    <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
   </DefaultServices>
 </ApplicationManifest>
 ```

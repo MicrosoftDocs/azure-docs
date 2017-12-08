@@ -46,23 +46,14 @@ The following diagram shows the relationship between applications and service in
 
 
 ## Next steps
-[Package an application](service-fabric-package-apps.md) and make it ready to deploy.
-
-[Deploy and remove applications][10] describes how to use PowerShell to manage application instances.
-
-[Managing application parameters for multiple environments][11] describes how to configure parameters and environment variables for different application instances.
-
-[Configure security policies for your application][12] describes how to run services under security policies to restrict access.
-
-[Application hosting models][13] describe relationship between replicas (or instances) of a deployed service and service-host process.
+- Learn about [application scalability](service-fabric-concepts-scalability.md).
+- Learn about service [state](service-fabric-concepts-state.md), [partitioning](service-fabric-concepts-partitioning.md), and [availability](service-fabric-availability-services.md).
+- Read about how applications and services are defined in [Application and service manifests](service-fabric-application-and-manifests.md).
+- [Application hosting models](service-fabric-hosting-model.md) describe relationship between replicas (or instances) of a deployed service and service-host process.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
-<!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-deploy-remove-applications.md
-[11]: service-fabric-manage-multiple-environment-app-configuration.md
-[12]: service-fabric-application-runas-security.md
-[13]: service-fabric-hosting-model.md
+
