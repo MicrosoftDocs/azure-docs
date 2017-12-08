@@ -176,5 +176,5 @@ The [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference)
+> [Bing Image Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference)
 
