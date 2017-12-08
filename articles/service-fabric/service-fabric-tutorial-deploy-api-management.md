@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-
+ms.custom: mvc
 ---
 
 # Deploy API Management with Service Fabric

@@ -17,12 +17,9 @@ ms.author: joflore
 ms.reviewer: richagi
 
 ---
-# Configure Azure Multi-Factor Authentication settings - Public preview
+# Configure Azure Multi-Factor Authentication settings
 
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every [version of Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->These settings are in public preview in the Azure portal. For documentation on how to manage Azure Multi-Factor Authentication settings in the pfweb portal, see [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next-pfweb.md).
 
 | Feature | Description | 
 |:--- |:--- |

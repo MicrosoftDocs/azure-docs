@@ -47,16 +47,16 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Helm is pre-installed in AKS clusters, so only the client-side configuration is needed. Run the following command to configure the Helm client.
+The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Output:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
+$HELM_HOME has been configured at /Users/user/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```

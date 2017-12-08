@@ -49,7 +49,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 | [Pricing Tier Downgrade](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A pricing tier downgrade action decreased available resources, which affects SQL Database performance. |
 
 > [!TIP]
-> For continuous performance optimization of SQL Database, enable [Azure SQL Database automatic tuning](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). This unique feature of SQL Database built-in intelligence continuously monitors your SQL database, automatically tunes indexes, and applies query execution plan corrections.
+> For continuous performance optimization of SQL Database, enable [Azure SQL Database automatic tuning](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). This unique feature of SQL Database built-in intelligence continuously monitors your SQL database, automatically tunes indexes, and applies query execution plan corrections.
 >
 
 The following section describes the previously listed detectable performance patterns in more detail.
@@ -60,7 +60,7 @@ The following section describes the previously listed detectable performance pat
 
 This detectable performance pattern combines performance issues that are related to reaching available resource limits, worker limits, and session limits. After this performance issue is detected, a description field of the diagnostics log indicates whether the performance issue is related to resource, worker, or session limits.
 
-Resources on SQL Database are typically referred to as [DTU resources](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). They consist of a blended measure of CPU and I/O (data and transaction log I/O) resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
+Resources on SQL Database are typically referred to as [DTU resources](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). They consist of a blended measure of CPU and I/O (data and transaction log I/O) resources. The pattern of reaching resource limits is recognized when detected query performance degradation is caused by reaching any of the measured resource limits.
 
 The session limits resource denotes the number of available concurrent logins to the SQL database. This performance pattern is recognized when applications that are connected to the SQL databases have reached the number of available concurrent logins to the database. If applications attempt to use more sessions than are available on a database, the query performance is affected.
 
@@ -72,7 +72,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). To find out the available resource limits for your subscription tier, see [SQL Database resource limits](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). To find out the available resource limits for your subscription tier, see [SQL Database resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## Workload Increase
 
@@ -142,7 +142,7 @@ The MAXDOP server configuration option on SQL Database is used to control how ma
 
 The diagnostics log outputs query hashes related to queries for which the duration of execution increased because they were parallelized more than they should have been. The log also outputs CXP wait times. This time represents the time a single organizer/coordinator thread (thread 0) is waiting for all other threads to finish before merging the results and moving ahead. In addition, the diagnostics log outputs the wait times that the poor-performing queries were waiting in execution overall. You can use this information as the basis for troubleshooting.
 
-First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the MAXDOP server configuration option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the MAXDOP server configuration option](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Setting the MAXDOP server configuration option to zero (0) as a default value denotes that SQL Database can use all available logical CPU cores to parallelize threads for executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostics log information, you can tune the MAXDOP option to the number of cores used for parallel query execution that might resolve the issue in your case.
 
@@ -228,7 +228,7 @@ This detectable performance pattern indicates a database performance condition i
 
 The diagnostics log outputs tempDB contention details. You can use the information as the starting point for troubleshooting. There are two things you can pursue to alleviate this kind of contention and increase the throughput of the overall workload: You can stop using the temporary tables. You also can use memory-optimized tables. 
 
-For more information, see [Introduction to memory-optimized tables](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+For more information, see [Introduction to memory-optimized tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## Elastic Pool DTU Shortage
 
@@ -325,10 +325,10 @@ Access Intelligent Insights through the Azure portal by going to Azure SQL Analy
 > [!TIP]
 > Select the flowchart to download a PDF version.
 
-Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical to you, use the Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using the Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical to you, use the Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using the Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## Next steps
 - Learn [Intelligent Insights](sql-database-intelligent-insights.md) concepts.
 - Use the [Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitor [Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitor [Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Learn to [collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
