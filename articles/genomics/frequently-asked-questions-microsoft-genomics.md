@@ -14,7 +14,7 @@ ms.date: 12/7/2017
 ---
 # Microsoft Genomics: Common questions
 
-This article lists the top queries you might have relate to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](what-is-Microsoft-Genomics.md) 
+This article lists the top queries you might have relate to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-microsoft-genomics.md) 
 
 
 ## What is the current version of the Microsoft Genomics command-line client?

@@ -22,7 +22,7 @@ Get started in just a few steps:
 2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files, which should be paired end reads (fastq or bam files).
 3.	Run: Use the Microsoft Genomics command-line interface to run workflows through the Microsoft Genomics service. 
 
-For more information on Microsoft Genomics, see [What is Microsoft Genomics?](what-is-Microsoft-Genomics.md)
+For more information on Microsoft Genomics, see [What is Microsoft Genomics?](overview-what-is-microsoft-genomics.md)
 
 ## Set up: Create a Microsoft Genomics account in the Azure portal
 
