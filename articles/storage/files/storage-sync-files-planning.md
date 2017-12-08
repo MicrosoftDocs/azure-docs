@@ -43,7 +43,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### Server endpoint
-A server endpoint represents a specific location on a registered server, such as a folder on a server volume or the root of the volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each server endpoint. If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
+A server endpoint represents a specific location on a registered server, such as a folder on a server volume.  Note, at present the specific location cannot be the root of a volume (for example f:\) though this will be supported in a future preview update. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each server endpoint. If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
 
 > [!Note]  
 > A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
