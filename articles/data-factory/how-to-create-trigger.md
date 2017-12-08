@@ -83,5 +83,50 @@ Go through the [quickstart for creating a data factory using Azure PowerShell](q
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
+## Use .NET SDK
+The following method creates a scheduler trigger that runs every 10 minutes. 
+
+```csharp
+            //Create the trigger
+            Console.WriteLine("Creating the trigger");
+            DateTime startTime = DateTime.UtcNow;
+            Dictionary<string, object> pipelineParameters = new Dictionary<string, object>();
+            pipelineParameters.Add("inputPath", "adftutorial/input");
+            pipelineParameters.Add("outputPath", "adftutorial/output");
+            string triggerName = "MyTrigger";
+            ScheduleTrigger myTrigger = new ScheduleTrigger()
+            {
+                Pipelines = new List<TriggerPipelineReference>()
+                {
+                    new TriggerPipelineReference()
+                    {
+                        PipelineReference = new PipelineReference(pipelineName),
+                        Parameters = pipelineParameters,
+                    }
+                },
+                Recurrence = new ScheduleTriggerRecurrence()
+                {
+                    StartTime = startTime,
+                    TimeZone = "UTC",
+                    EndTime = startTime.AddHours(1),
+                    Frequency = RecurrenceFrequency.Minute,
+                    Interval = 15,
+                }
+            };
+
+            TriggerResource triggerResource = new TriggerResource()
+            {
+                Properties = myTrigger
+            };
+            client.Triggers.CreateOrUpdate(resourceGroup, dataFactoryName, triggerName, triggerResource);
+
+            //Start the trigger
+            Console.WriteLine("Starting the trigger");
+            client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
+
+```
+
+
+
 ## Next steps
 For a complete walkthrough of creating a data factory with a pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md). 
