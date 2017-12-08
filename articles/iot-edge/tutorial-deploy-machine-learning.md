@@ -16,10 +16,13 @@ ms.service: iot-edge
 
 # Deploy Azure Machine Learning as an IoT Edge module - preview
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. You learn how to: 
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the [Deploy Azure IoT Edge on a simulated device on Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. 
+
+In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning module
+> * Push a module container to an Azure container registry
 > * Deploy an Azure Machine Learning module to your IoT Edge device
 > * View generated data
 
@@ -30,72 +33,77 @@ The Azure Machine Learning module that you create in this tutorial reads the tem
 
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
-
-## Set up a container registry
-In this tutorial, you use the [AI toolkit for Azure IoT Edge](https://aka.ms/aml-iot-edge-anomaly-detection) to create Docker image containing an Azure Machine Learning model. Then you push this Docker image to [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
-
-[Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
-
-## Set up Azure Machine Learning environment
-You will need to set up an Azure Machine Learning environment in order to build an Azure ML container that can run as a module on Azure IoT Edge.  
-
-**Set up Azure Machine Learning** - follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/quickstart-installation).  
-
-**Set up Module Management for Azure ML** - you will need to install model management onto a machine in order to deploy and manage your Azure ML container.  Follow the instructions in [Model management setup](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* An Azure Machine Learning account. To create an account, follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). You do not need to install the workbench application for this tutorial. 
+* Module Management for Azure ML on your machine. Follow the instructions in [Model management setup](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration) to set up your environment and create an account.
 
 ## Create the Azure ML container
 This section will have you download trained model files and operationalize them (i.e. convert them into an Azure ML container).  
-1. On the machine running Module Management for Azure ML, download [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub
-    1. On Linux:
-    ```
-    $ sudo wget https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py
-    $ sudo wget https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl
-    ```
-    1. On Windows:
-    ```
-    todo
-    ```
-1. Deploy the trained model
-```
-$ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
-```
-The service name will also be the name of the docker container image and must be all lower case.
-1. View the container repository in Azure Container Services
-    1. On the [Azure portal](https://portal.azure.com), navigate to **All Services**, and type "container"
-    1. Select **Container registries**
-    1. Select your registry. It will match the resource group, location, and subscription that you used to set up Module Management.
-    1. Select **Access keys**
-    1. Take note of **Login server**, **Username** and **Password**.  You will need these to login from your Edge devices.
-    1. Select **Repositories**
-    1. Select **machinelearningmodule**
-    1. You now have the full image path of the container. Take note of this for the next section. It will look like this:  **<ACR_name>.azureacr.io/machinelearningmodule:1**
 
-## Login to the private repo from Edge
+On the machine running Module Management for Azure ML, download [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device. 
 
-1. Connect to your Edge device
-1. Run this command using the properties you noted in the previous section
+To download in the command line, navigate to your desired folder then use the following commands:
+
+Linux:
+   ```cmd
+   sudo wget https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py
+   sudo wget https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl
+   ```
+
+On Windows:
+   ```cmd
+   todo
+   ```
+
+Use the trained model to create a container that can be deployed to IoT Edge devices.
+
+```cmd
+az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-$ sudo iotedgectl login --address ADDRESS --username USERNAME --password PASSWORD
-```
+The service name, *machinelearningmodule* in this example, becomes the name of the docker container image.
+
+### View the container repository
+
+Check that your container image was successfully created and stored in the Azure container repository that is associated with your machine learning environment.
+
+1. On the [Azure portal](https://portal.azure.com), go to **All Services** and Select **Container registries**.
+2. Select your registry. The name should start with **mlcr** and it belongs to the resource group, location, and subscription that you used to set up Module Management.
+3. Select **Access keys**
+4. Copy the **Login server**, **Username** and **Password**.  You need these to access the registry from your Edge devices.
+5. Select **Repositories**
+6. Select **machinelearningmodule**
+7. You now have the full image path of the container. Take note of this for the next section. It will look like this:  **<registry_name>.azureacr.io/machinelearningmodule:1**
+
+## Add registry credentials to your Edge device
+
+Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This command gives the runtime access to pull the container.
+
+Linux:
+    ```cmd
+    sudo iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+    ```
+
+Windows:
+    ```cmd
+    iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
+    ```
 
 ## Run the solution
 
 1. On the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Go to **IoT Edge (preview)** and select your IoT Edge device.
 1. Select **Set modules**.
-1. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.
+1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `tempSensor`.
     3. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Click **Save**.
-1. Add the **machinelearningmodule** module.
+    4. Select **Save**.
+1. Add the machine learning module that you created.
     1. Select **Add IoT Edge Module**.
-    1. In the **Name** field, enter **machinelearningmodule**
-    1. In the **Image** field, enter your image address; for example `<ACR_name>.azureacr.io/machinelearningmodule:1`.
-    1. Click **Save**.
-1. Back in the **Add Modules** step, click **Next**.
-1. Update routes for your module:
-1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "amlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''amlOutput'' is the endpoint that all Azure Machine Learning modules use to output data, and ''$upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
+    1. In the **Name** field, enter `machinelearningmodule`
+    1. In the **Image** field, enter your image address; for example `<registry_name>.azurecr.io/machinelearningmodule:1`.
+    1. Select **Save**.
+1. Back in the **Add Modules** step, select **Next**.
+1. In the **Specify Routes** step, copy the JSON below into the text box. The first route transports messages from the temperature sensor to the machine learning module via the "amlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''amlOutput'' is the endpoint that all Azure Machine Learning modules use to output data, and ''$upstream'' denotes IoT Hub. 
 
     ```json
     {
@@ -106,13 +114,24 @@ $ sudo iotedgectl login --address ADDRESS --username USERNAME --password PASSWOR
     }
     ``` 
 
-1. Click **Next**. 
-1. In the ''Review Template'' step, click ''Submit''. 
-1. Return to the device details page and click ''Refresh.''  You should see the new ''machinelearningmodule'' running along with the ''tempSensor module'' and the ''IoT Edge runtime''.
+1. Select **Next**. 
+1. In the **Review Template** step, select **Submit**. 
+1. Return to the device details page and select **Refresh**.  You should see the new **machinelearningmodule** running along with the **tempSensor** module and the IoT Edge runtime modules.
 
 ## View generated data
 
- In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
+You can view the device-to-cloud messages that your IoT Edge device sends by using the Azure IoT Toolkit extension for Visual Studio Code. 
+
+1. In Visual Studio Code, select **IoT Hub Devices**. 
+2. Select **...** then select **Set IoT Hub Connection String** from the menu. 
+
+   ![IoT Hub Devices more menu](./media/tutorial-deploy-machine-learning/set-connection.png)
+
+3. In the text box that opens at the top of the page, enter the iothubowner connection string for your IoT Hub. Your IoT Edge device should appear in the IoT Hub Devices list.
+4. Select **...** again then select **Start monitoring D2C message**.
+5. Observe the messages coming from tempSensor every five seconds, which machinelearningmodule appends with its assessment of the device health. 
+
+   ![Azure ML response in message body](./media/tutorial-deploy-machine-learning/ml-output.png)
 
 ## Next steps
 
