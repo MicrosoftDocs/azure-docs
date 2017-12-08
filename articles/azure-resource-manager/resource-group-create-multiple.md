@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 12/08/2017
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
-This topic shows you how to conditionally deploy a resource, and how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
+This article shows you how to conditionally deploy a resource, and how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
 ## Conditionally deploy resource
 
-When you must decided during deployment to create either one instance or no instances of a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+When you must decide during deployment to create either one instance or no instances of a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
 
 ```json
 {
@@ -126,7 +126,7 @@ Creates these names:
 
 By default, Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
 
-To serially deploy multiple instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.
+To serially deploy multiple instances of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.
 
 For example, to serially deploy storage accounts two at a time, use:
 
@@ -255,8 +255,56 @@ You can use resource and property iteration together. Reference the property ite
 
 ## Variable iteration
 
-To create multiple instances of a variable, use the `copy` element in the variables section. You can create multiple instances of objects with related values, and then assign those values to instances of a resources.
+To create multiple instances of a variable, use the `copy` element in the variables section. You can create multiple instances of objects with related values, and then assign those values to instances of the resource. You can use copy to create either an object with an array property or an array. Both approaches are shown in the following example:
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
 
 ## Depend on resources in a loop
 You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
