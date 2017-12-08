@@ -18,19 +18,20 @@ The **Autosuggest API**  includes one endpoint, which returns a list of suggeste
 ##Endpoint
 To get suggested queries using the Bing API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
-Endpoint `GET`:  
+Endpoint `GET`:
+```  
 https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
+```
+Returns search suggestions as JSON results that are relevant to the user's input defined by `?q=""`.
 
-Returns search suggestions as JSON results that are relevant to the users input defined by `?q=""`.
 
-
-For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Autosuggest API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference.
+For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference.
 
 ##Response JSON
-The response to a videos search request includes results as JSON objects. For examples of parsing the results see the [tutorial](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest/tutorials/autosuggest) and [source code](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest/tutorials/autosuggest-source).
+The response to a videos search request includes results as JSON objects. For examples of parsing the results see the [tutorial](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/tutorials/autosuggest) and [source code](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/tutorials/autosuggest-source).
 
 ##Next steps
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Autosuggest API, see [Autosuggest Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest).
+For examples of basic requests using the Autosuggest API, see [Autosuggest Quick-starts](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
