@@ -17,7 +17,7 @@ ms.author: tarcher
 ms.custom: jenkins
 ---
 
-# Build a project in Azure using Jenkins and the Azure Container Agents plugin
+# Build a project in Azure using Jenkins and Azure Container Instances
 
 Azure Container Instances makes it easy for you to get up and running without having to provision virtual machines or adopt a higher-level service. Azure Container Instances provides per-second billing based on the capacity you need; making it an attractive option for transient workloads such as performing a build.
 
@@ -155,8 +155,7 @@ az group create --name JenkinsAciResourceGroup --location eastus
 
 When finished, the `az group create` command displays results similar to the following example:
 
-```azurecli
-~$ az group create --name JenkinsAciResourceGroup --location eastus
+```JSON
 {
   "id": "/subscriptions/<subscriptionId>/resourceGroups/JenkinsAciResourceGroup",
   "location": "eastus",
