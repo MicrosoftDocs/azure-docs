@@ -110,7 +110,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
 For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).
 
-You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Source 5: Linux-based Azure virtual machine
 The last source of possible problems is the Azure virtual machine itself.

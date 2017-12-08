@@ -24,7 +24,7 @@ ms.author: jeanb
 
 In a temporal data stream of events, each event is assigned a time stamp. Azure Stream Analytics assigns a time stamp to each event by using either arrival time or application time. The **System.Timestamp** column has the time stamp assigned to the event. 
 
-Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
+Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
 
 Application time is assigned when the event is generated and it is part of the payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time. 
 

@@ -51,7 +51,10 @@ try:
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
-    print(data)
+    # 'data' contains the JSON data. The following formats the JSON data for display.
+    parsed = json.loads(data)
+    print ("Response:")
+    print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
@@ -81,7 +84,10 @@ try:
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
-    print(data)
+    # 'data' contains the JSON data. The following formats the JSON data for display.
+    parsed = json.loads(data)
+    print ("Response:")
+    print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
 except Exception as e:
     print(e.args)
