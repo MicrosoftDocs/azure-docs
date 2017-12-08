@@ -99,10 +99,8 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Cloud endpoint deletion fails, with this error: "MgmtInternalError"**  
-This issue might occur if the Azure file share or storage account is deleted before you delete the cloud endpoint. This issue will be fixed in a future update. At that time, you will be able to delete a cloud endpoint after you delete the Azure file share or storage account.
-
-Meanwhile, to prevent this issue from occurring, delete the cloud endpoint before you delete the Azure file share or storage account.
+<a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: “MgmtServerJobExpired”**                
+This issue occurs if the server is offline or doesn’t have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To unregister a server, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
