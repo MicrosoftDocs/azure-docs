@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
 
 ---
@@ -119,6 +119,9 @@ America | Canada East, Canada Central, South Central US, West Central US, East U
 Europe | UK West, UK South, North Europe, West Europe
 Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia	| Australia East, Australia Southeast
+Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
+Germany	| Germany Central, Germany Northeast
+China | China East, China North
 
 >[!NOTE]
 >
