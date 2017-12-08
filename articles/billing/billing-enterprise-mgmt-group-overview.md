@@ -18,7 +18,7 @@ ms.author: rithorn
 
 # Organize your resources with Azure Management Groups 
 
-If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. As an example, you can apply policies to a management group that limgit stait which resource types can be created. These policies inherit to all the resources contained under that management group. 
+If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. As an example, you can apply policies to a management group that limit which resource types can be created. These policies inherit to all the resources contained under that management group. 
 
 >![NOTE] This feature in a Private Preview. More information will be released soon on the public preview of Azure Management Groups
 
@@ -26,14 +26,14 @@ Management groups, along with your subscriptions, can be organized into a hierar
 
 ![hierarchy tree](media/billing-enterprise-mgmt-groups/mg-hierarchy.png)
 
-A hierarchy tree can be created to support any number of scenarios that might be needed for your environment. An example scenario that is common for users with multiple subscriptions is the assigment of user accesses.  By linking the subscriptions together under a management group and assigning access to the group, those user accesses will inherit to all the child resources (Subscriptions, Resource Groups, Resources). 
+A hierarchy tree can be created to support any number of scenarios that might be needed for your environment. An example scenario that is common for users with multiple subscriptions is the assignment of user accesses.  Linking subscriptions together under a management group and assigning access to the group makes those accesses inherit to all the child resources (Subscriptions, Resource Groups, Resources). 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a directory 
-- A hierarhcy tree can support up to 6 levels in depth 
+- A hierarchy tree can support up to six levels in depth 
 - Each management group can only support one parent
 - Each management group can have multiple children 
-- Each directory will have a root management group by default
+- Each directory has a root management group by default
 
 # API commands 
 Management group functions are only available through an API.  Users can create, search, update, delete, and link other groups/ subscriptions to a management group through the API.  
