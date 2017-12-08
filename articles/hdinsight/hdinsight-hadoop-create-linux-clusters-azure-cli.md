@@ -42,7 +42,7 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the **login** method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli) and connect to your subscription using the **login** method.
 
 ## Create a cluster
 

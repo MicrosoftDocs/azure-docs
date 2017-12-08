@@ -15560,8 +15560,13 @@
         "redirect_document_id": true
       },
       {
-             "source_path": "articles/store-blitline-how-to-use.md",
-             "redirect_url": "https://www.blitline.com",
+        "source_path": "articles/store-blitline-how-to-use.md",
+        "redirect_url": "https://www.blitline.com",
+        "redirect_document_id": false
+      },
+       {
+             "source_path": "articles/xplat-cli-connect.md",
+             "redirect_url": "/cli/azure/authenticate-azure-cli",
              "redirect_document_id": false
         }
     ]
