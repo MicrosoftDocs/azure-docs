@@ -125,14 +125,14 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Repeat the steps above for port 3**03**17
 
 ### Deploy with template
-You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
-1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure Portal
+1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal
    The database template only creates the load-balancing rules for a database whereas the converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver based system and you also want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 1. Enter the following parameters
-    1. Sap System Id  
-       Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+    1. Sap System ID  
+       Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
     1. Stack Type (only applicable if you use the converged template)  
        Select the SAP NetWeaver stack type
     1. Os Type  
@@ -147,8 +147,8 @@ Follow these steps to deploy the template:
        A new user is created that can be used to log on to the machine.
     1. New Or Existing Subnet  
        Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-    1. Subnet Id  
-    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+    1. Subnet ID  
+    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 ## Setting up Linux HA
 
@@ -204,7 +204,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Setup disk layout
     1. LVM  
-    We generally recommend to use LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
+    We generally recommend using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
         * Create physical volumes for all disks that you want to use.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -232,7 +232,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Create fstab entries for the three logical volumes
@@ -255,7 +255,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
+    # write down the ID of /dev/sdc1
     sudo /sbin/blkid
     sudo vi /etc/fstab
     ```
@@ -454,7 +454,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory Id. This is the **tenant id**.
+   Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
 1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
@@ -462,7 +462,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
+1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
@@ -480,13 +480,13 @@ After you edited the permissions for the virtual machines, you can configure the
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -500,7 +500,7 @@ sudo crm configure load update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -520,7 +520,7 @@ sudo crm configure load update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -626,16 +626,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-The migration creates location contraints that need to be deleted again.
+The migration creates location constraints that need to be deleted again.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-You also need to cleanup the state of the secondary node resource
+You also need to clean up the state of the secondary node resource
 
 <pre><code>
 # switch back to root and cleanup the failed state
