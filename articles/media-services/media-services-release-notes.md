@@ -55,7 +55,7 @@ For information about the Media Services REST API version history, see [Azure Me
 2.	If you have source video that is encoded with H.265(HEVC) video codec, such as video captured using iOS11 or GoPro Hero 6, you can now use either the Premium Encoder or the Standard Encoder to encode those videos. Please refer to the [Online Services Terms](https://azure.microsoft.com/support/legal/) for an important note about patent license(s).
 3.	If you have content that contains multiple language audio tracks, then as long as the language values are correctly labeled according to the corresponding file format specification (e.g. ISO MP4), then you can use the Standard Encoder to encode that content for streaming. The resultant streaming locator will list the available audio languages.
 4.	The Standard Encoder now supports two new audio-only system presets, “AAC Audio” and “AAC Good Quality Audio”. Both produce stereo AAC output, at bit rates of 128 kbps and 192 kbps, respectively.
-5.	The Premium Encoder now supports QuickTime/MOV file formats as input as long as the video codec is either one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), and the audio is either AAC or PCM.
+5.	The Premium Encoder now supports QuickTime/MOV file formats as input as long as the video codec is either one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), and the audio is either AAC or PCM.
 
 > [!NOTE]
 > The Premium Encoder does not support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files, as input.  However, the Standard Encoder does support these video codecs.
