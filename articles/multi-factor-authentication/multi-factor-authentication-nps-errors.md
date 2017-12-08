@@ -4,7 +4,7 @@ description: Get help resolving issues with the NPS extension for Azure Multi-Fa
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: multi-factor-authentication

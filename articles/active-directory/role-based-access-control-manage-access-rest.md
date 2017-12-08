@@ -4,7 +4,7 @@ description: Managing role-based access control with the REST API
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
