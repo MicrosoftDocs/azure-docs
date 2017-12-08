@@ -30,6 +30,10 @@ The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/
 
 Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
+ >[!IMPORTANT]
+ > Currently, if multiple functions are configured to use Cosmos DB Trigger for the same collection, each of the functions should use dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+
+
 ## Trigger - example
 
 See the language-specific example:
