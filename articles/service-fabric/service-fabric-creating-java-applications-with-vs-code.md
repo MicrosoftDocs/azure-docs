@@ -3,7 +3,7 @@ title: Create a Java Service Fabric application with Visual Studio Code| Microso
 description: This article is an overview of creating Java Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: t-pepogo
+author: peterpogorski
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/06/2017
-ms.author: 
+ms.author: t-pepogo
 
 ---
 
@@ -22,11 +22,7 @@ ms.author:
 
 The Service Fabric extension for Visual Studio Code makes it easy to build Java Service Fabric applications on Windows, Linux, and macOS operating systems.
 
-<<<<<<< HEAD
 This article shows you how to build, deploy, and debug a Java Service Fabric application using Visual Studio Code.
-=======
-This article shows you how to build, deploy, and debug a Java Service Fabric applications using Visual Studio Code.
->>>>>>> 75bfb0048ea5b4a84487d2201125eabd93c474e3
 
 ## Prerequisites
 As VS Code is a lightweight editor, a number of dependencies must be first installed before Service Fabric applications can be created using VS Code.
@@ -60,11 +56,7 @@ Open the Visual Studio Code application. Click on File -> Open Folder and naviga
 
 ## Deploy the Voting application to a local cluster
 
-<<<<<<< HEAD
-1. Press (Ctrl + Shift + p) to open the command prompt in Visual Studio Code.
-=======
 1. Press (Ctrl + Shift + p) in order to open the command prompt in Visual Studio Code.
->>>>>>> 75bfb0048ea5b4a84487d2201125eabd93c474e3
 2. Search for the Service Fabric: Build Application command. When prompted to select a language, select Java. The output of the build process will be output in the integrated terminal.
 ![Build Application Command in Visual Studio Code][build-application]
 
@@ -74,11 +66,7 @@ Open the Visual Studio Code application. Click on File -> Open Folder and naviga
 4. When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 ![Voting Application in Browser][voting-sample]
 
-<<<<<<< HEAD
 5. To remove the application from the cluster, search for the Service Fabric: Remove Application command. The output of the uninstall process will be output in the integrated terminal.
-=======
-5. In order to remove the application from the cluster, search for the Service Fabric: Remove Application command. The output of the uninstall process wil be output in the integrated terminal.
->>>>>>> 75bfb0048ea5b4a84487d2201125eabd93c474e3
 
 ## Debug in Visual Studio Code
 When debugging applications in Visual Studio Code, the application must be running on a local cluster. Breakpoints can be added to the code to see what is happening in the code.
@@ -92,11 +80,7 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djav
 Click on the debug icon in the workspace to open the debugging view in Visual Studio Code. Select Java from the environment menu.
 ![Debug Icon in Visual Studio Code Workspace][debug-workspace]
 
-<<<<<<< HEAD
 Open the launch.json file that is located in the explorer of Visual Studio Code. In, the configuration named **Debug (Attach)** update the port value to be **8001**.
-=======
-Open the launch.json file that will be located in the explorer of Visual Studio Code. In the configuration named **Debug (Attach)** update the port value to be **8001**.
->>>>>>> 75bfb0048ea5b4a84487d2201125eabd93c474e3
 
 ![Debug Configuration for the launch.json][debug-config]
 

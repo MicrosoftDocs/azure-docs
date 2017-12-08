@@ -3,7 +3,7 @@ title: Create a .NET Core Service Fabric application with Visual Studio Code| Mi
 description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: t-pepogo
+author: peterpogorski
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/06/2017
-ms.author: 
+ms.author: t-pepogo
 
 ---
 
