@@ -1,4 +1,5 @@
 - name: Microsoft Genomics documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Microsoft Genomics?

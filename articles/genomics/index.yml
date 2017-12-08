@@ -1,0 +1,29 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Microsoft Genomics Documentation
+metadata:
+  title: Microsoft Genomics Documentation
+  meta.description: Learn how to use Microsoft Genomics service.
+  services: microsoft-genomics
+  author: grhuynh
+  manager: jhubbard
+  editor: jasonwhowell
+  ms.author: grhuynh
+  ms.service: microsoft-genomics
+  ms.workload: genomics
+  ms.topic: landing-page
+  ms.date: 12/7/2017
+abstract:
+  description: Learn how Microsoft Genomics can power genome sequencing, using a cloud implementation of the BWA-GATK for secondary analysis.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Submit a workflow through the Microsoft Genomics service'
+  - type: list
+    style: icon48
+    items:
+    - image:
+       src: media/index/helix-blue-orange.svg
+      text: Submit a workflow
+      href: quickstart-run-genomics-workflow-portal
