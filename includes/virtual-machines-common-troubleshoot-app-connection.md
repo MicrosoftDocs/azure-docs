@@ -115,7 +115,7 @@ If you can access the application, ensure that your Internet edge device is allo
 
 ## Step 4 If you cannot access the application, use IP Verify to check the settings. 
 
-For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Additional resources
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
