@@ -63,7 +63,7 @@ In this section, perform the following steps to update your Azure Automation acc
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
-3. On the Automation account page, select your Automation account.  
+3. On the **Automation Accounts** page, select your Automation account from the list of Automation accounts.
 4. In the left-hand pane, select **Run As Accounts** under the section **Account Settings**.  
 5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**.  After selecting either the **Add Azure Run As** or **Add Azure Classic Run As Account** pane appears and after reviewing the overview information, click **Create** to proceed with Run As account creation.  
 6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu.  A banner is also displayed stating the account is being created.  This process can take a few minutes to complete.  
