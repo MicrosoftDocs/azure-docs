@@ -48,7 +48,7 @@ Next, you create a function in the new function app.
 
 2. In the search field, type `cosmos` and then choose your desired language for the Azure Cosmos DB trigger template.
 
-    ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Choose the Azure Cosmos DB trigger](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configure the new trigger with the settings as specified in the table below the image.
 

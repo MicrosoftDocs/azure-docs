@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 
@@ -45,7 +45,11 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Select the **Generic WebHook - C#** template. Type a name for your C# function, then select **Create**.
+2. In the search field, type `generic` and then choose your desired language for the generic webhook trigger template. This topic uses a C# function.
+
+     ![Choose the generic webhook trigger template](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Type a name for your function, then select **Create**. 
 
      ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
