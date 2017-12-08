@@ -142,6 +142,8 @@
         href: app-insights-proactive-failure-diagnostics.md
       - name: Performance anomalies
         href: app-insights-proactive-performance-diagnostics.md
+      - name: Trace Degredation
+        href: app-insights-proactive-trace-severity.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
