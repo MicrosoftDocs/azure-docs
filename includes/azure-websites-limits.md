@@ -10,6 +10,7 @@
 | CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard rates |Unlimited, pay at standard rates |
 | Memory (1 hour) |1024 MB per App Service plan |1024 MB per app |N/A |N/A |N/A |
 | Bandwidth |165 MB |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |Unlimited, data transfer rates apply |
+| HTTP Timeout |230 seconds |230 seconds |230 seconds |230 seconds |230 seconds |
 | Application architecture |32-bit |32-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web Sockets per instance<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |
 | Concurrent [debugger connections](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per application |1 |1 |1 |5 |5 |
@@ -38,4 +39,3 @@ same App Service plan. More storage options are available in [App Service Enviro
 <sup>8</sup>Premium tier allows backup intervals down up to every 5 minutes when using App Service Environments, and 50 times per day otherwise.  
 <sup>9</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.   
 <sup>10</sup>SLA of 99.95% provided for deployments that use multiple instances with Azure Traffic Manager configured for failover.  
-
