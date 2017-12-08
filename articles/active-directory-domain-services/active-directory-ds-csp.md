@@ -49,11 +49,15 @@ In this deployment model, Azure AD Domain Services is enabled within a virtual n
 * Global administrator privileges in the customer's Azure AD directory.
 * Subscription owner privileges on the Azure CSP subscription.
 
+![Direct deployment model](./media/csp/csp_direct_deployment_model.png)
+
 In this deployment model, the CSP provider's admin agents can administer identities for the customer. These admin agents have the ability to provision new users, groups, add applications within the customer's Azure AD directory etc. This deployment model may be suited for smaller organizations that do not have a dedicated identity administrator or prefer for the CSP partner to administer identities on their behalf.
 
 
 ### Peered deployment model
 In this deployment model, Azure AD Domain Services is enabled within a virtual network belonging to the customer - i.e. a direct Azure subscription paid for by the customer. The CSP partner can then deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering. This enables the workloads/applications deployed by the CSP partner in the Azure CSP subscription to connect to the customer's managed domain provisioned in the customer's direct Azure subscription.
+
+![Peered deployment model](./media/csp/csp_peered_deployment_model.png)
 
 This deployment model provides a separation of privileges and enables the CSP partner's helpdesk agents to administer the Azure subscription and deploy and manage resources within it. However, the CSP partner's helpdesk agents do not need to have global administrator privileges on the customer's Azure AD directory. The customer's identity administrators can continue to manage identities for their organization.
 
@@ -61,6 +65,20 @@ This deployment model may be suited to scenarios where an ISV (independent softw
 
 
 ## Administering Azure AD Domain Services managed domains in CSP subscriptions
+The following important considerations apply when administering a managed domain in an Azure CSP subscription:
+
+* **CSP admin agents can provision a managed domain using their credentials:** Azure AD Domain Services supports Azure CSP subscriptions. Therefore, users belonging to a CSP partner's admin agents group can provision a new Azure AD Domain Services managed domain.
+
+* **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md) for details.
+
+* **CSP admin agents cannot perform ongoing management tasks on the managed domain using their credentials:** CSP admin users cannot perform routine management tasks within the managed domain using their credentials. This is because these users are external to the customer's Azure AD directory and their credentials are not available within the customer's Azure AD directory. Therefore, Azure AD Domain Services does not have access to the Kerberos and NTLM password hashes for these users. As a result, such users cannot be authenticated on Azure AD Domain Services managed domains.
+
+  > [!WARNING]
+  > **You must create a user account within the customer's directory to perform ongoing administration tasks on the managed domain.**
+  > You cannot sign in to the managed domain using a CSP admin user's credentials. You need to use the credentials of a user account belonging to the customer's Azure AD directory to do so. This is required for tasks such as joining virtual machines to the managed domain, administering DNS, administering Group Policy etc.
+  >
+
+* **The user account created for ongoing administration must be added to the 'AAD DC Administrators' group:** The 'AAD DC Administrators' group has privileges to perform certain delegated administration tasks such as configuring DNS, creating organizational units, creating group policy objects etc. For a CSP partner to perform such tasks on a managed domain, a user account needs to be created within the customer's Azure AD directory. The credentials for this account must be shared with the CSP partner's admin agents. Also, this user account must be added to the 'AAD DC Administrators' group to enable configuration tasks on the managed domain to be performed using this user account.
 
 
 ## Next steps
