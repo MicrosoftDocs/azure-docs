@@ -148,19 +148,22 @@ Thus, an application manifest describes elements at the application level and re
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. Version attributes are also used to version each component for upgrades.
 
-**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instatiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation.
+**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instatiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation. To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type. 
-Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. 
+**ServiceManifestImport** contains references to service manifests that compose this application type. An application manifest can contain multiple service manifest imports, each one can be versioned independently. Imported service manifests determine what service types are valid within this application type. 
+Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. **Policies** (not set in the preceding example) for end-point binding, security and access, and package sharing can be set on imported service manifests.  For more information, see [Configure security policies for your application](service-fabric-application-runas-security.md).
 
-**DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
+**DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well. An application manifest can contain multiple default services.
 
-> [!NOTE]
-> An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
-> 
-> 
+**Certificates** (not set in the preceding example) declares the certificates used to [setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) or [encrypt secrets in the application manifest](service-fabric-application-secret-management.md).
 
-To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+**Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level.
+
+**Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md).  Principals are referenced in the **Policies** sections.
+
+
+
+
 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
@@ -174,21 +177,20 @@ For more information about other features supported by application manifests, re
 ## Next steps
 [Package an application](service-fabric-package-apps.md) and make it ready to deploy.
 
-[Deploy and remove applications][10] describes how to use PowerShell to manage application instances.
+[Deploy and remove applications](service-fabric-deploy-remove-applications.md) describes how to use PowerShell to manage application instances.
 
-[Managing application parameters for multiple environments][11] describes how to configure parameters and environment variables for different application instances.
+[Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md) describes how to configure parameters and environment variables for different application instances.
 
-[Configure security policies for your application][12] describes how to run services under security policies to restrict access.
+[Configure security policies for your application](service-fabric-application-runas-security.md) describes how to run services under security policies to restrict access.
 
-[Application hosting models][13] describe relationship between replicas (or instances) of a deployed service and service-host process.
+[Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
+
+[Encrypt secrets in the application manifest](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
-<!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-deploy-remove-applications.md
-[11]: service-fabric-manage-multiple-environment-app-configuration.md
-[12]: service-fabric-application-runas-security.md
-[13]: service-fabric-hosting-model.md
+
+
