@@ -209,7 +209,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     Description       :
     ```
 
-3. Run the following command to retrieve the status of the created integration runtime:
+3. To retrieve the status of the created integration runtime, run the following command:
 
     ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
