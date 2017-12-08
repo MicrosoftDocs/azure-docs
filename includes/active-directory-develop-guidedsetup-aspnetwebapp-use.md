@@ -1,23 +1,3 @@
----
-title: Azure AD v2 ASP.NET Web Server Getting Started - Use | Microsoft Docs
-description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
-
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-ms.custom: aaddev
-
----
 
 ## Add a controller to handle sign-in and sign-out requests
 
@@ -114,7 +94,7 @@ else
 ```
 <!--start-collapse-->
 ### More Information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## Add a controller to display user's claims

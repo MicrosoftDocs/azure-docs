@@ -1,21 +1,3 @@
----
-title: "Azure AD v2.0 iOS getting started: Introduction | Microsoft Docs"
-description: How iOS (Swift) applications can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.    
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
-
-ms.service: active-directory   
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-
----
 
 # Call the Microsoft Graph API from an iOS application
 
@@ -29,7 +11,7 @@ After you complete the exercises in this guide, your application can call a prot
 
 ## How this guide works
 
-![How this guide works](media/active-directory-mobileanddesktopapp-ios-introduction/iosintro.png)
+![How this guide works](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
 In this guide, the sample application enables an iOS application to query the Microsoft Graph API or a web API that accepts tokens from the Azure AD v2.0 endpoint. For this scenario, a token is added to HTTP requests by using the **Authorization** header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
 

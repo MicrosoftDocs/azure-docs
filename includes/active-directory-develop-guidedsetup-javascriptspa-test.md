@@ -1,21 +1,4 @@
----
-title: "Azure AD v2.0 JavaScript SPA guided setup: Test your code | Microsoft Docs"
-description: How JavaScript SPA applications can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.
-services: active-directory
-documentationcenter: dev-center-name     
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/01/2017
-ms.author: andret
-
----
 ## Test your code
 
 ### Test with Visual Studio
@@ -35,19 +18,19 @@ Open the browser and type http://<span></span>localhost:8080 or http://<span></s
 
 After the browser loads your index.html file, select **Call Microsoft Graph API**. The first time that you run your application, the browser redirects you to the Microsoft Azure Active Directory (Azure AD) v2.0 endpoint and you're prompted to sign in:
  
-![Sign in to your JavaScript SPA account](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
+![Sign in to your JavaScript SPA account](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
 ### Provide consent for application access
 
 The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in:
 
-![Provide your consent for application access](media/active-directory-singlepageapp-javascriptspa-test/javascriptspaconsent.png)
+![Provide your consent for application access](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### View application results
 After you sign in, you should see your user profile information in the **Graph API Call Response** box.
  
-![Expected results from Microsoft Graph API call](media/active-directory-singlepageapp-javascriptspa-test/javascriptsparesults.png)
+![Expected results from Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
 You should also see basic information about the token that was acquired in the **Access Token** and **ID Token Claims** boxes.
 
@@ -65,4 +48,4 @@ If a back-end API doesn't require a scope (not recommended), you can use the **c
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]

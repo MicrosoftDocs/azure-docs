@@ -1,21 +1,4 @@
----
-title: Azure AD v2 JS SPA Guided Setup - Configure | Microsoft Docs
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.service: active-directory      
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/01/2017
-ms.author: andret
-
----
 ## Register your application
 
 There are multiple ways to create an application, please select one of them:
@@ -40,7 +23,7 @@ Now you need to register your application in the *Microsoft Application Registra
 > #### Visual Studio instructions for obtaining redirect URL
 > Follow the instructions to obtain your redirect URL:
 > 1.	In *Solution Explorer*, select the project and look at the `Properties` window (if you don’t see a Properties window, press `F4`)
-> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 2.	Copy the value from `URL` to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3.	Switch back to the *Application Registration Portal* and paste the value as a `Redirect URL` and click 'Save'
 
 <p/>

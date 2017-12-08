@@ -1,32 +1,13 @@
----
-title: "Azure AD v2.0 ASP.NET web server getting started: Test your code | Microsoft Docs"
-description: Implement Microsoft Sign-in on an ASP.NET solution with a web browser-based application by using OpenID Connect standard.
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-ms.custom: aaddev
-
----
 ## Test your code
 
 To test your application in Visual Studio, press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign in with Microsoft** button. Select the button to start the sign-in process.
 
 When you're ready to run your test, use a Microsoft Azure Active Directory (Azure AD) account (work or school account) or a personal Microsoft account (<span>live.</span>com or <span>outlook.</span>com) to sign in.
 
-![Sign in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
+![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Sign in to your Microsoft account](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
+![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### View application results
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>," a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
@@ -84,4 +65,4 @@ You can restrict sign-in access to only user accounts that are in an Azure AD or
 #### Use a custom method to validate issuers
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
-[!INCLUDE  [Help and support](../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]

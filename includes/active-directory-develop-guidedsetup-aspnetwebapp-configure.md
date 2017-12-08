@@ -1,23 +1,3 @@
----
-title: Azure AD v2 ASP.NET Web Server Getting Started - Config | Microsoft Docs
-description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
-
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-ms.custom: aaddev
-
----
 
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
@@ -34,7 +14,7 @@ Now you need to register your application in the *Microsoft Application Registra
 4.	Click `Add Platform`, then select `Web`
 5.	Go back to Visual Studio and, in Solution Explorer, select the project and look at the Properties window (if you don’t see a Properties window, press F4)
 6.	Change SSL Enabled to `True`
-7.	Copy the SSL URL and add this URL to the list of Redirect URLs in the Registration Portal’s list of Redirect URLs:<br/><br/>![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
+7.	Copy the SSL URL and add this URL to the list of Redirect URLs in the Registration Portal’s list of Redirect URLs:<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 8.	Add the following in `web.config` located in the root folder under the section `configuration\appSettings`:
 
 ```xml

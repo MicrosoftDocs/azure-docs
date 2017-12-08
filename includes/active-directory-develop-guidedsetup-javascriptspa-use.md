@@ -1,21 +1,4 @@
----
-title: Azure AD v2 JS SPA Guided Setup - Use | Microsoft Docs
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
-services: active-directory
-documentationcenter: dev-center-name    
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.service: active-directory 
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 06/01/2017
-ms.author: andret    
-
----
 ## Use the Microsoft Authentication Library (MSAL) to sign-in the user
 
 1.	Create a file named `app.js`. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`:

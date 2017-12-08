@@ -1,23 +1,4 @@
----
-title: Azure AD v2 Windows Desktop Getting Started - Intro | Microsoft Docs
-description: How Windows Desktop .NET (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
-services: active-directory
-documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
-editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/09/2017
-ms.author: andret
-ms.custom: aaddev
-
----
 # Call the Microsoft Graph API from a Windows Desktop app
 
 This guide demonstrates how a native Windows Desktop .NET (XAML) application can get an access token and call Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
@@ -28,7 +9,7 @@ At the end of this guide, your application will be able to call a protected API 
 
 ### How this guide works
 
-![How this guide works](media/active-directory-mobileanddesktopapp-windowsdesktop-intro/windesktophowitworks.png)
+![How this guide works](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 
 The sample application created by this guide enables a Windows Desktop Application to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
 
