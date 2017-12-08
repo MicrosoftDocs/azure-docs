@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
 
 ---
@@ -36,23 +36,18 @@ To perform the tasks listed in this article, you need:
 ### Requirements for the secure LDAP certificate
 Acquire a valid certificate per the following guidelines, before you enable secure LDAP. You encounter failures if you try to enable secure LDAP for your managed domain with an invalid/incorrect certificate.
 
-1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public certification authority trusted by these computers.
+1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public certification authority (CA) or an Enterprise CA trusted by these computers.
 2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
 3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. Set the DNS name (subject alternate name) to this wildcard name.
 4. **Key usage** - The certificate must be configured for the following uses - Digital signatures and key encipherment.
 5. **Certificate purpose** - The certificate must be valid for SSL server authentication.
-
-> [!NOTE]
-> **Enterprise Certification Authorities:** Azure AD Domain Services does not support using secure LDAP certificates issued by your organization's enterprise certification authority. This restriction is because the service does not trust your enterprise CA as a root certification authority. 
->
->
 
 <br>
 
 ## Task 1 - obtain a certificate for secure LDAP
 The first task involves obtaining a certificate used for secure LDAP access to the managed domain. You have two options:
 
-* Obtain a certificate from a public certification authority.
+* Obtain a certificate from a public CA or an enterprise CA.
 * Create a self-signed certificate.
 
 > [!NOTE]
@@ -60,7 +55,7 @@ The first task involves obtaining a certificate used for secure LDAP access to t
 >
 
 ### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
-If your organization obtains its certificates from a public certification authority, obtain the secure LDAP certificate from that public certification authority.
+If your organization obtains its certificates from a public CA, obtain the secure LDAP certificate from that public CA. If you deploy an enterprise CA, obtain the secure LDAP certificate from the enterprise CA.
 
 > [!TIP]
 > **Use self-signed certificates for managed domains with '.onmicrosoft.com' domain suffixes.**
