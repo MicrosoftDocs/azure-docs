@@ -43,19 +43,19 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 The `modules` URL parameter following `/details?` specifies what kind of details the results contain:
 * `modules=All`
-* `modules=RecognizedEntities` (people visible in the image)
+* `modules=RecognizedEntities` (people or places visible in the image)
 
 Specify `modules=All` in the `POST` request to get JSON text that includes the following list:
 * `bestRepresentativeQuery` - a Bing query that returns images similar to the uploaded image
 * `detectedObjects` such as a bounding box or hot spots in the image
 * `image` metadata
-* `imageInsightsToken` - token for a subsequent `GET` request that gets `RecognizedEntities` (people visible in the image) 
+* `imageInsightsToken` - token for a subsequent `GET` request that gets `RecognizedEntities` (people or places visible in the image) 
 * `imageTags`
 * `pagesIncluding` - Web pages that include the image
 * `relatedSearches`
 * `visuallySimilarImages`
 
-Specify `modules=RecognizedEntities` in the `POST` request to get only the `imageInsightsToken`, which is used in a subsequent `GET` request. It identifies people visible in the image.
+Specify `modules=RecognizedEntities` in the `POST` request to get only the `imageInsightsToken`, which is used in a subsequent `GET` request. It identifies people or places visible in the image.
 
 ## WebClient and headers for the POST request
 Create a `WebClient` object, and set the headers. All requests to the Bing Search API require an `Ocp-Apim-Subscription-Key`. A `POST` request to upload an image must also specify `ContentType: multipart/form-data`.
