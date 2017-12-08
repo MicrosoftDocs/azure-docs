@@ -25,8 +25,9 @@ Let’s assume you have two files, *reads_1.fq.gz* and *reads_2.fq.gz*, and you 
 
 Here is the minimal set of arguments that you will need to provide to the `msgen` client; line breaks are added for clarity:
 
+For windows:
 
-```Windows console
+```
 msgen submit ^
   --api-url-base <Genomics API URL> ^
   --access-key <Genomics access key> ^
@@ -41,8 +42,9 @@ msgen submit ^
   --output-storage-account-container outputs
 ```
 
+For Unix:
 
-```Unix console
+```
 msgen submit \
   --api-url-base <Genomics API URL> \
   --access-key <Genomics access key> \
@@ -60,7 +62,7 @@ msgen submit \
 
 If you prefer using a configuration file, here is what it would contain:
 
-``` config.txt
+```
 api_url_base:                     <Genomics API URL>
 access_key:                       <Genomics access key>
 process_args:                     R=b37m1

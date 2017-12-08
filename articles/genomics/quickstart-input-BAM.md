@@ -27,8 +27,9 @@ Let’s assume you have a single BAM file , *reads.bam*, and you have uploaded i
 
 Here is the minimal set of arguments that you will need to provide to the `msgen` client; line breaks are added for clarity:
 
+For Windows:
 
-```Windows console
+```
 msgen submit ^
   --api-url-base <Genomics API URL> ^
   --access-key <Genomics access key> ^
@@ -43,7 +44,9 @@ msgen submit ^
 ```
 
 
-```Unix console
+For Unix
+
+```
 msgen submit \
   --api-url-base <Genomics API URL> \
   --access-key <Genomics access key> \

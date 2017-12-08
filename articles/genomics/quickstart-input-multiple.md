@@ -31,7 +31,9 @@ Let’s assume you have multiple BAM files as input, *reads.bam*, *additional_re
 You can submit multiple BAM files by passing all their names to the --input-blob-name-1 argument. Note that all files should come from the same sample, but their order is not important. Below are example submissions from a command line in Windows, in Unix, and using a configuration file. Line breaks are added for clarity:
 
 
-```Windows console
+For Windows:
+
+```
 msgen submit ^
   --api-url-base <Genomics API URL> ^
   --access-key <Genomics access key> ^
@@ -46,7 +48,9 @@ msgen submit ^
 ```
 
 
-```Unix console
+For Unix
+
+```
 msgen submit \
   --api-url-base <Genomics API URL> \
   --access-key <Genomics access key> \
