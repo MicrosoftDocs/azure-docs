@@ -25,12 +25,14 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
-    - name: PHP
-      href: sql-database-connect-query-php.md
-    - name: Node.js
-      href: sql-database-connect-query-nodejs.md
+    - name: Go
+      href: sql-database-connect-query-go.md
     - name: Java
       href: sql-database-connect-query-java.md
+    - name: Node.js
+      href: sql-database-connect-query-nodejs.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
     - name: Python
       href: sql-database-connect-query-python.md
     - name: Ruby
@@ -201,6 +203,8 @@
     items:
     - name: SaaS design patterns
       href: saas-tenancy-app-design-patterns.md
+    - name: SaaS video indexer
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
     - name: SaaS app security
       href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
@@ -337,8 +341,10 @@
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Multi-tenant SaaS
     items:
-    - name: Welcome to Wingtips
+    - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: General guidance
+      href: saas-tenancy-wingtip-app-guidance-tips.md
     - name: Standalone application
       items:
       - name: Deploy example app
@@ -348,8 +354,6 @@
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
-      - name: App guidance
-        href: saas-dbpertenant-wingtip-app-guidance-tips.md
       - name: Deploy example app
         href: saas-dbpertenant-get-started-deploy.md
       - name: Provision tenants
@@ -370,12 +374,16 @@
       items:
       - name: Deploy example app
         href: saas-multitenantdb-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-multitenantdb-provision-and-catalog.md
       - name: Monitor database performance
         href: saas-multitenantdb-performance-monitoring.md
       - name: Run ad-hoc queries
         href: saas-multitenantdb-adhoc-reporting.md
       - name: Manage tenant schema
         href: saas-multitenantdb-schema-management.md
+      - name: ETL for analysis
+        href: saas-multitenantdb-tenant-analytics.md
   - name: Develop apps
     items:
     - name: C and C ++

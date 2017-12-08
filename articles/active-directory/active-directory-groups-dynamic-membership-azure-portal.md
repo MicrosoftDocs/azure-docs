@@ -5,16 +5,16 @@ description: How to create advanced rules for dynamic group membership including
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: ''
 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 
@@ -27,13 +27,13 @@ In Azure Active Directory (Azure AD), you can create advanced rules to enable co
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
 > [!NOTE]
-> - You can set up a rule for dynamic membership on security groups or Office 365 groups.
+> You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
+> This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
-> - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
-
-> - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+> You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
+> 
+> At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
 ## To create an advanced rule
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
@@ -71,7 +71,7 @@ For the complete list of supported parameters and expression rule operators, see
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are not case sensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+> String and regex operations are not case sensitive. You can also perform Null checks, using *null* as a constant, for example, user.department -eq *null*.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 
 ## Supported expression rule operators
@@ -157,31 +157,32 @@ Allowed operators
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
-| city |Any string value or $null |(user.city -eq "value") |
-| country |Any string value or $null |(user.country -eq "value") |
-| companyName | Any string value or $null | (user.companyName -eq "value") |
-| department |Any string value or $null |(user.department -eq "value") |
+| city |Any string value or *null* |(user.city -eq "value") |
+| country |Any string value or *null* |(user.country -eq "value") |
+| companyName | Any string value or *null* | (user.companyName -eq "value") |
+| department |Any string value or *null* |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
-| facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Any string value or $null |(user.givenName -eq "value") |
-| jobTitle |Any string value or $null |(user.jobTitle -eq "value") |
-| mail |Any string value or $null (SMTP address of the user) |(user.mail -eq "value") |
+| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| facsimileTelephoneNumber |Any string value or *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Any string value or *null* |(user.givenName -eq "value") |
+| jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
+| mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
-| mobile |Any string value or $null |(user.mobile -eq "value") |
+| mobile |Any string value or *null* |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Any string value or $null |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Any string value or *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Any string value or $null |(user.sipProxyAddress -eq "value") |
-| state |Any string value or $null |(user.state -eq "value") |
-| streetAddress |Any string value or $null |(user.streetAddress -eq "value") |
-| surname |Any string value or $null |(user.surname -eq "value") |
-| telephoneNumber |Any string value or $null |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Any string value or *null* |(user.sipProxyAddress -eq "value") |
+| state |Any string value or *null* |(user.state -eq "value") |
+| streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
+| surname |Any string value or *null* |(user.surname -eq "value") |
+| telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
 | userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest $null |(user.userType -eq "Member") |
+| userType |member guest *null* |(user.userType -eq "Member") |
 
 ### Properties of type string collection
 Allowed operators
@@ -224,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## Use of Null values
 
-To specify a null value in a rule, you can use "null" or $null. Example:
+To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The correct way to reference the null value is as follows:
 ```
    user.mail –ne null
 ```
-is equivalent to
-```
-   user.mail –ne $null
-   ```
 
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
@@ -295,7 +292,7 @@ You can also create a rule that selects device objects for membership in a group
 ## Changing dynamic membership to static, and vice versa
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
-We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-groups-dynamic-membership-azure-portal.md)) or use PowerShell cmdlets as shown below.
+We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use PowerShell cmdlets as shown below.
 
 > [!WARNING]
 > When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
@@ -305,7 +302,7 @@ We are in the process of updating the Azure portal to support this functionality
 **Using PowerShell to change membership management on a group**
 
 > [!NOTE]
-> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from [here](https://www.powershellgallery.com/packages/AzureADPreview).
+> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from [here](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Here is an example of functions that switch membership management on an existing group. Note that care is taken to correctly manipulate the GroupTypes property and preserve any values that may exist there, unrelated to dynamic membership.
 

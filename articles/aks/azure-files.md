@@ -1,23 +1,15 @@
 ---
-title: Use Azure File with AKS | Microsoft Docs
+title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
 
 # Using Azure Files with Kubernetes

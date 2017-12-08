@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
 
 ---
@@ -24,33 +24,30 @@ ms.author: larryfr
 
 [Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
-Storm on HDInsight provides the following key benefits:
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* Performs as a managed service with an SLA of 99.9 percent uptime.
+## Why use Storm on HDInsight?
+
+Storm on HDInsight provides the following features:
+
+* __99% Service Level Agreement (SLA) on Storm uptime__: For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
 
 * Supports easy customization by running scripts against a Storm cluster during or after creation. For more information, see [Customize HDInsight clusters using script action](../hdinsight-hadoop-customize-cluster-linux.md).
 
-* Uses various languages. You can write Storm components in the language of your choice, such as Java, C#, and Python.
+* **Create solutions in multiple languages**: You can write Storm components in the language of your choice, such as Java, C#, and Python.
 
     * Integrates Visual Studio with HDInsight for the development, management, and monitoring of C# topologies. For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
     * Supports the Trident Java interface. You can create Storm topologies that support exactly once processing of messages, transactional datastore persistence, and a set of common stream analytics operations.
 
-*  Easily scale Storm clusters up and down. You can add or remove worker nodes with no impact to running Storm topologies.
+* **Dynamic scaling**: You can add or remove worker nodes with no impact to running Storm topologies.
 
-* Integrates with the following Azure services:
+    > [!NOTE]
+    > You must deactivate and reactivate running topologies to take advantage of new nodes added through scaling operations.
 
-    * Azure Event Hubs
+* **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Store.
 
-    * Azure Virtual Network
-
-    * Azure SQL Database
-
-    * Azure Storage
-
-    * Azure Cosmos DB
-
-* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Kafka, Spark, HBase, or Hadoop clusters.
+    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -65,6 +62,16 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 * Spout components bring data into a topology. They emit one or more streams into the topology.
 
 * Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, Kafka, or HBase.
+
+## Reliability
+
+Apache Storm guarantees that each incoming message is always fully processed, even when the data analysis is spread over hundreds of nodes.
+
+The Nimbus node provides functionality similar to the Hadoop JobTracker, and it assigns tasks to other nodes in a cluster through Zookeeper. Zookeeper nodes provide coordination for a cluster and facilitate communication between Nimbus and the Supervisor process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
+
+The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
+
+![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/nimbus.png)
 
 ## Ease of creation
 
@@ -97,23 +104,6 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
-
-## Reliability
-
-Apache Storm guarantees that each incoming message is always fully processed, even when the data analysis is spread over hundreds of nodes.
-
-The Nimbus node provides functionality similar to the Hadoop JobTracker, and it assigns tasks to other nodes in a cluster through Zookeeper. Zookeeper nodes provide coordination for a cluster and facilitate communication between Nimbus and the Supervisor process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
-
-The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
-
-![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/nimbus.png)
-
-## Scale
-
-HDInsight clusters can be dynamically scaled by adding or removing worker nodes. This operation can be performed while processing data.
-
-> [!IMPORTANT]
-> To take advantage of new nodes added through scaling, you need to rebalance Storm topologies started before the cluster size was increased.
 
 ## Support
 

@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS cluster
+  - name: Create an AKS cluster - CLI
     href: kubernetes-walkthrough.md
+  - name: Create an AKS cluster - Portal
+    href: kubernetes-walkthrough-portal.md
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -39,6 +41,8 @@
     href: kubernetes-draft.md
   - name: Persist data with Azure Files
     href: azure-files.md
+  - name: Integrate with Azure using OSBA
+    href: integrate-azure.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
   - name: Create service principal

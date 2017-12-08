@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 12/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -129,7 +129,7 @@ Maven allows you to define project-level values called properties. In the __pom.
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.6.
     -->
     <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
@@ -179,21 +179,21 @@ For Apache Storm topologies implemented in Java, the [Exec Maven Plugin](http://
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>exec-maven-plugin</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <executions>
-    <execution>
-    <goals>
-        <goal>exec</goal>
-    </goals>
-    </execution>
+        <execution>
+        <goals>
+            <goal>exec</goal>
+        </goals>
+        </execution>
     </executions>
     <configuration>
-    <executable>java</executable>
-    <includeProjectDependencies>true</includeProjectDependencies>
-    <includePluginDependencies>false</includePluginDependencies>
-    <classpathScope>compile</classpathScope>
-    <mainClass>${storm.topology}</mainClass>
-    <cleanupDaemonThreads>false</cleanupDaemonThreads> 
+        <executable>java</executable>
+        <includeProjectDependencies>true</includeProjectDependencies>
+        <includePluginDependencies>false</includePluginDependencies>
+        <classpathScope>compile</classpathScope>
+        <mainClass>${storm.topology}</mainClass>
+        <cleanupDaemonThreads>false</cleanupDaemonThreads> 
     </configuration>
 </plugin>
 ```

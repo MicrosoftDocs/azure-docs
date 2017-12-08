@@ -37,11 +37,11 @@ Both of these options prompt users to register for Azure Multi-Factor Authentica
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-| Status | Description | Non-browser apps affected |
-|:---:|:---:|:---:|
-| Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |
-| Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
-| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |
+| Status | Description | Non-browser apps affected | Browser apps affected | Modern auth affected |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |No |No |
+| Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. | Yes. Once the session expires, MFA registration will be required.| Yes. Once the access token expires, MFA registration will be required. |
+| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |Yes. MFA required at login. | Yes. MFA required at login. |
 
 A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
 

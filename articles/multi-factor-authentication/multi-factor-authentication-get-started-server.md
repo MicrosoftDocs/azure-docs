@@ -85,7 +85,7 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## Download the MFA Server - Public preview
+## Download the MFA Server
 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
@@ -97,28 +97,6 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
    ![Download MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Keep this page open as we will refer to it after running the installer.
-
-
-## Download the MFA Server
-
-Follow these steps to download the Azure Multi-Factor Authentication Server from the pfweb portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. On the left, select **Active Directory**
-3. Select **Users and groups**
-4. Select **All users**
-5. Select **Multi-Factor Authentication**
-6. Under **multi-factor authentication** section, select **service settings**
-
-   ![Service settings page](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
-7. Select **Downloads**.
-8. Click the **Download** link and save the installer.
-
-   ![Download MFA Server](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Keep this page open as we will refer to it after running the installer.
 
 ## Install and configure the MFA Server
 

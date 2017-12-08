@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: denlee
 
 ---
@@ -22,6 +22,10 @@ ms.author: denlee
 # Accelerate real-time big-data analytics with the Spark to Azure Cosmos DB connector
 
 The Spark to Azure Cosmos DB connector enables Azure Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems where you can use Azure Cosmos DB to quickly persist and query data. The Spark to Azure Cosmos DB connector efficiently utilizes the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing globally distributed data, which range from Internet of Things (IoT) to data science and analytics scenarios.
+
+Learn more in this video with Azure Cosmos DB Principal Program Manager Denny Lee. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 For working with Spark GraphX and the Gremlin graph APIs of Azure Cosmos DB, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md).
 
@@ -77,7 +81,7 @@ Communication between Spark and Azure Cosmos DB is limited to the Spark master n
 ### Install pyDocumentDB
 You can install pyDocumentDB on your driver node by using **pip**, for example:
 
-```
+```bash
 pip install pyDocumentDB
 ```
 
@@ -87,7 +91,7 @@ The simplicity of the communication transport makes execution of a query from Sp
 
 The following code snippet shows how to use pyDocumentDB in a Spark context.
 
-```
+```python
 # Import Necessary Libraries
 import pydocumentdb
 from pydocumentdb import document_client
@@ -115,7 +119,7 @@ As noted in the code snippet:
 ### Execute Spark Queries via pyDocumentDB
 The following examples use the Azure Cosmos DB instance that was created in the previous snippet by using the specified read-only keys. The following code snippet connects to the **airports.codes** collection in the DoctorWho account as specified earlier and runs a query to extract the airport cities in Washington state.
 
-```
+```python
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
@@ -139,7 +143,7 @@ elements = list(query)
 
 After the query has been executed via **query**, the result is a **query_iterable.QueryIterable** that is converted to a Python list. A Python list can be easily converted to a Spark DataFrame by using the following code:
 
-```
+```python
 # Create `df` Spark DataFrame from `elements` Python list
 df = spark.createDataFrame(elements)
 ```
@@ -170,7 +174,7 @@ Currently, the connector project uses maven. To build the connector without depe
 ```
 mvn clean package
 ```
-You can also download the latest versions of the JAR from the *releases* folder.
+You can also download the latest versions of the JAR from the [*releases* folder](https://github.com/Azure/azure-cosmosdb-spark/releases).
 
 ### Include the Azure Cosmos DB Spark JAR
 Before you execute any code, you need to include the Azure Cosmos DB Spark JAR.  If you are using the **spark-shell**, then you can include the JAR by using the **--jars** option.  
@@ -181,7 +185,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-wi
 
 If you want to execute the JAR without dependencies, use the following code:
 
-```
+```bash
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Manage reference data for an Azure Time Series Insights environment by using C# | Microsoft Docs
+title: Manage reference data in Azure Time Series Insights environment by using C# | Microsoft Docs
 description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,16 +11,18 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ---
 # Manage reference data for an Azure Time Series Insights environment by using C#
 
-This article describes the C# sample code you can compile to manage reference data for an Azure Time Series Insights environment.
+This topic describes the C# sample code you can compile to manage reference data for an Azure Time Series Insights environment.
 
-Ensure the following steps are completed before compiling and running the sample code:
-1. A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).
+Complete the following steps before you compile and run the sample code:
+1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
 
-2. Configure the access token to be used to by the application to authorize with. Be sure the token is acquired through the Azure Active Directory API. This token should be passed in the `Authorization` header of every Query API request. For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
+2. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request. 
+ 
+   For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 
 3. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code. 
 
@@ -49,7 +51,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
         // For automated execution under application identity,
         // use application created in Active Directory.
         // To create the application in AAD, follow the steps provided here:
-        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+        // https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
         // SET the application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
@@ -149,7 +151,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -227,5 +229,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## Next steps
-> [!div class="nextstepaction"]
-> For the complete REST API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Reference data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

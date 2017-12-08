@@ -1,9 +1,29 @@
 {
     "redirections": [
-         {
+    {
+        "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
+        "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/application-proxy-enable-classic-portal.md",
+        "redirect_url": "/azure/active-directory/active-directory-application-proxy-enable",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
+        "redirect_url": "/azure/media-services/media-services-content-protection-overview",
+        "redirect_document_id": false 
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
+        "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": false
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
     {
         "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
@@ -18,22 +38,22 @@
     {
 	    "source_path": "articles/cognitive-services/Video/Glossary.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/GetStarted.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
         "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
@@ -405,6 +425,11 @@
             "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
             "redirect_document_id": false
         },
+        { 
+            "source_path": "articles/managed-applications/publish-marketplace-app.md", 
+            "redirect_url": "/azure/managed-applications/overview", 
+            "redirect_document_id": false 
+        }, 
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
@@ -1526,6 +1551,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/store-php-create-mysql-database.md",
+            "redirect_url": "https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/app-service-web-app-performance-test.md",
             "redirect_url": "https://www.visualstudio.com/docs/test/performance-testing/app-service-web-app-performance-test",
             "redirect_document_id": false
@@ -1817,7 +1847,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-migration-from-iis-server.md",
-            "redirect_url": "https://www.movemetothecloud.net/",
+            "redirect_url": "https://www.migratetoazure.net/",
             "redirect_document_id": false
         },
         {
@@ -2988,6 +3018,11 @@
         {
             "source_path": "articles/container-service/container-service-setup-ci-cd.md",
             "redirect_url": "https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
         },
         {
@@ -5036,6 +5071,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/team-data-science-process/project-execution.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/agile-development",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/move-data-to-azure-blob-using-python.md",
+            "redirect_url": "/azure/storage/blobs/storage-python-how-to-use-blob-storage",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-automated-data-pipeline-cheat-sheet.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet",
             "redirect_document_id": false
@@ -5673,6 +5718,11 @@
         {
             "source_path": "articles/sql-database/sql-database-saas-tutorial-tenant-analytics.md",
             "redirect_url": "/azure/sql-database/saas-tenancy-tenant-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-wingtip-app-guidance-tips.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-wingtip-app-guidance-tips",
             "redirect_document_id": false
         },
         {
@@ -6466,6 +6516,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-accelerated-networking-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
             "redirect_document_id": false
@@ -6558,11 +6613,6 @@
         {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/LUIS/index.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/Home",
             "redirect_document_id": false
         },
         {
@@ -7157,11 +7207,6 @@
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
-          "redirect_url": "/azure/iot-suite",
-          "redirect_document_id": false
-        },
-        {
             "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
             "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
             "redirect_document_id": false
@@ -7289,6 +7334,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-get-started-azure-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-tutorial-create-cluster-azure-ps.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
             "redirect_document_id": false
         },
         {
@@ -7646,17 +7701,17 @@
             "redirect_document_id": false
         },{
             "source_path": "articles/site-recovery/vmware-walkthrough-prepare-azure.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "tutorial-prepare-azure",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/vmware-walkthrough-prepare-vmware.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "tutorial-prepare-on-premises-vmware",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "site-recovery-support-matrix-to-azure",
             "redirect_document_id": false
         },
 		{
@@ -8714,6 +8769,11 @@
             "redirect_url": "active-directory-aspnetwebapp",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
+            "redirect_url": "msi-how-to-use-vm-msi-token",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
             "redirect_url": "/azure/virtual-machines/windows/error-messages",
@@ -11372,6 +11432,11 @@
         {
             "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso-git.md",
             "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-nodejs-stage-application.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-manage-portal",
             "redirect_document_id": false
         },
         {
@@ -15174,7 +15239,7 @@
              "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
              "redirect_document_id": false
         },
-        {  
+        {
           "source_path": "articles/billing/billing-troubleshoot-azure-sign-up-issues.md",
           "redirect_url": "https://support.microsoft.com/help/4042959",
           "redirect_document_id": false
@@ -15189,15 +15254,95 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
-        {
+	    {
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
-          },
-	    {
+        },
+	      {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-troubleshooting.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-troubleshooting.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-overview.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-get-started.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-linux-iot-edge-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-get-started.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-windows-iot-edge-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-linux-iot-edge-simulated-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-physical-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/ble_gateway/iot-hub-iot-edge-physical-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-dotnet-core.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-dotnet-core.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-js.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-js.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-gateway-kit-get-started-sensortag.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
@@ -15208,7 +15353,7 @@
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
             "redirect_document_id": false
-        },  
+        },
         {
             "source_path": "articles/virtual-network/virtual-networks-create-nsg-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-cli",
@@ -15240,6 +15385,66 @@
              "redirect_document_id": false
         },
         {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-examples.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-nodes.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-prerequisites.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-test-in-staging.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-get-publisher-support.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-payout.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-seller-insights-user-guide.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-seller-insights.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
              "source_path": "articles/app-service/app-service-deploy-spring-boot-web-app-on-azure.md",
              "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-web-app-on-azure",
              "redirect_document_id": false
@@ -15260,9 +15465,39 @@
              "redirect_document_id": false
         },
         {
-             "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
-             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+             "source_path": "articles/api-management/api-management-get-started.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-import-api.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-product-with-rules.md",
+             "redirect_url": "/azure/api-management/transform-api",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-create-apis.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-product.md",
+             "redirect_url": "/azure/api-management/api-management-howto-add-products",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-add-operations.md",
+             "redirect_url": "/azure/api-management/mock-api-responses",
+             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
+            "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+            "redirect_document_id": false
         },
         {
              "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md",
@@ -15282,6 +15517,51 @@
         {
              "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
              "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md",
+             "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
+             "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-premium-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-premium-storage-performance.md",
+             "redirect_url": "/azure/virtual-machines/windows/premium-storage-performance",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-standard-storage.md",
+             "redirect_url": "/azure/virtual-machines/windows/standard-storage",
+             "redirect_document_id": false
+        },
+	{
+             "source_path": "articles/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
+             "redirect_url": "/azure/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks",
+             "redirect_document_id": false
+        },
+      {
+        "source_path": "articles/api-management/api-management-policy-reference.md",
+        "redirect_url": "/azure/api-management/api-management-policies",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/multi-factor-authentication/multi-factor-authentication-whats-next-pfweb.md",
+        "redirect_url": "/azure/multi-factor-authentication/multi-factor-authentication-whats-next",
+        "redirect_document_id": true
+      },
+      {
+             "source_path": "articles/store-blitline-how-to-use.md",
+             "redirect_url": "https://www.blitline.com",
              "redirect_document_id": false
         }
     ]

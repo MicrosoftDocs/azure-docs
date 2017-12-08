@@ -3,7 +3,7 @@ title: Retrain an existing predictive web service | Microsoft Docs
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: ''
 
@@ -83,20 +83,19 @@ In the **Basic consumption info** section of the **Consume** page, locate the pr
 ### Update the Azure Storage information
 The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
 
-To update the Azure Storage information, you must retrieve the storage account name, key, and container information for your storage account from the Azure classic portal, and then update the corresponding values in the code.
 After running your experiment, the resulting workflow should be similar to the following:
 
 ![Resulting workflow after run][4]
 
-1. Sign in to the Azure classic portal.
-2. In the left navigation column, click **Storage**.
+1. Sign in to the Azure portal.
+2. In the left navigation column, click **More services**, search for **Storage accounts**, and select it.
 3. From the list of storage accounts, select one to store the retrained model.
-4. At the bottom of the page, click **Manage Access Keys**.
-5. Copy and save the **Primary Access Key** and close the dialog.
-6. At the top of the page, click **Containers**.
+4. In the left navigation column, click **Access keys**.
+5. Copy and save the **Primary Access Key**.
+6. In the left navigation column, click **Containers**.
 7. Select an existing container, or create a new one and save the name.
 
-Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the classic portal.
+Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

@@ -13,12 +13,12 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/06/2017
 ms.author: adegeo
 ms.custom: 
 ---
 
-# Add an application certificate to a Service Fabric cluster
+# List applications running in a Service Fabric cluster
 
 This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
 

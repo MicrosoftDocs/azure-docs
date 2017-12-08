@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
 
 ---
@@ -25,7 +25,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 >
 
 > [!NOTE]
-> Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is being rolled out. If you get a 409 error such as: Changing property 'LicenseType' is not allowed; then you are trying to convert or deploy a new Windows Server VM that has additional software cost, which may not be supported in that region.
+> Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is being rolled out. If you get a 409 error such as: Changing property 'LicenseType' is not allowed; then you are trying to convert or deploy a new Windows Server VM that has additional software cost, which may not be supported in that region. Same if you try to look for the portal configuration option to do the conversion and you can't see it for that VM.
 >
 
 
@@ -55,10 +55,10 @@ You can deploy these images directly from the Azure portal. For use in Resource 
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server". This option allows you to use your existing Windows Server license on Azure.
+You can follow the steps to [Create a Windows virtual machine with PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) and pass LicenseType = "Windows_Server". This option allows you to use your existing Windows Server license on Azure.
 
 ### Portal
-You can follow the steps to [Create a Windows virtual machine with the Azure portal](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) and select the option to use your existing Windows Server license.
+You can follow the steps to [Create a Windows virtual machine with the Azure portal](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) and select the option to use your existing Windows Server license.
 
 ## Convert an existing VM using Azure Hybrid Benefit for Windows Server
 If you have an existing VM that you would like to convert to take advantage of Azure Hybrid Benefit for Windows Server, you can update your VM's license type as follows:
@@ -79,6 +79,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### Portal
 From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selecting "Configuration" option and toggle the "Azure hybrid benefit" option
+
+> [!NOTE]
+> If you don't see the option to toggle "Azure hybrid benefit" under "Configuration", it is because the conversion isn't supported yet for the selected VM type (for example a VM built from custom image or from an image that has additional paid software like SQL Sever or Azure Marketplace third-party software).
+>
 
 ## Upload a Windows Server VHD
 To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](upload-generalized-managed.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
@@ -174,15 +178,17 @@ Within your virtual machine scale set Resource Manager templates, an additional 
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-You can also [Create and deploy a virtual machine scale set](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) and set the LicenseType property
+You can also [Create and deploy a virtual machine scale set](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) and set the LicenseType property
 
 ## Next steps
-Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](http://go.microsoft.com/fwlink/?LinkId=859786)
+Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
-Learn more about [using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md).
+Learn more about [Using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md)
 
-Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Read more about [Frequently asked questions](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

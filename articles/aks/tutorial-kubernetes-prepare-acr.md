@@ -1,20 +1,12 @@
 ﻿---
-title: Kubernetes on Azure tutorial - Prepare ACR | Microsoft Docs
+title: Kubernetes on Azure tutorial - Prepare ACR
 description: AKS tutorial - Prepare ACR
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -53,7 +45,7 @@ Create an Azure Container registry with the [az acr create](/cli/azure/acr#creat
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Throughout the rest of this tutorial, we use `<acrname>` as a placeholder for the container registry name.
+Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name.
 
 ## Container registry login
 
