@@ -8,6 +8,8 @@
     href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Quickstarts
   items:
+  - name: Create a storage account
+    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Create a storage account - PowerShell
     href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Create a storage account - CLI
