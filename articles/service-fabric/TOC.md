@@ -230,7 +230,7 @@
 #### [Manage application secrets](service-fabric-application-secret-management.md)  
 #### [Configure security policies for your application](service-fabric-application-runas-security.md)
 
-## Work in a Windows dev environment
+## Work in a Windows/VS dev environment
 ### [Manage applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +239,7 @@
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Set up a Linux cluster on Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Work in a Linux dev environment
+## Work in a Linux/Eclipse dev environment
 ### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 ### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
