@@ -114,7 +114,7 @@ For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
 
 ## Related Azure components
-The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.

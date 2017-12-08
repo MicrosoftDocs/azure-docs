@@ -33,22 +33,20 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 ## View reports
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select Active Directory.
-3. Follow one of these two options, depending on whether you use Auth Providers:
-   * **Option 1**: Click the Multi-Factor Auth Providers tab. Select your MFA provider and click the **Manage** button at the bottom.
-   * **Option 2**: Select your directory and go to the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the Go to the portal link.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users and groups** > **All users** > **Multi-Factor Authentication**.
+3. Under **multi-factor authentication**, select **service settings**. At the bottom under **Manage advanced settings and view reports**, select **Go to the portal**.
 4. In the Azure Multi-Factor Authentication Management Portal, select the type of report you want from the **View a Report** section in the left navigation.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
-## Powershell reporting
+## PowerShell reporting
 
-Identify users who have registered for MFA using the Powershell that follows.
+Identify users who have registered for MFA using the PowerShell that follows.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identify users who have not registered for MFA using the Powershell that follows.
+Identify users who have not registered for MFA using the PowerShell that follows.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

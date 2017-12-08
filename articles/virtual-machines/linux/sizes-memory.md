@@ -27,11 +27,11 @@ ms.author: jonbeck
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
-- [General purpose](../windows/sizes-general.md)
-- [Compute optimized](../windows/sizes-compute.md)
+- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-- [High performance compute](../windows/sizes-hpc.md)
+- [High performance compute](sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
