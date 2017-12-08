@@ -3,7 +3,7 @@ title: Retrain an existing predictive web service | Microsoft Docs
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: ''
 
