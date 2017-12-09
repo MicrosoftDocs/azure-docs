@@ -18,10 +18,10 @@ This article lists the top queries you might have relate to Microsoft Genomics. 
 
 
 ## What is the SLA for Microsoft Genomics?
-We guarantee that 99.9% of the time Microsoft Genomics service will be available to receive workflow API requests. For more information, see [SLA](https://azure.microsoft.com/en-in/support/legal/sla/genomics/v1_0/).
+We guarantee that 99.9% of the time Microsoft Genomics service will be available to receive workflow API requests. For more information, see [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
 
 ## How does the usage of Microsoft Genomics show up on my bill?
-Microsoft Genomics bills based on the number of gigabases processed per workflow. For more information, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/genomics/).
+Microsoft Genomics bills based on the number of gigabases processed per workflow. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/genomics/).
 
 
 ## Where can I find a list of all possible commands and arguments for the `msgen` client?
@@ -62,13 +62,20 @@ These references are supported:
 ## How do I format my command-line arguments as a config file? 
 
 msgen understands configuration files in the following format:
-1. All options are provided as key-value pairs with values separated from keys by a colon.
+* All options are provided as key-value pairs with values separated from keys by a colon.
 Whitespace is ignored.
-2. Lines starting with `#` are ignored.
-3. Any command-line argument in the long format can be converted to a key by stripping its leading dashes and replacing dashes between words with underscores. Here are some conversion examples:
+* Lines starting with `#` are ignored.
+* Any command-line argument in the long format can be converted to a key by stripping its leading dashes and replacing dashes between words with underscores. Here are some conversion examples:
 
  |Command-line argument            | Configuration file line |
  |:-------------                   |:-------------                 |
  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:KEY*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+
+## Next steps
+
+Use the following resources to get started with Microsoft Genomics:
+- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md)
+- Submit your own data for processing by the Microsoft Genomics service: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
+

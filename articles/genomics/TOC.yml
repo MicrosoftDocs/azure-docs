@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Microsoft Genomics?
-    href: overview-what-is-microsoft-genomics.md
+    href: overview-what-is-genomics.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,11 +20,11 @@
 - name: Resources
   items:
   - name: Common questions
-    href: frequently-asked-questions-microsoft-genomics.md
+    href: frequently-asked-questions-genomics.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/en-us/roadmap/?category=cognitive-services
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/genomics/
+    href: https://azure.microsoft.com/pricing/details/genomics/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
