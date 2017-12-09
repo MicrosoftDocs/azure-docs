@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Active Directory Identity Protection and Microsoft Graph | Microsoft Docs
-description: Learn how to Provides an introduction to query Microsoft Graph for a list of risk events and associated information from Azure Active Directory.
+description: Learn how to query Microsoft Graph for a list of risk events and associated information from Azure Active Directory.
 services: active-directory
 keywords: azure active directory identity protection, risk event, vulnerability, security policy, Microsoft Graph
 documentationcenter: ''
@@ -22,10 +22,10 @@ ms.reviewer: nigu
 Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](active-directory-identityprotection.md) APIs. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](active-directory-identityprotection-risk-events-types.md) and associated information. This article gets you started querying this API. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
 
 
-There are three steps to accessing Identity Protection data through Microsoft Graph:
+There are four steps to accessing Identity Protection data through Microsoft Graph:
 
-1. Retrieve your domain name
-2. Create a new app registration 
+1. Retrieve your domain name.
+2. Create a new app registration. 
 2. Use this secret and a few other pieces of information to authenticate to Microsoft Graph, where you receive an authentication token. 
 3. Use this token to make requests to the API endpoint and get Identity Protection data back.
 
@@ -39,7 +39,7 @@ Before you get started, you’ll need:
 
 1. [Sign in](https://portal.azure.com) to your Azure portal as an administrator. 
 
-2. On on the left navigation pane, click **Active Directory**. 
+2. On the left navigation pane, click **Active Directory**. 
    
     ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/41.png)
 
@@ -93,7 +93,7 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/17.png)
 
-4. On the **Select and API** page, select **Microsoft Graph**, and then click **Select**.
+4. On the **Select an API** page, select **Microsoft Graph**, and then click **Select**.
    
     ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/18.png)
 
@@ -169,9 +169,9 @@ When authenticating, you can find the token type and access token in the returne
 
 Send this header as a request to the following API URL: `https://graph.microsoft.com/beta/identityRiskEvents`
 
-The response, if successful, is a collection of identity risk events and associated data in the OData JSON format, which can be parsed and handled as see fit.
+The response, if successful, is a collection of identity risk events and associated data in the OData JSON format, which can be parsed and handled as you see fit.
 
-Here’s sample code for authenticating and calling the API using Powershell.  
+Here’s sample code for authenticating and calling the API using PowerShell.  
 Just add your client ID, the secret key, and the tenant domain.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
