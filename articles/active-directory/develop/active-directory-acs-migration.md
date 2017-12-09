@@ -4,7 +4,7 @@ description: Options for moving apps and services from the Azure Access Control 
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
