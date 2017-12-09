@@ -109,7 +109,7 @@ You can test your published endpoint in a browser using the generated URL. Open 
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](luis-get-started-node-get-intent.md)
+> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
 
 
 [luis.ai]:https://www.luis.ai
