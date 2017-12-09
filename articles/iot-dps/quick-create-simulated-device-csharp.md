@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
 
-These steps show you how to build the simulated TPM device sample available with the Azure IoT Hub C# SDK on a development machine running Windows OS, and connect the simulated device with the Device Provisioning Service and your IoT hub. The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
+These steps show you how to use the Azure IoT Hub C# SDK to build the simulated TPM device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub. The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
