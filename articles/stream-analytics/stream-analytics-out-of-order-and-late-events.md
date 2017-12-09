@@ -55,7 +55,7 @@ Stream Analytics tolerates late and out-of-order events when you're processing b
 ### Late arrival tolerance
 Late arrival tolerance is applicable only when you're processing by application time. Otherwise, the setting is ignored.
 
-Late arrival tolerance is the maximum difference between arrival time and application time. If an event arrives later than late arrival tolerance (for example, application time *app_t* < arrival time *arr_t* - late arrival policy tolerance *late_t*), the event is adjusted to the maximum of the late arrival tolerance (*arr_t* - *late_t*). The late arrival window is the maximum delay between event generation and receipt of the event at the input source. 
+Late arrival tolerance is the maximum difference between arrival time and application time. If an event arrives later than the late arrival tolerance (for example, application time *app_t* < arrival time *arr_t* - late arrival policy tolerance *late_t*), the event is adjusted to the maximum of the late arrival tolerance (*arr_t* - *late_t*). The late arrival window is the maximum delay between event generation and receipt of the event at the input source. 
 
 When multiple partitions from the same input stream or multiple input streams are combined, late arrival tolerance is the maximum amount of time that every partition waits for new data. 
 
