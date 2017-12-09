@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. In the list on the left, select **Browse**. 
 
