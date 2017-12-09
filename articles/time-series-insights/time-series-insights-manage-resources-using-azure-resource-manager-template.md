@@ -17,7 +17,7 @@ ms.date: 12/08/2017
 
 This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
 
-Time Series Insights supports the following resources
+Time Series Insights supports the following resources:
    | Resource | Description |
    | --- | --- |
    | Environment | A Time Series Insights environment is a logical grouping of events which are read from event brokers, stored, and made available for query. For more information see [Plan your Azure Time Series Insights environment](./time-series-insights-environment-planning) |
@@ -369,16 +369,16 @@ To create a parameters file, copy the [201-timeseriesinsights-environment-with-e
 
    | Parameter | Description |
    | --- | --- |
-   | existingEventHubResourceId | An optional resource id of an existing Event Hub that will be connected to the Time Series Insights environment through the event source. **NOTE:** The user deploying the template must have privliges to perform the listkeys operation on the Event Hub. If no value is passed, a new event hub will be created by the template. |
+   | existingEventHubResourceId | An optional resource ID of an existing Event Hub that will be connected to the Time Series Insights environment through the event source. **NOTE:** The user deploying the template must have privileges to perform the listkeys operation on the Event Hub. If no value is passed, a new event hub will be created by the template. |
    | environmentDisplayName | An optional friendly name to show in tooling or user interfaces instead of the environment name. |
    | environmentSkuName | The name of the sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | The unit capacity of the Sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-   | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, e.g. "P30D" for a retention policy of 30 days. |
+   | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example "P30D" for a retention policy of 30 days. |
    | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
    | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
    | eventSourceKeyName | The name of the shared access key that the Time Series Insights service will use to connect to the event hub. |
-   | accessPolicyReaderObjectIds | A list of object ids of the users or applications in AAD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
-   | accessPolicyContributorObjectIds | A list of object ids of the users or applications in AAD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
+   | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in AAD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
+   | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in AAD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
 
 As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
@@ -533,7 +533,7 @@ Outputs                 :
 
 ## Deploy the quickstart template through the Azure portal
 
-The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it will open up a Custom Deployment page in the Azure Portal. From this page, you can enter or select values for each of the parameters that were defined above. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
+The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](./time-series-insights/time-series-insights-manage-resources-using-azure-resource-manager-template#required-parameters) or [optional parameters](.//time-series-insights/time-series-insights-manage-resources-using-azure-resource-manager-template#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
