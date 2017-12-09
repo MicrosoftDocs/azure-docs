@@ -1,57 +1,66 @@
+---
+title: Create effective Office Store listings
+description: Make sure that the information you submit, including your title, description, logos, and screenshots, clearly communicates the benefits and functionality that your solution provides.
+ms.date: 12/04-2017
+---
+
 # Create effective Office Store listings
 
-The information and images you submit to the Seller Dashboard becomes the Office Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit — including your title, description, logos, and screenshots — clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to the Seller Dashboard become the Office Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and screenshots—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
-- Describe what your solution can do for customers. Answer the question:  *What problem does this solution solve?* 
+- Describe what your solution can do for customers. Answer the question: *What problem does this solution solve?* 
 - Use unique logos for each submission.
 - Include screenshots that show off your UI. Be sure to remove any personal information from your screenshots.
 - If you update your functionality, update your description too.
 - Use a customer-friendly voice. Be concise and use natural language.
 - Avoid marketing speak and buzz words.
-- Check the spelling and grammar on your titles and descriptions.
+- Check the spelling and grammar in your titles and descriptions.
 
-## Use a succinct and descriptive title
 <a name="bk_name"> </a>
+## Use a succinct and descriptive title
 
 Create a simple and direct title. The shorter the title the better. Remember, the length of the title that is displayed can depend on how the user sizes the window. Include your brand or company name if users are likely to use it to search for your solution.
 
 In your title:
 
-
 - Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
-- Don't include the Microsoft product name. This will appear on your landing page in the Office Store, and in Office Store search results.
+- Don't include the Microsoft product name. This appears on your landing page in the Office Store, and in Office Store search results.
 - Avoid acronyms that might be unfamiliar to potential users. 
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
-![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](../images/d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
+*Figure 1. An Office Store listing with an effective title and description next to one that is less effective*
+
+![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](images/title-do-dont.png)
 
 ### Use a consistent add-in name
 
-You specify your add-in name in two places - be sure to use the same name in both:
+You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the  [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
 - The Seller Dashboard add-in submission form. This specifies the name that is displayed in the Office Store.
 
-## Write compelling descriptions
 <a name="bk_describe"> </a>
+## Write compelling descriptions
 
 A good description makes your solution stand out. Your short description should entice potential users to learn more. Your long description, which appears on the Office Store landing page, should provide more detail about your solution and its value.
 
 ### Effective short descriptions
 
-The short description you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The short description that you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the title.
-- Avoid using jargon or specialized terminology - don't assume that users know what they're looking for.
+- Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-![An image that shows a good short description next to one that relies on the brand name](../images/078861fd-794c-410f-a639-bc28644d2dbc.PNG)
+*Figure 2. A good short description next to one that relies on the brand name*
+
+![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
 
 ### Effective long descriptions
 
@@ -59,12 +68,12 @@ The long description is displayed on your landing page in the Office Store. It s
 
 In your long description, answer the following questions:
 
-
 - How does your solution benefit its user?
 - What is special about it?
 - What are different ways someone could use your it?
 - What industries or specialists would use it?
-Most users will read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
+
+Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
 
 You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting: 
 
@@ -74,10 +83,8 @@ Features:
 
 [#LI] Second feature[/#LI]
 
-
-## Apply guidelines for title and description length
 <a name="bk_describe"> </a>
-
+## Apply guidelines for title and description length
 
 |**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
 |:-----|:-----|:-----|:-----|
@@ -85,32 +92,30 @@ Features:
 |Short description|100 characters|70 characters|First 30 characters|
 |Long description|4,000 characters|300-500 characters|First 300 characters|
 
-## Create a consistent visual identity 
 <a name="bk_images"> </a>
+## Create a consistent visual identity 
 
 Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your solution. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in the Office Store and when the solution is displayed in Office or SharePoint. The two images have different formatting requirements.
 
 Your logo should:
 
-
 - Convey how your solution helps the customer get work done.
 - Use simple imagery. Don't clutter or complicate your image.
 - Communicate the problem that the solution solves. Don't rely on your company logo for your image.
 
-![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](../images/d8de904b-0047-41fb-b83c-4e116a486a76.PNG)
+*Figure 3. A clear logo with an Excel chart next to an unclear Fabrikam logo*
+
+![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](images/communicate-problem-do-dont.png)
 
 When you submit Office Add-ins, you specify an image in your manifest file, and upload an image with your Seller Dashboard submission.
 
 For SharePoint Add-ins, you include an image in your add-in package, and upload an image with your Seller Dashboard submission. These two images have to match for your add-in to validate.
 
-
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the  [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
-
-
 
 ||**Outlook add-ins**|**Task pane and content add-ins**|
 |:-----|:-----|:-----|
@@ -119,11 +124,11 @@ The formatting requirements for this image differ depending on the add-in type. 
 |Size|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
 |Display location|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
 |Localization| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.|
+
 For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
-
-## Use screenshots effectively
 <a name="bk_screenshots"> </a>
+## Use screenshots effectively
 
 Make your screenshots rich and informative. Help customers understand how your solution solves problems and helps them get work done more effectively. In your screenshots:
 
@@ -132,40 +137,48 @@ Make your screenshots rich and informative. Help customers understand how your s
 - Use captions to describe the value of the add-in.
 - Reinforce your brand.
 
-> **Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
+> [!NOTE]
+> Be sure to remove any personal information from your screenshots that you do not want customers to see.
+
+<br/>
 
 |**Do**|**Don't**|
 |:------------|:--------------|
-|Use clear and simple captions to convey your add-in's value.|Don’t use callouts that obstruct important content.|
-|![Screenshot of an add-in with a clear and simple caption](../images/screenshot_do1.png)|![Screenshot of an add-in with callouts that obstruct the text](../images/screenshot_dont1_2.png)|
-|When needed, make content legible with magnified close-ups.|Don't highlight more than one section.|
-|![Screenshot of an add-in with one magnified closeup](../images/highlight_do1.png)|![Screenshot of an add-in with two magnified closeups](../images/highlight_dont1.png)|
-|Incorporate recognizable brand elements like color or logo into screenshots.|Don't add unnecessary graphic elements that obstruct content.|
-|![Screenshot of an add-in with color and logo](../images/brandColor_do1_2.png)|![Screenshot of an add-in with multiple graphic elements](../images/brandColor_dont1_2.png)|
+|**Use clear and simple captions to convey your add-in's value.**|**Don’t use callouts that obstruct important content.**|
+|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="500"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="500"> |
+|**When needed, make content legible with magnified close-ups.**|**Don't highlight more than one section.**|
+|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="500">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="500">|
+|**Incorporate recognizable brand elements like color or logo into screenshots.**|**Don't add unnecessary graphic elements that obstruct content.**|
+|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="500">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="500">|
 
-## Use ratings and reviews
+<br/>
+
 <a name="bk_ratings"> </a>
+## Use ratings and reviews
 
 Good ratings and reviews lead to better store placement and improved customer perception of your product. Customers also use reviews as a forum to offer feedback and suggestions, particularly if feedback and support options are not available within the app or add-in. Be sure to:
 
 - Ask customers to rate and review from within your add-in. Make sure that they've had a chance to explore the add-in first, and don't ask for feedback too often.
 - Offer help and support from within your add-in, so customers don't have to leave feedback in Office Store reviews.
 
-![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](../images/2038209a-5d7e-4a0e-a7ea-c12fa02c54a0.PNG)
+*Figure 4. A request to rate within an add-in next to a request to rate following a tutorial*
+
+![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
 
 ## Respond to customer reviews in the Office Store
-<a name="bk_ratings"> </a>
 
-You can use the comment feature in the Office Store to respond to customer reviews of your solution - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
+You can use the comment feature in the Office Store to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
-![Screenshot that shows a developer response to a comment with the App provider label under the name](../images/7f710930-4ecd-4b28-b55d-8507a928995b.PNG)
+*Figure 5. A developer response to a comment with the App provider label under the name*
+
+![Screenshot that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
  
 If you've responded to a user review and the user responds to your comment, the user has the option to change their rating of the app or add-in if their issue has been resolved. 
 
 Responding directly to your customers increases your customer engagement and enables you to:
 
 - Help users with installation or other issues that can prompt negative reviews.
--  [Troubleshoot](http://msdn.microsoft.com/library/4e3a5129-5bb8-4aed-b122-200c6410d82c%28Office.15%29.aspx) issues and provide technical support to your users.
+- [Troubleshoot](http://msdn.microsoft.com/library/4e3a5129-5bb8-4aed-b122-200c6410d82c%28Office.15%29.aspx) issues and provide technical support to your users.
 - Encourage users to edit their rating when their issue is resolved, improving your global ratings over time.
 - Connect with your customers and discover what features to build, and why.
 - Indicate to users that their feedback is important and is monitored.
@@ -187,8 +200,9 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 - Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is. 
 - Use a standard size and location for ads.
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
--  [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
--  [Validation policies](validation-policies.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
