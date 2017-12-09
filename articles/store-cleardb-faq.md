@@ -65,7 +65,7 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
 
 ## I can’t see my ClearDB database in Azure portal?
-If you created a ClearDB database in classic, you will not be able to see your database in the [Azure Portal](https://portal.azure.com). There is no work-around for the latter scenario.
+If you created a ClearDB database in classic, you will not be able to see your database in the [Azure Portal](https://portal.azure.com). There is no work-around for this scenario.
 
 ## Who do I contact for support when my database is down?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
