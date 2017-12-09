@@ -51,7 +51,7 @@ Following are the requirements for the Azure resources used in this scenario.
 
 1. In the Azure portal, select **New**> **Internet of Things** > **Event Hubs**.
 
-   ![image of marketplace new event hub](media/log-analytics-logic-apps-activity-log/marketplace-new-event-hub.png)
+   ![Marketplace new event hub](media/log-analytics-logic-apps-activity-log/marketplace-new-event-hub.png)
 
 3. Under **Create namespace**, either enter a new namespace or selecting an existing one. The system immediately checks to see if the name is available.
 
@@ -113,18 +113,22 @@ To get the event Hub name and connection string, follow the steps in [Check Even
 
 ### Create a new blank Logic App
 
-1. In the Azure portal, choose **New** > **Enterprise Integration** > **Logic App**.
-2. Enter the settings in the table
-   |Setting        | Suggested Value           | Description  |
-   |---------------|---------------------------|--------------|
-   |Name           | your-logic-app-name       | Provide a unique logic app name. |
-   |Subscription   | your-Azure-subscription   | Select the Azure subscription that you want to use. |
-   |Resource Group | your-Azure-resource-group | Create or select an Azure resource group, which helps you organize and manage related Azure resources. |
-   |Location       | your-Azure-region         | Select the datacenter region for deploying your logic app.        |
+1. In the Azure portal, choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
-    ![image of logic apps in marketplace](media/log-analytics-logic-apps-activity-log/create-logic-app.png)
+    ![Marketplace new logic app](media/log-analytics-logic-apps-activity-log/marketplace-new-logic-app.png)
 
-3. Select **Create**. When *Deployment Succeeded* notification displays, click on **Go to resource** to open your Logic App.
+2. Enter the settings in the table below.
+   |Setting | Description  |
+   |:---|:---|
+   | Name           | Unique name for the logic app. |
+   | Subscription   | Select the Azure subscription that will contain the logic app. |
+   | Resource Group | Select an existing Azure resource group or create a new one for the logic app. |
+   | Location       | Select the datacenter region for deploying your logic app. |
+   | Log Analytics  | Select if you want to log the status of each run of your logic app in Log Analytics.  |
+
+    ![Create logic app](media/log-analytics-logic-apps-activity-log/create-logic-app.png)
+
+3. Select **Create**. When **Deployment Succeeded** notification displays, click on **Go to resource** to open your Logic App.
 
 4. Under **Templates**, choose **Blank Logic App**. 
 
@@ -142,13 +146,13 @@ The Logic Apps Designer now shows you available connectors and their triggers, w
 
    ![image of adding event hub connection in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-event-hub-add-connection.png)
 
-3. After you create the connection, edit the settings for the trigger. Start by selecting *insights-operational-logs* from the **Event Hub name** drop-down.
+3. After you create the connection, edit the settings for the trigger. Start by selecting **insights-operational-logs** from the **Event Hub name** drop-down.
 
-   ![image of when events are available dialog](media/log-analytics-logic-apps-activity-log/logic-apps-event-hub-read-events.png)
+   ![When events are available dialog](media/log-analytics-logic-apps-activity-log/logic-apps-event-hub-read-events.png)
 
 5. Expand **Show advanced options** and change **Content type** to *application/json*
 
-   ![image of event hub configuration dialog](media/log-analytics-logic-apps-activity-log/logic-apps-event-hub-configuration.png)
+   ![Event hub configuration dialog](media/log-analytics-logic-apps-activity-log/logic-apps-event-hub-configuration.png)
 
 ### Add Parse JSON action
 
@@ -157,13 +161,13 @@ The output from the Event Hub contains a JSON payload with an array of records. 
 1. Click **New step** > **Add an action**
 2. In the search box, type *parse json* for your filter. Select the action **Data Operations - Parse JSON**.
 
-   ![image of adding parse json action in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-add-parse-json-action.png)
+   ![Adding parse json action in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-add-parse-json-action.png)
 
-3. Select *Body* for the **Content** field.
+3. Click in the **Content** field and then select *Body*.
 
-4. Copy and paste the following schema into the **Schema** field.
+4. Copy and paste the following schema into the **Schema** field.  This schema matches the output from the Event Hub action.  
 
-   ![image of parse json dialog](media/log-analytics-logic-apps-activity-log/logic-apps-parse-json-configuration.png)
+   ![Parse json dialog](media/log-analytics-logic-apps-activity-log/logic-apps-parse-json-configuration.png)
 
 ``` json-schema
 {
@@ -261,54 +265,52 @@ The output from the Event Hub contains a JSON payload with an array of records. 
 ```
 
 >[!TIP]
-> You can get a sample payload by clicking **Run** and looking at the **Raw Output** from the Event Hub.
+> You can get a sample payload by clicking **Run** and looking at the **Raw Output** from the Event Hub.  You can then use this output with **Use sample payload to generate schema** in the **Parse JSON** activity to generate the schema.
 
 ### Add Compose action
+The [Compose](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) action takes the JSON output and creates an object that can be used by the Log Analytics action.
 
 1. Click **New step** > **Add an action**
 2. Type *compose* for your filter and then select the action **Data Operations - Compose**.
 
     ![Add Compose action](media/log-analytics-logic-apps-activity-log/logic-apps-add-compose-action.png)
 
-3. Select *Body* under the **Parse JSON** activity for the **Inputs** field.
+3. Click the **Inputs** field and select **Body** under the **Parse JSON** activity.
 
 
 ### Add Log Analytics Send Data action
-
-The Azure Log Analytics Data Collector connector takes the output from the previous action and sends it to Log Analytics.
+The Azure Log Analytics Data Collector action takes the object from the Compose action and sends it to Log Analytics.
 
 1. Click **New step** > **Add an action**
 2. Type *log analytics* for your filter and then select the action **Azure Log Analytics Data Collector - Send Data**.
 
-   ![image of adding log analytics send data action in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-connector.png)
+   ![Adding log analytics send data action in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-connector.png)
 
 3. Enter a name for your connection and paste in the **Workspace ID** and **Workspace Key** for your Log Analytics workspace.  Click **Create**.
 
-   ![image of adding log analytics connection in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-log-analytics-add-connection.png)
+   ![Adding log analytics connection in logic apps](media/log-analytics-logic-apps-activity-log/logic-apps-log-analytics-add-connection.png)
 
-4. After you create the connection, edit the settings for the action. 
-
-    ![Configure send data action](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
+4. After you create the connection, edit the settings in the table below. 
 
 
    |Setting        | Value           | Description  |
    |---------------|---------------------------|--------------|
    |JSON Request body  | **Output** from the **Compose** action | Retrieves the records from the body of the Compose action. |
    | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics to hold the imported data. |
-   | Time-generated-field | time | 
+   | Time-generated-field | time | Don't select the JSON field for **time** - just type the word time. If you select the JSON field the designer puts the **Send Data** action into a *For Each* loop, which is not what you want. |
+
+    ![Configure send data action](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
 
 
->[!WARNING]
-> Don't select the JSON field for *time* - just type the word time. If you select the JSON field the designer puts the **Send Data** action into a *For Each* loop, which is not what you want.
 
 10. Click **Save** to save the changes you've made to your Logic App.
 
 ## Step 4 - Test and troubleshoot the Logic App
-You can test the Logic App in the designer to verify that it's working without error.
+With the workflow complete, you can test in the designer to verify that it's working without error.
 
 In the Logic App Designer, click **Run** to test the Logic App. Each step in the Logic App shows a status icon, with a white check mark in a green circle indicating success.
 
-   ![image of log analytics send data configuration](media/log-analytics-logic-apps-activity-log/test-logic-app.png)
+   ![Test logic app](media/log-analytics-logic-apps-activity-log/test-logic-app.png)
 
 To see detailed information on each step, click on the step name to expand it. Click on **Show raw inputs** and **Show raw outputs** to see more information on the data received and sent at each step.
 
