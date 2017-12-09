@@ -39,6 +39,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 6. Open a developer command prompt. To build the SDK, type the following command in the SDK root directory (azure-iot-sdk-csharp): 
 
+   > [!NOTE]
+   > This step is temporary and will be removed at a future date.
+
     ```cmd/sh
     build -clean -nolegacy
     ```
@@ -63,7 +66,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     dotnet run <IDScope>
     ```
 
-1. The developer command prompt window displays the **_Endorsement Key_**,  the **_Registration ID_**, and a suggested **_Device ID_** needed for device enrollment. Note down these values. (Do not confuse this window with the window that contains output from the TPM simulator. You may have to click the developer command prompt window to bring it to the foreground.)
+1. The developer command prompt window displays the **_Endorsement Key_**,  the **_Registration ID_**, and a suggested **_Device ID_** needed for device enrollment. Note down these values. 
+   > [!NOTE]
+   > Do not confuse developer command prompt window with the window that contains output from the TPM simulator. You may have to click the developer command prompt window to bring it to the foreground.
 
 4. In the Azure portal, on the Device Provisioning Service summary blade, select **Manage enrollments**. Select the **Individual Enrollments** tab and click the **Add** button at the top. 
 
