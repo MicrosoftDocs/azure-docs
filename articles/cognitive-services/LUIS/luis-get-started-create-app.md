@@ -62,8 +62,6 @@ Click on the **HomeAutomation.TurnOff** intent. You can see that the intent cont
 
 ![Home Automation domain prompt](./media/luis-quickstart-new-app/home-automation-turnon.png)
 
-The first utterance is "snap switch fan fifty percent". The words "fifty percent" has been labeled as the type of HomeAutomation.Operation. 
-
 ## Train your app
 
 Click on **Train** in the top navigation.
@@ -111,7 +109,7 @@ You can test your published endpoint in a browser using the generated URL. Open 
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](luis-get-started-node-get-intent.md)
+> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
 
 
 [luis.ai]:https://www.luis.ai
