@@ -4,7 +4,7 @@ description: How to hide an application from user's experience in Azure Active D
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
