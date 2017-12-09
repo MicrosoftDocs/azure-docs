@@ -186,7 +186,7 @@ For background information about configuration of ports and IP addresses, see
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### Connection: ADO.NET 4.6.1
-If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to SQL Database, we recommend that you use .NET Framework version 4.6.1 or higher.
+If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to SQL Database, we recommend that you use .NET Framework version 4.6.1 or later.
 
 ADO.NET 4.6.1:
 
@@ -308,7 +308,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you implement robust clients of cloud services, one of which is the SQL Database service. To locate topics dedicated to each area in which EntLib60 can assist, see [Enterprise Library 6 - April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > The source code for EntLib60 is available for public download from the [Download Center](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
@@ -318,7 +318,7 @@ Retry logic for handling transient errors is one area in which EntLib60 can assi
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### EntLib60 classes for transient errors and retry
-The following EntLib60 classes are particularly useful for retry logic. All these classes are found in or under the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
+The following EntLib60 classes are particularly useful for retry logic. All these classes are found in or under the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
 In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
@@ -353,7 +353,7 @@ Here are some links to information about EntLib60:
 * The logging block abstracts the logging functionality from the log destination so that the application code is consistent, irrespective of the location and type of the target logging store.
 
 For more information, see
-[5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+[5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
