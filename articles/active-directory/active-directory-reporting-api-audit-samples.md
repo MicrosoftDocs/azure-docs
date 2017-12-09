@@ -4,7 +4,7 @@ description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743

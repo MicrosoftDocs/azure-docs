@@ -30,7 +30,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 * At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## Deploy the Storage Sync Service 
-The Storage Sync Service is the top-level Azure resource for Azure File Sync. To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), and then search for Azure File Sync. In the search results, select **Azure File Sync (preview)**, and then select **Create** to open the **Deploy Storage Sync** tab.
+The Storage Sync Service is the top-level Azure resource for Azure File Sync. To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click New and then search for Azure File Sync. In the search results, select **Azure File Sync (preview)**, and then select **Create** to open the **Deploy Storage Sync** tab.
 
 On the pane that opens, enter the following information:
 

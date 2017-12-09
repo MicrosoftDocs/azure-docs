@@ -42,7 +42,7 @@ To install and configure the Azure CLI, see [How to install the Azure Command-Li
 > 
 
 ### Connect the Azure CLI to to your Azure Account
-Before you can use the Azure CLI you must associate your Azure account credentials with the Azure CLI on your platform. The section [How to connect to your Azure subscription](../../../xplat-cli-connect.md) explains how to either download and import your **.publishsettings** file or associate your Azure CLI with an organizational id.
+Before you can use the Azure CLI you must associate your Azure account credentials with the Azure CLI on your platform. The section [How to connect to your Azure subscription](/cli/azure/authenticate-azure-cli) explains how to either download and import your **.publishsettings** file or associate your Azure CLI with an organizational id.
 
 > [!NOTE]
 > There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality.

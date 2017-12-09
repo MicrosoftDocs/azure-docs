@@ -4,7 +4,7 @@ description: The types of apps and scenarios supported by the Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae

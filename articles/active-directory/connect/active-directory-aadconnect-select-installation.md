@@ -4,7 +4,7 @@ description: This topic walks you through how to select the installation type to
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid:
