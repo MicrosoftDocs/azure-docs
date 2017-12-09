@@ -14,7 +14,7 @@ ms.date: 12/7/2017
 ---
 # Microsoft Genomics: Common questions
 
-This article lists the top queries you might have relate to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-microsoft-genomics.md) 
+This article lists the top queries you might have relate to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-genomics.md) 
 
 
 ## What is the SLA for Microsoft Genomics?
