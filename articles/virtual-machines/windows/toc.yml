@@ -116,6 +116,8 @@
     items:
     - name: Infrastructure guidelines
       href: infrastructure-example.md
+    - name: vCPU quotas
+      href: quotas.md
 - name: How-to guides
   items:
   - name: Create VMs
