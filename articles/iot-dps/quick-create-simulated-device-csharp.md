@@ -27,7 +27,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
+1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
@@ -46,13 +46,12 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 ## Provision the simulated device
 
 
-1. Log in to the Azure portal. Click the **All resources** button on the left-hand menu and open your Device Provisioning service.
-2. In the Azure portal, select the **Overview** blade for your provisioning service, and note down the **_ID Scope_** value.
+1. Log in to the Azure portal. Click the **All resources** button on the left-hand menu and open your Device Provisioning service. From the **Overview** blade. note down the **_ID Scope_** value.
 
     ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 
-2. From the SDK root directory, in the developer command prompt, change directories to the project directory for the TPM device provisioning sample.
+2. In the developer command prompt, change directories from the SDK root directory to the project directory for the TPM device provisioning sample.
 
     ```cmd/sh
     cd .\provisioning\device\samples\ProvisioningDeviceClientTpm
@@ -70,8 +69,8 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 5. Under **Add enrollment list entry**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device that you noted previously. 
-    - Select an IoT hub linked with your provisioning service.
+    - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+    - Optionally select an IoT hub linked with your provisioning service.
     - Enter a unique device ID. You can enter the device ID suggested in the sample output or enter your own. If you use your own, make sure to avoid sensitive data when naming your device. 
     - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
