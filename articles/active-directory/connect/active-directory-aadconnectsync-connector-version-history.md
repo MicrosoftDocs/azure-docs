@@ -4,7 +4,7 @@ description: This topic lists all releases of the Connectors for Forefront Ident
 services: active-directory
 documentationcenter: ''
 author: fimguy
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9

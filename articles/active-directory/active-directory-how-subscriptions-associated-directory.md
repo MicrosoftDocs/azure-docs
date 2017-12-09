@@ -4,7 +4,7 @@ description: How to add an existing subscription to your Azure AD directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
