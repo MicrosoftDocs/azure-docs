@@ -80,7 +80,7 @@ service "azure-vote-front" created
 
 A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
