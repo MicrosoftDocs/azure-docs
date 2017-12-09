@@ -1,10 +1,16 @@
+---
+title: Office and SharePoint Add-in license XML schema structure
+description: Use this schema to create test licenses to test the license validation code in your Office or SharePoint add-in.
+ms.date: 12/04-2017
+---
+
 # Office and SharePoint Add-in license XML schema structure
 
-If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
+If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
 
-Use the  [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the Office Store verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes a add-in license token as a parameter, and returns an [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
+Use the [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the Office Store verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
 
-To support add-in license testing, the Office Store verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to  **true**. However, the service does interpret the token, and all the properties of the  [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
+To support add-in license testing, the Office Store verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. However, the service does interpret the token, and all the properties of the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
 
 ```xml
 <r>
@@ -62,22 +68,22 @@ Required. Contains attributes that represent various properties of the add-in li
 </tr>
 <tr>
 <td>did</td>
-<td><strong>For content and task pane Office Add-ins:</strong><br/>
-This attribute does not apply to content and task pane Office Add-ins. <strong>For Outlook Add-ins:</strong><br/>
-String that represents the deployment ID of the Exchange deployment to which this add-in license applies. This value should be set to the primary authoritative domain for the Exchange deployment.<br/>
-<strong>For SharePoint Add-ins:</strong><br/> 
-GUID that represents the deployment ID of the SharePoint deployment to which this add-in license applies.<br/>
+<td><strong>For content and task pane Office Add-ins:</strong><p/><p/>
+This attribute does not apply to content and task pane Office Add-ins.<p/><strong>For Outlook Add-ins:</strong><p/>
+String that represents the deployment ID of the Exchange deployment to which this add-in license applies. This value should be set to the primary authoritative domain for the Exchange deployment.<p/>
+<strong>For SharePoint Add-ins:</strong><p/> 
+GUID that represents the deployment ID of the SharePoint deployment to which this add-in license applies.<p/>
 For test licenses for SharePoint Add-ins, you don't need to specify the deployment ID in the add-in license XML. The ImportAppLicense method supplies the correct deployment ID to the license token XML.</td>
 </tr>
 <tr>
 <td>ts</td>
-<td>Integer representing the total number of users licensed to access this add-in, by this purchaser.<br/>
-For add-ins that are site licensed, this value is 0.<br/>
+<td>Integer representing the total number of users licensed to access this add-in, by this purchaser.<p/>
+For add-ins that are site licensed, this value is 0.<p/>
 This attribute does not apply to Office Add-ins.</td>
 </tr>
 <tr>
 <td>et</td>
-<td>Required text. Enumeration that represents the type of add-in license.<br/>
+<td>Required text. Enumeration that represents the type of add-in license.<p/>
 Valid values include Free, Paid, and Trial.</td>
 </tr>
 <tr>
@@ -86,17 +92,17 @@ Valid values include Free, Paid, and Trial.</td>
 </tr>
 <tr>
 <td>sl</td>
-<td>Boolean value that represents whether the add-in license is a site license.<br/>
-<strong>For content and task pane Office Add-ins:</strong><br/>
-This attribute does not apply to content and task pane Office Add-ins.<br/>
-<strong>For Outlook Add-ins:</strong><br/>
-This attribute is optional for add-in licenses that are not site licenses. This attribute is required to be equal to true if the Outlook add-in is site licensed.<br/>
-<strong>For SharePoint Add-ins:</strong><br/>
+<td>Boolean value that represents whether the add-in license is a site license.<p/>
+<strong>For content and task pane Office Add-ins:</strong><p/>
+This attribute does not apply to content and task pane Office Add-ins.<p/>
+<strong>For Outlook Add-ins:</strong><p/>
+This attribute is optional for add-in licenses that are not site licenses. This attribute is required to be equal to true if the Outlook add-in is site licensed.<p/>
+<strong>For SharePoint Add-ins:</strong><p/>
 This attribute is optional for add-in licenses that are not site licenses.</td>
 </tr>
 <tr>
 <td>ed</td>
-<td>Optional text. UTC time-date stamp that represents the expiration date for the add-in license.<br/>
+<td>Optional text. UTC time-date stamp that represents the expiration date for the add-in license.<p/>
 This value can be used to check if the trial license is expired.</td>
 </tr>
 <tr>
@@ -114,46 +120,49 @@ This value can be used to check if the trial license is expired.</td>
 </tr>
 <tr>
 <td>ss</td>
-<td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<br/>
+<td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<p/>
 This attribute accepts integers from 0 through 4. Valid values include:
+
 <table><tr><th>Integer</th><th>Description</th></tr>
 <tr>
 <td>0</td>
-<td>NotApplicable<br/>
+<td><strong>NotApplicable</strong><p/>
 The add-in license is not for a subscription add-in.</td>
 </tr>
 <tr>
 <td>1</td>
-<td>Active
-The add-in license subscription is currently paid for.<br/>
-Recommended user experience: <br/>
+<td><strong>Active</strong><p/>
+The add-in license subscription is currently paid for.<p/>
+<strong>Recommended user experience:</strong><p/>
 Full add-in experience.</td>
 </tr>
 <tr>
 <td>2</td>
-<td>FailedPayment<br/>
-The automatic monthly billing for the add-in license subscription has failed.<br/>
-There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<br/>
-Recommended user experience: <br/>
+<td><strong>FailedPayment</strong><p/>
+The automatic monthly billing for the add-in license subscription has failed.<p/>
+There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<p/>
+<strong>Recommended user experience:</strong><p/>
 Present UI in your add-in alerting the user of the problem with billing, so that they can resolve it.</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Canceled<br/>
-The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <br/>
-Recommended user experience: <br/>
+<td><strong>Canceled</strong><p/>
+The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <p/>
+<strong>Recommended user experience:</strong><p/>
 Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app’s Office Store listing page, so they are encouraged to renew their subscription. </td>
 </tr>
 <tr>
 <td>4</td>
-<td>DelayedCancel<br/>
-The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<br/>
-Recommended user experience: <br/>
+<td><strong>DelayedCancel</strong><p/>
+The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<p/>
+<strong>Recommended user experience:</strong><p/>
 Full add-in experience. Additionally, you may want to present contextual UI to ask the user for feedback on why they are canceling their subscription, or to enourage them to re-subscribe.</td>
 </tr>
 </table>
 </td></tr>
 </table>
+
+<br/>
 
 **d**
 
@@ -163,12 +172,13 @@ When you submit a test add-in license token to the Office Store verification web
 
 ## Remarks
 
->**Important:**  When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., will change the literal value of the `<t>` element and therefore cause the license verification check to fail.
+> [!IMPORTANT]
+> When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., changes the literal value of the `<t>` element and therefore causes the license verification check to fail.
 
->When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting, or generating the encryption signature for the `<d>` element.
+> When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting or generating the encryption signature for the `<d>` element.
 
-## Example: Add-in license XML for a SharePoint Add-in
 <a name="SP15applicense_example"> </a>
+## Example: Add-in license XML for a SharePoint Add-in
 
 The following example shows the add-in license XML for a SharePoint Add-in, representing a trial add-in for which the purchaser has acquired 30 seats. The user is signed in with their Microsoft account.
 
@@ -189,7 +199,9 @@ The following example shows the add-in license XML for a SharePoint Add-in, repr
 </r>
 ```
 
-The following example shows the add-in license for a user who is signed in with their organizational identity. Note that the  **cid** attribute is empty.
+<br/>
+
+The following example shows the add-in license for a user who is signed in with their organizational identity. Note that the `cid` attribute is empty.
 
 ```xml
 <r>
@@ -209,11 +221,16 @@ The following example shows the add-in license for a user who is signed in with 
 </r>
 ```
 
-## Additional resources
+## See also
 <a name="SP15applicenseschema_addlresources"> </a>
 
--  [License your Office and SharePoint Add-ins](license-your-add-ins.md)
--  [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
--  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
--  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
--  [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
+- [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
+- [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
+- [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [License your Office and SharePoint Add-ins](license-your-add-ins.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+
+
+
