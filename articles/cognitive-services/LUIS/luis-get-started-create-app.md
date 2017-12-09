@@ -62,8 +62,6 @@ Click on the **HomeAutomation.TurnOff** intent. You can see that the intent cont
 
 ![Home Automation domain prompt](./media/luis-quickstart-new-app/home-automation-turnon.png)
 
-The first utterance is "snap switch fan fifty percent". The words "fifty percent" has been labeled as the type of HomeAutomation.Operation. 
-
 ## Train your app
 
 Click on **Train** in the top navigation.
