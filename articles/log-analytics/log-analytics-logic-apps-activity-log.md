@@ -57,18 +57,17 @@ Following are the requirements for the Azure resources used in this scenario.
 
    ![image of create event hub dialog](media/log-analytics-logic-apps-activity-log/create-event-hub1.png)
 
-4. Choose the pricing tier (Basic or Standard), an Azure subscription, resource group, and location for the new resource. 
-5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
-6. In the portal list of namespaces, click the newly created namespace.
-7. Click **Shared access policies** and then **RootManageSharedAccessKey**.
+4. Choose the pricing tier (Basic or Standard), an Azure subscription, resource group, and location for the new resource.  Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
+6. Click the namespace you just created from the list.
+7. Select **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
    ![image of event hub shared access policies](media/log-analytics-logic-apps-activity-log/create-event-hub7.png)
    
-8. Click the copy button to copy the RootManageSharedAccessKey connection string to the clipboard. 
+8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. 
 
    ![image of event hub shared access key](media/log-analytics-logic-apps-activity-log/create-event-hub8.png)
 
-9. In a temporary location, such as Notepad, keep a copy the Event Hub name and either the primary or secondary Event Hub connection string. The Logic App requires these values. For the Event Hub connection string, you can use the **RootManageSharedAccessKey** connection string or you can create a separate one.  The connection string  you use must start with `Endpoint=sb://` and be for a policy that has the **Manage** access policy.
+9. In a temporary location, such as Notepad, keep a copy the Event Hub name and either the primary or secondary Event Hub connection string. The Logic App requires these values.  For the Event Hub connection string, you can use the **RootManageSharedAccessKey** connection string or create a separate one.  The connection string  you use must start with `Endpoint=sb://` and be for a policy that has the **Manage** access policy.
 
 
 ## Step 2 - Export Activity Logs to Event Hub
@@ -82,13 +81,8 @@ You can use an event hub namespace that is not in the same subscription as the s
 
    ![image of azure monitor in navigation](media/log-analytics-logic-apps-activity-log/activity-log-blade.png)
 
-4. In the page that appears, select the *Subscription* to export from.
-5. Click *Select all* in the **Regions** drop-down to select events for resources in all regions.
-6. Click the **Export to an event hub** check box
-
-   ![image of export activity log page](media/log-analytics-logic-apps-activity-log/export-activity-log1.png)
-
-7. Click **Service bus namespace**, and then in the page that appears, select the *Subscription* with the event hub, the **event hub namespace**, and an **event hub policy name**.
+4. Select the **Subscription** to export from, and then click **Select all** in the **Regions** drop-down to select events for resources in all regions. Click the **Export to an event hub** check box.
+7. Click **Service bus namespace**, and then select the **Subscription** with the event hub, the **event hub namespace**, and an **event hub policy name**.
 
     ![image of export to event hub page](media/log-analytics-logic-apps-activity-log/export-activity-log2.png)
 
