@@ -22,10 +22,11 @@ Your system should use the highest scoring intent regardless of its value. For e
 A LUIS app can support up to 80 intents.
 
 Limits on entities depend on the entity type, as shown in the following table:
-| Type          | Limit | 
-| ------------- | ----- |
-| [Prebuilt entities](./Pre-builtEntities.md)   | No limit. | 
-| [List entities](./luis-concept-entity-types.md)     | 50 list entities. Each list can contain up to 20,000 items. | 
+
+| Type | Limit | 
+|:------------- |:----- |
+| [Prebuilt entities](./Pre-builtEntities.md) | No limit. | 
+| [List entities](./luis-concept-entity-types.md) | 50 list entities. Each list can contain up to 20,000 items. | 
 | [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 30 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?

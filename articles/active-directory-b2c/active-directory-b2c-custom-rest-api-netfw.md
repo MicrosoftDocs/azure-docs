@@ -4,7 +4,7 @@ description: Integrate REST API claim exchanges in your Azure AD B2C user journe
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid: 

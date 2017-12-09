@@ -4,7 +4,7 @@ description: This article describes how to configure Microsoft's Generic SQL Con
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
