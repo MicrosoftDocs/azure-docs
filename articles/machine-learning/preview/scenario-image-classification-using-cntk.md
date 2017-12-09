@@ -60,7 +60,7 @@ The prerequisites to run this example are as follows:
 - Out-of-memory errors during DNN training can be avoided by reducing the minibatch size (variable `cntk_mb_size` in `PARAMETERS.py`).
 - The code was tested using CNTK 2.2, and should run also on older (up to v2.0) and newer versions without any or only minor changes.
 - At the time of writing, the Azure Machine Learning Workbench had problems showing notebooks larger than 5 Mbytes. Notebooks of this large size can happen if the notebook is saved with all cell output displayed. If you encounter this error, then open the command prompt from the File menu inside the Workbench, execute `jupyter notebook`, open the notebook, clear all output, and save the notebook. After performing these steps, the notebook will open properly inside the Azure Machine Learning Workbench again.
-- All scripts provided in this sample have to be executed locally, and not on e.g. a docker remote environment. All notebooks need to be executed with kernel set to the local project kernel with name "<projectname> local" (e.g. "myImgClassUsingCNTK local").
+- All scripts provided in this sample have to be executed locally, and not on e.g. a docker remote environment. All notebooks need to be executed with kernel set to the local project kernel with name "PROJECTNAME local" (e.g. "myImgClassUsingCNTK local").
 
     
 ## Create a new workbench project
@@ -112,7 +112,7 @@ All important parameters are specified, and a short explanation provided, in a s
 ### Step 1: Data preparation
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-The notebook `showImages.ipynb` can be used to visualize the images, and to correct their annotation as needed. To run the notebook, open it in Azure Machine Learning Workbench, click on "Start Notebook Server" if this option is shown, change to the local project kernel with name "<projectname> local" (e.g. "myImgClassUsingCNTK local"), and then execute all cells in the notebook. See the troubleshooting section in this document if you get an error complaining that the notebook is too large to be displayed.
+The notebook `showImages.ipynb` can be used to visualize the images, and to correct their annotation as needed. To run the notebook, open it in Azure Machine Learning Workbench, click on "Start Notebook Server" if this option is shown, change to the local project kernel with name "PROJECTNAME local" (e.g. "myImgClassUsingCNTK local"), and then execute all cells in the notebook. See the troubleshooting section in this document if you get an error complaining that the notebook is too large to be displayed.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -176,7 +176,7 @@ In addition to accuracy, the ROC curve is plotted with respective area-under-cur
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Finally, the notebook `showResults.py` is provided to scroll through the test images and visualize their respective classification scores. As explained in step1, every notebook in this sample needs to use the local project kernel with name "<projectname> local":
+Finally, the notebook `showResults.py` is provided to scroll through the test images and visualize their respective classification scores. As explained in step1, every notebook in this sample needs to use the local project kernel with name "PROJECTNAME local":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -188,7 +188,7 @@ Finally, the notebook `showResults.py` is provided to scroll through the test im
 ### Step 6: Deployment
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-The trained system can now be published as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench (remember to set as kernel the local project kernel with name "<projectname> local"). See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for more deployment related information.
+The trained system can now be published as a REST API. Deployment is explained in the notebook `deploy.ipynb`, and based on functionality within the Azure Machine Learning Workbench (remember to set as kernel the local project kernel with name "PROJECTNAME local"). See also the excellent deployment section of the [IRIS tutorial](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for more deployment related information.
 
 Once deployed, the web service can be called using the script `6_callWebservice.py`. Note that the IP address (either local or on the cloud) of the web service needs to be set first in the script. The notebook `deploy.ipynb` explains how to find this IP address.
 
