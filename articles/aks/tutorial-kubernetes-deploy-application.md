@@ -124,5 +124,5 @@ Advance to the next tutorial to learn about scaling both a Kubernetes applicatio
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md)
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr#list
