@@ -239,8 +239,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-create]: /cli/azure/group#create
-[az-group-delete]: /cli/azure/group#delete
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 
