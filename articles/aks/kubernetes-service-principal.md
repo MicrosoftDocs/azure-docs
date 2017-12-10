@@ -96,5 +96,5 @@ For more information about Azure Active Directory service principals, see the Az
 [az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[service-principal]: ../active-directory/develop/active-directory-application-objects.md)
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md

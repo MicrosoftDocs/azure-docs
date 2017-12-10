@@ -189,7 +189,7 @@ service "azure-vote-front" created
 
 As the application is run, a [Kubernetes service][kubernetes-service] is created that exposes the application front end to the internet. This process can take a few minutes to complete.
 
-To monitor progress, use the [kubectl get service][kubectl-get-service] command with the `--watch` argument.
+To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -238,9 +238,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create
-[kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get
-[kubectl-get-service]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
