@@ -120,7 +120,7 @@ This article builds on the template you created in [Create and deploy your first
          "value": ""
        },
        "storageUri": {
-         "type": "string",
+         "type": "object",
          "value": ""
        }
    }
@@ -147,7 +147,7 @@ This article builds on the template you created in [Create and deploy your first
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "string",
+         "type": "object",
          "value": ""
        }
    }
@@ -176,7 +176,7 @@ This article builds on the template you created in [Create and deploy your first
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "string",
+         "type": "object",
          "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
        }
    }
@@ -244,7 +244,7 @@ The final template is:
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "string",
+      "type": "object",
       "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
     }
   }
