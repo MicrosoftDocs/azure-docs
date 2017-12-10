@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/1/2017
+ms.date: 12/9/2017
 ms.author: richrundmsft; bwren
 
 ---
@@ -95,9 +95,10 @@ You can use an event hub namespace that is not in the same subscription as the s
 Once the activity logs are writing to the event hub, you create a Logic App to collect the logs from the event hub and write them to Log Analytics.
 
 The Logic App includes the following:
-- An [Event Hub connector](https://docs.microsoft.com/connectors/eventhubs/) trigger to read from the Event Hub
-- A [Parse JSON action](../logic-apps/logic-apps-content-type.md) to extract the events
-- A [Log Analytics send data connector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) to post the data to Log Analytics
+- An [Event Hub connector](https://docs.microsoft.com/connectors/eventhubs/) trigger to read from the Event Hub.
+- A [Parse JSON action](../logic-apps/logic-apps-content-type.md) to extract the JSON events.
+- A [Compose action](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) to convert the JSON to an object.
+- A [Log Analytics send data connector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) to post the data to Log Analytics.
 
    ![image of adding event hub trigger in logic apps](media/log-analytics-logic-apps-activity-log/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -279,7 +280,7 @@ The [Compose](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-acti
 
 
 ### Add Log Analytics Send Data action
-The Azure Log Analytics Data Collector action takes the object from the Compose action and sends it to Log Analytics.
+The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) action takes the object from the Compose action and sends it to Log Analytics.
 
 1. Click **New step** > **Add an action**
 2. Type *log analytics* for your filter and then select the action **Azure Log Analytics Data Collector - Send Data**.
@@ -326,6 +327,9 @@ The final step is to check the Log Analytics workspace to make sure that data is
 
 >[!NOTE]
 > The activity logs are written to a custom table and do not show in the [Activity Log solution](./log-analytics-activity.md).
+
+
+![Test logic app](media/log-analytics-logic-apps-activity-log/log-analytics-results.png)
 
 ## Next steps
 
