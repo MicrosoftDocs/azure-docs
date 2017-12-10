@@ -14,19 +14,19 @@ ms.custom: mvc
 
 # Use Helm with Azure Container Service (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
+[Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
 This document steps through configuring and using Helm in a Kubernetes cluster on AKS.
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this document assume that you have created an AKS cluster and have established a kubectl connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
 
 ## Install Helm CLI
 
 The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm charts.
 
-If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+If you're using Azure CloudShell, the Helm CLI is already installed. To install the Helm CLI on a Mac use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -47,7 +47,7 @@ Bash completion has been installed to:
 
 ## Configure Helm
 
-The [helm init](https://docs.helm.sh/helm/#helm-init) command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
+The [helm init][helm-init] command is used to install Helm components in a Kubernetes cluster and make client-side configurations. Run the following command to install Helm on your AKS cluster and configure the Helm client.
 
 ```azurecli-interactive
 helm init
@@ -63,7 +63,7 @@ Happy Helming!
 
 ## Find Helm charts
 
-Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search](https://docs.helm.sh/helm/#helm-search) command.
+Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command.
 
 ```azurecli-interactive
 helm search
@@ -91,7 +91,7 @@ stable/datadog               	0.8.0  	DataDog Agent
 ...
 ```
 
-To update the list of charts, use the [helm repo update](https://docs.helm.sh/helm/#helm-repo-update) command.
+To update the list of charts, use the [helm repo update][helm-repo-update] command.
 
 ```azurecli-interactive
 helm repo update
@@ -108,7 +108,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy an NGINX ingress controller, use the [helm install](https://docs.helm.sh/helm/#helm-install) command.
+To deploy an NGINX ingress controller, use the [helm install][helm-install] command.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -139,11 +139,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
+For more information on using an NGINX ingress controller with Kubernetes, see [NGINX Ingress Controller][nginx-ingress].
 
 ## List Helm charts
 
-To see a list of charts installed on your cluster, use the [helm list](https://docs.helm.sh/helm/#helm-list) command.
+To see a list of charts installed on your cluster, use the [helm list][helm-list] command.
 
 ```azurecli-interactive
 helm list
@@ -161,4 +161,18 @@ bilging-ant  	1       	Thu Oct  5 00:11:11 2017	DEPLOYED	nginx-ingress-0.8.7	def
 For more information about managing Kubernetes charts, see the Helm documentation.
 
 > [!div class="nextstepaction"]
-> [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm documentation][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
