@@ -79,5 +79,5 @@ For more information about the Kubernetes dashboard, see the Kubernetes document
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md)
-[install-azure-cli]: /cli/azure/install-azure-cli)
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli
