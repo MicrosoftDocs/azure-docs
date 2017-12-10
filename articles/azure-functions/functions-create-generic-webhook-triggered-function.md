@@ -49,7 +49,7 @@ Next, you create a function in the new function app.
 
      ![Choose the generic webhook trigger template](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
 
-2. Type a name for your function, then select **Create**. 
+2. Type a **Name** for your function, then select **Create**. 
 
      ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 

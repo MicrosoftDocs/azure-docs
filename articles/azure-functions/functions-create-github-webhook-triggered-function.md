@@ -51,7 +51,7 @@ Next, you create a function in the new function app.
 
      ![Choose the GitHub webhook trigger template](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
-2. Type a name for your function, then select **Create**. 
+2. Type a **Name** for your function, then select **Create**. 
 
      ![Configure the GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
