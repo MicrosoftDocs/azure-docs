@@ -172,7 +172,7 @@ For more information about managing Kubernetes charts, see the Helm documentatio
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
-[nginx-ingress]: https://github.com/kubernetes/ingress/tree/master/controllers/nginx
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
