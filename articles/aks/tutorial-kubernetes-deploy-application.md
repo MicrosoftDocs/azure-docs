@@ -23,7 +23,7 @@ In this tutorial, part four of eight, a sample application is deployed into a Ku
 
 In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
 
-This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernete-documentation].
+This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
 ## Before you begin
 
