@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: jirwin
 
 ---
-# Azure Storage account 0ptions
+# Azure Storage account Options
 
 ## Overview
 Azure Storage provides three distinct account options, with different pricing and features supported. It is important that users consider these differences to determine the option that is best for their applications.  The three different options are as follows:
