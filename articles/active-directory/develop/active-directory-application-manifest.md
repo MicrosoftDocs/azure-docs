@@ -29,7 +29,16 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Guid string       |    `<guid>`       |  The unique identifier for the application.       |
-|appRoles     |    array     |     | The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.    |
+|appRoles     |    array     |   `[{`
+     "customKeyIdentifier": null,
+     "endDate": "2018-09-13T00:00:00Z",
+     "keyId": "<guid>",
+     "startDate": "2017-09-12T00:00:00Z",
+     "type": "AsymmetricX509Cert",
+     "usage": "Verify",
+     "value": null
+`}]`
+   | The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.    |
 |availableToOtherTenants     |  boolean       |     true    |     If this value is set to true, the application is shared with other tenants; otherwise, false.    |
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
