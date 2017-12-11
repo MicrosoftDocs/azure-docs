@@ -174,7 +174,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | StreamName |String |The path the operation was performed on |
 
 ## Samples to process the log data
-The below code will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user guid or other attributes:
+The below code will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
 
 ```
 search *
