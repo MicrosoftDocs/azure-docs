@@ -28,9 +28,9 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
-|appID     |  Guid string       |    `<guid>`       |  The unique identifier for the application.       |
-|appRoles     |    array     |  `[{"customKeyIdentifier":null,"endDate":"2018-09-13T00:00:00Z","keyId":"<guid>","startDate":"2017-09-12T00:00:00Z","type":"AsymmetricX509Cert","usage":"Verify","value":null}]`   | The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.    |
-|availableToOtherTenants     |  boolean       |     true    |     If this value is set to true, the application is shared with other tenants; otherwise, false.    |
+|appID     |  Guid string       |`<guid>`|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
+|appRoles     |    array     |[{"allowedMemberTypes":["User"],"description":"Read only access to device information","displayName":"Read Only","id":"<guid>","isEnabled":true,"value":"ReadOnly"}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
+|availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
 |groupMembershipClaims     |    string     |    `1`     |   A bitmask that configures the "groups" claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.      |
