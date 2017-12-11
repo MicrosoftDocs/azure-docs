@@ -25,11 +25,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
       text: Windows
       href: /azure/iot-edge/quickstart
     - image: 
-        src: /azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Linux
       href: /azure/iot-edge/quickstart-linux
 - title: Step-by-Step Tutorials
