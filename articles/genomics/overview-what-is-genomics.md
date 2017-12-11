@@ -1,5 +1,6 @@
 ---
 title: What is Microsoft Genomics? | Microsoft Docs
+titleSuffix: Azure
 description: Learn how Microsoft Genomics can power genome sequencing, now offering a cloud implementation of the BWA-GATK for secondary analysis.
 services: microsoft-genomics
 author: grhuynh
@@ -9,7 +10,7 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 12/7/2017
+ms.date: 12/07/2017
 ---
 
 # What is Microsoft Genomics?

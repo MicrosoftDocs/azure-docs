@@ -1,5 +1,6 @@
 ---
 title: 'Quickstart: Submit a workflow using multiple inputs | Microsoft Docs'
+titleSuffix: Azure
 description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
 services: microsoft-genomics
 author: grhuynh
@@ -9,7 +10,7 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/7/2017
+ms.date: 12/07/2017
 
 ---
 

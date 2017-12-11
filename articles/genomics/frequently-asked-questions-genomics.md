@@ -1,5 +1,6 @@
 ---
 title: 'Microsoft Genomics: Common questions | Microsoft Docs'
+titleSuffix: Azure
 description: Answers to common questions customers ask about Microsoft Genomics. 
 services: microsoft-genomics
 author: grhuynh
@@ -9,7 +10,7 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 12/7/2017
+ms.date: 12/07/2017
 
 ---
 # Microsoft Genomics: Common questions
