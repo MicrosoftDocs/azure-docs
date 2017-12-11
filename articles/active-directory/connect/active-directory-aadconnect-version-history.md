@@ -30,7 +30,55 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.654.0
+Status: December 12th, 2017
 
+>[!NOTE]
+>This is a security related hotfix for Azure AD Connect
+
+### Azure AD Connect
+#### Fixed issues
+When first installing Azure AD Connect a new account can be created optionally that is used to run the Azure AD Connect service on the local service. Before this release the account was created with settings that would allow a user with password adminsitrator rights in the directory to change the password of the created service account to a value know to them and subsequently sign in using this account, and this would constitute an elevation of privilege security breach. 
+This release tightens the setting on the account that is created and removes this vulnerability.
+
+Note that this release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations or in cases where you provide the account yourself you sould ensure that this vulnerability does not exist.
+
+To tighten the settings for the service account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). It will tighten the settings on the service account to remove the vulnerability to the below values:
+
+*	Disable inheritance on the specified object
+*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*	Assign these specific permissions:
+
+Type     | Name                          | Access               | Applies To
+---------|-------------------------------|----------------------|--------------|
+Allow    | SYSTEM                        | Full Control         | This object  |
+Allow    | Enterprise Admins             | Full Control         | This object  |
+Allow    | Domain Admins                 | Full Control         | This object  |
+Allow    | Administrators                | Full Control         | This object  |
+Allow    | Enterprise Domain Controllers | List Contents        | This object  |
+Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
+Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
+Allow    | Authenticated Users           | List Contents        | This object  |
+Allow    | Authenticated Users           | Read All Properties  | This object  |
+
+#### PowerShell script to tighten a pre-existing service account
+
+To use the PowerShell script to apply these settings to a pre-existing service account (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+
+##### Usage:
+
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+
+Where 
+
+$ObjectDN = The Active Directory account whose permissions need to be tightened.
+$Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
+
+##### Example:
+
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+
+>[!NOTE] $credential.UserName should be in domain\username format.                                                                                                                 
 ## 1.1.649.0
 Status: October 27 2017
 
@@ -40,7 +88,6 @@ Status: October 27 2017
 ### Azure AD Connect
 #### Fixed issue
 * Fixed a version compatibility issue between Azure AD Connect and Azure AD Connect Health Agent (for sync). This issue affects customers who are performing Azure AD Connect in-place upgrade to version 1.1.647.0, but currently has Health Agent version 3.0.127.0. After the upgrade, the Health Agent can no longer send health data about Azure AD Connect Synchronization Service to Azure AD Health Service. With this fix, Health Agent version 3.0.129.0 is installed during Azure AD Connect in-place upgrade. Health Agent version 3.0.129.0 does not have compatibility issue with Azure AD Connect version 1.1.649.0.
-
 
 ## 1.1.647.0
 Status: October 19 2017
