@@ -12,23 +12,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: shlo
 ---
 
 # How to create a trigger that runs a pipeline on a schedule
-This article provides steps to create, start, and montior a trigger that is associated with one or more pipelines. 
+This article provides steps to create, start, and monitor a trigger. For conceptual information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 
 ## Use Azure PowerShell
 In this section, you use Azure PowerShell to create a trigger. 
 
 ### Prerequisites
-Go through the [quickstart for creating a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in Azure blob storage to another.  
-
+If you want to see this code working in a sample, first go through the [quickstart for creating a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in Azure blob storage to another.  
 
 ### Create a trigger using PowerShell
+This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created in the quickstart. 
 
 1. Create a JSON file named MyTrigger.json in the C:\ADFv2QuickStartPSH\ folder with the following content: 
+
+    > [!IMPORTANT]
+    > Set **startTime** to the current UTC time and **endTime** to one hour after the current UTC time before saving the JSON file.
 
     ```json   
     {
@@ -57,6 +64,13 @@ Go through the [quickstart for creating a data factory using Azure PowerShell](q
         }
     }
     ```
+    
+    In the JSON snippet: 
+    - The type of the trigger is set to ScheduleTrigger. 
+    - The frequency is set to Minute and interval is set to 15, so the trigger runs the pipeline every 15 minutes between the start and end times. 
+    - The endTime is one hour after the startTime, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour after the startTime.  
+    - In this case, the trigger is associated with only one pipeline. You can associate a trigger with multiple pipelines. 
+    - The pipeline in the quickstart takes two parameters. Therefore, you pass values for those parameters from the trigger. 
 2. Run the following command to create the trigger:
 
     ```powershell
@@ -77,27 +91,39 @@ Go through the [quickstart for creating a data factory using Azure PowerShell](q
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
     ```
-6.  Get trigger runs using PowerShell. To get the information about trigger runs, run the following command periodically: 
+6.  Get trigger runs using PowerShell. To get the information about trigger runs, run the following command periodically: Update TriggerRunStartedAfter and TriggerRunStartedBefore values to match the values in the trigger definition. 
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
 ## Use .NET SDK
-The following method creates a scheduler trigger that runs every 10 minutes. 
+This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created int he quickstart. 
+
+### Prerequisites
+If you want to see this code working in a sample, first go through the [quickstart for creating a data factory using .NET SDK](quickstart-create-data-factory-dot-net.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in Azure blob storage to another.  
+
+Add the following code to the main method, which creates a scheduler trigger that runs every 15 minutes. 
 
 ```csharp
-            //Create the trigger
+            //create the trigger
             Console.WriteLine("Creating the trigger");
+
+            // set the start time to the current UTC time
             DateTime startTime = DateTime.UtcNow;
+
+            // specify values for the inputPath and outputPath parameters
             Dictionary<string, object> pipelineParameters = new Dictionary<string, object>();
             pipelineParameters.Add("inputPath", "adftutorial/input");
             pipelineParameters.Add("outputPath", "adftutorial/output");
+
+            // create a scheduler trigger
             string triggerName = "MyTrigger";
             ScheduleTrigger myTrigger = new ScheduleTrigger()
             {
                 Pipelines = new List<TriggerPipelineReference>()
                 {
+                    // associate the Adfv2QuickStartPipeline pipeline with the trigger
                     new TriggerPipelineReference()
                     {
                         PipelineReference = new PipelineReference(pipelineName),
@@ -106,6 +132,7 @@ The following method creates a scheduler trigger that runs every 10 minutes.
                 },
                 Recurrence = new ScheduleTriggerRecurrence()
                 {
+                    // set the start time to current UTC time and the end time to be one hour after.
                     StartTime = startTime,
                     TimeZone = "UTC",
                     EndTime = startTime.AddHours(1),
@@ -114,19 +141,47 @@ The following method creates a scheduler trigger that runs every 10 minutes.
                 }
             };
 
+            // now, create the trigger by invoking CreateOrUpdate method. 
             TriggerResource triggerResource = new TriggerResource()
             {
                 Properties = myTrigger
             };
             client.Triggers.CreateOrUpdate(resourceGroup, dataFactoryName, triggerName, triggerResource);
 
-            //Start the trigger
+            //start the trigger
             Console.WriteLine("Starting the trigger");
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 
 ```
 
+To monitor a trigger run, add the following code: 
 
+```csharp
+            // Check the trigger runs after 60 minutes
+            System.Threading.Thread.Sleep(3600000);
+            List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-30), DateTime.UtcNow.AddMinutes(2)).ToList();
+            triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-30), DateTime.UtcNow.AddMinutes(2)).ToList();
+
+            foreach (TriggerRun run in triggerRuns)
+            {
+                foreach (KeyValuePair<string, string> triggeredPipeline in run.TriggeredPipelines)
+                {
+                    PipelineRun triggeredPipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, triggeredPipeline.Value);
+                    Console.WriteLine("Pipeline run ID: {0}, Status: {1}", triggeredPipelineRun.RunId, triggeredPipelineRun.Status);
+                    List<ActivityRun> runs = client.ActivityRuns.ListByPipelineRun(resourceGroup, dataFactoryName, triggeredPipelineRun.RunId, run.TriggerRunTimestamp.Value, run.TriggerRunTimestamp.Value.AddMinutes(20)).ToList();
+                }
+            }
+```
+
+## Pass trigger start time to the pipeline
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. In the following example, the trigger's scheduled time is passed as a value to the pipeline parameter scheduledRunTime. 
+
+```json
+"parameters": {
+    "scheduledRunTime": "@trigger().scheduledTime"
+}
+```    
+For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 For a complete walkthrough of creating a data factory with a pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md). 
