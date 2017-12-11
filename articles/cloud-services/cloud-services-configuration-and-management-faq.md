@@ -230,7 +230,7 @@ We are working on bringing this feature on the Azure portal. Meanwhile, you can 
 This error may occur if you use the RDP file from a machine that is joined to Azure Active Directory. To resolve this issue, follow these steps:
 
 1. Right-click the RDP file you downloaded and then select **Edit**.
-2. Add ".&#47;" as prefix before the username. For example, use **.\username** instead of  **username**.
+2. Add "&#92;" as prefix before the username. For example, use **.\username** instead of  **username**.
 
 ## I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
 
