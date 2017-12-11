@@ -39,6 +39,10 @@ The OMS Agent extension can be run against these Linux distributions.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 and 12 |
 
+### Azure Security Center
+
+Azure Security Center automatically provisions the OMS agent and connects it with the default log analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
+
 ### Internet connectivity
 
 The OMS Agent extension for Linux requires that the target virtual machine is connected to the internet. 
@@ -175,7 +179,7 @@ Extension execution output is logged to the following file:
 | 10 | VM is already connected to an OMS workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
 | 12 | The dpkg package manager is locked | Make sure all dpkg update operations on the machine have finished and retry. |
-| 20 | Enable called prematurely | [Update the Azure Linux Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) to the latest available version. |
+| 20 | Enable called prematurely | [Update the Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to the latest available version. |
 | 51 | This extension is not supported on the VM's operation system | |
 | 55 | Cannot connect to the Microsoft Operations Management Suite service | Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID. |
 

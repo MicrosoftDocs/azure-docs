@@ -1,20 +1,12 @@
 ---
-title: Azure Container Instances Overview | Azure Docs
+title: Azure Container Instances overview
 description: Understand Azure Container Instances
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
-tags:
-keywords: ''
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc

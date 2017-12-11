@@ -127,12 +127,17 @@
     {
         "path_to_root": "samples-durable-functions",
         "url": "https://github.com/Azure/azure-functions-durable-extension",
-        "branch":"netcore20"
+        "branch":"master"
     },
     {
         "path_to_root": "samples-luis",
         "url": "https://github.com/Microsoft/Luis-Samples",
         "branch":"master"
+    },
+    {
+                "path_to_root": "api-management-policy-samples",
+                "url": "https://github.com/Azure/api-management-policy-snippets",
+                "branch": "master"
     }
 	]
 }

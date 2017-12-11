@@ -51,7 +51,7 @@ For network services to support Azure Government customer applications and solut
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premises environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
 ### Data Considerations
-The following information identifies the Azure Government boundary for Azure ExpressRoute:
+The following information identifies the Azure Government International Traffic in Arms Regulations (ITAR) boundary for Azure ExpressRoute:
 
 | **Regulated/controlled data permitted**| **Regulated/controlled data not permitted** |
 | --- | --- |

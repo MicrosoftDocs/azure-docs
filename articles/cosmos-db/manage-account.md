@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
 
 ---
@@ -30,10 +30,10 @@ Selecting the right consistency level depends on the semantics of your applicati
 3. In the **Default Consistency** page, select the new consistency level and click **Save**.
     ![Default consistency session][5]
 
-## <a id="keys"></a>View, copy, and regenerate access keys
-When you create an Azure Cosmos DB account, the service generates two master access keys that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. 
+## <a id="keys"></a>View, copy, and regenerate access keys and passwords
+When you create an Azure Cosmos DB account, the service generates two master access keys (or two passwords for MongoDB API accounts) that can be used for authentication when the Azure Cosmos DB account is accessed. By providing two access keys, Azure Cosmos DB enables you to regenerate the keys with no interruption to your Azure Cosmos DB account. 
 
-In the [Azure portal](https://portal.azure.com/), access the **Keys** page from the resource menu on the **Azure Cosmos DB account** page to view, copy, and regenerate the access keys that are used to access your Azure Cosmos DB account.
+In the [Azure portal](https://portal.azure.com/), access the **Keys** page from the resource menu on the **Azure Cosmos DB account** page to view, copy, and regenerate the access keys that are used to access your Azure Cosmos DB account. For MongoDB API accounts, access the **Connection String** page from the resource menu to view, copy, and regenerate the passwords that are used to access your account.
 
 ![Azure portal screenshot, Keys page](./media/manage-account/keys.png)
 
@@ -44,26 +44,26 @@ In the [Azure portal](https://portal.azure.com/), access the **Keys** page from 
 
 Read-only keys are also available on this page. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
 
-### Copy an access key in the Azure portal
-On the **Keys** page, click the **Copy** button to the right of the key you wish to copy.
+### Copy an access key or password in the Azure portal
+On the **Keys** page (or **Connection string** page for MongoDB API accounts), click the **Copy** button to the right of the key or password you wish to copy.
 
 ![View and copy an access key in the Azure portal, Keys page](./media/manage-account/copykeys.png)
 
-### Regenerate access keys
-You should change the access keys to your Azure Cosmos DB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the Azure Cosmos DB account using one access key while you regenerate the other access key.
+### Regenerate access keys and passwords
+You should change the access keys (and passwords for MongoDB API accounts) to your Azure Cosmos DB account periodically to help keep your connections more secure. Two access keys/passwords are assigned to enable you to maintain connections to the Azure Cosmos DB account using one access key while you regenerate the other access key.
 
 > [!WARNING]
 > Regenerating your access keys affects any applications that are dependent on the current key. All clients that use the access key to access the Azure Cosmos DB account must be updated to use the new key.
 > 
 > 
 
-If you have applications or cloud services using the Azure Cosmos DB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
+If you have applications or cloud services using the Azure Cosmos DB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys/passwords.
 
 1. Update the access key in your application code to reference the secondary access key of the Azure Cosmos DB account.
 2. Regenerate the primary access key for your Azure Cosmos DB account. In the [Azure portal](https://portal.azure.com/),
    access your Azure Cosmos DB account.
-3. In the **Azure Cosmos DB Account** page, click **Keys**.
-4. On the **Keys** page, click the regenerate button, then click **Ok** to confirm that you want to generate a new key.
+3. In the **Azure Cosmos DB Account** page, click **Keys** (or **Connection String** for MongoDB accounts**).
+4. On the **Keys**/**Connection String** page, click the regenerate button, then click **Ok** to confirm that you want to generate a new key.
     ![Regenerate access keys](./media/manage-account/regenerate-keys.png)
 5. Once you have verified that the new key is available for use (approximately five minutes after regeneration), update the access key in your application code to reference the new primary access key.
 6. Regenerate the secondary access key.
@@ -75,11 +75,11 @@ If you have applications or cloud services using the Azure Cosmos DB account, yo
 > 
 > 
 
-## Get the  connection string
+## Get the connection string
 To retrieve your connection string, do the following: 
 
 1. In the [Azure portal](https://portal.azure.com), access your Azure Cosmos DB account.
-2. In the resource menu, click **Keys**.
+2. In the resource menu, click **Keys** (or **Connection String** for MongoDB API accounts).
 3. Click the **Copy** button next to the **Primary Connection String** or **Secondary Connection String** box. 
 
 If you are using the connection string in the [Azure Cosmos DB Database Migration Tool](import-data.md), append the database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 11/30/2017
 ms.author: magoedte
 ---
 
@@ -40,7 +40,7 @@ The following Linux distributions are officially supported.  However, the OMS Ag
 * Oracle Linux 5, 6, and 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ### Network

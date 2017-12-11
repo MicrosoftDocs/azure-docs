@@ -1,25 +1,15 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry | Microsoft Docs
+title: Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
 services: container-service
-documentationcenter: ''
 author: squillace
-manager: gamonroy
-editor: ''
-tags: draft, helm, acs, azure-container-service
-keywords: Docker, Containers, microservices, Kubernetes, Draft, Azure
-
+manager: timlt
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-
-
 ---
 
 # Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes

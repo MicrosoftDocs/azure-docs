@@ -51,7 +51,7 @@ Internally this trigger binding polls a series of queues in the default storage 
 Here are some notes about the orchestration trigger:
 
 * **Single-threading** - A single dispatcher thread is used for all orchestrator function execution on a single host instance. For this reason, it is important to ensure that orchestrator function code is efficient and doesn't perform any I/O. It is also important to ensure that this thread does not do any async work except when awaiting on Durable Functions-specific task types.
-* **Poising-message handling** - There is no poison message support in orchestration triggers.
+* **Poison-message handling** - There is no poison message support in orchestration triggers.
 * **Message visibility** - Orchestration trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage. These return values can be queried by the orchestration client binding, described later.
 

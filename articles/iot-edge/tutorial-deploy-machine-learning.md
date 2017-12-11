@@ -48,7 +48,7 @@ To create your Azure ML container, follow the instructions in the [AI toolkit fo
 1. Click **Save**.
 1. Back in the **Add Modules** step, click **Next**.
 1. Update routes for your module:
-1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "mlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''mlOutput'' is the endput that all Azure Machine Learning modules use to output data, and ''upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
+1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "amlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''amlOutput'' is the endpoint that all Azure Machine Learning modules use to output data, and ''$upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
     {

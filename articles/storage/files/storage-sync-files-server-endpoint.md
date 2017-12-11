@@ -1,5 +1,5 @@
 ---
-title: Add/remove an Azure File Sync (preview) Server Endpoint | Microsoft Docs
+title: Add/remove an Azure File Sync (preview) server endpoint | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 documentationcenter: ''
@@ -17,36 +17,36 @@ ms.date: 10/08/2017
 ms.author: wgries
 ---
 
-# Add/remove an Azure File Sync (preview) Server Endpoint
+# Add/remove an Azure File Sync (preview) server endpoint
 Azure File Sync (preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
-A *Server Endpoint* represents a specific location on a *Registered Server*, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces are not overlapping (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location with an existing set of files as a Server Endpoint to a Sync Group, those files will be merged with any other files already on other endpoints in the Sync Group.
+A *server endpoint* represents a specific location on a *registered server*, such as a folder on a server volume or the root of the volume. Multiple server endpoints can exist on the same volume if their namespaces are not overlapping (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each server endpoint. If you add a server location with an existing set of files as a server endpoint to a sync group, those files will be merged with any other files already on other endpoints in the sync group.
 
 See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
 ## Prerequisites
-To create a Server Endpoint, you must first ensure that the following criteria are met: 
+To create a server endpoint, you must first ensure that the following criteria are met: 
 - The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md) article. 
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
-- Ensure that a Sync Group has been deployed. Learn how to [Create a Sync Group](storage-sync-files-deployment-guide.md#create-a-sync-group).
+- Ensure that a sync group has been deployed. Learn how to [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group).
 - Ensure that the server is connected to the internet and that Azure is accessible.
 
-## Add a Server Endpoint
-To add a Server Endpoint, navigate to the desired Sync Group, and select "Add server endpoint".
+## Add a server endpoint
+To add a server endpoint, navigate to the desired sync group, and select "Add server endpoint".
 
-![Add a new Server Endpoint in the Sync Group pane](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Add a new server endpoint in the sync group pane](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 The following information is required under **Add server endpoint**:
 
-- **Registered Server**: The name of the server or cluster to create the Server Endpoint on.
-- **Path**: The path on the Windows Server to be synchronized as part of the Sync Group.
+- **Registered server**: The name of the server or cluster to create the server endpoint on.
+- **Path**: The path on the Windows Server to be synchronized as part of the sync group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering, which enables infrequently used or access files to be tiered to Azure Files.
-- **Volume Free Space**: the amount of free space to reserve on the volume which the Server Endpoint resides. For example, if the volume free space is set to 50% on a volume with a single Server Endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the Sync Group.
+- **Volume Free Space**: the amount of free space to reserve on the volume which the server endpoint resides. For example, if the volume free space is set to 50% on a volume with a single server endpoint, roughly half the amount of data will be tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure File share always has a complete copy of the data in the sync group.
 
-Select **Create** to add the Server Endpoint. The files within a namespace of a Sync Group will now be kept in sync. 
+Select **Create** to add the server endpoint. The files within a namespace of a sync group will now be kept in sync. 
 
-## Remove a Server Endpoint
-When enabled for a Server Endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a Server Endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
+## Remove a server endpoint
+When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
 
 This can be done with the PowerShell cmdlet as shown below:
 
@@ -58,13 +58,13 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 > [!Warning]  
 > If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
-To remove the Server Endpoint:
+To remove the server endpoint:
 
 1. Navigate to the Storage Sync Service where your server is registered.
-2. Navigate to the desired Sync Group.
-3. Remove the Server Endpoint you desire in the Sync Group in the Storage Sync Service. This can be accomplished by right-clicking the relevant Server Endpoint in the Sync Group pane.
+2. Navigate to the desired sync group.
+3. Remove the server endpoint you desire in the sync group in the Storage Sync Service. This can be accomplished by right-clicking the relevant server endpoint in the sync group pane.
 
-    ![Removing a Server Endpoint from a Sync Group](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
+    ![Removing a server endpoint from a sync group](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## Next steps
 - [Register/unregister a server with Azure File Sync (preview)](storage-sync-files-server-registration.md)
