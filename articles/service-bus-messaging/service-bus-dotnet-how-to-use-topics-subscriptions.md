@@ -233,7 +233,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 
 ### Write code to receive messages from the subscription
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
     ```csharp
     using System.Text;
@@ -336,14 +336,14 @@ To receive the messages you just sent, create another .NET Core console applicat
 8. Here is what your receiver Program.cs file should look like:
    
     ```csharp
-    using System;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.ServiceBus;
-
     namespace CoreReceiverApp
     {
+        using System;
+        using System.Text;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using Microsoft.Azure.ServiceBus;
+
         class Program
         {
             const string ServiceBusConnectionString = "<your_connection_string>";

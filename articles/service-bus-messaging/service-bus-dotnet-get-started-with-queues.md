@@ -216,7 +216,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 
 ### Write code to receive messages from the queue
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
     ```csharp
     using System.Text;
