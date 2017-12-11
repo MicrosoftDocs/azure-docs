@@ -164,6 +164,7 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 ### Videos and Podcasts
 | Show | Speaker | Date | Episode |
 | --- | --- | --- | --- |
+| The NoSQL Database Podcast | Kirill Gavrylyuk | May 16, 2017 | [Microsoft DocumentDB for NoSQL in the Cloud](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Azure Friday |Kirill Gavrylyuk |October 31, 2016 |[What's new in Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: Microsoft + Open Source |Jose Miguel Parrella |April 14, 2016 |[From MEAN to DEAN in Azure with Bitnami, VM Scale Sets and DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |March 9, 2016 |[Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) |

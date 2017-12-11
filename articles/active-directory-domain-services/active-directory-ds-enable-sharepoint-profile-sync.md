@@ -4,7 +4,7 @@ description: Configure Azure Active Directory Domain Services managed domains to
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d

@@ -109,7 +109,7 @@ For a complete list of API Management policies, see [Policy reference][Policy re
 
 
 ## <a name="developer-portal"> </a> Developer portal
-The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure Classic Portal for your API Management service instance.
+The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure portal for your API Management service instance.
 
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 

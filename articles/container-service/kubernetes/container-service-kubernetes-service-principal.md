@@ -1,23 +1,15 @@
 ---
-title: Service principal for Azure Kubernetes cluster | Microsoft Docs
+title: Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
 
 # Set up an Azure AD service principal for a Kubernetes cluster in Container Service

@@ -4,7 +4,7 @@ description: Azure Active Directory FAQ answers questions about how to access Az
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f

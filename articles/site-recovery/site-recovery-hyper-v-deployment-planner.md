@@ -17,7 +17,7 @@ ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery deployment planner
+# Azure Site Recovery Deployment Planner for Hyper-V to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
 ## Overview
@@ -56,7 +56,7 @@ The tool provides the following details:
 * Order in which each batch is to be protected
 * Estimated time to complete initial replication of each batch
 
-**Cost** 
+**Estimated DR cost to Azure**
 * Estimated total DR cost to Azure: compute, storage, network, and Azure Site Recovery license cost
 * Detail cost analysis per VM
 

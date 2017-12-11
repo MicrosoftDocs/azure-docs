@@ -3,8 +3,8 @@ title: Scale unit node actions in Azure Stack | Microsoft Docs
 description: Learn how to view node status, and use the power on, power off, drain, and resume node actions on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 

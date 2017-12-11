@@ -110,7 +110,6 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 and latest SPs |64 bit |Essential |
 | Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 **For Azure VM backup:**
 
