@@ -38,9 +38,9 @@ At this point, you should be able to manually track telemetry and see it on the 
     client.TrackTrace("Hello World!");
 ```
 
-5. Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL or some other external dependency calls.
+5. Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
 
-6 When application starts, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for applicaiton lifetime.
+6 When application starts, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 
 ```C#
     var module = new DependencyTrackingTelemetryModule();
