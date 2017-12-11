@@ -105,10 +105,10 @@ Column number | Field name| Type | Description |
 6 | `HTTP1` | Integer|	Session uses HTTP1 or HTTP2
 7 |`ServerType` | Integer	|Server type
 8 |`SubService_1_Load` | Double |	Subservice 1 load
-9 | `SubService_1_Load` | Double | 	Subservice 2 load
-10 | `SubService_1_Load` | Double | 	Subservice 3 load
-11 |`SubService_1_Load`	| Double |  Subservice 4 load
-12 | `SubService_1_Load`| Double |  	Subservice 5 load
+9 | `SubService_2_Load` | Double | 	Subservice 2 load
+10 | `SubService_3_Load` | Double | 	Subservice 3 load
+11 |`SubService_4_Load`	| Double |  Subservice 4 load
+12 | `SubService_5_Load`| Double |  	Subservice 5 load
 13 |`SecureBytes_Load`	| Double | Secure bytes load
 14 |`TotalLoad`	| Double | Total load on server
 15 |`ClientIP` | String|	Client IP address
