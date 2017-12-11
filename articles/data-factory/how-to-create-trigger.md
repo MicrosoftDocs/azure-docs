@@ -154,21 +154,25 @@ Add the following code to the main method, which creates a scheduler trigger tha
 
 ```
 
-To monitor a trigger run, add the following code: 
+To monitor a trigger run, add the following code before the last `Console.WriteLine` statement: 
 
 ```csharp
-            // Check the trigger runs after 60 minutes
-            System.Threading.Thread.Sleep(3600000);
-            List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-30), DateTime.UtcNow.AddMinutes(2)).ToList();
-            triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-30), DateTime.UtcNow.AddMinutes(2)).ToList();
+            // Check the trigger runs after 15 minutes
+            Console.WriteLine("Trigger runs. You see the output after 60 minutes");
 
-            foreach (TriggerRun run in triggerRuns)
+            for (int i = 0; i < 3; i++)
             {
-                foreach (KeyValuePair<string, string> triggeredPipeline in run.TriggeredPipelines)
+                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(15));
+                List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-15 * (i + 1)), DateTime.UtcNow.AddMinutes(2)).ToList();
+
+                foreach (TriggerRun run in triggerRuns)
                 {
-                    PipelineRun triggeredPipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, triggeredPipeline.Value);
-                    Console.WriteLine("Pipeline run ID: {0}, Status: {1}", triggeredPipelineRun.RunId, triggeredPipelineRun.Status);
-                    List<ActivityRun> runs = client.ActivityRuns.ListByPipelineRun(resourceGroup, dataFactoryName, triggeredPipelineRun.RunId, run.TriggerRunTimestamp.Value, run.TriggerRunTimestamp.Value.AddMinutes(20)).ToList();
+                    foreach (KeyValuePair<string, string> triggeredPipeline in run.TriggeredPipelines)
+                    {
+                        PipelineRun triggeredPipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, triggeredPipeline.Value);
+                        Console.WriteLine("Pipeline run ID: {0}, Status: {1}", triggeredPipelineRun.RunId, triggeredPipelineRun.Status);
+                        List<ActivityRun> runs = client.ActivityRuns.ListByPipelineRun(resourceGroup, dataFactoryName, triggeredPipelineRun.RunId, run.TriggerRunTimestamp.Value, run.TriggerRunTimestamp.Value.AddMinutes(20)).ToList();
+                    }
                 }
             }
 ```
