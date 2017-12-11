@@ -170,6 +170,14 @@ If you are connecting to a service using a SAS URL and experiencing this error:
 
 - If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
 
+If your accidentally attached an invalid SAS URL and could not detach, please follow these steps:
+1.	When running Storage Explorer, press F12 to open the developer tools window.
+2.	Click the Application tab, then click Local Storage > file:// in the tree on the left.
+3.	Find the key associated with the service type of the problematic SAS URI. For example, if the bad SAS URI is for a blob container, look for the key named “StorageExplorer_AddStorageServiceSAS_v1_blob”.
+4.	The value of the key should be a JSON array. Find the object associated with the bad URI and remove it.
+5.	Press Ctrl+R to reload Storage Explorer.
+
+
 ## Next steps
 
 If none of the solutions work for you, submit your issue through the feedback tool with your email and as many details about the issue included as you can, so that we can contact you for fixing the issue.

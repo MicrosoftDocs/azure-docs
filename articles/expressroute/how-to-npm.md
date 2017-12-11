@@ -71,6 +71,11 @@ If you are already using Network Performance Monitor to monitor other objects or
   * Resource group - Create a resource group, or use an existing one.
   * Location - You must select a [supported region](#regions).
   * Pricing tier - Select 'Free'
+  
+  >[!NOTE]
+  >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
+  >
+
 
   ![workspace](.\media\how-to-npm\4.png)<br><br>
 4. Click **OK** to save and deploy the settings template. Once the template validates, click **Create** to deploy the Workspace.
@@ -88,7 +93,8 @@ If you are already using Network Performance Monitor to monitor other objects or
 1. On the **Network Performance Monitor Configuration - TCP Setup page** for your resource, in the **Install OMS Agents** section, click the agent that corresponds to your server's processor and download the setup file.
 
   >[!NOTE]
-  >The Linux agent is currently not supported for ExpressRoute monitoring.
+  >The agent must be installed on a Windows Server (2008 SP1 or later). 
+  >Monitoring of ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. 
   >
   >
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
@@ -97,6 +103,8 @@ If you are already using Network Performance Monitor to monitor other objects or
   ![PowerShell script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server
+
+We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
 
 1. Run **Setup** to install the agent on each server that you want to use for monitoring ExpressRoute. The server you use for monitoring can either be a VM, or on-premises and must have Internet access. You need to install at least one agent on-premises, and one agent on each network segment that you want to monitor in Azure.
 2. On the **Welcome** page, click **Next**.
@@ -171,7 +179,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://go.microsoft.com/fwlink/?linkid=862263). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
+Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://aka.ms/npmcohort). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
 
 ## <a name="setupmonitor"></a>Step 5: Configure NPM for ExpressRoute monitoring
 

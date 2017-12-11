@@ -4,7 +4,7 @@ description: How to create features for data that is stored in Azure blob contai
 services: machine-learning,storage
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
 
 ---
@@ -28,9 +28,9 @@ This **menu** links to topics that describe how to create features for data in v
 This article assumes that you have created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## Load the data into a Pandas data frame
-In order to do explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
+In order to explore and manipulate a dataset, downloaded it from the blob source to a local file. Then load it into a Pandas data frame. Here are the steps to follow for this procedure:
 
-1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the code below with your specific values:
+1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the following code with your specific values:
    
         from azure.storage.blob import BlobService
         import tables
@@ -57,7 +57,7 @@ Now you are ready to explore the data and generate features on this dataset.
 ## <a name="blob-featuregen"></a>Feature Generation
 The next two sections show how to generate categorical features with indicator values and binning features using Python scripts.
 
-### <a name="blob-countfeature"></a>Indicator value based Feature Generation
+### <a name="blob-countfeature"></a>Indicator value-based Feature Generation
 Categorical features can be created as follows:
 
 1. Inspect the distribution of the categorical column:
@@ -77,7 +77,7 @@ Categorical features can be created as follows:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Binning Feature Generation
-For generating binned features, we proceed as follows:
+For generating binned features, proceed as follows:
 
 1. Add a sequence of columns to bin a numeric column
    
@@ -90,9 +90,8 @@ For generating binned features, we proceed as follows:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
-After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
-Note that additional features can be created in the Azure Machine Learning Studio as well.
+## <a name="sql-featuregen"></a>Writing data back to Azure blob to consume it in Azure Machine Learning
+To consume the data in Azure Machine Learning that you have explored, sampled or featurized, upload the data to an Azure blob. Additional features can be created in the Azure Machine Learning Studio as well. The following steps show how to upload the data:
 
 1. Write the data frame to local file
    
@@ -118,7 +117,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Now the data can be read from the blob using the Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the following screen shot:
 
 ![reader blob](./media/data-blob/reader_blob.png)
 

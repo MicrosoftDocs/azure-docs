@@ -30,8 +30,8 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install the .NET Core SDK](https://www.microsoft.com/net/download/core)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">Install the .NET Core SDK</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -81,11 +81,11 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app with built-in image
+## Create a web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app name>.azurewebsites.net

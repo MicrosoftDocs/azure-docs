@@ -99,7 +99,7 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 
 #### Azure PowerShell 
 
-[Azure PowerShell for Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Azure PowerShell for Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### Quick start guides
 

@@ -85,6 +85,13 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
+## Create a load balancer rule
+ Create a load balancer rule using the following command:
+
+```powershell
+   $rule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+```
+
 ## Create a load balancer
 Create a Load Balancer Standard using the following command:
 

@@ -4,7 +4,7 @@ description: The Azure Active Directory Graph API provides programmatic access t
 services: active-directory
 documentationcenter: n/a
 author: viv-liu
-manager: mbaldwin
+manager: mtillman
 editor: ''
 tags: ''
 

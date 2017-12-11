@@ -60,10 +60,9 @@ To build Media Services solutions, you can use:
 
 Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media Services code samples](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
-## Concepts and overview
-For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
+## Concepts
 
-For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks. AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
 ## Supported scenarios and availability of Media Services across data centers
 

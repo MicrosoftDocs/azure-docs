@@ -22,10 +22,11 @@ Your system should use the highest scoring intent regardless of its value. For e
 A LUIS app can support up to 80 intents.
 
 Limits on entities depend on the entity type, as shown in the following table:
-| Type          | Limit | 
-| ------------- | ----- |
-| [Prebuilt entities](./Pre-builtEntities.md)   | No limit. | 
-| [List entities](./luis-concept-entity-types.md)     | 50 list entities. Each list can contain up to 20,000 items. | 
+
+| Type | Limit | 
+|:------------- |:----- |
+| [Prebuilt entities](./Pre-builtEntities.md) | No limit. | 
+| [List entities](./luis-concept-entity-types.md) | 50 list entities. Each list can contain up to 20,000 items. | 
 | [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 30 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
@@ -104,7 +105,7 @@ You can turn off the logging of user utterances by setting `log=false` in the UR
 * If you delete an account, all apps and their utterances are deleted. The data is retained on the servers for 60 days before it is deleted permanently.
 
 ## What are the transaction limits on the Authoring API?
-To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 100,000 calls per month and five transactions per second.
+To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second.
 
 ## What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.

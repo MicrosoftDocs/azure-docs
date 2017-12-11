@@ -4,7 +4,7 @@ description: How to implement group assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
