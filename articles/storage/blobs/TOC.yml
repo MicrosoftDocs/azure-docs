@@ -56,6 +56,8 @@
     items:
     - name: Replication
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Storage account options
+      href: storage-account-options.md
     - name: Hot, cool, and archive tiers
       href: storage-blob-storage-tiers.md
     - name: Reacting to events
