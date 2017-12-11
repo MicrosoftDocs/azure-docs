@@ -34,7 +34,7 @@
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 ## Secure
-### [Data security & access control](search-security-overview.md)
+### [Secure data & operations](search-security-overview.md)
 ### [Identity-based access control](search-security-trimming-for-azure-search.md)
 ### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
 ## Develop
