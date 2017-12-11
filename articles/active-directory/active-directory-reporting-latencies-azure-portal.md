@@ -37,7 +37,7 @@ The following table lists the latency information for activity reports.
 | Report | Minimum | Average |
 | :-- | --- | --- |
 | Audit logs | 30 minutes  | 1 hour  |
-| Sign-ins | 15 minutes  | 2 hours* |
+| Sign-ins | 15 minutes  | 2 hours |
 
 In some edge cases, it can take:
 
