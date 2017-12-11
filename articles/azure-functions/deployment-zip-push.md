@@ -29,7 +29,7 @@ For faster iteration during development, it's often easier to deploy your functi
 + Deployment logs.
 + Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-For more information, see the [.zip push deployment reference][.zip push deployment reference]. 
+For more information, see the [.zip push deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
 ## Deployment .zip file requirements
 The .zip file that you use for push deployment must contain all of the project files in your function app, including your function code. 
