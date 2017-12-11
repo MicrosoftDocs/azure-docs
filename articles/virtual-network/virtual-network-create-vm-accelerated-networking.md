@@ -201,7 +201,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
       >
-5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow detailed in [RHEL and CentOS](rhel-and-centos):
+5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow detailed in [RHEL and CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
