@@ -32,22 +32,18 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 <a id="direct-connection"></a>
 
-1. **Connection policy: Use direct connection mode**
+1. **Connection mode: Use DirectHttps**
 
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There is one key configuration setting available for configuring the client [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – the [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  The two available ConnectionModes are:
 
-   1. Gateway Mode (default)]()
-   2. Direct Mode
+   1. [Gateway (default)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.gateway)
+   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode.directhttps)
 
-      Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops.
-<a id="use-tcp"></a>
-2. **Connection policy: Use the HTTPS protocol**
+    Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 
-    When using Direct Mode, use a connectivity mode of HTTPS. 
+    The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
 
-    Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS; HTTPS uses SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible. If Java is used only HTTPS port 443 needs to be open. 
-
-    The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
+    The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
 
     ```Java
     public ConnectionPolicy getConnectionPolicy() {
@@ -56,19 +52,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
         policy.setMaxPoolSize(1000);
         return policy;
     }
-    
+        
     ConnectionPolicy connectionPolicy = new ConnectionPolicy();
     DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
     ```
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips-java/connection-policy.png)
 
-3. **Call OpenAsync to avoid startup latency on first request**
-
-    After the first request has warmed up the cache, later requests will have improved latency. The first request has a higher latency because it has to fetch the address routing table. 
-
    <a id="same-region"></a>
-4. **Collocate clients in same Azure region for performance**
+2. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
@@ -83,7 +75,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Each [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
-3. **Increase System.Net MaxPoolSize per host when using Gateway mode**
+3. **Increase MaxPoolSize per host when using Gateway mode**
 
     Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
 
