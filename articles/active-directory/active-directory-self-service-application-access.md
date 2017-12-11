@@ -4,7 +4,7 @@ description: This article describes how to enable self-service application acces
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc

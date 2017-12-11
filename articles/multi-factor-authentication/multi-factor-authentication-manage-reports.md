@@ -4,7 +4,7 @@ description: This describes how to use the Azure Multi-Factor Authentication fea
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 keywords: configure Microsoft Passport, Microsoft Windows Hello for Business deployment
 author: MarkusVi
-manager: femila
+manager: mtillman
 tags: azure-classic-portal
 
 ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416

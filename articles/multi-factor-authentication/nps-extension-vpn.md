@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure MFA, integrate VPN, Azure Active Directory, Network Policy Server extension
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
