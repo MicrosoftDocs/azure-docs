@@ -179,7 +179,7 @@ Using any of the approaches above, the respective certificates (*.pfx) for the s
 
 Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud Service. 
 
-## What are the upcoming Cloud Service capabilities in the Azure Portal which can help manage and monitor applications?
+## What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?
 
 * Ability to generate a new certificate for Remote Desktop Protocol (RDP) is coming soon. Alternatively, you can run this script:
 
@@ -227,10 +227,10 @@ We are working on bringing this feature on the Azure portal. Meanwhile, you can 
 
 ## I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
 
-This error may occur if you use that .RDP file from a machine that is joined to Azure AD. To resolve this issue, follow these steps:
+This error may occur if you use the RDP file from a machine that is joined to Azure Active Directory. To resolve this issue, follow these steps:
 
 1. Right-click the RDP file you downloaded and then select **Edit**.
-2. Add ".&#47;" as prefix before the username. For example, use **.\myadminusername** instead of  **myadminusername**.
+2. Add ".&#47;" as prefix before the username. For example, use **.\username** instead of  **username**.
 
 ## I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
 
