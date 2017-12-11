@@ -18,6 +18,12 @@ ms.date: 12/11/2017
 ms.author: mimig
 
 ---
+> [!div class="op_single_selector"]
+> * [Java](performance-tips-java.md)
+> * [.NET](performance-tips.md)
+> 
+> 
+
 # Performance tips for Azure Cosmos DB and Java
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Cosmos DB. Scaling up and down is as easy as making a single API call or [SDK method call](set-throughput.md#set-throughput-java). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
