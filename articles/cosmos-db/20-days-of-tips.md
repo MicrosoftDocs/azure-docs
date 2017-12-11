@@ -174,7 +174,7 @@ Tip 19: Partition! Partition! Partition! The why and how in Azure #CosmosDB. Doc
 
 Tip 20: Everyone loves a good old cheatsheet. Azure #CosmosDB has one too. Check it out at [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Cheatsheet: [Azure Cosmos DB: DocumentDB API SQL query cheat sheet PDF](https://aka.ms/Nt01nl)
+Cheatsheet: [Azure Cosmos DB: SQL query cheat sheet PDF](https://aka.ms/Nt01nl)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 
