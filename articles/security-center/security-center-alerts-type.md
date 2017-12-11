@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
 
 ---
@@ -50,6 +50,45 @@ The following fields are common to the crash dump alert examples that appear lat
 * DUMPFILE: Name of the crash dump file.
 * PROCESSNAME: Name of the crashing process.
 * PROCESSVERSION: Version of the crashing process.
+
+### Code Injection Discovered
+Code injection is the insertion of executable modules into running processes or threads.  This technique is used by malware to access data, hide or prevent its removal (e.g. persistence). This alert indicates that an injected module is present in the crash dump. Legitimate software developers occasionally perform code injection for non-malicious reasons, such as modifying or extending an existing application or operating system component.  To help differentiate between malicious and non-malicious injected modules, Security Center checks whether or not the injected module conforms to a profile of suspicious behavior. The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps. 
+
+This alert provides the following additional fields:
+
+- ADDRESS: The location in memory of the injected module
+- IMAGENAME: The name of the injected module. Note that this can be blank if the image name is not provided within the image.
+- SIGNATURE: Indicates if the injected module conforms to a profile of suspicious behavior. 
+
+The table below shows examples of results and their description:
+
+| Signature value                      | Description                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Suspicious reflective loader exploit | This suspicious behavior often correlates with loading injected code independently of the operating system loader |
+| Suspicious injected exploit          | Signifies maliciousness that often correlates to injecting code into memory                                       |
+| Suspicious injecting exploit         | Signifies maliciousness that often correlates to use of injected code in memory                                   |
+| Suspicious injected debugger exploit | Signifies maliciousness that often correlates to detection or circumvention of a debugger                         |
+| Suspicious injected remote exploit   | Signifies maliciousness that often correlates to command n control (C2) scenarios                                 |
+
+Here an example of this type of alert:
+
+![Code injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### Suspicious Code Segment
+The suspicious code segment indicates that a code segments has been allocated using non-standard methods, such as used by reflective injection and process hollowing.  Additionally this alert process additional characteristics of the code segment to provide context as to the capabilities and behaviors of the reported code segment.
+
+This alert provides the following additional fields:
+
+- ADDRESS: The location in memory of the injected module
+- SIZE: The size of the suspicious code segment
+- STRINGSIGNATURES: This field list capabilities of APIs whose function names are contained within the code segment. Examples capabilities might include:
+	- Image Section Descriptors, Dynamic Code Execution for x64, Memory allocation and loader capability, Remote code injection capability, Hijack control capability, Read environment variables, Read arbitrary process memory, Query or modify token privileges, HTTP/HTTPS network communication, and Network socket communication.
+- IMAGEDETECTED: This field indicates if a PE image was injected into the process where the suspicious code segment was detected and at what address the injected module starts.
+- SHELLCODE: This field indicates the presence of behavior commonly used by malicious payloads to acquire access to additional security sensitive operating system functions. 
+
+Here an example of this type of alert:
+
+![Suspicious code segment alert](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### Shellcode discovered
 Shellcode is the payload that is run after malware exploits a software vulnerability. This alert indicates that crash dump analysis has detected executable code that exhibits behavior that is commonly performed by malicious payloads. Although non-malicious software may perform this behavior, it is not typical of normal software development practices.

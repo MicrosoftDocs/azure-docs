@@ -10,13 +10,14 @@ tags: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: tutorial-develop
+ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: mimig
+
 
 ---
 

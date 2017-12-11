@@ -331,6 +331,8 @@ The following program shows how to:
 
 Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
+
+
 #### Example
 
     using System;

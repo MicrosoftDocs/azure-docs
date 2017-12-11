@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
 
 ---
@@ -29,7 +29,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 > * Install WordPress on the LAMP server
 
 
-For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
+This setup is for quick tests or proof of concept. For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,13 +39,12 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Install Apache, MySQL, and PHP
 
-Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command.
+Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which is part of the `lamp-server^` package name. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 You are prompted to install the packages and other dependencies. When prompted, set a root password for MySQL, and then [Enter] to continue. Follow the remaining prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
@@ -75,15 +74,15 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-We recommend running the following script to help secure the installation of MySQL:
+To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step.
 
 ```bash
 mysql_secure_installation
 ```
 
-Enter your MySQL root password, and configure the security settings for your environment.
+Enter a root password for MySQL, and configure the security settings for your environment.
 
-If you want to create a MySQL database, add users, or change configuration settings, login to MySQL:
+If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial.
 
 ```bash
 mysql -u root -p

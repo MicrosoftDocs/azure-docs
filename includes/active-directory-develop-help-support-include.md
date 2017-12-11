@@ -1,6 +1,6 @@
-## Help & Support
+## Help and support
 
-If you need help, report an issue or need to know about your support options, please see the article below:
+If you need help, want to report an issue, or would like to learn more about your support options, see the following article:
 
 > [!div class="nextstepaction"]
-> [Help and Support for Developers](../articles/active-directory/develop/active-directory-develop-help-support.md)
+> [Help and support for developers](../articles/active-directory/develop/active-directory-develop-help-support.md)

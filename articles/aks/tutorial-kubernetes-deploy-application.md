@@ -1,20 +1,12 @@
 ---
-title: Kubernetes on Azure tutorial  - Deploy Application | Microsoft Docs
+title: Kubernetes on Azure tutorial  - Deploy Application
 description: AKS tutorial - Deploy Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -31,7 +23,7 @@ In this tutorial, part four of eight, a sample application is deployed into a Ku
 
 In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
 
-This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
+This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
 ## Before you begin
 
@@ -39,13 +31,13 @@ In previous tutorials, an application was packaged into a container image, this 
 
 To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
-If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md). 
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 ## Update manifest file
 
 In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before running the application, the ACR login server name needs to be updated in the Kubernetes manifest file.
 
-Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the ACR login server name with the [az acr list][az-acr-list] command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -69,7 +61,7 @@ Save and close the file.
 
 ## Deploy application
 
-Use the [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
+Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -86,9 +78,9 @@ service "azure-vote-front" created
 
 ## Test application
 
-A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
+A [Kubernetes service][kubernetes-service] is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -122,4 +114,15 @@ In this tutorial, the Azure vote application was deployed to a Kubernetes cluste
 Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
 
 > [!div class="nextstepaction"]
-> [Scale Kubernetes application and infrastructure](./tutorial-kubernetes-scale.md)
+> [Scale Kubernetes application and infrastructure][aks-tutorial-scale]
+
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
+[az-acr-list]: /cli/azure/acr#list

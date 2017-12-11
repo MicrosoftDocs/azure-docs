@@ -4,7 +4,7 @@ description: How to configure Kerberos Constrained Delegation for an Azure AD Ap
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

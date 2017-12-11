@@ -47,7 +47,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | 
 | [Virtual Network](documentation-government-networking.md#support-for-virtual-network) | |
 | [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | |
-| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | |
+| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manager) | |
 | [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | |
 | [Application Gateway](documentation-government-networking.md#support-for-application-gateway) | |
 
