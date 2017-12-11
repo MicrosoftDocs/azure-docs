@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration can be used with Azure AD 
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

@@ -68,7 +68,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ### Write code to send messages to the queue
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
     ```csharp
     using System.Text;
@@ -144,11 +144,11 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     ```csharp
     namespace CoreSenderApp
     {
-        using Microsoft.Azure.ServiceBus;
         using System;
         using System.Text;
         using System.Threading;
         using System.Threading.Tasks;
+        using Microsoft.Azure.ServiceBus;
 
         class Program
         {
@@ -216,7 +216,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 
 ### Write code to receive messages from the queue
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
     ```csharp
     using System.Text;
@@ -320,11 +320,11 @@ To receive the messages you just sent, create another .NET Core console applicat
     ```csharp
     namespace CoreReceiverApp
     {
-        using Microsoft.Azure.ServiceBus;
         using System;
         using System.Text;
         using System.Threading;
         using System.Threading.Tasks;
+        using Microsoft.Azure.ServiceBus;
 
         class Program
         {
