@@ -17,11 +17,11 @@ To create a namespace:
 Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
 
 1. In the list of namespaces, click the newly created namespace name.
-2. In the namespace blade, click **Shared access policies**.
-3. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
+2. In the namespace window, click **Shared access policies**.
+3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
     ![connection-string][connection-string]
 
