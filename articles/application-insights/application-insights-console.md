@@ -47,20 +47,19 @@ At this point, you should be able to manually track telemetry and see it on the 
     
     // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
     module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.chinacloudapi.cn");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.cloudapi.de");    
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.usgovcloudapi.net");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("localhost");
-    module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("127.0.0.1");
-
+    //...
+    
     // enable known dependency tracking, note that in future versions, we will extend this list. 
     // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
     module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
     module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
-
+    //....
+    
     // initialize the module
     module.Initialize(configuration);
 
+    // tun ...
+    
     // when application stops or your are done with dependency tracking, do not forget to dispose the module
     dependencyTrackingModule.Dispose();
 ```
@@ -77,7 +76,7 @@ At this point, you should be able to manually track telemetry and see it on the 
 
 8.  For .NET Framework Windows app, you may also install and initialize Performance Counter collector module as described [here](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
-## Sample
+## Full Example
 
 ```C#
     static void Main(string[] args)
@@ -117,7 +116,6 @@ At this point, you should be able to manually track telemetry and see it on the 
         // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
         module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");    dependencyTrackingModule.Initialize(TelemetryConfiguration.Active);
         module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");    
-
 
         // initialize the module
         module.Initialize(configuration);
