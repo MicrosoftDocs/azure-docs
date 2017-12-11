@@ -18,44 +18,50 @@ ms.author: glenga
 
 ---
 # Zip push deployment for Azure Functions 
-This topic describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment using both the Azure CLI and the REST APIs. Azure Functions has the full range of continuous deployment and integration options provided by Azure App Service, for more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). However, for faster iteration during development, it is often easier to deploy your function app project files directly from a compressed .zip file.
+This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. 
 
-This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, which includes the following functionality:
+Azure Functions has the full range of continuous deployment and integration options provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). 
 
-+ Deletion of files leftover from a previous deployment.
+However, for faster iteration during development, it's often easier to deploy your function app project files directly from a compressed .zip file.
+
+This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
+
++ Deletion of files left over from an earlier deployment.
 + Deployment customization, including running deployment scripts.
 + Deployment logs.
-+ Synchronizing function triggers in a [Consumption plan](functions-scale.md) function app.
++ Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-For more information, see the [.zip push deployment reference topic]. 
+For more information, see the [.zip push deployment reference]. 
 
 ## Requirements of the deployment .zip file 
-The .zip file you use for push deployment must contains all of the project files in your function app, including your function code. 
+The .zip file that you use for push deployment must contain all of the project files in your function app, including your function code. 
 
 >[!IMPORTANT]
-> When you use .zip push deployment, any files from an existing deployment not found in the .zip file are deleted from your function app.  
+> When you use .zip push deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
 ### Function app folder structure
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### Downloading your function app project
+### Download your function app project
 
-When you are doing local development, it is easy to create a .zip file of the function app project folder on your development computer. However,you may have also created your functions using the in-portal editor. To download your function app project from the portal: 
+When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer. 
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to your function app.
+However, you might have created your functions by using the editor in the Azure portal. To download your function app project from the portal: 
 
-2. In the **Overview** tab, select **Download app content**, choose your download options, and click **Download**.     
+1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
+
+2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.     
 
     ![Download the function app project](./media/deployment-zip-push/download-project.png)
 
-The downloaded .zip file is in the correct format to be republished to your function app using .zip push deployment.
+The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment.
 
-GitHub also lets you download a .zip file from a repository. Keep in mind that when you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch, which means that you can't deploy the .zip file downloaded from GitHub as is. If you are using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
+GitHub also lets you download a .zip file from a repository. Keep in mind that when you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file that you downloaded from GitHub as-is. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
 
-## <a name="cli"></a>Deploy using the Azure CLI
+## <a name="cli"></a>Deploy by using Azure CLI
 
-You can use the Azure CLI to trigger a push deployment. Push deploy a  .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip) command. You must use Azure CLI version 2.0.21 or later. Use the `az --version` command to see what version you are using.
+You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
 
 In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app. 
 
@@ -63,9 +69,9 @@ In the following command, replace the `<zip_file_path>` placeholder with the pat
 az functionapp deployment source config-zip  -g myResourceGroup -n \
 <app_name> --src <zip_file_path>
 ```
-This command deploys project files from the downloaded .zip file to your function app in Azure and restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
+This command deploys project files from the downloaded .zip file to your function app in Azure. It then restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
 
-When you are using the Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in the [Azure Cloud Shell](../cloud-shell/overview.md). When using Cloud Shell, you must first upload your deployment .zip file to the Azure File account associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location used by your Cloud Shell account. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
+When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When using Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location used by your Cloud Shell account. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
