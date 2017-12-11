@@ -83,12 +83,6 @@
       href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
-  - name: Migrate your database
-    items:
-    - name: Dump & restore
-      href: concepts-migrate-dump-restore.md
-    - name: Import & export
-      href: concepts-migrate-import-export.md
 - name: How-to guides
   items:
   - name: Manage a Server
@@ -107,6 +101,12 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
+  - name: Migrate a database
+    items:
+    - name: Dump & restore
+      href: concepts-migrate-dump-restore.md
+    - name: Import & export
+      href: concepts-migrate-import-export.md
   - name: Connect applications
     items:
     - name: Create users

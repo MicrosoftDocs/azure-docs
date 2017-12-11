@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: authentication server, azure multi factor authentication app activation page, authentication server download
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication

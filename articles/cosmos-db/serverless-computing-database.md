@@ -41,7 +41,7 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 * An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger, and can be used with or without an output binding as well. You could use this combination to apply up-to-date currency exchange information (pulled in with an input binding to an exchange container) to the change feed of new orders in your shopping cart service. The updated shopping cart total, with the current currency conversion applied, can be written to a third container using an output binding.
 
 > [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with DocumentDB, Table, and Graph API accounts only.
+> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL, Table, and Graph API accounts only.
 
 ## Use cases
 
