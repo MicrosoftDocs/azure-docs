@@ -24,15 +24,15 @@ Use the information in the following table to troubleshoot errors that you encou
 
 ## Invalid vault credentials provided 
 
-To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
+To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## The agent operation failed because of a communication error with the DPM agent coordinator service on the server 
 
-To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
 
 ## Setup could not update registry metadata
 
-To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues).
+To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#installation-issues).
 
 
 ## Installation issues
