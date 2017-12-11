@@ -18,13 +18,13 @@ ms.date: 12/11/2017
 ms.author: cgronlun
 
 ---
-# Operationalize the Data Pipeline
+# Operationalize a data analytics pipeline
 
-A key component of any data analytics solution is the data pipeline that acquires data, cleans and shapes the data and performs and desired calculations or aggregations prior to landing the data in the serving location, from which it will ultimately be consumed by clients, reports or API's. Fundamental to the success of the data pipeline is repeatability, enabling the data movement and processing performed by the pipeline to be performed on a schedule or triggered by the availability of new data. 
+*Data pipelines* underly many data analytics solutions. As the name suggests, a data pipeline takes in raw data, cleans and reshapes it as needed, and then typically performs calculations or aggregations before storing the processed data. The processed data is consumed by clients, reports, or APIs. A data pipeline must provide repeatable results, whether on a schedule or when triggered by new data.
 
-This article introduces how to operationalize your data pipelines that achieve this repeatability using Oozie running on HDInisght Hadoop clusters to build a complete data pipeline to prepare and process airline flight time-series data. 
+This article describes how to operationalize your data pipelines for repeatability, using Oozie running on HDInsight Hadoop clusters. The example scenario walks you through a data pipeline that prepares and processes airline flight time-series data.
 
-In this scenario, suppose that you receive a flat file containing a batch of flight data for a time period (e.g., monthly). This flight data includes information such as the origin and destination airport, the miles flown, the departure and arrival times, and a whole host of other data. Your goal with this pipeline is to be able to summarize airline performance by day, such that each airline has one row for each day describing the total miles they flew that day, as well as the average departure and arrival delays in minutes.
+In the following scenario, the input data is a flat file containing a batch of flight data for one month. This flight data includes information such as the origin and destination airport, the miles flown, the departure and arrival times, and so forth. The goal with this pipeline is to summarize daily airline performance, where each airline has one row for each day with the average departure and arrival delays in minutes, and the total miles flown that day.
 
 | YEAR | MONTH | DAY_OF_MONTH | CARRIER |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,33 +32,31 @@ In this scenario, suppose that you receive a flat file containing a batch of fli
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
+The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
 
-You want to build a pipeline that whenever a new time period worth of flight data arrives, the detailed flight information is stored with your Hive data warehouse to support long term analytics and enables you to ask new questions of the data. At the same time you are creating a much smaller, summarized version of the flight data that has just the daily flight summaries you need at the moment. You want to be able to store the daily flight summary data in a SQL Database that provides the reports for your website. 
-
-The following diagram illustrates the desired pipeline that is implemented in this article: 
+The following diagram illustrates the example pipeline.
 
 ![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-This recurring data pipeline can be implemented using Oozie, and this article shows how to implement it in a step by step fashion.
-
 ## Oozie Solution Overview
-The desired pipeline can be achieved using Apache Oozie running within an HDInsight Hadoop cluster. 
 
-Oozie describes its pipelines in terms of actions, workflows and coordinators. Actions are what describe the actual work to perform, such as running a Hive query. Workflows define the sequence of actions. A coordinator defines the schedule overwhich the workflow is run, and can check for the availability of new data prior to launching an instance of the workflow, delaying the run as needed. 
+This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
 
-The following diagram captures the high level design of the pipeline using Oozie:
+Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinators*. Actions determine the actual work to perform, such as running a Hive query. Workflows define the sequence of actions. A coordinator defines the schedule for when the workflow is run. A coordinator can also wait on the availability of new data before launching an instance of the workflow.
+
+The following diagram shows the high-level design of this example Oozie pipeline.
 
 ![Oozie Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
 
-The sections that follow walk thru the implementation of this pipeline.
+### Provision Azure resources
 
-### Provision Azure Resources
-To follow along with this article, you will need to provision an Azure SQL Database and an HDInsight Hadoop cluster in the same location. The Azure SQL Database will be used both to store the summary data produced by the pipeline, as well as the metadata store for Oozie.
+This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in the same location. The Azure SQL Database stores both the summary data produced by the pipeline and the Oozie metadata store.
 
-#### Provision SQL Database
-1. Using the Azure Portal, create a new Resource Group called oozie that will contain all of the resources used by this article.
-2. Within the oozie resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.  
-4. Using the Azure Portal, navigate to the blade of your newly deployed SQL Database, and select Tools.
+#### Provision Azure SQL Database
+
+1. Using the Azure portal, create a new Resource Group called oozie that will contain all of the resources used by this article.
+2. Within the oozie resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
+1. Using the Azure Portal, navigate to the pane of your newly deployed SQL Database, and select Tools.
 
     ![Tools button](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
 
@@ -66,7 +64,7 @@ To follow along with this article, you will need to provision an Azure SQL Datab
 
     ![Query Editor button](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
 
-6. In the Query Editor blade, select Login. 
+6. In the Query Editor pane, select Login. 
 
     ![Login button](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
 
@@ -102,21 +100,21 @@ To follow along with this article, you will need to provision an Azure SQL Datab
 #### Provision an HDInsight Hadoop Cluster
 1. Using the Azure Portal, select +New and search for HDInsight.
 2. Select Create.
-3. On the basics blade provide a unique name for your cluster and choose your Azure Subscription.
+3. On the basics pane provide a unique name for your cluster and choose your Azure Subscription.
 
     ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
 
 4. Select Cluster type.
-5. On the Cluster type blade, select the Hadoop cluster type, Linux operating system and the latest version of the HDInsight cluster. Leave the Cluster tier at Standard.
+5. On the Cluster type pane, select the Hadoop cluster type, Linux operating system and the latest version of the HDInsight cluster. Leave the Cluster tier at Standard.
 
     ![HDInsight cluster type](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
 
 6. Choose select to apply your cluster type selection.
-7. Complete the Basics blade by providing a login password and selecting your oozie resource group from the list and select Next.
+7. Complete the Basics pane by providing a login password and selecting your oozie resource group from the list and select Next.
 
-    ![HDInsight Basics blade](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
+    ![HDInsight Basics pane](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
 
-8. On the Storage blade, leave the primary storage type set to Azure Storage, select Create new and provide a name for the new account.
+8. On the Storage pane, leave the primary storage type set to Azure Storage, select Create new and provide a name for the new account.
 
     ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
@@ -137,10 +135,11 @@ To follow along with this article, you will need to provision an Azure SQL Datab
        ![HDInsight Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
 13. Select Next.
-14. On the Summary blade, select Create to deploy your cluster.
+14. On the Summary pane, select Create to deploy your cluster.
 
 
 ### Verify SSH Tunneling Setup
+
 In order to utilize the Oozie Web Console to view the status of your coordinator and workflow instances, you will need to setup an SSH tunnel to your HDInsight cluster. 
 
 Detailed step by step instructions are available in the article [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
@@ -164,12 +163,9 @@ To access the Oozie Web Console, from Ambari, select Oozie, Quick Links and then
 If you can access the Oozie Web Console, you are good to go.
 
 ### Configure Hive
-You will need to upload the CSV file `2017-01-FlightData.csv` containing sample data for one month of flight data. 
-<!-- {TODO tbd This file type is not allowed}
-You will need to upload the CSV file that contains sample data for one month flight data. 
 
-You can download this CSV file from here: [2017-01-FlightData.csv](./code/hdinsight-operationalize-data-pipeline/setup/2017-01-FlightData.csv)
--->
+You will need to upload the CSV file `2017-01-FlightData.csv` containing sample data for one month of flight data. 
+<!-- {TODO tbd This file type is not allowed}  You will need to upload the CSV file that contains sample data for one month flight data. You can download this CSV file from here: [2017-01-FlightData.csv](./code/hdinsight-operationalize-data-pipeline/setup/2017-01-FlightData.csv)  -->
 
 Copy this file up to the Azure Storage account attached to your HDInsight cluster and place it in the /example/data/flights folder.
 
@@ -252,6 +248,7 @@ The sample data you will process is now available. However, the pipeline require
 You are now ready to begin constructing your pipeline.
 
 ### Create the Oozie workflow
+
 When defining a pipeline, it is typical to batch the data flowing thru the pipeline according to a time interval. In the case of the scenario, the pipeline processes the flight data on a daily interval. This approach provides flexibility in that it allows the input CSV files to arrive daily, weekly, monthly or annually and the pipeline continues to work with little modification.
 
 The workflow you will be build processes the flight data in this day by day fashion, following three major steps:
@@ -439,6 +436,7 @@ Notice that the above job.properties file configures the workflow to run for the
 Before you can deploy and run your Oozie workflow, be sure to update your copy of the job.properties file with the values specific to your environment. 
 
 ### Deploy and run the Oozie Workflow
+
 To deploy your Oozie workflow (workflow.xml), the Hive queries (hive-load-flights-partition.hql and hive-create-daily-summary-table.hql) and the job.properties configuration file, you can use SCP from your bash session. 
 
 With Oozie, the only the job.properites file must exist on the local storage of the headnode. All other files must be stored in HDFS (Azure Storage). Additionally, the Sqoop action used by the workflow depends on a JDBC driver for communicating with SQL Database, which must be copied from the head node to HDFS. The following instructions walk thru each of these steps:
@@ -614,8 +612,8 @@ The only new properties introduced in this job.properties are:
 | hiveDailyTableNamePrefix | The prefix that will be used when dynamically creating the table name of the staging table |
 | hiveDataFolderPrefix | The prefix of the path to where all the staging tables will be stored |
 
-
 ### Deploy and run the Oozie Coordinator
+
 To run the pipeline with a coordinator, you proceed in a similar fashion as for the workflow, except you work from a folder one level above the folder that contains your workflow. This convention enables you to separate the coordinators from the workflows on disk, and also enables you to easily associate a coordinator with different "child" workflows. 
 
 1. Use SCP from your local machine to copy the coordinator files up to the local storage of the head node of your cluster:
@@ -644,12 +642,8 @@ To run the pipeline with a coordinator, you proceed in a similar fashion as for 
 
 Each action in this list correlates to an instance of the workflow intended to process one day's worth of data, where the start of that day is indicated by the nominal time.
 
-## Next steps
+## See also
 
-In this article, we took a deep dive into operationalizing a data pipeline using Oozie.
+* [Apache Oozie Documentation](http://oozie.apache.org/docs/4.2.0/index.html)
 
-<!-- 
-* Build the same pipeline [using Azure Data Factory](tbd.md). 
--->
-* Read the [Apache Oozie Documentation](http://oozie.apache.org/docs/4.2.0/index.html)
-
+<!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->
