@@ -320,11 +320,11 @@ To receive the messages you just sent, create another .NET Core console applicat
     ```csharp
     namespace CoreReceiverApp
     {
-        using Microsoft.Azure.ServiceBus;
         using System;
         using System.Text;
         using System.Threading;
         using System.Threading.Tasks;
+        using Microsoft.Azure.ServiceBus;
 
         class Program
         {
