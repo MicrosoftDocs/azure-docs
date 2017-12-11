@@ -92,4 +92,3 @@ Learn more about deploying and managing AKS with the AKS tutorials.
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-
