@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/08/2017
+ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -108,7 +108,7 @@ The Jenkins agent connects with the Jenkins server via the Java Network Launch P
 
 You need an Azure service principal to deploy to Azure. The following steps guide you through the process of creating a service principal (if you don't already have one), and updating Jenkins with your service principal.
 
-1. [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
+1. If you already have a service principal (and know its subscription ID, tenant, appId, and password), you can skip this step. If you need to create a security principal, refer to the article [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, make note of the values for the subscription ID, tenant, appId, and password.
 
 1. Select **Credentials**.
 
@@ -169,6 +169,8 @@ When finished, the `az group create` command displays results similar to the fol
 ```
 
 ## 7. Install the Azure Container Agents plugin for Jenkins
+
+If you've already installed the Azure Container Agents plugin, you can skip this section.
 
 Once you have the Azure resource group created for your Jenkins agent, the following steps illustrate how to install the Azure Container Agents plugin:
 
@@ -323,4 +325,5 @@ az group delete -n <resourceGroup>
 ```
 
 ## Next steps
-- [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/en-us/azure/jenkins/).
+> [!div class="nextstepaction"]
+> [Visit the Jenkins on Azure hub to see the latest articles and samples](https://docs.microsoft.com/en-us/azure/jenkins/)
