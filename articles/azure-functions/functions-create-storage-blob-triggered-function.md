@@ -59,7 +59,7 @@ Next, you create a function in the new function app.
     |---|---|---|
     | **Name** | Unique in your function app | Name of this blob triggered function. |
     | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
-    | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
+    | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
 3. Click **Create** to create your function.
 
