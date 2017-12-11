@@ -19,11 +19,11 @@ ms.author: heidist
 ---
 # Data security and controlled access to Azure Search operations
 
-In Azure Search, security is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) compliant, spanning physical security, encrypted transmissions, encrypted stroage, platform-wide software safeguards, culminating with authentication and per-use access control on operations and content in Azure Search. This article touches on security at each layer, but is primarily focused on how data and operations are secured in Azure Search.
+Azure Search is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) compliant, with comprehensive security architecture spanning physical security, encrypted transmissions, encrypted storage, and platform-wide software safeguards. Operationally, Azure Search only accepts authenticated requests. Optionally, you can add per-user access controls on content. This article touches on security at each layer, but is primarily focused on how data and operations are secured in Azure Search.
 
 ![Block diagram of security layers](media/search-security-overview/azsearch-security-diagram.png)
 
-Access to Azure Search operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Per-user access to content is optionally implemented through security filters on your queries, returning documents associated with a given security identity.
+Access to Azure Search operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Per-user access to content is implemented through security filters on your queries, returning documents associated with a given security identity.
 
 Service access is a cross-section of basic permissions (read or read-write) plus a context that defines a scope of operations. For example, for both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), the two permission levels satisfy most operational security requirements. Every operation requires an access key on the request.
 
