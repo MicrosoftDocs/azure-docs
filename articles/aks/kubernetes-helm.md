@@ -56,8 +56,9 @@ helm init
 Output:
 
 ```
-$HELM_HOME has been configured at /Users/user/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
