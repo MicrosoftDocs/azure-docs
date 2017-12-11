@@ -25,11 +25,12 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 > You can update the application manifest using the inline editor or you can download and upload it as a JSON file.
 
 **Manifest Reference**
+[!div class="mx-tdBreakAll"]
 
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Guid string       |`<guid>`|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
-|appRoles     |    array     |[{"allowedMemberTypes":["User"],"description":"Read only access to device information","displayName":"Read Only","id":"<guid>","isEnabled":true,"value":"ReadOnly"}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
+|appRoles     |    array     |<pre>[{<br>"allowedMemberTypes":[<br><pre> "User"<br>],<br>"description":"Read only access to device information",<br>"displayName":"Read Only",<br>"id":"`<guid>`",<br>"isEnabled":true,<br>"value":"ReadOnly"<br>}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
 |availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
@@ -45,14 +46,14 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |oauth2AllowUrlPathMatching     |   boolean      |  `false`       |   Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow path matching of the redirect URI against the application's replyUrls. The default is false.      |
 |oauth2Permissions     | array         |      `[{"adminConsentDescription":"Allow the application to access resource1 on behalf of the signed-in user.","adminConsentDisplayName":"Access resource1","id":"<guid>","isEnabled":true,"type":"User","userConsentDescription":"Allow the application to access resource1 on your behalf.","userConsentDisplayName":"Access resource1","value":"user_impersonation"}]`   |  The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. |
 |oauth2RequiredPostResponse     | boolean        |    `false`     |      Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.   
-|objectId     | Guid string        |     `<guid>`    |    The unique identifier for the application (inherited from the directory object).     |
+|objectId     | Guid string        |     `<guid>`    |    The unique identifier for the application in the directory.  This is not the identifier used to identify the app in any protocol transaction.  It is user for the referencing the object in directory queries.|
 |passwordCredentials     | array        |   `[{"customKeyIdentifier":null,"endDate":"2018-10-19T17:59:59.6521653Z","keyId":"<guid>","startDate":"2016-10-19T17:59:59.6521653Z","value":null}]`      |    The collection of password credentials associated with the application     |
 |publicClient     |  boolean       |      `false`   | Specifies whether an application is a public client (such as an installed application running on a mobile device). Default is false.        |
 |supportsConvergence     |  string       |   `false`      |  Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources.       |
 |requiredResourceAccess     |     array    |    `[{"resourceAppId":"00000002-0000-0000-c000-000000000000","resourceAccess":[{"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6","type":"Scope"}]}]`     |   Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.|
 |resourceAppId     |    Guid string     |  `<guid>`       |   The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.      |
 |resourceAccess     |  array       |         |   The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.       |
-|samlMetadataUrl     |    string     |    http://MyRegisteredAppSAMLMetadata     |  The URL to the SAML metadata for the application.       | 
+|samlMetadataUrl|string|http://MyRegisteredAppSAMLMetadata|The URL to the SAML metadata for the application.| 
 
 ## Next steps
 * For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
