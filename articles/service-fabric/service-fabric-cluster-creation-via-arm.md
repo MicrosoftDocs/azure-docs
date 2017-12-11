@@ -27,7 +27,7 @@ This step-by-step guide walks you through setting up a secure Azure Service Fabr
 
 The guide covers the following procedures:
 
-* Key Concepts that you need to be aware off before deploying a service fabric cluster.
+* Key Concepts that you need to be aware of before deploying a service fabric cluster.
 * Creating a cluster in Azure by using service fabric Resource Manager modules.
 * Setting up Azure Active Directory (Azure AD) for authenticating users performing management operations on the cluster.
 * Authoring a custom Azure Resource Manager template for your cluster and deploying it.
