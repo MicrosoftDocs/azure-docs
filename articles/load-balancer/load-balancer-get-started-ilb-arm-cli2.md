@@ -166,6 +166,9 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
     ```
     > [!IMPORTANT]
     > VMs in a load balancer need to be in the same availability set. Use `az vm availability-set create` to create an availability set.
+    > [!NOTE]
+    > When you specify a NIC card within the a VM Create command, you are not required to also pass in the 
+    > VNet and corresponding Subnet as you are in other commands specified above. 
 
 4. Create a virtual machine (VM) named *DB2*, and then associate it with the NIC named *lb-nic2-be*. As is recommended, this VM is automatically created using managed disks.
 
