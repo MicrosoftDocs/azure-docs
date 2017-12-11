@@ -8,7 +8,7 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 12/11/2017
 ms.author: heidist
 ---
 
@@ -24,7 +24,23 @@ Currently, Sentiment Analysis supports English, German, Spanish, and French. Oth
 
 Text Analytics uses a machine learning classification techniques algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
 
-Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text.
+Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. Major phases of sentiment anlysis are described in the following sections.
+
+### Phase 1: Analyze for objectivity
+
+As a first step, documents are analyzed for objectivity. Documents consisting of predominantly objective statements are often assigned a sentiment score of .50, indicating neutrality. For example, "the sky is very blue today", which might be construed as positive if you like sunny weather, is assessed as a purely objective statement, and thus scored at .50 or neutral, by the text analyzer.
+
+### Phase 2: Assess the degree of sentiment
+
+Assuming a document is not purely objective, the next phase assigns a degree of positive or negative sentiment. If a document contains multiple sentences, a quantity of neutral sentences within the document can offset a single strongly positive statement. The following example illustrates the behavior.
+
+| Example | Score |
+|--------|-------|
+| "Roses are red." | .50 |
+| "This is wonderful!" | .93 |
+| "Roses are red. Violets are blue. Candy is sweet. And so are you. This is wonderful!" | .50 |
+
+To minimize the offsetting effects of neutral statements, try analyzing each sentence individually.
 
 ## Preparation
 
