@@ -37,8 +37,6 @@ This section shows you how to use the **Dashboard** in the Azure portal to selec
 
 You can also create VMs using [your own images](createupload-vhd.md). To learn about this and other methods, see [Different ways to create a Windows virtual machine](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!-- 02/27/2017 Video removed as it was based on the classic portal. -->
-
 ## <a id="createvirtualmachine"> </a>Create the virtual machine
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
