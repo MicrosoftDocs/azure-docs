@@ -25,12 +25,12 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 > You can update the application manifest using the inline editor or you can download and upload it as a JSON file.
 
 **Manifest Reference**
-[!div class="mx-tdBreakAll"]
 
+>[!div class="mx-tdBreakAll"]
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Guid string       |`<guid>`|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
-|appRoles     |    array     |<pre>[{<br>"allowedMemberTypes":[<br><pre> "User"<br>],<br>"description":"Read only access to device information",<br>"displayName":"Read Only",<br>"id":"`<guid>`",<br>"isEnabled":true,<br>"value":"ReadOnly"<br>}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
+|appRoles     |    array     |[{<br>"allowedMemberTypes":[<br>"User"<br>],<br>"description":"Read only access to device information",<br>"displayName":"Read Only",<br>"id":"`<guid>`",<br>"isEnabled":true,<br>"value":"ReadOnly"<br>}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
 |availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
