@@ -1,4 +1,3 @@
-
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 Open `ViewController.swift` and replace the code with:

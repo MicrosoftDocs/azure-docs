@@ -1,4 +1,3 @@
-
 # Add sign-in with Microsoft to an ASP.NET web app
 
 This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
