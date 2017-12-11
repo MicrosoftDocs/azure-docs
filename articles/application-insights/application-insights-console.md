@@ -27,16 +27,8 @@ You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a
 * In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
 * Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you created. 
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
-* Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable): `TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";`
-At this point, you should be able to manually track telemetry and see it on the Azure portal.
-
-```C#
-    var client = new TelemetryClient();
-    client.TrackTrace("Hello World!");
-```
-
+* Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable): `TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";` At this point, you should be able to manually track telemetry and see it on the Azure portal.
 * Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
-
 * During application start-up create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 
 ```C#
@@ -54,11 +46,6 @@ At this point, you should be able to manually track telemetry and see it on the 
     
     // initialize the module
     module.Initialize(configuration);
-
-    // tun ...
-    
-    // when application stops or your are done with dependency tracking, do not forget to dispose the module
-    dependencyTrackingModule.Dispose();
 ```
 
 * Add common telemetry initializers
@@ -95,6 +82,11 @@ At this point, you should be able to manually track telemetry and see it on the 
                 httpClient.GetAsync("https://microsoft.com").Wait();
             }
         }
+
+        // run app...
+
+        // when application stops or you are done with dependency tracking, do not forget to dispose the module
+        dependencyTrackingModule.Dispose();
 
         telemetryClient.Flush();
     }
