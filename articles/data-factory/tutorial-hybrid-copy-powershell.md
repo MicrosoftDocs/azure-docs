@@ -433,7 +433,7 @@ In this step, you link your on-premises SQL Server instance to the data factory.
 
 
 ## Create datasets
-In this step, you create input and output datasets that represent input and output data for the copy operation. This action connects the on-premises SQL Server database with Azure Blob storage.
+In this step, you create input and output datasets that represent input and output data for the copy operation, which copies data from the on-premises SQL Server database to Azure Blob storage.
 
 ### Create a dataset for source SQL Database
 In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, it is the **emp** table that contains the source data. 
