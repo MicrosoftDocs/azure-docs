@@ -18,9 +18,9 @@ ms.date: 12/11/2017
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters
+# Configure Domain-joined HDInsight sandbox environment
 
-Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
+Learn how to set up an Azure HDInsight cluster with standalone Active Directory and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
 
 Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTTP users account, and an SSH user account.  The multi-user authentication can be achieved using:
 
@@ -30,19 +30,13 @@ Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTT
 
 Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. 
 
-
 > [!IMPORTANT]
 > Oozie is not enabled on domain-joined HDInsight.
 
-This article is the first tutorial of a series:
-
-* Create an HDInsight cluster connected to Azure AD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
-* Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase and Storm, to Domain-joined HDInsight soon.
-
 ## Prerequisite:
-* Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
+* Azure subscription
 
-## Create an Azure Active directory
+## Create an Active directory
 
 Azure Resource Manager template makes it easier to create Azure resources. In this section, you use an Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
 
@@ -74,7 +68,7 @@ It takes about 20 minutes to create the resources.
 
 ## Setup LDAPS
 
-The Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure AD.
+The Lightweight Directory Access Protocol (LDAP) is used to read from and write to AD.
 
 **To connect to the PDC using remote desktop**
 
@@ -154,12 +148,12 @@ In this section, you use the Azure portal to add a HDInsight cluster into the vi
 
         ![HDInsight domain joined advanced settings domain](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
         
-        - Domain name: Enter the domain name you used in [Create an Azure Active Directory](#create-an-azure-active-directory).
-        - Domain user name: Enter the AD administrator user name you used in [Create an Azure Active Directory](#create-an-azure-active-directory).
+        - Domain name: Enter the domain name you used in [Create an Active Directory](#create-an-active-directory).
+        - Domain user name: Enter the AD administrator user name you used in [Create an Active Directory](#create-an-active-directory).
         - Organization Unit: See the screenshot for an example.
         - LDAPS URL: See the screenshot for an example
         - Access user group: Enter the user group name you created in [Create AD users and groups](#optionally-createad-users-and-groups)
-    - Virtual network: Select the virtual network you created in [Create an Azure Active Directory](#create-an-azure-active-directory). The default name used in the template is **adVNET**.
+    - Virtual network: Select the virtual network you created in [Create an Active Directory](#create-an-active-directory). The default name used in the template is **adVNET**.
     - Subnet: The default name used in the template is **adSubnet**.
 
 
