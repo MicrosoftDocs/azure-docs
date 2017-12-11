@@ -22,7 +22,7 @@ ms.author: ccompy
 > [!IMPORTANT]
 > BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
 
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+>[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## Overview of the Steps
 1. Create a Hybrid Connection by entering the **host name** or **FQDN** of the on-premises resource in your private network.
@@ -61,9 +61,9 @@ To link a Web App or Mobile App in Azure App Service to an existing Hybrid Conne
 ## <a name="InstallHCM"></a>Install the Hybrid Connection Manager on-premises
 After a Hybrid Connection is created, install the Hybrid Connection Manager on the on-premises resource. It can be downloaded from your Azure web apps or from your BizTalk Service. 
 
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-> 
-> [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+ 
+[Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -90,15 +90,15 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## <a name="ManageHybridConnection"></a>Manage Hybrid Connections
 
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
->
-> [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
 
 #### Copy/regenerate the Hybrid Connection Strings
 
-> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
->
-> [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
 
 #### Use Group Policy to control the on-premises resources used by a Hybrid Connection
 1. Download the [Hybrid Connection Manager Administrative Templates](http://www.microsoft.com/download/details.aspx?id=42963).
