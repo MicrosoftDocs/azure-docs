@@ -49,20 +49,13 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* From the **Subscription** drop-down, select the Azure subscription that will be used for the cluster.
 
-	* Click **Cluster type**, and then select:
-   
-		* **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
+	* Click **Cluster type**, and then select the type of cluster (Hadoop, Spark, etc.) you want to create. For **Operating system**, click **Linux** and then select a version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
      
- 			> [!IMPORTANT]
-     		> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
-     		> 
-     		> 
+    	> [!IMPORTANT]
+    	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
+    	> 
+    	> 
 		
-		* **Operating System**: Select **Linux**.
-		
-		* **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-		
-
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
     * Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
