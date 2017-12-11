@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that describes what it is 
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
