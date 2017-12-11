@@ -117,7 +117,7 @@ Once the application is packaged correctly and passes validation, consider compr
 
 ## Compress a package
 When a package is large or has many files, you can compress it for faster deployment. Compression reduces the number of files and the package size.
-For a compressed application package, [uploading the application package](service-fabric-deploy-remove-applications.md#upload-the-application-package) may take longer compared to uploading the uncompressed package (especially if compression time is factored in), but [registering](service-fabric-deploy-remove-applications.md#register-the-application-package) and [un-registering the application type](service-fabric-deploy-remove-applications.md#unregister-an-application-type) are faster.
+For a compressed application package, [uploading the application package](service-fabric-deploy-remove-applications.md#upload-the-application-package) may take longer compared to uploading the uncompressed package, especially if compression is done as part of copy. With compression, [registering](service-fabric-deploy-remove-applications.md#register-the-application-package) and [un-registering the application type](service-fabric-deploy-remove-applications.md#unregister-an-application-type) are faster.
 
 The deployment mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
 The compression replaces the valid Service Fabric package with the compressed version. The folder must allow write permissions. Running compression on an already compressed package yields no changes.
@@ -187,10 +187,11 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
 ```
 
 ## Create an sfpkg
-Starting with version 6.1, Service Fabric allows provisioning from an external store. With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
+Starting with version 6.1, Service Fabric allows provisioning from an external store.
+With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
 
 The `sfpkg` file is a zip that contains the initial application package and has the extension ".sfpkg".
-Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, package, and data packages, as explained previously.
+Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, config, and data package levels, as [mentioned earlier](service-fabric-package-apps.md#compress-a-package).
 
 To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
@@ -198,11 +199,12 @@ To create an `sfpkg`, start with a folder that contains the original application
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-The `sfpkg` must be uploaded to the external store out of band. The uploaded location must allow READ permissions so Service Fabric can download the package.
-To provision the package, use external provision, and specify the download URI and the application type information.
+The `sfpkg` must be uploaded to the external store out of band, outside of Service Fabric. The external store can be any store that exposes a REST http or https endpoint. During provisioning, Service Fabric executes a GET operation to download the `sfpkg` application package, so the store must allow READ access for the package.
+
+To provision the package, use external provision, which requires the download URI and the application type information.
 
 >[!NOTE]
-> Provisioning based on image store relative path doesn't currently support `sfpkg` files. Therefore, the `sfpkg` should never be copied to the image store.
+> Provisioning based on image store relative path doesn't currently support `sfpkg` files. Therefore, the `sfpkg` should not be copied to the image store.
 
 ## Next steps
 [Deploy and remove applications][10] describes how to use PowerShell to manage application instances
