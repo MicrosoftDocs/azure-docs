@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/11/2017
 ms.author: billmath
 ---
 
@@ -26,8 +26,8 @@ ms.author: billmath
 The following scenarios are fully supported:
 
 - User sign-ins to all web browser-based applications
-- User sign-ins to Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga)
-- Office 2016, and Office 2013 _with_ modern authentication
+- User sign-ins to Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2016, and Office 2013 _with_ modern authentication
+- User sign-ins to Skype for Business Online & Hybrid applications that support modern authentication
 - Azure AD domain joins for Windows 10 devices
 - Exchange ActiveSync support
 
@@ -36,14 +36,14 @@ The following scenarios are fully supported:
 The following scenarios are _not_ supported:
 
 - User sign-ins to legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
-- User sign-ins to Skype for Business client applications, including Skype for Business 2016.
+- User sign-ins to Skype for Business client applications _without_ modern authentication.
 - User sign-ins to PowerShell version 1.0. We recommended that you use PowerShell version 2.0.
-- Azure Active Directory Domain Services.
 - App passwords for Multi-Factor Authentication.
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 
 >[!IMPORTANT]
->As a workaround for unsupported scenarios _only_, enable password hash synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+>As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 >[!NOTE]
 Enabling password hash synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
