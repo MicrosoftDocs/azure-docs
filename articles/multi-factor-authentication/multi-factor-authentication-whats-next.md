@@ -343,6 +343,7 @@ Users can create app passwords during their initial registration. The user has t
 
 Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
+<a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## Remember Multi-Factor Authentication for trusted devices
 The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
 
