@@ -3,8 +3,8 @@ title: Using the privileged endpoint in Azure Stack | Microsoft Docs
 description: Shows how to use the privileged endpoint in Azure Stack (for an Azure Stack operator).
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Using the privileged endpoint in Azure Stack
