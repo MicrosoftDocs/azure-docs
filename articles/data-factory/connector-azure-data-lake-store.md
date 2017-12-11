@@ -229,7 +229,7 @@ To copy data from Azure Data Lake Store, set the source type in the copy activit
 
 ### Azure Data Lake Store as sink
 
-To copy data to Azure Blob, set the sink type in the copy activity to **AzureDataLakeStoreSink**. The following properties are supported in the **sink** section:
+To copy data to Azure Data Lake Store, set the sink type in the copy activity to **AzureDataLakeStoreSink**. The following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

@@ -17,7 +17,7 @@ ms.date: 12/04/2017
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery deployment planner
+# Azure Site Recovery Deployment Planner for VMware to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Overview
@@ -52,7 +52,7 @@ The tool provides the following details:
 **On-premises infrastructure requirements**
 * The required number of configuration servers and process servers to be deployed on-premises
 
-**Cost** 
+**Estimated DR cost to Azure** 
 * Estimated total DR cost to Azure: compute, storage, network, and Azure Site Recovery license cost
 * Detail cost analysis per VM
 

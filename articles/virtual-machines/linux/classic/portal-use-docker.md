@@ -18,7 +18,7 @@ ms.date: 05/27/2016
 ms.author: rasquill
 
 ---
-# Using the Docker VM Extension with the Azure classic portal
+# Using the Docker VM Extension with the Azure portal
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
