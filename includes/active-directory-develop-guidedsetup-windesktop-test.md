@@ -1,4 +1,3 @@
-
 ## Test your code
 
 To test your application in Visual Studio, press **F5** to run your project. The **MainWindow** for your application is displayed:

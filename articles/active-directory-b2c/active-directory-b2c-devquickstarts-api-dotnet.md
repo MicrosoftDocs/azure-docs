@@ -4,7 +4,7 @@ description: How to build a .NET Web API by using Azure Active Directory B2C, se
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
