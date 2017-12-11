@@ -232,7 +232,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![Creating new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Define the new policy by performing the folowing steps:
+26. Define the new policy by performing the following steps:
 
 	![Define the new policy](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -380,10 +380,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create an Amazon Web Services (AWS) test user
 
-The objective of this section is to create a user called Britta Simon in Amazon Web Services (AWS). Amazon Web Services (AWS) supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Amazon Web Services (AWS) if it doesn't exist yet.
-
-> [!Note]
-> If you need to create a user manually, Contact [Amazon Web Services (AWS) support team](https://aws.amazon.com/contact-us/?nc2=h_l1).
+The objective of this section is to create a user called Britta Simon in Amazon Web Services (AWS). Amazon Web Services (AWS) doesn't need a user to be created in their system for SSO, so you don't need to perform any action here.
 
 ### Assign the Azure AD test user
 
