@@ -71,7 +71,7 @@ This section shows you how to create, start, and monitor a trigger that's associ
     - The endTime is one hour after the startTime, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour after the startTime.  
     - In this case, the trigger is associated with only one pipeline. You can associate a trigger with multiple pipelines. 
     - The pipeline in the quickstart takes two parameters. Therefore, you pass values for those parameters from the trigger. 
-2. Run the following command to create the trigger:
+2. To create the trigger, run the following command :
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
@@ -98,7 +98,7 @@ This section shows you how to create, start, and monitor a trigger that's associ
     ```
 
 ## Use .NET SDK
-This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created int he quickstart. 
+This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created in the quickstart. 
 
 ### Prerequisites
 If you want to see this code working in a sample, first go through the [quickstart for creating a data factory using .NET SDK](quickstart-create-data-factory-dot-net.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in Azure blob storage to another.  
