@@ -4,7 +4,7 @@ description: Troubleshooting guide for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b

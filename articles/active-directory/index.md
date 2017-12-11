@@ -5,7 +5,7 @@ title: Azure Active Directory Documentation - Tutorials, API Reference | Microso
 description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 services: active-directory
 author: czeumault
-manager: carolz
+manager: mtillman
 layout: LandingPage
 ms.assetid:	
 ms.service: active-directory
