@@ -27,7 +27,7 @@ ms.author: raynew
 **Collector is not able to connect to the internet**
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
-If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required Azure Site Recovery service URLs:
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
 
 **URL** | **Purpose**  
 --- | ---
