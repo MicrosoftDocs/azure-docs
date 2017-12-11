@@ -3,8 +3,8 @@ title: Microsoft Azure Stack Development Kit release notes | Microsoft Docs
 description: Improvements, fixes, and known issues for Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 
