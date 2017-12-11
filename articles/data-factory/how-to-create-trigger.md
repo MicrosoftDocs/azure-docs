@@ -71,7 +71,7 @@ This section shows you how to create, start, and monitor a trigger that's associ
     - The endTime is one hour after the startTime, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour after the startTime.  
     - In this case, the trigger is associated with only one pipeline. You can associate a trigger with multiple pipelines. 
     - The pipeline in the quickstart takes two parameters. Therefore, you pass values for those parameters from the trigger. 
-2. To create the trigger, run the following command :
+2. To create the trigger, run the following command:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
@@ -173,7 +173,7 @@ To monitor a trigger run, add the following code:
             }
 ```
 
-## Pass trigger start time to the pipeline
+## Pass the trigger start time to a pipeline
 In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. In the following example, the trigger's scheduled time is passed as a value to the pipeline parameter scheduledRunTime. 
 
 ```json
@@ -184,4 +184,4 @@ In version 1, Azure Data Factory supported reading or writing partitioned data b
 For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
-For a complete walkthrough of creating a data factory with a pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md). 
+For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
