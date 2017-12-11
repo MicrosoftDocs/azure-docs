@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
 
 ---
@@ -174,7 +174,7 @@ This view shows the readiness status for each machine.
 This view shows the total compute and storage cost of running the VMs in Azure along with the details for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties. 
 
 > [!NOTE]
-> The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. It does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
+> The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. Azure Migrate does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
 
 Estimated monthly costs for compute and storage are aggregated for all VMs in the group. 
 

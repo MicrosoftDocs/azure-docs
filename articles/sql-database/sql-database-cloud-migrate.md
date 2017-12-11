@@ -36,11 +36,11 @@ The following list contains the general workflow for a SQL Server database migra
 
   ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Assess](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) the database for compatibility by using the latest version of the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Assess](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) the database for compatibility by using the latest version of the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure that no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
-5. [Migrate](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) the database copy to a new Azure SQL Database by using the Data Migration Assistant.
+5. [Migrate](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) the database copy to a new Azure SQL Database by using the Data Migration Assistant.
 
 ### Optimizing data transfer performance during migration 
 

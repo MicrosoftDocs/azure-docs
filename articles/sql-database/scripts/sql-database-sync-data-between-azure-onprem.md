@@ -10,7 +10,7 @@ tags:
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database

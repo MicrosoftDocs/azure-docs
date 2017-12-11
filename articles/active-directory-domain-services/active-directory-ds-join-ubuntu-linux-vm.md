@@ -4,7 +4,7 @@ description: Join an Ubuntu Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
