@@ -119,7 +119,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | operationName |String |Name of the operation that is logged. For example, getfilestatus. |
 | resultType |String |The status of the operation, For example, 200. |
 | callerIpAddress |String |The IP address of the client making the request |
-| correlationId |String |The id of the log that can used to group together a set of related log entries |
+| correlationId |String |The ID of the log that can used to group together a set of related log entries |
 | identity |Object |The identity that generated the log |
 | properties |JSON |See below for details |
 
@@ -129,7 +129,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | HttpMethod |String |The HTTP Method used for the operation. For example, GET. |
 | Path |String |The path the operation was performed on |
 | RequestContentLength |int |The content length of the HTTP request |
-| ClientRequestId |String |The Id that uniquely identifies this request |
+| ClientRequestId |String |The ID that uniquely identifies this request |
 | StartTime |String |The time at which the server received the request |
 | EndTime |String |The time at which the server sent a response |
 
@@ -164,7 +164,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | category |String |The log category. For example, **Audit**. |
 | operationName |String |Name of the operation that is logged. For example, getfilestatus. |
 | resultType |String |The status of the operation, For example, 200. |
-| correlationId |String |The id of the log that can used to group together a set of related log entries |
+| correlationId |String |The ID of the log that can used to group together a set of related log entries |
 | identity |Object |The identity that generated the log |
 | properties |JSON |See below for details |
 
@@ -174,7 +174,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | StreamName |String |The path the operation was performed on |
 
 ## Samples to process the log data
-The below code will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
+The following code will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
 
 ```
 search *
