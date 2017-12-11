@@ -1,20 +1,12 @@
 ---
-title: Azure Container Service tutorial - Scale Application | Microsoft Docs
+title: Azure Container Service tutorial - Scale Application
 description: Azure Container Service tutorial - Scale Application
 services: container-service
-documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc

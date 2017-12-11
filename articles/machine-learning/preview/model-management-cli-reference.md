@@ -66,6 +66,8 @@ Local Arguments:
 
 **Set up the Deployment Environment**
 
+The setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
+
 There are two options for deployment: *local* and *cluster*. Setting the `--cluster` (or `-c`) flag enables cluster deployment, which provisions an ACS cluster. The basic setup syntax is as follows:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`

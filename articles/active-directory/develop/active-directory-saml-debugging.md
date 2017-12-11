@@ -4,7 +4,7 @@ description: 'Learn how to debug SAML-based single sign-on to applications in Az
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory

@@ -4,7 +4,7 @@ description: Learn how to self-service connect apps to Azure Active Directory us
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
