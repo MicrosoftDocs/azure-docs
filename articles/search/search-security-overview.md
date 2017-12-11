@@ -19,13 +19,13 @@ ms.author: heidist
 ---
 # Data security and controlled access to Azure Search operations
 
-In Azure Search, security is comprehensive, starting at the physical layer, moving up through encryption on transmissions and backend data, culminating on per-user requests for operations and content. This article covers security at each level, with primary focus on how operations and data are secured in Azure Search.
+In Azure Search, security is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) compliant, spanning physical security, encryption on transmissions and on backend data sources, software safeguards available throughout Azure, culminating on per-user requests for operations and content in Azure Search. This article touches on security at each layer, but is primarily focused on how operations and data are secured in Azure Search.
 
-Access to service operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Access control is a cross-section of basic permissions (read vs read-write) plus a context that defines a scope of operations. For both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), these two permission levels satisfy most security requirements.
+![Block diagram of security layers](../media/search-security-overview/azsearch-security-diagram.png)
 
-Specifically, in the context of search, most connections are read-only queries. Less frequent are the write operations that modify content structures managed by your service: creating, refreshing, or deleting indexes, suggesters, synonym maps, indexers, indexer data sources.
+Access to service operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). 
 
-Every connection requires an access key and a fully qualified endpoint. Without a key, you cannot access a service. Without an endpoint that also includes a particular index and operation, you cannot connect.
+Access control is a cross-section of basic permissions (read or read-write) plus a context that defines a scope of operations. For example, for both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), the two permission levels satisfy most operational security requirements. Every request requires both an access key and a fully qualified endpoint.
 
 ## Physical security
 
@@ -33,22 +33,22 @@ Microsoft data centers provide industry-leading physical security and are compli
 
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
-## Encrypted storage on backend
+## Encrypted transmission and storage on backend
 
-Azure Search leverages built-in encryption on its backend storage layer with full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) for all new services created after December 31 2017. Encryption is in effect in all regional data centers offering Azure Search resources.
+Across the platform, connections to Azure services are encrypted. Azure Search listens on HTTPS port 443. 
+
+On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources.
 
 Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific services or indexes, nor manage keys directly, nor supply your own.
 
-## Azure-wide security features
+## Azure-wide logical security
 
 Several security mechanisms are available across the Azure Stack, and thus automatically available to the Azure Search resources you create.
 
-+ Locks at the subscription or resource level
-+ Role-based Access Control (RBAC)
++ [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/resource-group-lock-resources.md)
++ [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md)
 
-All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. 
-
-RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see Role-based access control in the Azure portal.
+All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
 
 ## Azure Search authentication
 
@@ -70,7 +70,7 @@ In Azure Search, per-service authentication exists at two levels: full rights, q
 
 You can obtain access keys in the portal or through the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). For more information, see [Manage keys](search-manage.md#manage-api-keys).
 
-![Portal page, Settings, Keys section][../media/search-security-overview/settings-keys.png]
+![Portal page, Settings, Keys section](../media/search-security-overview/settings-keys.png)
 
 ## Index access
 
