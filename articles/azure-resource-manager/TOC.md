@@ -38,7 +38,7 @@
 #### [Deploy resources](resource-group-template-deploy-portal.md)
 #### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
+### [Multiple resource groups or subscriptions](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
@@ -67,26 +67,20 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
-### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
-### Resolve errors
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Virtual Machine deployment errors
-#### Linux
-##### [Deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Provisioning and allocation issues](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Common error messages](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Provisioning and allocation issues](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Common error messages](../virtual-machines/windows/error-messages.md)
+#### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
 
 # Reference
 ## [Template format](/azure/templates/)

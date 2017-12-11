@@ -39,7 +39,7 @@ First, some definitions:
 
     ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Subscription**](https://manage.windowsazure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
+* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
 * [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
 
 ## <a name="access"></a> Control access in the resource group

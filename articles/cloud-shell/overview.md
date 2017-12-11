@@ -51,9 +51,9 @@ In addition to Cloud Shell being available from the Azure portal, it can also be
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### Connect your Azure Files storage
+### Connect your Microsoft Azure Files storage
 Cloud Shell machines are temporary and as a result require an Azure Files share to be mounted as `clouddrive` to persist your $Home directory.
-On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
+On first launch Cloud Shell prompts to create a resource group, storage account, and an Azure file share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single Azure file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
 
 #### Create new storage
 ![](media/overview/basic-storage.png)
@@ -66,7 +66,7 @@ Three resources will be created on your behalf:
 3. File Share named: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bash in Cloud Shell also creates a default 5-GB disk image to persist `$Home`. All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when saving files in your $Home directory and mounted file share.
+> Bash in Cloud Shell also creates a default 5-GB disk image to persist `$Home`. All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted Azure file share. Apply best practices when saving files in your $Home directory and mounted Azure file share.
 
 #### Use existing resources
 ![](media/overview/advanced-storage.png)
@@ -75,13 +75,13 @@ An advanced option is provided to associate existing resources to Cloud Shell.
 At the storage setup prompt, click "Show advanced settings" to show additional options.
 Dropdowns are filtered for your assigned Cloud Shell region and locally/globally-redundant storage accounts.
 
-[Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.](persisting-shell-storage.md)
+[Learn about Cloud Shell storage, updating Azure file shares, and uploading/downloading files.](persisting-shell-storage.md)
 
 ## Concepts
 * Cloud Shell runs on a temporary host provided on a per-session, per-user basis
 * Cloud Shell times out after 20 minutes without interactive activity
-* Cloud Shell requires a file share to be mounted
-* Cloud Shell uses the same file share for both Bash and PowerShell
+* Cloud Shell requires an Azure file share to be mounted
+* Cloud Shell uses the same Azure file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
 * Permissions are set as a regular Linux user in Bash
 

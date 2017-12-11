@@ -20,7 +20,7 @@ ms.author: motanv
 # Induce controlled Chaos in Service Fabric clusters
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable distributed services on top of an unreliable infrastructure. To write robust distributed services on top of an unreliable infrastructure, developers need to be able to test the stability of their services while the underlying unreliable infrastructure is going through complicated state transitions due to faults.
 
-The [Fault Injection and Cluster Analysis Service](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
+The [Fault Injection and Cluster Analysis Service](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
 
 Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. A graceful fault consists of a set of Service Fabric API calls, for example, restart replica fault is a graceful fault because this is a close followed by an open on a replica. Remove replica, move primary replica, and move secondary replica are the other graceful faults exercised by Chaos. Ungraceful faults are process exits, like restart node and restrat code pacakge. 
 
@@ -30,7 +30,7 @@ Once you have configured Chaos with the rate and the kind of faults, you can sta
 > In its current form, Chaos induces only safe faults, which implies that in the absence of external faults a quorum loss, or data loss never occurs.
 >
 
-While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that Chaos has decided to execute in that iteration. A ValidationFailedEvent contains the details of a validation failure (health or stability issues) that was found during the validation of the cluster. You can invoke the GetChaosReport API (C#, Powershell, or REST) to get the report of Chaos runs. These events get persisted in a [reliable dictionary](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), which has a truncation policy dictated by two configurations: **MaxStoredChaosEventCount** (default value is 25000) and **StoredActionCleanupIntervalInSeconds** (default value is 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos checks and all but the most recent *MaxStoredChaosEventCount* events, are purged from the reliable dictionary.
+While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that Chaos has decided to execute in that iteration. A ValidationFailedEvent contains the details of a validation failure (health or stability issues) that was found during the validation of the cluster. You can invoke the GetChaosReport API (C#, Powershell, or REST) to get the report of Chaos runs. These events get persisted in a [reliable dictionary](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), which has a truncation policy dictated by two configurations: **MaxStoredChaosEventCount** (default value is 25000) and **StoredActionCleanupIntervalInSeconds** (default value is 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos checks and all but the most recent *MaxStoredChaosEventCount* events, are purged from the reliable dictionary.
 
 ## Faults induced in Chaos
 Chaos generates faults across the entire Service Fabric cluster and compresses faults that are seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that may otherwise be missed. This exercise of Chaos leads to a significant improvement in the code quality of the service.
@@ -67,11 +67,6 @@ To get which faults Chaos induced, you can use GetChaosReport API (powershell, C
 * **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in a single iteration. The higher the value, the lower the concurrency of (or the overlap between) faults.
 * **ClusterHealthPolicy**: Cluster health policy is used to validate the health of the cluster in between Chaos iterations. If the cluster health is in error or if an unexpected exception happens during fault execution, Chaos will wait for 30 minutes before the next health-check - to provide the cluster with some time to recuperate.
 * **Context**: A collection of (string, string) type key-value pairs. The map can be used to record information about the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long. This map is set by the starter of the Chaos run to optionally store the context about the specific run.
-* **ChaosTargetFilter**: This filter can be used to target Chaos faults only to certain node types or only to certain application instances. If ChaosTargetFilter is not used, Chaos faults all cluster entities. If ChaosTargetFilter is used, Chaos faults only the entities that meet the ChaosTargetFilter specification. NodeTypeInclusionList and ApplicationInclusionList allow union semantics only. In other words, it is not possible to specify an intersection of NodeTypeInclusionList and ApplicationInclusionList. For example, it is not possible to specify "fault this application only when it is on that node type." Once an entity is included in either NodeTypeInclusionList or ApplicationInclusionList, that entity cannot be excluded using ChaosTargetFilter. Even if applicationX does not appear in ApplicationInclusionList, in some Chaos iteration applicationX can be faulted because it happens to be on a node of nodeTypeY that is included in NodeTypeInclusionList. If both NodeTypeInclusionList and ApplicationInclusionList are null or empty, an ArgumentException is thrown.
-    * **NodeTypeInclusionList**: 
-    A list of node types to include in Chaos faults. All types of faults (restart node, restart codepackage, remove replica, restart replica, move primary, and move secondary) are enabled for the nodes of these node types. If a nodetype (say NodeTypeX) does not appear in the NodeTypeInclusionList, then node level faults (like NodeRestart) will never be enabled for the nodes of NodeTypeX, but code package and replica faults can still be enabled for NodeTypeX if an application in the ApplicationInclusionList happens to reside on a node of NodeTypeX. At most 100 node type names can be included in this list, to increase this number, a config upgrade is required for MaxNumberOfNodeTypesInChaosTargetFilter configuration.
-    * **ApplicationInclusionList**:
-    A list of application URIs to include in Chaos faults. All replicas belonging to services of these applications are amenable to replica faults (restart replica, remove replica, move primary, and move secondary) by Chaos. Chaos may restart a code package only if the code package hosts replicas of these applications only. If an application does not appear in this list, it can still be faulted in some Chaos iteration if the application ends up on a node of a node type that is incuded in NodeTypeInclusionList. However if applicationX is tied to nodeTypeY through placement constraints and applicationX is absent from ApplicationInclusionList and nodeTypeY is absent from NodeTypeInclusionList, then applicationX will never be faulted. At most 1000 application names can be included in this list, to increase this number, a config upgrade is required for MaxNumberOfApplicationsInChaosTargetFilter configuration.
 
 ## How to run Chaos
 
@@ -138,23 +133,7 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-
-            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of type 'FrontEndType'
-            var nodetypeInclusionList = new List<string> { "FrontEndType"};
-
-            // In addition to the faults included by nodetypeInclusionList, 
-            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
-
-            // List of cluster entities to target for Chaos faults.
-            var chaosTargetFilter = new ChaosTargetFilter
-            {
-                NodeTypeInclusionList = nodetypeInclusionList,
-                ApplicationInclusionList = applicationInclusionList
-            };
-
+            
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -163,7 +142,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
+                clusterHealthPolicy);
 
             try
             {
@@ -268,26 +247,12 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
-#List of cluster entities to target for Chaos faults.
-$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
-$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of type 'FrontEndType'
-$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
-$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# In addition to the faults included by nodetypeInclusionList, 
-# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
-
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
 
 while($true)
 {
@@ -318,5 +283,5 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
+
 ```
-git 

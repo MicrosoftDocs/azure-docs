@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
 ms.author: twooley
+ms.custom: mvc
 
 ---
 # Key considerations: Using services or building apps for Azure Stack

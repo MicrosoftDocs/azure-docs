@@ -63,7 +63,7 @@ ms.custom: H1Hack27Feb2017
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Splitproofed cross partition queries.
+* Split proofed cross partition queries.
 * Adds supports for resource link with leading and trailing slashes (and corresponding tests).
 
 ### <a name="1.12.2"/>1.12.2</a>

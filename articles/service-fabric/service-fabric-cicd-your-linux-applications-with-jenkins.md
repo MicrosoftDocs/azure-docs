@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
 
 ---
@@ -22,7 +22,7 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 
 ## General prerequisites
 - Have Git installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
-- Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). If you are using edge browser rename the extension of downloaded file from .zip to .hpi.
 
 ## Set up Jenkins inside a Service Fabric cluster
 
@@ -39,25 +39,25 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    > [!NOTE]
    > Ensure that the 8081 port is specified as a custom endpoint on the cluster.
    >
-2. Clone the application, by using the following steps:
 
+2. Clone the application, by using the following steps:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Persist the state of the Jenkins container in a file-share:
   * Create an Azure storage account in the **same region** as your cluster with a name such as ``sfjenkinsstorage1``.
   * Create a **File Share** under the storage Account with a name such as ``sfjenkins``.
   * Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look
   similar to the one below:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 		
->
+  > [!NOTE]
+  > To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 		
+  >
 
 4. Update the placeholder values in the ```setupentrypoint.sh``` script with the azure-storage details from step 3.
 ```sh
@@ -66,16 +66,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` from the output of the connect in step 3 above.
   * Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from step 3 above.
 
-5. Connect to the cluster and install the container application.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-This installs a Jenkins container on the cluster, and can be monitored by using the Service Fabric Explorer.
+5. **Secure Cluster Only:** In order to configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. On Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. In the ApplicationManifest under ContainerHostPolicies add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certifcate that is located on the node.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > The thumbprint value must be the same as the certificate that is used to connect to the secure cluster.	
+  >
 
-   > [!NOTE]
-   > It may take a couple of minutes for the Jenkins image to be downloaded on the cluster.
-   >
+6. Connect to the cluster and install the container application.
+
+  **Secure Cluster**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Unsecure Cluster**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  This installs a Jenkins container on the cluster, and can be monitored by using the Service Fabric Explorer.
+
+    > [!NOTE]
+    > It may take a couple of minutes for the Jenkins image to be downloaded on the cluster.
+    >
 
 ### Steps
 1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. 
@@ -110,8 +127,8 @@ You need to have Docker installed. The following commands can be used to install
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:9``
-  2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v9``
+  2. Run the container image: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
   4. Sign in to the Jenkins portal by using the following steps:
 
@@ -174,13 +191,19 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 
     ![Service Fabric Jenkins Build action][build-step-dotnet]
   
-   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
+   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. The path to the certificate can be found by echoing the value of the echo Certificates_JenkinsOnSF_Code_MyCert_PEM environment variable from within the container. This path can be used for the Client Key and the Client Cert fields.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
 
     ![Service Fabric Jenkins Build action][post-build-step]
 
-    > [!NOTE]
-    > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
-    >
+      > [!NOTE]
+      > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
+      >
 
 ## Next steps
 GitHub and Jenkins are now configured. Consider making some sample change in your ``MyActor`` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote ``master`` branch (or any branch that you have configured to work with). This triggers the Jenkins job, ``MyJob``, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  

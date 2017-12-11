@@ -1,4 +1,4 @@
-In the Cloud Shell, create a resource group with the [az group create](/cli/azure/group#create) command.
+In the Cloud Shell, create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

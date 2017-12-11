@@ -42,7 +42,6 @@ Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-$rgName = 'AzureStack'
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 
 ```
@@ -52,7 +51,7 @@ You may want to apply policies in a more granular method.  As an example, you ma
 
 ```PowerShell
 Login-AzureRmAccount
-$resourceGroupName = ‘myRG01’
+$rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName

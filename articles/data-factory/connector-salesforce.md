@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/24/2017
 ms.author: jingwang
 
 ---
@@ -245,13 +245,13 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Salesforce input dataset name>",
+                "referenceName": "<input dataset name>",
                 "type": "DatasetReference"
             }
         ],
         "outputs": [
             {
-                "referenceName": "<output dataset name>",
+                "referenceName": "<Salesforce output dataset name>",
                 "type": "DatasetReference"
             }
         ],

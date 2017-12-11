@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
 
 ---
 
-# Payment Processing Blueprint for PCI DSS-compliant environments
+# Azure Blueprint Automation: Payment Processing for PCI DSS-compliant environments
 
-The Payment Processing Blueprint for PCI DSS-Compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
+## Overview
 
-This foundational architecture meets the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based solution. For more information about PCI DSS 3.2 requirements and this solution, see [PCI DSS Requirements - High-Level Overview](pci-dss-requirements-overview.md).
+The Payment Processing for PCI DSS-Compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This blueprint illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
 
-This architecture is intended to serve as a foundation for customers to adjust to their specific requirements, and should not be used as-is in a production environment. Deploying an application into this environment without modification is not sufficient to completely meet the requirements of a PCI DSS-compliant solution. Please note the following:
-- This foundational architecture provides a baseline to help customers use Microsoft Azure in a PCI DSS-compliant manner.
+This blueprint is designed to help meet the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based PaaS solution. For more information about PCI DSS 3.2 requirements and this solution, see [PCI DSS Requirements - High-Level Overview](pci-dss-requirements-overview.md).
+
+This blueprint is intended to serve as a foundation for customers to better understand the specific requirements, and should not be used as-is in a production environment. Deploying an application into this environment without modification is not sufficient to completely meet the requirements of a PCI DSS-compliant solution for a custom solution. Please note the following:
+- This blueprint provides a baseline to help customers use Microsoft Azure in a PCI DSS-compliant manner.
 - Achieving PCI DSS-compliance requires that an accredited Qualified Security Assessor (QSA) certify a production customer solution.
 - Customers are responsible for conducting appropriate security and compliance reviews of any solution built using this foundational architecture, as requirements may vary based on the specifics of each customer’s implementation and geography.  
 
@@ -40,7 +42,7 @@ The foundational architecture is comprised of the following components:
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
 - **Automated deployment scripts**. These scripts help deploy the end-to-end solution. The scripts consist of:
     - A module installation and [global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
-    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with SQL database sample content. The source code for this solution is available for review [here](https://github.com/Microsoft/azure-sql-security-sample).
+    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with [SQL database sample](https://github.com/Microsoft/azure-sql-security-sample). content. The source code for this solution is available for review [Payment Processing Blueprint code repository][code-repo]. 
 
 ## Architectural diagram
 
@@ -48,9 +50,9 @@ The foundational architecture is comprised of the following components:
 
 ## User scenario
 
-The foundational architecture addresses the use case below.
+The blueprint addresses the use case below.
 
-> This scenario illustrates how a fictitious webstore moved their payment card processing to an Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the "Review and Guidance for Implementation" document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
+> This scenario illustrates how a fictitious webstore moved their payment card processing to an Azure-based PaaS solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the ["Review and Guidance for Implementation"](https://aka.ms/pciblueprintprocessingoverview).
 
 ### Use case
 A small webstore called *Contoso Webstore* is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a clerk to collect credit card payments from their customers.
@@ -75,9 +77,9 @@ User roles used to illustrate the use case, and provide insight into the user in
 | Name: |`Global Admin Azure PCI Samples`|
 |User type:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* The admin account cannot read credit card information unmasked. All actions are logged.
-* The admin account cannot manage or log into SQL Database.
-* The admin account can manage Active Directory and subscription.
+- The admin account cannot read credit card information unmasked. All actions are logged.
+- The admin account cannot manage or log into SQL Database.
+- The admin account can manage Active Directory and subscription.
 
 #### Role: SQL administrator
 
@@ -89,8 +91,8 @@ User roles used to illustrate the use case, and provide insight into the user in
 |Last name: |`PCI Samples`|
 |User type:| `Administrator`|
 
-* The sqladmin account cannot view unfiltered credit card information. All actions are logged.
-* The sqladmin account can manage SQL database.
+- The sqladmin account cannot view unfiltered credit card information. All actions are logged.
+- The sqladmin account can manage SQL database.
 
 #### Role: Clerk
 
@@ -112,13 +114,13 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 
 ### Contoso Webstore - Estimated pricing
 
-This foundational architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is ~$900. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
+This foundational architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is ~$2500 this includes a $1000/mo usage charge for ASE v2. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
 
 This solution used the following Azure services. Details of the deployment architecture are located in the [Deployment Architecture](#deployment-architecture) section.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service Environment
+>- App Service Environment v2
 >- OMS Log Analytics
 >- Azure Key Vault
 >- Network Security Groups
@@ -234,7 +236,7 @@ To learn more about using the security features of Azure SQL Database, see the [
 
 [Azure App Service](/azure/app-service/) is a managed service for deploying web apps. The Contoso Webstore application is deployed as an [App Service Web App](/azure/app-service-web/app-service-web-overview).
 
-[Azure App Service Environment (ASE)](/azure/app-service/app-service-environment/intro) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. it is a Premium service plan used by this foundational architecture to enable PCI DSS compliance.
+[Azure App Service Environment (ASE v2)](/azure/app-service/app-service-environment/intro) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. it is a Premium service plan used by this foundational architecture to enable PCI DSS compliance.
 
 ASEs are isolated to running only a single customer's applications, and are always deployed into a virtual network. Customers have fine-grained control over both inbound and outbound application network traffic, and applications can establish high-speed secure connections over virtual networks to on-premises corporate resources.
 
@@ -283,7 +285,7 @@ Use [Application Insights](https://azure.microsoft.com/services/application-insi
 
 #### OMS solutions
 
-The following OMS solutions are pre-installed as part of the foundational architecture:
+These additional OMS solutions should be considered and configured:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -339,7 +341,7 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
     For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS logging and monitoring. Once the solution is deployed, a [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample OMS templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. OMS logging and monitoring. Once the solution is deployed, a [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample OMS templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Note that data must be collected in OMS for templates to deploy correctly. This can take up to an hour or more depending on site activity.
  
     When setting up your OMS logging, consider including these resources:
  
@@ -356,11 +358,11 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
 ## Threat model
 
-A data flow diagram (DFD) and sample threat model for the Contoso Webstore are available in the Documents section of the [code repository][code-repo].
+A data flow diagram (DFD) and sample threat model for the Contoso Webstore [Payment Processing Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-For more information, see the [PCI Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## Customer responsibility matrix
 
@@ -377,7 +379,10 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 - This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
 - This document does not provide customers with any legal rights to any intellectual property in any Microsoft or Avyan product or solutions.  
 - Customers may copy and use this document for internal reference purposes.  
-- Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
+
+  > [!NOTE]
+  > Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
+
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
@@ -385,8 +390,8 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 
 ### Document authors
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan Consulting)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
