@@ -30,6 +30,7 @@ Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.654.0
@@ -80,7 +81,8 @@ $Credential = The credential used to authenticate the client when talking to Act
 
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
 
->[!NOTE] $credential.UserName should be in domain\username format.                                                                                                                 
+>[!NOTE] 
+>$credential.UserName should be in domain\username format.                                                                                                                 
 ## 1.1.649.0
 Status: October 27 2017
 
