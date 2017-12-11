@@ -188,7 +188,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 
 ## Create a self-hosted integration runtime
 
-In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to the Azure Blob storage. 
+In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Azure Blob storage. 
 
 1. Create a variable for the name of integration runtime. Use a unique name, and note down the name. You use it later in this tutorial. 
 
@@ -487,7 +487,7 @@ In this step, you define a dataset that represents data in the SQL Server databa
     ```
 
 ### Create a dataset for sink Azure Blob Storage
-In this step, you define a dataset that represents data that is to be copied to the Azure Blob Storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
+In this step, you define a dataset that represents data that is to be copied to Azure Blob Storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
 
 The linked service has the connection information that the data factory uses at runtime to connect to your Azure storage account. This dataset specifies the folder in the Azure storage to which the data is copied from the SQL Server database. In this tutorial, the folder is *adftutorial/fromonprem*, where `adftutorial` is the blob container and `fromonprem` is the folder. 
 
