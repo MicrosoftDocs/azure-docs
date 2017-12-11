@@ -40,13 +40,13 @@ The steps in this article show you how to deploy an edge gateway using Docker on
 > [!NOTE]
 > Both components can be used as modules in [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
-## Prepare your gateway
+## Choose a gateway device
 
 If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the connected factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
 Alternatively, use the following instructions to manually configure one of your existing gateways.
 
-### Install and configure Docker
+## Install and configure Docker
 
 Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or install docker with a package manager on your Linux-based gateway system.
 
@@ -69,7 +69,7 @@ When you refer to the `<SharedFolder>` in a Docker command, be sure to use the c
 
 For more information see the [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) docker engine reference.
 
-### Configure the OPC components
+## Configure the OPC components
 
 Before you install the OPC components, complete the following steps to prepare your environment:
 
@@ -153,7 +153,7 @@ docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --
 
 OPC Proxy saves the connection string during the installation. On subsequent runs you should omit the connection string because it poses a security risk.
 
-### Enable your gateway in connected factory
+## Enable your gateway
 
 Complete the following steps to enable your gateway in the connected factory preconfigured solution:
 
