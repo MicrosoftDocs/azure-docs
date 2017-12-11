@@ -4,7 +4,7 @@ description: How to troubleshoot issues you might face when installing the Appli
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

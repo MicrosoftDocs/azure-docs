@@ -4,7 +4,7 @@ description: Learn how to use Replicon with Azure Active Directory to enable sin
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
