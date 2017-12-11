@@ -43,7 +43,7 @@ The tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or even image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-entity-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
+In this tutorial, we discuss only selected portions of the source code. The full source code is available [on a separate page](tutorial-bing-entities-search-single-page-app-source.md). Copy and paste this code into a text editor and save it as `bing.html`.
 
 > [!NOTE]
 > This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
