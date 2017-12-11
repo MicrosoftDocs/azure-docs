@@ -282,7 +282,7 @@ To receive the messages you just sent, create another .NET Core console applicat
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
     {
-        // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+        // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
         var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
         {
             // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -299,7 +299,7 @@ To receive the messages you just sent, create another .NET Core console applicat
     }
     ```    
 
-6. Add the following `ProcessMessagesAsync()` method to process the received messages:
+6. Directly after the previous method, add the following `ProcessMessagesAsync()` method to process the received messages:
  
     ```csharp
     static async Task ProcessMessagesAsync(Message message, CancellationToken token)
@@ -404,7 +404,6 @@ To receive the messages you just sent, create another .NET Core console applicat
                 // to avoid unnecessary exceptions.
             }
 
-            // Use this handler to examine the exceptions received on the message pump.
             static Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
             {
                 Console.WriteLine($"Message handler encountered an exception {exceptionReceivedEventArgs.Exception}.");

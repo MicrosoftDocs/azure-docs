@@ -33,7 +33,7 @@ Build applications that run on the Azure platform and implement consistent engin
 Below are links to useful content, guidance, and planning resources to help become familiar with Azure Stack.
 * <a href="https://azure.microsoft.com/en-us/overview/azure-stack/use-cases/">Azure Stack Use Cases</a> 
 * <a href="https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/" >Azure Stack - Whitepaper</a> 
-* <a href="https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-deploy-overview" >Azure Stack Documentation Home Page</a> 
-* <a href="https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-deploy-overview" >Plan for your Azure Stack Journey</a> 
-* <a href="https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-key-features" >Key Features, Concepts, and Terms</a> 
-* <a href="https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-default-image" >How to add an Image (Custom or 3rd Party </a> 
+* <a href="https://docs.microsoft.com/azure/azure-stack/azure-stack-deploy-overview" >Azure Stack Documentation Home Page</a> 
+* <a href="https://docs.microsoft.com/azure/azure-stack/azure-stack-deploy-overview" >Plan for your Azure Stack Journey</a> 
+* <a href="https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features" >Key Features, Concepts, and Terms</a> 
+* <a href="https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image" >How to add an Image (Custom or 3rd Party </a> 

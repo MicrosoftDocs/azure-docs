@@ -44,7 +44,7 @@ To create Data Factory instances, the user account you use to log in to Azure mu
 ### SQL Server 2014/2016/2017
 You use an on-premises SQL Server database as a **source** data store in this tutorial. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to an Azure blob storage (sink). Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table. 
 
-1. Launch **SQL Server Management Studio** on your machine. If you do not have SQL Server Management Studio on your machine, install it from the [download center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Launch **SQL Server Management Studio** on your machine. If you do not have SQL Server Management Studio on your machine, install it from the [download center](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Connect to your SQL server by using your credentials. 
 3. Create a sample database. In the tree view, right-click **Databases**, and click **New Database**. In the **New Database** dialog box, enter a **name** for the database, and click **OK**. 
 4. Run the following query script against the database, which creates the **emp** table and inserts some sample data into it. In the tree view, right-click the **database** you created, and click **New Query**. 

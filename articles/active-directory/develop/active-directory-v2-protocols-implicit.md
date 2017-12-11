@@ -4,7 +4,7 @@ description: Building web applications using Azure AD's v2.0 implementation of t
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
