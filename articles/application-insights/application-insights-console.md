@@ -17,27 +17,28 @@ ms.author: lmolkova
 
 ---
 
-# Application Insights for Console Applcations
+# Application Insights for Console Applications
 
-We will go through configuration needed to set up Application Insights with dependency collection for .NET console applciations. It's applicatable to any .NET Desktop or .NET Core application that does not use ASP.NET or ASP.NET Core.
+Let's go through configuration needed to set up Application Insights with dependency collection for .NET console applications. It's applicable to any .NET Desktop or .NET Core application that does not use ASP.NET or ASP.NET Core.
 
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
-2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. 
+2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you created. 
 3. Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package
-4. Set the instrumentation key in your code before tracking any telemetry or set APPINSIGHTS_INSTRUMENTATIONKEY environemnt variable:
+4. Set the instrumentation key in your code before tracking any telemetry or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable:
 
 ```C#
     `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
 ```
 
-At this point, you should be able to manually track telemetry and see it on the Azure Portal.
+
+At this point, you should be able to manually track telemetry and see it on the Azure portal.
 
 ```C#
     var client = new TelemetryClient();
     client.TrackTrace("Hello World!");
 ```
 
-5. Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL and some other external dependency calls calls.
+5. Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL or some other external dependency calls.
 
 6 When application starts, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for applicaiton lifetime.
 
@@ -67,7 +68,7 @@ At this point, you should be able to manually track telemetry and see it on the 
 7. Add common telemetry initializers
 
 ```C#
-    // stamps teleemetry with correlation identifiers
+    // stamps telemetry with correlation identifiers
     TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
     
     // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
@@ -87,10 +88,10 @@ At this point, you should be able to manually track telemetry and see it on the 
         configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
         configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
-        var telemetryclient = new TelemetryClient();
+        var telemetryClient = new TelemetryClient();
         using (IntitializeDependencyTracking(configuration))
         {
-            telemetryclient.TrackTrace("Hello World!");
+            telemetryClient.TrackTrace("Hello World!");
 
             using (var httpClient = new HttpClient())
             {
@@ -99,7 +100,7 @@ At this point, you should be able to manually track telemetry and see it on the 
             }
         }
 
-        telemetryclient.Flush();
+        telemetryClient.Flush();
     }
 
     static DependencyTrackingTelemetryModule IntitializeDependencyTracking(TelemetryConfiguration configuration)
