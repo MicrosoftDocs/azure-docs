@@ -44,11 +44,11 @@ The steps in this article show you how to deploy an edge gateway using Docker on
 
 If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the connected factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
-Alternatively, use the following instructions to manually configure one of your existing gateways.
+Alternatively, use the following instructions to manually configure an existing gateway device.
 
 ## Install and configure Docker
 
-Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or install docker with a package manager on your Linux-based gateway system.
+Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or use a package manager to install docker on your Linux-based gateway device.
 
 During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system to allow access to the host drive from inside a docker container:
 
@@ -63,9 +63,9 @@ On Windows, create a folder on the drive you shared with Docker, on Linux create
 
 When you refer to the `<SharedFolder>` in a Docker command, be sure to use the correct syntax for your operating system. Here are two examples, one for Windows and one for Linux:
 
-- If your are using the folder `D:\shared` on Windows as your `<SharedFolder>`, the Docker command syntax is `\\d\shared`.
+- If your are using the folder `D:\shared` on Windows as your `<SharedFolder>`, the Docker command syntax is `//d/shared`.
 
-- If your are using the folder `\shared` on Linux as your `<SharedFolder>`, the Docker command syntax is `\shared`.
+- If your are using the folder `/shared` on Linux as your `<SharedFolder>`, the Docker command syntax is `/shared`.
 
 For more information see the [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) docker engine reference.
 
@@ -91,7 +91,7 @@ Before you install the OPC components, complete the following steps to prepare y
     docker network ls
     ```
 
-    Your ***iot_edge** bridge network is included in the list of networks.
+    Your **iot_edge** bridge network is included in the list of networks.
 
 To run the OPC Publisher, run the following command at a command prompt:
 
