@@ -3,7 +3,7 @@ title: Self-service application access and delegated management with Azure Activ
 description: This article describes how to enable self-service application access and delegated management with Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: daveba
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: curtand
+ms.author: daveba
 
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
