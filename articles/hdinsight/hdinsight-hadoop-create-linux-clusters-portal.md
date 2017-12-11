@@ -63,17 +63,17 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 		* **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 		
 
-	* For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
+* For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
-	* Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
+* Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
    
-		For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+	For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-	* For **Resource group**, specify whether you want to create a new resource group or use an existing one.
+* For **Resource group**, specify whether you want to create a new resource group or use an existing one.
 
-	* Specify a data center **location** where the cluster will be created.
+* Specify a data center **location** where the cluster will be created.
 
-	* Click **Next**.
+* Click **Next**.
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage. Look at the table below for more information.
 
