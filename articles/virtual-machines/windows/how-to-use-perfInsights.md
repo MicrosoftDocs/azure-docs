@@ -57,11 +57,11 @@ This is a passive collection of information that shouldn't affect the system.
 
 ### Benchmarking
 
-This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
+This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ### Slow VM analysis 
@@ -70,11 +70,11 @@ This scenario runs a [performance counter](https://msdn.microsoft.com/library/wi
 
 ### Slow VM analysis and benchmarking
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [Diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ### Azure Files analysis 
@@ -101,11 +101,11 @@ This scenario runs a special performance counter capture together with a network
 
 ### Custom slow VM analysis 
 
-When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (performance counter, xperf, network, and storport) if you want. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
+When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (Performance Counter, Xperf, Network, and StorPort) if you want. After tracing is completed, the tool runs the Diskspd benchmark, if it is selected. 
 
 > [!Note]
 > This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
+> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ## What kind of information is collected by the script?
@@ -132,7 +132,7 @@ Information about Windows VM, disks or storage pools configuration, performance 
 | Performance counter trace **     |                            |                                    |                          |                                |                      | Yes                  |
 | SMB counter trace **             |                            |                                    |                          |                                | Yes                  |                      |
 | SQL Server counter trace **      |                            |                                    |                          |                                |                      | Yes                  |
-| XPerf trace                      |                            |                                    |                          |                                |                      | Yes                  |
+| Xperf trace                      |                            |                                    |                          |                                |                      | Yes                  |
 | StorPort trace                   |                            |                                    |                          |                                |                      | Yes                  |
 | Network trace                    |                            |                                    |                          |                                | Yes                  | Yes                  |
 | Diskspd benchmark trace ***      |                            | Yes                                |                          | Yes                            |                      |                      |
@@ -181,9 +181,9 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 #### Possible problems when you run the script on production VMs
 
--  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use XPerf or DiskSpd, the script might adversely affect the performance of the VM. You should not run these scenarios in a production environment.
+-  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use Xperf or Diskspd, the script might adversely affect the performance of the VM. You should not run these scenarios in a production environment.
 
--  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use DiskSpd, ensure that no other background activity interferes with the I/O workload.
+-  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use Diskspd, ensure that no other background activity interferes with the I/O workload.
 
 -  By default, the script uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
 
@@ -193,7 +193,7 @@ You can run PerfInsights on a virtual machine by installing [Azure Performance D
 
 **Install and run PerfInsights from the Azure portal**
 
-For more information about this option, see [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension).  
+For more information about this option, see [Install Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md#install-the-extension).  
 
 **Run PerfInsights script in standalone mode**
 
@@ -269,7 +269,7 @@ in parallel (to select multiple traces, use the Shift key):
 
 ![Screenshot of list of scenarios](media/how-to-use-perfInsights/select-scenario.png)
 
-When you select the Performance Counter Trace, XPerf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the subsequent dialog boxes. Try to reproduce the slow performance issue after you start the traces.
+When you select the Performance Counter Trace, Xperf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the subsequent dialog boxes. Try to reproduce the slow performance issue after you start the traces.
 
 You start a trace through the following dialog box:
 
@@ -292,7 +292,7 @@ Select the **Findings** tab.
 ![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Findings categorized as critical are known issues that may cause performance issues. Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as informational are informative statements only.
+> Findings categorized as critical are known issues that might cause performance issues. Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as informational are informative statements only.
 
 Review the recommendations and links for all critical and important findings. Learn about how they can affect performance, and also about best practices for performance-optimized configurations.
 
@@ -331,9 +331,9 @@ The **Diagnostic** tab contains information about top CPU, disk, and memory cons
 
 ## References to the external tools used
 
-### DISKSPD
+### Diskspd
 
-DISKSPD is a storage load generator and performance test tool from Microsoft. For more information, see [Diskspd](https://github.com/Microsoft/diskspd).
+Diskspd is a storage load generator and performance test tool from Microsoft. For more information, see [Diskspd](https://github.com/Microsoft/diskspd).
 
 ### Xperf
 

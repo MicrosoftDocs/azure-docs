@@ -86,7 +86,7 @@ Follow these steps to install the extension on Windows virtual machines:
 3. Select the **Extensions** blade, and select **Add**.
 
     ![Screenshot of Extensions blade, with Add highlighted](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. Select Azure Performance Diagnostics, review the terms and conditions, and select **Create**.
+4. Select **Azure Performance Diagnostics**, review the terms and conditions, and select **Create**.
 
     ![Screenshot of New resource screen, with Azure Performance Diagnostics highlighted](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
 5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
@@ -103,12 +103,12 @@ Follow these steps to install the extension on Windows virtual machines:
 To remove the extension from a virtual machine, follow these steps:
 
 1. Sign in to the [Azure portal](http://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
-2. Select the (**…**) for Performance Diagnostics Extension entry from the list, and select **Uninstall**.
+2. Select the (**…**) for the Performance Diagnostics Extension entry from the list, and select **Uninstall**.
 
     ![Screenshot of Extensions blade, with Uninstall highlighted](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
     > [!NOTE]
-    > You may also select the extension entry, and select the **Uninstall** option.
+    > You can also select the extension entry, and select the **Uninstall** option.
 
 ## Template deployment
 Azure virtual machine extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template. This runs the Azure Performance Diagnostics VM extension during an Azure Resource Manager template deployment. Here is a sample template:
@@ -231,9 +231,9 @@ To assist the support engineer working on your support ticket, Microsoft might u
 
 To view the report, extract the zip file and open the **PerfInsights Report.html** file.
 
-You may also be able to download the zip file directly from the portal by selecting the extension.
+You might also be able to download the zip file directly from the portal by selecting the extension.
 
-![Screenshot of performance diagnostics detailed status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
+![Screenshot of Performance Diagnostics detailed status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
 > The SAS link displayed in the portal might not work. This can be caused by a malformed URL during the encoding and decoding operations. You can instead get the link directly from the *_saslink.txt file from the VM.
