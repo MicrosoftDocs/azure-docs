@@ -25,7 +25,7 @@ Azure Search is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisor
 
 Access to Azure Search operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Per-user access to content is implemented through security filters on your queries, returning documents associated with a given security identity.
 
-Service access is a cross-section of basic permissions (read or read-write) plus a context that defines a scope of operations. For example, for both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), the two permission levels satisfy most operational security requirements. Every operation requires an access key on the request.
+Service access is a cross-section of basic permissions (read or read-write) plus a context that defines a scope of operations. Every request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels of read and read-write are sufficient for providing full spectrum security on service operations. 
 
 ## Physical security
 
@@ -37,13 +37,11 @@ Microsoft data centers provide industry-leading physical security and are compli
 
 Azure Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. 
 
-On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new search services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources.
-
-Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific services or indexes, nor manage keys directly, nor supply your own.
+On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new search services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources. Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific services or indexes, nor manage keys directly, nor supply your own.
 
 ## Azure-wide logical security
 
-Several security mechanisms are available across the Azure stack, and thus automatically available to the Azure Search resources you create.
+Several security mechanisms are available across the Azure Stack, and thus automatically available to the Azure Search resources you create.
 
 + [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/resource-group-lock-resources.md)
 + [Role-based Access Control (RBAC) to control access to information and administrative operations](../active-directory/role-based-access-control-what-is.md)
@@ -70,7 +68,7 @@ Per-service authentication exists at two levels: full rights, query-only. The ty
 
 You can obtain access keys in the portal or through the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). For more information, see [Manage keys](search-manage.md#manage-api-keys).
 
-1. Sign in to the [Azure portal](https://portal.azure.com)..
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
 3. select the service and on the service page, find **Settings** >**Keys** to view admin and query keys.
 
@@ -78,7 +76,7 @@ You can obtain access keys in the portal or through the [Management REST API](ht
 
 ## Index access
 
-In Azure Search, an individual index is not a securable object. Having access control at the service level meets the needs of most customersbecause connections are scoped to a particular index. There is no concept of joining indexes or accessing multiple indexes simultaneously for query operations. 
+In Azure Search, an individual index is not a securable object. Having access control at the service level meets the needs of most customers because connections are scoped to a particular index. There is no concept of joining indexes or accessing multiple indexes simultaneously for query operations. 
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Search](search-modeling-multitenant-saas-applications.md).
 
@@ -100,8 +98,8 @@ The following table describes two approaches for limiting access to search resul
 
 | Approach | Description |
 |----------|-------------|
-|[Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then filter against that field to trim results of prohibited content. |
-|[Azure Active Directory identity-based access control using Azure Search filters](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the free services in the Azure cloud platform. |
+|[Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
+|[Azure Active Directory identity-based access control using Azure Search filters](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
 
 ## Table: Permissioned operations
 
@@ -109,17 +107,20 @@ The following table summarizes the operations allowed in Azure Search and which 
 
 | Operation | Permissions |
 |-----------|-------------------------|
-| Create a service | Azure subscription holder, RBAC Owner on the resource |
-| Scale a service | Admin key, RBAC Owner on the resource  |
-| Delete a service | Admin key, RBAC Owner on the resource |
+| Create a service | Azure subscription holder|
+| Scale a service | Admin key, RBAC Owner or Contributor on the resource  |
+| Delete a service | Admin key, RBAC Owner or Contributor on the resource |
 | Create, modify, delete indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner or Contributor on the resource  |
-| Query an index | Admin or query key |
+| Query an index | Admin or query key (RBAC not applicable) |
 | Query system information, such as returning statistics, counts, and lists of objects. | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
-| Manage access keys | Admin key and Azure subscription key, RBAC Owner or Contributor on the resource |
+| Manage admin keys | Admin key, RBAC Owner or Contributor on the resource. |
+| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource. RBAC Reader can view query keys. |
 
 
 ## See also
 
++ [Get started .NET (demonstrates using an admin key to create an index)](search-create-index-dotnet.md)
++ [Get started REST (demonstrates using an admin key to create an index)](search-create-index-rest-api.md)
 + [Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)
 + [Active Directory identity-based access control using Azure Search filters](search-security-trimming-for-azure-search-with-aad.md)
 + [Filters in Azure Search](search-filters.md)
