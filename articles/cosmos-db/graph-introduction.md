@@ -2,7 +2,7 @@
 title: 'Introduction to Azure Cosmos DB Graph APIs | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: ''
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
+ms.author: lbosq
 
 ---
 # Introduction to Azure Cosmos DB: Graph API
