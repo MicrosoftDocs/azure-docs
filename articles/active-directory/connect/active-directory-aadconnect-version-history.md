@@ -40,11 +40,11 @@ Status: December 12th, 2017
 >This is a security related hotfix for Azure AD Connect
 
 ### Azure AD Connect
-#### Fixed issues
-When first installing Azure AD Connect a new account can be created optionally that is used to run the Azure AD Connect service on the local service. Before this release the account was created with settings that would allow a user with password adminsitrator rights in the directory to change the password of the created service account to a value know to them and subsequently sign in using this account, and this would constitute an elevation of privilege security breach. 
+When you first install Azure AD Connect, a new account can be created that is used to run the Azure AD Connect service. Before this release, the account was created with settings that allowed a user with password adminsitrator rights the ability to change the password to a value know to them.  This allowed you to sign in using this account, and this would constitute an elevation of privilege security breach. 
 This release tightens the setting on the account that is created and removes this vulnerability.
 
-Note that this release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations or in cases where you provide the account yourself you sould ensure that this vulnerability does not exist.
+>[!NOTE]
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
 
 To tighten the settings for the service account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). It will tighten the settings on the service account to remove the vulnerability to the below values:
 
@@ -66,7 +66,7 @@ Allow    | Authenticated Users           | Read All Properties  | This object  |
 
 #### PowerShell script to tighten a pre-existing service account
 
-To use the PowerShell script to apply these settings to a pre-existing service account (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+To use the PowerShell script, to apply these settings, to a pre-existing service account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
 
 ##### Usage:
 
