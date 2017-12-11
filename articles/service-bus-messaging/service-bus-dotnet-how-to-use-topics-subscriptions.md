@@ -49,22 +49,22 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 ## 2. Create a topic using the Azure portal
 
 1. Log on to the [Azure portal][azure-portal].
-2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**, or click on **All Resources**).
-3. Click the namespace in which you would like to create the topic. The namespace overview window appears:
+2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**, or click on **All Resources**). Click the namespace in which you would like to create the topic. 
+3. The namespace overview window opens. Click **Topics**:
    
     ![Create a topic][createtopic1]
-4. In the **Service Bus namespace** window, click **Topics**, then click **Add topic**.
+4. Click **+ Topic**.
    
     ![Select Topics][createtopic2]
-5. Enter a name for the topic, and uncheck the **Enable partitioning** option. Leave the other options with their default values.
+5. Enter a name for the topic. Leave the other options with their default values.
    
     ![Select New][createtopic3]
 6. At the bottom of the dialog, click **Create**.
 
 ## 3. Create a subscription to the topic
 
-1. In the portal resources pane, click the namespace you created in step 1, then click name of the topic you created in step 2.
-2. At the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
+1. In the portal resources pane, click the namespace you created in step 1, then click **Topics**, and then click name of the topic you created in step 2.
+2. At the top of the overview pane, click **+ Subscription** to add a subscription to this topic.
 
     ![Create subscription][createtopic4]
 
@@ -87,7 +87,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ### Write code to send messages to the topic
 
-1. Add the following `using` statements to the top of the Program.cs file.
+1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
     ```csharp
     using System.Text;
@@ -161,14 +161,14 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 6. Here is what your sender Program.cs file should look like.
    
     ```csharp
-    using System;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.ServiceBus;
-
     namespace CoreSenderApp
     {
+        using System;
+        using System.Text;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using Microsoft.Azure.ServiceBus;
+
         class Program
         {
             const string ServiceBusConnectionString = "<your_connection_string>";
