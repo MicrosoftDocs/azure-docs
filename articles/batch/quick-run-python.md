@@ -249,8 +249,8 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this quickstart, you ... To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you ran a basic Azure Batch job to demonstrate key concepts of the Batch service. To learn more about Azure Batch, and walk through a parallel file processing example with ffmpeg, continue to the Batch Python tutorial.
 
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](tutorial-parallel-python.md)
+> [Process files in parallel](tutorial-parallel-python.md)
