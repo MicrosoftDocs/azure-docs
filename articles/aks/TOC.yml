@@ -41,6 +41,8 @@
     href: kubernetes-draft.md
   - name: Persist data with Azure Files
     href: azure-files.md
+  - name: Integrate with Azure using OSBA
+    href: integrate-azure.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
   - name: Create service principal

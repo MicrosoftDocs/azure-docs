@@ -4,7 +4,7 @@ description: How to build an AngularJS single-page application that integrates w
 services: active-directory
 documentationcenter: ''
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7

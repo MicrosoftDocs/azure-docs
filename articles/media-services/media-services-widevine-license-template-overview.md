@@ -18,8 +18,7 @@ ms.author: juliako
 
 ---
 # Widevine license template overview
-## Overview
-Azure Media Services now enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
+Azure Media Services enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
 Widevine license request is formatted as a JSON message.  
 
@@ -69,7 +68,7 @@ Widevine license request is formatted as a JSON message.
 | session_init |JSON structure, see **Session Initialization** below |Optional data passed to license. |
 | parse_only |boolean. true or false |The license request is parsed but no license is issued. However, values form the license request are returned in the response. |
 
-## Content Key Specs
+## Content key specs
 If a pre-existing policy exist, there is no need to specify any of the values in the Content Key Spec.  The pre-existing policy associated with this content will be used to determine the output protection such as HDCP and CGMS.  If a pre-existing policy is not registered with the Widevine License Server, the content provider can inject the values into the license request.   
 
 Each content_key_specs must be specified for all tracks, regardless of the option use_policy_overrides_exclusively. 
@@ -82,7 +81,7 @@ Each content_key_specs must be specified for all tracks, regardless of the optio
 | content_key_specs <br/>key |Base64 <br/>encoded string |Content key to use for this track. If specified, the track_type or key_id is required.  This option allows the content provider to inject the content key for this track instead of letting Widevine license server generate or lookup a key. |
 | content_key_specs.key_id |Base64 encoded string  binary, 16 bytes |Unique identifier for the key. |
 
-## Policy Overrides
+## Policy overrides
 | Name | Value | Description |
 | --- | --- | --- |
 | policy_overrides. can_play |boolean. true or false |Indicates that playback of the content is allowed. Default is false. |
@@ -97,7 +96,7 @@ Each content_key_specs must be specified for all tracks, regardless of the optio
 | policy_overrides. renewal_recovery_duration_seconds |int64 |The window of time, in which playback is allowed to continue while renewal is attempted, yet unsuccessful due to backend problems with the license server. A value of 0 indicates that there is no limit to the duration. This field is only used if can_renew is true. |
 | policy_overrides. renew_with_usage |boolean true or false |Indicates that the license shall be sent for renewal when usage is started. This field is only used if can_renew is true. |
 
-## Session Initialization
+## Session initialization
 | Name | Value | Description |
 | --- | --- | --- |
 | provider_session_token |Base64 encoded string |This session token is passed back in the license and will exist in subsequent renewals.  The session token will not persist beyond sessions. |
@@ -194,5 +193,5 @@ The following example shows how to use .NET APIs to configure  a simple Widevine
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
-[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 

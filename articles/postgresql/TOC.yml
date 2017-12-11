@@ -89,7 +89,7 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
-  - name: Migrate your database
+  - name: Migrate a database
     items:
     - name: Dump & restore
       href: howto-migrate-using-dump-and-restore.md
@@ -139,3 +139,5 @@
     href: https://azure.microsoft.com/support/options/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
+  - name: Database Migration Guide
+    href: https://datamigration.microsoft.com/

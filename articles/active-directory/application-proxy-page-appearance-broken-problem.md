@@ -4,7 +4,7 @@ description: Guidance when the page isn’t displaying correctly in an Applicati
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

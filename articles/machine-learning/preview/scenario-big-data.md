@@ -43,9 +43,11 @@ In this scenario, you focus on workload prediction for each machine (or server).
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Machine Learning Workbench](./overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](./quickstart-installation.md).
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](./quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (the instructions in this example are generally the same for macOS systems).
-* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu). You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. You need the DSVM IP address, user name, and password to try out this example. Save the following table with the DSVM info for later steps:
+* A Data Science Virtual Machine (DSVM) for Linux (Ubuntu), preferably in East US region where the data locates. You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. 
+
+Follow the [instruction](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
 
  Field name| Value |  
  |------------|------|
@@ -53,9 +55,10 @@ DSVM IP address | xxx|
  User name  | xxx|
  Password   | xxx|
 
+
  You can choose to use any VM with [Docker Engine](https://docs.docker.com/engine/) installed.
 
-* An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type `D12 V2` for head node, and `D14 V2` for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
+* An HDInsight Spark Cluster, with Hortonworks Data Platform version 3.6 and Spark version 2.1.x, preferably in East US region where the data locates. Visit [Create an Apache Spark cluster in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) for details about how to create HDInsight clusters. We recommend using a three-worker cluster, with each worker having 16 cores and 112 GB of memory. Or you can just choose VM type `D12 V2` for head node, and `D14 V2` for the worker node. The deployment of the cluster takes about 20 minutes. You need the cluster name, SSH user name, and password to try out this example. Save the following table with the Azure HDInsight cluster info for later steps:
 
  Field name| Value |  
  |------------|------|
@@ -88,7 +91,7 @@ Run `git status` to inspect the status of the files for version tracking.
 
 ## Data description
 
-The data used in this example is synthesized server workload data. It is hosted in an Azure Blob storage account that's publically accessible. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). You can use the data directly from the Blob storage. If the storage is used by many users simultaneously, you can use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage. 
+The data used in this example is synthesized server workload data. It is hosted in an Azure Blob storage account that's publically accessible in East US region. The specific storage account info can be found in the `dataFile` field of [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) in the format of "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". You can use the data directly from the Blob storage. If the storage is used by many users simultaneously, you can use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) to download the data into your own storage for better experimentation experience. 
 
 The total data size is approximately 1 TB. Each file is about 1-3 GB, and is in CSV file format, without header. Each row of data represents the load of a transaction on a particular server. The detailed information of the data schema is as follows:
 
@@ -102,10 +105,10 @@ Column number | Field name| Type | Description |
 6 | `HTTP1` | Integer|	Session uses HTTP1 or HTTP2
 7 |`ServerType` | Integer	|Server type
 8 |`SubService_1_Load` | Double |	Subservice 1 load
-9 | `SubService_1_Load` | Double | 	Subservice 2 load
-10 | `SubService_1_Load` | Double | 	Subservice 3 load
-11 |`SubService_1_Load`	| Double |  Subservice 4 load
-12 | `SubService_1_Load`| Double |  	Subservice 5 load
+9 | `SubService_2_Load` | Double | 	Subservice 2 load
+10 | `SubService_3_Load` | Double | 	Subservice 3 load
+11 |`SubService_4_Load`	| Double |  Subservice 4 load
+12 | `SubService_5_Load`| Double |  	Subservice 5 load
 13 |`SecureBytes_Load`	| Double | Secure bytes load
 14 |`TotalLoad`	| Double | Total load on server
 15 |`ClientIP` | String|	Client IP address
@@ -201,7 +204,7 @@ The second argument is DEBUG. Setting it to FILTER_IP enables a faster iteration
 
 Start the command line from Machine Learning Workbench by selecting **File** > **Open Command Prompt**. Then run: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 The following two files are created in the aml_config folder of your project:
 
@@ -264,11 +267,11 @@ When you have successfully finished the experimentation on the small data, you c
 
 ##### 1. Create the compute target in Machine Learning Workbench for the HDInsight cluster
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 The following two files are created in the aml_config folder:
     
--  myhdo.compute: This file contains connection and configuration information for a remote execution target.
+-  myhdi.compute: This file contains connection and configuration information for a remote execution target.
 -  myhdi.runconfig: This file is set of run options used within the Workbench application.
 
 

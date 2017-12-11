@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
 
 ---
@@ -54,7 +54,7 @@ These release notes provide information about improvements, fixes, and known iss
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
 - You will see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
-- In the **Activation Required** warning alert details, do not click the link to the **AzureBridge** component. If you do, the **Overview** blade will unsuccessfully try to load, and won't time out.
+- If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview **blade does not time out.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
  

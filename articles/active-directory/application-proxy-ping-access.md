@@ -4,7 +4,7 @@ description: Publish applications with PingAccess and App Proxy to support heade
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory

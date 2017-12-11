@@ -4,7 +4,7 @@ description: Using administrative units for more granular delegation of permissi
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
