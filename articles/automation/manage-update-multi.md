@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
 ---
 # Manage updates for multiple machines
@@ -40,7 +40,7 @@ Update management is supported on the following operating systems.
 
 ### Windows
 
-* Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Server Core and Nano Server installation options are not supported.
+* Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Nano Server is not supported.
 
   Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and Windows Management Framework 5.0 or later.
 

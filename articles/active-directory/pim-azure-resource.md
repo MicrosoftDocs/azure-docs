@@ -4,7 +4,7 @@ description: Learn about using Role-Based Access Management in PIM to access Azu
 services: active-directory
 documentationcenter: ''
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: ba06b8dd-4a74-4bda-87c7-8a8583e6fd14
 ms.service: active-directory

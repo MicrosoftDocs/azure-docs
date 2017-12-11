@@ -4,7 +4,7 @@ description: Understand and resolve mismatched directory errors for existing Azu
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7

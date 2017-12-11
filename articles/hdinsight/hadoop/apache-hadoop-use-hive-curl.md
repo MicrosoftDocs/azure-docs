@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
 
 ---
@@ -119,7 +119,7 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
 
-    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
+    You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on using the Azure CLI with Azure Storage, see the [Use Azure CLI 2.0 with Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
 5. Use the following statements to create a new 'internal' table named **errorLogs**:
 

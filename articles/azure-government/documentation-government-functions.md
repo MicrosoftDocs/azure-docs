@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Quickstarts for Government | Microsoft Docs
+title: Azure Functions for Government | Microsoft Docs
 description: This provides a series of quickstarts for using Functions with Azure Government
 services: azure-government
 cloud: gov
@@ -17,7 +17,7 @@ ms.date: 9/6/2017
 ms.author: yujhong
 
 ---
-# Azure Functions Quickstarts for Azure Government
+# Azure Functions on Azure Government
 The series of Quickstarts below will help you get started using Azure Functions on Azure Government. Using Azure Functions with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#azure-functions).
 
 To learn more about Azure Functions, click [here](../azure-functions/functions-overview.md). 

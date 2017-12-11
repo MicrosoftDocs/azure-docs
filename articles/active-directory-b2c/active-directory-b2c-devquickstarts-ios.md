@@ -4,7 +4,7 @@ description: This article will show you how to create an iOS app that uses AppAu
 services: active-directory-b2c
 documentationcenter: ios
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
