@@ -20,7 +20,7 @@ ms.author: pullabhk;markgal;
 
 # Troubleshoot Azure Backup Server
 
-Use the information in the following table to troubleshoot errors that you encounter while using Azure Backup Server.
+Use the information in the following tables to troubleshoot errors that you encounter while using Azure Backup Server.
 
 ## Invalid vault credentials provided 
 
