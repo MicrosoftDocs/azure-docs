@@ -3243,7 +3243,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                <a href="/azure/active-directory/develop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
