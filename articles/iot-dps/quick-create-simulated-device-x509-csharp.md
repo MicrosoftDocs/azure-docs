@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
 
-These steps show you how to build the Azure IoT Hub C# SDK simulated X.509 device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub.
+These steps show you how to build the [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) simulated X.509 device sample on a development machine running Windows OS and connect the simulated device with the Device Provisioning Service and your IoT hub.
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -45,21 +45,25 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```cmd/sh
     build -clean -nolegacy
     ```
+
 ## Create a self-signed X.509 device certificate and individual enrollment entry
 
-2. In the developer command prompt, change directories from the SDK root directory to the project directory for the X.509 device provisioning sample.
+1. In the developer command prompt, change directories from the SDK root directory to the project directory for the X.509 device provisioning sample.
 
     ```cmd/sh
     cd .\provisioning\device\samples\ProvisioningDeviceClientX509
     ```
 
-1. The sample code is set up to use X.509 certificates stored within a password-protected PKCS12 formatted file (certificate.pfx). To generate a self-signed certificate run the following command:
+1. The sample code is set up to use X.509 certificates stored within a password-protected PKCS12 formatted file (certificate.pfx). Additionally, you need a public key certificate file (certificate.cer) to create an individual enrollment later in this quickstart. To generate a self-signed certificate and its associated .cer and .pfx files, run the following command:
 
     ```cmd/sh
     powershell .\GenerateTestCertificate.ps1
     ```
 
-    The script prompts you for a PFX password. Remember this password, you must use it when you run the sample. The script generates both a public key certificate file (certificate.cer) that you use to create an individual enrollment entry and the PKCS12 formatted file (certificate.pfx) that contains the private key and certificate used by the simulated device.
+2. The script prompts you for a PFX password. Remember this password, you must use it when you run the sample.
+
+    ![ Enter the PFX password](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
+
 
 4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -74,15 +78,15 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
         - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
 
-    ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
+    ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509-csharp/enter-device-enrollment.png)  
 
-   On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
+   On successful enrollment, your X.509 device appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 ## Provision the simulated device
 
 1. From the **Overview** blade for your provisioning service, note down the **_ID Scope_** value.
 
-    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. Type the following command to build and run the X.509 device provisioning sample. Replace the `<IDScope>` value with the ID Scope for your provisioning service. 
@@ -93,9 +97,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 6. When prompted enter the password for the PFX file that you created previously. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
 
+    ![Sample device output](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
+
 1. Verify that the device has been provisioned. On successful provisioning of the simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-csharp/hub-registration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
