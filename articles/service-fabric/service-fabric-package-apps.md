@@ -192,7 +192,7 @@ Starting with version 6.1, Service Fabric allows provisioning from an external s
 The `sfpkg` file is a zip that contains the initial application package and has the extension ".sfpkg".
 Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, package, and data packages, as explained previously.
 
-To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use an utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use any utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
