@@ -1,6 +1,6 @@
 ---
-title: Operational and data security in Azure Search | Microsoft Docs
-description: Security built into Azure Search, including SOC 2 compliance, encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
+title: Secure data and operations in Azure Search | Microsoft Docs
+description: Azure Search security is based on SOC 2 compliance, encryption, authentication, and identity access through user and group security identifiers in Azure Search filters.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -19,11 +19,11 @@ ms.author: heidist
 ---
 # Data security and controlled access to Azure Search operations
 
-In Azure Search, security is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) compliant, spanning physical security, encryption on transmissions and on backend data sources, software safeguards available throughout Azure, culminating on per-user requests for operations and content in Azure Search. This article touches on security at each layer, but is primarily focused on how operations and data are secured in Azure Search.
+In Azure Search, security is [SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) compliant, spanning physical security, encrypted transmissions, encrypted stroage, platform-wide software safeguards, culminating with authentication and per-use access control on operations and content in Azure Search. This article touches on security at each layer, but is primarily focused on how data and operations are secured in Azure Search.
 
-![Block diagram of security layers](/media/search-security-overview/azsearch-security-diagram.png)
+![Block diagram of security layers][./media/search-security-overview/azsearch-security-diagram.png]
 
-Access to service operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Per-user access is optionally implemented through security filters on your queries, returning content associated with a given security identity.
+Access to Azure Search operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Per-user access is optionally implemented through security filters on your queries, returning content associated with a given security identity.
 
 Service access is a cross-section of basic permissions (read or read-write) plus a context that defines a scope of operations. For example, for both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), the two permission levels satisfy most operational security requirements. Every request requires both an access key and a fully qualified endpoint.
 
@@ -31,13 +31,14 @@ Service access is a cross-section of basic permissions (read or read-write) plus
 
 Microsoft data centers provide industry-leading physical security and are compliant with a comprehensive portfolio of standards and regulations. To learn more, go to the [Global data centers](https://www.microsoft.com/cloud-platform/global-datacenters) page or watch a short video on data center security.
 
+>
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 ## Encrypted transmission and storage
 
 Azure Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. 
 
-On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources.
+On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new search services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources.
 
 Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific services or indexes, nor manage keys directly, nor supply your own.
 
@@ -46,15 +47,15 @@ Encryption is transparent, with encryption keys managed internally, and universa
 Several security mechanisms are available across the Azure Stack, and thus automatically available to the Azure Search resources you create.
 
 + [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md)
++ [Role-based Access Control (RBAC) to control access to information and administrative operations](../active-directory/role-based-access-control-what-is.md)
 
 All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
 
 ## Azure Search authentication
 
-Authentication occurs on each request and is based on an access key that determines the scope of operations. A valid access key is considered proof the request originates from a trusted entity. 
+Azure Search supplies its own authentication methodology. Authentication occurs on each request and is based on an access key that determines the scope of operations. A valid access key is considered proof the request originates from a trusted entity. 
 
-In Azure Search, per-service authentication exists at two levels: full rights, query-only. The type of key determines which level of access is in effect.
+Per-service authentication exists at two levels: full rights, query-only. The type of key determines which level of access is in effect.
 
 |Key|Description|Limits|  
 |---------|-----------------|------------|  
@@ -74,14 +75,13 @@ You can obtain access keys in the portal or through the [Management REST API](ht
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
 3. select the service and on the service page, find **Settings** >**Keys** to view admin and query keys.
 
-![Portal page, Settings, Keys section](/media/search-security-overview/settings-keys.png)
+![Portal page, Settings, Keys section][./media/search-security-overview/settings-keys.png]
 
 ## Index access
 
-No built-in index security.
-Access control is at the service level.
-multi-tenancy solutions often include a middle tier that handles index isolation.
-Connections are scoped to a particular index -- there is no concept of joining indexes or accessing multiple indexes simultaneously for query operations.
+In Azure Search, an individual index is not a securable object. Having access control at the service level meets the needs of most customersbecause connections are scoped to a particular index. There is no concept of joining indexes or accessing multiple indexes simultaneously for query operations. 
+
+For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Search](search-modeling-multitenant-saas-applications.md).
 
 ## Admin access from client apps
 
@@ -95,9 +95,14 @@ For information about structuring a request in Azure Search, see [Azure Search S
 
 ## User access to content
 
-For its own search-centric operations, Azure Search does not provide an authorization model. You cannot define or assign roles that filter search results based on user identity, nor can you vary the level of permissions on search operations beyond what's provided via the admin and query **api-keys**.  
+For its own search-centric operations, Azure Search does not provide an internal authorization model with predefined roles and role assignments. Instead, customers with identity access control requirements are creating  security filters for trimming search results of documents and content based on identities. Advancements in filter construction have simplified th
 
-Filter by security identity (user or group) >> filters search results
+The following table describes two approaches for limiting access to search results.
+
+| Approach | Description |
+|----------|-------------|
+|[Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then filter against that field to trim results of prohibited content. |
+|[Azure Active Directory identity-based access control using Azure Search filters](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the free services in the Azure cloud platform. |
 
 ## Table: Permissioned operations
 
