@@ -190,7 +190,7 @@
       - name: Performance tips for .NET
         href: performance-tips.md
       - name: Performance tips for Java
-        href: performance-tips.md
+        href: performance-tips-java.md
       - name: Multi-master setup
         href: multi-region-writers.md
       - name: DateTimes
