@@ -19,7 +19,7 @@ ms.author: mbullwin
 # Exploring HockeyApp data in Application Insights
 
 > [!NOTE]
-> Visual Studio Mobile Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with Mobile Center and Application Insights](app-insights-mobile-center-quickstart.md).
+> Visual Studio App Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with App Center and Application Insights](app-insights-mobile-center-quickstart.md).
 > 
 > 
 

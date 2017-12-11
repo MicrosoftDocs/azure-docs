@@ -2,20 +2,12 @@
 title: Azure Container Instances tutorial - Prepare Azure Container Registry
 description: Azure Container Instances tutorial - Prepare Azure Container Registry
 services: container-instances
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: mmacy
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/07/2017
+ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -35,7 +27,7 @@ In subsequent tutorials, you deploy the container from your private registry to 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 

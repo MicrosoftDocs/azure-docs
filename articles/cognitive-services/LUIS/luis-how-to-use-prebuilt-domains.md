@@ -20,7 +20,7 @@ The prebuilt domains have been pre-trained and are ready for use. The intents an
 Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on "learn more" in its tile to learn about its intents and entities.
 
 > [!TIP]
-> You can find a full listing of the prebuilt domains at [https://www.luis.ai/prebuilts](https://www.luis.ai/prebuilts).
+> You can find a full listing of the prebuilt domains in the [Prebuilt domains reference](./luis-reference-prebuilt-domains.md).
 
 ![Add prebuilt domain](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 

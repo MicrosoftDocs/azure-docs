@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
 ---
 
@@ -29,20 +29,16 @@ There is an important distinction to note between services that deliver an event
 
 An event is a lightweight notification of an action or a state change. The event data contains information about what happened but does not have the data that triggered the event. For example, an event notifies subscribers that a file was created. It may contain general information about the file, but it does not contain the file itself. Generally, events trigger event handlers to act in real time.
 
-Event Grid is an eventing service.
-
 ### Message
 
-A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. This message can be anything from an e-commerce order to user telemetry. Unlike an event notification, the publisher of a message may expect a response. For example, a message contains the raw data but expects the next part of the system to create a file from that data. 
-
-Event Hubs and Service Bus are messaging services.
+A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. This message can be anything from an e-commerce order to user telemetry. Unlike an event notification, the publisher of a message may expect a response. For example, a message contains the raw data but expects the next part of the system to create a file from that data.
 
 ## Comparison of services
 
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactive programming | Event | React to status changes |
-| Event Hubs | Big data pipeline | Message | Telemetry and distributed data streaming |
+| Event Grid | Reactive programming | Event distribution | React to status changes |
+| Event Hubs | Big data pipeline | Event streaming | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
 
 ### Event Grid
@@ -59,7 +55,7 @@ It has the following characteristics:
 
 ### Event Hubs
 
-Azure Event Hubs is a big data pipeline. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to a variety of stream-processing infrastructures and analytics services. It is available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing as well as repeated replay of stored raw data.
+Azure Event Hubs is a big data pipeline. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to a variety of stream-processing infrastructures and analytics services. It is available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing as well as repeated replay of stored raw data. It can capture the streaming data into a file for processing and analysis.
 
 It has the following characteristics:
 
@@ -69,6 +65,8 @@ It has the following characteristics:
 ### Service Bus
 
 Service Bus is intended for traditional enterprise applications. These enterprise applications require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes. When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus. Service Bus also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
+
+Service Bus is a brokered messaging system. It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages.
 
 It has the following characteristics:
 

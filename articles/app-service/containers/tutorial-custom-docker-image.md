@@ -80,7 +80,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 The command produces output similar to the following:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -126,7 +126,7 @@ A registry is an application that hosts images and provides services image and c
 
 Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private. To push a custom Docker image to the public Docker Hub, use the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command and provide a full image name and tag. A full image name and tag looks like the following sample:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -139,12 +139,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 A "login succeeded" message confirms that you are logged in. Once logged in, you can push the image to Docker Hub using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Verify that the push succeeded by examining the command's output.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -310,7 +310,7 @@ top
 
 The `top` command exposes all running processes in a container.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -339,7 +339,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -379,7 +379,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Creating a container produces the following output:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -443,6 +443,12 @@ Confirm that the login succeeded.
 
 ### Push an image to Azure Container Registry
 
+> [!NOTE]
+> If you're using your own image, tag the image as follows:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Push the image by using the `docker push` command. Tag the image with the name of the registry, followed by your image name and tag.
 
 ```bash
@@ -501,7 +507,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",

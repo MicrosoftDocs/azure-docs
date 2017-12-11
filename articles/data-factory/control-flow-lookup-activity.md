@@ -50,6 +50,9 @@ This pipeline contains two activities: **Look up** and **Copy**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 

@@ -25,7 +25,12 @@ Operations Management Suite (OMS) provides monitoring, alerting, and alert remed
 ## Prerequisites
 
 ### Operating system
+
 The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
+
+### Azure Security Center
+
+Azure Security Center automatically provisions the OMS agent and connects it with the default log analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
 
 ### Internet connectivity
 The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 

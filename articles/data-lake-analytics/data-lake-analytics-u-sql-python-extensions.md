@@ -96,4 +96,4 @@ Every vertex has a limited amount of memory assigned to it. Currently, that limi
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-
+* [Use Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

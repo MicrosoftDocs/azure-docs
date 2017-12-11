@@ -13,4 +13,5 @@ AzureMigration.ps1
 articles/directories.txt
 
 .vscode/*
+.vs/*
 .settings.json
