@@ -3,9 +3,9 @@ title: Use Azure Policy to create and manage policies to enforce organizational 
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -22,22 +22,6 @@ Understanding how to create and manage policies in Azure is important for stayin
 > * Implement a new policy across an organization
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Opt in to Azure Policy
-
-Azure Policy is now available in Limited Preview, so you need to register to request access.
-
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
-
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt-in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   Your subscription list includes all your Azure subscriptions.
-
-   ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Depending on demand, it may take up to a couple of days for us to accept your registration request. Once your request gets accepted, you will be notified via email that you can begin using the service.
 
 ## Assign a policy
 
@@ -65,7 +49,7 @@ The first step in enforcing compliance with Azure Policy is to assign a policy d
 
    There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Select the **Scope** - the subscription (or resource group) you previously registered when you opted into Azure Policy. A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
+8. Select the **Scope** - the subscription (or resource group) you previously registered. A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 
    For this example we are using this subscription - **Azure Analytics Capacity Dev**. Your subscription will differ.
 
@@ -90,9 +74,9 @@ Now that we've assigned the policy definition, we're going to create a new polic
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-   Here's what the json should look like
+    Here's what the json should look like
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -112,11 +96,9 @@ Now that we've assigned the policy definition, we're going to create a new polic
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   To view samples of json code, look at this article  - [Resource policy overview](../azure-resource-manager/resource-manager-policy.md)
+    To view samples of json code, read the [Templates for Azure Policy](json-samples.md) article.
 
 4. Select **Save**.
 
@@ -382,7 +364,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 ## Resolve a non-compliant or denied resource
 
-Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to created a SQL server of a different version.
+Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion.
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and launch the *Require SQL Server version 12.0* assignment.

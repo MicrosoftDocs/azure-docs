@@ -351,7 +351,7 @@ The solution does not support the following scenarios, features, and technology 
 This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
 
 #### Resources
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 #### IaaS VMs and their VHD files

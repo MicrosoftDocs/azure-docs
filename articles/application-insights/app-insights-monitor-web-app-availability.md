@@ -26,7 +26,7 @@ There are two types of availability tests:
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
-You can create up to 25 availability tests per application resource.
+You can create up to 100 availability tests per application resource.
 
 ## <a name="create"></a>1. Open a resource for your availability test reports
 

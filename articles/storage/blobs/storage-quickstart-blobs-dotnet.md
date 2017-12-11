@@ -23,8 +23,8 @@ In this quickstart, you learn how to use the .NET client library for Azure Stora
 ## Prerequisites
 
 To complete this quickstart, install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
-    
-    - **Azure development**
+
+- **Azure development**
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

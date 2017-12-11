@@ -2,6 +2,7 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
+
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
@@ -13,11 +14,13 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
+### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
-### [Sample input data](stream-analytics-sample-data-input.md)
+### [Test queries and sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
 
@@ -54,7 +57,6 @@
 ### [Resource health blade](stream-analytics-resource-health.md)
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
-### [Event order handling](stream-analytics-out-of-order-and-late-events.md)
 ### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)

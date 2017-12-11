@@ -556,7 +556,7 @@ azcopy \
 	--recursive
 ```
 
-Note that AzCopy currently only supports the [Account SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Note that AzCopy currently only supports the [Account SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### Journal file folder
 Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
@@ -670,7 +670,7 @@ For more information about Azure Storage and AzCopy, see the following resources
 ### Azure Storage documentation:
 * [Introduction to Azure Storage](../storage-introduction.md)
 * [Create a storage account](../storage-create-storage-account.md)
-* [Manage blobs with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Manage blobs with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Using the Azure CLI 2.0 with Azure Storage](../storage-azure-cli.md)
 * [How to use Blob storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Blob storage from Java](../blobs/storage-java-how-to-use-blob-storage.md)

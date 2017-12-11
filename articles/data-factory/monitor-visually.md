@@ -111,4 +111,4 @@ Click on the 'Feedback' icon to give us feedback on various features or any issu
 
 ## Next steps
 
-See  [Monitor and manage pipelines programmatically](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) article to learn about monitoring and managing pipelines
+See  [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article to learn about monitoring and managing pipelines

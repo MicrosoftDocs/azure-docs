@@ -5,7 +5,7 @@ keywords: python machine learning,pandas,python pandas,python scripts, execute p
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: bradsev
+ms.date: 11/29/2017
+ms.author: bradsev;garye
 
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio

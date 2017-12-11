@@ -20,6 +20,25 @@ This article outlines the currently supported data sources for Azure Machine Lea
 The supported data sources for this release are as follows.
 
 ## Types 
+
+### SQL Server
+Read from on-prem SQL server or Azure SQL database.
+
+#### Options
+- Server Address
+- Trust Server (Even when the certificate on the server is not valid. Use with caution)
+- Authentication Type (Windows, Server)
+- User Name
+- Password
+- Database to connect to
+- SQL Query
+
+#### Notes
+- Sql-variant columns are not supported
+- Time column is converted to datetime by appending time from database to date 1970/1/1
+- When executed on Spark cluster, all data related columns (date, datetime, datetime2, datetimeoffset) will evaluate incorrect values for dates before 1583
+- Values in decimal columns may lose precision due to conversion to decimal
+
 ### Directory vs. file
 Choose a single file and read it into data preparation. The file type is parsed to determine the default parameters for the file connection shown on the next screen.
 
@@ -84,6 +103,9 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 ## Locations
 ### Local
 A local hard drive or a mapped network storage location.
+
+### SQL Server
+On-prem SQL sever, or Azure SQL database.
 
 ### Azure Blob storage
 Azure Blob storage, which requires an Azure subscription.

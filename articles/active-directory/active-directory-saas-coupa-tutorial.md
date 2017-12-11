@@ -4,7 +4,7 @@ description: Learn how to use Coupa with Azure Active Directory to enable single
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory

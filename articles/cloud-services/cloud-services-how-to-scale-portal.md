@@ -18,9 +18,6 @@ ms.author: adegeo
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-scale-portal.md)
-> * [Azure classic portal](cloud-services-how-to-scale.md)
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
