@@ -7417,6 +7417,11 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
+            "redirect_url": "tutorial-vmware-to-vmware",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
             "redirect_url": "site-recovery-support-matrix-azure-to-azure",
             "redirect_document_id": false
