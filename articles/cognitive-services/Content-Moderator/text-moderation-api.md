@@ -1,6 +1,6 @@
 ---
-title: Text Moderation API in Azure Content Moderator | Microsoft Docs
-description: Use the Text Moderation API for profanity, PII, and matching against custom lists of terms.
+title: Text Moderation with Azure Content Moderator | Microsoft Docs
+description: Use Text Moderation for profanity, PII, and matching against custom lists of terms.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,13 +12,13 @@ ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation API overview
+# Text moderation
 
 Content Moderator’s Text Moderation API does more than screen text: it also matches against custom and shared lists that are specific to your business and users, and search for PII (personally identifiable information). In addition, it can auto-correct text before screening it, which helps catch deliberately misspelled words. After content is processed, results are sent, along with relevant information, either to the Review Tool or to a specified system. You use this information to make decisions about content: take it down, send to a human judge, etc.
 
 ## Language detection
 
-The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text.
+The first step is determining the language of the content to be moderated. The Text - Detect Language function returns language codes for the predominant language of the submitted text. For more information, see the [Text - Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66e) API reference.
 
 ## Screening text
 

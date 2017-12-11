@@ -4,7 +4,7 @@ description: How to use custom attributes in Azure Active Directory B2C to colle
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f

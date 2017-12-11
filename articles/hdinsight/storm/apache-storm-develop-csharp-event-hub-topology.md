@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: larryfr
 
 ---
@@ -33,6 +33,9 @@ The steps in this document use SCP.NET, a NuGet package that makes it easy to cr
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
 HDInsight 3.4 and greater use Mono to run C# topologies. The example used in this document works with HDInsight 3.6. If you plan on creating your own .NET solutions for HDInsight, check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+
+> [!WARNING]
+> If you encounter problems building projects that use SCP.NET version 1.0.0.x, please contact Microsoft support for assistance.
 
 ### Cluster versioning
 

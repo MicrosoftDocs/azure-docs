@@ -54,3 +54,5 @@ You can use Java to access the same results you saw in the browser window in the
 ## Next steps
 
 * See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
+
+<!-- touch -->

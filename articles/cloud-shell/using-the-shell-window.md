@@ -1,5 +1,5 @@
 ---
-title: Using the Azure Cloud Shell (Preview) window | Microsoft Docs
+title: Using the Azure Cloud Shell window | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell window.
 services: azure
 documentationcenter: ''
@@ -29,7 +29,7 @@ Use the environment selector in the Cloud Shell toolbar to swap between Bash and
 ## Restart Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
+> Restarting Cloud Shell will reset machine state and any files not persisted by your Azure file share will be lost.
 
 * Click the restart icon in the Cloud Shell toolbar to reset machine state.
 
