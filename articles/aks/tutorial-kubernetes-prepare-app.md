@@ -140,4 +140,4 @@ Advance to the next tutorial to learn about storing container images in an Azure
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 
 <!-- LINKS - internal -->
-[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md)
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
