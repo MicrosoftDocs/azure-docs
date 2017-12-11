@@ -20,20 +20,18 @@ ms.author: glenga
 # Zip push deployment for Azure Functions 
 This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. 
 
-Azure Functions has the full range of continuous deployment and integration options provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). 
+Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). 
 
-However, for faster iteration during development, it's often easier to deploy your function app project files directly from a compressed .zip file.
+For faster iteration during development, it's often easier to deploy your function app project files directly from a compressed .zip file. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
 
-This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
-
-+ Deletion of files left over from an earlier deployment.
++ Deletion of files that were left over from earlier deployments.
 + Deployment customization, including running deployment scripts.
 + Deployment logs.
 + Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-For more information, see the [.zip push deployment reference]. 
+For more information, see the [.zip push deployment reference][.zip push deployment reference]. 
 
-## Requirements of the deployment .zip file 
+## Deployment .zip file requirements
 The .zip file that you use for push deployment must contain all of the project files in your function app, including your function code. 
 
 >[!IMPORTANT]
@@ -57,7 +55,7 @@ However, you might have created your functions by using the editor in the Azure 
 
 The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment.
 
-GitHub also lets you download a .zip file from a repository. Keep in mind that when you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file that you downloaded from GitHub as-is. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
+You can also download a .zip file from a GitHub repository. Keep in mind that when you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
 
 ## <a name="cli"></a>Deploy by using Azure CLI
 
@@ -71,7 +69,7 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 ```
 This command deploys project files from the downloaded .zip file to your function app in Azure. It then restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
 
-When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When using Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location used by your Cloud Shell account. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
+When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When you use Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location that your Cloud Shell account uses. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
