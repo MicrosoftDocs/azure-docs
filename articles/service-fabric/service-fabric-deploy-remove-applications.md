@@ -28,17 +28,29 @@ ms.author: ryanwi
 
 Once an [application type has been packaged][10], it's ready for deployment into an Azure Service Fabric cluster. Deployment involves the following three steps:
 
-1. Upload the application package to the image store
-2. Register the application type
-3. Create the application instance
+1. Upload the application package to the image store.
+2. Register the application type with image store relative path.
+3. Create the application instance.
 
 After an application is deployed and an instance is running in the cluster, you can delete the application instance and its application type. To completely remove an application from the cluster involves the following steps:
 
-1. Remove (or delete) the running application instance
-2. Unregister the application type if you no longer need it
-3. Remove the application package from the image store
+1. Remove (or delete) the running application instance.
+2. Unregister the application type if you no longer need it.
+3. Remove the application package from the image store.
 
 If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
+
+Alternatively, the application package can be [packaged as `sfpkg`](service-fabric-package-apps.md#create-`sfpkg`) and uploaded to an external store. In this case, upload to the image store is not needed. Deployment needs the following steps:
+
+1. Upload the `sfpkg` to an external store that allows READ permissions.
+2. Register the application type using the external download URI and the application type information.
+2. Create the application instance.
+
+For cleanup, remove the application instances and unregister the application type. Because the package was not copied to the image store, there is no temporary location to cleanup. Provisioning from external store was introduced in Service Fabric version 6.1.
+
+>[!NOTE]
+> Visual Studio doesn't support external provision at this moment.
+
  
 ## Connect to the cluster
 Before you run any PowerShell commands in this article, always start by using [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) to connect to the Service Fabric cluster. To connect to the local development cluster, run the following:
@@ -163,12 +175,22 @@ The application type and version declared in the application manifest become ava
 
 Run the [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet to register the application type in the cluster and make it available for deployment:
 
+### Register the application package copied to image store
+If a package was previously copied to the image store, the register operation specifies the relative path in the image store.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 "MyApplicationV1" is the folder in the image store where the application package is located. The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) is now registered in the cluster.
+
+### Register the application package copied to an external store
+Starting with Service Fabric version 6.1, provision supports downloading the package from an external store. The download URI represents the path to the [`sfpkg` application package](service-fabric-package-apps.md#create-`sfpkg`) from where the application package can be downloaded using HTTP or HTTPS protocols. The package must have been previously uploaded to this external location. The URI must allow READ access so Service Fabric can download the file. The `sfpkg` file must have the extension ".sfpkg". The provision operation also includes the application type information, as found in the application manifest.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
 
 The [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) command returns only after the system has successfully registered the application package. How long registration takes depends on the size and contents of the application package. If needed, the **-TimeoutSec** parameter can be used to supply a longer timeout (the default timeout is 60 seconds).
 
@@ -186,7 +208,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## Remove an application package from the image store
-It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues.
+If a package was copied to the image store, you should remove it from the temporary location after the application is successfully registered. Deleting application packages from the image store frees up system resources. Keeping unused application packages consumes disk storage and leads to application performance issues.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -246,7 +268,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## Unregister an application type
-When a particular version of an application type is no longer needed, you should unregister the application type using the [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Unregistering unused application types releases storage space used by the image store by removing application binaries. Unregistering an application type does not remove the application package. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister the application type using the [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Unregistering unused application types releases storage space used by the image store by removing application binaries. Unregistering an application type does not remove the application package, if it was previously copied to the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 Run [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) to see the application types currently registered in the cluster:
 
@@ -338,6 +360,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## Next steps
+[Package an application](service-fabric-package-apps.md)
+
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
 [Service Fabric health introduction](service-fabric-health-introduction.md)
