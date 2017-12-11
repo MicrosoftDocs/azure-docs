@@ -128,8 +128,7 @@ with `CompressPackage` switch. You can uncompress the package with the same comm
 The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)
 without the `SkipCopy` flag.
 The package now includes zipped files for the `code`, `config`, and `data` packages. The application manifest and the service manifests are not zipped,
-because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations).
-Zipping the manifests would make these operations inefficient.
+because they are needed for many internal operations. For example, package sharing, application type name and version extraction for certain validations all need to access the manifests. Zipping the manifests would make these operations inefficient.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -170,10 +169,9 @@ If the package is large, provide a high enough timeout to allow time for both th
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package.
-If you copied an uncompressed version of your application package, and you want to use compression for the same package, you must change the versions of the `code`, `config`, and `data` packages to avoid checksum mismatch. If the packages are unchanged, instead of changing the version, you can use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged package instead reference it from the service manifest.
+Internally, Service Fabric computes checksums for the application packages for validation. When using compression, the checksums are computed on the zipped versions of each package. Generating a new zip from the same application package creates different checksums. To prevent validation errors, use [diff provisioning](service-fabric-application-upgrade-advanced.md). With this option, do not include the unchanged packages in the new version. Instead, reference them directly from the new service manifest.
 
-Similarly, if you uploaded a compressed version of the package and you want to use an uncompressed package, you must update the versions to avoid the checksum mismatch.
+If diff provisioning is not an option and you must include the packages, generate new versions for the `code`, `config`, and `data` packages to avoid checksum mismatch. Generating new versions for unchanged packages is necessary when a compressed package is used, regardless of whether previous version uses compression or not.
 
 The package is now packaged correctly, validated, and compressed (if needed), so it is ready for [deployment](service-fabric-deploy-remove-applications.md) to one or more Service Fabric clusters.
 
@@ -188,11 +186,11 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
     </PublishProfile>
 ```
 
-## Create `sfpkg`
-Starting with version 6.1, Service Fabric allows provisioning from an external store. With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. This saves the time needed to copy the package to each cluster.
+## Create an sfpkg
+Starting with version 6.1, Service Fabric allows provisioning from an external store. With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
 
 The `sfpkg` file is a zip that contains the initial application package and has the extension ".sfpkg".
-Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, package, and data packages, as explained above.
+Inside the zip, the application package can be compressed or uncompressed. The compression of the application package inside the zip is done at code, package, and data packages, as explained previously.
 
 To create an `sfpkg`, start with a folder that contains the original application package, compressed or not. Then, use an utility to zip the folder with the extension ".sfpkg". For example, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 

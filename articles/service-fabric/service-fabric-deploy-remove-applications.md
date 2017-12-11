@@ -40,7 +40,7 @@ After an application is deployed and an instance is running in the cluster, you 
 
 If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
 
-Alternatively, the application package can be [packaged as `sfpkg`](service-fabric-package-apps.md#create-`sfpkg`) and uploaded to an external store. In this case, upload to the image store is not needed. Deployment needs the following steps:
+Alternatively, the application package can be [packaged as `sfpkg`](service-fabric-package-apps.md#create-an-sfpkg) and uploaded to an external store. In this case, upload to the image store is not needed. Deployment needs the following steps:
 
 1. Upload the `sfpkg` to an external store that allows READ permissions.
 2. Register the application type using the external download URI and the application type information.
@@ -134,7 +134,7 @@ For example, here is compression statistics for some packages, which show the in
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
+Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is same for compressed and uncompressed packages. Compressed packages are stored as such in the cluster image store. The packages are uncompressed on the node, before the application is run.
 
 
 The following example uploads the package to the image store, into a folder named "MyApplicationV1":
@@ -186,7 +186,7 @@ Register application type succeeded
 "MyApplicationV1" is the folder in the image store where the application package is located. The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) is now registered in the cluster.
 
 ### Register the application package copied to an external store
-Starting with Service Fabric version 6.1, provision supports downloading the package from an external store. The download URI represents the path to the [`sfpkg` application package](service-fabric-package-apps.md#create-`sfpkg`) from where the application package can be downloaded using HTTP or HTTPS protocols. The package must have been previously uploaded to this external location. The URI must allow READ access so Service Fabric can download the file. The `sfpkg` file must have the extension ".sfpkg". The provision operation also includes the application type information, as found in the application manifest.
+Starting with Service Fabric version 6.1, provision supports downloading the package from an external store. The download URI represents the path to the [`sfpkg` application package](service-fabric-package-apps.md#create-an-sfpkg) from where the application package can be downloaded using HTTP or HTTPS protocols. The package must have been previously uploaded to this external location. The URI must allow READ access so Service Fabric can download the file. The `sfpkg` file must have the extension ".sfpkg". The provision operation also includes the application type information, as found in the application manifest.
 
 ```
 PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
