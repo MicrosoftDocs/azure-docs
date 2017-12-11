@@ -4,7 +4,7 @@ description: Learn how to use SuccessFactors with Azure Active Directory to enab
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory

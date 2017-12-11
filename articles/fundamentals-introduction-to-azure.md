@@ -37,7 +37,7 @@ This article will use a **different organization** to talk about services based 
  *Figure: Azure provides Internet-accessible application services running in Azure datacenters.*
 
 ## Management Portal
-Azure has a web interface called the [Management Portal](http://manage.windowsazure.com) that allows administrators to access and administer most, but not all Azure features.  Microsoft typically releases the newer UI portal in beta before retiring an older one. The newer one is called the ["Azure Preview Portal"](https://portal.azure.com/).
+Azure has a web interface called the [Management Portal](http://manage.windowsazure.com) that allows administrators to access and administer most, but not all Azure features.  Microsoft typically releases the newer UI portal in beta before retiring an older one. The newer one is called the ["Azure Portal"](https://portal.azure.com/).
 
 There is typically a long overlap when both portals are active. While core services will appear in both portals, not all functionality may be available in both. Newer services may show up in the newer portal first and older services and functionality may only exist in the older one.  The message here is that if you don't find something in the older portal, check the newer one and vice-versa.
 

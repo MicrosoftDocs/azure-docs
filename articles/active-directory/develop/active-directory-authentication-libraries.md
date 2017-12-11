@@ -4,7 +4,7 @@ description: The Azure AD Authentication Library (ADAL) allows client applicatio
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
