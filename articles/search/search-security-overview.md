@@ -21,15 +21,15 @@ ms.author: heidist
 
 In Azure Search, security is comprehensive, starting at the physical layer, moving up through encryption on transmissions and backend data, culminating on per-user requests for operations and content. This article covers security at each level, with primary focus on how operations and data are secured in Azure Search.
 
-Access to service operations are through api-keys that grants two levels of access: full (write operations on the service) or query (read-only). Access control is a cross-section of basic permissions (read vs read-write) plus a context that defines a scope of operations. For both indexing and querying, you connect to the service and an object in tandem.When chained to an object (service, index, and so forth), these two permission levels satisfy most security requirements.
+Access to service operations are through api-keys granting two levels of access: full (write operations on the service) or query (read-only). Access control is a cross-section of basic permissions (read vs read-write) plus a context that defines a scope of operations. For both indexing and querying, you connect to the service and an object in tandem. When chained to an object (service, index, and so forth), these two permission levels satisfy most security requirements.
 
 Specifically, in the context of search, most connections are read-only queries. Less frequent are the write operations that modify content structures managed by your service: creating, refreshing, or deleting indexes, suggesters, synonym maps, indexers, indexer data sources.
 
-Every connection requires an access key and a fully-qualified endpoint. Without a key, you cannot access a service. Without an endpoint that also includes a particular index and operation, you cannot connect.
+Every connection requires an access key and a fully qualified endpoint. Without a key, you cannot access a service. Without an endpoint that also includes a particular index and operation, you cannot connect.
 
 ## Physical security
 
-Microsoft data centers provide industry-leading physical security and are compliant with a comprehensive portfolio of standards and regulations. To learn more, go to our [Global data centers](https://www.microsoft.com/cloud-platform/global-datacenters) page or watch a short video on data center security.
+Microsoft data centers provide industry-leading physical security and are compliant with a comprehensive portfolio of standards and regulations. To learn more, go to the [Global data centers](https://www.microsoft.com/cloud-platform/global-datacenters) page or watch a short video on data center security.
 
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
@@ -61,10 +61,10 @@ In Azure Search, per-service authentication exists at two levels: full rights, q
 |Admin|Admin keys grant full rights to all operations, including the ability to manage the service, create and delete **indexes**, **indexers**, and **data sources**.<br /><br /> Two admin **api-keys**, referred to as *primary* and *secondary* keys in the portal,  are generated when the service is created and can be individually regenerated on demand. Having two keys allows you to roll over one key while using the second key for continued access to the service.<br /><br /> Admin keys are only specified in HTTP request headers. You cannot place an admin **api-key** in a URL.|Maximum of 2 per service|  
 |Query|Query keys grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.<br /><br /> Query keys are created on demand. You can create them manually in the portal or programmatically via the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Query keys can be specified  in an HTTP request header for search, suggestion, or lookup operation. Alternatively, you can pass a query key  as a parameter on a URL. Depending on how your client application formulates the request, it might be easier to pass the key as a query parameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per service|  
 
- Visually, there is no distinction between an admin key or query key. Both keys are strings composed of 32 randomly-generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](https://portal.azure.com) or use the [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to return the value and key type.  
+ Visually, there is no distinction between an admin key or query key. Both keys are strings composed of 32 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](https://portal.azure.com) or use the [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to return the value and key type.  
 
 > [!NOTE]  
->  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search will only accept a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
+>  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
 
 ### How to access keys
 
@@ -79,16 +79,15 @@ Access control is at the service level.
 multi-tenancy solutions often include a middle tier that handles index isolation.
 Connections are scoped to a particular index -- there is no concept of joining indexes or accessing multiple indexes simultaneously for query operations.
 
-## Administrative access 
+## Administrative access from client apps
 
-The Azure Search Management REST API is an extension of the Azure Resource Manager and shares its dependencies. As such, Active Directory is a prerequisite to service administration of Azure Search. All administrative requests from client code must be authenticated using Azure Active Directory before the request reaches the resource manager.
+The Azure Search Management REST API is an extension of the Azure Resource Manager and shares its dependencies. As such, Active Directory is a prerequisite to service administration of Azure Search. All administrative requests from client code must be authenticated using Azure Active Directory before the request reaches the Resource Manager.
 
-Note that if your application code handles service administration operations as well as data operations on search indexes or documents, you'll be using two authentication approaches for each of the Azure Search service APIs:
-Service and key administration, due to the dependency on Resource Manager, relies on Active Directory for authentication.
+Data requests against the Azure Search service endpoint, such as Create Index (Azure Search Service REST API) or Search Documents (Azure Search Service REST API), use an api-key in the request header.
 
-Data requests against the Azure Search service endpoint, such as Create Index (Azure Search Service REST API) or Search Documents (Azure Search Service REST API), use an api-key in the request header. See Azure Search Service REST for information about authenticating a data request.
+If your application code handles service administration operations as well as data operations on search indexes or documents, implement two authentication approaches in your code: the access key native to Azure Search, and the Active Directory authentication methodology required by Resource Manager. 
 
-Authentication documentation for ARM can be found at Use Resource Manager authentication API to access subscriptions.
+For information about structuring a request in Azure Search, see [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/). For more information about authentication requirements for Resource Manager, see [Use Resource Manager authentication API to access subscriptions](../azure-resource-manager/resource-manager-api-authentication.md).
 
 ## User access to content
 
@@ -104,7 +103,7 @@ The following table summarizes the operations allowed in Azure Search and which 
 
 | Operation | Key requirements |
 |-----------|-------------------------|
-| Create a service | Azure sbuscription holder |
+| Create a service | Azure subscription holder |
 | Scale a service | Admin key |
 | Delete a service | Admin key|
 | Create, modify, delete indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key |
