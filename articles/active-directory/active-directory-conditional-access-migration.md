@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/07/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -45,30 +45,38 @@ In the [Azure portal](https://portal.azure.com), the [Conditional access - Polic
 - The Intune App Protection portal
 
 
-You can access your classic policies using the Azure portal using the [**Classic policies (preview)** view](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies). 
-
-**Action items:**
-
-- Screenshot needs to be updated.
-- You can filter enabled / disabled policies
-- If a policy has been disabled, you can't enable it anymore
+On the **Conditional access** page, you can access your classic policies by clicking [**Classic policies (preview)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
 
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/61.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
 
-With this view, you can:
+The **Classic policies** view provides you with an option to:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- Filter your classic policies.
+ 
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-- List the available classic policies
-- Review the settings of your classic policies
-- Disable classic policies
+- Disable classic policies.
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Review the settings of a classic policies (and to disable it).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+If you have disabled a classic policy, you can't revert this step anymore. This is why you can modify the group membership in a classic policy using the **Details** view. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+By either changing the selected groups or by excluding specific groups, you can test the effect of a disabled classic policy for a few test users before disabling the policy for all included users and groups. 
+
 
 
 ## Azure AD conditional access policies
 
-With conditional access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how conditional access has significantly changed, you should familiarize yourself with the basic concepts.
+With conditional access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how conditional access has significantly changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
 
 See:
 
