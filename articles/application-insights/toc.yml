@@ -51,6 +51,8 @@
       href: app-insights-windows-desktop.md
     - name: ASP.NET Core
       href: app-insights-asp-net-core.md
+    - name: Console
+      href: application-insights-console.md
   - name: Monitor Java apps
     items:
     - name: Web apps
@@ -142,10 +144,6 @@
         href: app-insights-proactive-failure-diagnostics.md
       - name: Performance anomalies
         href: app-insights-proactive-performance-diagnostics.md
-      - name: Trace degradation
-        href: app-insights-proactive-trace-severity.md
-      - name: Exception volume
-        href: app-insights-proactive-exception-volume.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze
