@@ -39,46 +39,12 @@ This article is the first tutorial of a series:
 * Create an HDInsight cluster connected to Azure AD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
 * Create and apply Hive policies through Apache Ranger, and allow users (for example, data scientists) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Microsoft is working on adding other workloads, such as HBase and Storm, to Domain-joined HDInsight soon.
 
-Azure service names must be globally unique. The following names are used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial. 
-
-**Names:**
-
-| Property | Value |
-| --- | --- |
-| Azure AD directory |contosoaaddirectory |
-| Azure AD domain name |contoso (contoso.onmicrosoft.com) |
-| HDInsight VNet |contosohdivnet |
-| HDInsight VNet resource group |contosohdirg |
-| HDInsight cluster |contosohdicluster |
-
-This tutorial provides the steps for configuring a domain-joined HDInsight cluster. Each section has links to other articles with more background information.
-
 ## Prerequisite:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
-* An SSL certificate that is signed by a signing authority or a Self-signed certificate for your domain. The certificate is required for configuring secure LDAP.
 
-## Create a domain controller virtual machine
+## Create an Azure Active directory
 
 Azure Resource Manager template makes it easier to create Azure resources. In this section, you use an Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
-
-1. Create a Resource Manager vnet
-
-Name: contosohdivnet
-Address space: 10.0.0.0/16.
-Subnet name: Subnet1
-Subnet address range: 10.0.0.0/24
-Subscription: (Select your Azure subscription.)
-Resource group: contosohdirg
-Location: (Select the same location as the Azure AD VNet. For example, contosoaadvnet.)
-
-
-1. Create an Azure AD.
-2. Create Azure AD users. These users are domain users. You use the first user for configuring the HDInsight cluster with the Azure AD. The other two users are optional for this tutorial. They will be used in Configure Hive policies for Domain-joined HDInsight clusters when you configure Apache Ranger policies.
-3. Create the AAD DC Administrators group and add the Azure AD user to the group. You use this user to create the organizational unit.
-4. Enable Azure AD Domain Services (Azure AD DS) for the Azure AD.
-
-DNS?
-
 
 **To create a domain with two domain controllers**
 
@@ -95,7 +61,7 @@ DNS?
     - Subscription: Select an Azure subscription.
     - Resource group name: Type a resource group name.  A resource group is used to manage your Azure resources that are related to a project.
     - Location: Select an Azure location that is close to you.
-    - Admin username: This the domain administrator username. This user is not the HTTP user account of your HDInsight cluster. This is the account you use throughout the tutorial.
+    - Admin username: This is the domain administrator username. This user is not the HTTP user account of your HDInsight cluster. This is the account you use throughout the tutorial.
     - Admin password: Enter the password for the domain administrator.
     - Domain name: The domain name must be a two-part name. For example: contoso.com, or contoso.local, or hdinsight.test.
     - DNS prefix: Type a DNS prefix
@@ -143,23 +109,30 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 3. Follow the wizard, use the default settings for the rest of the procedure (click **Configure** at the last step).
 4. Click **Close** to close the wizard.
 
+## (Optional)Create AD users and groups
 
-To create users and groups in the AD
+**To create users and groups in the AD**
+1. Connect to the PDC using remote desktop
 1. Open **Active Directory Users and Computers**.
 2. Select your domain name in the left pane.
-3. Click the **Create a new users in the current container** icon on the top menu.
+3. Click the **Create a new user in the current container** icon on the top menu.
+
+    ![HDInsight domain joined create users](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
+4. Follow the instructions to create a few users.
+5. Click the **Create a new group in the current container** icon on the top menu.
+6. Follow the insturctions to create a group called **HDInsightUsers**.  This group is used when you create an HDInsight cluster later in this tutorial.
 
 > [!IMPORTANT]
-> You must reboot the PDC before creating a domain-joined HDInsight cluster.
+> You must reboot the PDC virtual machine before creating a domain-joined HDInsight cluster.
 
 ## Create a HDInsight cluster in the VNet
 
-In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the resouce manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
+In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the resource manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 **To create a domain-joined HDInsight cluster**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Open the resource group you created using the resource manager template earlier in the tutorial.
+2. Open the resource group you created using the Resource Manager template earlier in the tutorial.
 3. Add a HDInsight cluster to the resource group.
 4. Select **Custom** option:
 
@@ -171,9 +144,9 @@ In this section, you use the Azure portal to add a HDInsight cluster into the vi
     - Cluster type: Choose **PREMIUM**. Currently you can only create premium cluster with the following cluster types: Hadoop, Interactive Query, and Spark.
 
         ![HDInsight domain joined Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
-    - Cluster login username: The is the Hadoop HTTP user. This account is different from the domain administrator account.
-    - Resource group: Select the resource group you created earlier using the resource manager template.
-    - Location:  The location must be the same as the one you used when you create the vnet and the DCs using the resource manager template.
+    - Cluster login username: This is the Hadoop HTTP user. This account is different from the domain administrator account.
+    - Resource group: Select the resource group you created earlier using the Resource Manager template.
+    - Location:  The location must be the same as the one you used when you create the vnet and the DCs using the Resource Manager template.
 
 6. In the **Advanced settings** section:
 
@@ -181,15 +154,13 @@ In this section, you use the Azure portal to add a HDInsight cluster into the vi
 
         ![HDInsight domain joined advanced settings domain](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
         
-        - Domain name:
-        - Domain user name:
-        - Organization Unit:
-        - LDAPS URL:
-        - Access user group:
-    - Virtual network:
-    - Subnet: 
-
-
+        - Domain name: Enter the domain name you used in [Create an Azure Active Directory](#create-an-azure-active-directory).
+        - Domain user name: Enter the AD administrator user name you used in [Create an Azure Active Directory](#create-an-azure-active-directory).
+        - Organization Unit: See the screenshot for an example.
+        - LDAPS URL: See the screenshot for an example
+        - Access user group: Enter the user group name you created in [Create AD users and groups](#optionally-createad-users-and-groups)
+    - Virtual network: Select the virtual network you created in [Create an Azure Active Directory](#create-an-azure-active-directory). The default name used in the template is **adVNET**.
+    - Subnet: The default name used in the template is **adSubnet**.
 
 
 
