@@ -3,7 +3,7 @@ title: Create an Azure Cosmos DB graph database with Java | Microsoft Docs
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
 services: cosmos-db
 documentationcenter: ''
-author: lbosq
+author: luisbosquez
 manager: jhubbard
 editor: ''
 
