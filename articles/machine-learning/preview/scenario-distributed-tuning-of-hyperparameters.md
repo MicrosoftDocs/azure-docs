@@ -32,8 +32,8 @@ Grid search using cross-validation can be time-consuming. If an algorithm has fi
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [Install and create Quickstart](./quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
-* To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
-* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least 
+* To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
+* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least 
 - six worker nodes
 - eight cores
 - 28 Gb of memory 
@@ -42,11 +42,11 @@ in both header and worker nodes. D4 instances of virtual machines have such capa
 - spark.executor.cores
 - spark.executor.memory 
 
-You can follow these [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) and edit the definitions in "custom spark defaults" section.
+You can follow these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) and edit the definitions in "custom spark defaults" section.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Create an Azure storage account that is used for storing the dataset. Follow the [instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) to create a storage account.
+* Create an Azure storage account that is used for storing the dataset. Follow the [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create a storage account.
 
 ## Data description
 

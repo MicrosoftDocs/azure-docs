@@ -506,7 +506,7 @@ No. You will need to ship your own drives for both import and export jobs.
 
 ** How can I access data that is imported by this service**
 
-The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
 

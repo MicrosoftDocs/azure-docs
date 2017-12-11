@@ -26,7 +26,8 @@ those apps created in the public cloud:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| App Service |*.azurewebsites.net |*.azurewebsites.us|
+| App Service |\*.azurewebsites.net |\*.azurewebsites.us|
+| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 04f281cf-dfa6-4986-981d-7f8ddb9e7bd8 |
 
 Some App Service features available in Azure Government have variations:
 

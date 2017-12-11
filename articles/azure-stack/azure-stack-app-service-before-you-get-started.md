@@ -247,7 +247,7 @@ For the Azure App Service on Azure Stack hosting and metering databases, you mus
 
 For use with the Azure Stack Development Kit, you can use SQL Express 2014 SP2 or later.
 
-For production and high availability purposes, you should use a full version of SQL 2014 SP2 or later, enable Mixed Mode authentication, and deploy in a [highly available configuration](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+For production and high availability purposes, you should use a full version of SQL 2014 SP2 or later, enable Mixed Mode authentication, and deploy in a [highly available configuration](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 The Azure App Service on Azure Stack SQL Server must be accessible from all App Service roles. SQL Server can be deployed within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack). If you are using an Azure Marketplace image, remember to configure the firewall accordingly. 
 

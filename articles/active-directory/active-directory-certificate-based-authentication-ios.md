@@ -4,7 +4,7 @@ description: Learn about the supported scenarios and the requirements for config
 services: active-directory
 author: MarkusVi
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 26a6fc54-0153-44fb-b970-9b432c99e9f9
 ms.service: active-directory
