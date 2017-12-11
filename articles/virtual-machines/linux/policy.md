@@ -21,7 +21,7 @@ ms.author: singhkay
 # Apply policies to Linux VMs with Azure Resource Manager
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.
 
-For an introduction to policies, see [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md).
+For an introduction to policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
 
 ## Permitted Virtual Machines
 To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems. In the following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines to be created.
@@ -85,7 +85,7 @@ Use a wild card to modify the preceding policy to allow any Ubuntu LTS image:
 }
 ```
 
-For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).
+For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases).
 
 ## Managed disks
 
@@ -206,6 +206,6 @@ You may want to forbid usage of certain types of extensions. For example, an ext
 
 
 ## Next steps
-* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies, see [Use Azure portal to assign and manage resource policies](../../azure-policy/assign-policy-definition.md), [Use PowerShell to assign policies](../../azure-policy/assign-policy-definition-ps.md), or [Use Azure CLI to assign policies](../../azure-policy/assign-policy-definition-cli.md).
+* For an introduction to resource policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).

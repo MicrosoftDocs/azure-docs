@@ -4,7 +4,7 @@ description: Step by step instructions for assigning an MSI on one resource, acc
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -24,7 +24,7 @@ Once you've configured an Azure resource with an MSI, you can give the MSI acces
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Also, install [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) if you haven't already.
 

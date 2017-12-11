@@ -100,7 +100,7 @@ Tip 10: Learn how to copy your MongoDB data to Azure Cosmos DB using Studio 3T (
 
 Tip 11: Build a hero tracking app using React, Node.js and Azure Cosmos DB.
 
-Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Article: [Create a MongoDB app with React and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -116,7 +116,7 @@ Tip 12: Go serverless with Azure #CosmosDB and @AzureFunctions! Full docs at [ht
 
 Tip 13: From zero to hero with @John_Papa and Azure Cosmos DB. Learn how to build  a MEAN app from scratch
 
-Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Article: [Create a MongoDB app with Angular and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweet on twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Share on LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 

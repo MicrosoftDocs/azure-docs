@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: larryfr
 
 ---
@@ -39,6 +39,9 @@ To use a C# topology with a Linux-based cluster, you must update the Microsoft.S
 
 > [!IMPORTANT]
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Check [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) for potential incompatibilities.
+
+> [!WARNING]
+> If you encounter problems building projects that use SCP.NET version 1.0.0.x, please contact Microsoft support for assistance.
 
 ## Install Visual Studio
 

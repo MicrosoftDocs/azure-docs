@@ -4,7 +4,7 @@ description: How to add an existing subscription to your Azure AD directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
@@ -37,7 +37,6 @@ You must sign in with an account that exists in both the current directory with 
 5. The recipient clicks the link and follows the instructions, including entering their payment information. When the recipient succeeds, the subscription is transferred. 
 6. The default directory of the subscription is changed to the directory that the user is in.
 
-For more information, see [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md).
 
 ## Next steps
 * To learn more about how to change administrators for an Azure subscription, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)

@@ -33,7 +33,7 @@ You can copy data from Azure Cosmos DB to any supported sink data store, or copy
 
 Specifically, this Azure Cosmos DB connector supports:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc.
 
 To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
