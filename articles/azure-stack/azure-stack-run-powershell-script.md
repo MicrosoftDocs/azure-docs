@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 12/11/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
@@ -41,7 +41,7 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
 4. Under **Download the software**, click **Azure Stack Development Kit**.
 
   > [!NOTE]
-  > The ASDK download (AzureStackDevelopmentKit.exe) is approximiately 10GB by itself. If you choose to also download the Windows Server 2016 evaluation version ISO file, the download size increases to approximately 17GB. You can use that ISO file to add a Windows Server 2016 image to the Azure Stack Marketplace after ASDK installation completes. Note that this Windows Server 2016 evaluation image can only be used with the ASDK and is subject to the ASDK license terms.
+  > The ASDK download (AzureStackDevelopmentKit.exe) is approximiately 10GB by itself. If you choose to also download the Windows Server 2016 evaluation version ISO file, the download size increases to approximately 17GB. You can use that ISO file to create and add a Windows Server 2016 virtual machine image to the Azure Stack Marketplace after ASDK installation completes. Note that this Windows Server 2016 evaluation image can only be used with the ASDK and is subject to the ASDK license terms.
 
 5. After the download completes, click **Run** to launch the ASDK self-extractor (AzureStackDevelopmentKit.exe).
 6. Review and accept the displayed license agreement from the **License Agreement** page of the Self-Extractor Wizard and then click **Next**.
@@ -100,7 +100,7 @@ After preparing the ASDK host computer, the ASDK can be deployed into the CloudB
 1. After the host computer successfully boots into the CloudBuilder.vhdx image, log in using the administrator credentials specified in the previous steps. 
 2. Open an elevated PowerShell console and run the **\AzureStack_Installer\asdk-installer.ps1** script (which might now be on a different drive in the CloudBuilder.vhdx image). Click **Install**.
 3. In the **Type** drop-down box, select **Azure Cloud** or **AD FS**.
-    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. Use this parameter to specify a specific directory where the Azure AD account has global admin permissions. Full name of an Azure AD directory tenant. For example, *domainname*.onmicrosoft.com. 
+    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you will need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com, and global admin credentials for the specified directory. 
     - **AD FS**: The default stamp Directory Service will be used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
 4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
 5. Select a network adapter to use for the development kit and then click **Next**.
@@ -110,7 +110,7 @@ After preparing the ASDK host computer, the ASDK can be deployed into the CloudB
 7. Optionally, set the following values:
     - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and internet). 
     - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: This required field sets the time server to be used by the development kit.
+    - **Time server**: This required field sets the time server to be used by the development kit. This parameter must be provided as a valid time server IP address. Server names are not supported.
   
   > [!TIP]
   > To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
@@ -152,7 +152,7 @@ These commands will configure your ASDK host computer to boot from the downloade
 After the development kit host computer successfully boots into the CloudBuilder.vhdx image, you can open an elevated PowerShell console and run the commands in this section to deploy the ASDK on the development kit host.
 
 > [!IMPORTANT] 
-> Azure Stack setup requires access to the internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script.
+> ASDK installation supports exactly one network interface card (NIC) for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script.
 
 You can deploy Azure Stack with Azure AD or AD FS as the identity provider. Azure Stack, resource providers, and other applications work the same way with both. To learn more about what is supported with AD FS in Azure Stack, see the [key features and concepts](.\azure-stack-key-features.md) article.
 
@@ -160,7 +160,7 @@ You can deploy Azure Stack with Azure AD or AD FS as the identity provider. Azur
 > If you don't supply any setup parameters (see InstallAzureStackPOC.ps1 optional parameters and examples below), you'll be prompted for the required parameters.
 
 ### Deploy Azure Stack using Azure AD 
-To deploy Azure Stack **using Azure AD as the identity provider**, run the following PowerShell commands:, run the following PowerShell commands:
+To deploy Azure Stack **using Azure AD as the identity provider**, you must have internet connectivity either directly or through a transparent proxy. Run the following PowerShell commands to deploy the development kit using Azure AD:
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -194,7 +194,7 @@ If your Azure AD identity is only associated with **one** Azure AD directory:
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer time.windows.com #Example time server name.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 If your Azure AD identity is associated with **greater than one** Azure AD directory:
@@ -202,7 +202,7 @@ If your Azure AD identity is associated with **greater than one** Azure AD direc
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 10.222.112.26 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 If your environment **does not** have DHCP enabled then you must include the following additional parameters to one of the options above (example usage provided): 
@@ -216,7 +216,7 @@ If your environment **does not** have DHCP enabled then you must include the fol
 |-----|-----|-----|
 |AdminPassword|Required|Sets the local administrator account and all other user accounts on all the virtual machines created as part of development kit deployment. This password must match the current local administrator password on the host.|
 |InfraAzureDirectoryTenantName|Required|Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of .onmicrosoft.com.|
-|TimeServer|Required|Use this parameter to specify a specific time server.|
+|TimeServer|Required|Use this parameter to specify a specific time server. This parameter must be provided as a valid time server IP address. Server names are not supported.|
 |InfraAzureDirectoryTenantAdminCredential|Optional|Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
 |InfraAzureEnvironment|Optional|Select the Azure Environment with which you want to register this Azure Stack deployment. Options include Public Azure, Azure - China, Azure - US Government.|
 |DNSForwarder|Optional|A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.|
