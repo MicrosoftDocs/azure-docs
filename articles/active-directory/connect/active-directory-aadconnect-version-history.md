@@ -26,6 +26,7 @@ This article is designed to help you keep track of the versions that have been r
 This is a list of related topics:
 
 
+
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
@@ -79,14 +80,17 @@ Where
 $ObjectDN = The Active Directory account whose permissions need to be tightened.
 $Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
 
+>[!NOTE] 
+>$credential.UserName should be in domain\username format.  
+
 ##### Example:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
 ```
 
->[!NOTE] 
->$credential.UserName should be in domain\username format.                                                                                                                 
+                                                                                                               
+
 ## 1.1.649.0
 Status: October 27 2017
 
