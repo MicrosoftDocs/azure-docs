@@ -27,7 +27,7 @@ This article shows you how to install and configure Trend Micro Deep Security as
 
 The client is installed as a security extension via the VM Agent. On a new virtual machine, you install the Deep Security Agent, as the VM Agent is created automatically by the Azure portal.
 
-An existing VM created using the classic portal, the Azure CLI, or PowerShell might not have a VM agent. For an existing virtual machine that doesn't have the VM Agent, you need to download and install it first. This article covers both situations.
+An existing VM created using the Azure portal, the Azure CLI, or PowerShell might not have a VM agent. For an existing virtual machine that doesn't have the VM Agent, you need to download and install it first. This article covers both situations.
 
 If you have a current subscription from Trend Micro for an on-premises solution, you can use it to help protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see the Trend Micro blog post [Microsoft Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
