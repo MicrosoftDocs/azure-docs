@@ -5,7 +5,7 @@ services: iot-Edge
 documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: chrisgmsft
 
 ms.assetid:
 ms.service: iot-hub
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2017
+ms.date: 12/12/2017
 ms.author: kgremban
 ms.custom: 
 ---
@@ -118,7 +118,6 @@ sudo iotedgectl login --address <login server> --username <username> --password 
 
    6. Select **Save**.
 5. Back in the **Add Modules** step, select **Next**.
-6. Update routes for your module:
 7. In the **Specify Routes** step, copy the following JSON into the text box. This route sends all messages collected by the Modbus module to IoT Hub. In this route, ''modbusOutput'' is the endpoint that Modbus module use to output data, and ''upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
    ```JSON
    {
@@ -141,3 +140,6 @@ docker logs -f modbus
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool](https://github.com/azure/iothub-explorer). 
 
 ## Next steps
+
+- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](how-to-create-transparent-gateway.md)
+- For more information about how IoT Edge modules work, see [Understand Azure IoT Edge modules](iot-edge-modules.md)
