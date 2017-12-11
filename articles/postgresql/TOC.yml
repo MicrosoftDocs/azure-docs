@@ -89,7 +89,7 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
-  - name: Migrate your database
+  - name: Migrate a database
     items:
     - name: Dump & restore
       href: howto-migrate-using-dump-and-restore.md
