@@ -37,7 +37,7 @@ Before you begin this article, you must have the following:
     azure login
     ```
   
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
+    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 * **Switch to the Azure Resource Manager mode**, using the following command:
   
     ```cli

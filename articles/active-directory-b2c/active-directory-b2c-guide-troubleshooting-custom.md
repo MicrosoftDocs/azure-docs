@@ -4,7 +4,7 @@ description: Learn about approaches to solving errors when working with custom p
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 
 ms.assetid: 

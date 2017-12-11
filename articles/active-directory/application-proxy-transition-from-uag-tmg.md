@@ -4,7 +4,7 @@ description: Choose which proxy solution is best if you're upgrading from Micros
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
