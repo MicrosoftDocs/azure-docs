@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\xshi\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.2.0\\cores\\arduino"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "C:\\Users\\xshi\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.2.0\\cores\\arduino"
+                ]
+            }
+        }
+    ]
+}
