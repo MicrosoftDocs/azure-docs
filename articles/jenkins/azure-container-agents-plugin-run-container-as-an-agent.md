@@ -36,19 +36,19 @@ You learn how to:
     - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
     - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
 
-## 1. Install a Jenkins server on Azure using the Jenkins Marketplace Image
+## Install a Jenkins server on Azure using the Jenkins Marketplace Image
 
 Jenkins supports a model where the Jenkins server delegates work to one or more agents to allow a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. The steps in this section guide you through installing and configuring a Jenkins server on Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
-## 2. Connect to the Jenkins server running on Azure
+## Connect to the Jenkins server running on Azure
 
 Once you've installed Jenkins on Azure, you need to connect to Jenkins. The following steps walk you through setting up an SSH connection to the Jenkins VM running on Azure. 
 
 [!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
 
-## 3. Update Jenkins DNS
+## Update Jenkins DNS
 
 Jenkins needs to know its own URL when it is creating links that point back to itself. For example, the URL needs to be used when Jenkins sends emails containing direct links to build results. 
 
@@ -68,7 +68,7 @@ This section walks you through setting the Jenkins URL.
 
 1. Select **Save**.
 
-## 4. Update Jenkins to allow Java Network Launch Protocol (JNLP)
+## Update Jenkins to allow Java Network Launch Protocol (JNLP)
 
 The Jenkins agent connects with the Jenkins server via the Java Network Launch Protocol (JNLP). This section explains how to specify a port for JNLP agents to use when communicating with the Jenkins server.
 
@@ -104,7 +104,7 @@ The Jenkins agent connects with the Jenkins server via the Java Network Launch P
     --destination-port-range "12345"
     ```
 
-## 5. Create and add an Azure service principal to the Jenkins credentials
+## Create and add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. The following steps guide you through the process of creating a service principal (if you don't already have one), and updating Jenkins with your service principal.
 
@@ -143,7 +143,7 @@ You need an Azure service principal to deploy to Azure. The following steps guid
 
 1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
-## 6. Create an Azure resource group for your Azure Container Instances
+## Create an Azure resource group for your Azure Container Instances
 
 Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
 
@@ -168,7 +168,7 @@ When finished, the `az group create` command displays results similar to the fol
 }
 ```
 
-## 7. Install the Azure Container Agents plugin for Jenkins
+## Install the Azure Container Agents plugin for Jenkins
 
 If you've already installed the Azure Container Agents plugin, you can skip this section.
 
@@ -200,7 +200,7 @@ Once you have the Azure resource group created for your Jenkins agent, the follo
 
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
-## 8. Configure the Azure Container Agents plugin
+## Configure the Azure Container Agents plugin
 
 Once the Azure Container Agents plugin is installed, this section guides you through configuring the plugin within the Jenkins dashboard.
 
@@ -242,7 +242,7 @@ Once the Azure Container Agents plugin is installed, this section guides you thr
 
 1. Select **Save**.
 
-## 9. Create the Spring PetClinic Application job in Jenkins
+## Create the Spring PetClinic Application job in Jenkins
 
 The following steps guide you through creating a Jenkins job - as a freestyle project - to build the Spring PetClinic Application.
 
@@ -276,7 +276,7 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
 1. Select **Save** to save the new project definition.
 
-## 10. Build the Spring PetClinic Application job in Jenkins
+## Build the Spring PetClinic Application job in Jenkins
 
 It's time to build your project! This section explains how to build a project from the Jenkins dashboard.
 
@@ -312,7 +312,7 @@ It's time to build your project! This section explains how to build a project fr
 
     ![The build disposition displays at the bottom of the build log.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-disposition.png)
 
-## 11. (Optional) Clean up Azure resources
+## Clean up Azure resources
 
 In this tutorial, you created resources contained within two Azure resource groups: 
     - `JenkinsResourceGroup` - Contains the Azure resources for the Jenkins server.
