@@ -82,11 +82,11 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 <!--start-collapse-->
 > ### About these packages
->The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to re-authenticate, and no additional verification is needed.
+>The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to reauthenticate, and no additional verification is needed.
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
-The steps below are used to create an OWIN middleware *Startup Class* to configure OpenID Connect authentication. This class is executed automatically.
+The following steps are used to create an OWIN middleware *Startup Class* to configure OpenID Connect authentication. This class is executed automatically.
 
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
 > 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
@@ -102,7 +102,7 @@ The steps below are used to create an OWIN middleware *Startup Class* to configu
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Replace Startup class with the code below:
+Replace Startup class with the following code:
 </li>
 </ol>
 
@@ -133,7 +133,7 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Add the two methods below to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
+Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 </li>
 </ol>
 
@@ -155,7 +155,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 <!--end-collapse-->
 
 ## Display user's claims by adding a controller
-This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
+This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
 1.	Right-click the `Controllers` folder: `Add` > `Controller`
 2.	Select `MVC {version} Controller – Empty`.
@@ -167,7 +167,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 
 <!--start-collapse-->
 ### More Information
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
 <!--end-collapse-->
 
 ## Create a view to display the user's claims
@@ -231,7 +231,7 @@ In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> wit
 
 ## Configure sign-in options
 
-You can configure your application to allow only users that belong to one organization's Azure Active Directory instance to sign-in, or accept sign-ins from users that belong to any organization. Please follow the instructions of one of choices below:
+You can configure your application to allow only users that belong to one organization's Azure Active Directory instance to sign-in, or accept sign-ins from users that belong to any organization. Please follow the instructions of one of following choices:
 
 ### Configure your application to allow sign ins of work and school accounts from any company or organization (multi-tenant)
 
