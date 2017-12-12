@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 11/05/2017
+ms.date: 12/15/2017
 ms.author: marsma
 ---
 
@@ -58,6 +58,28 @@ When authenticating with an Azure container registry, there are two primary scen
 
 For in-depth information about Azure Container Registry authentication, see [Authenticate with an Azure container registry](container-registry-authentication.md).
 
+## Manage registry size
+
+The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
+
+You can find the current usage of a registry in the container registry **Overview** in the Azure portal:
+
+![Registry usage information in the Azure portal][registry-overview-quotas]
+
+You can manage the size of your registry by using the Azure CLI or the Azure portal.
+
+Under **SERVICES**, select **Repositories**, then right-click the repository you want to delete, then select **Delete**.
+
+![Delete a repository in the Azure portal][delete-repository-portal]
+
 ## Next steps
 
 Azure Container Registry is available in several tiers, called SKUs, that each provide different capabilities. For details on the available SKUs, see [Azure Container Registry SKUs](container-registry-skus.md).
+
+<!-- IMAGES -->
+[delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png
+[registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
+
+<!-- LINKS - Internal -->
+[container-registry-geo-replication]: container-registry-geo-replication.md
+[container-registry-skus]: container-registry-skus.md

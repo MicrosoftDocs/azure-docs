@@ -118,9 +118,6 @@ Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no
 [update-classic-03-updating]: ./media/container-registry-upgrade\update-classic-03-updating.png
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
-<!-- LINKS - external -->
-
-
 <!-- LINKS - internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [azure-cli]: /cli/azure/install-azure-cli

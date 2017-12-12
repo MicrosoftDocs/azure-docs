@@ -46,26 +46,17 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## Manage registry size
-The storage constraints of each SKU are intended to align with a typical scenario: Basic for getting started, Standard for the majority of production apps, and Premium for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
-
-You can find the current usage of a registry in the container registry **Overview** in the Azure portal:
-
-![Registry usage information in the Azure portal][registry-overview-quotas]
-
-You can manage the size of your registry by deleting repositories in the Azure portal.
-
-Under **SERVICES**, select **Repositories**, then right-click the repository you want to delete, then select **Delete**.
-
-![Delete a repository in the Azure portal][delete-repository-portal]
-
 ## Changing SKUs
 
 You can change a registry's SKU with the Azure CLI or in the Azure portal.
 
 ### Azure CLI
 
-To move between SKUs in the Azure CLI 2.0, use the [az acr update][az-acr-update] command. For example, to switch a Basic registry to Standard
+To move between SKUs in the Azure CLI 2.0, use the [az acr update][az-acr-update] command. For example, to switch from Basic or Standard to Premium:
+
+```azurecli
+az acr update --name myregistry --resource-group myresourcegroup --sku Premium
+```
 
 ### Azure portal
 
@@ -94,8 +85,6 @@ Visit the [ACR Roadmap][acr-roadmap] on GitHub to find information about upcomin
 Submit and vote on new feature suggestions in [ACR UserVoice][container-registry-uservoice].
 
 <!-- IMAGES -->
-[delete-repository-portal]: ./media/container-registry-skus/delete-repository-portal.png
-[registry-overview-quotas]: ./media/container-registry-skus/registry-overview-quotas.png
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
 
 <!-- LINKS - External -->
