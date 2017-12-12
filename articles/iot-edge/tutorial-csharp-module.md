@@ -110,11 +110,11 @@ The following steps show you how to create an IoT Edge module based on .NET core
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read TemperatureThreshold from Module Twin Desired Properties
-    var deviceTwin = await ioTHubModuleClient.GetTwinAsync();
-    var twinCollection = deviceTwin.Properties.Desired;
-    if (twinCollection["TemperatureThreshold"] != null)
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
     {
-        temperatureThreshold = twinCollection["TemperatureThreshold"];
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
     }
 
     // Attach callback for Twin desired properties updates
