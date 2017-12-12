@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: tomfitz
 ---
 
-## Variables section of Azure Resource Manager templates
+# Variables section of Azure Resource Manager templates
 In the variables section, you construct values that can be used throughout your template. You do not need to define variables, but they often simplify your template by reducing complex expressions.
 
 ## Define and use a variable
