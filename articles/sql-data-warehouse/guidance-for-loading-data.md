@@ -21,7 +21,7 @@ ms.author: barbkess
 # Guidance for loading data into Azure SQL Data Warehouse
 Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-data-loading-process.md).
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
 - For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Optimize Polybase performance
