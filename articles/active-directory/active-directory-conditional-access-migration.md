@@ -1,6 +1,6 @@
 ---
 title: Migrate classic policies in the Azure portal | Microsoft Docs
-description: Migrate classic policies in the Azure portal.
+description: Learn what you need to know to migrate classic policies in the Azure portal.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -132,9 +132,9 @@ If you have a new policy that has **Exchange Active Sync** as client apps condit
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-You can consolidate multiple classic policies if they have:
+You can consolidate multiple classic policies that include **Exchange Active Sync** as client apps condition if they have:
 
-- Only **Exchange Active Sync** as client apps condition 
+- Only **Exchange Active Sync** as condition 
 
 - Several requirements for granting access configured
 
