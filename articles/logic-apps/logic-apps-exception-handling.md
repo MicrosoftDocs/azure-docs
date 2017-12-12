@@ -40,7 +40,7 @@ The exponential policy type retries a failed request after a random time interva
 | ------------ |  ------------ |  ------------ |
 | 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
 | 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
 | 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
 | ... |
 

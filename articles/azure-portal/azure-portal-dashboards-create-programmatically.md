@@ -7,7 +7,7 @@ author: adamab
 manager: timlt
 editor: tysonn
 
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

@@ -3,8 +3,8 @@ title: Apply updates in Azure Stack | Microsoft Docs
 description: Learn how to import and install Microsoft update packages for an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 

@@ -1,28 +1,29 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
 description: Provides an overview of known issues in the Azure Migrate service, and troubleshooting tips for common errors.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Troubleshoot Azure Migrate
 
 ## Troubleshoot common errors
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
 
+
+**Collector is not able to connect to the internet**
+
+This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+
+**URL** | **Purpose**  
+--- | ---
+*.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
+*.oneget.org | Required to download the powershell based vCenter PowerCLI module.
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
