@@ -4,9 +4,8 @@ description: Learn about Azure Cosmos DB’s hierarchical model of databases, co
 keywords: Hierarchical model, cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
-author: AndrewHoh
+author: rafats
 manager: jhubbard
-editor: monicar
 
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: anhoh
+ms.author: rafats
 ms.custom: H1Hack27Feb2017
 
 ---
