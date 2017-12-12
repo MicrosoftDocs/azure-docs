@@ -15259,6 +15259,11 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
+        {
+          "source_path": "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md",
+          "redirect_url": "articles/active-directory/active-directory-how-subscriptions-associated-directory.md",
+          "redirect_document_id": false
+        },
 	    {
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
