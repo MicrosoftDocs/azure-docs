@@ -191,11 +191,11 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
 
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Creation of an on-demand HDInsight cluster usually takes some time.
 
-You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+    You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
-```sql
-select * from catalog.executions
-```
+    ```sql
+    select * from catalog.executions
+    ```
 
 ## Next steps
 For details about the stored procedure activity, see the [Stored Procedure activity](data-factory-stored-proc-activity.md) article.

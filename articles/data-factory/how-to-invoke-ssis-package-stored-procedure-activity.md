@@ -235,11 +235,11 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+    You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
 
-```sql
-select * from catalog.executions
-```
+    ```sql
+    select * from catalog.executions
+    ```
 
 ## Next steps
 You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
