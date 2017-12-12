@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 12/12/2017
 ms.author: billmath
 ---
 
@@ -27,7 +27,7 @@ The following scenarios are fully supported:
 
 - User sign-ins to all web browser-based applications
 - User sign-ins to Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2016, and Office 2013 _with_ modern authentication
-- User sign-ins to Skype for Business Online & Hybrid applications that support modern authentication
+- User sign-ins to Skype for Business that support modern authentication, including Online & Hybrid topologies. Learn more about supported topologies [here](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD domain joins for Windows 10 devices
 - Exchange ActiveSync support
 
