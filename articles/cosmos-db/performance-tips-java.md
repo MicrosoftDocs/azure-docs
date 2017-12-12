@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 12/12/2017
 ms.author: mimig
 
 ---
@@ -100,9 +100,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
-7. **Cache document URIs for lower read latency**
+7. **Use name based addressing**
 
-    Cache document URIs whenever possible for the best read performance. 
+    Use name-based addressing, where links have the format dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId, instead of SelfLinks (_self), which have the format dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>” to avoid caching _rid values.  
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
