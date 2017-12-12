@@ -29,7 +29,7 @@ Following is the link to the public GitHub repository:
 
 A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. The goal is to reduce the costs by reducing downtime and possibly increase safety. Refer to the [playbook for predictive maintenance](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) for a detailed explanation of common use cases as well as the modeling approach used for predictive maintenance.
 
-This scenario leverages the ideas from the playbook with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
+This scenario takes ideas from the [predictive maintenance playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
 
 The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this scenario, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
 
@@ -72,7 +72,7 @@ It is preferable to run on a [Data Science Virtual Machine for Linux (Ubuntu)](h
 
 With the docker compute environment prepared, open the Jupyter notebook server either within the AML Workbench notebooks tab, or start a browser-based server with: `az ml notebook start`.
 
-The example notebooks are stored in the `Code` directory. The notebooks are setup to run sequentially, starting on the first (`Code\1_data_ingestion.ipynb`) notebook. When you open each notebook, you are prompted to select the compute kernel. Choose the `[Project_Name]_Template [Connection_Name]` kernel to execute on the previsously configured DSVM.
+The example notebooks are stored in the `Code` directory. The notebooks are set up to run sequentially, starting on the first (`Code\1_data_ingestion.ipynb`) notebook. When you open each notebook, you are prompted to select the compute kernel. Choose the `[Project_Name]_Template [Connection_Name]` kernel to execute on the previously configured DSVM.
 
 ## Data description
 
