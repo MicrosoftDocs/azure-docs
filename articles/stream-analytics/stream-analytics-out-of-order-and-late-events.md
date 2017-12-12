@@ -80,7 +80,7 @@ When Stream Analytics reorders events that are received within the out-of-order 
    4. **Application Time** = 00:09:00, **Arrival Time** = 00:10:03, **System.Timestamp** = 00:09:00, accepted with the original time stamp because application time is within the out-of-order tolerance.
    5. **Application Time** = 00:06:00, **Arrival Time** = 00:10:04, **System.Timestamp** = 00:07:00, adjusted because application time is older than the out-of-order tolerance.
 
-## Practical considerations
+### Practical considerations
 As mentioned earlier, late arrival tolerance is the maximum difference between application time and arrival time. When you're processing by application time, events that are later than the configured late arrival tolerance are adjusted before the out-of-order tolerance setting is applied. So, effective out of order is the minimum of late arrival tolerance and out-of-order tolerance.
 
 Reasons for out-of-order events within a stream include:
@@ -95,20 +95,30 @@ When you're configuring late arrival tolerance and out-of-order tolerance for a 
 
 Following are a few examples.
 
-### Example 1 
+#### Example 1 
 The query has a **Partition by PartitionId** clause. Within a single partition, events are sent via synchronous send methods. Synchronous send methods block until the events are sent.
 
 In this case, out of order is zero because events are sent in order with explicit confirmation before the next event is sent. Late arrival is the maximum delay between generating the event and sending the event, plus the maximum latency between the sender and the input source.
 
-### Example 2
+#### Example 2
 The query has a **Partition by PartitionId** clause. Within a single partition, events are sent via asynchronous send methods. Asynchronous send methods can initiate multiple sends at the same time, which can cause out-of-order events.
 
 In this case, both out of order and late arrival are at least the maximum delay between generating the event and sending the event, plus the maximum latency between the sender and the input source.
 
-### Example 3
+#### Example 3
 The query does not have a **Partition by PartitionId** clause, and there are at least two partitions.
 
 Configuration is the same as example 2. However, absence of data in one of the partitions can delay the output by an additional late arrival tolerance window.
+
+## Handling event producers with differing timelines
+A single input event stream often contains events that originate from multiple event producers (such as individual devices). These events might arrive out of order due to the reasons discussed earlier. In these scenarios, although the disorder across event producers might be large, the disorder within the events from a single producer are small (or even nonexistent).
+
+Azure Stream Analytics provides general mechanisms for dealing with out-of-order events. Such mechanisms result in either processing delays (while waiting for the straggling events to reach the system), dropped or adjusted events, or both.
+
+Yet in many scenarios, the desired query is processing events from different event producers independently. For instance, it may be aggregating events per window, per device. In these cases, there's no need to delay the output that corresponds to one event producer while waiting for the other event producers to catch up. In other words, there's no need to deal with the time skew between producers, and it can be simply ignored.
+Of course, this means that the output events will themselves be out of order with respect to their timestamps. The downstream consumer must be able to deal with such behavior. But every event in the output will be correct.
+
+Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) clause.
 
 ## Summary
 * Configure late arrival tolerance and the out-of-order window based on correctness and latency requirements. Also consider how the events are sent.

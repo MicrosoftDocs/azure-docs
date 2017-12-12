@@ -33,7 +33,7 @@ To complete this tutorial, you must have the following:
 * A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App.
 
 >[!IMPORTANT]
->* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. Please refer to the following sample on [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) for further details.
+>* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. Please refer to the following sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) for further details.
 
 > [!NOTE]
 >* It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
@@ -43,7 +43,7 @@ The web application that will be accessing the Key Vault is the one that is regi
 
 This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Add Nuget Packages
+## <a id="packages"></a>Add NuGet Packages
 
 There are two packages that your web application needs to have installed.
 
@@ -144,11 +144,11 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 For our purposes, we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below.
+Make note of the end date and the password for the .pfx (in this example: 07/31/2017 and test123). You will need them below.
 
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
