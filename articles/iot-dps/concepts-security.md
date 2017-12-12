@@ -74,4 +74,24 @@ The leaf certificate, or end-entity certificate, identifies the certificate hold
 
 A device certificate is the end-entity certificate in the certificate chain associated with an IoT Hub device. It uniquely identifies the device to the provisioning service. During authentication, the device uses the private key associated with the device certificate to respond to a proof of possession challenge from the service. To learn more, see [Authenticating devices signed with X.509 CA certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
+## Controlling device access to the provisioning service with X.509 certificates
 
+The provisioning service exposes two types of enrollment entry that you can use to control access for devices that use the X.509 attestation mechanism:  
+
+- [Individual enrollment](./concepts-security.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollment for specific devices.
+- [Enrollment group](./concepts-security.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollment for all devices that have that intermediate or root certificate in their certificate chain. 
+
+It's important to understand how the provisioning service processes enrollment entries:
+
+- For a device to be provisioned, it must have either an enabled individual enrollment for its device certificate or an enabled enrollment group for the root certificate or one of the intermediate certificates in its certificate chain. 
+- Disabled enrollment entries take precedence over enabled entries. This means that a device will not be provisioned if either a disabled individual enrollment for the device or a disabled group enrollment for the root or one of the intermediate certificates in the device's certificate chain exists -- regardless of whether enabled enrollment entries exist for other certificates in the device's chain. 
+
+This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains: 
+
+- *Device 1*: root certificate -> certificate A -> device 1 certificate
+- *Device 2*: root certificate -> certificate A -> device 2 certificate
+- *Device 3*: root certificate -> certificate A -> device 3 certificate
+- *Device 4*: root certificate -> certificate B -> device 4 certificate
+- *Device 5*: root certificate -> certificate B -> device 5 certificate
+
+Initially, you can create a single enabled group enrollment entry for the root certificate to enable access for all five devices. If certificate B later becomes compromised, you can create a disabled enrollment group entry for certificate B to prevent *Device 4* and *Device 5* from enrolling. If still later *Device 3* becomes compromised, you can create a disabled individual enrollment entry for its certificate. This revokes access for *Device 3*, but still allows *Device 1* and *Device 2* to enroll.
