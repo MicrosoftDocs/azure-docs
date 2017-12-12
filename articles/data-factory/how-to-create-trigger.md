@@ -27,7 +27,7 @@ This article provides steps to create, start, and monitor a trigger. For concept
 In this section, you use Azure PowerShell to create a trigger. 
 
 ### Prerequisites
-If you want to see this code working in a sample, first go through the [quickstart for creating a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in Azure blob storage to another.  
+If you want to see this code working in a sample, first go through the [quickstart for creating a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). In the quickstart, you create a data factory with a pipeline that copies data from one folder in an Azure blob storage to another.  
 
 ### Create a trigger using PowerShell
 This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created in the quickstart. 
@@ -69,33 +69,35 @@ This section shows you how to create, start, and monitor a trigger that's associ
     - The type of the trigger is set to ScheduleTrigger. 
     - The frequency is set to Minute and interval is set to 15, so the trigger runs the pipeline every 15 minutes between the start and end times. 
     - The endTime is one hour after the startTime, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour after the startTime.  
-    - In this case, the trigger is associated with only one pipeline. You can associate a trigger with multiple pipelines. 
+    - The trigger is associated with the Adfv2QuickStartPipeline pipeline. To associate multiple pipelines with a trigger, add more pipelineReference sections. 
     - The pipeline in the quickstart takes two parameters. Therefore, you pass values for those parameters from the trigger. 
-2. To create the trigger, run the following command:
+2. Create a trigger by using the **Set-AzureRmDataFactoryV2Trigger** cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-3. Confirm that the status of the trigger is **Stopped**.
+3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
     ```
-4. Start the trigger.  
+4. Start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet: 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
     ```
-5. Confirm that the status of the trigger is **Started**.
+5. Confirm that the status of the trigger is **Started** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
     ```
-6.  Get trigger runs using PowerShell. To get the information about trigger runs, run the following command periodically: Update TriggerRunStartedAfter and TriggerRunStartedBefore values to match the values in the trigger definition. 
+6.  Get trigger runs using PowerShell by using the **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. To get the information about trigger runs, run the following command periodically: Update TriggerRunStartedAfter and TriggerRunStartedBefore values to match the values in the trigger definition. 
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
+
+    For information about monitoring trigger runs/pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
 
 ## Use .NET SDK
 This section shows you how to create, start, and monitor a trigger that's associated with the pipeline you created in the quickstart. 
@@ -177,6 +179,11 @@ To monitor a trigger run, add the following code before the last `Console.WriteL
                 }
             }
 ```
+
+For information about monitoring trigger runs/pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+
+## Use Resource Manager template
+You can use an Azure Resource Manager template to create a trigger. For step-by-step instructions, see [Create an Azure data factory using Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## Pass the trigger start time to a pipeline
 In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. In the following example, the trigger's scheduled time is passed as a value to the pipeline parameter scheduledRunTime. 
