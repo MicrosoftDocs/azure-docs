@@ -3,7 +3,7 @@ title: How to query with SQL in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query with SQL in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 
 
 ---
