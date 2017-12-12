@@ -33,11 +33,11 @@
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
-## Secure
-### [Secure data & operations](search-security-overview.md)
-### [Identity-based access control](search-security-trimming-for-azure-search.md)
-### [Active Directory identity-based access control](search-security-trimming-for-azure-search-with-aad.md)
-## Develop
+## Security
+### [Data and operational security](search-security-overview.md)
+### [Secure with identity filters](search-security-trimming-for-azure-search.md)
+### [Secure with Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Development
 ### [API versions](search-api-versions.md)
 ### [Develop in Node.js](search-get-started-nodejs.md)
 ### [Develop in Java](search-get-started-java.md)
