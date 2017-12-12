@@ -30,19 +30,19 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 >[!div class="mx-tdCol2BreakAll"]
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
-|appID     |  Guid string       |**\<guid>**|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
+|appID     |  Guid string       |\<guid>|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
 |appRoles     |    array     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
 |availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
-|displayName     |string         |**MyRegisteredApp**         |The display name for the application. 
-|errorURL     |string         |http://MyRegisteredAppError         |The URL for errors encountered in an application.
+|displayName     |string         |MyRegisteredApp         |The display name for the application. 
+|errorURL     |string         |http:<i></i>//MyRegisteredAppError         |The URL for errors encountered in an application.
 |groupMembershipClaims     |    string     |    1     |   A bitmask that configures the "groups" claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.      |
 |optionalClaims     |  string       |     null    |    The optional claims returned in the token by the security token service for this specific app.     |
 |acceptMappedClaims     |         |         |         |
-|homepage     |  string       |http://MyRegistererdApp         |    The URL to the application's home page.     |
-|identifierUris     |  array       | http://MyRegistererdApp        |   User-defined URI(s) that uniquely identify a Web application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant.      |
+|homepage     |  string       |http:<i></i>//MyRegistererdApp         |    The URL to the application's home page.     |
+|identifierUris     |  array       | http:<i></i>//MyRegistererdApp        |   User-defined URI(s) that uniquely identify a Web application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant.      |
 |keyCredentials     |   array      |   [{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   The collection of key credentials associated with the application      |
 |knownClientApplications     |     array    |    [guid]     |     Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).    |
-|logoutUrl     |   string      |     http://MyRegisteredAppLogout    |   The URL to logout of the application.      |
+|logoutUrl     |   string      |     http:<i></i>//MyRegisteredAppLogout    |   The URL to logout of the application.      |
 |oauth2AllowImplicitFlow     |   boolean      |  false       |       Specifies whether this web application can request OAuth2.0 implicit flow tokens. The default is false.  |
 |oauth2AllowUrlPathMatching     |   boolean      |  false       |   Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow path matching of the redirect URI against the application's replyUrls. The default is false.      |
 |oauth2Permissions     | array         |      [{<br>"adminConsentDescription":"Allow the application to access resources on behalf of the signed-in user.",<br>"adminConsentDisplayName":"Access resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"Allow the application to access resource1 on your behalf.",<br>"userConsentDisplayName":"Access resources",<br>"value":"user_impersonation"<br>}]   |  The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent. |
@@ -54,7 +54,7 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |requiredResourceAccess     |     array    |    [{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>"type":"Scope"<br>&nbsp;&nbsp;}]<br>}]     |   Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.|
 |resourceAppId     |    Guid string     |  \<guid>       |   The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.      |
 |resourceAccess     |  array       |         |   The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.       |
-|samlMetadataUrl|string|http://MyRegisteredAppSAMLMetadata|The URL to the SAML metadata for the application.| 
+|samlMetadataUrl|string|http:<i></i>//MyRegisteredAppSAMLMetadata|The URL to the SAML metadata for the application.| 
 
 ## Next steps
 * For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
