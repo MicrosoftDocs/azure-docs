@@ -22,7 +22,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Invoke SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## Prerequistes
+## Prerequisites
 
 ### Azure SQL Database 
 The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Private Preview).
@@ -185,7 +185,7 @@ while ($True) {
 ```
 
 ## Create a trigger
-In the previous step, you invoked the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily,etc.)
+In the previous step, you invoked the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily, etc.).
 
 1. Create a JSON file named **MyTrigger.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
@@ -234,6 +234,12 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
+
+You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+
+```sql
+select * from catalog.executions
+```
 
 ## Next steps
 You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
