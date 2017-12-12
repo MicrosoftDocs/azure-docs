@@ -148,9 +148,9 @@
         href: app-insights-proactive-exception-volume.md
       - name: Memory leak
         href: app-insights-proactive-potential-memory-leak.md
-      - name: Cloud resource utilizaiton
+      - name: Cloud resource utilization
         href: app-insights-proactive-low-util-cloud-resources.md
-      - name: Security Detection
+      - name: Security detection
         href: app-insights-proactive-application-security-detection-pack.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
