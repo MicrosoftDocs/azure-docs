@@ -3,8 +3,8 @@ title: Manage updates in Azure Stack overview | Microsoft Docs
 description: Learn about update management for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Manage updates in Azure Stack overview
