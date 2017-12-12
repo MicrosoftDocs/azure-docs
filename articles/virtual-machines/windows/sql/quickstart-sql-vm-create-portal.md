@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/07/2017
+ms.date: 12/12/2017
 ms.author: jroth
 ---
 
@@ -119,11 +119,11 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 
     ![ssms connect](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Log into to the VM remotely
+## <a id="remotedesktop"></a> Log in to the VM remotely
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
 
@@ -133,7 +133,7 @@ Access to the machine enables you to directly change machine and SQL Server sett
 
 If you do not need your SQL VM to run continually, you can avoid unnecessary charges by stopping it when not in use. You can also permanently delete all resources associated with the virtual machine by deleting its associated resource group in the portal. This permanently deletes the virtual machine as well, so use this command with care. For more information, see [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 
-## Next Steps
+## Next steps
 
 In this quickstart, you created a SQL Server 2017 virtual machine in the Azure Portal. To learn more about how to migrate your data to the new SQL Server, see the following article.
 

@@ -8,7 +8,7 @@
 # Concepts
 ## Best practices
 ### [Performance best practices](virtual-machines-windows-sql-performance.md)
-### [Security Considerations](virtual-machines-windows-sql-security.md)
+### [Security considerations](virtual-machines-windows-sql-security.md)
 ### [Application patterns](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 ## Management
 ### [Connect to a VM](virtual-machines-windows-sql-connect.md)
@@ -18,9 +18,9 @@
 #### [Automated Patching](virtual-machines-windows-sql-automated-patching.md)
 #### [Configure Azure Key Vault Integration](virtual-machines-windows-ps-sql-keyvault.md)
 ## Backup and restore
-### [Backup and Restore](virtual-machines-windows-sql-backup-recovery.md)
-### [Automated Backup](virtual-machines-windows-sql-automated-backup.md)
-### [Use Azure Storage for Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### [Backup and restore](virtual-machines-windows-sql-backup-recovery.md)
+### [Automated backup](virtual-machines-windows-sql-automated-backup.md)
+### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # How-to guides
 ## Create a SQL VM

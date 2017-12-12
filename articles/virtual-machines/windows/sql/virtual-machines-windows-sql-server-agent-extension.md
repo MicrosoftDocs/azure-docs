@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/30/2017
+ms.date: 12/12/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ---
@@ -78,7 +78,7 @@ One way to verify that the extension is installed is to view the agent status in
 
 ![SQL Server IaaS Agent Extension in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
+You can also use the **Get-AzureVMSqlServerExtension** Azure PowerShell cmdlet.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
@@ -93,11 +93,11 @@ In the Azure Portal, you can uninstall the extension by clicking the ellipsis on
 
 ![Uninstall the SQL Server IaaS Agent Extension in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-You can also use the **Remove-AzureRmVMSqlServerExtension** Powershell cmdlet.
+You can also use the **Remove-AzureRmVMSqlServerExtension** PowerShell cmdlet.
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
-## Next Steps
+## Next steps
 Begin using one of the services supported by the extension. For more details, see the articles referenced in the [Supported services](#supported-services) section of this article.
 
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).

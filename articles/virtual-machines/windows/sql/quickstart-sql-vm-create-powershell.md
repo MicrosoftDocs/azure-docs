@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: jroth
 ---
 
@@ -108,7 +108,7 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 1. Define your credentials to sign into the VM. The user name is "azureadmin". Make sure to change the password before running the command.
 
-   ``` Powershell
+   ``` PowerShell
    # Define a credential object
    $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
       -AsPlainText -Force
