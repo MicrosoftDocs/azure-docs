@@ -1,3 +1,5 @@
+
+
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
@@ -18,18 +20,82 @@ ms.author: billmath
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
-
+`
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
+
 
 
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.654.0
+Status: December 12th, 2017
+
+>[!NOTE]
+>This is a security related hotfix for Azure AD Connect
+
+### Azure AD Connect
+When you first install Azure AD Connect, a new account can be created that is used to run the Azure AD Connect service. Before this release, the account was created with settings that allowed a user with password adminsitrator rights the ability to change the password to a value know to them.  This allowed you to sign in using this account, and this would constitute an elevation of privilege security breach. 
+This release tightens the setting on the account that is created and removes this vulnerability.
+
+>[!NOTE]
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+
+To tighten the settings for the service account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). It will tighten the settings on the service account to remove the vulnerability to the below values:
+
+*	Disable inheritance on the specified object
+*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*	Assign these specific permissions:
+
+Type     | Name                          | Access               | Applies To
+---------|-------------------------------|----------------------|--------------|
+Allow    | SYSTEM                        | Full Control         | This object  |
+Allow    | Enterprise Admins             | Full Control         | This object  |
+Allow    | Domain Admins                 | Full Control         | This object  |
+Allow    | Administrators                | Full Control         | This object  |
+Allow    | Enterprise Domain Controllers | List Contents        | This object  |
+Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
+Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
+Allow    | Authenticated Users           | List Contents        | This object  |
+Allow    | Authenticated Users           | Read All Properties  | This object  |
+
+#### PowerShell script to tighten a pre-existing service account
+
+To use the PowerShell script, to apply these settings, to a pre-existing service account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+
+##### Usage:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+$ObjectDN = The Active Directory account whose permissions need to be tightened.
+$Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
+
+>[!NOTE] 
+>$credential.UserName should be in domain\username format.  
+
+##### Example:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+
+                                                                                                               
+
+## 1.1.649.0
+Status: October 27 2017
+
+>[!NOTE]
+>This build is not available to customers through the Azure AD Connect Auto Upgrade feature
 
 ## 1.1.649.0
 Status: October 27 2017
