@@ -49,7 +49,7 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Below is an example result. It's a `list` of detected faces. Each item in the list is a `dict` instance where `faceId` is a unique ID for the detected face and `faceRectangle` describes the postion of the detected face. A face ID expires in 24 hours.
+Below is an example result. It's a `list` of detected faces. Each item in the list is a `dict` instance where `faceId` is a unique ID for the detected face and `faceRectangle` describes the position of the detected face. A face ID expires in 24 hours.
 
 ```python
 [{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]

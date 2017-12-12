@@ -25,7 +25,7 @@ To get search results for your custom search instance, send an HTTP GET request 
 The request must specify the following query parameters:
 
 - [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query) &mdash; Contains the user's search term
-- [customConfig](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#customconfig) &mdash; Identifies your custom search instance. 
+- [customConfig](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#customconfig) &mdash; Identifies your custom search instance. 
 
 Although optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#queryparameters). All query parameter values must be URL encoded. 
 
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 
 The request returns a JSON response that limits the results to the content found in your custom search instance.   
 
-The following shows the answers that the JSON response may contain.  For a list of all response objects see [Response objects](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects).
+The following shows the answers that the JSON response may contain.  For a list of all response objects see [Response objects](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects).
  
 ```
 { 

@@ -65,7 +65,7 @@ Azure Cosmos DB supports three indexing modes which can be configured via the in
 
 **Consistent**: If an Azure Cosmos DB collection’s policy is designated as "consistent", the queries on a given Azure Cosmos DB collection follow the same consistency level as specified for the point-reads (i.e. strong, bounded-staleness, session or eventual). The index is updated synchronously as part of the document update (i.e. insert, replace, update, and delete of a document in an Azure Cosmos DB collection).  Consistent indexing supports consistent queries at the cost of possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level”. Consistent indexing mode is designed for “write quickly, query immediately” workloads.
 
-**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent i.e. when the collection’s throughput capacity is not fully utilized to serve user requests. For "ingest now, query later" workloads requiring document ingestion, "lazy" indexing mode may be suitable. Please note that you might get inconsistent results as data gets ingested and indexed slowly. This means your count queries or specific query results are not guaranteed to be correct or repeatable till data is indexed. Index is generally in catch up mode. WRT Lazy indexing - TTL change results in index getting dropped and recreated, so this activity can result in unexpected results. Majority of the customers should use consistent indexing.
+**Lazy**:  In this particular case, the index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests. For "ingest now, query later" workloads requiring document ingestion, the "lazy" indexing mode may be suitable. Note that you might get inconsistent results as data gets ingested and indexed slowly. This means your COUNT queries or specific query results might not be consistent or repeatable at any given time. The index is generally in catch up mode with ingested data. With respect to lazy indexing, time to live (TTL) changes result in the index getting dropped and recreated, which makes the COUNT and query results inconsistent for a period of time. For these reasons, a majority of Azure Cosmos DB accounts should use consistent indexing.
 
 **None**: A collection marked with index mode of “None” has no index associated with it. This is commonly used if Azure Cosmos DB is utilized as a key-value storage and documents are accessed only by their ID property. 
 
@@ -227,7 +227,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
-For example, the following sample shows how to include a document explicitly using the [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+For example, the following sample shows how to include a document explicitly using the [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -313,7 +313,7 @@ When would you make indexing policy changes to your Azure Cosmos DB collections?
 > 
 
 ## Performance tuning
-The DocumentDB APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
+The SQL APIs provide information about performance metrics such as the index storage used, and the throughput cost (request units) for every operation. This information can be used to compare various indexing policies and for performance tuning.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request against the collection resource, and inspect the x-ms-request-quota and the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
 
@@ -407,7 +407,7 @@ For a practical comparison, here is one example custom indexing policy written u
 ## Next Steps
 Follow the links below for index policy management samples and to learn more about Azure Cosmos DB's query language.
 
-1. [DocumentDB API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [SQL API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [SQL API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Query with SQL](documentdb-sql-query.md)
 

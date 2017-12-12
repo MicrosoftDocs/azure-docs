@@ -59,7 +59,7 @@ This tutorial assumes the following:
 > 
 
 ## Create the virtual network and domain controller server
-You begin with a new Azure trial account. After you set up your account, you should be on the home screen of the Azure classic portal.
+You begin with a new Azure trial account. After you set up your account, you should be on the home screen of the Azure portal.
 
 1. Click the **New** button at the left corner of the bottom of the page, as shown in the following screenshot.
    
@@ -86,7 +86,7 @@ You begin with a new Azure trial account. After you set up your account, you sho
    | Virtual machine configuration |**CLOUD SERVICE** = Create a new cloud service<br/>**CLOUD SERVICE DNS NAME** = A unique cloud service name<br/>**DNS NAME** = A unique name (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = (None) |
    | Virtual machine options |Use defaults |
 
-After you configure the new virtual machine, wait for the virtual machine to be provsioned. This process takes some time to finish. If you click the **Virtual Machine** tab in the Azure classic portal, you can see ContosoDC cycling states from **Starting (Provisioning)** to **Stopped**, **Starting**, **Running (Provisioning)**, and finally **Running**.
+After you configure the new virtual machine, wait for the virtual machine to be provsioned. This process takes some time to finish. If you click the **Virtual Machine** tab in the Azure portal, you can see ContosoDC cycling states from **Starting (Provisioning)** to **Stopped**, **Starting**, **Running (Provisioning)**, and finally **Running**.
 
 The DC server is now successfully provisioned. Next, you will configure the Active Directory domain on this DC server.
 

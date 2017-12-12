@@ -4,7 +4,7 @@ description: How to build a Node.js web API that accepts tokens from a B2C tenan
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
