@@ -75,7 +75,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
 
-    ```javascript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -86,7 +86,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 4. Add the following JavaScript code to the *script* block, to add the traffic flow display to the map:
 
-    ```javascript
+    ```JavaScript
     // Add Traffic Flow to the Map
     map.setTraffic({
         flow: "relative"
@@ -96,7 +96,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 5. Add the following JavaScript code to create the pins for the start and end points of the route:
 
-    ```javascript
+    ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
     var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
     var startPin = new atlas.data.Feature(startPoint, {
@@ -114,7 +114,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 6. Add the following JavaScript code to add layers of *linestrings* to the Map Control, to display routes based on mode of transport, for example, _car_ and _truck_.
 
-    ```javascript
+    ```JavaScript
     // Place route layers on the map
     var carRouteLayerName = "car-route";
     map.addLinestrings([], {
@@ -139,7 +139,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 7. Add the following JavaScript code to add the start and end points to the map:
 
-    ```javascript
+    ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
     var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
     var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
@@ -169,7 +169,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
 1. Open the **MapTruckRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to get the route for a truck using the Route Service.
 
-    ```javascript
+    ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
     var xhttpTruck = new XMLHttpRequest();
     xhttpTruck.onreadystatechange = function () {
@@ -213,7 +213,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
 2. Add the following JavaScript code to get the route for a car using the Route Service:
 
-    ```javascript
+    ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
     var xhttpCar = new XMLHttpRequest();
     xhttpCar.onreadystatechange = function () {
