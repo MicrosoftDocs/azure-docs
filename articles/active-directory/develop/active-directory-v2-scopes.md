@@ -4,7 +4,7 @@ description: A description of authorization in the Azure AD v2.0 endpoint, inclu
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423

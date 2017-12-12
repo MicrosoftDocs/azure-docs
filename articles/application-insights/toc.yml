@@ -144,6 +144,14 @@
         href: app-insights-proactive-performance-diagnostics.md
       - name: Trace degradation
         href: app-insights-proactive-trace-severity.md
+      - name: Exception volume
+        href: app-insights-proactive-exception-volume.md
+      - name: Memory leak
+        href: app-insights-proactive-potential-memory-leak.md
+      - name: Resource utilization
+        href: app-insights-proactive-low-utilization-cloud-resources.md
+      - name: Security detection
+        href: app-insights-proactive-application-security-detection-pack.md
     - name: Create a resource
       href: app-insights-create-new-resource.md
   - name: Analyze

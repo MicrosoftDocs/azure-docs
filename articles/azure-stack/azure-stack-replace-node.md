@@ -3,8 +3,8 @@ title: Replace a scale unit node on an Azure Stack integrated system | Microsoft
 description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 

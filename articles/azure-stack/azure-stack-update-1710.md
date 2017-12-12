@@ -3,8 +3,8 @@ title: Azure Stack 1710 Update (Build 20171020.1) | Microsoft Docs
 description: Learn about what's in the 1710 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 
