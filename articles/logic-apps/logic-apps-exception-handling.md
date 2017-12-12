@@ -48,7 +48,7 @@ For exponential type policies, **count** and **interval** are required. Values f
 
 | Element name | Required | Type | Description |
 | ------------ | -------- | ---- | ----------- |
-| type | Yes | String | `exponential` |
+| type | Yes | String | **exponential** |
 | count | Yes | Integer | Number of retry attempts. Must be between 1 and 90.  |
 | interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
 | minimumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and **interval**. |
