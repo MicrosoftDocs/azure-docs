@@ -71,7 +71,7 @@ Now that the solutions are enabled, you can add an Azure VM to onboard to those 
 
 1. Select your VM from the list and select **Enable**. This action enables the Change tacking and Inventory solution for the virtual machine.
 
-![Enable update solution for vm](media/automation-onboard-solutions/enable-change-tracking.png)
+   ![Enable update solution for vm](media/automation-onboard-solutions/enable-change-tracking.png)
 
 1. When the VM onboarding notification completes, from your Automation Account select **Update management** under **UPDATE MANAGEMENT**.
 
@@ -79,7 +79,7 @@ Now that the solutions are enabled, you can add an Azure VM to onboard to those 
 
 1. Select your VM from the list and select **Enable**. This action enables the Update management solution for the virtual machine.
 
-![Enable update solution for vm](media/automation-onboard-solutions/enable-update.png)
+   ![Enable update solution for vm](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
 > If you do not wait for the other solution to complete, when Enabling the next solution you receive a message stating: *Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.*
@@ -90,15 +90,13 @@ It is required to update to the latest Azure modules and import `AzureRM.Operati
 
 ## Update Azure Modules
 
-1. From your Automation Account, select **Modules** under **SHARED RESOURCES**.
+From your Automation Account, select **Modules** under **SHARED RESOURCES**. Select **Update Azure Modules** to update the Azure modules to the latest version. Select **Yes** on the prompt to update all existing Azure modules to the latest version.
+
 ![Update modules](media/automation-onboard-solutions/update-modules.png)
-2. Select **Update Azure Modules** to update the Azure modules to the latest version. Select **Yes** on the prompt to update all existing Azure modules to the latest version.
 
 ### Install AzureRM.OperationalInsights module
 
-1. From the **Modules** page, select **Browse gallery** to open up the module gallery.
-
-1. Search for AzureRM.OperationalInsights and import this module into the Automation account.
+From the **Modules** page, select **Browse gallery** to open up the module gallery. Search for AzureRM.OperationalInsights and import this module into the Automation account.
 
 ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
 
@@ -115,8 +113,11 @@ It is required to update to the latest Azure modules and import `AzureRM.Operati
 ## Start the runbook that onboards Azure VMs automatically
 
 You must have onboarded either change tracking or update solutions to an Azure VM in order to start this runbook. It requires an existing virtual machine and resource group with the solution onboarded for parameters.
+
 1. Open the Enable-MultipleSolution runbook.
-![Multiple solution runbooks](media/automation-onboard-solutions/runbook-overview.png)
+
+   ![Multiple solution runbooks](media/automation-onboard-solutions/runbook-overview.png)
+
 1. Click the start button and enter the following values for parameters.
 
    * **VMNAME** - Leave blank. The name of an existing VM to onboard to update or change tracking solution. By leaving this value blank, all VMs in the resource group are onboarded.
@@ -125,7 +126,7 @@ You must have onboarded either change tracking or update solutions to an Azure V
    * **ALREADYONBOARDEDVM** - The name of the VM that was manually onboarded to either the Updates or ChangeTracking solution.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - The name of the resource group that the VM is a member of.
    * **SOLUTIONTYPE** - Enter **Updates** or **ChangeTracking**
-    
+
    ![Enable-MultipleSolution runbook parameters](media/automation-onboard-solutions/runbook-parameters.png)
 
 1. Select **OK** to start the runbook job.
