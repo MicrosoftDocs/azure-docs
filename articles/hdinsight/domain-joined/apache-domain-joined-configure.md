@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/11/2017
+ms.date: 12/12/2017
 ms.author: saurinsh
 
 ---
@@ -33,12 +33,12 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
 > [!IMPORTANT]
 > Oozie is not enabled on domain-joined HDInsight.
 
-## Prerequisite:
+## Prerequisite
 * Azure subscription
 
-## Create an Active directory
+## Create an Active Directory
 
-Azure Resource Manager template makes it easier to create Azure resources. In this section, you use an Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
+Azure Resource Manager template makes it easier to create Azure resources. In this section, you use an [Azure QuickStart template](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) to create a new forest and domain with two virtual machines. The two virtual machines serve as a primary domain controller and a backup domain controller.
 
 **To create a domain with two domain controllers**
 
@@ -52,17 +52,17 @@ Azure Resource Manager template makes it easier to create Azure resources. In th
 
 2. Enter the following values:
 
-    - Subscription: Select an Azure subscription.
-    - Resource group name: Type a resource group name.  A resource group is used to manage your Azure resources that are related to a project.
-    - Location: Select an Azure location that is close to you.
-    - Admin username: This is the domain administrator username. This user is not the HTTP user account of your HDInsight cluster. This is the account you use throughout the tutorial.
-    - Admin password: Enter the password for the domain administrator.
-    - Domain name: The domain name must be a two-part name. For example: contoso.com, or contoso.local, or hdinsight.test.
-    - DNS prefix: Type a DNS prefix
-    - PDC RDP Port: (use the default value for this tutorial)
-    - BDC RDP Port: (use the default value for this tutorial)
-    - artifacts location: (use the default value for this tutorial)
-    - artifacts location SAS token: (Leave it empty for this tutorial.)
+    - **Subscription**: Select an Azure subscription.
+    - **Resource group name**: Type a resource group name.  A resource group is used to manage your Azure resources that are related to a project.
+    - **Location**: Select an Azure location that is close to you.
+    - **Admin username**: This is the domain administrator username. This user is not the HTTP user account of your HDInsight cluster. This is the account you use throughout the tutorial.
+    - **Admin password**: Enter the password for the domain administrator.
+    - **Domain name**: The domain name must be a two-part name. For example: contoso.com, or contoso.local, or hdinsight.test.
+    - **DNS prefix**: Type a DNS prefix
+    - **PDC RDP Port**: (use the default value for this tutorial)
+    - **BDC RDP Port**: (use the default value for this tutorial)
+    - **artifacts location**: (use the default value for this tutorial)
+    - **artifacts location SAS token**: (Leave it empty for this tutorial.)
 
 It takes about 20 minutes to create the resources.
 
@@ -119,15 +119,15 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 > [!IMPORTANT]
 > You must reboot the PDC virtual machine before creating a domain-joined HDInsight cluster.
 
-## Create a HDInsight cluster in the VNet
+## Create an HDInsight cluster in the VNet
 
-In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the Resource Manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
+In this section, you use the Azure portal to add an HDInsight cluster into the virtual network you created using the Resource Manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 **To create a domain-joined HDInsight cluster**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the resource group you created using the Resource Manager template earlier in the tutorial.
-3. Add a HDInsight cluster to the resource group.
+3. Add an HDInsight cluster to the resource group.
 4. Select **Custom** option:
 
     ![HDInsight domain joined custom create option](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-custom-configuration-option.png)
