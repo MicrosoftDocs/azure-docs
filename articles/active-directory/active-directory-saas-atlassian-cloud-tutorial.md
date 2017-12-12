@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate Atlassian Cloud with Azure Active D
 Integrating Atlassian Cloud with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Atlassian Cloud.
-- You can enable your users to be signed on automatically to Atlassian Cloud (single sign-on) with their Azure AD accounts.
+- You can enable your users to be signed on automatically (single sign-on) to Atlassian Cloud with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
 For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
