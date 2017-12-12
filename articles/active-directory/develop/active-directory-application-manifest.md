@@ -30,7 +30,7 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Guid string       |`<guid>`|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
-|appRoles     |    array     |[{<br>"allowedMemberTypes":[<br>&nbsp"User"<br>],<br>"description":"Read only access to device information",<br>"displayName":"Read Only",<br>"id":"`<guid>`",<br>"isEnabled":true,<br>"value":"ReadOnly"<br>}]|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
+|appRoles     |    array     |`[` `{`<br>&emsp;`"allowedMemberTypes"`: `[`<br>&emsp;&nbsp;&nbsp;&nbsp;`"User"`<br>&emsp;`]`,<br>&emsp;`"description"`:`"Read only access to device information"`,<br>&emsp;`"displayName"`:`"Read Only"`,<br>&emsp;`"id"`:`<guid>`,<br>&emsp;`"isEnabled"`:`true`,<br>&emsp;`"value"`:`"ReadOnly"`<br>`}` `]`|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
 |availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
