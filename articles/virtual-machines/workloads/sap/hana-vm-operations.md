@@ -59,7 +59,7 @@ The Azure VM types that can be used for production scenarios are listed in the [
 Deploy the VMs in Azure by using:
 
 - The Azure portal.
-- Azure Powershell Cmdlets.
+- Azure PowerShell cmdlets.
 - The Azure CLI.
 
 You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
