@@ -126,7 +126,7 @@ catch (Exception e)
 
 ## Get a token using Go
 
-```
+```go
 package main
 
 import (
