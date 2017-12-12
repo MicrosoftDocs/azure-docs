@@ -1,9 +1,9 @@
 ---
 title: Error and exception handling for Logic Apps in Azure | Microsoft Docs
-description: Patterns for error and exception handling in the Logic Apps feature of Azure App Service.
+description: Patterns for error and exception handling in Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: derek1ee
 manager: anneta
 editor: ''
 
@@ -14,64 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
+ms.author: LADocs; deli
 
 ---
 # Handle errors and exceptions in Logic Apps
 
-The Logic Apps feature of Azure App Service provides rich tools and patterns to help you ensure that your integrations are robust and resilient against failures. Any integration architecture poses the challenge of appropriately handling downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience. It gives you the tools you need to act on exceptions and errors in your workflows.
+Logic Apps in Azure provide rich tools and patterns to help you ensure that your integrations are robust and resilient against failures. Any integration architecture poses the challenge of appropriately handling downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience. It gives you the tools you need to act on exceptions and errors in your workflows.
 
 ## Retry policies
 
-A retry policy is the most basic type of exception and error handling. If an initial request times out or fails (any request that results in a 429 or 5xx response), a retry policy defines if and how the action should retry. 
+A retry policy is the most basic type of exception and error handling. If an initial request times out or fails (any request that results in a 429 or 5xx response), a retry policy defines if and how the action should be retried. 
 
-There are three types of retry policies: exponential, fixed, and none. If a retry policy is not provided in the workflow definition, the default policy is used. 
+There are four types of retry policies: default, none, fixed, and exponential. If a retry policy is not provided in the workflow definition, the default policy as defined by the service is used. 
 
-You can configure retry policies in the *inputs* for a particular action or trigger if it is retryable. Similarly, you can configure retry policies (if applicable) in Logic App Designer. To set up a retry policy, in Logic App Designer, go to **Settings** for a specific block.
+You can configure retry policies in the *inputs* for a particular action or trigger if it is retryable. Similarly, you can configure retry policies (if applicable) in Logic App Designer. To set up a retry policy, in Logic App Designer, go to **Settings** for a specific action.
 
 For information about the limitations of retry policies, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md). For more information about supported syntax, see the [retry policy section in Workflow Actions and Triggers][retryPolicyMSDN].
 
-### Exponential interval
-The exponential policy type retries a failed request after a random time interval from an exponentially growing range. Each retry attempt is guaranteed to be sent at a random interval that is greater than **minimumInterval** and less than **maximumInterval**. A uniform random variable in the range indicated in the following table is generated for each retry up to and including **count**:
-
-**Random variable range**
-
-| Retry number | Minimum interval | Maximum interval |
-| ------------ |  ------------ |  ------------ |
-| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
-| ... |
-
-For exponential type policies, **count** and **interval** are required. Values for **minimumInterval** and **maximumInterval** are optional. You can add them to override the default values of PT5S and PT1D, respectively.
-
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| type | Yes | String | **exponential** |
-| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90.  |
-| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
-| minimumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and **interval**. |
-| maximumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between **interval** and PT1D. |
-
-### Fixed interval
-
-The fixed retry policy type retries a failed request by waiting the specified interval of time before sending the next request.
-
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| type | Yes | String | **fixed** |
-| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90. |
-| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
-
-### None
-If the retry policy is set to **none**, a failed request is not retried.
-
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| type | Yes | String | **none** |
-
 ### Default
+
 If you don't define a retry policy, the default policy is used. The default policy is an exponential interval policy that sends up to four retries, at exponentially increasing intervals scaled by 7.5 seconds. The interval is capped at between 5 and 45 seconds. This default policy (used when **retryPolicy** is undefined) is equivalent to the policy in this example HTTP workflow definition:
 
 ```json
@@ -92,6 +53,48 @@ If you don't define a retry policy, the default policy is used. The default poli
     "type": "Http"
 }
 ```
+
+### None
+
+If **retryPolicy** is set to **none**, a failed request is not retried.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **none** |
+
+### Fixed interval
+
+If **retryPolicy** is set to **fixed**, the policy retries a failed request by waiting the specified interval of time before sending the next request.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **fixed** |
+| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90. |
+| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
+
+### Exponential interval
+
+If **retryPolicy** is set to **exponential**, the policy retries a failed request after a random time interval from an exponentially growing range. Each retry attempt is guaranteed to be sent at a random interval that is greater than **minimumInterval** and less than **maximumInterval**. A uniform random variable in the range indicated in the following table is generated for each retry up to and including **count**:
+
+**Random variable range**
+
+| Retry number | Minimum interval | Maximum interval |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+For exponential type policies, **count** and **interval** are required. Values for **minimumInterval** and **maximumInterval** are optional. You can add them to override the default values of PT5S and PT1D, respectively.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | **exponential** |
+| count | Yes | Integer | Number of retry attempts. Must be between 1 and 90.  |
+| interval | Yes | String | Retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and PT1D. |
+| minimumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between PT5S and **interval**. |
+| maximumInterval | No | String | Retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Must be between **interval** and PT1D. |
 
 ## Catch failures with the runAfter property
 
