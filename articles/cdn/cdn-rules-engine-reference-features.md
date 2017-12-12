@@ -189,6 +189,7 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Bandwidth Parameters
@@ -205,6 +206,7 @@ Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The 
  
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Bandwidth Throttling
@@ -221,6 +223,7 @@ Prebuf seconds|Set this option to the number of seconds for the edge servers to 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Bypass Cache
@@ -242,6 +245,7 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Cacheable HTTP Methods
@@ -257,6 +261,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Cacheable Request Body Size
@@ -278,6 +283,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Cache-Control Header Treatment
@@ -296,6 +302,7 @@ Remove| This option ensures that a `Cache-Control` header is not included with
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Cache-Key Query String
@@ -368,6 +375,7 @@ This type of configuration would generate the following query string parameter c
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Cache-Key Rewrite
@@ -385,6 +393,7 @@ New Path|Define the relative path for the new cache-key. A relative path can be 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Comment
@@ -400,6 +409,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Complete Cache Fill
@@ -425,6 +435,7 @@ Disabled|Prevents an edge server from performing a background fetch for the asse
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Compress File Types
@@ -449,6 +460,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Custom Log Field 1
@@ -477,6 +489,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Debug Cache Response Headers
@@ -504,6 +517,7 @@ Disabled|The X-EC-Debug response header will be excluded from the response.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Default Internal Max-Age
@@ -533,6 +547,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Deny Access (403)
@@ -550,6 +565,7 @@ Disabled| Restores the default behavior. The default behavior is to allow the or
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Expires Header Treatment
@@ -568,6 +584,7 @@ Remove| Ensures that an Expires header is not included with the header respons
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### External Max-Age
@@ -587,6 +604,7 @@ server, and can be customized with the Default Internal Max-Age and the Force
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Follow Redirects
@@ -605,6 +623,7 @@ Disabled|Requests will not be redirected.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Force Internal Max-Age
@@ -633,6 +652,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### H.264 Support (HTTP Progressive Download)
@@ -647,6 +667,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Honor No-Cache Request
@@ -667,6 +688,7 @@ The cache status that will be reported for a request that is allowed to be forwa
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Ignore Origin No-Cache
@@ -695,6 +717,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Ignore Unsatisfiable Ranges 
@@ -711,6 +734,7 @@ Disabled|Restores the default behavior. The default behavior is to honor the 41
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Internal Max-Stale
@@ -744,6 +768,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Log Query String
@@ -758,6 +783,7 @@ Disabled|Restores the default behavior. The default behavior is to ignore query 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Maximum Keep-Alive Requests
@@ -774,6 +800,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Modify Client Request Header
@@ -811,6 +838,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Modify Client Response Header
@@ -856,6 +884,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Partial Cache Sharing
@@ -872,6 +901,7 @@ Disabled|Requests can only generate a fully cached version of the requested cont
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Prevalidate Cached Content
@@ -887,6 +917,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Proxy Special Headers
@@ -901,6 +932,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Refresh Zero-Byte Cache Files
@@ -920,6 +952,7 @@ for such content, then this feature can prevent these types of assets from being
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Set Cacheable Status Codes
@@ -939,6 +972,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Set Client IP Custom Header
@@ -962,6 +996,7 @@ Ensure that the specified header name does not match any of the following names:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Stale Content Delivery on Error
@@ -976,6 +1011,7 @@ Disabled|The origin server's error is forwarded to the requester.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Stale While Revalidate
@@ -992,6 +1028,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Token Auth
@@ -1010,6 +1047,7 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Token Auth Denial Code
@@ -1054,6 +1092,7 @@ The WWW-Authenticate header is only applicable for 401 response codes.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Token Auth Ignore URL Case
@@ -1076,6 +1115,7 @@ Disabled|Restores the default behavior. The default behavior is for URL comparis
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### Token Auth Parameter
@@ -1096,6 +1136,7 @@ Disabled|A token may be specified as an undefined query string parameter in the 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### URL Redirect
@@ -1139,6 +1180,7 @@ This URL redirection may be achieved through the following configuration:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### URL Rewrite
@@ -1201,6 +1243,7 @@ This feature includes matching criteria that must be met before it can be applie
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+</br>
 
 ---
 ### User Variable
