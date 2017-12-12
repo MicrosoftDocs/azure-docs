@@ -59,7 +59,7 @@ sections:
   - type: paragraph
     text: Learn how to upload and process image data in the cloud.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Trigger Azure Functions to process blobs</a>
@@ -68,14 +68,14 @@ sections:
   - type: paragraph
     text: Learn how to design your application for high availability in Azure Storage.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Make your application data highly available</a>
     - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulate a failure in accessing read-access redundant storage</a>
   - type: paragraph
     text: Learn how to search unstructured data in Azure Storage.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/storage/blobs/storage-unstructured-search">Search unstructured data in cloud storage</a>
 - title: Samples
@@ -86,6 +86,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Queues</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
 - title: Free Pluralsight Video Training
