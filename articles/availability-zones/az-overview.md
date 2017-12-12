@@ -29,6 +29,7 @@ Availability Zones help to protect you from datacenter-level failures. They are 
 
 - East US 2
 - West Europe
+- France Central
 
 ## Services that support Availability Zones
 
@@ -39,6 +40,7 @@ The Azure services that support Availability Zones are:
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
+- Public IP address
 
 ## Supported virtual machine size families
 

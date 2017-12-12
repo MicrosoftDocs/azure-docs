@@ -61,7 +61,7 @@ Save and close the file.
 
 ## Deploy application
 
-Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
+Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yml
