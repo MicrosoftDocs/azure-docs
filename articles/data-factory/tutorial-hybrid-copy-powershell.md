@@ -56,11 +56,11 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 
 5. To create the **emp** table and insert some sample data into it, run the following query script against the database:
 
-```
-    INSERT INTO emp VALUES ('John', 'Doe')
-    INSERT INTO emp VALUES ('Jane', 'Doe')
-    GO
-```
+   ```
+       INSERT INTO emp VALUES ('John', 'Doe')
+       INSERT INTO emp VALUES ('Jane', 'Doe')
+       GO
+   ```
 
 6. In the tree view, right-click the database that you created, and then select **New Query**.
 
@@ -157,7 +157,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 3. Define a variable for the data factory name that you can use in PowerShell commands later. The name must start with a letter or a number, and it can contain only letters, numbers, and the dash (-) character.
 
     > [!IMPORTANT]
-    >  Update the data factory name with a globally unique name. For example, ADFTutorialFactorySP1127. 
+    >  Update the data factory name with a globally unique name. An example is ADFTutorialFactorySP1127. 
 
     ```powershell
     $dataFactoryName = "ADFTutorialFactory"
@@ -190,7 +190,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 
 In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Azure Blob storage. 
 
-1. Create a variable for the name of integration runtime. Use a unique name, and note down the name. You use it later in this tutorial. 
+1. Create a variable for the name of integration runtime. Use a unique name, and note the name. You use it later in this tutorial. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
@@ -321,7 +321,7 @@ In this step, you link your Azure storage account to the data factory.
 1. Create a JSON file named *AzureStorageLinkedService.json* in the *C:\ADFv2Tutorial* folder with the following code. If the *ADFv2Tutorial* folder does not already exist, create it.  
 
     > [!IMPORTANT]
-    > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the "[Prerequisites](#get-storage-account-name-and-account-key)" section.
+    > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the [Prerequisites](#get-storage-account-name-and-account-key) section.
 
    ```json
 	{
@@ -416,7 +416,7 @@ In this step, you link your on-premises SQL Server instance to the data factory.
     > - Select the section that's based on the authentication you use to connect to your SQL Server instance.
     > - Replace  **\<integration runtime name>** with the name of your integration runtime.
     > - Before you save the file, replace **\<servername>**, **\<databasename>**, **\<username>**, and **\<password>** with the values of your SQL Server instance.
-    > - If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, *mydomain\\\\myuser*. 
+    > - If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*. 
 
 2. To encrypt the sensitive data (username, password, and so on), run the `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet.  
     This encryption ensures that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored locally on the self-hosted integration runtime node (local machine). The output payload can be redirected to another JSON file (in this case, *encryptedLinkedService.json*) that contains encrypted credentials.
@@ -433,10 +433,10 @@ In this step, you link your on-premises SQL Server instance to the data factory.
 
 
 ## Create datasets
-In this step, you create input and output datasets that represent input and output data for the copy operation, which copies data from the on-premises SQL Server database to Azure Blob storage.
+In this step, you create input and output datasets. They represent input and output data for the copy operation, which copies data from the on-premises SQL Server database to Azure Blob storage.
 
-### Create a dataset for source SQL Database
-In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, it is the **emp** table that contains the source data. 
+### Create a dataset for the source SQL Server database
+In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, the **emp** table contains the source data. 
 
 1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:  
 
@@ -486,8 +486,8 @@ In this step, you define a dataset that represents data in the SQL Server databa
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### Create a dataset for sink Azure Blob Storage
-In this step, you define a dataset that represents data that is to be copied to Azure Blob Storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
+### Create a dataset for the sink Azure Blob storage
+In this step, you define a dataset that represents data that will be copied to Azure Blob storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
 
 The linked service has the connection information that the data factory uses at runtime to connect to your Azure storage account. This dataset specifies the folder in the Azure storage to which the data is copied from the SQL Server database. In this tutorial, the folder is *adftutorial/fromonprem*, where `adftutorial` is the blob container and `fromonprem` is the folder. 
 
