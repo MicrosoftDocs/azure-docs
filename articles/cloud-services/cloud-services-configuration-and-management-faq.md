@@ -254,9 +254,9 @@ The **Get-AzurePublishSettingsFile** will create a new management certificate in
 
 ## How can I configure Auto-Scale based on Memory metrics?
 
-Auto-scale based on Memory metrics for a cloud services is not currently supported. 
+Auto-scale based on Memory metrics for a Cloud Services is not currently supported. 
 
-To work around this problem, you can use Application Insights, so that the diagnostic agent would route the metrics to Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
+To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
 
 For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -267,7 +267,7 @@ For more information about to enable Application Insights for Cloud Services, se
 
 For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## How to automate the main SSL certificate(.pfx) and intermediate certificate(.p7b) cert installation?
+## How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
