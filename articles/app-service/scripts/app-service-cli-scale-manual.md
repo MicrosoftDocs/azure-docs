@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Scale a web app manually
 
-In this scenario you will learn to create a resource group, app service plan and web app. You will then scale the App Service Plan from a single instance to multiple instances.
+This sample script creates a resource group, an App Service plan, and a web app. It then scales the App Service plan from a single instance to multiple instances.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
