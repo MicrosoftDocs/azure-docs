@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/12/2017
 ms.author: jeedes
 
 ---
@@ -106,10 +106,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SumTotalCentral Domain and URLs single sign-on information](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: ``
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.sumtotalsystems.com/sites/default`
+
+	b. In the **Identifier** textbox, type a value: `SumTotalFederationGateway`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SumTotalCentral Client support team](http://www.sumtotalsystems.com/support/) to get the value. 
+	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [SumTotalCentral Client support team](http://www.sumtotalsystems.com/support/) to get the value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
