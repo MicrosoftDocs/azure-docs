@@ -11,6 +11,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
+        "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
