@@ -163,6 +163,7 @@ do
     {
         Console.WriteLine(item.Uri);
     }
+    blobContinuationToken = results.ContinuationToken;
 } while (blobContinuationToken != null);
 ```
 
