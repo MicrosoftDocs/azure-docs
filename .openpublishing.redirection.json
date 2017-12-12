@@ -6532,7 +6532,7 @@
         },
         {
             "source_path": "articles/dns/dns-operations-dnszones-cli-nodejs.md",
-            "redirect_url": "/azure//azure/dns/dns-operations-dnszones-cli",
+            "redirect_url": "/azure/dns/dns-operations-dnszones-cli",
             "redirect_document_id": false
         },
         {
