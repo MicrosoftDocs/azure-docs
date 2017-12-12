@@ -1,6 +1,6 @@
 ---
 title: Upgrade a Classic Azure container registry
-description: Take advantage of the expanded feature set of Basic, Standard, and Premium managed container registries by upgrading your Classic unmanaged container registry.
+description: Take advantage of the expanded feature set of Basic, Standard, and Premium managed container registries by upgrading your unmanaged Classic container registry.
 services: container-registry
 author: mmacy
 manager: timlt
