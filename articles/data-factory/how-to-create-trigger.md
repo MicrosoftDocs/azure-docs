@@ -157,13 +157,14 @@ Add the following code to the main method, which creates a scheduler trigger tha
 To monitor a trigger run, add the following code before the last `Console.WriteLine` statement: 
 
 ```csharp
-            // Check the trigger runs after 15 minutes
-            Console.WriteLine("Trigger runs. You see the output after 60 minutes");
+            // Check the trigger runs after every 15 minutes
+            Console.WriteLine("Trigger runs. You see the output after every 15 minutes");
 
             for (int i = 0; i < 3; i++)
             {
                 System.Threading.Thread.Sleep(TimeSpan.FromMinutes(15));
                 List<TriggerRun> triggerRuns = client.Triggers.ListRuns(resourceGroup, dataFactoryName, triggerName, DateTime.UtcNow.AddMinutes(-15 * (i + 1)), DateTime.UtcNow.AddMinutes(2)).ToList();
+                Console.WriteLine("{0} trigger runs found", triggerRuns.Count);
 
                 foreach (TriggerRun run in triggerRuns)
                 {
