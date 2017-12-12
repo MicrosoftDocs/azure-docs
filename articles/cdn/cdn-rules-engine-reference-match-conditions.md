@@ -190,8 +190,6 @@ The **Matches/Does Not Match** option determines the conditions under which this
    - Internal Max-Stale
 
 ### Cookie Parameter Regex
-**Note:** This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it.
-
 This Match condition defines a cookie name and value. Regular expressions may be used to define the desired cookie value. 
 
 The **Matches/Does Not Match** option determines the conditions under which this Match condition will be satisfied.
