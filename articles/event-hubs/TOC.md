@@ -4,9 +4,9 @@
 ## [FAQ](event-hubs-faq.md)
 
 # Quickstarts
-## [Create Event Hubs namespace and event hub using the Azure portal](event-hubs-quickstart-namespace-portal.md)
-## [Create Event Hubs namespace and event hub using PowerShell](event-hubs-quickstart-namespace-powershell.md)
-## [Create Event Hubs namespace and event hub using Azure CLI](event-hubs-quickstart-namespace-cli.md)
+## [Create namespace and event hub using the portal](event-hubs-quickstart-namespace-portal.md)
+## [Create namespace and event hub using PowerShell](event-hubs-quickstart-namespace-powershell.md)
+## [Create namespace and event hub using Azure CLI](event-hubs-quickstart-namespace-cli.md)
 
 # Get Started
 ## [Create an event hub](event-hubs-create.md)

@@ -18,9 +18,9 @@ ms.author: sethm
 
 ---
 
-# Create Event Hubs namespace and event hub using Azure CLI
+# Create namespace and event hub using Azure CLI
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This article shows how to quickly use Azure CLI to create an Event Hubs namespace and an event hub within that namespace. Once provisioned, you can start sending and receiving events to and from the event hub.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to quickly use Azure CLI to create an Event Hubs namespace and an event hub within that namespace. Once provisioned, you can start sending and receiving events to and from the event hub.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
