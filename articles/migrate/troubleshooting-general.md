@@ -24,6 +24,16 @@ ms.author: raynew
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
 
 
+**Collector is not able to connect to the internet**
+
+This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+
+**URL** | **Purpose**  
+--- | ---
+*.portal.azure.com | Required to check connectivity with the Azure service and validate time synchronization issues.
+*.oneget.org | Required to download the powershell based vCenter PowerCLI module.
+
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
 Make sure you've copied and pasted the right information. To troubleshoot, install the Microsoft Monitoring Agent (MMA) as follows:
