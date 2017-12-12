@@ -24,7 +24,7 @@ This article provides steps to create, start, and monitor a trigger. For concept
 
 
 ## Use Azure PowerShell
-This section shows you how to use PowerShell to create, start, and monitor a trigger. You create a trigger for the pipeline from the quickstart. If you want to see this code working, first go through the [quickstart for creating a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). 
+This section shows you how to use Azure PowerShell to create, start, and monitor a trigger. If you want to see this sample working, first go through the [quickstart: create a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline (**Adfv2QuickStartPipeline**) that you create as part of the quickstart.
 
 1. Create a JSON file named MyTrigger.json in the C:\ADFv2QuickStartPSH\ folder with the following content: 
 
@@ -62,8 +62,8 @@ This section shows you how to use PowerShell to create, start, and monitor a tri
     In the JSON snippet: 
     - The **type** of the trigger is set to **ScheduleTrigger**. 
     - The **frequency** is set to **Minute** and **interval** is set to **15**, so the trigger runs the pipeline every 15 minutes between the start and end times. 
-    - The **endTime** is one hour after the **startTime**, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour after the startTime.  
-    - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more pipelineReference sections. 
+    - The **endTime** is one hour after the **startTime**, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour past the startTime.  
+    - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections. 
     - The pipeline in the quickstart takes two **parameters**. Therefore, you pass values for those parameters from the trigger. 
 2. Create a trigger by using the **Set-AzureRmDataFactoryV2Trigger** cmdlet.
 
@@ -85,16 +85,16 @@ This section shows you how to use PowerShell to create, start, and monitor a tri
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" 
     ```
-6.  Get trigger runs using PowerShell by using the **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. To get the information about trigger runs, run the following command periodically: Update TriggerRunStartedAfter and TriggerRunStartedBefore values to match the values in the trigger definition. 
+6.  Get trigger runs using PowerShell by using the **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. To get the information about trigger runs, run the following command periodically: Update **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in the trigger definition. 
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
+    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
 
     To monitor trigger runs/pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
 
 ## Use .NET SDK
-This section shows you how to use .NET SDK to create, start, and monitor a trigger. If you want to see this code working, first go through the [quickstart for creating a data factory using .NET SDK](quickstart-create-data-factory-dot-net.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. 
+This section shows you how to use .NET SDK to create, start, and monitor a trigger. If you want to see this code working, first go through the [quickstart for creating a data factory using .NET SDK](quickstart-create-data-factory-dot-net.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline (**Adfv2QuickStartPipeline**) that you create as part of the quickstart. 
 
 ```csharp
             //create the trigger
@@ -182,7 +182,7 @@ This section shows you how to use Python SDK to create, start, and monitor a tri
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
     pipelines_to_run.append(TriggerPipelineReference(pipeline_reference, pipeline_parameters))
-    tr_properties = ScheduleTrigger(description='My schedule trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
+    tr_properties = ScheduleTrigger(description='My scheduler trigger', pipelines = pipelines_to_run, recurrence=scheduler_recurrence)    
     adf_client.triggers.create_or_update(rg_name, df_name, tr_name, tr_properties)
 
     # start the trigger
