@@ -21,8 +21,7 @@ ms.custom: mvc
 
 # Connect a web app to a SQL database
 
-In this scenario you will learn how to create an Azure SQL database and an Azure web app. Then you will link the SQL database to the web app using app settings.
-
+This sample script creates an Azure SQL database and an Azure web app. It then links the SQL database to the web app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +37,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, SQL database and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, SQL Database, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|

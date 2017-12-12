@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a web app with continuous deployment from Visual Studio Team Services
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you will need:
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you need:
 
 * A Visual Studio Team Services repository with application code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) for your Visual Studio Team Services account.
