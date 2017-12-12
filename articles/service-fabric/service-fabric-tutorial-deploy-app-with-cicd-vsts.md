@@ -81,23 +81,15 @@ A Team Services build definition describes a workflow that is composed of a set 
 A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### Create a build definition
-Open a web browser and navigate to your new team project at: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting . 
+Open a web browser and navigate to your new team project at: https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting . 
 
 Select the **Build & Release** tab, then **Builds**, then **+ New definition**.  In **Select a template**, select the **Azure Service Fabric Application** template and click **Apply**. 
 
 ![Choose build template][select-build-template] 
 
-The voting application contains a .NET Core project, so add a task that restores the dependencies. In the **Tasks** view, select **+ Add Task** in the bottom left. Search on "Command Line" to find the command-line task, then click **Add**. 
-
-![Add task][add-task] 
-
-In the new task, enter "Run dotnet.exe" in **Display name**, "dotnet.exe" in **Tool**, and "restore" in **Arguments**. 
-
-![New task][new-task] 
-
-In the **Triggers** view, click the **Enable this trigger** switch under **Continuous Integration**. 
-
 Select **Save & queue** and enter "Hosted VS2017" as the **Agent queue**. Select **Queue** to manually start a build.  Builds also triggers upon push or check-in.
+
+![Select agent queue][save-and-queue]
 
 To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster. 
 
@@ -166,8 +158,7 @@ Advance to the next tutorial:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
