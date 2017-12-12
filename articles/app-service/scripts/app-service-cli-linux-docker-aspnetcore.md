@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -27,8 +27,7 @@ In this scenario you will learn how to create a resource group, Linux app servic
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Sample script
 
@@ -42,10 +41,10 @@ This script uses the following commands to create a resource group, web app, and
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Creates an Azure web app. |
-| [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#az_webapp_config_container_set) | Sets the Docker container for the Azure web app. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Creates an Azure web app. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) | Sets the Docker container for the Azure web app. |
 
 ## Next steps
 
