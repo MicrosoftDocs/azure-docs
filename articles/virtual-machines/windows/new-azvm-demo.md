@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/012/2017
+ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 
@@ -66,7 +66,7 @@ On your local machine, open a cmd prompt and use the **mstsc** command to start 
 ```
 mstsc /v:<publicIpAddress>
 ```
-## Specifying different resource names
+## Specify different resource names
 
 You can also provide more descriptive names for the resources, and still have them created automatically. Here is an example where we have named multiple resources for the new VM, including a new resource group.
 
