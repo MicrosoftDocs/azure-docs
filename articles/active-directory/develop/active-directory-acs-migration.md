@@ -83,7 +83,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | ------- | -------- |
 | Azure Service Bus | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Redis Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure Managed Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -144,7 +144,7 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 | WS-Trust | Supported | Not supported |
 | **Token formats** | | |
 | JWT | Supported In Beta | Supported |
-| SAML 1.1 | Supported | Supported |
+| SAML 1.1 | Supported | Preview |
 | SAML 2.0 | Supported | Supported |
 | SWT | Supported | Not supported |
 | **Customizations** | | |
@@ -224,12 +224,6 @@ If you decide that Azure AD B2C is the best migration path for your applications
 - [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
-#### Other migration options
-
-If Azure AD and Azure AD B2C don't meet the needs of your web application, contact us. We can help you identify the best migration path.
-
-<!--
-
 #### Migrate to Ping Identity or Auth0
 
 In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
@@ -238,15 +232,16 @@ In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient t
 - Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
 - Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
 - Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
+- Multi-tenant web applications that use ACS to centrally manage federation to many different identity providers
 
 In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers also should consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
+| ![Ping Identity](./media/active-directory-acs-migration/ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
 
 <!--
 
@@ -293,12 +288,6 @@ For guidance about implementing server-to-server scenarios, see the following re
 - [Daemon code sample by using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Daemon code sample by using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-#### Other migration options
-
-If Azure AD doesn't meet the needs of your web service, leave a comment. We can help you identify the best plan for your specific case.
-
-<!--
-
 #### Migrate to Ping Identity or Auth0
 
 In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
@@ -309,12 +298,12 @@ In some cases, you might find that the Azure AD client credentials and the OAuth
 
 In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers should also consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
+| ![Ping Identity](./media/active-directory-acs-migration/ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on-prem identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.  |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
 
 ## Questions, concerns, and feedback
 
