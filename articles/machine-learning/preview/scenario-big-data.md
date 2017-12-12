@@ -105,10 +105,10 @@ Column number | Field name| Type | Description |
 6 | `HTTP1` | Integer|	Session uses HTTP1 or HTTP2
 7 |`ServerType` | Integer	|Server type
 8 |`SubService_1_Load` | Double |	Subservice 1 load
-9 | `SubService_1_Load` | Double | 	Subservice 2 load
-10 | `SubService_1_Load` | Double | 	Subservice 3 load
-11 |`SubService_1_Load`	| Double |  Subservice 4 load
-12 | `SubService_1_Load`| Double |  	Subservice 5 load
+9 | `SubService_2_Load` | Double | 	Subservice 2 load
+10 | `SubService_3_Load` | Double | 	Subservice 3 load
+11 |`SubService_4_Load`	| Double |  Subservice 4 load
+12 | `SubService_5_Load`| Double |  	Subservice 5 load
 13 |`SecureBytes_Load`	| Double | Secure bytes load
 14 |`TotalLoad`	| Double | Total load on server
 15 |`ClientIP` | String|	Client IP address
@@ -325,7 +325,7 @@ On the right sidebar of the Workbench, browse to **Runs** to see the run history
 
 ### Operationalize the model
 
-In this section, you operationalize the model you created in the previous steps as a web service. You also learn how to use the web service to predict workload. Use Machine Language operationalization command-line interfaces (CLIs) to package the code and dependencies as Docker images, and to publish the model as a containerized web service. For more information, see [this overview](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+In this section, you operationalize the model you created in the previous steps as a web service. You also learn how to use the web service to predict workload. Use Machine Language operationalization command-line interfaces (CLIs) to package the code and dependencies as Docker images, and to publish the model as a containerized web service.
 
 You can use the command-line prompt in Machine Learning Workbench to run the CLIs.  You can also run the CLIs on Ubuntu Linux by following the [installation guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 
