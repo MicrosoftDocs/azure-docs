@@ -21,12 +21,12 @@ ms.author: mbullwin
 
 Application Insights automatically analyzes the CPU consumption of each role instance in your application and detects instances with low CPU utilization. This detection enables you to decrease your Azure resources and reduce costs, by decreasing the number of role instances each role utilizes, or by decreasing the number of roles.
 
-This feature requires no special setup, other than [configuring performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) for your app. It is active when your app generates enough CPU performance counters telemetry (% Processor Time).
+This feature requires no special setup, other than [configuring performance counters](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) for your app. It is active when your app generates enough CPU performance counter telemetry (% Processor Time).
 
 ## When would I get this type of smart detection notification?
 A typical notification occurs when many of your Web/Worker Role instances exhibit low CPU utilization.
 
-## Does my app definitely consume too much resources?
+## Does my app definitely consume too many resources?
 No, a notification doesn't mean that your app definitely consumes too many resources. Although such patterns of low CPU utilization usually indicate that resource consumption could be decreased, this behavior could be typical to your specific role, or could have a natural business justification, and can be ignored. For example, it could be that multiple instances are needed for other resources, such as memory/network, and not CPU.
 
 ## How do I fix it?
