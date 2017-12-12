@@ -42,7 +42,7 @@ The following diagram illustrates the example pipeline.
 
 This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
 
-Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinators*. Actions determine the actual work to perform, such as running a Hive query. Workflows define the sequence of actions. A coordinator defines the schedule for when the workflow is run. A coordinator can also wait on the availability of new data before launching an instance of the workflow.
+Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinators*. Actions determine the actual work to perform, such as running a Hive query. Workflows define the sequence of actions. Coordinators define the schedule for when the workflow is run. Coordinators can also wait on the availability of new data before launching an instance of the workflow.
 
 The following diagram shows the high-level design of this example Oozie pipeline.
 
@@ -54,25 +54,25 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 
 #### Provision Azure SQL Database
 
-1. Using the Azure portal, create a new Resource Group called oozie that will contain all of the resources used by this article.
-2. Within the oozie resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
-1. Using the Azure Portal, navigate to the pane of your newly deployed SQL Database, and select Tools.
+1. Using the Azure portal, create a new Resource Group named `oozie` to contain all the resources used by this example.
+2. Within the `oozie` resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
+3. Using the Azure portal, navigate to the pane for your newly deployed SQL Database, and select Tools.
 
     ![Tools button](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
 
-5. Select Query Editor.
+4. Select Query Editor.
 
     ![Query Editor button](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
 
-6. In the Query Editor pane, select Login. 
+5. In the Query Editor pane, select Login.
 
     ![Login button](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
 
-7. Enter your SQL Database credentials and select OK.
+6. Enter your SQL Database credentials and select OK.
 
    ![Login form](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
 
-8. In the query editor text area, enter the following SQL statements to create the dailyflights table which will store the summarized data that results from each run of the pipeline.
+7. In the query editor text area, enter the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
 
     ```
     CREATE TABLE dailyflights
@@ -91,106 +91,100 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
     GO
     ```
 
-9. Select Run to execute the SQL statements.
+8. Select Run to execute the SQL statements.
 
     ![Run button](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
 
-10. Your SQL Database is now ready.
+9. Your Azure SQL Database is now ready.
 
 #### Provision an HDInsight Hadoop Cluster
-1. Using the Azure Portal, select +New and search for HDInsight.
+
+1. In the Azure portal, select **+New** and search for HDInsight.
 2. Select Create.
-3. On the basics pane provide a unique name for your cluster and choose your Azure Subscription.
+3. On the Basics pane provide a unique name for your cluster and choose your Azure Subscription.
 
     ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
 
-4. Select Cluster type.
-5. On the Cluster type pane, select the Hadoop cluster type, Linux operating system and the latest version of the HDInsight cluster. Leave the Cluster tier at Standard.
+4. In the Cluster type pane, select the Hadoop cluster type, Linux operating system, and the latest version of the HDInsight cluster. Leave the Cluster tier at Standard.
 
     ![HDInsight cluster type](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
 
-6. Choose select to apply your cluster type selection.
-7. Complete the Basics pane by providing a login password and selecting your oozie resource group from the list and select Next.
+5. Choose Select to apply your cluster type selection.
+6. Complete the Basics pane by providing a login password and selecting your `oozie` resource group from the list, then select Next.
 
     ![HDInsight Basics pane](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
 
-8. On the Storage pane, leave the primary storage type set to Azure Storage, select Create new and provide a name for the new account.
+7. In the Storage pane, leave the primary storage type set to Azure Storage, select **Create new** and provide a name for the new account.
 
     ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
-9. For the metastore settings, under the Select a SQL database for Hive, choose the database you previously created. 
+8. For the Metastore Settings, under **Select a SQL database for Hive**, choose the database you previously created.
 
     ![HDInsight Hive Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
 
-10. Select Authenticate SQL Database
+9. Select **Authenticate SQL Database**.
 
     ![HDInsight Hive Metastore Authenticate](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-11. Enter your SQL database username and password, and choose select. 
+10. Enter your SQL database username and password, and choose Select. 
 
        ![HDInsight Hive Metastore Authenticate Login](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-12. Back on the Metastore Settings, select your database for the Oozie metadata store and authenticate as you did previously. 
+11. Back on the Metastore Settings, select your database for the Oozie metadata store and authenticate as you did previously. 
 
        ![HDInsight Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-13. Select Next.
-14. On the Summary pane, select Create to deploy your cluster.
-
+12. Select Next.
+13. On the Summary pane, select **Create** to deploy your cluster.
 
 ### Verify SSH Tunneling Setup
 
-In order to utilize the Oozie Web Console to view the status of your coordinator and workflow instances, you will need to setup an SSH tunnel to your HDInsight cluster. 
+To use the Oozie Web Console to view the status of your coordinator and workflow instances, set up an SSH tunnel to your HDInsight cluster. For more information, see [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
-Detailed step by step instructions are available in the article [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]
+> You can also use Chrome with the [Foxy Proxy](https://getfoxyproxy.org/) extension to browse your cluster's web resources across the SSH tunnel. You need to configure it to proxy all request through the host `localhost` on the tunnel's port 9876. This approach is compatible with the Windows Subsystem for Linux, also known as Bash on Windows 10.
 
-Note that you can also use Chrome with the [Foxy Proxy](https://getfoxyproxy.org/) extension to browse your cluster's web resources across the SSH tunnel. You need to configure it to proxy all request thru the host "localhost" on port 9876, which is the port upon which your tunnel is open.
+1. Run the following command to open an SSH tunnel to your cluster:
 
-This approach is compatible when using the Windows Subsystem for Linux, also known as Bash on Windows 10.
+    ```
+    ssh -C2qTnNf -D 9876 sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
+    ```
 
-In summary, you will need to run the following command to open the tunnel to your cluster:
+2. Verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
 
-```
-ssh -C2qTnNf -D 9876 sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
-```
+    http://headnodehost:8080
 
-Once you have setup your proxy, you can verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
-
-[http://headnodehost:8080](http://headnodehost:8080) 
-
-To access the Oozie Web Console, from Ambari, select Oozie, Quick Links and then select Oozie Web Console.
-
-If you can access the Oozie Web Console, you are good to go.
+3. To access the Oozie Web Console from within Ambari, select Oozie, Quick Links, and then select Oozie Web Console.
 
 ### Configure Hive
 
-You will need to upload the CSV file `2017-01-FlightData.csv` containing sample data for one month of flight data. 
+1. Upload the CSV file `2017-01-FlightData.csv` containing sample data for one month of flight data. 
 <!-- {TODO tbd This file type is not allowed}  You will need to upload the CSV file that contains sample data for one month flight data. You can download this CSV file from here: [2017-01-FlightData.csv](./code/hdinsight-operationalize-data-pipeline/setup/2017-01-FlightData.csv)  -->
 
-Copy this file up to the Azure Storage account attached to your HDInsight cluster and place it in the /example/data/flights folder.
+2. Copy this file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
 
-One way to accomplish this is using SCP in your bash shell session.
+You can copy the file using SCP in your `bash` shell session.
 
-First, use SCP to copy the files from your local machine to the local storage of your HDInsight cluster head node:
+1. Use SCP to copy the files from your local machine to the local storage of your HDInsight cluster head node.
 
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
 
-Second, use the HDFS command to copy the file from your head node local storage to Azure Storage:
+2. Use the HDFS command to copy the file from your head node local storage to Azure Storage.
 
     hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
 
-The sample data you will process is now available. However, the pipeline requires two Hive tables to be created prior to its execution. You can create these using Ambari by following these steps:
+The sample data is now available. However, the pipeline requires two Hive tables for processing, one for the incoming data (`rawFlights`) and one for the summarized data (`flights`). Create these tables in Ambari as follows.
 
-1. Login to Ambari by navigating to [http://headnodehost:8080](http://headnodehost:8080) 
+1. Login to Ambari by navigating to [http://headnodehost:8080](http://headnodehost:8080).
 2. From the list of services, select Hive.
 
     ![Selecting Hive in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
-3. Select Go To View next to the Hive View 2.0 label.
+3. Select **Go To View** next to the Hive View 2.0 label.
 
     ![Selecting Hive View in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
-4. In the query text area, paste the following statements to create the RawFlights table. The RawFlights table provides a schema on read over any of the CSV files that appear within the /example/data/flights folder in Azure Storage. 
+4. In the query text area, paste the following statements to create the `rawFlights` table. The `rawFlights` table provides a schema-on-read for the CSV files within the `/example/data/flights` folder in Azure Storage. 
 
     ```
     CREATE EXTERNAL TABLE IF NOT EXISTS rawflights (
@@ -218,7 +212,7 @@ The sample data you will process is now available. However, the pipeline require
 
     ![Hive Query in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
-6. Replace the text in the query text area with the following statements to create the Flights table. The Flights table is a Hive managed table that will partition data loaded into it by year, month, and day of month. It will contain all historical flight data, with the lowest granularity present in the source data of one row per flight. 
+6. Replace the text in the query text area with the following statements to create the `flights` table. The `flights` table is a Hive managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight. 
 
     ```
     SET hive.exec.dynamic.partition.mode=nonstrict;
@@ -259,7 +253,7 @@ The workflow you will be build processes the flight data in this day by day fash
 
 These three steps are coordinated by an Oozie workflow. 
 
-The first step is a query in the file hive-load-flights-partition.hql as follows:
+The first step is a query in the file `hive-load-flights-partition.hql` as follows:
 
 ```
 SET hive.exec.dynamic.partition.mode=nonstrict;
