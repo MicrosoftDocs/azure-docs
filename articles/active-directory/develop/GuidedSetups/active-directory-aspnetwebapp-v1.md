@@ -88,11 +88,12 @@ This section shows the steps to install and configure the authentication pipelin
 ## Configure the authentication pipeline
 The following steps are used to create an OWIN middleware *Startup Class* to configure OpenID Connect authentication. This class is executed automatically.
 
+> [!TIP]
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
 > 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`<br/>
-
-> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
+>
+>> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
@@ -104,8 +105,7 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
     
 <!--start-collapse-->
-> ### More Information
-
+> [!NOTE]
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies, you also need to set up cookie authentication as the preceding code shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
 
@@ -140,7 +140,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
-### More Information
+> [!NOTE]
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
@@ -156,7 +156,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
-### More Information
+> [!NOTE]
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
 <!--end-collapse-->
 
