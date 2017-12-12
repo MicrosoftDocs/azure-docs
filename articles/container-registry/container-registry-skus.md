@@ -66,7 +66,7 @@ In the registry **Overview** in the Azure portal, select **Update**, then select
 
 ## Changing from Classic
 
-There are additional considerations to take into account when migrating an unmanaged Classic registry to one of the managed Basic, Standard, or Premium SKUs. If your registry contains a large number of images and is many gigabytes in size, the migration process can take some time. Additionally, `docker push` operations are disabled until the migration is complete.
+There are additional considerations to take into account when migrating an unmanaged Classic registry to one of the managed Basic, Standard, or Premium SKUs. If your Classic registry contains a large number of images and is many gigabytes in size, the migration process can take some time. Additionally, `docker push` operations are disabled until the migration is complete.
 
 For details on upgrading your Classic registry to one of the managed SKUs, see [Upgrade a Classic container registry][container-registry-upgrade].
 

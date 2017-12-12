@@ -92,7 +92,7 @@ If you receive a similar error, run the [az acr update][az-acr-update] command a
 
 When you upgrade a Classic registry by using the Azure portal, Azure automatically selects the lowest-level SKU that can accommodate your images. For example, if your registry contains 12 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
 
-To upgrade your Classic registry by using the Azure portal, navigate to the **Container registry overview** and select **Upgrade to managed registries**.
+To upgrade your Classic registry by using the Azure portal, navigate to the **Container registry** overview and select **Upgrade to managed registries**.
 
 ![Classic registry upgrade button in the Azure portal UI][update-classic-01-upgrade]
 
@@ -100,7 +100,7 @@ Select **OK** to confirm that you want to upgrade to a managed registry.
 
 ![Classic registry upgrade confirmation in the Azure portal UI][update-classic-02-confirm]
 
-During migration, the portal indicates that the registry's **Provisioning state** is *Updating*. As mentioned earlier, `docker push` operations are disabled during the migration, and you must not delete or update the storage account used by the Classic registy while the migration is in progress--doing so can result in image corruption.
+During migration, the portal indicates that the registry's **Provisioning state** is *Updating*. As mentioned earlier, `docker push` operations are disabled during the migration, and you must not delete or update the storage account used by the Classic registry while the migration is in progress--doing so can result in image corruption.
 
 ![Classic registry upgrade progress in the Azure portal UI][update-classic-03-updating]
 
@@ -110,7 +110,7 @@ When the migration is complete, the **Provisioning state** indicates *Succeeded*
 
 ## Next steps
 
-Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no longer uses the storage account originally backing the Classic registry. To reduce cost, consider deleting the storage account or the Blob container within the account that contains your old container images.
+Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no longer uses the storage account that originally backed the Classic registry. To reduce cost, consider deleting the storage account or the Blob container within the account that contains your old container images.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png

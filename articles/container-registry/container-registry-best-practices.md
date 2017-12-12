@@ -24,7 +24,7 @@ Additionally, all public clouds, Azure included, implement network egress fees. 
 
 ## Geo-replicate multi-region deployments
 
-Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Currently in preview, this feature is available with [Premium](container-registry-skus.md#premium) registries.
+Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Currently in preview, this feature is available with [Premium](container-registry-skus.md) registries.
 
 To learn how to use geo-replication, see the three-part tutorial, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 
@@ -66,9 +66,7 @@ You can find the current usage of a registry in the container registry **Overvie
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
 
-You can manage the size of your registry by using the Azure CLI or the Azure portal.
-
-Under **SERVICES**, select **Repositories**, then right-click the repository you want to delete, then select **Delete**.
+You can manage the size of your registry by using the Azure CLI or the Azure portal. To delete a repository from a registry in the Azure portal, for example, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
 
 ![Delete a repository in the Azure portal][delete-repository-portal]
 
