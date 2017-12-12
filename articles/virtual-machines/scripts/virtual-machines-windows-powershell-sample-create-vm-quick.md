@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script Sample - IIS | Microsoft Docs
-description: Azure PowerShell Script Sample - IIS
+title: Azure PowerShell Script Sample - Create a Windows VM | Microsoft Docs
+description: Azure PowerShell Script Sample - Create a Windows VM 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/01/2017
+ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Create an IIS VM with PowerShell
+# Create a virtual machine with PowerShell
 
-This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
+This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over RDP.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -29,7 +29,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and th
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
 
 ## Clean up deployment 
 
@@ -47,7 +47,6 @@ This script uses the following commands to create the deployment. Each item in t
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also opens port 80 and sets the administrative credentials. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Add a VM extension to the virtual machine. In this sample, the custom script extension is used to install IIS. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
