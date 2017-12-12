@@ -130,7 +130,7 @@ When you upload the .vhd file, you can place it anywhere within your Blob storag
 
 * **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 * **YourImagesFolder** is the container within Blob storage where you want to store your images.
-* **VHDName** is the label that appears in the Azure classic portal to identify the virtual hard disk.
+* **VHDName** is the label that appears in the Azure portal to identify the virtual hard disk.
 * **PathToVHDFile** is the full path and name of the .vhd file.
 
 From the Azure PowerShell window you used in the previous step, type:

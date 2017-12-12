@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
 
 ---
@@ -36,10 +36,10 @@ Automatic OS upgrade has the following characteristics:
 ## Preview notes 
 While in preview, the following limitations and restrictions apply:
 
-- Automatic OS upgrades only support [three OS SKUs](#supported-os-images). There is no SLA or guarantees. We recommend you do not use automatic upgrades on production critical workloads during preview.
+- Automatic OS upgrades only support [four OS SKUs](#supported-os-images). There is no SLA or guarantees. We recommend you do not use automatic upgrades on production critical workloads during preview.
 - Support for scale sets in Service Fabric clusters is coming soon.
 - Azure disk encryption (currently in preview) is **not** currently supported with virtual machine scale set automatic OS upgrade.
-- Portal experience coming soon.
+- A portal experience is coming soon.
 
 
 ## Register to use Automatic OS Upgrade
@@ -75,9 +75,11 @@ The following SKUs are currently supported (more will be added):
 	
 | Publisher               | Offer         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | latest   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | latest   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | latest   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | latest   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | latest   |
+
 
 
 ## Application Health
@@ -87,6 +89,15 @@ A scale set can optionally be configured with Application Health Probes to provi
 
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) need to be used.
 
+### Important: Keep credentials up to date
+If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, you will need to make sure the credentials are kept up to date. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
+
+The recommended steps to recover VMs and re-enable automatic OS upgrade if there is a resource authentication failure are:
+
+* Regenerate the token (or any other credentials) passed into your extension(s).
+* Ensure that any credential used from inside the VM to talk to external entities is up to date.
+* Update extension(s) in the scale set model with any new tokens.
+* Deploy the updated scale set, which will update all VM instances including the failed ones. 
 
 ### Configuring a Custom Load Balancer Probe as Application Health Probe on a scale set
 As a best practice, create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe may be used, but a health probe may require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe may return unhealthy if the load on the instance is too high, whereas that may not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.

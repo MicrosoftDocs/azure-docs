@@ -176,14 +176,14 @@ If you don’t have a back end, when the app starts on target devices, they perf
 There will be a time period when devices with unopened apps won't receive notifications.
 
 ### Is there audit log capability?
-All Notification Hubs management operations go to operation logs, which are exposed in the [Azure classic portal].
+All Notification Hubs management operations go to operation logs, which are exposed in the [Azure portal].
 
 ## Monitoring and troubleshooting
 ### What troubleshooting capabilities are available?
 Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting] white paper.
 
 ### What telemetry features are available?
-Azure Notification Hubs enables viewing telemetry data in the [Azure classic portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
+Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
 
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or GCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
@@ -192,7 +192,7 @@ Azure Notification Hubs enables viewing telemetry data in the [Azure classic por
 
 We also provide the capability to export the telemetry data programmatically (in the Standard tier). For details, see the [Notification Hubs Metrics sample].
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942

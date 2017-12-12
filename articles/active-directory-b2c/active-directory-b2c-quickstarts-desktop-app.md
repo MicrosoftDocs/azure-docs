@@ -4,7 +4,7 @@ description: Test drive sign in, sign up, edit profile, and reset password user 
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 
 ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd

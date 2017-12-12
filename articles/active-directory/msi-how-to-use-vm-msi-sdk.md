@@ -4,7 +4,7 @@ description: Code samples for using Azure SDKs with an Azure VM MSI.
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
