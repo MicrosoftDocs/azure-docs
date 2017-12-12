@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
+ms.date: 12/11/2017
 ms.author: lbosq
 
 ---
@@ -105,19 +105,31 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In Visual Studio 2017, open the appsettings.json file. 
+1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
 
-2. In the Azure portal, in your Azure Cosmos DB account, click **Keys** in the left navigation. 
+    Copy the first portion of the URI value.
 
-    ![View and copy an primary key in the Azure portal, on the Keys page](./media/create-graph-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-dotnet/keys.png)
 
-3. Copy your **URI** value from the portal and make it the value of the Endpoint key in appsettings.json. You can use the copy button as shown in the preceding screenshot to copy the value.
+2. In Visual Studio 2017, open the appsettings.json file and paste the value over `FILLME` in the `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    The endpoint value should now look like this:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Change `documents` to `graphs` in the `endpoint` value.
+
+    The endpoint value should now look like this:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",`
 
 4. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
     `"authkey": "FILLME"`
+
+5. Save the appsettings.json file. 
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
