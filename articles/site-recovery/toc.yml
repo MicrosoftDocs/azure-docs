@@ -179,7 +179,7 @@
     - name: Exclude disks from replication for VMware to Azure
       href: site-recovery-exclude-disk.md
     - name: Exclude disks from replication for Hyper-V to Azure
-      href: site-recovery-hyper-v-exclude-disk.md
+      href: site-recovery-hyper-v-exclude-disk .md
     - name: Deploy the Mobility service for VMware replication
       href: site-recovery-vmware-to-azure-install-mob-svc.md
       items:
