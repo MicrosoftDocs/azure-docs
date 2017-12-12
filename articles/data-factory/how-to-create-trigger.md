@@ -159,8 +159,8 @@ Add the following code to the main method, which creates a scheduler trigger tha
 To monitor a trigger run, add the following code before the last `Console.WriteLine` statement: 
 
 ```csharp
-            // Check the trigger runs after every 15 minutes
-            Console.WriteLine("Trigger runs. You see the output after every 15 minutes");
+            // Check the trigger runs every 15 minutes
+            Console.WriteLine("Trigger runs. You see the output every 15 minutes");
 
             for (int i = 0; i < 3; i++)
             {
