@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
 
 ---
@@ -156,98 +156,20 @@ For the full list of template functions, see [Azure Resource Manager template fu
 ## Parameters
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You define parameters with the following structure:
+The following example shows a simple parameter definition:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Element name | Required | Description |
-|:--- |:--- |:--- |
-| parameterName |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. See the list of allowed types after this table. |
-| defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
-| allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
-| minValue |No |The minimum value for int type parameters, this value is inclusive. |
-| maxValue |No |The maximum value for int type parameters, this value is inclusive. |
-| minLength |No |The minimum length for string, secureString, and array type parameters, this value is inclusive. |
-| maxLength |No |The maximum length for string, secureString, and array type parameters, this value is inclusive. |
-| description |No |Description of the parameter that is displayed to users through the portal. |
-
-The allowed types and values are:
-
-* **string**
-* **secureString**
-* **int**
-* **bool**
-* **object** 
-* **secureObject**
-* **array**
-
-To specify a parameter as optional, provide a defaultValue (can be an empty string). 
-
-If you specify a parameter name in your template that matches a parameter in the command to deploy the template, there is potential ambiguity about the values you provide. Resource Manager resolves this confusion by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
-
-> [!NOTE]
-> All passwords, keys, and other secrets should use the **secureString** type. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with secureString or secureObject types cannot be read after resource deployment. 
-> 
-> For example, the following entry in the deployment history shows the value for a string and object but not for secureString and secureObject.
->
-> ![show deployment values](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-The following example shows how to define parameters:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
+For information about defining parameters, see [Parameters section of Azure Resource Manager templates](resource-manager-templates-parameters.md).
 
 ## Variables
 In the variables section, you construct values that can be used throughout your template. You do not need to define variables, but they often simplify your template by reducing complex expressions.

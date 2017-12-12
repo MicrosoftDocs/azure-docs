@@ -3,7 +3,7 @@ title: Microsoft Azure Stack Development Kit release notes | Microsoft Docs
 description: Improvements, fixes, and known issues for Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: andredm7
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
-ms.author: mabrigg
+ms.date: 12/11/2017
+ms.author: andredm
 
 ---
 
@@ -74,6 +74,7 @@ These release notes provide information about improvements, fixes, and known iss
 - Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
  
 #### SQL/MySQL 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
