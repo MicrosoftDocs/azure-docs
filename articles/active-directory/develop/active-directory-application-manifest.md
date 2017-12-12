@@ -29,8 +29,8 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 >[!div class="mx-tdBreakAll"]
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
-|appID     |  Guid string       |`<guid>`|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
-|appRoles     |    array     |`[` `{`<br>&emsp;`"allowedMemberTypes"`: `[`<br>&emsp;&nbsp;&nbsp;&nbsp;`"User"`<br>&emsp;`]`,<br>&emsp;`"description"`:`"Read only access to device information"`,<br>&emsp;`"displayName"`:`"Read Only"`,<br>&emsp;`"id"`:`<guid>`,<br>&emsp;`"isEnabled"`:`true`,<br>&emsp;`"value"`:`"ReadOnly"`<br>`}` `]`|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
+|appID     |  Guid string       |``<``guid``>``|  The unique identifier for the application that is assigned to an app by Azure AD when it's provisioned.|
+|appRoles     |    array     |**[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]**|The collection of roles that an application may declare. These roles can be assigned to users, groups or service principals.|
 |availableToOtherTenants|boolean|true|If this value is set to true, the application is shared with other tenants; otherwise, false.|
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. 
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application.
@@ -39,7 +39,7 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |acceptMappedClaims     |         |         |         |
 |homepage     |  string       |`http://MyRegistererdApp`         |    The URL to the application's home page.     |
 |identifierUris     |  array       | `http://MyRegistererdApp`        |   User-defined URI(s) that uniquely identify a Web application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant.      |
-|keyCredentials     |   array      |   [{<br>&nbsp"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   The collection of key credentials associated with the application      |
+|keyCredentials     |   array      |   [{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   The collection of key credentials associated with the application      |
 |knownClientApplications     |     array    |    `[guid]`     |     Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).    |
 |logoutUrl     |   string      |     http://MyRegisteredAppLogout    |   The URL to logout of the application.      |
 |oauth2AllowImplicitFlow     |   boolean      |  `false`       |       Specifies whether this web application can request OAuth2.0 implicit flow tokens. The default is false.  |
