@@ -1,7 +1,7 @@
 
 Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for relational database servers, medium to large caches, and in-memory analytics. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
-* The M-Series offers the highest vCPU count (up to 128 vCPUs) and largest memory (up to 2.0 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
+* The M-Series offers the highest vCPU count (up to 128 vCPUs) and largest memory (up to 3.8 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
 * Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster vCPUs, better temporary storage performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
@@ -10,7 +10,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 * Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 
-## Esv3-series*
+## Esv3-series <sup>1</sup>
 
 ACU: 160-190
 
@@ -23,12 +23,13 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 | Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / moderate                                   |
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / high                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
-| Standard_E32s_v3 | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / extremely high                             |
-| Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremely high                             |
-*Esv3-series VM’s feature Intel® Hyper-Threading Technology
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / extremely high                             |
+| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremely high                             |
 
+<sup>1</sup> Esv3-series VM’s feature Intel® Hyper-Threading Technology
+<sup>2</sup> Constrained core sizes available 
 
-## Ev3-series*
+## Ev3-series <sup>1</sup>
 
 ACU: 160 - 190 
 
@@ -45,9 +46,10 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / high                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / extremely high           |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / extremely high           |
-*Ev3-series VM’s feature Intel® Hyper-Threading Technology
 
-## M-series*
+<sup>1</sup> Ev3-series VM’s feature Intel® Hyper-Threading Technology
+
+## M-series <sup>1</sup>
 
 ACU: 160-180
 
@@ -55,16 +57,18 @@ ACU: 160-180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
-| Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 25000          |
+| Standard_M128s <sup>2. 3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 25000          |
+| Standard_M128ms <sup>2. 3</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 25000          |
 
+<sup>1</sup> M-series VM’s feature Intel® Hyper-Threading Technology
 
-*M-series VM’s feature Intel® Hyper-Threading Technology
+<sup>2</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1 
 
-**More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1 
+<sup>3</sup> Constrained core sizes available.
 
 <br>
 
-## GS-series*
+## GS-series <sup>1</sup>
 
 ACU: 180 - 240
 
@@ -73,13 +77,14 @@ ACU: 180 - 240
 | Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20,000 / 200 (528) |10,000 / 250 |2 / 4000 |
 | Standard_GS3 |8 |112 |224 |32 |40,000 / 400 (1,056) |20,000 / 500 |4 / 8000 |
-| Standard_GS4 |16 |224 |448 |64 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / 6000 - 16000 &#8224; |
-| Standard_GS5** |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / 20000 |
+| Standard_GS4 <sup>3</sup> |16 |224 |448 |64 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / 6000 - 16000 &#8224; |
+| Standard_GS5 <sup>2, 3</sup> |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / 20000 |
 
-*The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md). 
 
-**Instance is isolated to hardware dedicated to a single customer.
+<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
+<sup>3</sup> Constrained core sizes available 
 
 <br>
 
@@ -93,13 +98,13 @@ ACU: 180 - 240
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1,536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3,072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 6000 - 16000 &#8224;          |
-| Standard_G5* | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
+| Standard_G5 <sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
 
-*Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 <br>
 
 
-## DSv2-series*
+## DSv2-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -109,13 +114,13 @@ ACU: 210 - 250
 | Standard_DS12_v2 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 192 |4 / 3000 |
 | Standard_DS13_v2 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 384 |8 / 6000 |
 | Standard_DS14_v2 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 6000 - 12000 &#8224; |
-| Standard_DS15_v2** |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 20000***
+| Standard_DS15_v2 <sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 20000 <sup>3</sup>
 
-*The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
-**Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>2</sup> Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
 
-***25000 Mbps with Accelerated Networking.
+<sup>3</sup> 25000 Mbps with Accelerated Networking.
 
 <br>
 
@@ -129,15 +134,15 @@ ACU: 210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 6000 - 12000 &#8224;          |
-| Standard_D15_v2* | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 20000** |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 20000 <sup>2</sup> |
 
-*Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
+<sup>1</sup> Instance is an isolated node that guarantees that your VM is the only VM on our Intel Haswell node.
 
-**25000 Mbps with Accelerated Networking.
+<sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 <br>
 
-## DS-series*
+## DS-series <sup>1</sup>
 
 ACU: 160
 
@@ -148,7 +153,7 @@ ACU: 160
 | Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 6000 - 8000 &#8224; |
 
-*The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
 
 
 ## D-series

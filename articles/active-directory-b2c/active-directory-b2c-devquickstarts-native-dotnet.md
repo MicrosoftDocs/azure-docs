@@ -4,7 +4,7 @@ description: How to build a Windows desktop application that includes sign-in, s
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd

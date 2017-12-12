@@ -4,7 +4,7 @@ description: Learn how to use scoping filters to prevent objects in apps that su
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory

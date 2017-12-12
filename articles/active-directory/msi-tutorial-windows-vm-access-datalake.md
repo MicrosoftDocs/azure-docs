@@ -4,7 +4,7 @@ description: A tutorial that shows you how to use a Windows VM Managed Service I
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory

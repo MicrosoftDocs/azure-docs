@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -77,7 +77,7 @@ See:
 
 ## Multi-factor authentication policy 
 
-This example shows how to migrate a classic policy that requires multi-factor authentication** for a cloud app. 
+This example shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 

@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that describes the agent i
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
