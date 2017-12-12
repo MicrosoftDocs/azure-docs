@@ -25,7 +25,7 @@ The following table includes links to PowerShell scripts samples that create and
 | | |
 |---|---|
 |**Create virtual machines**||
-| [Quickly created a virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources with the minimum of prompts.|
+| [Quickly create a virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources with the minimum of prompts.|
 | [Create a fully configured virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources .|
 | [Create highly available virtual machines](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration.|
 | [Create a VM and run configuration script](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
