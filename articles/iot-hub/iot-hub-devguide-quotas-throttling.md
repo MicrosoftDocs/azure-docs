@@ -74,7 +74,7 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging | Maximum message size 64 KB |
 | Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
-| Direct method | 128KB |
+| Direct method | Maximum direct method payload size is 128KB |
 
 > [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
