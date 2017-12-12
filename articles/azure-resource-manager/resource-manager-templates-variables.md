@@ -144,7 +144,7 @@ You can use the **copy** syntax to create a variable with an array of multiple e
 },
 ```
 
-The variable **disk-array-on-object** contains an object with array named **disks**, as show below:
+The variable **disk-array-on-object** contains the following object with an array named **disks**:
 
 ```json
 {
@@ -168,7 +168,7 @@ The variable **disk-array-on-object** contains an object with array named **disk
 }
 ```
 
-The variable **disks-top-level-array** contains an array, as shown below:
+The variable **disks-top-level-array** contains the following array:
 
 ```json
 [
