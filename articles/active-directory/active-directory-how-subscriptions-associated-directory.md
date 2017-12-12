@@ -31,7 +31,7 @@ All users have a single home directory that authenticates them, but they can als
 ## Before you begin
 
 * You must sign in with account that has RBAC Owner access to the subscription.
-* You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. To learn more about getting access to another directory, see [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md).
+* You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. To learn more about getting access to another directory, see [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
 
 ## To associate an existing subscription to your Azure AD directory
 
@@ -51,7 +51,7 @@ All users have a single home directory that authenticates them, but they can als
     ![Screenshot showing the switcher](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
 
-Changing the subscription directory is a service-level operation. It doesn't affect subscription billing ownership, and the Account Admin can still change Serbice Admin using the [Account Center](https://account.azure.com/subscriptions). Also, this means the original directory can't be deleted unless the subscription billing ownership is transferred to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md). 
+Changing the subscription directory is a service-level operation. It doesn't affect subscription billing ownership, and the Account Admin can still change Service Admin using the [Account Center](https://account.azure.com/subscriptions). If you want to delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md). 
 
 ## Next steps
 
