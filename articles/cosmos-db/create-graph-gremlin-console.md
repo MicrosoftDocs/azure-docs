@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPops Gremlin Console | Microsoft Docs'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Graph API.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: monicar
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
-ms.author: denlee
+ms.author: lbosq
 ---
 # Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
 
