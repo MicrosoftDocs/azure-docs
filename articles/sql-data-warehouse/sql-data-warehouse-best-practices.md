@@ -127,7 +127,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
-[Load data]: ./design-elt-data-loading.md.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
