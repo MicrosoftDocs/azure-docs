@@ -4,7 +4,7 @@ description: Discuss core and advanced concepts on user migration using Graph AP
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

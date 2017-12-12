@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
-In this tutorial, you configure monitoring of your AKS cluster using the [Containers solution for Log Analytics](../log-analytics/log-analytics-containers.md).
+In this tutorial, you configure monitoring of your AKS cluster using the [Containers solution for Log Analytics][log-analytics-containers].
 
 This tutorial, part seven of eight, covers the following tasks:
 
@@ -29,7 +29,7 @@ This tutorial, part seven of eight, covers the following tasks:
 
 In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created.
 
-If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 ## Configure the monitoring solution
 
@@ -55,7 +55,7 @@ To retrieve these values, Select **OMS Workspace** from the container solutions 
 
 ## Configure monitoring agents
 
-The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), which runs a single pod on each cluster node.
+The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet][kubernetes-daemonset], which runs a single pod on each cluster node.
 
 Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for `WSID` and `KEY` with your Log Analytics Workspace ID and Key.
 
@@ -150,7 +150,7 @@ In the Azure portal, select the Log Analytics workspace that has been pinned to 
 
 ![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-See the [Azure Log Analytics documentation](../log-analytics/index.yml) for detailed guidance on querying and analyzing monitoring data.
+See the [Azure Log Analytics documentation][log-analytics-docs] for detailed guidance on querying and analyzing monitoring data.
 
 ## Next steps
 
@@ -164,4 +164,14 @@ In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered 
 Advance to the next tutorial to learn about upgrading Kubernetes to a new version.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

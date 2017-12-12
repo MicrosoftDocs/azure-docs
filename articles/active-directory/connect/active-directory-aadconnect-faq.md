@@ -4,7 +4,7 @@ description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity

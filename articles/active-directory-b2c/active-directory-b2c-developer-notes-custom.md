@@ -4,7 +4,7 @@ description: Notes for developers on configuring and maintaining Azure AD B2C wi
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 
 ms.assetid:
