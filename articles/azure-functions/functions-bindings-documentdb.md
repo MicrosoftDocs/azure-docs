@@ -31,7 +31,7 @@ The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/
 Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
 
  >[!IMPORTANT]
- > Currently, if multiple functions are configured to use Cosmos DB Trigger for the same collection, each of the functions should use dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+ > Currently, if multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
 
 
 ## Trigger - example
@@ -44,7 +44,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that triggers from a specific database and collection. To use the `CosmosDBTrigger`, you need to install the latest beta version of  `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet package.
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that triggers from a specific database and collection.
 
 ```cs
     using System.Collections.Generic;
@@ -263,15 +263,15 @@ The following example shows a Cosmos DB input binding in a *function.json* file 
 Here's the binding data in the *function.json* file:
 
 ```json
-{
-  "name": "inputDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger}",
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "in"
-}
+    {
+      "name": "inputDocument",
+      "type": "documentDB",
+      "databaseName": "MyDatabase",
+      "collectionName": "MyCollection",
+      "id" : "{queueTrigger}",
+      "connection": "MyAccount_COSMOSDB",     
+      "direction": "in"
+    }
 ```
 
 The [configuration](#input---configuration) section explains these properties.
@@ -279,26 +279,26 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the F# code:
 
 ```fsharp
-(* Change input document contents using DocumentDB API input binding *)
-open FSharp.Interop.Dynamic
-let Run(myQueueItem: string, inputDocument: obj) =
-  inputDocument?text <- "This has changed."
+    (* Change input document contents using DocumentDB API input binding *)
+    open FSharp.Interop.Dynamic
+    let Run(myQueueItem: string, inputDocument: obj) =
+    inputDocument?text <- "This has changed."
 ```
 
 This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet 
 dependencies:
 
 ```json
-{
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
+    {
+     "frameworks": {
+       "net46": {
+        "dependencies": {
+            "Dynamitey": "1.0.2",
+            "FSharp.Interop.Dynamic": "3.0.0"
+                }
+            }
+        }
     }
-  }
-}
 ```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
@@ -310,28 +310,28 @@ The following example shows a Cosmos DB input binding in a *function.json* file 
 Here's the binding data in the *function.json* file:
 
 ```json
-{
-  "name": "inputDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger payload property}",
-  "partitionKey": "{queueTrigger payload property}",
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "in"
-}
+    {
+      "name": "inputDocument",
+      "type": "documentDB",
+      "databaseName": "MyDatabase",
+      "collectionName": "MyCollection",
+      "id" : "{queueTrigger_payload_property}",
+      "partitionKey": "{queueTrigger_payload_property}",
+      "connection": "MyAccount_COSMOSDB",     
+      "direction": "in"
+    }
 ```
 The [configuration](#input---configuration) section explains these properties.
 
 Here's the JavaScript code:
 
 ```javascript
-// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
-module.exports = function (context) {   
-  context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-  context.bindings.inputDocumentOut.text = "This was updated!";
-  context.done();
-};
+    // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+    module.exports = function (context) {   
+    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+    context.bindings.inputDocumentOut.text = "This was updated!";
+    context.done();
+    };
 ```
 
 ## Input - example 2
@@ -344,7 +344,7 @@ See the language-specific example that reads multiple documents:
 
 ### Input - C# example 2
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that executes a SQL query. To use the `SqlQuery`, you need to install the latest beta version of `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet package.
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that executes a SQL query. To use the `SqlQuery` parameter, you need to install the latest beta version of `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet package.
 
 ```csharp
     using System.Net;
@@ -371,15 +371,15 @@ The queue trigger provides a parameter `departmentId`. A queue message of `{ "de
 Here's the binding data in the *function.json* file:
 
 ```json
-{
-    "name": "documents",
-    "type": "documentdb",
-    "direction": "in",
-    "databaseName": "MyDb",
-    "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "CosmosDBConnection"
-}
+    {
+      "name": "documents",
+      "type": "documentdb",
+      "direction": "in",
+      "databaseName": "MyDb",
+      "collectionName": "MyCollection",
+      "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+      "connection": "CosmosDBConnection"
+    }
 ```
 
 The [configuration](#input---configuration) section explains these properties.
@@ -411,13 +411,13 @@ Here's the binding data in the *function.json* file:
 
 ```json
     {
-        "name": "documents",
-        "type": "documentdb",
-        "direction": "in",
-        "databaseName": "MyDb",
-        "collectionName": "MyCollection",
-        "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-        "connection": "CosmosDBConnection"
+      "name": "documents",
+      "type": "documentdb",
+      "direction": "in",
+      "databaseName": "MyDb",
+      "collectionName": "MyCollection",
+      "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+      "connection": "CosmosDBConnection"
     }
 ```
 
