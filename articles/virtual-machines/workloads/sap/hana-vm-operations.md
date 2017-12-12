@@ -91,7 +91,7 @@ When you install the VMs that should run HANA, the VMs should have:
 
 An overview of the different possibilities of IP address assignment can be found [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-The traffic routing to either directly to the SAP HANA instance or to the jumpbox is directed by [Azure Network Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) that are associated to the HANA subnet and the Management subnet.
+The traffic routing to either directly to the SAP HANA instance or to the jumpbox is directed by [Azure Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) that are associated to the HANA subnet and the Management subnet.
 
 Overall the rough deployment schema would look like:
 
@@ -110,7 +110,7 @@ The possibilities of SAP HANA Backup and Restore are documented in these documen
 
 - [SAP HANA Backup overview](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [SAP HANA file level backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA Storage snapshot benchmark](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [SAP HANA Storage snapshot benchmark](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 
@@ -130,7 +130,7 @@ You should install SAPRouter in a separate VM and not in your Jumpbox VM. The se
 For more information on how to setup and maintain Remote Support connections through SAPRouter, check this [SAP source](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-Availability with SAP HANA on Azure native VMs
-Running SUSE Linux 12 SP1 and more recent you can establish a Pacemaker cluster with STONITH devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. The procedure of setup is described in the article [High Availability of SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Running SUSE Linux 12 SP1 and more recent you can establish a Pacemaker cluster with STONITH devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. The procedure of setup is described in the article [High Availability of SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
  
 

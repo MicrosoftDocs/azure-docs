@@ -21,7 +21,7 @@ ms.author: ancav
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline.
 
 > [!NOTE]
-> Other metrics may be available in the portal or using legacy APIs. This list only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access metrics with dimensions please use the [2017-05-01-preview api-version](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)
+> Other metrics may be available in the portal or using legacy APIs. This list only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access metrics with dimensions please use the [2017-05-01-preview api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 >
 >
 
@@ -516,7 +516,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DeviceAssignments|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName, Status, Protocol|
 
-## Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseAccount, CollectionName, DatabaseName, Region, StatusCode|
