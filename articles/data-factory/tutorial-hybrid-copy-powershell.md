@@ -48,7 +48,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 
 1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 
-2. Connect to your SQL server instance by using your credentials. 
+2. Connect to your SQL Server instance by using your credentials. 
 
 3. Create a sample database. In the tree view, right-click **Databases**, and then select **New Database**. 
  
@@ -486,7 +486,7 @@ In this step, you define a dataset that represents data in the SQL Server databa
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### Create a dataset for the sink Azure Blob storage
+### Create a dataset for Azure Blob storage (sink)
 In this step, you define a dataset that represents data that will be copied to Azure Blob storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
 
 The linked service has the connection information that the data factory uses at runtime to connect to your Azure storage account. This dataset specifies the folder in the Azure storage to which the data is copied from the SQL Server database. In this tutorial, the folder is *adftutorial/fromonprem*, where `adftutorial` is the blob container and `fromonprem` is the folder. 
