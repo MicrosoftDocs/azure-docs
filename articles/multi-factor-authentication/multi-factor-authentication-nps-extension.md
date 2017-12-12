@@ -4,7 +4,7 @@ description: The Network Policy Server extension for Azure Multi-Factor Authenti
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: multi-factor-authentication

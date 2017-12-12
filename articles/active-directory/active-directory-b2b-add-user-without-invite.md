@@ -5,7 +5,7 @@ description: You can let a guest user add other guest users to your Azure AD wit
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 
