@@ -62,15 +62,26 @@ az login
 
 This command provides an authentication key to be used with the `https:\\aka.ms\devicelogin` URL. The CLI waits until the device login operation returns and provides some connection information. Next, if you have a local [docker](https://www.docker.com/get-docker) install, prepare the local compute environment with the following commands:
 
-```az ml experiment prepare --target docker --run-configuration docker```
+```
+az ml experiment prepare --target docker --run-configuration docker
+```
 
 It is preferable to run on a [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. Once the DSVM is configured, prepare the remote docker environment with the following two commands:
 
-```az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]```
+```
+az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
+```
 
-```az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]```
+Once connected to the remote docker container, prepare the DSVM docker compute environment using: 
 
-With the docker compute environment prepared, open the Jupyter notebook server either within the AML Workbench notebooks tab, or start a browser-based server with: ```az ml notebook start```.
+```
+az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
+```
+
+With the docker compute environment prepared, open the Jupyter notebook server either within the AML Workbench notebooks tab, or start a browser-based server with: 
+```
+az ml notebook start
+```
 
 The example notebooks are stored in the `Code` directory. The notebooks are set up to run sequentially, starting on the first (`Code\1_data_ingestion.ipynb`) notebook. When you open each notebook, you are prompted to select the compute kernel. Choose the `[Project_Name]_Template [Connection_Name]` kernel to execute on the previously configured DSVM.
 
