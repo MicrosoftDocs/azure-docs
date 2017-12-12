@@ -1,22 +1,13 @@
 ---
 title: About Azure Migrate | Microsoft Docs
 description: Provides an overview of the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/06/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 
 # About Azure Migrate
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
 experimental: true
 experiment_id: 429acb56-5fd8-49
 ---
 # What are App Passwords in Azure Multi-Factor Authentication?
-Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
+Certain non-browser apps, such as older versions of Outlook (e.g., Outlook 2010), currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur. If you enforce Multi-Factor Authentication through Conditional Access policies and not through per-user MFA, you cannot create app passwords. Applications that use Conditional Access policies to control access do not need app passwords. 
 
 Once you have an app password, you use this in place of your original password with these non-browser apps. This is because when you register for two-step verification, you're telling Microsoft not to let anyone sign in with your password if they can't also perform the second verification. The Apple native email client on your phone can't sign in as you because it can't ask for two-step verification. The solution for this is to create a more secure app password that you don't use day-to-day, but only for those apps that can't support two-step verification. Use the app password so that apps can bypass multi-factor authentication and continue to work.
 

@@ -112,7 +112,15 @@ Create a Key Vault in the new resource group. The Key Vault **must be enabled fo
     Tags                             :
 ```
 
-If you have an existing Key Vault, you can enable it for deployment using Azure CLI:
+If you have an existing Key Vault, you can enable it for deployment using one of the following ways:
+
+##### Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### Azure CLI:
 
 ```cli
 > azure login
