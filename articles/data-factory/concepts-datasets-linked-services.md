@@ -42,7 +42,7 @@ The following diagram shows the relationships among pipeline, activity, dataset,
 
 ![Relationship between pipeline, activity, dataset, linked services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## Linked service example
+## Linked service JSON
 A linked service in Data Factory is defined in JSON format as follows:
 
 ```json
@@ -51,7 +51,7 @@ A linked service in Data Factory is defined in JSON format as follows:
     "properties": {
         "type": "<Type of the linked service>",
         "typeProperties": {
-              <data store or compute-specific type properties>
+              "<data store or compute-specific type properties>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
