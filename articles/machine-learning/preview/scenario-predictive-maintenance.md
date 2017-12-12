@@ -130,6 +130,6 @@ This use case has been previously developed on multiple platforms:
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-# Next steps
+## Next steps
 
 There are many other example scenarios available within the Azure Machine Learning workbench that demonstrate additional features of the product. 
