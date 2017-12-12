@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: jeedes
 
 ---
@@ -106,11 +106,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Replicon Domain and URLs single sign-on information](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.replicon.com/<companyname>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://global.replicon.com/<companyname>`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://global.replicon.com/<companyname>`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [Replicon Client support team](https://www.replicon.com/customerzone/contact-support) to get these values. 
