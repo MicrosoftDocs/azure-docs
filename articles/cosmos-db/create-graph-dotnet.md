@@ -119,11 +119,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
 
-3. Change `documents` to `graphs` in the `endpoint` value.
+3. If you created your graph database account before November 27th, 2017, change `documents` to `graphs` in the `endpoint` value. If you created your graph database account on or after November 27th, 2017, change `documents` to `gremlin.cosmosdb` in the `endpoint` value.
 
     The endpoint value should now look like this:
 
-    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",`
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` or  `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
