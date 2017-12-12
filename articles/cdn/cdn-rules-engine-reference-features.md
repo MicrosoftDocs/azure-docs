@@ -189,6 +189,7 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Bandwidth Parameters
 **Purpose:** Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) will be active.
@@ -203,6 +204,7 @@ Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The 
 **Default Behavior:** Enabled.
  
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Bandwidth Throttling
@@ -219,6 +221,7 @@ Prebuf seconds|Set this option to the number of seconds for the edge servers to 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Bypass Cache
 **Purpose:** Determines whether the request should bypass caching.
@@ -234,9 +237,11 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 
 <!---
 - **ADN:** Enabled
+
 --->
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Cacheable HTTP Methods
@@ -251,6 +256,7 @@ Key information:
 **Default Behavior:** Only GET responses are cached.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Cacheable Request Body Size
@@ -272,6 +278,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Cache-Control Header Treatment
 **Purpose:** Controls the generation of `Cache-Control` headers by the edge server when the External Max-Age Feature is active.
@@ -288,6 +295,7 @@ Remove| This option ensures that a `Cache-Control` header is not included with
 **Default Behavior:** Overwrite.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Cache-Key Query String
@@ -360,6 +368,7 @@ This type of configuration would generate the following query string parameter c
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Cache-Key Rewrite
 **Purpose:** Rewrites the cache-key associated with a request.
@@ -376,6 +385,7 @@ New Path|Define the relative path for the new cache-key. A relative path can be 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Comment
 **Purpose:** Allows a note to be added within a rule.
@@ -390,6 +400,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Complete Cache Fill
 **Purpose:** Determines what happens when a request results in a partial cache miss on an edge server.
@@ -397,6 +408,7 @@ Key information:
 A partial cache miss describes the cache status for an asset that was not completely downloaded to an edge server. If an asset is only partially cached on an edge server, then the next request for that asset will be forwarded again to the origin server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 A partial cache miss typically occurs after a user aborts a download or for assets that are solely requested using HTTP range requests. This feature is most useful for large assets where users will not typically download them from start to finish (for example, videos). As a result, this feature is enabled by default on the HTTP Large platform. It is disabled on all other platforms.
 
@@ -412,6 +424,7 @@ Disabled|Prevents an edge server from performing a background fetch for the asse
 **Default Behavior:** Enabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Compress File Types
@@ -435,6 +448,7 @@ Key information:
 - Before you add this feature to a rule, ensure that you set the Compression Disabled option on the Compression page for the platform to which this rule will be applied.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Custom Log Field 1
@@ -463,6 +477,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Debug Cache Response Headers
 **Purpose:** Determines whether a response may include the X-EC-Debug response header which provides information on the cache policy for the requested asset.
@@ -488,6 +503,7 @@ Disabled|The X-EC-Debug response header will be excluded from the response.
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Default Internal Max-Age
@@ -517,6 +533,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Deny Access (403)
 **Purpose**: Determines whether all requests are rejected with a 403 Forbidden response.
@@ -532,6 +549,7 @@ Disabled| Restores the default behavior. The default behavior is to allow the or
    > One possible use for this feature is to associate it with a Request Header match condition to block access to HTTP referrers that are using inline links to your content.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Expires Header Treatment
@@ -549,6 +567,7 @@ Remove| Ensures that an Expires header is not included with the header respons
 **Default Behavior:** Overwrite
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### External Max-Age
@@ -568,6 +587,7 @@ server, and can be customized with the Default Internal Max-Age and the Force
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Follow Redirects
 **Purpose:** Determines whether requests can be redirected to the hostname defined in the Location header returned by a customer origin server.
@@ -584,6 +604,7 @@ Disabled|Requests will not be redirected.
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Force Internal Max-Age
@@ -612,6 +633,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### H.264 Support (HTTP Progressive Download)
 **Purpose:** Determines the types of H.264 file formats that may be used to stream content.
@@ -624,6 +646,7 @@ Key information:
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Honor No-Cache Request
@@ -643,6 +666,7 @@ The cache status that will be reported for a request that is allowed to be forwa
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Ignore Origin No-Cache
@@ -671,6 +695,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Ignore Unsatisfiable Ranges 
 **Purpose:** Determines the response that will be returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
@@ -685,6 +710,7 @@ Disabled|Restores the default behavior. The default behavior is to honor the 41
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Internal Max-Stale
@@ -718,6 +744,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Log Query String
 **Purpose:** Determines whether a query string will be stored along with the URL in access logs.
@@ -730,6 +757,7 @@ Disabled|Restores the default behavior. The default behavior is to ignore query 
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Maximum Keep-Alive Requests
@@ -745,6 +773,7 @@ Key information:
 **Default Value:** 10,000 requests
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Modify Client Request Header
@@ -781,6 +810,7 @@ Key information:
     - All header names that start with "x-ec" are reserved.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Modify Client Response Header
@@ -826,6 +856,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Partial Cache Sharing
 **Purpose:** Determines whether a request can generate partially cached content.
@@ -841,6 +872,7 @@ Disabled|Requests can only generate a fully cached version of the requested cont
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Prevalidate Cached Content
 **Purpose:** Determines whether cached content will be eligible for early revalidation before its TTL expires.
@@ -855,6 +887,7 @@ Key information:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Proxy Special Headers
 **Purpose:** Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
@@ -867,6 +900,7 @@ Key information:
 **Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Refresh Zero-Byte Cache Files
@@ -886,6 +920,7 @@ for such content, then this feature can prevent these types of assets from being
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Set Cacheable Status Codes
 **Purpose:** Defines the set of status codes that can result in cached content.
@@ -903,6 +938,7 @@ Key information:
 **Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Set Client IP Custom Header
@@ -926,6 +962,7 @@ Ensure that the specified header name does not match any of the following names:
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Stale Content Delivery on Error
 **Purpose:** Determines whether expired cached content will be delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
@@ -938,6 +975,7 @@ Disabled|The origin server's error is forwarded to the requester.
 **Default Behavior:** Disabled
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Stale While Revalidate
@@ -953,6 +991,7 @@ Key information:
 **Default Behavior:** Off. Revalidation must take place before the requested content can be served.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Token Auth
@@ -970,6 +1009,7 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 **Default Behavior:** Disabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### Token Auth Denial Code
@@ -1014,6 +1054,7 @@ The WWW-Authenticate header is only applicable for 401 response codes.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Token Auth Ignore URL Case
 **Purpose:** Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
@@ -1035,6 +1076,7 @@ Disabled|Restores the default behavior. The default behavior is for URL comparis
 
 [Back to top](#azure-cdn-rules-engine-features)
 
+
 ---
 ### Token Auth Parameter
 **Purpose:** Determines whether the Token-Based Authentication query string parameter should be renamed.
@@ -1053,6 +1095,7 @@ Disabled|A token may be specified as an undefined query string parameter in the 
 **Default Behavior:** Disabled. A token may be specified as an undefined query string parameter in the request URL.
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### URL Redirect
@@ -1095,6 +1138,7 @@ This URL redirection may be achieved through the following configuration:
 - The URL segments that were captured from the request are appended to the new URL via "$1."
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### URL Rewrite
@@ -1156,6 +1200,7 @@ This feature includes matching criteria that must be met before it can be applie
 - URL Query Wildcard
 
 [Back to top](#azure-cdn-rules-engine-features)
+
 
 ---
 ### User Variable
