@@ -39,11 +39,13 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Cloud-to-device receives <br/> (only when device uses HTTPS)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
 | File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
-| Direct methods | 20/sec/unit | 60/sec/unit | 3000/sec/unit | 
+| Direct methods | 160KB/sec/unit<sup>1</sup> | 480KB/sec/unit<sup>1</sup> | 24MB/sec/unit<sup>1</sup> | 
 | Device twin reads | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Device twin updates | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs per-device operation throughput | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
+
+<sup>1</sup>Throttling meter size is 8KB
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
@@ -72,6 +74,7 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging | Maximum message size 64 KB |
 | Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
+| Direct method | 128KB |
 
 > [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
