@@ -4,7 +4,7 @@ description: Learn how to build single-page apps directly by using OAuth 2.0 imp
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
