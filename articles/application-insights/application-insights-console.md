@@ -30,7 +30,7 @@ You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a
 * Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
 
 ```C#
-    TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";`
+    TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
     var telemetryClient = new TelemetryClient();
     telemetryClient.TrackTrace("Hello World!");
 ```
