@@ -37,7 +37,7 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 |errorURL     |string         |http:<i></i>//MyRegisteredAppError         |The URL for errors encountered in an application.
 |groupMembershipClaims     |    string     |    1     |   A bitmask that configures the "groups" claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.      |
 |optionalClaims     |  string       |     null    |    The optional claims returned in the token by the security token service for this specific app.     |
-|acceptMappedClaims     |         |         |         |
+|acceptMappedClaims     |      boolean   | true        |    If this value is set to true,  it allows an application to use claims mapping without specifying a custom signing key.|
 |homepage     |  string       |http:<i></i>//MyRegistererdApp         |    The URL to the application's home page.     |
 |identifierUris     |  array       | http:<i></i>//MyRegistererdApp        |   User-defined URI(s) that uniquely identify a Web application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant.      |
 |keyCredentials     |   array      |   [{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   The collection of key credentials associated with the application      |
