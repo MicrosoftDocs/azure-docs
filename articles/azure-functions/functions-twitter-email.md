@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -50,7 +50,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Click the **New** button found on the upper left-hand corner of the Azure portal.
+2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 3. Click **AI + Analytics** > **Text Analytics API**. Then, use the settings as specified in the table, accept the terms, and check **Pin to dashboard**.
 
@@ -73,7 +73,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
-1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
+1. Click **Create a resource** and select **Compute** > **Function App**. Then, use the settings as specified in the following table. Accept the terms, then select **Pin to dashboard**.
 
     ![Create Azure Function App](media/functions-twitter-email/create_fun.png)
 

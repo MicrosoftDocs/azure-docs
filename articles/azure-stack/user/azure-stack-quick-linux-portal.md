@@ -8,7 +8,7 @@ manager: byronr
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -56,7 +56,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 
 ## Create the virtual machine
 
-1. Click the **New** button found on the upper left-hand corner of the Azure Stack portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure Stack portal.
 
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Click **Create**.

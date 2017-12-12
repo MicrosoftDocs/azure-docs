@@ -3,7 +3,7 @@
 First, create a new general-purpose storage account to use for this quickstart. 
 
 1. Go to the [Azure portal](https://portal.azure.com) and log in using your Azure account. 
-2. On the Hub menu, select **New** > **Storage** > **Storage account - blob, file, table, queue**. 
+2. On the Hub menu, select **Create a resource** > **Storage** > **Storage account - blob, file, table, queue**. 
 3. Enter a unique name for your storage account. Keep these rules in mind for naming your storage account:
     - The name must be between 3 and 24 characters in length.
     - The name may contain numbers and lowercase letters only.
