@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: jeedes
 
 ---
@@ -106,19 +106,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SilkRoad Life Suite Domain and URLs single sign-on information](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. In the **Identifier** textbox, type a URL using the following pattern: 
 	| |
 	|--|
-	| `https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/SP` |
-	| `https://defcompanytest-test-redcarpet.silkroad.com/Authentication/SP` |
+	| `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
+	| `https://<subdomain>.silkroad.com/Authentication/SP` |
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: 
 	| |
 	|--|
-	| `https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/` |
-	| `https://defcompanytest-test-redcarpet.silkroad.com/Authentication/` |
+	| `https://<subdomain>.silkroad-eng.com/Authentication/` |
+	| `https://<subdomain>.silkroad.com/Authentication/` |
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to get these values. 
