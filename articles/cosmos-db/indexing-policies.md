@@ -271,7 +271,7 @@ If you’re using the .NET SDK, you can kick off an indexing policy change using
 
 **Track Progress of Index Transformation**
 
-You can track the percentage progress of the index transformation to a consistent index using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes. You can check the progress of an index transformation to a consistent index by calling ReadDocumentCollectionAsync, for example, as shown below. 
+You can track the percentage progress of the index transformation to a consistent index by using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs, and the REST API, support equivalent properties and methods for making indexing policy changes. You can check the progress of an index transformation to a consistent index by calling  **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -287,11 +287,11 @@ You can track the percentage progress of the index transformation to a consisten
     }
 
 > [!NOTE]
-> The IndexTransformationProgress property is applicable only when transforming to a consistent index. Please use the ResourceResponse.LazyIndexingProgress property for tracking transformations to a lazy index.
+> The IndexTransformationProgress property is applicable only when transforming to a consistent index. Use the ResourceResponse.LazyIndexingProgress property for tracking transformations to a lazy index.
 >
 
 > [!NOTE]
-> The IndexTransformationProgress and the LazyIndexingProgress properties are populated only in the case of a non-partitioned collection (i.e.) one created without a partition key.
+> The IndexTransformationProgress and the LazyIndexingProgress properties are populated only in the case of a non-partitioned collection, that is, a collection that is created without a partition key.
 >
 
 You can drop the index for a collection by moving to the None indexing mode. This might be a useful operational tool if you want to cancel an in-progress transformation and start a new one immediately.
