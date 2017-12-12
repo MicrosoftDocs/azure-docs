@@ -18,6 +18,7 @@ ms.custom: mvc
 # How to manage device enrollments with Azure Device Provisioning Service SDKs
 A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Device Provisioning Service. The enrollment record contains the initial desired configuration for the device(s) as part of that enrollment, including the desired IoT hub. This article shows you how to manage device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  The SDKs are available on GitHub in the same repository as Azure IoT SDKs.
 
+## Samples
 This article reviews the high level concepts for managing device enrollments for your provisioning service programmatically using the Azure IoT Provisioning Service SDKs.  Exact API calls may be different due to language differences.  Please review the samples we provide on GitHub for details:
 * [Java Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Node.js Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -56,7 +57,7 @@ There are two ways you can enroll your devices with the provisioning service:
 
 After you have successfully created an enrollment, the Device Provisioning Service would return an enrollment result.
 
-This workflow is demonstrated in our samples in detail.
+This workflow is demonstrated in the [samples](#samples).
 
 ## Update an enrollment entry
 
@@ -72,14 +73,14 @@ You can update an enrollment entry following this workflow:
     2. Modify the parameter of the latest enrollment as necessary.
     3. Using the latest enrollment, call Service SDK API ```createOrUpdateEnrollmentGroup``` to update your enrollment entry.
 
-This workflow is demonstrated in our samples in detail.
+This workflow is demonstrated in the [samples](#samples).
 
 ## Remove an enrollment entry
 
 * **Individual enrollment** can be deleted by calling Service SDK API ```deleteIndividualEnrollment``` using ```registrationId```.
 * **Group enrollment** can be deleted by calling Service SDK API ```deleteEnrollmentGroup``` using ```enrollmentGroupId```.
 
-This workflow is demonstrated in our samples in detail.
+This workflow is demonstrated in the [samples](#samples).
 
 ## Bulk operation on individual enrollments
 
@@ -90,4 +91,4 @@ You can perform bulk operation to create, update, or remove multiple individual 
 
 After you have successfully performed an operation, the Device Provisioning Service would return a bulk operation result.
 
-This workflow is demonstrated in our samples in detail.
+This workflow is demonstrated in the [samples](#samples).
