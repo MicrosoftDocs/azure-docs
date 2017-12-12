@@ -74,11 +74,11 @@ This section shows the steps to install and configure the authentication pipelin
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:
 
-```powershell
-Install-Package Microsoft.Owin.Security.OpenIdConnect
-Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
-```
+    ```powershell
+    Install-Package Microsoft.Owin.Security.OpenIdConnect
+    Install-Package Microsoft.Owin.Security.Cookies
+    Install-Package Microsoft.Owin.Host.SystemWeb
+    ```
 
 <!--start-collapse-->
 > ### About these packages
@@ -97,17 +97,12 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
-<!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Replace Startup class with the following code:
-</li>
-</ol>
+2. Replace Startup class with the following code:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
-
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    
 <!--start-collapse-->
 > ### More Information
 
@@ -128,17 +123,12 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 4.	Name it `HomeController` and click *Add*
 5.	Add *OWIN* namespaces to the class:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
-<!-- Workaround for Docs conversion bug -->
-<ol start="6">
-<li>
-Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
-</li>
-</ol>
+6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
-
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    
 ## Create the app's home page to sign in users via a sign-in button
 
 In Visual Studio, create a new view to add the sign-in button and display user information after authentication:
@@ -147,7 +137,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 2.	Name it `Index`.
 3.	Add the following HTML, which includes the sign-in button, to the file:
 
-[!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
+    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
 ### More Information
@@ -163,7 +153,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 4.	Name it `ClaimsController`
 5.	Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-[!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 ### More Information
@@ -178,8 +168,8 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
 
-[!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
-
+    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
+    
 <!--end-use-->
 
 <!--start-configure-->
@@ -187,33 +177,16 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 
 1. In Visual Studio, add the following to `web.config` (located in the root folder) under the section `configuration\appSettings`:
 
-```xml
-<add key="ClientId" value="Enter_the_Application_Id_here" />
-<add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
-<add key="Tenant" value="common" />
-<add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
-```
-<!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-In Solution Explorer, select the project and look at the <i>Properties</i> window (if you don’t see a Properties window, press F4)
-</li>
-<li>
-Change SSL Enabled to <code>True</code>
-</li>
-<li>
-Copy the project's SSL URL to the clipboard:<br/><br/>
-</li>
-</ol>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Project properties](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
-
-<!-- Workaround for Docs conversion bug -->
-<ol start="5">
-<li>
-In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> with the SSL URL of your project 
-</li>
-</ol>
+    ```xml
+    <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
+    <add key="Tenant" value="common" />
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    ```
+2. In Solution Explorer, select the project and look at the <i>Properties</i> window (if you don’t see a Properties window, press F4)
+3. Change SSL Enabled to <code>True</code>
+4. Copy the project's SSL URL to the clipboard:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
+5. In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> with the SSL URL of your project 
 
 ### Register your application in the Azure Portal, then add its information to *web.config*
 

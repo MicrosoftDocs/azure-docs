@@ -15,7 +15,7 @@
 ## Web apps
 ### [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
-### [ASP.NET Core](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
+### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
