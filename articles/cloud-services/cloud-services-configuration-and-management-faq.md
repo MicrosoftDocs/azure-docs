@@ -274,9 +274,3 @@ You can automate this task by using a startup script (batch/cmd/PowerShell) and 
 For more information, see the following articles:
 - [How to configure and run startup tasks for a cloud service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Common Cloud Service startup tasks](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## Why does Azure portal require me to provide a storage account for deployment?
-
-In the classic portal, the package was uploaded to the management API layer directly, and then the API layer would temporarily put the package into an internal storage account.  This process causes performance and scalability problems because the API layer was not designed to be a file upload service.  In the Azure portal (Resource Manager deployment model), we have bypassed the interim step of first uploading to the API layer, resulting in faster and more reliable deployments.
- 
-As for the cost, it is very small and you can reuse the same storage account across all deployments. You can use the [storage cost calculator](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) to determine the cost to upload the service package (CSPKG), download the CSPKG, then delete the CSPKG.
