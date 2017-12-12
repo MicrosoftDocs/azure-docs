@@ -34,7 +34,7 @@ In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
 
-Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
+Azure AD B2C has also added support for [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  These [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) allow a developer to create their own policy that with any identity provider that supports [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) or SAML. 
 
 Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -84,7 +84,7 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using t
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
-Integration with Microsoft Dynamics 365 Portal is available.  See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integration with Microsoft Dynamics 365 Portal is available.  See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
 Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.

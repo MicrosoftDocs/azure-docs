@@ -59,7 +59,7 @@ In either scenario, if the Azure Multi-Factor Authentication Web Service SDK is 
 3. Complete the install using the defaults unless you need to change them for some reason.
 4. Bind an SSL Certificate to the site in IIS.
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the SSL connection.
 
@@ -84,6 +84,7 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 
 7. If the website that Mobile App Web Service was installed under has not already been bound with a publicly signed certificate, install the certificate on the server, open IIS Manager, and bind the certificate to the website.
 8. Open a web browser from any computer and navigate to the URL where Mobile App Web Service was installed (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Ensure that no certificate warnings or errors are displayed.
+9. For more information on the methods available in the web services SDK, see the MFA server help file.
 
 ## Configure the mobile app settings in the Azure Multi-Factor Authentication Server
 

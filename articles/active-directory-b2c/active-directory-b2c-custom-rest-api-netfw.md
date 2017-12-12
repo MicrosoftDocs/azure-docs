@@ -212,7 +212,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 

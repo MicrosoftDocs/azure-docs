@@ -39,7 +39,7 @@ How does partitioning work? Each item must have a partition key and a row key, w
 
 * You provision a Azure Cosmos DB container with `T` requests/s throughput.
 * Behind the scenes, Azure Cosmos DB provisions partitions needed to serve `T` requests/s. If `T` is higher than the maximum throughput per partition `t`, then Azure Cosmos DB provisions `N` = `T/t` partitions.
-* Azure Cosmos DB allocates the key space of partition key hashes evenly across the `N` partitions. So, each partition (physical partition) hosts 1-N partition key values (logical partitions).
+* Azure Cosmos DB allocates the key space of partition key hashes evenly across the `N` partitions. So, each partition (physical partition) hosts `1/N` partition key values (logical partitions).
 * When a physical partition `p` reaches its storage limit, Azure Cosmos DB seamlessly splits `p` into two new partitions, `p1` and `p2`. It distributes values corresponding to roughly half the keys to each of the partitions. This split operation is invisible to your application.
 * Similarly, when you provision throughput higher than `t*N`, Azure Cosmos DB splits one or more of your partitions to support the higher throughput.
 

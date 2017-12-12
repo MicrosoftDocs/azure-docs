@@ -482,7 +482,7 @@ You can stream log files to a command-line session on a local workstation using 
 
 ### Monitor function app log files with the Azure CLI 1.0
 
-To get started, [install the Azure CLI 1.0](../cli-install-nodejs.md) and [sign in to Azure](../xplat-cli-connect.md).
+To get started, [install the Azure CLI 1.0](../cli-install-nodejs.md) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
 
 Use the following commands to enable classic Service Management mode, choose your subscription, and stream log files:
 

@@ -41,7 +41,7 @@ Related links:
 
 * Lotus Notes:
   * Filtering custom certifiers option
-  * Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+  * Import of the class ImportOperations fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
 * Generic LDAP:
   * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
 * Generic SQL:

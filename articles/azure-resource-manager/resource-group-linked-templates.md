@@ -481,7 +481,7 @@ To deploy the [parent template](https://github.com/Azure/azure-docs-json-samples
 ```powershell
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
 ```
 
 Or, Azure CLI:
@@ -489,7 +489,7 @@ Or, Azure CLI:
 ```azurecli-interactive
 az group deployment create \
   -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
 ```
 
 ### Load Balancer with public IP address in linked template

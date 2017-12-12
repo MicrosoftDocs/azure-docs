@@ -73,6 +73,9 @@
       href: sizes-compute.md    
     - name: Memory optimized
       href: sizes-memory.md    
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md    
     - name: GPU optimized

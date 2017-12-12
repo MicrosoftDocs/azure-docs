@@ -43,8 +43,8 @@ By defining these types of permissions, the resource has fine-grained control ov
 
 In Azure AD and OAuth, these types of permissions are called *scopes*. They also sometimes are referred to as *oAuth2Permissions*. A scope is represented in Azure AD as a string value. Continuing with the Microsoft Graph example, the scope value for each permission is:
 
-* Read a user's calendar by using `Calendar.Read`
-* Write to a user's calendar by using `Mail.ReadWrite`
+* Read a user's calendar by using `Calendars.Read`
+* Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
 An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint.
@@ -78,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
