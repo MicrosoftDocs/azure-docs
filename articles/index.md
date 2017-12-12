@@ -107,6 +107,7 @@ featureFlags:
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
                                                 </ul>
                                             </div>
                                         </div>
