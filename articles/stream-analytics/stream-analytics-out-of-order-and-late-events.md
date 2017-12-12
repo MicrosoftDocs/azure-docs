@@ -111,12 +111,13 @@ The query does not have a **Partition by PartitionId** clause, and there are at 
 Configuration is the same as example 2. However, absence of data in one of the partitions can delay the output by an additional late arrival tolerance window.
 
 ## Handling event producers with differing timelines
-A single input event stream often contains events that originate from multiple event producers (such as individual devices). These events might arrive out of order due to the reasons discussed earlier. In these scenarios, although the disorder across event producers might be large, the disorder within the events from a single producer are small (or even nonexistent).
+A single input event stream often contains events that originate from multiple event producers, such as individual devices. These events might arrive out of order due to the reasons discussed earlier. In these scenarios, although the disorder across event producers might be large, the disorder within the events from a single producer is small (or even nonexistent).
 
-Azure Stream Analytics provides general mechanisms for dealing with out-of-order events. Such mechanisms result in either processing delays (while waiting for the straggling events to reach the system), dropped or adjusted events, or both.
+Azure Stream Analytics provides general mechanisms for dealing with out-of-order events. Such mechanisms result in processing delays (while waiting for the straggling events to reach the system), dropped or adjusted events, or both.
 
-Yet in many scenarios, the desired query is processing events from different event producers independently. For instance, it may be aggregating events per window, per device. In these cases, there's no need to delay the output that corresponds to one event producer while waiting for the other event producers to catch up. In other words, there's no need to deal with the time skew between producers, and it can be simply ignored.
-Of course, this means that the output events will themselves be out of order with respect to their timestamps. The downstream consumer must be able to deal with such behavior. But every event in the output will be correct.
+Yet in many scenarios, the desired query is processing events from different event producers independently. For instance, it might be aggregating events per window, per device. In these cases, there's no need to delay the output that corresponds to one event producer while waiting for the other event producers to catch up. In other words, there's no need to deal with the time skew between producers. You can ignore it.
+
+Of course, this means that the output events themselves are out of order with respect to their timestamps. The downstream consumer must be able to deal with such behavior. But every event in the output is correct.
 
 Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) clause.
 
