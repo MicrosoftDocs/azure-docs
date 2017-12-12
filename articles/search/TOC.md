@@ -36,7 +36,7 @@
 ## Security
 ### [Data and operational security](search-security-overview.md)
 ### [Secure with identity filters](search-security-trimming-for-azure-search.md)
-### [Secure with Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+### [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 ## Development
 ### [API versions](search-api-versions.md)
 ### [Develop in Node.js](search-get-started-nodejs.md)

@@ -76,7 +76,11 @@ You can obtain access keys in the portal or through the [Management REST API](ht
 
 ## Index access
 
-In Azure Search, an individual index is not a securable object. Having access control at the service level meets the needs of most customers because connections are scoped to a particular index. There is no concept of joining indexes or accessing multiple indexes simultaneously for query operations. 
+In Azure Search, an individual index is not a securable object.
+
+End-user access to indexes is constrained by the query key which makes any request read-only, and the request itself that specifies which index to read. There is no concept of joining indexes or accessing multiple indexes simultaneusly. 
+
+Administrator and developer access to indexes is undiffentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an admin key to your service can read, modify, or delete any index in the same service. For protection against accidental or malicous deletion of indexes, your in-house source control over code assets is the remedy for reversing index deletion or modification. Azure Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Search](search-modeling-multitenant-saas-applications.md).
 
