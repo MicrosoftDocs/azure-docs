@@ -103,7 +103,7 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 3. Follow the wizard, use the default settings for the rest of the procedure (click **Configure** at the last step).
 4. Click **Close** to close the wizard.
 
-## (Optional)Create AD users and groups
+## (Optional) Create AD users and groups
 
 **To create users and groups in the AD**
 1. Connect to the PDC using remote desktop
@@ -114,14 +114,14 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
     ![HDInsight domain joined create users](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
 4. Follow the instructions to create a few users.
 5. Click the **Create a new group in the current container** icon on the top menu.
-6. Follow the insturctions to create a group called **HDInsightUsers**.  This group is used when you create an HDInsight cluster later in this tutorial.
+6. Follow the instructions to create a group called **HDInsightUsers**.  This group is used when you create an HDInsight cluster later in this tutorial.
 
 > [!IMPORTANT]
 > You must reboot the PDC virtual machine before creating a domain-joined HDInsight cluster.
 
 ## Create a HDInsight cluster in the VNet
 
-In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the resource manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
+In this section, you use the Azure portal to add a HDInsight cluster into the virtual network you created using the Resource Manager template earlier in the tutorial. This article only covers the specific information for domain-joined cluster configuration.  For the general information, see [Create Linux-based clusters in HDInsight using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 **To create a domain-joined HDInsight cluster**
 
