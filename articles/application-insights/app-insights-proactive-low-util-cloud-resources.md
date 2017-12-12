@@ -27,7 +27,7 @@ This feature requires no special setup, other than [configuring performance coun
 A typical notification occurs when many of your Web/Worker Role instances exhibit low CPU utilization.
 
 ## Does my app definitely consume too much resources?
-No, a notification doesn't mean that your app definitely consumes too much resources. Although such patterns of low CPU utilization usually indicate that resource consumption could be decreased, this behavior could be typical to your specific role, or could have a natural business justification, and can be ignored. For example, it could be that multiple instances are needed for other resources, such as memory/network, and not CPU.
+No, a notification doesn't mean that your app definitely consumes too many resources. Although such patterns of low CPU utilization usually indicate that resource consumption could be decreased, this behavior could be typical to your specific role, or could have a natural business justification, and can be ignored. For example, it could be that multiple instances are needed for other resources, such as memory/network, and not CPU.
 
 ## How do I fix it?
 The notifications include diagnostic information to support in the diagnostics process:
