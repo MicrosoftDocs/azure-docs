@@ -129,7 +129,7 @@ See [Quickstart: create a data factory using .NET](quickstart-create-data-factor
 ## Triggers
 Triggers provide the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports a trigger that invokes a pipeline on a wall-clock schedule. It's called **Scheduler Trigger**. Currently, Data Factory does not support event-based triggers such as a trigger of a pipeline run on the event of a file-arrival.
 
-Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick off a single pipeline and the same trigger can kick off multiple pipelines. In the following JSON definition of a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger, and values for pipeline parameters.
+Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline or a single trigger can kick off multiple pipelines. In the following JSON definition of a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger, and values for pipeline parameters.
 
 ### Basic trigger definition: 
 ```json
@@ -163,7 +163,7 @@ Scheduler trigger runs pipelines on a wall-clock schedule. This trigger supports
 ### Scheduler trigger JSON definition
 When you create a scheduler trigger, you can specify scheduling and recurrence using JSON as shown in the example in this section. 
 
-To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have an "n-m" relationship. Multiple triggers can kick off a single pipeline. The same trigger can kick off multiple pipelines.
+To have your scheduler trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
 
 ```json
 {

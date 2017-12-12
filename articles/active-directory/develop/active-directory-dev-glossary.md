@@ -4,7 +4,7 @@ description: A list of terms for commonly used Azure Active Directory developer 
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba

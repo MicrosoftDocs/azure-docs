@@ -1,6 +1,6 @@
 ---
-title: Image moderation with custom lists in Azure Content Moderator | Microsoft Docs
-description: Test drive custom image lists in the Content Moderator API console
+title: Moderate images by using custom lists in Azure Content Moderator | Microsoft Docs
+description: Test-drive custom image lists in the Content Moderator API console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,41 +12,43 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Image moderation with custom lists from the API console
+# Moderate images by using custom lists in the API console
 
-The [Image List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) allows you to create custom lists of images for use with the Image Moderation API. The image moderation operation will evalue your image and if given a custom list, will match it against the images in your custom lists. These lists can be used to block or pass through the image.
+You can use the [List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator to create custom lists of images. Use the custom lists of images with the Image Moderation API. The image moderation operation evaluates your image. If you create custom lists, the operation also compares it to the images in your custom lists. You can use custom lists to block or allow the image.
 
-You can also create lists of terms to be used with the Text Moderation API. This tutorial focuses on lists of images.
+You can also use the List Management API to create and manage custom lists of images. This article focuses on lists of images.
 
-The Image List management API includes these operations:
+You can use the List Management API to do these tasks:
 
 - Create a list.
-- Add images to your list.
-- Screen images against the ones in the list.
-- Delete image or images from the list.
-- Delete the list.
+- Add images to a list.
+- Screen images against the images in a list.
+- Delete images from a list.
+- Delete a list.
 - Edit list information.
-- Refresh the index so that changes are found during a scan.
+- Refresh the index so that changes to the list are included in a new scan.
 
+## Use the API console
+Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
 
-## Use the API console ##
-Before you can test-drive the API from the online console, you will need the **Ocp-Apim-Subscription-Key**. This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
+## Create an image list
+1.	Go to the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
-## Creating an image list ##
-1.	Navigate to the [Image list management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) page.
+  The **Image Lists - Create** page opens. 
 
-2.	You land on the **Image Lists > Create** operation. 
+3.	For **Open API testing console**, select the region that most closely describes your location.
 
-3.	Click the button that most closely describes your location, under **Open API testing console**. The **Image Lists – Create** API Console opens.
+    ![Image Lists - Create page region selection](images/test-drive-region.png)
 
-  ![Try Image List Management API Region](images/test-drive-region.png)
+    The **Image Lists - Create** API console opens.
  
-4.	Enter your subscription key.
+4.	In the **Ocp-Apim-Subscription-Key** box, enter your subscription key.
 
-5.	In the Request Body, type a **Name** for the term list, and a brief **Description**.
-  ![Try Image List API - Create Step 1](images/try-terms-list-create-1.png)
+5.	In the **Request body** box, enter values for **Name** (for example, MyList) and **Description**.
 
-6.	Use the key-value pair placeholders to assign more descriptive metadata to your list. For example, you could enter something on these lines:
+  ![Image Lists - Create console Request body name and description](images/try-terms-list-create-1.png)
+
+6.	Use key-value pair placeholders to assign more descriptive metadata to your list. For example, enter something like this:
 
         {
            "Name": "MyExclusionList",
@@ -58,75 +60,98 @@ Before you can test-drive the API from the online console, you will need the **O
            }
         }
 
-  Note that we are adding list metadata as key value pairs, not the actual terms.
+  Note that here we add list metadata as key-value pairs, and not the actual images.
  
-7.	Click Send. Your list is created. Make note of the Id number that is associated with the new list. You will need this for other List Management functions.
+7.	Select **Send**. Your list is created. Take note of the **Id** value that is associated with the new list. You will need this for other image list management functions.
 
-  ![Try Image List API - Create Step 2](images/try-terms-list-create-2.png)
+  ![Image Lists - Create console Response content box shows the list ID](images/try-terms-list-create-2.png)
  
-8.	Now you need to add terms to MyList. On the left, click **Term > Add Term**. Click the button that most closely describes your location, under **Open API testing console**.
+8.	Next, add images to MyList. In the left menu, select **Image**, and then select **Add Image**.
 
-  ![Try Image List Management API Region](images/test-drive-region.png)
+  The **Image - Add Image** page opens. 
 
-9.	The **Term – Add Term** console opens.
+9. For **Open API testing console**, select the region that most closely describes your location.
+
+  ![Image - Add Image page region selection](images/test-drive-region.png)
+
+  The **Image - Add Image** API console opens.
  
-10.	Enter the **listId** that you have generated above, and enter the URL of the image you wish to add. Enter your **subscription key** and click **Send**.
+10.	In the **listId** box, enter the list ID that you generated, and then enter the URL of the image that you want to add. Enter your subscription key, and then select **Send**.
 
-11.	Verify the image has been added by using the **Image > Get All Image Ids** API. Enter the **listId** and your **subscription key**, and click **Send**.
+11.	To verify that the image has been added to the list, in the left menu, select **Image**, and then select **Get All Image Ids**.
 
-  ![Try Image List Management API Step 3](images/try-image-list-create-11.png)
+  The **Image - Get All Image Ids** API console opens.
+  
+12. In the **listId** box, enter the list ID, and then enter your subscription key. Select **Send**.
+
+  ![Image - Get All Image Ids console Response content box lists the images that you entered](images/try-image-list-create-11.png)
  
-10.	Add a few more images. Now that you have created a custom list of images, try [evaluating images](try-image-api.md) against it. 
+10.	Add a few more images. Now that you have created a custom list of images, try [evaluating images](try-image-api.md) by using the custom image list. 
 
-## Deleting images and lists ##
+## Delete images and lists
 
-Deleting an image or a list is straightforward. You can:
+Deleting an image or a list is straightforward. You can use the API to do the following tasks:
 
-- Delete an image. **(Image > Delete)**
-- Delete all the images in a list without deleting the list. **(Image > Delete All Images)**
-- Delete the list and all of its contents. **(Image Lists > Delete)**
+- Delete an image. (**Image - Delete**)
+- Delete all the images in a list without deleting the list. (**Image - Delete All Images**)
+- Delete a list and all of its contents. (**Image Lists - Delete**)
 
-This example deletes a single image.
+This example deletes a single image:
 
-1. On the left, click **Image > Delete**. Click the button that most closely describes your location, under **Open API testing console**. 
+1. In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image**, and then select **Delete**. 
 
-  ![Try Image List Management API Region](images/test-drive-region.png)
+  The **Image - Delete** page opens.
+
+2. For **Open API testing console**, select the region that most closely describes your location. 
+
+  ![Image - Delete page region selection](images/test-drive-region.png)
  
-  The **Image – Delete** console opens.
+  The **Image - Delete** API console opens.
  
-2.	Enter the **listId** for the list you are concerned with. This is the number **(“contentsource” 58953)** that was returned with the **Get all Image Ids** for **MyList**, in the section above. Enter the **ImageId** of the image you wish to delete. This is the “**ContentIds**” **59021** in the example above.
+3.	In the **listId** box, enter the ID of the list that you want to delete an image from.  This is the number (in our example, the list ID is **58953**, the value for **ContentSource**) that was returned in the **Image - Get All Image Ids** console for MyList. Then, enter the **ImageId** of the image you want to delete (in our example, the image ID is **59021**, the value for **ContentIds**).
 
-3.	Enter your subscription key and click Send.
+4.	Enter your subscription key, and then select **Send**.
 
-4.	Verify the image has been deleted by using the Image > Get all Image Ids API.
-
+5.	To verify that the image has been deleted, use the **Image - Get All Image Ids** console.
  
-## Changing a list’s information ##
+## Change list information
 
 You can edit a list’s name and description, and add metadata items.
 
-1.	On the left, click **Image Lists > Update Details**. Click the button that most closely describes your location, under **Open API testing console**. The **Image Lists – Update Details** API console opens.
+1.	In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Update Details**. 
 
-  ![Try Image List Management API Region](images/test-drive-region.png)
+  The **Image Lists - Update Details** page opens.
+
+2. For **Open API testing console**, select the region that most closely describes your location.  
+
+    ![Image Lists - Update Details page region selection](images/test-drive-region.png)
+
+    The **Image Lists - Update Details** API console opens.
  
-2.	Enter the **listId** and your **subscription key**.
+3.	In the **listId** box, enter the list ID, and then enter your subscription key.
 
-3.	Make your edits in the **Request Body** field, and click **Send**.
+4.	In the **Request body** box, make your edits, and then select the **Send** button on the page.
 
-  ![Try Image List Management API Change Step 1](images/try-terms-list-change-1.png)
+  ![Image Lists - Update Details console Request body edits](images/try-terms-list-change-1.png)
  
-## Refresh Search Index ##
+## Refresh Search Index
 
-After you have made changes to a list, its index must be refreshed before subsequent scans will “see” the changes. This is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
+After you make changes to an image list, you must refresh its index for changes to be included in future scans. This is similar to how a search engine on your desktop (if enabled) or a web search engine continually refreshes its index to include new files or pages.
 
-1.	On the left, click **Image Lists > Refresh** Search Index. Click the button that most closely describes your location, under **Open API testing console**. The **Image Lists – Refresh Search Index** API console opens.
+1.	In the [Image List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), in the left menu, select **Image Lists**, and then select **Refresh Search Index**.
 
-  ![Try Image List Management API Region](images/test-drive-region.png)
+  The **Image Lists - Refresh Search Index** page opens.
 
-2.	Enter the **listId** and your **subscription key**, and click **Send**.
+2. For **Open API testing console**, select the region that most closely describes your location. 
+ 
+    ![Image Lists - Refresh Search Index page region selection](images/test-drive-region.png)
 
-  ![Try Image List Management API Refresh Index Step 1](images/try-image-list-refresh-1.png)
+    The **Image Lists - Refresh Search Index** API console opens.
 
-## Next steps ##
+3.	In the **listId** box, enter the list ID. Enter your subscription key, and then select **Send**.
 
-To learn how to use the text terms list management API, see the [Try Terms List Management](try-terms-list-api.md) article.
+  ![Image Lists - Refresh Search Index console Response content box](images/try-image-list-refresh-1.png)
+
+## Next steps
+
+* Learn how to use the [List Management API for term lists](try-terms-list-api.md).

@@ -127,6 +127,5 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 
 ## See also
-* [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
+* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

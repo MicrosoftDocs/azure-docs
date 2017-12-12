@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli

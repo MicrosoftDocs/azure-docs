@@ -34,7 +34,14 @@
   - name: 4 - Copy data in bulk
     href: tutorial-bulk-copy.md
   - name: 5 - Copy data incrementally
-    href: tutorial-incremental-copy-powershell.md
+    href: tutorial-incremental-copy-overview.md
+    items:
+    - name: 5.1 - Copy from one table
+      href: tutorial-incremental-copy-powershell.md
+    - name: 5.2 - Copy from multiple tables 
+      href: tutorial-incremental-copy-multiple-tables-powershell.md
+    - name: 5.3 - Use change tracking feature 
+      href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
     href: tutorial-transform-data-spark-powershell.md
   - name: 7 - Transform data in virtual network
@@ -228,6 +235,16 @@
       href: create-azure-ssis-integration-runtime.md     
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
+  - name: Run SSIS packages in Azure
+    items:
+    - name: Create Azure-SSIS integration runtime
+      href: create-azure-ssis-integration-runtime.md     
+    - name: Join Azure-SSIS integration runtime to a VNET
+      href: join-azure-ssis-integration-runtime-virtual-network.md    
+    - name: Manage Azure-SSIS integration runtime
+      href: manage-azure-ssis-integration-runtime.md      
+    - name: Configure Azure-SSIS integration runtime performance
+      href: configure-azure-ssis-integration-runtime-performance.md
 - name: Reference
   items:
   - name: .NET

@@ -93,7 +93,7 @@ Python runbooks compile under Python 2.  You can directly edit the code of the r
 ### Known Issues
 Following are current known issues with Python runbooks.
 
-* In order to utilize third-party libraries, the runbook must be run on a [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) or [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) with the libraries already installed on the machine before the runbook is started.
+* In order to utilize third-party libraries, the runbook must be run on a [Windows Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) or [Linux Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) with the libraries already installed on the machine before the runbook is started.
 
 ## Considerations
 You should take into account the following additional considerations when determining which type to use for a particular runbook.

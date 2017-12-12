@@ -23,7 +23,7 @@ Typically, you deploy all the resources in your template to a single resource gr
 
 The resource group is the lifecycle container for the application and its collection of resources. You create the resource group outside of the template, and specify the resource group to target during deployment. For an introduction to resource groups, see [Azure Resource Manager overview](resource-group-overview.md).
 
-## Specify subscription and resource group
+## Specify a subscription and resource group
 
 To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`. These properties enable you to specify a different subscription and resource group for the nested deployment. All the resource groups must exist before running the deployment. If you do not specify either the subscription ID or resource group, the subscription and resource group from the parent template is used.
 
@@ -108,7 +108,7 @@ If you set `resourceGroup` to the name of a resource group that does not exist, 
 
 To deploy the example template, use a release of Azure PowerShell or Azure CLI from May 2017 or later. For these examples, use the [cross subscription template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) in GitHub.
 
-### Two resource groups in same subscription
+### Two resource groups in the same subscription
 
 For PowerShell, to deploy two storage accounts to two resource groups in the same subscription, use:
 
@@ -192,11 +192,11 @@ az group deployment create \
   --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
 ```
 
-## Use resourceGroup() function
+## Use the resourceGroup() function
 
-For cross resource group deployments, the [resouceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template. 
+For cross resource group deployments, the [resourceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template. 
 
-If you embed one template within another template, resouceGroup() in the nested template resolves to the parent resource group. An embedded template uses the following format:
+If you embed one template within another template, resourceGroup() in the nested template resolves to the parent resource group. An embedded template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -212,7 +212,7 @@ If you embed one template within another template, resouceGroup() in the nested 
 }
 ```
 
-If you link to a separate template, resouceGroup() in the linked template resolves to the nested resource group. A linked template uses the following format:
+If you link to a separate template, resourceGroup() in the linked template resolves to the nested resource group. A linked template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",

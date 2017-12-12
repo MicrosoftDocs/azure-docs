@@ -2,19 +2,11 @@
 title: Authenticate with an Azure container registry
 description: Authentication options for an Azure container registry, including Azure Active Directory service principals direct and registry login.
 services: container-registry
-documentationcenter: ''
 author: stevelas
-manager: balans
-editor: mmacy
-tags: ''
-keywords: ''
+manager: timlt
 
-ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
