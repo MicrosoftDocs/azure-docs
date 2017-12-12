@@ -4,7 +4,7 @@ description: How to create a group in Azure Active Directory and add members to 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
@@ -22,7 +22,6 @@ ms.custom: H1Hack27Feb2017
 # Create a group and add members in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
-> * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >

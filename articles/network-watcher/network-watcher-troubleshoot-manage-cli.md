@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI 2.
 description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -31,7 +31,7 @@ Network Watcher provides many capabilities as it relates to understanding your n
 
 This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## Before you begin
 

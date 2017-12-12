@@ -1,6 +1,6 @@
 ---
-title: 'NoSQL tutorial: DocumentDB API for Azure Cosmos DB Java SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and Java console application using the DocumentDB API for Azure Cosmos DB. Azure DocumentDB is a NoSQL database for JSON.
+title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK | Microsoft Docs'
+description: A NoSQL tutorial that creates an online database and Java console application using the SQL API for Azure Cosmos DB. Azure SQL is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
@@ -18,7 +18,7 @@ ms.date: 05/22/2017
 ms.author: arramac
 
 ---
-# NoSQL tutorial: Build a DocumentDB API Java console application
+# NoSQL tutorial: Build a SQL API Java console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,7 +29,9 @@ ms.author: arramac
 >  
 > 
 
-Welcome to the NoSQL tutorial for the DocumentDB API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Welcome to the NoSQL tutorial for the SQL API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 We cover:
 
@@ -50,8 +52,11 @@ Now let's get started!
 ## Prerequisites
 Make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial.
-* [Git](https://git-scm.com/downloads)
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
@@ -67,7 +72,7 @@ You can get started by cloning the GitHub repository for [Get Started with Azure
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure Cosmos DB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure Cosmos DB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [Azure Cosmos DB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -78,11 +83,11 @@ The directory contains a `pom.xml` for the project and a `src` folder containing
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
-In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `<your endpoint URI>` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`.
+In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.com` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
 
     this.client = new DocumentClient(
-        "<your endpoint URI>",
-        "<your key>"
+        "https://FILLME.documents.azure.com",
+        "FILLME"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
@@ -186,6 +191,5 @@ Congratulations! You've completed this NoSQL tutorial and have a working Java co
 * Want a Java web app tutorial? See [Build a web application with Java using Azure Cosmos DB](documentdb-java-application.md).
 * Learn how to [monitor an Azure Cosmos DB account](monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-* Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

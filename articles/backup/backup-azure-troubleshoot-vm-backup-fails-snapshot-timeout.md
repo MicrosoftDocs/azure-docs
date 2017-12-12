@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, disks'
 services: backup
 documentationcenter: ''
 author: genlin
@@ -13,8 +13,8 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: troubleshooting
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ---
 
@@ -31,6 +31,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
+##### Cause 6: [Azure Classic VMs may require additional step to complete registration](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## Snapshot operation failed due to no network connectivity on the virtual machine
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. Follow below troubleshooting steps in the given order and retry your operation.
@@ -63,6 +64,18 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
 
+## The specified Disk configuration is not supported
+
+> [!NOTE]
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
+Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
+- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
+- Ensure that all data has been copied and remove the disks greater than 1TB
+- Initiate the backup
 
 ## Causes and Solutions
 
@@ -100,7 +113,7 @@ The VM Agent might have been corrupted or the service might have been stopped. R
 6. Then you should be able to view Windows Guest Agent services in services
 7. Try running an on-demand/adhoc backup by clicking "Backup Now" in the portal.
 
-Also verify your Virtual Machine has **[.NET 4.5 installed in the system](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. It is required for the VM agent to communicate with the service
+Also verify your Virtual Machine has **[.NET 4.5 installed in the system](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. It is required for the VM agent to communicate with the service
 
 ### The agent installed in the VM is out of date (for Linux VMs)
 
@@ -170,4 +183,23 @@ To uninstall the extension, do the following:
 6. Click **Uninstall**.
 
 This procedure causes the extension to be reinstalled during the next backup.
+
+### Azure Classic VMs may require additional step to complete registration
+The agent in Azure classic VMs should be registered to establish connection to the backup service and start the backup
+
+#### Solution
+
+After installing VM guest agent, launch Azure PowerShell <br>
+1. Login in to Azure Account using <br>
+       `Login-AzureAsAccount`<br>
+2. Verify if VM’s ProvisionGuestAgent property is set to True, by the following commands <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. If the property is set to FALSE, follow below commands to set it to TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Then run the following command to update the VM <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Try initiating the backup. <br>
+
 

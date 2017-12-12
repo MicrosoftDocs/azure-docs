@@ -1,0 +1,3 @@
+> [!NOTE]
+> Azure Availability Zones is in preview and is ready for your development and test scenarios. Support is available for select Azure resources, regions, and size families. For more information on how to get started, and which Azure resources, regions, and size families you can try with Availability Zones, see [Overview of Availability Zones](../articles/availability-zones/az-overview.md). You can [provide feedback](https://feedback.azure.com/forums/905206-global-infrastructure/category/319507-availability-zones) on the Azure website. For support, contact [StackOverflow]( https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../articles/azure-supportability/how-to-create-azure-support-request.md).
+>

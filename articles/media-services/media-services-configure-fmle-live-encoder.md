@@ -4,7 +4,7 @@ description: This topic shows how to configure the Flash Media Live Encoder (FML
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2

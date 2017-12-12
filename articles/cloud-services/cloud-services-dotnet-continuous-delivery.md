@@ -3,8 +3,8 @@ title: Continuous delivery for cloud services with TFS in Azure | Microsoft Docs
 description: Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts.
 services: cloud-services
 documentationcenter: ''
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Continuous Delivery for Cloud Services in Azure
@@ -515,7 +515,7 @@ piped into the standard build output.
     behavior on every check-in.
 
 ### PublishCloudService.ps1 script template
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -727,7 +727,6 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

@@ -4,7 +4,7 @@ description: How run a streaming job in Azure Stream Analytics | learning path s
 keywords: streaming jobs
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # How to run a streaming job in Azure Stream Analytics
@@ -31,6 +31,9 @@ To start your job:
    
    ![Azure portal Start job Button](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. Specify a **Start Output** value to determine when this job will start producing output. The default setting for jobs that have not previously been started is **Job Start Time**, which means that the job will immediately start processing data. You can also specify a **Custom** time in the past (for consuming historical data) or the future (to delay processing until a future time). For cases when a job has been previously started and stopped, the option **Last Stopped Time** is available in order to resume the job from the last output time and avoid data loss.  
+
+> [!NOTE]
+> When using partitions, Last Stopped Time represents the minimum of last output time across all partitions.
    
    ![Start streaming job Time](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
    
@@ -42,7 +45,7 @@ To start your job:
    ![Azure portal streaming job progress](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)  
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

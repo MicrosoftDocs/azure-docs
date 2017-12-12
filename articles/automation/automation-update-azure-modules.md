@@ -3,7 +3,7 @@ title: Update Azure modules in Azure Automation | Microsoft Docs
 description: This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 documentationcenter: ''
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 

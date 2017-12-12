@@ -41,6 +41,8 @@ If you want to embed a **Private** video, you have to pass an access token in th
     
 Use the **GetInsightsWidgetUrl** API to get a URL for a Cognitive Insights widget. The URL includes the access token. Specify this URL as the **iframe**'s **src** value.
 
+If you want to provide editing insights capabilities (like we have in our web application) in your embedded widget, you will have to call **Get Insights Widget Url**  or **Get Insight Widget By External Id** and add **&allowEdit=true**. 
+
 ## Widgets interaction
 
 The **Cognitive Insights** widget can interact with a video on your application. This section shows how to achieve this interaction.
@@ -48,6 +50,7 @@ The **Cognitive Insights** widget can interact with a video on your application.
 ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### Cross-origin communications
+
 
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
@@ -83,6 +86,7 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 
 2. Instantiate Azure Media Player with the Video Indexer plugin.
+
 		// Init Source
 		function initSource() {
 		    var tracks = [{
@@ -194,11 +198,17 @@ The possible values are: people, keywords, sentiments, transcript, search.
 For example, if you want to embed widget containing only people and search insights the iframe embed URL will look like this:
 https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
 
+The title of the iframe window can also be customized by providing **&title=**<YourTitle> to the iframe url. (It will customize the html <title> value ).
+For example, if you want to give youe iframe window the title "MyInsights", the url will look like this:
+https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. 
+Notice that this option is relevant only in cases when you need to open the insighs in a new window.
+
 ### Player widget
 If you embed Video Indexer player you can choose the size of the player by specifying the size of the iframe.
 
 For example :
-<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
 
 By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
 

@@ -3,7 +3,7 @@ title: Azure Storage Service Encryption for Data at Rest | Microsoft Docs
 description: Use the Azure Storage Service Encryption feature to encrypt your Azure Blob Storage on the service side when storing the data, and decrypt it when retrieving the data.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Azure Storage Service Encryption for Data at Rest
@@ -80,7 +80,7 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 To learn more, please visit [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 #### Using SMB
-Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure File Share on Windows](../files/storage-how-to-use-files-windows.md) and [how to mount Azure File share on Linux](../storage-how-to-use-files-linux.md).
+Azure Files offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure File Share on Windows](../files/storage-how-to-use-files-windows.md) and [how to mount Azure File share on Linux](../files/storage-how-to-use-files-linux.md).
 
 
 #### Using the Storage Client Libraries

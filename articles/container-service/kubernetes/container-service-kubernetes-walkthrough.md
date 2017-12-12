@@ -1,26 +1,20 @@
 ---
-title: Quickstart - Azure Kubernetes cluster for Linux | Microsoft Docs
+title: Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
-ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 08/21/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
 # Deploy Kubernetes cluster for Linux containers
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet. 
 
@@ -66,8 +60,10 @@ Output:
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. The following example creates a cluster named *myK8sCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
+
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
 
 After several minutes, the command completes and returns json formatted information about the cluster. 
 
@@ -103,7 +99,7 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. 
 
-Create a file named `azure-vote.yaml` and copy into it the following YAML. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
+Create a file named `azure-vote.yml` and copy into it the following YAML. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -169,7 +165,7 @@ spec:
 Use the [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) command to run the application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl create -f azure-vote.yml
 ```
 
 Output:

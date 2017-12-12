@@ -47,7 +47,7 @@ You can use Azure PowerShell or the CLI to create a network interface or VM with
 - All VM sizes support at least two network interfaces, but some VM sizes support more than two network interfaces. In the past, some VM sizes only supported one network interface. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. 
 - In the past, network interfaces could only be added to VMs that supported multiple network interfaces and were created with at least two network interfaces. You could not add a network interface to a VM that was created with one network interface, even if the VM size supported multiple network interfaces. Conversely, you could only remove network interfaces from a VM with at least three network interfaces, because VMs created with at least two network interfaces always had to have at least two network interfaces. Neither of these constraints apply anymore. You can now create a VM with any number of network interfaces (up to the number supported by the VM size) and add or remove any number of network interfaces (from VMs in the stopped (deallocated) state), as long as the VM always has at least one network interface.
 - By default, the first network interface in a VM is defined as the *primary* network interface. All other network interfaces in the VM are *secondary* network interfaces.
-- Primary network interfaces are assigned a default gateway by the Azure DHCP servers, but secondary network interfaces are not. Since secondary network interfaces aren't assigned a default gateway, they cannot communicate with resources outside of their subnet, by default. To enable secondary network interfaces in a Windows VM to communicate with resources outside their subnet, add routes to the operating system using the `route add` command from a Windows command line. For Linux VMs, since the default behavior uses weak host routing, we recommend restricting traffic for secondary network interfaces to a single subnet. If you require connectivity outside the subnet for secondary network interfaces, enable policy-based routing to ensure that ingress and egress traffic uses the same network interface.
+- Primary network interfaces are assigned a default gateway by the Azure DHCP servers, but secondary network interfaces are not. Since secondary network interfaces aren't assigned a default gateway, they cannot communicate with resources outside of their subnet, by default. To enable secondary network interfaces to communicate with resources outside their subnet, see [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
 - By default, all outbound traffic from the VM is sent out the IP address assigned to the primary IP configuration of the primary network interface. You control which IP address is used for outbound traffic within the VM's operating system, but by default, it's through the primary network interface.
 - In the past, all VMs within the same availability set were required to have a single, or multiple, network interfaces. VMs with any number of network interfaces can now exist in the same availability set, up to the number supported by the VM size. You can only add a VM to an availability set when it's created though. To learn more about availability sets, read the [Manage the availability of VMs in Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) article.
 - While network interfaces in the same VM can be connected to different subnets within a VNet, the network interfaces must all be connected to the same VNet.
@@ -57,7 +57,69 @@ You can use Azure PowerShell or the CLI to create a network interface or VM with
 
 ## <a name="vm-create"></a>Add existing network interfaces to a new VM
 
-When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces using the Azure portal. You can do both using the CLI or PowerShell. You can add as many network interfaces to a VM as the VM size you're creating supports. To learn more about how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The network interfaces you add to a VM cannot currently be attached to another VM. To learn more about creating network interfaces, read the [Manage network interfaces](virtual-network-network-interface.md#create-a-network-interface) article.
+When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces, using the Azure portal. You can do both using the CLI or PowerShell. You can add as many network interfaces to a VM as the VM size you're creating supports. To learn more about how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The network interfaces you add to a VM cannot currently be attached to another VM. To learn more about creating network interfaces, read the [Manage network interfaces](virtual-network-network-interface.md#create-a-network-interface) article.
+
+### Routing within a virtual machine operating system with multiple network interfaces
+
+Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet, though the steps to enable communication are different for different operating systems.
+
+### Windows
+
+Complete the following steps from a Windows command prompt:
+
+1. Run the `route print` command, which returns output similar to the following output for a virtual machine with two attached network interfaces:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    In this example, **Microsoft Hyper-V Network Adapter #4** (interface 7) is the secondary network interface that doesn't have a default gateway assigned to it.
+
+2. From a command prompt, run the `ipconfig` command to see which IP address is assigned to the secondary network interface. In this example, 192.168.2.4 is assigned to interface 7. No default gateway address is returned for the secondary network interface.
+
+3. To route all traffic destined for addresses outside the subnet of the secondary network interface to the gateway for the subnet, run the following command:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    The gateway address for the subnet is the first IP address (ending in .1) in the address range defined for the subnet. If you don't want to route all traffic outside the subnet, you could add individual routes to specific destinations, instead. For example, if you only wanted to route traffic from the secondary network interface to the 192.168.3.0 network, you enter the command:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. To confirm successful communication with a resource on the 192.168.3.0 network, for example, enter the following command to ping 192.168.3.4 using interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    You may need to open ICMP through the Windows firewall of the device you're pinging with the following command:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. To confirm the added route is in the route table, enter the `route print` command, which returns output similar to the following text:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    The route listed with *192.168.1.1* under **Gateway**, is the route that is there by default for the primary network interface. The route with *192.168.2.1* under **Gateway**, is the route you added.
+
+### Linux
+
+Since the default behavior uses weak host routing, we recommend restricting secondary network interface traffic between resources in the same subnet. If you require communication outside the subnet for secondary network interfaces, you must create routing rules that allow the virtual machine to send and receive traffic through a specific network interface. Otherwise, traffic that belongs to eth1, for example, cannot be processed correctly by the defined default route. To learn how to configure routing rules, see [Configure Linux for multiple NICs](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics).
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, you can only add the network interface to the virtual machine when creating the virtual machine. You cannot attach more than one network interface to the virtual machine when you create the virtual machine, or after the virtual machine is created, as long as an IPv6 address is assigned to a network interface attached to a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
@@ -72,6 +134,8 @@ When you create a VM through the portal, the portal creates a network interface 
 ## <a name="vm-add-nic"></a>Add an existing network interface to an existing VM
 
 You can add as many network interfaces to a VM as the VM size you're adding network interfaces to supports. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a network interface to must support the number of network interfaces you want to add and must be in the stopped (deallocated) state. The network interfaces you want to add cannot currently be attached to another VM. You cannot add network interfaces to an existing VM using the Azure portal. To add network interfaces to an existing VM, you must use the CLI or PowerShell. 
+
+Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. If you require that your secondary network interfaces communication with resources outside their subnet, see [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a virtual-machine-operating-system-with-multiple-network-interfaces).
 
 > [!WARNING]
 > If a network interface has a private IPv6 address assigned to it, it cannot be added to an existing virtual machine. You can only add a network interface with an assigned private IPv6 address to a virtual machine when you create a virtual machine. See [Network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about assigning IP addresses to network interfaces.
@@ -88,7 +152,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about assigning roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to view network interfaces for.
-4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Networking**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
 
 **Commands**
 
@@ -104,9 +168,9 @@ The VM you want to remove (or detach) a network interface from must be in the st
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about assigning roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to remove a network interface for.
-4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
-5. In the network interfaces blade that appears, click the **...** to the right of the network interface that you want to detach.
-6. Click **Detach**. If there is only one network interface attached to the virtual machine, the **Detach** option isn't available. Click **Yes** in the confirmation box that appears.
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Networking**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
+5. Click **X Detach network interface**.
+6. Select the network interface you want to detach from the drop-down list, then click **OK**.
 
 **Commands**
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET SDK & Resources | Microsoft Docs
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
+title: 'Azure Cosmos DB: SQL .NET API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB .NET SDK: Download and release notes
+# Azure Cosmos DB .NET SDK for SQL API: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -48,6 +50,24 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.19.1"/>1.19.1
+
+* Adds the ability to specify unique indexes for the documents by using UniqueKeyPolicy property on the DocumentCollection.
+* Fixed a bug in which the custom JsonSerializer settings were not being honored for some queries and stored procedure execution.
+
+### <a name="1.19.0"/>1.19.0
+
+* Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
+* Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
+* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator. 
+
+### <a name="1.18.1"/>1.18.1 
+
+* Internal changes for Microsoft friends assemblies.
+
+### <a name="1.18.0"/>1.18.0 
+
+* Added several reliability fixes and improvements.
 
 ### <a name="1.17.0"/>1.17.0 
 
@@ -65,7 +85,7 @@ ms.custom: H1Hack27Feb2017
 *	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB SQL queries.
 
 ### <a name="1.14.0"/>1.14.0
 *	Added support for a new consistency level called ConsistentPrefix.
@@ -254,6 +274,10 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.19.1](#1.19.1) |November 16, 2017 |--- |
+| [1.19.0](#1.19.0) |November 10, 2017 |--- |
+| [1.18.1](#1.18.1) |November 07, 2017 |--- |
+| [1.18.0](#1.18.0) |October 17, 2017 |--- |
 | [1.17.0](#1.17.0) |August 10, 2017 |--- |
 | [1.16.1](#1.16.1) |August 07, 2017 |--- |
 | [1.16.0](#1.16.0) |August 02, 2017 |--- |

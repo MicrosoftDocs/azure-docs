@@ -2,7 +2,7 @@
 title: Azure Automation Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:

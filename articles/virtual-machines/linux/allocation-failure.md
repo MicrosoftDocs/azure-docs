@@ -13,8 +13,8 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
-ms.date: 02/02/2016
+ms.topic: troubleshooting
+ms.date: 11/03/2016
 ms.author: cjiang
 
 ---

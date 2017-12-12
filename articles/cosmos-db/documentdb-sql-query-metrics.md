@@ -1,5 +1,5 @@
 ---
-title: SQL query metrics for Azure Cosmos DB DocumentDB API | Microsoft Docs
+title: SQL query metrics for Azure Cosmos DB SQL API | Microsoft Docs
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
@@ -14,11 +14,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
 
 ---
 # Tuning query performance with Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB provides a [SQL API for querying data](documentdb-sql-query.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
 * High-level details on how Azure Cosmos DB's SQL query execution works
@@ -28,7 +31,7 @@ Azure Cosmos DB provides a [SQL API for querying data](documentdb-sql-query.md),
 
 ## About SQL query execution
 
-In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partition-data.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md).
+In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partition-data.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [SQL SDKs](documentdb-sdk-dotnet.md).
 
 A brief overview of partitioning: you define a partition key like "city", which determines how data is split across physical partitions. Data belonging to a single partition key (for example, "city" == "Seattle") is stored within a physical partition, but typically a single physical partition has multiple partition keys. When a partition reaches its storage size, the service seamlessly splits the partition into two new partitions, and divides the partition key evenly across these partitions. Since partitions are transient, the APIs use an abstraction of a "partition key range", which denotes the ranges of partition key hashes. 
 
@@ -47,7 +50,7 @@ The SDKs provide various options for query execution. For example, in .NET these
 | `EnableScanInQuery` | Must be set to true if you have opted out of indexing, but want to run the query via a scan anyway. Only applicable if indexing for the requested filter path is disabled. | 
 | `MaxItemCount` | The maximum number of items to return per round trip to the server. By setting to -1, you can let the server manage the number of items. Or, you can lower this value to retrieve only a small number of items per round trip. 
 | `MaxBufferedItemCount` | This is a client-side option, and used to limit the memory consumption when performing cross-partition ORDER BY. A higher value helps reduce the latency of cross-partition sorting. |
-| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure DocumentDB database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
+| `MaxDegreeOfParallelism` | Gets or sets the number of concurrent operations run client side during parallel query execution in the Azure Cosmos DB database service. A positive property value limits the number of concurrent operations to the set value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. |
 | `PopulateQueryMetrics` | Enables detailed logging of statistics of time spent in various phases of query execution like compilation time, index loop time, and document load time. You can share output from query statistics with Azure Support to diagnose query performance issues. |
 | `RequestContinuation` | You can resume query execution by passing in the opaque continuation token returned by any query. The continuation token encapsulates all state required for query execution. |
 | `ResponseContinuationTokenLimitInKb` | You can limit the maximum size of the continuation token returned by the server. You might need to set this if your application host has limits on response header size. Setting this may increase the overall duration and RUs consumed for the query.  |
@@ -134,7 +137,7 @@ The key response headers returned from the query include the following:
 | `x-ms-documentdb-query-metrics` | The query statistics for the execution. This is a delimited string containing statistics of time spent in the various phases of query execution. Returned if `x-ms-documentdb-populatequerymetrics` is set to `True`. | 
 | `x-ms-request-charge` | The number of [request units](request-units.md) consumed by the query. | 
 
-For details on the REST API request headers and options, see [Querying resources using the DocumentDB REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+For details on the REST API request headers and options, see [Querying resources using the REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## Best practices for query performance
 The following are the most common factors that impact Azure Cosmos DB query performance. We dig deeper into each of these topics in this article.
@@ -209,7 +212,7 @@ Following are implications of how the parallel queries would behave for differen
 * (P > 1) => Min (P, N) parallel tasks 
 * (P < 1) => Min (N, D) parallel tasks
 
-For SDK release notes, and details on implemented classes and methods see [DocumentDB SDKs](documentdb-sdk-dotnet.md)
+For SDK release notes, and details on implemented classes and methods see [SQL SDKs](documentdb-sdk-dotnet.md)
 
 ### Network latency
 See [Azure Cosmos DB global distribution](tutorial-global-distribution-documentdb.md) for how to set up global distribution, and connect to the closest region. Network latency has a significant impact on query performance when you need to make multiple round-trips or retrieve a large result set from the query. 
@@ -250,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milliseconds | Time spent in loading documents  | 
 | `systemFunctionExecuteTimeInMs` | milliseconds | Total time spent executing system (built-in) functions in milliseconds  | 
 | `userFunctionExecuteTimeInMs` | milliseconds | Total time spent executing user-defined functions in milliseconds | 
-| `retrievedDocumentCount` | milliseconds | Total number of retrieved documents  | 
+| `retrievedDocumentCount` | count | Total number of retrieved documents  | 
 | `retrievedDocumentSize` | bytes | Total size of retrieved documents in bytes  | 
 | `outputDocumentCount` | count | Number of output documents | 
 | `writeOutputTimeInMs` | milliseconds | Query execution time in milliseconds | 

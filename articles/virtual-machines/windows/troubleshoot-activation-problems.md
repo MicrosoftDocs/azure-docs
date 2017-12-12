@@ -12,8 +12,8 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: genli
 ---
 # Troubleshoot Azure Windows virtual machine activation problems

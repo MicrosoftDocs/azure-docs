@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET Core API, SDK & Resources | Microsoft Docs
-description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB .NET Core SDK: Release notes and resources
+# Azure Cosmos DB .NET Core SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -53,6 +55,25 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.7.1"/>1.7.1
+ 
+ * Adds the ability to specify unique indexes for the documents by using UniqueKeyPolicy property on the DocumentCollection.
+ * Fixed a bug in which the custom JsonSerializer settings were not being honored for some queries and stored procedure execution.
+
+### <a name="1.7.0"/>1.7.0
+ 
+ * Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
+ * Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
+ * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+ 
+### <a name="1.6.0"/>1.6.0
+
+* Added several reliability fixes and improvements.
+
+### <a name="1.5.1"/>1.5.1 
+
+* Internal changes related to supporting [Microsoft.Azure.Graphs](https://docs.microsoft.com/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="1.5.0"/>1.5.0 
 
@@ -133,6 +154,10 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.7.1](#1.7.1) |November 16, 2017 |--- |
+| [1.7.0](#1.7.0) |November 10, 2017 |--- |
+| [1.6.0](#1.6.0) |October 17, 2017 |--- |
+| [1.5.1](#1.5.1) |October 02, 2017 |--- |
 | [1.5.0](#1.5.0) |August 10, 2017 |--- | 
 | [1.4.1](#1.4.1) |August 07, 2017 |--- |
 | [1.4.0](#1.4.0) |August 02, 2017 |--- |

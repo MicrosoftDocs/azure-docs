@@ -4,7 +4,7 @@ description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -88,7 +88,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 * [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

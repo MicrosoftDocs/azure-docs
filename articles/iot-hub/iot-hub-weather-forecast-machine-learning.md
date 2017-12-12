@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/25/2017
 ms.author: xshi
 
 ---
@@ -51,7 +51,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 ## Deploy the weather prediction model as a web service
 
 1. Go to the [weather prediction model page](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Click **Open in Studio** in Microsoft Azure Machine Leaning Studio.
+1. Click **Open in Studio** in Microsoft Azure Machine Learning Studio.
    ![Open the weather prediction model page in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Click **Run** to validate the steps in the model. This step might take 2 minutes to complete.
    ![Open the weather prediction model in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)

@@ -1,6 +1,6 @@
 ---
-title: Node.js tutorial for the DocumentDB API for Azure Cosmos DB | Microsoft Docs
-description: A Node.js tutorial that creates a Cosmos DB with the DocumentDB API. 
+title: Node.js tutorial for the SQL API for Azure Cosmos DB | Microsoft Docs
+description: A Node.js tutorial that creates a Cosmos DB with the SQL API. 
 keywords: node.js tutorial, node database
 services: cosmos-db
 documentationcenter: node.js
@@ -18,7 +18,7 @@ ms.date: 08/14/2017
 ms.author: anhoh
 
 ---
-# Node.js tutorial: Use the DocumentDB API in Azure Cosmos DB to create a Node.js console application
+# Node.js tutorial: Use the SQL API in Azure Cosmos DB to create a Node.js console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -28,6 +28,8 @@ ms.author: anhoh
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the Node.js tutorial for the Azure Cosmos DB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -52,8 +54,10 @@ Now let's get started!
 ## Prerequisites for the Node.js tutorial
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial.
+* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 * [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account
@@ -89,7 +93,7 @@ Then, copy and paste the code snippet below and set properties ```config.endpoin
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.authKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) rather than adding the document definitions.
+Copy and paste the ```database id```, ```collection id```, and ```JSON documents``` to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) rather than adding the document definitions.
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -259,7 +263,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 6: Create a collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **createCollection** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -611,7 +615,7 @@ Install the **documentdb** module via npm. Use the following command:
 
 * ```npm install documentdb --save```
 
-Next, in the ```config.js``` file, update the config.endpoint and config.authKey values as described in [Step 3: Set your app's configurations](#Config). 
+Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config). 
 
 Then in your terminal, locate your ```app.js``` file and run the command: ```node app.js```.
 
@@ -621,7 +625,6 @@ That's it, build it and you're on your way!
 * Want a more complex Node.js sample? See [Build a Node.js web application using Azure Cosmos DB](documentdb-nodejs-application.md).
 * Learn how to [monitor an Azure Cosmos DB account](monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-* Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

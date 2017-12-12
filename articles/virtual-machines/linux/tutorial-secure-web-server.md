@@ -1,4 +1,3 @@
-
 ---
 title: Secure a web server with SSL certificates in Azure | Microsoft Docs
 description: Learn how to secure the NGINX web server with SSL certificates on a Linux VM in Azure 
@@ -12,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
@@ -58,7 +57,7 @@ az keyvault create \
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/certificate#create) that uses the default certificate policy:
+For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) that uses the default certificate policy:
 
 ```azurecli-interactive 
 az keyvault certificate create \

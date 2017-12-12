@@ -18,13 +18,7 @@ ms.author: adegeo
 
 ---
 # How to Manage Cloud Services
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-manage-portal.md)
-> * [Azure classic portal](cloud-services-how-to-manage.md)
->
->
-
-In the **Cloud Services (classic)** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
+In the **Cloud Services** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 More information about how to scale your cloud service is available [here](cloud-services-how-to-scale-portal.md).
 
@@ -83,9 +77,6 @@ Note that Guest OS updates and service healing operations can also cause deploym
 **Does a swap incur downtime for my application? How should I handle it?**
 
 As described in the last section, a deployment swap is typically fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
-
-## How to: Link a resource to a cloud service
-The Azure portal does not link resources together like the current Azure classic portal does. Instead, deploy additional resources to the same resource group being used by the Cloud Service.
 
 ## How to: Delete deployments and a cloud service
 Before you can delete a cloud service, you must delete each existing deployment.

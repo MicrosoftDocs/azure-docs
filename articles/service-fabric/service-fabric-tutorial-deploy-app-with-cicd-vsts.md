@@ -10,11 +10,12 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
+ms.custom: mvc
 
 ---
 
@@ -34,6 +35,7 @@ In this tutorial series you learn how to:
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configure CI/CD using Visual Studio Team Services
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -41,7 +43,7 @@ Before you begin this tutorial:
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 - Create a Service Fabric application, for example by [following this tutorial](service-fabric-tutorial-create-dotnet-app.md). 
-- Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Create a [Team Services account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## Download the Voting sample application
@@ -154,10 +156,9 @@ In this tutorial, you learned how to:
 > * Create a release definition
 > * Automatically deploy and upgrade an application
 
-Now that you have deployed an application and configured continuous integration, try the following:
-- [Upgrade an app](service-fabric-application-upgrade.md)
-- [Test an app](service-fabric-testability-overview.md) 
-- [Monitor and diagnose](service-fabric-diagnostics-overview.md)
+Advance to the next tutorial:
+> [!div class="nextstepaction"]
+> [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

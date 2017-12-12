@@ -14,8 +14,9 @@
 # How-to guides
 ## Use VMs in a lab
 ### [Create VMs](devtest-lab-add-vm.md)
-### [Create claimable VM](devtest-lab-add-claimable-vm.md)
+### [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md)
 ### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
+### [Restart a VM](devtest-lab-restart-vm.md)
 
 ## Use environments in a lab
 ### [Create an environment](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,9 @@
 ### [Set policies and schedules ](devtest-lab-set-lab-policy.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
+### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
+### [Add tags to a lab](devtest-lab-add-tag.md)
+### [Post announcement in a lab](devtest-lab-announcements.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
@@ -51,6 +55,9 @@
 ## Manage virtual networks
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
 ### [Select IP configuration option](devtest-lab-shared-ip.md)
+
+## Manage data disks
+### [Attach and detach data disks](devtest-lab-attach-detach-data-disk.md)
 
 ## [Scale your lab](devtest-lab-scale-lab.md)
 

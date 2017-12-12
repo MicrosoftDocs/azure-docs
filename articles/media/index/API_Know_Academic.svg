@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="-169 13 300 300" style="enable-background:new -169 13 300 300;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#0078D7;}
-	.st1{fill:#FFFFFF;}
-</style>
-<g id="BG">
-	<rect x="-169" y="13" class="st0" width="300" height="300"/>
-</g>
-<g id="ICON">
-	<polygon id="_x3C_Path_x3E_" class="st1" points="72,101.5 71.6,84.5 -32.1,84.5 -97.1,84.5 -97.1,101.5 -97.1,249.5 -65.4,205.3 
-		-32.1,249.5 -32.1,101.5 71.6,101.5 	"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>academicKnowledge-wht-bluBG-512p</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="PRODUCTION-ICONS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="academicKnowledge-wht-bluBG-512p">
+            <g id="Academic-Knowledge-API">
+                <rect id="Rectangle-3-Copy-26" fill="#0063B1" x="0" y="0" width="512" height="512"></rect>
+                <path d="M251.006293,114.180992 L81.0450489,226.547925 L156.468338,276.416725 L134.355627,327.110414 L249.79456,403.426859 L364.744249,327.44037 L346.090382,276.064014 L398.285938,241.555214 L398.285938,323.253348 L420.978916,323.253348 L420.978916,226.547925 L251.006293,114.180992 Z M122.30656,226.547925 L251.011982,141.459214 L379.723093,226.547925 L251.011982,311.648014 L122.30656,226.547925 Z M326.566116,288.972103 L337.232782,318.349525 L249.79456,376.148637 L162.85696,318.679481 L175.730916,289.159837 L251.006293,338.926237 L326.566116,288.972103 Z" id="Page-1" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
 </svg>

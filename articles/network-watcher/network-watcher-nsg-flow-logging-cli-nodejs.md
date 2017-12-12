@@ -3,7 +3,7 @@ title: Manage Network Security Group Flow logs with Azure Network Watcher - Azur
 description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI 1.0
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 

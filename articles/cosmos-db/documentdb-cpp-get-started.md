@@ -17,7 +17,7 @@ ms.date: 12/25/2016
 ms.author: aasthan
 
 ---
-# Azure Cosmos DB: C++ console application tutorial for the DocumentDB API
+# Azure Cosmos DB: C++ console application tutorial for the SQL API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -27,11 +27,12 @@ ms.author: aasthan
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
- 
 
-Welcome to the C++ tutorial for the Azure Cosmos DB DocumentDB API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-We'll cover:
+Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
+
+This quickstart covers:
 
 * Creating and connecting to an Azure Cosmos DB account
 * Setting up your application
@@ -45,20 +46,19 @@ We'll cover:
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/DocumentDBCpp). See [Get the complete solution](#GetSolution) for quick instructions.
 
-After you've completed the C++ tutorial, please use the voting buttons at the bottom of this page to give us feedback. 
-
-If you'd like us to contact you directly, feel free to include your email address in your comments or [reach out to us here](https://www.research.net/r/8BKRJ3Z). 
-
 Now let's get started!
 
 ## Prerequisites for the C++ tutorial
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
-* [Visual Studio](https://www.visualstudio.com/downloads/), with the C++ language components installed.
+* An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/), with the C++ language components installed. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 ## Step 1: Create an Azure Cosmos DB account
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupNode).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupC++).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -98,7 +98,7 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosm
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Now that you have the code to initialize the documentdb client, let's take a look at working with Azure Cosmos DB resources.
+    Now that you have the code to initialize the client, let's take a look at working with Azure Cosmos DB resources.
 
 ## <a id="CreateDBColl"></a>Step 5: Create a C++ database and collection
 Before we perform this step, let's go over how a database, collection and documents interact for those of you who are new to Azure Cosmos DB. A [database](documentdb-resources.md#databases) is a logical container of document storage portioned across collections. A [collection](documentdb-resources.md#collections) is a container of JSON documents and the associated JavaScript application logic. You can learn more about the Azure Cosmos DB hierarchical resource model and concepts in [Azure Cosmos DB hierarchical resource model and concepts](documentdb-resources.md).

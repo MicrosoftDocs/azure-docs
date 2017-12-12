@@ -1,6 +1,6 @@
 ---
 title: SQL Database Disaster Recovery Drills | Microsoft Docs
-description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills to help keep your mission critical business applications resilient to failures and outages.
+description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills.
 services: sql-database
 documentationcenter: ''
 author: anosov1960
@@ -13,7 +13,7 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.date: 07/31/2016
 ms.author: sashan
 
