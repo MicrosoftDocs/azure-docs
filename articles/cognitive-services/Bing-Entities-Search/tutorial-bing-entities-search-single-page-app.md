@@ -538,7 +538,7 @@ Leave the command window open while you use the tutorial app; closing the window
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Enti Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Bing Entity Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
 > [Bing Maps API documentation](//msdn.microsoft.com/library/dd877180.aspx)
