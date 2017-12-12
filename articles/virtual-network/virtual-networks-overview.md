@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: jdial
 
 ---
@@ -26,11 +26,11 @@ The Microsoft Azure Virtual Network service enables Azure resources to securely 
 
 To learn more about the following Azure Virtual Network capabilities, click the capability:
 - **[Isolation:](#isolation)** Virtual networks are isolated from one another. You can create separate virtual networks for development, testing, and production that use the same CIDR (10.0.0.0/0, for example) address blocks. Conversely, you can create multiple virtual networks that use different CIDR address blocks and connect the networks together. You can segment a virtual network into multiple subnets. Azure provides internal name resolution for resources deployed in a virtual network. If necessary, you can configure a virtual network to use your own DNS servers, instead of using Azure internal name resolution.
-- **[Internet communication:](#internet)** All Azure Virtual Machines and Cloud Services role instances in a virtual network have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.
+- **[Internet communication:](#internet)** Resources, such as virtual machines deployed in a virtual network, have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.
 - **[Azure resource communication:](#within-vnet)** Azure resources deployed in a virtual network can communicate with each other using private IP addresses, even if the resources are deployed in different subnets. Azure provides default routing between subnets, connected virtual networks, and on-premises networks, so you don't have to configure and manage routes. If desired, you can customize Azure's routing.
 - **[Virtual network connectivity:](#connect-vnets)** Virtual networks can be connected to each other, enabling resources in any virtual network to communicate with resources in any other virtual network.
 - **[On-premises connectivity:](#connect-on-premises)** A virtual network can be connected to an on-premises network, enabling resources to communicate between each other.
-- **[Traffic filtering:](#filtering)** Virtual machines and cloud service role instance network traffic can be filtered inbound and outbound by source IP address and port, destination IP address and port, and protocol.
+- **[Traffic filtering:](#filtering)** You can filter network traffic to and from resources in a virtual network by source IP address and port, destination IP address and port, and protocol.
 - **[Routing:](#routing)** You can optionally override Azure's default routing by configuring your own routes, or by propagating BGP routes through a network gateway.
 
 ## <a name = "isolation"></a>Network isolation and segmentation
@@ -38,7 +38,7 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Each virtual network is isolated from other virtual networks. For each virtual network you can:
 - Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space you assign.
 - Segment the virtual network into one or more subnets and allocate a portion of the virtual network's address space to each subnet.
-- Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network. To learn more about name resolution in virtual networks, see [Name resolution for VMs and Cloud Services](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
+- Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network. To learn more about name resolution in virtual networks, see [Name resolution for resources in virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
 
 ## <a name = "internet"></a>Internet communication
 All resources in a virtual network can communicate outbound to the Internet. By default, the private IP address of the resource is source network address translated (SNAT) to a public IP address selected by the Azure infrastructure. To learn more about outbound Internet connectivity, read the [Understanding outbound connections in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) article. To prevent outbound Internet connectivity, you can implement custom routes or traffic filtering.
@@ -49,7 +49,7 @@ To communicate inbound to Azure resources from the Internet, or to communicate o
 
 You can deploy virtual machines within a virtual network. Virtual machines communicate with other resources in a virtual network through a network interface. To learn more about network interfaces, see [Network interfaces](virtual-network-network-interface.md).
 
-You can also deploy several other types of Azure resources to a virtual network, such as Azure Cloud Services, Azure App Service Environments, and Azure Virtual Machine Scale Sets. For a complete list of Azure resources you can deploy into a virtual network, see [Virtual network service integration for Azure services](virtual-network-for-azure-services.md).
+You can also deploy several other types of Azure resources to a virtual network, such as Azure App Service Environments and Azure Virtual Machine Scale Sets. For a complete list of Azure resources you can deploy into a virtual network, see [Virtual network service integration for Azure services](virtual-network-for-azure-services.md).
 
 Some resources can't be deployed into a virtual network, but enable you to limit communication to resources within a virtual network only. To learn more about how to limit access to resources, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md). 
 
