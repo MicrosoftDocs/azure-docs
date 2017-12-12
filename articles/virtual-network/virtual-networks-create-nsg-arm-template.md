@@ -37,7 +37,7 @@ You can view and download the [sample template](https://raw.githubusercontent.co
 The following section shows the definition of the front-end NSG, based on the scenario.
 
 ```json
-"apiVersion": "2015-06-15",
+"apiVersion": "2017-03-01",
 "type": "Microsoft.Network/networkSecurityGroups",
 "name": "[parameters('frontEndNSGName')]",
 "location": "[resourceGroup().location]",
