@@ -164,7 +164,6 @@ DB-Disk2 (Excluded disk) | Disk2 | E:\ | Temp files
 DB-Disk3 (Excluded disk) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | User Database2
 
-
 ## Example 2: Exclude the paging file (pagefile.sys) disk
 
 Let's consider a virtual machine that has a paging file disk that can be excluded.
@@ -183,7 +182,6 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 Here are the paging file settings on the source virtual machine:
 
 ![Paging file settings on source virtual machine](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
-
 
 After failover of the virtual machine from Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
