@@ -245,6 +245,10 @@
       href: manage-azure-ssis-integration-runtime.md      
     - name: Configure Azure-SSIS integration runtime performance
       href: configure-azure-ssis-integration-runtime-performance.md
+  - name: Create triggers
+    items:
+    - name: Create a schedule trigger
+      href: how-to-create-schedule-trigger.md           
 - name: Reference
   items:
   - name: .NET
