@@ -22,25 +22,11 @@ Currently, Sentiment Analysis supports English, German, Spanish, and French. Oth
 
 ## Concepts
 
-Text Analytics uses a machine learning classification techniques algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
+Text Analytics uses a machine learning classification algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. 
 
-Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. Major phases of sentiment anlysis are described in the following sections.
+The model uses a combination of techniques during text analysis, including text processing, part-of-speech analysis, word placement, and word associations. For more information on how the model works, see [Introducing Text Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
-### Phase 1: Analyze for objectivity
-
-As a first step, documents are analyzed for objectivity. Documents consisting of predominantly objective statements are often assigned a sentiment score of .50, indicating neutrality. For example, "the sky is very blue today", which might be construed as positive if you like sunny weather, is assessed as a purely objective statement, and thus scored at .50 or neutral, by the text analyzer.
-
-### Phase 2: Assess the degree of sentiment
-
-Assuming a document is not purely objective, the next phase assigns a degree of positive or negative sentiment. If a document contains multiple sentences, a quantity of neutral sentences within the document can offset a single strongly positive statement. The following example illustrates the behavior.
-
-| Example | Score |
-|--------|-------|
-| "Roses are red." | .50 |
-| "This is wonderful!" | .93 |
-| "Roses are red. Violets are blue. Candy is sweet. And so are you. This is wonderful!" | .50 |
-
-To minimize the offsetting effects of neutral statements, try analyzing each sentence individually.
+Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. In practice, there is a tendancy for scoring accuracy to improve when documents contain one or two sentences rather than a large block of text. During an objectivity assessment phase, the model determines whether a document is mostly objective or expresses sentiment. A document that includes positive or sentiment could still score 0.5 (or in the central range) if the balance of the text is predominantly neutral.
 
 ## Preparation
 
@@ -104,13 +90,15 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 
-## Step 3: Handle results
+## Step 3: View results
 
-The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
+The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. 
+
+A score of 0.5 indicates neutrality. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
+The following example shows the response for the document collection in this article.
 
 ```
 {
