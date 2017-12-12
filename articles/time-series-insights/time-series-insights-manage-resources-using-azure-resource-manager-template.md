@@ -50,7 +50,7 @@ Install Azure PowerShell by following the instructions in [Getting started with 
 
 ### Create a template
 
-Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) template from GitHub.
+Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
 ### Create a parameters file
 
