@@ -262,49 +262,6 @@ This section describes the resulting behavior of the Copy operation for differen
 ## Supported file and compression formats
 For details, see the [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article.
 
-## Troubleshooting
-
-**Symptom:** When copying data **into** Azure Data Lake Store, if your copy activity fail with the following error:
-
-  ```
-  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
-  ```
-**Root cause:** There are 2 possible reasons:
-
-1. The `resourceGroupName` and/or `subscriptionId` specified in Azure Data Lake Store linked service is incorrect;
-2. The user or the service principal doesn't have the needed permission.
-
-**Resolution:**
-
-1. Make sure the `subscriptionId` and `resourceGroupName` you specify in the linked service `typeProperties` are indeed the ones that your data lake account belongs to.
-
-2. Make sure you grant at least "**Reader**" role to the user or service principal on the data lake account. Here is how to make it:
-
-    1. Go to Azure Portal -> your Data Lake Store account
-    2. Click "Access Control (IAM)" on the blade of the Data Lake Store
-    3. Click "Add" in the blade of "Access Control (IAM)"
-    4. Set "Role" as "Reader", and select the user or the service principal you use for copy to grant access
-
-3. If you don't want to grant "Reader" role to the user or service principal, alernative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) with the location of your Data Lake Store in copy activity. Example:
-
-    ```json
-    {
-      "name": "CopyToADLS",
-      "type": "Copy",
-      ......
-      "typeProperties": {
-        "source": {
-          "type": "<source type>"
-        },
-        "sink": {
-          "type": "AzureDataLakeStoreSink"
-        },
-        "exeuctionLocation": "West US"
-      }
-    }
-    ```
-
-
 ## JSON examples for copying data to and from Data Lake Store
 The following examples provide sample JSON definitions. You can use these sample definitions to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data to and from Data Lake Store and Azure Blob storage. However, data can be copied _directly_ from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in the [Move data by using Copy Activity](data-factory-data-movement-activities.md) article.  
 
