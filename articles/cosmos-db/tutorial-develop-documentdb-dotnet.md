@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Develop with the SQL API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
 ---
 
