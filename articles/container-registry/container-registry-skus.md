@@ -107,4 +107,4 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
-[container-registry-webhook]: container-registry-webhook
+[container-registry-webhook]: container-registry-webhook.md
