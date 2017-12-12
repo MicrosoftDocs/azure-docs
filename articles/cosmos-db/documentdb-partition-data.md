@@ -2,9 +2,8 @@
 title: Partitioning and scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
-editor: monicar
 documentationcenter: ''
 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: arramac
+ms.author: rafats
 ms.custom: H1Hack27Feb2017
 
 ---

@@ -46,13 +46,13 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 The following limitations exist when using this capability:
 
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
-* **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM.
-* **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in is expanding. Please see the Azure Virtual Networking Updates blog below for the latest information.   
-* **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3 and CentOS 7.3 (Published by “Rogue Wave Software”).
+* **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
+* **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions the capability is available in is expanding. For the latest information, see the [Azure Virtual Networking Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
+* **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3, and CentOS 7.3 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 * **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
-Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) page.
+Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) page.
 
 ## Create a Windows VM
 You can use the Azure portal or Azure [PowerShell](#windows-powershell) to create the VM.
@@ -164,7 +164,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 9. Accelerated Networking is now enabled for your VM.
 
 ## Create a Linux VM
-You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS VMs there is a different workflow.  Please see the instructions below.
+You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS instructions, see [RHEL and CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
@@ -183,7 +183,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
+    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Do not complete the following steps until after you receive an email confirmation from Microsoft that your subscription has been enabled for accelerated networking.
     - Enter the following command to confirm you are registered for the preview:
     
         ```powershell
@@ -201,7 +201,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
       >
-5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow outlined below:
+5. In your browser, copy the following script substituting Ubuntu or SLES as desired.  Again, Redhat and CentOS have a different workflow detailed in [RHEL and CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ At this point, the instructions vary based on the distribution you are using.
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. After running the script, the VM will restart after a 60 second pause.
+3. After running the script, the VM will restart after a 60-second pause.
 4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
  
  >[!NOTE]
       >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
-#### RHEL/CentOS
+#### RHEL and CentOS
 
 Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
-##### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
+##### Phase 1: Prepare a Red Hat Enterprise Linux or CentOS 7.3 base image 
 
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
@@ -352,9 +352,9 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 
 5.	From Azure portal, stop this VM; and go to VM’s "Disks", capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
  
-##### Phase two: Provision new VMs on Azure
+##### Phase 2: Provision new VMs on Azure
 
-1.	Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase one, with AcceleratedNetworking enabled on the vNIC:
+1.	Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase 1, with AcceleratedNetworking enabled on the vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,7 +394,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
@@ -430,7 +430,7 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
      -VM $VmConfig
     ```
 
-2.	After VMs boot up, check the VF device by "lspci" and check the Mellanox entry. For example, we should see this item in the lspci output:
+2.	After VMs boot up, check the VF device by "lspci" and check the Mellanox entry. For example, you should see the following text in the lspci output:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
