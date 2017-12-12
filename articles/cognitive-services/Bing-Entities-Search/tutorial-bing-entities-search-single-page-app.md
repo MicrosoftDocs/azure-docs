@@ -498,11 +498,11 @@ Our entity renderer function:
 
 > [!div class="checklist"]
 > * Builds the HTML `<img>` tag to display the image thumbnail, if any. 
-> * Builds the HTML `<a>` tags that link to the image and the page that contains it.
+> * Builds the HTML `<a>` tag that links to the page that contains the image.
 > * Builds the description that displays information about the image and the site it's on.
-> * Incorporates information about the entity using the display hints, if any
-> * Includes a link to a Bing search to get more information about the entity
-> * Displays any licensing or attribution information required by data sources
+> * Incorporates the entity's classification using the display hints, if any.
+> * Includes a link to a Bing search to get more information about the entity.
+> * Displays any licensing or attribution information required by data sources.
 
 ## Persisting client ID
 
