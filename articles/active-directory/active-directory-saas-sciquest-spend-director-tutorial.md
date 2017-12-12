@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: jeedes
 
 ---
@@ -106,11 +106,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SciQuest Spend Director Domain and URLs single sign-on information](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.sciquest.com/<instancename>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.sciquest.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.sciquest.com/<instancename>`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SciQuest Spend Director Client support team](https://www.jaggaer.com/contact-us/) to get these values. 
