@@ -1,6 +1,6 @@
 ---
-title: Create a Windows SQL Server 2017 VM in Azure | Microsoft Docs
-description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
+title: How to configure Windows SQL Server 2017 VMs in the Azure portal | Microsoft Docs
+description: This how-to guide describes your options for creating Windows SQL Server 2017 virtual machines in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,34 +9,24 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
 ---
-# Provision a Windows SQL Server virtual machine in the Azure portal
+# How to create a Windows SQL Server virtual machine in the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+This guide walks through the different options available when you create a Windows SQL Server virtual machine in the Azure portal. You can follow the steps to create your own SQL Server VM while learning about the different choices. Or, you can go to a specific section for reference on a particular step in the portal.
 
-In this quick start tutorial, you use the Azure portal to create a Windows virtual machine with SQL Server installed.
+> [!TIP]
+> To get started quickly with default portal values, see the [Azure quickstart - Create a SQL Server VM in the portal](quickstart-sql-vm-create-portal.md).
 
-In this tutorial, you will:
-
-* [Select a SQL VM image from the gallery](#select)
-* [Configure and create the VM](#configure)
-* [Open the VM with Remote Desktop](#remotedesktop)
-* [Connect to SQL Server remotely](#connect)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## <a id="select"></a> Select a SQL VM image from the gallery
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
-
-   > [!NOTE]
-   > If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 1. On the Azure portal, click **New**. The portal opens the **New** window.
 
@@ -272,19 +262,11 @@ You can monitor the deployment from the Azure portal. The **Notifications** butt
 
 Use the following steps to connect to the SQL Server virtual machine with Remote Desktop:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
 
 Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
-
-## Enable TCP/IP for Developer and Express editions
-
-When provisioning a new SQL Server VM, Azure does not automatically enable the TCP/IP protocol for SQL Server Developer and Express editions. The steps below explain how to manually enable TCP/IP so that you can connect remotely by IP address.
-
-The following steps use **SQL Server Configuration Manager** to enable the TCP/IP protocol for SQL Server Developer and Express editions.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Connect to SQL Server remotely
 
@@ -295,7 +277,7 @@ In this tutorial, we selected **Public** access for the virtual machine and **SQ
 
 The following sections show how to connect to your SQL Server instance on your VM from a different computer over the internet.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## Next Steps
 
