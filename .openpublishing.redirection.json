@@ -4421,6 +4421,176 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/create-documentdb-dotnet.md",
+            "redirect_url": "articles/cosmos-db/create-sql-api-dotnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-java.md",
+            "redirect_url": "articles/cosmos-db/create-sql-api-java.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-nodejs.md",
+            "redirect_url": "articles/cosmos-db/create-sql-api-nodejs.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-python.md",
+            "redirect_url": "articles/cosmos-db/create-sql-api-python.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
+            "redirect_url": "articles/cosmos-db/create-sql-api-xamarin-dotnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-cpp-get-started.md",
+            "redirect_url": "articles/cosmos-db/sql-api-cpp-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-application.md",
+            "redirect_url": "articles/cosmos-db/sql-api-dotnet-application.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-samples.md",
+            "redirect_url": "articles/cosmos-db/sql-api-dotnet-samples.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnetcore-get-started.md",
+            "redirect_url": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-get-started.md",
+            "redirect_url": "articles/cosmos-db/sql-api-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-index.md",
+            "redirect_url": "articles/cosmos-db/sql-api-index.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-introduction.md",
+            "redirect_url": "articles/cosmos-db/sql-api-introduction.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/community.md",
+            "redirect_url": "articles/cosmos-db/introduction.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-application.md",
+            "redirect_url": "articles/cosmos-db/sql-api-java-application.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-get-started.md",
+            "redirect_url": "articles/cosmos-db/sql-api-java-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-application.md",
+            "redirect_url": "articles/cosmos-db/sql-api-nodejs-application.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-get-started.md",
+            "redirect_url": "articles/cosmos-db/sql-api-nodejs-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-samples.md",
+            "redirect_url": "articles/cosmos-db/sql-api-nodejs-samples.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-partition-data.md",
+            "redirect_url": "articles/cosmos-db/sql-api-partition-data.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-application.md",
+            "redirect_url": "articles/cosmos-db/sql-api-python-application.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-samples.md",
+            "redirect_url": "articles/cosmos-db/sql-api-python-samples.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-resources.md",
+            "redirect_url": "articles/cosmos-db/sql-api-resources.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-changefeed.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-dotnet-changefeed.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-core.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-dotnet-core.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-dotnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-java.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-node.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-node.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-python.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sdk-python.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sql-query-metrics.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sql-query-reference.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query.md",
+            "redirect_url": "articles/cosmos-db/sql-api-sql-query.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-documentdb-dotnet.md",
+            "redirect_url": "articles/cosmos-db/tutorial-develop-sql-api-dotnet.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-global-distribution-documentdb.md",
+            "redirect_url": "articles/cosmos-db/tutorial-global-distribution-sql-api.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/documentdb/index.md",
             "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
             "redirect_document_id": false
