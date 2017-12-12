@@ -23,10 +23,10 @@ In this tutorial, you learn how to integrate Atlassian Cloud with Azure Active D
 Integrating Atlassian Cloud with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Atlassian Cloud.
-- You can enable your users to automatically get signed on to Atlassian Cloud (Single Sign-On) with their Azure AD accounts.
+- You can enable your users to be signed on automatically to Atlassian Cloud (single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -51,9 +51,7 @@ The scenario outlined in the tutorial consists of two main building blocks:
 * Configuring and testing Azure AD single sign-on
 
 ## Add Atlassian Cloud from the gallery
-To configure the integration of Atlassian Cloud with Azure AD, you need to add Atlassian Cloud from the gallery to your list of managed SaaS apps.
-
-To add Atlassian Cloud from the gallery, do the following:
+To configure the integration of Atlassian Cloud with Azure AD, add Atlassian Cloud from the gallery to your list of managed SaaS apps by doing the following:
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** button. 
 
@@ -89,7 +87,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 1. In the Azure portal, in the **Atlassian Cloud** application integration pane, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+	![Configure Single sign-on link][4]
 
 2. In the **Single sign-on** window, in the **Single Sign-on Mode** box, select **SAML-based Sign-on**.
  
@@ -110,7 +108,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 	![Atlassian Cloud domain and URLs single sign-on information](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
 	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual Identifier, Reply URL, and Sign-On URL values. You can get the real values from the Atlassian Cloud SAML Configuration screen. We explain the values later in the tutorial.
+	> The preceding values are not real. Update them with the actual identifier, reply URL, and sign-on URL values. You can get the real values from the Atlassian Cloud SAML Configuration screen. We explain the values later in the tutorial.
 
 5. Under **SAML Signing Certificate**, select **Certificate(Base64)**, and then save the certificate file on your computer.
 
@@ -124,7 +122,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 7. Select **Save**.
 
-	![The Configure Single Sign-On Save button](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
+	![The Configure single sign-on Save button](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
 8. To open the **Configure sign-on** window, in the **Atlassian Cloud Configuration** section, select **Configure Atlassian Cloud**. 
 
@@ -146,11 +144,11 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_18.png)
 
-	a. Select **Copy** to copy the value for your TXT record.
+	a. To copy the value for your text record (TXT record), select **Copy**.
 
-	b. From your DNS, go to the settings page for adding a new record.
+	b. To add a record, go to the settings page in your DNS.
 
-	c. Select the option for adding a new record, and then paste the value you copied in the **Domains** window to the **Value** field. Your DNS record might also refer to it as **Answer** or **Description**.
+	c. Select the option for adding a new record, and then paste the value that you copied in the **Domains** window to the **Value** field. Your DNS record might also refer to it as **Answer** or **Description**.
 
 	d. Your DNS record may also include the following fields:
 	
@@ -165,15 +163,17 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_19.png)	
 
 	> [!NOTE]
-	> Because it can take up to 72 hours for the TXT record changes to take effect, you won't know right away whether your domain verification was successful. Check your **Domains** window soon after you perform these steps for your verification status. You see following screen with updated status as *Verified*.
-
-	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_20.png)
+	> Because it can take up to 72 hours for the TXT record changes to take effect, you won't know right away whether your domain verification was successful. To view your verification status, check the **Domains** window soon after you've completed this procedure. The updated status will be displayed as *Verified*, as shown in the following image:
+	> 
+	> ![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_20.png)
+	> 
+	> 
 
 15.	For HTTPS verification, in the **Domains** window, select the **HTTPS** tab, and then do the following:
 
 	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_21.png)
 
-	a. Select **Download file** to download the HTML file.
+	a. To download the HTML file, select **Download file**.
 
 	b. Upload the HTML file to the root directory of your domain.
 
@@ -181,7 +181,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_22.png)
 
-17. If the verification process can locate the file that you uploaded at the root directory, the status of the domain is updated to *Verified*.
+17. If the verification process can locate the file that you uploaded at the root directory, the status of the domain is updated to *Verified*, as shown here:
 
 	![Configure single sign-on](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_23.png)
 
@@ -200,7 +200,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
     b. In the **Identity provider SSO URL** box, paste the SAML single sign-on service URL that you copied from the Azure portal.
 
-    c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value without the *Begin Certificate* and *End Certificate* lines, and then paste it in the **Public X509 certificate** box.
+    c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value (without the *Begin Certificate* and *End Certificate* lines), and then paste it in the **Public X509 certificate** box.
     
     d. Select **Save Configuration**.
      
@@ -225,7 +225,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 ### Create an Azure AD test user
 
-In this section, you create a test user in the Azure portal named Britta Simon by doing the following:
+In this section, you create test user Britta Simon in the Azure portal by doing the following:
 
    ![Create an Azure AD test user][100]
 
