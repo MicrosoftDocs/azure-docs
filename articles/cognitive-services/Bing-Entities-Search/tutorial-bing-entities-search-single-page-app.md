@@ -382,7 +382,7 @@ Errors are handled by calling `renderErrorMessage()` with any details known abou
 
 ## Displaying search results
 
-The Bing Entity Search API [requires you to display results in a specified order](useanddisplayrequirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top-level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
+The Bing Entity Search API [requires you to display results in a specified order](use-display-requirements.md). Since the API may return two different kinds of responses, it is not enough to iterate through the top-level `Entities` or `Places` collection in the JSON response and display those results. (If you want only one type of result, use the `responseFilter` query parameter.)
 
 Instead, we use the `rankingResponse` collection in the search results to order the results for display. This object refers to items in the `Entitiess` and/or `Places` collections.
 
