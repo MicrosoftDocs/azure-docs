@@ -4,7 +4,7 @@ description: How to grant permissions to your custom-developed application using
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

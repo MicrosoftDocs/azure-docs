@@ -169,7 +169,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

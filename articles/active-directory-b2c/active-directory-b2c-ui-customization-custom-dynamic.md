@@ -4,7 +4,7 @@ description: Support multiple branding experiences with HTML5/CSS content that c
 services: active-directory-b2c
 documentationcenter: ''
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 
 ms.assetid:

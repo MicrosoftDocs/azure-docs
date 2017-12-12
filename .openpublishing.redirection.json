@@ -11,6 +11,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
+        "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
@@ -7414,6 +7419,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
+            "redirect_url": "tutorial-vmware-to-vmware",
             "redirect_document_id": false
         },
 		{

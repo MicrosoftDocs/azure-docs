@@ -4,7 +4,7 @@ description: How to build an iOS application that integrates with Azure AD for s
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb

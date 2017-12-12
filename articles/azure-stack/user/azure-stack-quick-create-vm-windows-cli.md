@@ -3,18 +3,18 @@ title: Create a Windows virtual machine on Azure Stack using Azure CLI | Microso
 description: Learn how to create a Windows VM on Azure Stack using Azure CLI
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
 ---
 
@@ -94,4 +94,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quickstart, you’ve deployed a simple Windows virtual machine. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).

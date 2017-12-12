@@ -3,7 +3,7 @@ title: Build an Azure Cosmos DB .NET Framework or Core application using the Gra
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/06/2017
-ms.author: denlee
+ms.author: lbosq
 
 ---
 # Azure Cosmos DB: Build a .NET Framework or Core application using the Graph API
