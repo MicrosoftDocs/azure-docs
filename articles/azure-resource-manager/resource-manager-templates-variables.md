@@ -113,7 +113,7 @@ You retrieve the current settings with:
 
 ## Use copy element in variable definition
 
-You can use the **copy** syntax to create a variable with an array of multiple elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. Both approaches are shown in the following example:
+You can use the **copy** syntax to create a variable with an array of multiple elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays. Both approaches are shown in the following example:
 
 ```json
 "variables": {
@@ -121,7 +121,7 @@ You can use the **copy** syntax to create a variable with an array of multiple e
         "copy": [
             {
                 "name": "disks",
-                "count": 5,
+                "count": 3,
                 "input": {
                     "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
                     "diskSizeGB": "1",
@@ -133,7 +133,7 @@ You can use the **copy** syntax to create a variable with an array of multiple e
     "copy": [
         {
             "name": "disks-top-level-array",
-            "count": 5,
+            "count": 3,
             "input": {
                 "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
                 "diskSizeGB": "1",
@@ -144,7 +144,51 @@ You can use the **copy** syntax to create a variable with an array of multiple e
 },
 ```
 
-When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays.
+The variable **disk-array-on-object** contains an object with array named **disks**, as show below:
+
+```json
+{
+  "disks": [
+    {
+      "name": "myDataDisk1",
+      "diskSizeGB": "1",
+      "diskIndex": 0
+    },
+    {
+      "name": "myDataDisk2",
+      "diskSizeGB": "1",
+      "diskIndex": 1
+    },
+    {
+      "name": "myDataDisk3",
+      "diskSizeGB": "1",
+      "diskIndex": 2
+    }
+  ]
+}
+```
+
+The variable **disks-top-level-array** contains an array, as shown below:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  }
+]
+```
 
 You can also specify more than one object when using copy to create variables. The following example defines two arrays as variables. One is named **disks-top-level-array** and has five elements. The other is named **a-different-array** and has three elements.
 
@@ -177,47 +221,47 @@ This approach works well when you need to take parameter values and make sure th
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "securityRules": {
-            "type": "array"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "securityRules": {
+      "type": "array"
+    }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "securityRules",
+        "count": "[length(parameters('securityRules'))]",
+        "input": {
+          "name": "[parameters('securityRules')[copyIndex('securityRules')].name]",
+          "properties": {
+            "description": "[parameters('securityRules')[copyIndex('securityRules')].description]",
+            "priority": "[parameters('securityRules')[copyIndex('securityRules')].priority]",
+            "protocol": "[parameters('securityRules')[copyIndex('securityRules')].protocol]",
+            "sourcePortRange": "[parameters('securityRules')[copyIndex('securityRules')].sourcePortRange]",
+            "destinationPortRange": "[parameters('securityRules')[copyIndex('securityRules')].destinationPortRange]",
+            "sourceAddressPrefix": "[parameters('securityRules')[copyIndex('securityRules')].sourceAddressPrefix]",
+            "destinationAddressPrefix": "[parameters('securityRules')[copyIndex('securityRules')].destinationAddressPrefix]",
+            "access": "[parameters('securityRules')[copyIndex('securityRules')].access]",
+            "direction": "[parameters('securityRules')[copyIndex('securityRules')].direction]"
+          }
         }
-    },
-    "variables": {
-        "copy": [
-            {
-                "name": "securityRules",
-                "count": "[length(parameters('securityRules'))]",
-                "input": {
-                    "name": "[parameters('securityRules')[copyIndex('securityRules')].name]",
-                    "properties": {
-                        "description": "[parameters('securityRules')[copyIndex('securityRules')].description]",
-                        "priority": "[parameters('securityRules')[copyIndex('securityRules')].priority]",
-                        "protocol": "[parameters('securityRules')[copyIndex('securityRules')].protocol]",
-                        "sourcePortRange": "[parameters('securityRules')[copyIndex('securityRules')].sourcePortRange]",
-                        "destinationPortRange": "[parameters('securityRules')[copyIndex('securityRules')].destinationPortRange]",
-                        "sourceAddressPrefix": "[parameters('securityRules')[copyIndex('securityRules')].sourceAddressPrefix]",
-                        "destinationAddressPrefix": "[parameters('securityRules')[copyIndex('securityRules')].destinationAddressPrefix]",
-                        "access": "[parameters('securityRules')[copyIndex('securityRules')].access]",
-                        "direction": "[parameters('securityRules')[copyIndex('securityRules')].direction]"
-                    }
-                }
-            }
-        ]
-    },
-    "resources": [
-        {
-            "apiVersion": "2015-06-15",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "NSG1",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "securityRules": "[variables('securityRules')]"
-            }
-        }
-    ],
-    "outputs": {}
+      }
+    ]
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "NSG1",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "securityRules": "[variables('securityRules')]"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -236,7 +280,7 @@ These example templates demonstrate some scenarios for using variables. Deploy t
 |---------|---------|
 | [variable definitions](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstrates the different types of variables. The template does not deploy any resources. It constructs variable values and returns those values. |
 | [configuration variable](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstrates the use of a variable that defines configuration values. The template does not deploy any resources. It constructs variable values and returns those values. |
-| [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and its [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constructs an array in the correct format for assigning security rules to a network security group. |
+| [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constructs an array in the correct format for assigning security rules to a network security group. |
 
 
 ## Next steps
