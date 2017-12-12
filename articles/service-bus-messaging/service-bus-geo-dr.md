@@ -19,7 +19,7 @@ ms.author: sethm
 
 # Azure Service Bus Geo-disaster recovery
 
-When entire Azure regions or datacenters (if no [availability zones](/availability-zones/az-overview.md) are employed) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both geo-disaster recovery and geo-replication, at the namespace level. 
+When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are employed) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Service Bus supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
 The Geo-disaster recovery feature is globally available for the Service Bus Premium SKU. 
 
@@ -29,7 +29,7 @@ It's important to note the distinction between "outages" and "disasters." An *ou
 
 A *disaster* is defined as the permanent, or longer-term loss of a Service Bus cluster, Azure region, or datacenter. The region or datacenter may or may not become available again, or may be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. A disaster that becomes permanent might cause the loss of some messages, events, or other data. However, in most cases there should be no data loss and messages can be recovered once the data center is back up.
 
-The Geo-disaster recovery feature of Azure Service Bus is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages. For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/architecture/resiliency/disaster-recovery-azure-applications.md).   
+The Geo-disaster recovery feature of Azure Service Bus is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages. For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](../architecture/resiliency/disaster-recovery-azure-applications.md).   
 
 ## Basic concepts and terms
 
@@ -39,7 +39,7 @@ The following terms are used in this article:
 
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
 
--  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and does not receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must strictly use the alias. 
+-  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and does not receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
 
 -  *Metadata*: Entities such as queues, topics, and subscriptions; and their properties of the service that are associated with the namespace. Note that only entities and their settings are replicated automatically. Messages are not replicated. 
 
@@ -53,13 +53,13 @@ The following section is an overview of the failover process, and explains how t
 
 ### Setup
 
-You first create or use an existing primary namespace, and a new secondary namespace, then create a pair. This pairing gives you an alias that you can use to connect. Because you use an alias, you do not have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as very often failovers must be performed in sync with the remaining subsystem or infrastructure.
+You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you do not have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as very often failovers must be performed in sync with the remaining subsystem or infrastructure.
 
 ### Example
 
-In one example of this scenario, consider a Point of Sale (POS) solution that emits either messages or events. Service Bus passes those events to some mapping or reformatting solution, which then forwards mapped data to another system for further processing. At that point, all of these systems might be hosted in the same Azure region. The decision on when and what part to failover depends on the flow of data in your infrastructure. 
+In one example of this scenario, consider a Point of Sale (POS) solution that emits either messages or events. Service Bus passes those events to some mapping or reformatting solution, which then forwards mapped data to another system for further processing. At that point, all of these systems might be hosted in the same Azure region. The decision on when and what part to fail over depends on the flow of data in your infrastructure. 
 
-You can automate failover either with monitoring systems, or with custom-built monitoring solutions. However, such automation will take extra planning and work, which is out of the scope of this article.
+You can automate failover either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
 
 ### Failover flow
 
@@ -76,7 +76,7 @@ If you initiate the failover, two steps are required:
 
 ## Management
 
-If you made a mistake; for example you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
+If you made a mistake; for example, you paired the wrong regions during the initial setup, you can break the pairing of the two namespaces at any time. If you want to use the paired namespaces as regular namespaces, delete the alias.
 
 ## Use existing namespace as alias
 
@@ -84,12 +84,12 @@ If you have a scenario in which you cannot change the connections of producers a
 
 ## Samples
 
-The samples on GitHub show how to set up and initiate a failover. The samples demonstrate the following concepts:
+The samples on GitHub show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
-- Required settings in Azure Active Directory to use Azure Resource Manager with Service Bus. 
-- Required steps to execute the sample code. 
-- A sample app that sends and receives from the current primary namespace. 
-- A sample app that shows how to use an existing namespace as alias.
+- Settings required in Azure Active Directory to use Azure Resource Manager with Service Bus. 
+- Steps required to execute the sample code. 
+- Send and receive from the current primary namespace. 
+- How to use an existing namespace as alias.
 
 ## Considerations
 
