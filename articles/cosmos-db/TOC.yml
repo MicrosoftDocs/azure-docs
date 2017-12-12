@@ -377,7 +377,7 @@
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
     - name: Use Spring Boot Starter with SQL APIs
-      href: sql-api-java-spring-boot-starter-with-cosmos-db.md
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
 - name: Reference
   items:
   - name: Code samples

@@ -4591,6 +4591,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/tutorial-query-documentdb.md",
+            "redirect_url": "articles/cosmos-db/tutorial-query-sql-api.md.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/documentdb/index.md",
             "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
             "redirect_document_id": false
