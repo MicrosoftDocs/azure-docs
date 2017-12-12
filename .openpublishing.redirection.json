@@ -15261,7 +15261,7 @@
         },
         {
           "source_path": "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md",
-          "redirect_url": "/azure/active-directory/active-directory-how-subscriptions-associated-directory.md",
+          "redirect_url": "/azure/active-directory/active-directory-how-subscriptions-associated-directory",
           "redirect_document_id": false
         },
 	    {
