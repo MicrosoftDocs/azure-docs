@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
 ---
 
@@ -28,7 +28,7 @@ No, there are no plans to support MSI in Azure Cloud Services.
 
 ### Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
 
-No, MSI is not yet integrated with ADAL or MSAL.
+No, MSI is not yet integrated with ADAL or MSAL. For details on acquiring an MSI token using the MSI REST endpoint, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](msi-how-to-use-vm-msi-token.md).
 
 ### What are the supported Linux distributions?
 
