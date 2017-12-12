@@ -112,7 +112,7 @@ az account set --subscription $subscriptionId
 Use the following command to create a cluster quickly, by specifying minimal parameters
 
 The template that is used is available on the [azure service fabric template samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+ and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 The commands below works for creating Windows and Linux clusters, you just need to specify the OS accordingly. The powershell/ CLI commands also outputs the certificate certificate in the specified in theCertificateOutputFolder. The command takes in other parameters like VM SKU as well.
 
@@ -222,7 +222,7 @@ If this is a CA signed certificate that you will end up using for other purposes
 
 #### Use the default 5 Node 1 nodetype template that ships in the module
 The template that is used is available on the [azure samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+ and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```Powershell
 $resourceGroupLocation="westus"
@@ -692,7 +692,7 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
+[azure-classic-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
