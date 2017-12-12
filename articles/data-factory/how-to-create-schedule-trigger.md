@@ -61,7 +61,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     
     In the JSON snippet: 
     - The **type** of the trigger is set to **ScheduleTrigger**. 
-    - The **frequency** is set to **Minute** and **interval** is set to **15**, so the trigger runs the pipeline every 15 minutes between the start and end times. 
+    - The **frequency** is set to **Minute** and **interval** is set to **15**. Therefore, the trigger runs the pipeline every 15 minutes between the start and end times. 
     - The **endTime** is one hour after the **startTime**, so the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the startTime. Do not forget to update the startTime to the current UTC time and endTime to one hour past the startTime.  
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections. 
     - The pipeline in the quickstart takes two **parameters**. Therefore, you pass values for those parameters from the trigger. 
