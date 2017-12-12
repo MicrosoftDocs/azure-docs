@@ -6,14 +6,14 @@ metadata:
   title: Azure Automation Documentation - Tutorials, API Reference
   description: Learn how to use Azure automation
   services: automation
-  author: carolz
-  manager: carolz
+  author: georgewallace
+  manager: carmonm
   ms.service: automation
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 10/02/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment. Tutotorials, API references, and other documenation show you how to automate processes, perform update management, develier desired state configuraiton, track changes, and collect inventory.
 sections:
@@ -27,15 +27,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/automation/media/index/automation.svg
       text: Create Account
-      href: ""
-    - image: 
-        src: https://review.docs.microsoft.com/azure/automation/media/index/runbook.svg?branch=pr-en-us-29632
-      text: Create Runbook
-      href: ""
-    - image: 
-        src: https://review.docs.microsoft.com/azure/automation/media/index/dsc.svg?branch=pr-en-us-29632
-      text: OS Configuration
-      href: ""
+      href: "/azure/automation/first-textual-runbook"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -44,12 +36,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Configure Watcher Tasks</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Updates</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Configure LAMP</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify installed software</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Troubleshoot changes</a>
     - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Create runbooks for Azure alerts</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
