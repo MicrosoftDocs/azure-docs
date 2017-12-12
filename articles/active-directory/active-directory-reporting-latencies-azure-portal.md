@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
 
@@ -34,13 +34,15 @@ There are two areas of activity reporting:
 
 The following table lists the latency information for activity reports.
 
-| Report | Minimum | Average | Maximum |
-| :-- | --- | --- | --- |
-| Audit logs             | 30 minutes  | 1 hour | 2 hours     |
-| Sign-ins               | 15 minutes  | 2 hours* | 24 hours  |
+| Report | Minimum | Average |
+| :-- | --- | --- |
+| Audit logs | 30 minutes  | 1 hour  |
+| Sign-ins | 15 minutes  | 2 hours |
 
->[!NOTE]
-> For some sign-ins activity data coming from legacy office applications, it can take to 8 hours for the reporting data to show up. 
+In some edge cases, it can take:
+
+- 2 hours for audit activity data to show up.
+- 24 hours for sign-in activity data to show up. This includes sign-ins activity data coming from legacy office applications. 
 
 
 ## Security reports
