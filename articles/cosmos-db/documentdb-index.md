@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: SQL API articles | Microsoft Docs'
 description: A list of all the articles specific to creating document databases with the SQL API in Azure Cosmos DB. 
 services: cosmos-db
-author: rafats
+author: mimig1
 manager: jhubbard
 documentationcenter: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
-ms.author: rafats
+ms.author: mimig
 
 ---
 # Azure Cosmos DB: SQL API documentation
