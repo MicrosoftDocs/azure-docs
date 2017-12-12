@@ -80,7 +80,7 @@ Media Services supports two types of locators: OnDemandOrigin locators, used to 
 All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## Jobs and tasks
-A [job](https://https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
+A [job](https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
 
 A job contains metadata about the processing to be performed. Each job contains one or more [task](https://docs.microsoft.com/rest/api/media/operations/task)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
@@ -148,10 +148,9 @@ The content key authorization policy could have one or more authorization restri
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 For more information, see the following articles:
-
-[Protect content overview](media-services-content-protection-overview.md)
-[Protect with AES-128](media-services-protect-with-aes128.md)
-[Protect with DRM](media-services-protect-with-drm.md)
+- [Protect content overview](media-services-content-protection-overview.md)
+- [Protect with AES-128](media-services-protect-with-aes128.md)
+- [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering
 ### <a id="dynamic_packaging"></a>Dynamic packaging

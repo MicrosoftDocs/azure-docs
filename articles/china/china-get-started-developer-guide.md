@@ -59,7 +59,7 @@ See also:
 | Azure storage                         | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net                                            | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn                                                           |
 | Azure service management              | https://management.core.windows.net                                                                                     | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/)                                                                 |
 | Azure Resource Manager          | [https://management.azure.com](https://management.azure.com/)                                                           | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/)                                                                           |
-| Azure management portal               | [http://manage.windowsazure.com](http://manage.windowsazure.com/) [https://portal.azure.com](https://portal.azure.com/) | [http://manage.windowsazure.cn](http://manage.windowsazure.cn/) [https://portal.azure.cn](https://portal.azure.cn/)                                   |
+| Azure management portal               | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/)                                   |
 | SQL Database                          | \*.database.windows.net                                                                                                 | \*.database.chinacloudapi.cn                                                                                                                          |
 | SQL Azure DB management API           | [https://management.database.windows.net](https://management.database.windows.net/)                                     | [https://management.database.chinacloudapi.cn](https://management.database.chinacloudapi.cn/)                                                         |
 | Azure Service Bus                     | \*.servicebus.windows.net                                                                                               | \*.servicebus.chinacloudapi.cn                                                                                                                        |
@@ -80,4 +80,4 @@ See also:
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
 - [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
 - [Manage performance and connectivity](/azure/china/china-how-to-manage-performance)
-- [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)

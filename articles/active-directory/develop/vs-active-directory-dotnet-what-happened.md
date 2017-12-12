@@ -4,7 +4,7 @@ description: Describes what happens to your MVC project when you connect to Azur
 services: active-directory
 documentationcenter: na
 author: kraigb
-manager: ghogen
+manager: mtillman
 editor: ''
 
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216

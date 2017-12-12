@@ -32,8 +32,8 @@ You can follow the steps below using a Mac, Windows, or Linux machine. Once the 
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install Node.js and NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://nodejs.org/" target="_blank">Install Node.js and NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

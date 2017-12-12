@@ -3,7 +3,7 @@ title: Connect Windows computers to Azure Log Analytics | Microsoft Docs
 description: This article shows the steps to connect the Windows computers in your on-premises infrastructure to the Log Analytics service by using a customized version of the Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -24,7 +24,7 @@ This article shows the steps to connect Windows computers in your on-premises in
 You can install agents using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation.  
 
 >[!NOTE]
-For virtual machines running in Azure, you can simplify installation by using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+For virtual machines running in Azure, you can simplify installation by using the [virtual machine extension](../virtual-machines/windows/extensions-oms.md).
 
 On computers with Internet connectivity, the agent uses the connection to the Internet to send data to OMS. For computers that do not have Internet connectivity, you can use a proxy or the [OMS Gateway](log-analytics-oms-gateway.md).
 

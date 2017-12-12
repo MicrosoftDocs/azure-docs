@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 
 ---

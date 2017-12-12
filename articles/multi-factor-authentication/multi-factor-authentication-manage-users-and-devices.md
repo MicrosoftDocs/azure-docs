@@ -4,7 +4,7 @@ description: This describes how to change user settings such as forcing the user
 documentationcenter: ''
 services: multi-factor-authentication
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud
