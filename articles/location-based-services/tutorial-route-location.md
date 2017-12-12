@@ -76,7 +76,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
 
-    ```javascript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -87,7 +87,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 4. Add the following JavaScript code to the *script* block. This adds a layer of *linestrings* to the Map Control to show the route:
 
-    ```javascript
+    ```JavaScript
     // Initialize the linestring layer for routes on the map
     var routeLinesLayerName = "routes";
     map.addLinestrings([], {
@@ -102,7 +102,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 5. Add the following JavaScript code to create start and end points for the route:
 
-    ```javascript
+    ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
     var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
     var startPin = new atlas.data.Feature(startPoint, {
@@ -120,7 +120,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 6. Add the following JavaScript code to add the pins for the start and end points to the map:
 
-    ```javascript
+    ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
     var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
     var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
@@ -150,7 +150,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
 1. Open the **MapRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to illustrate the Route Service.
 
-    ```javascript
+    ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -173,7 +173,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
 2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Location Based Services' Route Service:
 
-    ```javascript
+    ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
     url += "&subscription-key=" + subscriptionKey;
