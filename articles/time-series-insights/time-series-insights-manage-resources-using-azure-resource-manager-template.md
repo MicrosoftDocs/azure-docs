@@ -26,7 +26,7 @@ Time Series Insights supports the following resources:
    | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
--[Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview#template-deployment.md)
+-[Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
 -[Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
@@ -533,7 +533,7 @@ Outputs                 :
 
 ## Deploy the quickstart template through the Azure portal
 
-The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](time-series-insights-manage-resources-using-azure-resource-manager-template#required-parameters) or [optional parameters](time-series-insights-manage-resources-using-azure-resource-manager-template#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
+The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) or [optional parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
