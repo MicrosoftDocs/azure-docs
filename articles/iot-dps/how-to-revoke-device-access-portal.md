@@ -83,7 +83,7 @@ An enrollment group is an entry for devices that share a common attestation mech
 
 ## Blacklist specific devices in an enrollment group
 
-Devices that implement the X.509 attestation mechanism use the device certificate and private key installed during manufacturing to generate the X.509 certificates that they authenticate with. When a device connects and authenticates with the Device Provisioning Service, the service first looks for an individual enrollment matching the device's credentials before searching enrollment groups to determine whether the device can be provisioned. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting, even if an enabled enrollment group for an intermediate or root CA in the device's certificate chain exists. To blacklist an individual device in an enrollment group, follow these steps:
+Devices that implement the X.509 attestation mechanism use the device's certificate chain and private key to authenticate. When a device connects and authenticates with the Device Provisioning Service, the service first looks for an individual enrollment matching the device's credentials before searching enrollment groups to determine whether the device can be provisioned. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting, even if an enabled enrollment group for an intermediate or root CA in the device's certificate chain exists. To blacklist an individual device in an enrollment group, follow these steps:
 
 1. Log in to the Azure portal and click **All resources** from the left hand menu.
 2. From the list of resources, click the provisioning service that contains the enrollment group for the device you want to blacklist.

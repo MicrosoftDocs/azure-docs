@@ -46,7 +46,7 @@ TPM can refer to a standard for securely storing keys used to authenticate the p
 
 ### Endorsement key
 
-The endorsement key is an asymmetric key contained inside the TPM which was injected at manufacturing time and is unique for every TPM. The endorsement key cannot be changed or removed. The private portion of the endorsement key is never released outside of the TPM, while the public portion of the endorsement key is used to recognize a genuine TPM. Learn more about the [endorsement key](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+The endorsement key is an asymmetric key contained inside the TPM which was internally generated or injected at manufacturing time and is unique for every TPM. The endorsement key cannot be changed or removed. The private portion of the endorsement key is never released outside of the TPM, while the public portion of the endorsement key is used to recognize a genuine TPM. Learn more about the [endorsement key](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
 ### Storage root key
 
@@ -60,13 +60,18 @@ Often the certificate chain represents some logical or physical hierarchy associ
 
 ### Root certificate
 
-A root certificate is a type of X.509 certificate representing a certificate authority and is self-signed. It is the terminus of the certificate chain.
+A root certificate is a self-signed X.509 certificate representing a certificate authority (CA). It is the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. To learn more, see [Get X.509 CA certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). The root certificate can also be referred to as a root CA certificate.
 
 ### Intermediate certificate
 
-An intermediate certificate is an X.509 certificate which has been signed by the root certificate (or by another certificate with the root certificate in its chain) and which is used to sign the leaf certificate.
+An intermediate certificate is an X.509 certificate which has been signed by the root certificate (or by another intermediate certificate with the root certificate in its chain). The last intermediate certificate in a chain is used to sign the leaf certificate. An intermediate certificate can also be referred to as an intermediate CA certificate.
 
 ### Leaf certificate
 
-A leaf certificate, or end-entity certificate, is used to identify the certificate holder and it has the root certificate in its certificate chain. The leaf certificate is not used to sign any other certificates.
+The leaf certificate, or end-entity certificate, identifies the certificate holder. It has the root certificate in its certificate chain as well as zero or more intermediate certificates. The leaf certificate is not used to sign any other certificates.
+
+### Device certificate
+
+A device certificate is the end-entity certificate in the certificate chain associated with an IoT Hub device. It uniquely identifies the device to the provisioning service. During authentication, the device uses the private key associated with the device certificate to respond to a proof of possession challenge from the service. To learn more, see [Authenticating devices signed with X.509 CA certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+
 
