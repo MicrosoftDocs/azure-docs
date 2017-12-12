@@ -5,7 +5,9 @@ In this section you create a new project to demonstrate how to integrate a Windo
 
 The application that you create with this guide exposes a button to graph and show on-screen results and a sign-out button.
 
+> [!NOTE]
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
+>
 
 To create your application, do the following:
 1. In Visual Studio, select **File** > **New** > **Project**.
@@ -21,7 +23,7 @@ To create your application, do the following:
     ```
 
     > [!NOTE] 
-    > The previously mentioned package installs Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching, and refreshing user tokens that are used to access the APIs that are protected by Azure Active Directory v2.
+    > The previously mentioned package installs Microsoft Authentication Library. MSAL handles acquiring, caching, and refreshing user tokens that are used to access the APIs that are protected by Azure Active Directory v2.
     >
 
 ## Add the code to initialize MSAL
@@ -51,7 +53,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
 ## Create the application UI
 This section shows how an application can query a protected back-end server such as Microsoft Graph. 
 
-A *MainWindow.xaml* file should automatically be created as a part of your project template. Open this file, and then replace your application's *\<Grid>* node with the following:
+A *MainWindow.xaml* file should automatically be created as a part of your project template. Open this file, and then replace your application's *\<Grid>* node with the following code:
 
 ```xml
 <Grid>
