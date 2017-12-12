@@ -1,6 +1,6 @@
 ---
-title: Run custom map/reduce programs - Azure HDInsight | Microsoft Docs
-description: When and how to run custom map/reduce programs in HDInsight.
+title: Run custom MapReduce programs - Azure HDInsight | Microsoft Docs
+description: When and how to run custom MapReduce programs in HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: ashishthaps
@@ -18,7 +18,7 @@ ms.date: 12/04/2017
 ms.author: ashishth
 
 ---
-# Run custom map/reduce programs
+# Run custom MapReduce programs
 
 Hadoop-based big data systems such as HDInsight enable data processing using a wide range of tools and technologies. The following table describes the main advantages and considerations for each one.
 
@@ -28,7 +28,6 @@ Hadoop-based big data systems such as HDInsight enable data processing using a w
 | **Pig using Pig Latin** | <ul><li>An excellent solution for manipulating data as sets, merging and filtering datasets, applying functions to records or groups of records, and for restructuring data by defining columns, by grouping values, or by converting columns to rows.</li><li>It can use a workflow-based approach as a sequence of operations on data.</li></ul> | <ul><li>SQL users may find Pig Latin is less familiar and more difficult to use than HiveQL.</li><li>The default output is usually a text file and so can be more difficult to use with visualization tools such as Excel. Typically you will layer a Hive table over the output.</li></ul> |
 | **Custom map/reduce** | <ul><li>It provides full control over the map and reduce phases and execution.</li><li>It allows queries to be optimized to achieve maximum performance from the cluster, or to minimize the load on the servers and the network.</li><li>The components can be written in a range of well-known languages.</li></ul> | <ul><li>It is more difficult than using Pig or Hive because you must create your own map and reduce components.</li><li>Processes that require joining sets of data are more difficult to implement.</li><li>Even though there are test frameworks available, debugging code is more complex than a normal application because the code runs as a batch job under the control of the Hadoop job scheduler.</li></ul> |
 | **HCatalog** | <ul><li>It abstracts the path details of storage, making administration easier and removing the need for users to know where the data is stored.</li><li>It enables notification of events such as data availability, allowing other tools such as Oozie to detect when operations have occurred.</li><li>It exposes a relational view of data, including partitioning by key, and makes the data easy to access.</li></ul> | <ul><li>It supports RCFile, CSV text, JSON text, SequenceFile, and ORC file formats by default, but you may need to write a custom SerDe for other formats.</li><li>HCatalog is not thread-safe.</li><li>There are some restrictions on the data types for columns when using the HCatalog loader in Pig scripts. For more information, see [HCatLoader Data Types](http://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) in the Apache HCatalog documentation.</li></ul> |
-| **Apache Spark** | <ul><li>One execution model for multiple tasks: Apache Spark uses a common execution model for doing multiple tasks such as ETL, batch queries, interactive queries, real-time streaming, machine learning, and graph processing on data stored in Azure Storage.</li><li>In-memory processing for interactive scenarios: Apache Spark persists data in-memory and disk as needed to achieve up to 100x faster queries when processing large datasets in Hadoop. This makes Spark for Azure HDInsight ideal to speed up intensive big data applications.</li><li>Developer friendly: Spark supports a variety of development languages like Java, Python, and Scala APIs to ease development. Developers can write sophisticated parallel applications using a collection of over 80 operators.</li></ul> | <ul><li>Does not handle a large number of small files well.</li><li>Requires more compute power compared to some other options, due to in-memory processing. The need for extra RAM could cause Spark solutions to be more costly, depending upon the nature of your data.</li></ul> |
 
 Typically, you use the simplest of these approaches that can provide the results you require. For example, you may be able to achieve such results by using just Hive, but for more complex scenarios you may need to use Pig, or even write your own map and reduce components. You may also decide, after experimenting with Hive or Pig, that custom map and reduce components can provide better performance by allowing you to fine-tune and optimize the processing.
 

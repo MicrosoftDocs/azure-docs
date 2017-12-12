@@ -100,6 +100,8 @@
       href: submit-apache-hadoop-jobs-programmatically.md
   - name: Develop
     items:
+    - name: Run custom MapReduce programs
+      href: apache-hadoop-run-custom-programs.md
     - name: Develop C# streaming MapReduce programs
       href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
     - name: Develop Java MapReduce programs
