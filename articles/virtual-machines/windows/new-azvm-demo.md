@@ -20,9 +20,9 @@ ROBOTS: NOINDEX
 
 ---
 
-# Create a Windows virtual machine with the simplfied New-AzureRMVM cmdlet in Cloud Shell 
+# Create a Windows virtual machine with the simplified New-AzureRMVM cmdlet in Cloud Shell 
 
-The [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet has added a simplified set of parameters for creating a new VM using PowerShell. This article shows you how to use PowerShell in Azure Cloud Shell, with the latest version of the New-AzureVM cmdlet preinstalled, to create a new VM. We will use a simplified parameter set that automatically creates all the necessary resources using smart defaults. 
+The [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet has added a simplified set of parameters for creating a new VM using PowerShell. This topic shows you how to use PowerShell in Azure Cloud Shell, with the latest version of the New-AzureVM cmdlet preinstalled, to create a new VM. We will use a simplified parameter set that automatically creates all the necessary resources using smart defaults. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -61,7 +61,7 @@ Get-AzureRmPublicIpAddress `
 	-ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-On your local machine, open a cmd prompt and use the **mstsc** command to start an remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
+On your local machine, open a cmd prompt and use the **mstsc** command to start a remote desktop session with your new VM. Replace the &lt;publicIPAddress&gt; with the IP address of your virtual machine. When prompted, enter the username and password you gave your VM when it was created.
 
 ```
 mstsc /v:<publicIpAddress>
