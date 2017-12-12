@@ -44,11 +44,11 @@ Device secrets may also be stored in software (memory), but it is a less secure 
 
 TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Device Provisioning Service only supports TPM 2.0.
 
-## Endorsement key
+### Endorsement key
 
 The endorsement key is an asymmetric key contained inside the TPM which was injected at manufacturing time and is unique for every TPM. The endorsement key cannot be changed or removed. The private portion of the endorsement key is never released outside of the TPM, while the public portion of the endorsement key is used to recognize a genuine TPM. Learn more about the [endorsement key](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-## Storage root key
+### Storage root key
 
 The storage root key is stored in the TPM and is used to protect TPM keys created by applications, so that these keys cannot be used without the TPM. The storage root key is generated when you take ownership of the TPM; when you clear the TPM so a new user can take ownership, a new storage root key is generated. Learn more about the [storage root key](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
@@ -58,14 +58,15 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 
 Often the certificate chain represents some logical or physical hierarchy associated with devices. For example, a manufacturer may issue a self-signed root CA certificate, use that certificate to generate a unique intermediate CA certificate for each factory, use each factory's certificate to generate a unique intermediate CA certificate for each production line in the plant, and finally use the production line certificate to generate a unique device (end-entity) certificate for each device manufactured on the line. To learn more, see [Conceptual understanding of X.509 CA certificates in the IoT industry](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
 
-## Root certificate
+### Root certificate
 
 A root certificate is a type of X.509 certificate representing a certificate authority and is self-signed. It is the terminus of the certificate chain.
 
-## Intermediate certificate
+### Intermediate certificate
 
 An intermediate certificate is an X.509 certificate which has been signed by the root certificate (or by another certificate with the root certificate in its chain) and which is used to sign the leaf certificate.
 
-## Leaf certificate
+### Leaf certificate
 
 A leaf certificate, or end-entity certificate, is used to identify the certificate holder and it has the root certificate in its certificate chain. The leaf certificate is not used to sign any other certificates.
+
