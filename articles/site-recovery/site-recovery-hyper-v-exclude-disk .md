@@ -1,6 +1,6 @@
 ---
 title: Exclude disks from protection by using Azure Site Recovery | Microsoft Docs
-description: Describes why and how to exclude VM disks from replication for VMware to Azure.
+description: Describes why and how to exclude VM disks from replication for Hyper-V to Azure.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -18,17 +18,12 @@ ms.author: nisoneji
 
 ---
 # Exclude disks from replication
-This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. 
+This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize.
 
 ## Supported scenarios
 **Feature** | **VMware to Azure** | **Hyper-V to Azure** | **Azure to Azure**| **Hyper-V to Hyper-V** 
 --|--|--|--|--
 Exclude disk | Yes | Yes | No | No
-
-## Prerequisites
-
-By default, all disks on a machine are replicated. To exclude a disk from replication, you must manually install the Mobility service on the machine before you enable replication if you are replicating from VMware to Azure.
-
 
 ## Why exclude disks from replication?
 Excluding disks from replication is often necessary because:
@@ -43,28 +38,22 @@ You can identify specific examples of data churn that are great candidates for e
 1. Split the single virtual disk into two virtual disks. One virtual disk has the operating system, and the other has the paging file.
 2. Exclude the paging file disk from replication.
 
-Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb fie and the system database file:
+Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb file and the system database file:
 
 1. Keep the system database and tempdb on two different disks.
 2. Exclude the tempdb disk from replication.
 
-## How to exclude disks from replication?
+## How to Exclude disks in Hyper-V to Azure scenario
+Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
 
-Follow the [Enable replication](site-recovery-vmware-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
-
-![Exclude disks from replication and enable replication for VMware to Azure failback](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![Exclude disks from replication and enable replication for Hyper-V to Azure failback](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * You can exclude only disks that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed by using the push mechanism after replication is enabled.
-> * Only basic disks can be excluded from replication. You can't exclude operating system or dynamic disks.
-> * After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then enable it again.
-> * If you exclude a disk that's needed for an application to operate, after failover to Azure, you’ll need to create the disk manually in Azure so that the replicated application can run. Alternatively, you can integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-> * Window virtual machine: Disks that you create manually in Azure are not failed back. For example, if you fail over three disks and create two disk directly in Azure Virtual Machines, only three disks that were failed over are failed back. You can't include disks that you created manually in failback or in reprotect from on-premises to Azure.
-> * Linux virtual machine: Disks that you create manually in Azure are failed back. For example, if you fail over three disks and create two disks directly in Azure Virtual Machines, all five will be failed back. You can't exclude disks that were created manually from failback.
->
-
+> * You can exclude only basic disks from replication. You can't exclude operating system disks. We recommend that you do not exclude dynamic disks. Azure Site Recovery cannot identify which virtual hard disk (VHD) is basic or dynamic in the guest virtual machine.  If all dependent dynamic volume disks are not excluded, the protected dynamic disk becomes a failed disk on a failover virtual machine, and the data on that disk is not accessible.
+> * After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the virtual machine and then enable it again.
+> * If you exclude a disk that's needed for an application to operate, after failover to Azure you need to create the disk manually in Azure so that the replicated application can run. Alternatively, you can integrate Azure automation into a recovery plan to create the disk during failover of the machine.
+> * Disks that you create manually in Azure will not be failed back. For example, if you fail over three disks and create two disks directly in Azure Virtual Machines, only three disks that were failed over will be failed back from Azure to Hyper-V. You can't include disks that were created manually in failback or in reverse replication from Hyper-V to Azure.
 
 ## End-to-end scenarios of exclude disks
 Let's consider two scenarios to understand the exclude disk feature:
@@ -72,7 +61,7 @@ Let's consider two scenarios to understand the exclude disk feature:
 - SQL Server tempdb disk
 - Paging file (pagefile.sys) disk
 
-## Example 1: Exclude the SQL Server tempdb disk
+## Excample 1: Exclude the SQL Server tempdb disk
 Let's consider a SQL Server virtual machine that has a tempdb that can be excluded.
 
 The name of the virtual disk is SalesDB.
@@ -112,7 +101,7 @@ There are two ways to create this path:
 
 1. Write down the paths of SQL tempdb.mdf and tempdb.ldf before failover.
 2. From the Azure portal, add a new disk to the failover virtual machine with the same or more size as that of the source SQL tempdb disk (Disk3).
-3. Sign in to the Azure virtual machine. From the disk management (diskmgmt.msc) console, initialize and format the newly added disk.
+3. Sign in to the Azure virtual machine. From the disk management (diskmgmt.msc) console, initialize, and format the newly added disk.
 4. Assign the same drive letter that was used by the SQL tempdb disk (F:).
 5. Create a tempdb folder on the F: volume (F:\MSSQL\Data).
 6. Start the SQL service from the service console.
@@ -150,7 +139,7 @@ Refer to the following Azure guideline for temporary storage disk:
 * [Performance best practices for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## Failback (from Azure to an on-premises host)
-Now let's understand the disks that are replicated when you fail over from Azure to your on-premises VMware. Disks that you create manually in Azure will not be replicated. For example, if you fail over three disks and create two directly in Azure Virtual Machines, only three disks that were failed over will be failed back. You can't include disks that were created manually in failback or in reprotect from on-premises to Azure. It also does not replicate the temporary storage disk to on-premises hosts.
+Now let's understand the disks that are replicated when you fail over from Azure to your on-premises Hyper-V host. Disks that you create manually in Azure will not be replicated. For example, if you fail over three disks and create two directly in Azure Virtual Machines, only three disks that were failed over will be failed back. You can't include disks that were created manually in failback or in reprotect from on-premises to Azure. It also does not replicate the temporary storage disk to on-premises hosts.
 
 ### Failback to original location recovery
 
@@ -163,15 +152,18 @@ Disk1 |	E:\ | Temporary storage</br /> </br />Azure adds this disk and assigns t
 Disk2 |	D:\ | SQL system database and User Database1
 Disk3 |	G:\ | User Database2
 
-When failback is done to the original location, the failback virtual machine disk configuration does not have excluded disks. Disks that were excluded from VMware to Azure  will not be available on the failback virtual machine.
+When failback is to the original location, the failback virtual machine disk configuration remains the same as that of original virtual machine disk configuration for Hyper-V. Disks that were excluded from Hyper-V site to Azure are available on the failback virtual machine.
 
-After planned failover from Azure to on-premises VMware, disks on the VMWare virtual machine (original location) are as follows:
+After planned failover from Azure to on-premises Hyper-V, disks on the Hyper-V virtual machine (original location) are as follows:
 
-**Guest operating system disk#** | **Drive letter** | **Data type on the disk**
---- | --- | ---
-DISK0 | C:\ | Operating system disk
-Disk1 |	D:\ | SQL system database and User Database1
-Disk2 |	G:\ | User Database2
+**Disk Name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |	C:\ | Operating system disk
+DB-Disk1 | Disk1 | D:\ | SQL system database and User Database1
+DB-Disk2 (Excluded disk) | Disk2 | E:\ | Temp files
+DB-Disk3 (Excluded disk) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\)
+DB-Disk4 | Disk4 | G:\ | User Database2
+
 
 ## Example 2: Exclude the paging file (pagefile.sys) disk
 
@@ -193,7 +185,7 @@ Here are the paging file settings on the source virtual machine:
 ![Paging file settings on source virtual machine](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
+After failover of the virtual machine from Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
@@ -223,7 +215,7 @@ Here are the paging file settings on the on-premises virtual machine:
 
 ![Paging file settings on the on-premises virtual machine](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
+After failover of the virtual machine from Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
 **Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
