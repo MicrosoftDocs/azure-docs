@@ -1,6 +1,6 @@
 ---
-title: Log alerts in Azure Monitor for Azure services - Alerts (Preview) | Microsoft Docs
-description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met for Azure Alerts (Preview).
+title: Log alerts in Azure Monitor - Alerts (Preview) | Microsoft Docs
+description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the complex query conditions you specify are met for Azure Alerts (Preview).
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/12/2017
 ms.author: vinagara
 
 ---
-# Log alerts in Azure Monitor for Azure services - Alerts (Preview)
+# Log alerts in Azure Monitor - Alerts (Preview)
 This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules.
-Currently Azure Alerts (Preview), only supports log alerts based on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)
+Currently Azure Alerts (Preview), only supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) written in [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md)
 
 > [!WARNING]
 > Azure Alerts (Preview) - Log Alerts, currently doesn't support cross-workspace or cross-app queries. 
@@ -90,6 +90,6 @@ In this example, separate alerts would be created for srv02 and srv03 since they
 
 
 ## Next steps
-* [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified.md) including the types of information you can collect and monitor.
+* [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified-alerts.md) 
 * Learn about [Using Azure Alerts (preview)](monitor-alerts-unified-usage.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
