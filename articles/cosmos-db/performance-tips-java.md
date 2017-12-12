@@ -102,7 +102,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 7. **Use name based addressing**
 
-    Use name-based addressing, where links have the format dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId, instead of SelfLinks (_self), which have the format dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>” to avoid caching _rid values.  
+    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid caching _rid values.  
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
