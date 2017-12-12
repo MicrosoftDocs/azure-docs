@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/02/2017
+ms.date: 12/12/2017
 ms.author: iainfou
 ---
 
