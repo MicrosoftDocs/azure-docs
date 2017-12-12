@@ -5,7 +5,7 @@ services: active-directory
 keywords:
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 
 ms.assetid:

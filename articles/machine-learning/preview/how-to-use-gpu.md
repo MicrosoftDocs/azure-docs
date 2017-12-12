@@ -62,7 +62,7 @@ Azure ML Workbench also support execution in Docker in an Azure Linux VM. Here y
 When selecting the location for your VM, note that GPU VMs are only available in certain Azure regions, for example, **South Central US**. See [compute products available by region](https://azure.microsoft.com/en-us/regions/services/).
 Click OK to save the **Basics** information.
 
-6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips.  Click **View All** to see the full list as needed. Learn more about [GPU-equipped Azure VMs](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Finish the remaining settings and review the purchase information. Click Purchase to Create the VM. Take note of the IP address allocated to the virtual machine. 
 
@@ -114,7 +114,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

@@ -128,7 +128,7 @@ For information about passing PSCredentials as parameters, see <a href="#credent
 
 ## Composite Resources
 
-**Composite Resources** allow you to use DSC configurations as nested resources inside of a configuration.  This enables you to apply multiple configurations to a single resource.  See [Composite resources: Using a DSC configuration as a resource](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) to learn more about **Composite Resources**
+**Composite Resources** allow you to use DSC configurations as nested resources inside of a configuration.  This enables you to apply multiple configurations to a single resource.  See [Composite resources: Using a DSC configuration as a resource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) to learn more about **Composite Resources**
 
 > [!NOTE]
 > In order for **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first installed in the Azure Automation Account Modules repository or it will not import properly.

@@ -3,8 +3,8 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Install and configure CLI for use with Azure Stack
@@ -143,7 +143,7 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Sign in as a *user*: You can either specify the username and password directly within the `az login` command or authenticate by using a browser. You have to do the latter if your account has multi-factor authentication enabled.
 
@@ -193,4 +193,3 @@ There are some known issues that you must be aware of when using CLI in Azure St
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
 [Manage user permissions](azure-stack-manage-permissions.md)
-

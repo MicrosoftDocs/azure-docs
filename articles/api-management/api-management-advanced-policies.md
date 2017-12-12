@@ -238,7 +238,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Attribute|Description|Required|Default|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|No timeout|  
+|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|300 seconds|  
 |follow-redirects="true &#124; false"|Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.|No|false|  
   
 ### Usage  
