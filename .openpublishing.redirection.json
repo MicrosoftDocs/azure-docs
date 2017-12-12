@@ -6526,6 +6526,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/dns/dns-getstarted-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-getstarted-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/dns/dns-operations-dnszones-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-operations-dnszones-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/dns/dns-operations-recordsets-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-operations-recordsets-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-accelerated-networking-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
             "redirect_document_id": false
