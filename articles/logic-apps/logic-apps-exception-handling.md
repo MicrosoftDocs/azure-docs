@@ -19,13 +19,13 @@ ms.author: LADocs; deli
 ---
 # Handle errors and exceptions in Logic Apps
 
-Logic Apps in Azure provide rich tools and patterns to help you ensure that your integrations are robust and resilient against failures. Any integration architecture poses the challenge of appropriately handling downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience. It gives you the tools you need to act on exceptions and errors in your workflows.
+Logic Apps in Azure provides rich tools and patterns to help you ensure that your integrations are robust and resilient against failures. Any integration architecture poses the challenge of appropriately handling downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience. It gives you the tools you need to act on exceptions and errors in your workflows.
 
 ## Retry policies
 
 A retry policy is the most basic type of exception and error handling. If an initial request times out or fails (any request that results in a 429 or 5xx response), a retry policy defines if and how the action should be retried. 
 
-There are four types of retry policies: default, none, fixed, and exponential. If a retry policy is not provided in the workflow definition, the default policy as defined by the service is used. 
+There are four types of retry policies: default, none, fixed interval, and exponential interval. If a retry policy is not provided in the workflow definition, the default policy as defined by the service is used. 
 
 You can configure retry policies in the *inputs* for a particular action or trigger if it is retryable. Similarly, you can configure retry policies (if applicable) in Logic App Designer. To set up a retry policy, in Logic App Designer, go to **Settings** for a specific action.
 
@@ -33,7 +33,7 @@ For information about the limitations of retry policies, see [Logic Apps limits 
 
 ### Default
 
-If you don't define a retry policy, the default policy is used. The default policy is an exponential interval policy that sends up to four retries, at exponentially increasing intervals scaled by 7.5 seconds. The interval is capped at between 5 and 45 seconds. This default policy (used when **retryPolicy** is undefined) is equivalent to the policy in this example HTTP workflow definition:
+If you don't define a retry policy (**retryPolicy** is undefined), the default policy is used. The default policy is an exponential interval policy that sends up to four retries, at exponentially increasing intervals scaled by 7.5 seconds. The interval is capped at between 5 and 45 seconds. This default policy is equivalent to the policy in this example HTTP workflow definition:
 
 ```json
 "HTTP":
