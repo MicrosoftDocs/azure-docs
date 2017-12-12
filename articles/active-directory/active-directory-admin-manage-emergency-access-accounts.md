@@ -69,12 +69,8 @@ To ensure staff are trained in how to use the emergency access accounts:
 5.	Update the credentials.
 
 ## Next steps
-* [Add a user](active-directory-users-create-azure-portal.md)
-* [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-* [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-* [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
+- [Administrator roles](active-directory-assign-admin-roles.md)
+- [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
+- [Administrative units](active-directory-administrative-units-management.md)
+- [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
