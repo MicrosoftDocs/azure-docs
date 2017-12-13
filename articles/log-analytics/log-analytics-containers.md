@@ -133,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Switching from using an installed Linux agent to one in a container**
 
-If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) to understand how to successfully uninstall the agent.  
+If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the OMS Agent for Linux. See [Uninstalling the OMS Agent for Linux](log-analytics-agent-linux.md) to understand how to successfully uninstall the agent.  
 
 #### Configure an OMS agent for Docker Swarm
 
