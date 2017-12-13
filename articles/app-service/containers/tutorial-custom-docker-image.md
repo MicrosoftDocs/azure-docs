@@ -292,7 +292,7 @@ SSH enables secure communication between a container and a client. In order for 
     EXPOSE 8000 2222
     ```
 
-* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) using a shell script in */bin* directory.
+* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) by using a shell script in the /bin directory.
  
 	```bash
 	#!/bin/bash
