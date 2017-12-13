@@ -44,29 +44,29 @@ The following procedure provides the Azure Management Portal with permissions to
 >
 >
 
-1. Open the [Azure portal](https://portal.azure.com/) and click **Browse** > **Log Analytics (OMS)** to open the Log Analytics (OMS) blade.  
-2. On the **Log Analytics (OMS)** blade, click **Add** to open the **OMS Workspace** blade.  
-   ![OMS blade](./media/log-analytics-sccm/sccm-azure01.png)
-3. On the **OMS Workspace** blade, provide the following information and then click **OK**.
+1. Open the [Azure portal](https://portal.azure.com/) and click **Browse** > **Log Analytics (OMS)** to open Log Analytics (OMS).  
+2. On **Log Analytics (OMS)**, click **Add** to open **OMS Workspace**.  
+   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
+3. On **OMS Workspace**, provide the following information and then click **OK**.
 
    * **OMS Workspace**
    * **Subscription**
    * **Resource group**
    * **Location**
    * **Pricing tier**  
-     ![OMS blade](./media/log-analytics-sccm/sccm-azure02.png)  
+     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
 
      > [!NOTE]
      > The example above creates a new resource group. The resource group is only used to provide Configuration Manager with permissions to the OMS workspace in this example.
      >
      >
-4. Click **Browse** > **Resource groups** to open the **Resource groups** blade.
-5. In the **Resource groups** blade, click the resource group that you created above to open the &lt;resource group name&gt; settings blade.  
+4. Click **Browse** > **Resource groups** to open **Resource groups**.
+5. In **Resource groups**, click the resource group that you created above to open the &lt;resource group name&gt; settings.  
    ![resource group settings blade](./media/log-analytics-sccm/sccm-azure03.png)
-6. In the &lt;resource group name&gt; settings blade, click Access control (IAM) to open the &lt;resource group name&gt; Users blade.  
-   ![resource group Users blade](./media/log-analytics-sccm/sccm-azure04.png)  
-7. In the &lt;resource group name&gt; Users blade, click **Add** to open the **Add access** blade.
-8. In the **Add access** blade, click **Select a role**, and then select the **Contributor** role.  
+6. In &lt;resource group name&gt; settings, click Access control (IAM) to open &lt;resource group name&gt; Users.  
+   ![resource group Users](./media/log-analytics-sccm/sccm-azure04.png)  
+7. In &lt;resource group name&gt; Users, click **Add** to open **Add access**.
+8. In **Add access**, click **Select a role**, and then select the **Contributor** role.  
    ![select a role](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Click **Add users**, select the Configuration Manager user, click **Select**, and then click **OK**.  
    ![add users](./media/log-analytics-sccm/sccm-azure06.png)  
