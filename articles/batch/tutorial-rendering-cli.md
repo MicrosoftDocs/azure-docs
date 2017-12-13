@@ -58,27 +58,27 @@ az group create --name myResourceGroup --location eastus
 Create a standard storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store input 3ds Max scenes and the rendered output.
 
 ```azurecli-interactive
-az storage account create --resource-group myResourceGroup --name myStorageAccount --location eastus --sku Standard_LRS
+az storage account create --resource-group myResourceGroup --name mystorageaccount --location eastus --sku Standard_LRS
 ```
-Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*, and links the storage account you created.  
+Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. The following example creates a Batch account named *mybatchaccount* in *myResourceGroup*, and links the storage account you created.  
 
 ```azurecli-interactive 
-az batch account create --name myBatchAccount --storage-account myStorageAccount --resource-group myResourceGroup --location eastus
+az batch account create --name mybatchaccount --storage-account myStorageAccount --resource-group myResourceGroup --location eastus
 ```
 
 Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key. After you log in, you create and manage compute pools and rendering jobs in that account.
 
 ```azurecli-interactive 
-az batch account login --name myBatchAccount --resource-group myResourceGroup --shared-key-auth
+az batch account login --name mybatchaccount --resource-group myResourceGroup --shared-key-auth
 ```
 ## Upload 3ds Max scenes to storage
 
 Export environment variables to access the Azure storage account. The first bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key.
 
 ```azurecli-interactive
-export AZURE_STORAGE_KEY=$(az storage account keys list --account-name myStorageAccount --resource-group myResourceGroup -o tsv --query [0].value)
+export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
 
-export AZURE_STORAGE_ACCOUNT=myStorageAccount
+export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
 Create a blob container in the storage account for the scene file data. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create a blob container named *scenefiles* that allows public read access.

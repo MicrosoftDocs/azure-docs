@@ -241,4 +241,4 @@ In this quickstart, you ran a basic Azure Batch job to demonstrate key concepts 
 
 
 > [!div class="nextstepaction"]
-> [Process files in parallel](tutorial-parallel-dotnet.md)
+> [Process files in parallel with .NET](tutorial-parallel-dotnet.md)

@@ -1,9 +1,9 @@
 ---
 title: Run a parallel workload - Azure Batch .NET | Microsoft Docs
-description: Tutorial - Step by step instructions to transcode media files with ffmpeg in Azure Batch using the Batch .NET client
+description: Tutorial - Step by step instructions to convert media files with ffmpeg in Azure Batch using the Batch .NET client
 services: batch
 documentationcenter: 
-author: v-dotren
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -14,20 +14,23 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/11/2017
-ms.author: v-dotren
+ms.date: 12/13/2017
+ms.author: danlep
 ms.custom: mvc
 ---
 
-# Transcode media files in parallel with Azure Batch using the .NET API
+# Process media files in parallel with Azure Batch using the .NET API
 
-Intro here.... You learn how to:
+Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial covers building a C# sample application step by step to process a parallel workload using Batch. In this tutorial, you convert media files in parallel using the [ffmpeg](http://ffmpeg.org/) open-source tool. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
 
 > [!div class="checklist"]
-> * W
-> * X
-> * Y
-> * Z
+> * Add an ffmpeg application package to your Batch account
+> * Authenticate with Batch and Storage accounts
+> * Upload input data files to Storage
+> * Create a Batch pool to run ffmpeg
+> * Create a job and tasks to process input files
+> * Monitor task execution
+> * Retrieve output files
 
 ## Prerequisites
 
@@ -91,12 +94,12 @@ const string appPackageVersion = "3.4";
 
 Right-click the solution in Solution Explorer and click **Build Solution**. Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
-The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. You will find it helpful to refer to the open solution in Visual Studio while you work your way through the rest of this article, since not every line of code in the sample is discussed.
+The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. Refer to the open solution in Visual Studio while you work your way through the rest of this article, since not every line of code in the sample is discussed.
 
 
 ## Blob and Batch clients
 
-* To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+* To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
 
   ```csharp
   // Construct the Storage account connection string
@@ -119,18 +122,20 @@ The following sections break down the sample application into the steps that it 
 
 ## Upload input files
 
-The app passes the `blobClient` object to the `CreateContainerIfNotExistAsync` method to create a storage container for the input MP4 files.
+The app passes the `blobClient` object to the `CreateContainerIfNotExistAsync` method to create a storage container for the input MP4 files and a container for the task output.
 
 ```csharp
   CreateContainerIfNotExistAsync(blobClient, inputContainerName).Wait();
+  CreateContainerIfNotExistAsync(blobClient, outputContainerName).Wait();
 ```
 
-Then, files are uploaded to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes. 
+Then, files are uploaded to the input container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes. 
 
 Two methods in `Program.cs` are involved in uploading the files:
 
-* `UploadFilesToContainerAsync`: Returns a collection of ResourceFile objects and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the `filePaths` parameter.
-* `UploadFileToContainerAsync`: Uploads each file. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object to represent it. 
+* `UploadResourceFilesToContainer`: Returns a collection of ResourceFile objects and internally calls `UploadResourceFileToContainer` to upload each file that is passed in the `filePaths` parameter.
+* `UploadResourceFileToContainer`: Uploads each file as a blob to the input container. After uploading the file, it obtains a shared access signature (SAS) for the blob and returns a ResourceFile object to represent it. 
+
 ```csharp
   List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
                               SearchOption.TopDirectoryOnly));
@@ -141,9 +146,11 @@ Two methods in `Program.cs` are involved in uploading the files:
     inputFilePaths);
 ```
 
+For details about uploading files as blobs to a storage account with .NET, see [Get started with Azure Blob storage using .NET](../storage//blobs/storage-dotnet-how-to-use-blobs.md).
+
 ## Create a Batch pool
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `CreatePoolIfNoneExist`. `CreatePoolIfNoneExist` uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server 2012 R2 image published in the Azure Marketplace.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to `CreatePoolIfNoneExist`. `CreatePoolIfNoneExist` uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace.
 
 The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool. 
 
@@ -192,7 +199,7 @@ job.Commit();
 
 ## Create tasks
 
-The sample creates tasks in the job with a call to the     `CreateTasks` method. `CreateTasks` creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. Here, the command line runs ffmpeg to convert each input MP4 file to and AVI file.
+The sample creates tasks in the job with a call to the `CreateTasks` method, which creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each `CloudTask` processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. Here, the command line runs ffmpeg to convert each input MP4 file to an AVI file.
 
 The sample creates an [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) object for the AVI file generated by each task. Each task's output files (one, in this case) are uploaded to a container in the linked storage account by using the task's [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) property.
 
@@ -232,13 +239,13 @@ batchClient.JobOperations.AddTaskAsync(jobId, tasks).Wait();
 
 ## Monitor tasks
 
-When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes in the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties.
+When tasks are added to a job, Batch automatically queues and schedules them for execution on compute nodes in the associated pool. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties.
 
-There are many approaches to monitoring task execution. This sample reports only on completion and task failure or success states. Within the `MonitorTasks` method, the app specifies an [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) to efficiently select only minimal information about the tasks. Then, it creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), which provides helper utilities for monitoring task states. In `MonitorTasks`, the sample waits for all tasks to reach `TaskState.Completed` within a time limit. Then it terminates the job.
+There are many approaches to monitoring task execution. This sample uses a `MonitorTasks`method to report only on completion and task failure or success states. Within `MonitorTasks`, the app specifies an [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) to efficiently select only minimal information about the tasks. Then, it creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), which provides helper utilities for monitoring task states. In `MonitorTasks`, the sample waits for all tasks to reach `TaskState.Completed` within a time limit. Then it checks for any failed tasks and terminates the job.
 
 
 ## Download sample output
-Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to the `DownloadBlobsFromContainer` method. `DownloadBlobsFromContainer` specifies that the files should be downloaded from the output file container to your %TEMP% folder f. Feel free to modify this output location.
+Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to the `DownloadBlobsFromContainer` method. `DownloadBlobsFromContainer` specifies that the files should be downloaded using the [DownloadToFile](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofile) method from the output file container to your %TEMP% folder. Feel free to modify this output location.
 
 ```csharp
 // Retrieve a reference to a previously created container
@@ -255,7 +262,28 @@ string localOutputFile = Path.Combine(directoryPath, blob.Name);
 blob.DownloadToFile(localOutputFile, FileMode.Create);
 }            
 ```
-## Clean up resources
+## Clean up Batch resources
+
+In the final step, you're prompted to delete the job and the pool that were created by the application. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process. Note that deleting a pool deletes all files associated with the compute nodes, and that data on the nodes cannot be recovered after the pool is deleted.
+
+The BatchClient's [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) and [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) both have corresponding deletion methods, which are called if the user confirms deletion:
+
+```csharp
+Console.WriteLine();
+Console.WriteLine("Delete job? [yes] no");
+string response = Console.ReadLine().ToLower();
+if (response != "n" && response != "no")
+{
+    batchClient.JobOperations.DeleteJobAsync(JobId);
+}
+
+Console.WriteLine("Delete pool? [yes] no");
+response = Console.ReadLine();
+if (response != "n" && response != "no")
+{
+    batchClient.PoolOperations.DeletePoolAsync(PoolId);
+}
+```
 
 
 ## Run the app
@@ -283,16 +311,22 @@ All files downloaded to C:\Users\danlep\AppData\Local\Temp
 Sample end: 12/12/2017 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
+Typical execution time is approximately **10 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
+
 
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-> * W
-> * X
-> * Y
-> * Z
+> * Add an ffmpeg application package to your Batch account
+> * Authenticate with Batch and Storage accounts
+> * Upload input data files to Storage
+> * Create a Batch pool to run ffmpeg
+> * Create a job and tasks to process input files
+> * Monitor task execution
+> * Retrieve output files
 
-Advance to the next tutorial to learn about ....  
+Advance to the next tutorial to learn about how to build a Python application to process a parallel workload with Batch.
 
 > [!div class="nextstepaction"]
+> [Process files in parallel with Python](tutorial-parallel-python.md)
 
