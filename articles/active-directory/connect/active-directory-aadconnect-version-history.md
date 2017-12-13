@@ -98,7 +98,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
 
-For more information see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
+For more information, see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## 1.1.649.0
 Status: October 27 2017
