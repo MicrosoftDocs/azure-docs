@@ -68,7 +68,7 @@ This utility has been deprecated and is no longer documented here. For more info
 
 ### PowerShell
 ```powershell
-$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
@@ -93,4 +93,4 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
 Upload a [management API certificate](../azure-api-management-certs.md) to the Azure portal.
-aaa
+
