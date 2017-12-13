@@ -81,3 +81,4 @@ Learn more about deploying a [Windows](../articles/virtual-machines/windows/crea
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
+[Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures

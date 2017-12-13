@@ -274,7 +274,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 ```
 
 ```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_URL=Javaapp_password --resource-group myResourceGroup --name <app_name>
+az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
 ### Get FTP deployment credentials 

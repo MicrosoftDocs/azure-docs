@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 
 ---
@@ -88,6 +88,8 @@ This command returns a JSON document describing the service, and then jq pulls o
     > [!NOTE]
     > You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from a headnode.
 
+For more information, see the [Ports used by Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+
 ## File locations
 
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
@@ -105,9 +107,6 @@ HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the def
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
-
-> [!WARNING]
-> HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
 An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -231,6 +230,8 @@ The different cluster types are affected by scaling as follows:
 
         1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in your web browser, where CLUSTERNAME is the name of your Storm cluster. If prompted, enter the HDInsight cluster administrator (admin) name and password you specified when creating the cluster.
         2. Select the topology you wish to rebalance, then select the **Rebalance** button. Enter the delay before the rebalance operation is performed.
+
+* **Kafka**: You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
 
 For specific information on scaling your HDInsight cluster, see:
 
