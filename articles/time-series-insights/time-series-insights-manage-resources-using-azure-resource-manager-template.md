@@ -26,8 +26,9 @@ Time Series Insights supports the following resources:
    | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
--[Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
--[Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+
+- [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
@@ -102,8 +103,8 @@ To create a parameters file, copy the [201-timeseriesinsights-environment-with-e
    | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
    | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
    | eventSourceKeyName | The name of the shared access key that the Time Series Insights service will use to connect to the event hub. |
-   | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in AAD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
-   | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in AAD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not yet supported. |
+   | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in Azure AD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
+   | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in Azure AD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
 
 As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
@@ -263,3 +264,7 @@ The quickstart template's home page on GitHub also includes a **Deploy to Azure*
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
+## Next steps
+
+- For information on programmatically managing Time Series Insights resources using REST APIs, see [Time Series Insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).
