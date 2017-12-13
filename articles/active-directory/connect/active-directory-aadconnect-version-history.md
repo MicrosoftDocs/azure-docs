@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
 
 ---
@@ -91,14 +91,6 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 ### Was this vulnerability used to gain unauthorized access?
 
 To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
-
-                                                                                                               
-
-## 1.1.649.0
-Status: October 27 2017
-
->[!NOTE]
->This build is not available to customers through the Azure AD Connect Auto Upgrade feature
 
 ## 1.1.649.0
 Status: October 27 2017
