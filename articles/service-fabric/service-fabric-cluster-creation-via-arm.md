@@ -614,7 +614,7 @@ In case you run into issues and get cryptic messages, then use "-Debug" as an op
 <a name="assign-roles"></a>
 
 ## Assign users to roles
-After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][lnk-azure-portal].
+After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][link-azure-portal].
 
 1. In the Azure portal, select your tenant on the top-right corner.
 
