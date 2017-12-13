@@ -14,7 +14,7 @@ To create your application, do the following:
 2. Under **Templates**, select **Visual C#**.
 3. Select **WPF App** or **WPF Application**, depending on the version of Visual Studio version you're using.
 
-## Add Microsoft Authentication Library (MSAL) to your project
+## Add MSAL to your project
 1. In Visual Studio, select **Tools** > **NuGet Package Manager**> **Package Manager Console**.
 2. In the Package Manager Console window, paste the following Azure PowerShell command:
 
