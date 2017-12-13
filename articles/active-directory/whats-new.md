@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/13/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -25,7 +25,7 @@ ms.reviewer: dhanyahk
 
 
 
-> Stay up-to-date with what's new in Azure Active Directory by subscribing to this [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) in your favorite RSS feed reader.
+> Stay up-to-date with what's new in Azure Active Directory by subscribing to this ![RSS](./media/whats-new/feed-icon-16x16.png) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) in your favorite RSS feed reader.
 
 
 
