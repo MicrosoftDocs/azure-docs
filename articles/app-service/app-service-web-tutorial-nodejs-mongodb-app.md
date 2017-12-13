@@ -39,6 +39,7 @@ To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
 1. [Install Node.js and NPM](https://nodejs.org/)
+1. [Install Bower](https://bower.io/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
