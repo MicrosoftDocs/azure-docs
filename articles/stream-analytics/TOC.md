@@ -51,6 +51,7 @@
 ## Manage
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Job reliability during updates](stream-analytics-job-reliability.md)
+### [Configure compatibility level](stream-analytics-compatibility-level.md)
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
