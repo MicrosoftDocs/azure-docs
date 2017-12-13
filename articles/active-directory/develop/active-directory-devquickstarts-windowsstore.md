@@ -1,5 +1,5 @@
 ---
-title: Azure AD Windows Store Getting Started | Microsoft Docs
+title: Azure AD Windows Universal Platform (UWP/XAML) Getting Started | Microsoft Docs
 description: Build Windows Store apps that integrate with Azure AD for sign-in and call Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure AD Windows Store Getting Started
+# Azure AD Windows Universal Platform (UWP/XAML) Getting Started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

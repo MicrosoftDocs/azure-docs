@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET WPF Getting Started | Microsoft Docs
+title: Azure AD .NET Desktop (WPF) Getting Started | Microsoft Docs
 description: How to build a .NET Windows Desktop application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure AD .NET WPF Getting Started
+# Azure AD .NET Desktop (WPF) Getting Started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
