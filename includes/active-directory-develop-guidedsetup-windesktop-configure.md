@@ -1,5 +1,8 @@
 
-## Register your application (express method)
+## Register your application
+You can register your application in either of two ways.
+
+### Option 1: Express mode
 You can quickly register your application by doing the following:
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
 
@@ -11,8 +14,8 @@ You can quickly register your application by doing the following:
 
 5. Follow the instructions for obtaining the application ID, and paste it into your code.
 
-### Add your application registration information to your solution (advanced method)
-To add registration information to your solution, do the following:
+### Option 2: Advanced mode
+To register your application and add your application registration information to your solution, do the following:
 1. If you haven't already registered your application, go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
 
 2. Select **Add an app**.
