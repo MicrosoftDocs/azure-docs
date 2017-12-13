@@ -34,7 +34,7 @@ Although there are many variations for implementing ELT for SQL Data Warehouse, 
 2. Land the data into Azure Blob storage or Azure Data Lake Store.
 3. Prepare the data for loading.
 2. Load the data into SQL Data Warehouse staging tables by using PolyBase.
-3. Transform the data
+3. Transform the data.
 4. Insert the data into production tables.
 
 

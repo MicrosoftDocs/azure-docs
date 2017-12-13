@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/3/2017
+ms.date: 12/13/2017
 ms.author: barbkess
 
 ---
@@ -24,30 +24,24 @@ Recommendations and performance optimizations for loading data into Azure SQL Da
 - To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
 - For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-## Optimize Polybase performance
-To achieve optimal loading performance with PolyBase we suggest the following:
 
-- Split large compressed files into smaller compressed files. 
-- For fastest loading speed, load into a round_robin, heap staging table. This will be the most efficient way to move the data from storage layer to the data warehouse.
-- All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
-- Co-locate your storage layer and your data warehouse to minimize latency
-- Scale up your data warehouse if you expect a large loading job.
-- Run only one load job at a time for optimal load performance
+## Extract source data
 
-### PolyBase limitations
+When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
 
-PolyBase in SQL DW has the following limitations that need to be taken into consideration when designing a loading job:
 
-- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined.
-- When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
+## Land data to Azure
+PolyBase cannot load rows that have more than one million bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than one million bytes of data. This is true regardless of the table schema defined.
 
-## Fix loading failures
+Co-locate your storage layer and your data warehouse to minimize latency.
 
-A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. 
+## Data preparation
 
-To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
 
-## Use designated loading users
+Split large compressed files into smaller compressed files.
+
+## Create designated loading users
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, log in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 This code creates a loading user for the staticrc20 resource class. It gives use users control permission on a database and then adds the user as a member of the staticrc20 database role. To run a load with resources for the staticRC20 resource classes, simply log in as LoaderRC20 and run the load. 
@@ -74,7 +68,16 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
 
 User_A and user_B are now locked out from the other dept’s schema.
 
-## Optimize columnstore index loads
+
+## Load to a staging table
+
+For fastest loading speed, load into a round_robin, heap staging table. This will be the most efficient way to move the data from the Azure Storage layer to SQl Data Warehouse.
+
+Scale up your data warehouse if you expect a large loading job.
+
+Run only one load job at a time for optimal load performance
+
+### Optimize columnstore index loads
 
 Columnstore indexes require a lot of memory to compress data into high quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress 1,048,576 rows into each rowgroup. This is the maximum number of rows per rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -82,12 +85,24 @@ Columnstore indexes require a lot of memory to compress data into high quality r
 - Load enough rows to completely fill new rowgroups. During a bulk load, each 1,048,576 rows goes directly to the columnstore. Loads with fewer than 102,400 rows send the rows to the deltastore, which holds rows in a clustered index until there are enough for compression. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 
-## Batching INSERT statements
+### Handling loading failures
+
+A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. 
+
+To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
+
+
+
+## Insert data into production table
+These are recommendations for inserting rows into the production tables.
+
+
+### Batch INSERT statements
 A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql.md) or even a periodic reload of a look-up might perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Single ton inserts are not as efficient as performing a bulk load. 
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
-## Create statistics after the load
+### Create statistics after the load
 
 To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics][Statistics]. The following example creates statistics on five columns of the Customer_Speed table.
 
