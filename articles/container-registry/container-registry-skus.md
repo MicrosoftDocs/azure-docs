@@ -13,7 +13,11 @@ ms.author: marsma
 
 # Azure Container Registry SKUs
 
-Azure Container Registry (ACR) is available in multiple service tiers, known as SKUs. These SKUs provide predictable pricing and several options for how you wish to use your private Docker registry in Azure. Choosing a higher-level SKU provides more performance and scale. However, all SKUs provide the same programmatic capabilities, enabling a developer to get started with Basic, and convert to Standard and Premium as registry usage increases.
+Azure Container Registry (ACR) is available in multiple service tiers, known as SKUs. These SKUs provide predictable pricing and several options for aligning to the capacity and usage patterns of your private Docker registry in Azure.
+
+Choosing a higher-level SKU provides more performance and scale, however, all SKUs provide the same programmatic capabilities. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
+
+&nbsp;
 
 | SKU | Managed | Description |
 | --- | :-------: | ----------- |
