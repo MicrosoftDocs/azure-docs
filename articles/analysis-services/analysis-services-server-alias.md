@@ -20,7 +20,7 @@ ms.author: owend
 
 # Alias server names
 
-By using a server name alias, users can connect to your Azure Analysis Services server with a shorter *alias* instead of the server name shown in Azure portal. When connecting from a client application, the alias is specified as an endpoint using the **link://** protocol format. The endpoint then returns the real server name in order to connect.
+By using a server name alias, users can connect to your Azure Analysis Services server with a shorter *alias* instead of the server name. When connecting from a client application, the alias is specified as an endpoint using the **link://** protocol format. The endpoint then returns the real server name in order to connect.
 
 Alias server names are good for:
 
@@ -39,9 +39,9 @@ When connecting from a client, the alias server name is entered using **link://*
 
 ## Create an alias
 
-To create the an alias endpoint, various methods can be used. For example, a reference to a file in Azure Blob Storage containing the real server name, or create and publish an ASP.NET Web Forms application.
+To create an alias endpoint, various methods can be used. For example, a reference to a file in Azure Blob Storage containing the real server name, or create and publish an ASP.NET Web Forms application.
 
-In this example, an ASP.NET Web Forms Application is created in Visual Studio. The master page reference and user control is removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive.
+In this example, an ASP.NET Web Forms Application is created in Visual Studio. The master page reference and user control are removed from the Default.aspx page. The contents of Default.aspx are simply the following Page directive:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
