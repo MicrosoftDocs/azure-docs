@@ -31,7 +31,7 @@ This solution provides a decentralized automation option for users who want to r
 
 - The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods).  The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.  
 
-- This solution can only manage VMs that are in the same subscription as your Azure Automation account.  
+- This solution only manages VMs that are in the same subscription as your Azure Automation account.  
 
 - This solution only deploys to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.  
     
@@ -67,12 +67,12 @@ All parent runbooks include the *WhatIf* parameter. When set to **True**, *WhatI
 
 |**Runbook** | **Parameters** | **Description**|
 | --- | --- | ---| 
-|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called from the parent runbook only. Creates alerts on a per-resource basis for AutoStop scenario.| 
+|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called only from the parent runbook. Creates alerts on a per-resource basis for AutoStop scenario.| 
 |AutoStop_CreateAlert_Parent | WhatIf: True or False <br> VMList | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> VMList: Comma-separated list of VMs.  For example, *vm1,vm2,vm3*.| 
 |AutoStop_Disable | none | Disables AutoStop alerts and default schedule.| 
-|AutoStop_StopVM_Child | WebHookData | Called from the parent runbook only. Alert rules call this runbook to stop the VM.|  
+|AutoStop_StopVM_Child | WebHookData | Called only from the parent runbook. Alert rules call this runbook to stop the VM.|  
 |Bootstrap_Main | none | Used one time to set up bootstrap configurations such as webhookURI, which are typically not accessible from Azure Resource Manager. This runbook is removed automatically upon successful deployment.|  
-|ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName | Called from parent runbook only. Executes stop or start for the scheduled stop.|  
+|ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName | Called only from the parent runbook. Executes stop or start for the scheduled stop.|  
 |ScheduledStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | This affects all VMs in the subscription. Edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** to only execute on these target resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable. *WhatIf* behaves the same as in other runbooks.|  
 |SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | Create tags named **SequenceStart** and **SequenceStop** on each VM for which you want to sequence start/stop activity. The value of the tag should be a positive integer (1, 2, 3) that corresponds to the order in which you want to start or stop. *WhatIf* behaves the same as in other runbooks. <br> **Note**: VMs must be within resource groups defined as External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. They must have the appropriate tags for actions to take effect.|
 
@@ -110,11 +110,11 @@ Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Sto
 
 The following table lists each of the default schedules created in your Automation account.  You can modify them or create your own custom schedules.  By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
 
-You should not enable all schedules, as this might create overlapping schedule actions. It's best to determine which optimizations you want to perform and modify accordingly.  See the example scenarios in the overview section for further explanation.   
+You should not enable all schedules, because this might create overlapping schedule actions. It's best to determine which optimizations you want to perform and modify accordingly.  See the example scenarios in the overview section for further explanation.   
 
 |**Schedule name** | **Frequency** | **Description**|
 |--- | --- | ---|
-|Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in “External_Start_ResourceGroupNames”, “External_Stop_ResourceGroupNames”, and “External_ExcludeVMNames” in Azure Automation variables.  Alternatively, you can specify a comma-separated list of VMs by using the "VMList" parameter.|  
+|Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables.  Alternatively, you can specify a comma-separated list of VMs by using the VMList parameter.|  
 |Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time.  Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|  
 |Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables.  You should enable the related schedule, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time.  Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables.  Refer to the Runbooks section for more details on tag values and asset variables.  You should enable the related schedule, **Sequenced-StartVM**.|
