@@ -155,7 +155,7 @@ To perform the necessary device management tasks, use the **Devices** page. Star
     ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > With the simulated devices you can use any URL you like as the **Firemware URI** value. The simulated devices do not access the URL.
+    > With the simulated devices you can use any URL you like as the **Firmware URI** value. The simulated devices do not access the URL.
 
 1. Note how many devices the job affects and choose **Apply**:
 

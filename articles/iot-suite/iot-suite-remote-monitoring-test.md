@@ -30,7 +30,7 @@ In the first scenario, Contoso wants to test a new smart lightbulb device. To pe
 
 *Telemetry*
 
-The following table shows the data the ligthbulb reports to the cloud as a data stream:
+The following table shows the data the lightbulb reports to the cloud as a data stream:
 
 | Name   | Values      |
 | ------ | ----------- |
