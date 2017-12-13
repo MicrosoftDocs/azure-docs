@@ -614,17 +614,20 @@ In case you run into issues and get cryptic messages, then use "-Debug" as an op
 <a name="assign-roles"></a>
 
 ## Assign users to roles
-After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure classic portal][azure-classic-portal].
+After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][lnk-azure-portal].
 
-1. In the Azure portal, go to your tenant, and then select **Applications**.
-2. Select the web application, which has a name like `myTestCluster_Cluster`.
-3. Click the **Users** tab.
-4. Select a user to assign, and then click the **Assign** button at the bottom of the screen.
+1. In the Azure portal, select your tenant on the top-right corner.
 
-    ![Assign users to roles button][assign-users-to-roles-button]
-5. Select the role to assign to the user.
+    ![Select tenant button][select-tenant-button]
+2. Select **Azure Active Directory** on the left tab and then select "Enterprise applications".
+3. Select "All applications", and then find and select the web application, which has a name like `myTestCluster_Cluster`.
+4. Click the **Users and groups** tab.
+5. Click the **Add user** button on the new page, select a user and the role to assign, and then click the **Select** button at the bottom of the page.
 
-    !["Assign Users" dialog box][assign-users-to-roles-dialog]
+    ![Assign users to roles page][assign-users-to-roles-page]
+6. Click the **Assign** button at the bottom of the page.
+
+    ![Add assignment confirmation][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
