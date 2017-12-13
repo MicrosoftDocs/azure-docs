@@ -92,7 +92,7 @@ To make a change, add a name for the job, update the property values, and choose
 
 ![Update a device property value](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-To track the status of the job on the **Maintenance** page, choose **System Status**.
+To track the status of the job on the **Maintenance** page, choose **Jobs**.
 
 ## Next steps
 
