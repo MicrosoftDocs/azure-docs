@@ -112,7 +112,7 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 3. Click the **Create a new user in the current container** icon on the top menu.
 
     ![HDInsight domain joined create users](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
-4. Follow the instructions to create a few users.
+4. Follow the instructions to create a few users. For example, hiveuser1 and hiveuser2.
 5. Click the **Create a new group in the current container** icon on the top menu.
 6. Follow the instructions to create a group called **HDInsightUsers**.  This group is used when you create an HDInsight cluster later in this tutorial.
 
