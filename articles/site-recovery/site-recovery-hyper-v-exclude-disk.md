@@ -43,7 +43,7 @@ Similarly, you can use the following steps to optimize a disk that has both the 
 1. Keep the system database and tempdb on two different disks.
 2. Exclude the tempdb disk from replication.
 
-## How to Exclude disks in Hyper-V to Azure scenario
+## How to Exclude disks
 Follow the [Enable replication](site-recovery-hyper-v-site-to-azure.md) workflow to protect a virtual machine from the Azure Site Recovery portal. In the fourth step of the workflow, use the **DISK TO REPLICATE** column to exclude disks from replication. By default, all disks are selected for replication. Clear the check box of disks that you want to exclude from replication, and then complete the steps to enable replication.
 
 ![Exclude disks from replication and enable replication for Hyper-V to Azure failback](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)

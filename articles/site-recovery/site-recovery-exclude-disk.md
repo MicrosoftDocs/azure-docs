@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: nisoneji
 
 ---
-# Exclude disks from replication
+# Exclude disks from replication for VMware to Azure scenario
 This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. 
 
 ## Supported scenarios
