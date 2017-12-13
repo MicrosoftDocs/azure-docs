@@ -1,15 +1,15 @@
 ## Test your code
 
-In Visual Studio, to run your project, select **F5**. Your application **MainWindow** is displayed, as shown here:
+To run your project, in Visual Studio, select **F5**. Your application **MainWindow** is displayed, as shown here:
 
 ![Test your application](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
-When you're ready to run your test, sign in with an Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com). The first time that you run the application, you're prompted to sign in, as shown here:
+The first time that you run the application and select the **Call Microsoft Graph API** button, you're prompted to sign in. Use an Azure Active Directory account (work or school account) or a Microsoft account (live.com, outlook.com) to test it.
 
 ![Sign in to the application](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### Provide consent for application access
-The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and sign you in, as shown here: 
+The first time that you sign in to your application, you're also prompted to provide consent to allow the application to access your profile and sign you in, as shown here: 
 
 ![Provide your consent for application access](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
@@ -21,7 +21,7 @@ After you sign in, you should see the user profile information that's returned b
 |**Name** |User's full name |The user’s first and last name.|
 |**Username** |<span>user@domain.com</span> |The username that is used to identify the user.|
 |**Token Expires** |DateTime |The time at which the token expires. MSAL extends the expiration date by renewing the token as necessary.|
-|**Access Token** |String |The token string that is sent to HTTP requests that require an Authorization header.|
+|**Access Token** |String |The token string that is sent to HTTP requests that require an *Authorization header*.|
 
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
