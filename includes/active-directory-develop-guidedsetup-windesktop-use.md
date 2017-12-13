@@ -21,7 +21,6 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
         //Set the scope for API call to user.read
         string[] _scopes = new string[] { "user.read" };
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -71,7 +70,7 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
 <!--start-collapse-->
 ### More information
 #### Get a user token interactively
-Calling the `AcquireTokenAsync` method results in a window that prompts  users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, the user’s password was expired).
+Calling the `AcquireTokenAsync` method results in a window that prompts  users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired).
 
 #### Get a user token silently
 The `AcquireTokenSilentAsync` method handles token acquisitions and renewals without any user interaction. After `AcquireTokenAsync` is executed for the first time, `AcquireTokenSilentAsync` is the usual method to use to obtain tokens that access protected resources for subsequent calls, because calls to request or renew tokens are made silently.
@@ -179,6 +178,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### More information about tokens
 
-Tokens that you acquire via *OpenID Connect* also contain a small subset of information that's pertinent to users. `DisplayBasicTokenInfo` displays the basic information that's contained in the token. For example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can hit the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
+Tokens that you acquire via *OpenID Connect* also contain a small subset of information that's pertinent to users. `DisplayBasicTokenInfo` displays the basic information that's contained in the token. For example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can select the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
 <!--end-collapse-->s
 
