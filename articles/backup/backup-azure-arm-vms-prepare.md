@@ -137,94 +137,93 @@ In the Azure portal, *scenario* refers to what you are going to put into the Rec
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you don't have a Recovery Services vault open, then open the [Azure portal](https://portal.azure.com/) and on the Hub menu, select **More services**.
 
-   * In the list of resources, type **Recovery Services**.
-   * As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, select it.
+   a. In the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, select it.
 
-     ![Create Recovery Services Vault step 1](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+      ![Typing in the box and selecting "Recovery Services vaults" in the results](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-     The list of Recovery Services vaults appears. If there are no vaults in your subscription, this list will be empty.
+      The list of Recovery Services vaults appears. If there are no vaults in your subscription, this list will be empty.
 
-    ![View of the Recovery Services vaults list](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+      ![View of the Recovery Services vaults list](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-   * From the list of Recovery Services vaults, select a vault to open its dashboard.
+   b. From the list of Recovery Services vaults, select a vault.
 
-     The Settings blade and the vault dashboard for the chosen vault, opens.
+      The **Settings** blade and the vault dashboard for the chosen vault open.
 
-     ![Open vault blade](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. On the vault dashboard menu, select **Backup** to open the Backup blade.
+      ![Settings blade and vault dashboard](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+2. On the vault dashboard menu, select **Backup**.
 
-    ![Open Backup blade](./media/backup-azure-arm-vms-prepare/backup-button.png)
+   ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    The Backup and Backup Goal blades open.
+   The **Backup** and **Backup Goal** blades open.
 
-    ![Open Scenario blade](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+3. On the **Backup Goal** blade, set **Where is your workload running?** to **Azure** and **What do you want to backup?** to **Virtual machine**. Then select **OK**.
 
-3. On the Backup Goal blade, set **Where is your workload running** to Azure and **What do you want to backup** to Virtual machine, then select **OK**.
+   ![Backup and Backup Goal blades](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-    This registers the VM extension with the vault. The Backup Goal blade closes and the **Backup policy** blade opens.
+   This step registers the VM extension with the vault. The **Backup Goal** blade closes and the **Backup policy** blade opens.
 
-    ![Open Scenario blade](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. On the Backup policy blade, select the backup policy you want to apply to the vault.
+   ![Backup and Backup policy blades](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+4. On the **Backup policy** blade, select the backup policy that you want to apply to the vault.
 
-    ![Select backup policy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
+   ![Select backup policy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    The details of the default policy are listed under the drop-down menu. If you want to create a new policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+   The details of the default policy are listed under the drop-down menu. If you want to create a new policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Select **OK** to associate the backup policy with the vault.
 
-    The Backup policy blade closes and the **Select virtual machines** blade opens.
-5. In the **Select virtual machines** blade, choose the virtual machines to associate with the specified policy and select **OK**.
+   The **Backup policy** blade closes and the **Select virtual machines** blade opens.
+5. On the **Select virtual machines** blade, choose the virtual machines to associate with the specified policy and select **OK**.
 
-    ![Select workload](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+   !["Select virtual machines" blade](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    The selected virtual machine is validated. If you do not see the virtual machines that you expected to see, check that they exist in the same Azure location as the Recovery Services vault and are not already protected in another vault. The location of the Recovery Services vault is shown on the vault dashboard.
+   The selected virtual machine is validated. If you don't see the virtual machines that you expect to see, check that they exist in the same Azure location as the Recovery Services vault and are not already protected in another vault. The vault dashboard shows the location of the Recovery Services vault.
 
-6. Now that you have defined all settings for the vault, in the Backup blade, slect **Enable Backup**. This deploys the policy to the vault and the VMs. This does not create the initial recovery point for the virtual machine.
+6. Now that you have defined all settings for the vault, on the **Backup** blade, slect **Enable backup**. This step deploys the policy to the vault and the VMs. This step does not create the initial recovery point for the virtual machine.
 
-    ![Enable Backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+   !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-After you successfully enable the backup, your backup policy will run on schedule. If you want to generate an on-demand backup job to back up the virtual machines now, see [Triggering the Backup job](./backup-azure-arm-vms.md#triggering-the-backup-job).
+After you successfully enable the backup, your backup policy will run on schedule. If you want to generate an on-demand backup job to back up the virtual machines now, see [Triggering the backup job](./backup-azure-arm-vms.md#triggering-the-backup-job).
 
 If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines into Azure, be sure that you have properly installed the VM agent and that your virtual machine can communicate with the virtual network.
 
 ## Install the VM agent on the virtual machine
 For the Backup extension to work, the Azure [VM agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
 
-The following information is provided for the situations where you are *not* using a VM created from the Azure gallery--for example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.
+The following information is provided for situations where you are *not* using a VM created from the Azure Marketplace. For example, you migrated a VM from an on-premises datacenter. In such a case, the VM agent needs to be installed in order to protect the virtual machine.
 
-If you have problems backing up the Azure VM, check that the Azure VM agent is correctly installed on the virtual machine (see the table below). The following table provides additional information about the VM agent for Windows and Linux VMs.
+If you have problems backing up the Azure VM, use the following table to check that the Azure VM agent is correctly installed on the virtual machine. The table provides additional information about the VM agent for Windows and Linux VMs.
 
 | **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. |Install the latest [Linux agent](../virtual-machines/linux/agent-user-guide.md). You will need Administrator privileges to complete the installation. We recommend installing agent from your distribution repository. We *do not recommend* installing Linux VM agent directly from github.  |
-| Updating the VM agent |Updating the VM agent is as simple as reinstalling the [VM agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). We recommend updating agent from your distribution repository. We *do not recommend* updating Linux VM agent directly from github.<br>Ensure that no backup operation is running while the VM agent is being updated. |
-| Validating the VM agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
+| Install the VM agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You'll need administrator privileges to complete the installation. |Install the latest [Linux agent](../virtual-machines/linux/agent-user-guide.md). You'll need administrator privileges to complete the installation. We recommend installing the agent from your distribution repository. We *do not recommend* installing the Linux VM agent directly from GitHub.  |
+| Update the VM agent |Updating the VM agent is as simple as reinstalling the [VM agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). We recommend updating the agent from your distribution repository. We *do not recommend* updating the Linux VM agent directly from GitHub.<br>Ensure that no backup operation is running while the VM agent is being updated. |
+| Validate the VM agent installation |<li>Browse to the C:\WindowsAzure\Packages folder in the Azure VM. <li>Find the WaAppAgent.exe file.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The **Product Version** field should be 2.6.1198.718 or higher. |N/A |
 
 ### Backup extension
-Once the VM agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM agent. The Azure Backup service seamlessly upgrades and patches the backup extension.
+After the VM agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM agent. The Backup service seamlessly upgrades and patches the backup extension.
 
-The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service continues to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
+The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Backup service continues to back up the VM even if it is turned off and the extension could not be installed. This is known as *offline VM*. In this case, the recovery point will be *crash consistent*.
 
 ## Network connectivity
-To manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), choose one of these options for providing a clear path for backup traffic:
+To manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), choose one of these options to provide a clear path for backup traffic:
 
-* [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) - see the article for instructions on how to whitelist the IP addresses.
+* [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
 * Deploy an HTTP proxy server for routing traffic.
 
 When you're deciding which option to use, the trade-offs are between manageability, granular control, and cost.
 
 | Option | Advantages | Disadvantages |
 | --- | --- | --- |
-| Whitelist IP ranges |No additional costs.<br><br>For opening access in an NSG, use the <i>Set-AzureNetworkSecurityRule</i> cmdlet. |Complex to manage as the impacted IP ranges change over time.<br><br>Provides access to the whole of Azure, and not just Storage. |
-| HTTP proxy |Granular control in the proxy over the storage URLs allowed.<br>Single point of internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
+| Whitelist IP ranges |No additional costs.<br><br>For opening access in an NSG, use the **Set-AzureNetworkSecurityRule** cmdlet. |Complex to manage as the affected IP ranges change over time.<br><br>Provides access to the whole of Azure, and not just storage. |
+| Use an HTTP proxy |Granular control in the proxy over the storage URLs is allowed.<br>Single point of internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
-* To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
-* You can use service tags to allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to storage account has higher priority than the rule that blocks internet access. 
+* To whitelist the Azure datacenter IP ranges, see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges and instructions.
+* You can allow connections to storage of the specific region by using [service tags](../virtual-network/security-overview.md#service-tags). Make sure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access. 
 
   ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Storage tags are available only in specific regions and are in preview. For list of regions, refer to [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
+> Storage tags are available only in specific regions and are in preview. For a list of regions, see [Service tags for Storage](../virtual-network/security-overview.md#service-tags).
 
 ### Using an HTTP proxy for VM backups
 When you're backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage by using an HTTPS API. Route the backup extension traffic through the HTTP proxy, because it's the only component configured for access to the public internet.
@@ -234,15 +233,15 @@ When you're backing up a VM, the backup extension on the VM sends the snapshot m
 >
 >
 
-The example image below shows the three configuration steps necessary to use an HTTP proxy:
+The following example image shows the three configuration steps necessary to use an HTTP proxy:
 
-* App VM routes all HTTP traffic bound for the public internet through Proxy VM.
-* Proxy VM allows incoming traffic from VMs in the virtual network.
-* The network security group named NSF-lockdown needs a security rule allowing outbound internet traffic from Proxy VM.
+* The app VM routes all HTTP traffic bound for the public internet through the proxy VM.
+* The proxy VM allows incoming traffic from VMs in the virtual network.
+* The network security group named NSF-lockdown needs a security rule that allows outbound internet traffic from the proxy VM.
 
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-To use an HTTP proxy to communicating to the public internet, follow these steps.
+To use an HTTP proxy to communicate with the public internet, follow these steps.
 
 #### Step 1. Configure outgoing network connections
 ###### For Windows machines
