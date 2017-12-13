@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Node.js API, SDK & Resources | Microsoft Docs
-description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -18,7 +18,7 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB Node.js SDK: Release notes and resources
+# Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -63,7 +65,7 @@ ms.custom: H1Hack27Feb2017
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Splitproofed cross partition queries.
+* Split proofed cross partition queries.
 * Adds supports for resource link with leading and trailing slashes (and corresponding tests).
 
 ### <a name="1.12.2"/>1.12.2</a>

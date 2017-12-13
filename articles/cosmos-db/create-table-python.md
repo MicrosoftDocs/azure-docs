@@ -15,6 +15,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB

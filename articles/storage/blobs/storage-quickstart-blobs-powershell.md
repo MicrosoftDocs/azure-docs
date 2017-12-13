@@ -3,7 +3,7 @@ title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Powe
 description: Quickly learn to transfer objects to/from Azure Blob storage using PowerShell
 services: storage
 documentationcenter: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Transfer objects to/from Azure Blob storage using Azure PowerShell

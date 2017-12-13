@@ -38,19 +38,19 @@ We can discuss Microsoft Flow and Azure Logic Apps together because they are bot
 * They have the same workflow designer
 * [Connectors](../connectors/apis-list.md) that work in one can also work in the other
 
-Flow empowers any office worker to perform simple integrations (for example, get SMS for important emails) without going through developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (for example, B2B processes) where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
+Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. On the other hand, Logic Apps can enable advanced integrations (for example, B2B processes) where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
 complexity over time. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
 
 |  | Flow | Logic Apps |
 | --- | --- | --- |
-| Audience |Office workers, business users |IT pros, developers |
-| Scenarios |Self-service |Mission-critical |
+| Audience |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
+| Scenarios |Self-service |Advanced integrations |
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
-| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Admin Experience |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Security |Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
+| Application Lifecycle Management (ALM) |Design and test in non-production environments, promote to production when ready. |DevOps: source control, testing, support, automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Admin Experience |Manage Flow Environments and Data Loss Prevention (DLP) policies, track licensing [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Manage Resource Groups, Connections, Access Management and  Logging [https://portal.azure.com](https://portal.azure.com) |
+| Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 <a name="function"></a>
 
@@ -107,7 +107,7 @@ app for which you want to run code snippets, and you want to manage them togethe
 As previously mentioned, which service is best suited to you depends on your situation. 
 
 * For simple business optimization, use Flow.
-* If your integration scenario is too advanced for Flow, or you need DevOps capabilities and security compliances, then use Logic Apps.
+* If your integration scenario is too advanced for Flow, or you need DevOps capabilities, then use Logic Apps.
 * If a step in your integration scenario requires highly custom transformation or specialized code, then write a  function and trigger the function as an action in your logic app.
 
 You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a function. 

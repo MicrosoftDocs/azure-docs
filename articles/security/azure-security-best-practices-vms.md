@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure virtual machine security best practices | Microsoft Docs
 description: This article provides a variety of security best practices to be used in virtual machines located in Azure.
 services: security
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---
 # Best practices for Azure VM security
 
-In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/en-us/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is especially evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
+In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is especially evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
 
 This article discusses various VM security best practices, each derived from our customers' and our own direct experiences with VMs.
 

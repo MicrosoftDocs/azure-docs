@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
-#### Use the classic portal
-##### [Download connectors](application-proxy-enable-classic-portal.md)
-##### [Publish apps](active-directory-application-proxy-publish.md)
-##### [Use connectors](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -224,7 +219,6 @@
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
-#### [Self-service access](active-directory-self-service-application-access.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
@@ -289,8 +283,9 @@
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### [Migrate classic policies](active-directory-conditional-access-migration.md)
 #### Tasks
-##### [Migrate classic policies](active-directory-conditional-access-migration.md)
+##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)

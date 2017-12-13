@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: DocumentDB
+  - name: SQL
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
@@ -31,6 +31,8 @@
       href: create-mongodb-java.md
     - name: Golang
       href: create-mongodb-golang.md
+    - name: Python
+      href: create-mongodb-flask.md
   - name: Graph
     items:
     - name: .NET
@@ -41,6 +43,10 @@
       href: create-graph-java.md
     - name: Node.js
       href: create-graph-nodejs.md
+    - name: Python
+      href: create-graph-python.md
+    - name: PHP
+      href: create-graph-php.md
   - name: Table
     items:
     - name: .NET
@@ -65,7 +71,7 @@
   items:
   - name: 1 - Create
     items:
-    - name: DocumentDB
+    - name: SQL
       href: tutorial-develop-documentdb-dotnet.md
     - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
@@ -81,7 +87,7 @@
       href: tutorial-develop-cassandra-java.md
   - name: 2 - Import
     items:
-    - name: DocumentDB
+    - name: SQL
       href: import-data.md
     - name: MongoDB
       href: mongodb-migrate.md
@@ -91,7 +97,7 @@
       href: cassandra-import-data.md
   - name: 3 - Query
     items:
-    - name: DocumentDB
+    - name: SQL
       href: tutorial-query-documentdb.md
     - name: MongoDB
       href: tutorial-query-mongodb.md
@@ -101,7 +107,7 @@
       href: tutorial-query-graph.md
   - name: 4 - Distribute globally
     items:
-    - name: DocumentDB
+    - name: SQL
       href: tutorial-global-distribution-documentdb.md
     - name: MongoDB
       href: tutorial-global-distribution-mongodb.md
@@ -133,13 +139,15 @@
     href: distribute-data-globally.md
   - name: Partitioning
     href: partition-data.md
+  - name: Unique keys
+    href: unique-keys.md
   - name: Consistency
     href: consistency-levels.md
   - name: Throughput
     href: request-units.md
   - name: Multi-model APIs
     items:
-    - name: DocumentDB
+    - name: SQL
       href: documentdb-introduction.md
     - name: MongoDB
       href: mongodb-introduction.md
@@ -162,7 +170,7 @@
   items:
   - name: Develop
     items:
-    - name: DocumentDB API
+    - name: SQL API
       href: documentdb-index.md
       items:
       - name: Resources
@@ -231,8 +239,6 @@
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
           href: https://azure.microsoft.com/updates/?product=cosmos-db
-        - name: Community portal
-          href: community.md
         - name: Schema agnostic indexing paper
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: Retire S1, S2, S3
@@ -370,13 +376,13 @@
       href: powerbi-visualize.md
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
-    - name: Use Spring Boot Starter with DocumentDB APIs
+    - name: Use Spring Boot Starter with SQL APIs
       href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
-  - name: DocumentDB APIs
+  - name: SQL APIs
     items:
     - name: Java
       href: documentdb-sdk-java.md

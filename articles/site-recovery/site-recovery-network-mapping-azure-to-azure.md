@@ -3,7 +3,7 @@ title: Network mapping between two Azure regions in Azure Site Recovery | Micros
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
+author: mayanknayar
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: pratshar
+ms.date: 11/22/2017
+ms.author: manayar
 
 ---
 # Network mapping between two Azure regions

@@ -1,4 +1,4 @@
---
+---
 title: Azure CLI Samples - Azure Functions | Microsoft Docs
 description: Azure CLI Samples - Azure Functions
 services: functions

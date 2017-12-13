@@ -30,8 +30,8 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install the .NET Core SDK](https://www.microsoft.com/net/download/core)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">Install the .NET Core SDK</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

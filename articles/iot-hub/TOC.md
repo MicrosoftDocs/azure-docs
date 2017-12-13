@@ -70,9 +70,10 @@
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
 #### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
-### Process device-to-cloud messages
+### Routing messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Send cloud-to-device messages
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -149,8 +150,8 @@
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (Devices)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (Service)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (Devices)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

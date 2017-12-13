@@ -2,22 +2,13 @@
 title: Run containerized tasks in Azure Container Instances
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: ''
-tags:
-keywords: ''
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/16/2017
 ms.author: marsma
-ms.custom:
 ---
 
 # Run a containerized task in Azure Container Instances

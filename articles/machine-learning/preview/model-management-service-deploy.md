@@ -20,7 +20,7 @@ This document covers the steps to deploy your models as web services using the A
 ## Deploying web services
 Using the CLIs, you can deploy web services to run on the local machine or on a cluster.
 
-We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [Model Management configuration](model-management-configuration.md). 
+We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [Model Management configuration](deployment-setup-configuration.md). 
 
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
@@ -181,4 +181,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## Next steps
-Now that you have tested your web service to run locally, you can deploy it to a cluster for large-scale use. For details on setting up a cluster for web service deployment, see [Model Management Configuration](model-management-configuration.md). 
+Now that you have tested your web service to run locally, you can deploy it to a cluster for large-scale use. For details on setting up a cluster for web service deployment, see [Model Management Configuration](deployment-setup-configuration.md). 
