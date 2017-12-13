@@ -40,7 +40,7 @@ You perform the following steps in this tutorial:
 Here are the important steps to create this solution: 
 
 1. **Select the watermark column**.
-	Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) increases when rows are created or updated. The maximum value in this column is used as a watermark.
+	Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**.   
 	In this tutorial, you store the watermark value in a SQL database.
@@ -232,6 +232,7 @@ Install the latest Azure PowerShell modules by following the instructions in [In
     ```
 
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
+
 2. Define a variable for the location of the data factory. 
 
     ```powershell
@@ -242,7 +243,8 @@ Install the latest Azure PowerShell modules by following the instructions in [In
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again. 
+    If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
+
 4. Define a variable for the data factory name. 
 
     > [!IMPORTANT]
@@ -264,8 +266,8 @@ Note the following points:
     ```
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* To create Data Factory instances, the user account you use to log in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by Data Factory can be in other regions.
+* To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
+* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -329,8 +331,8 @@ In this step, you link your on-premises SQL Server to the data factory.
     ```
     > [!IMPORTANT]
     > - Select the right section based on the authentication you use to connect to SQL Server.
-    > - Replace &lt;integration runtime name> with the name of your integration runtime.
-    > - Replace &lt;servername>, &lt;databasename>, &lt;username>, and &lt;password> with values of your SQL Server before you save the file.
+    > - Replace the &lt;integration runtime name> with the name of your integration runtime.
+    > - Replace the &lt;servername>, &lt;databasename>, &lt;username>, and &lt;password> with values of your SQL Server before you save the file.
     > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). An example is `mydomain\\myuser`.
 
 2. In PowerShell, switch to the C:\ADFTutorials\IncCopyMultiTableTutorial folder.
@@ -507,9 +509,9 @@ In this step, you create a dataset for storing a high watermark value.
 ## Create a pipeline
 The pipeline takes a list of table names as a parameter. The ForEach activity iterates through the list of table names and performs the following operations: 
 
-1. Use the Lookup activity to retrieve the old watermark value (initial value or that was used in the last iteration).
+1. Use the Lookup activity to retrieve the old watermark value (the initial value or the one that was used in the last iteration).
 
-2. Use the Lookup activity to retrieve the new watermark value (maximum value of watermark column in the source table).
+2. Use the Lookup activity to retrieve the new watermark value (the maximum value of the watermark column in the source table).
 
 3. Use the Copy activity to copy data between these two watermark values from the source database to the destination database.
 
