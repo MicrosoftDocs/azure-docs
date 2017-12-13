@@ -78,9 +78,9 @@ You can obtain access keys in the portal or through the [Management REST API](ht
 
 In Azure Search, an individual index is not a securable object.
 
-End-user access to indexes is constrained by the query key which makes any request read-only, and the request itself that specifies which index to read. There is no concept of joining indexes or accessing multiple indexes simultaneously. 
+End-user access to indexes is constrained by two things: the query key which makes any request read-only, and the request itself which specifies a single index. There is no concept of joining indexes or accessing multiple indexes simultaneously. The structure of the query request itself (a key plus the target index) defines the security boundary.
 
-Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an admin key to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control over code assets is the remedy for reversing index deletion or modification. Azure Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
+Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an admin key to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Search](search-modeling-multitenant-saas-applications.md).
 
@@ -94,9 +94,9 @@ If your application code handles service administration operations as well as da
 
 For information about structuring a request in Azure Search, see [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/). For more information about authentication requirements for Resource Manager, see [Use Resource Manager authentication API to access subscriptions](../azure-resource-manager/resource-manager-api-authentication.md).
 
-## User access to content
+## User access to index content
 
-Per-user access to content is implemented through security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a filter that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+Per-user access to the contents of an index is implemented through security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a filter that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|
@@ -112,7 +112,7 @@ The following table summarizes the operations allowed in Azure Search and which 
 | Create a service | Azure subscription holder|
 | Scale a service | Admin key, RBAC Owner or Contributor on the resource  |
 | Delete a service | Admin key, RBAC Owner or Contributor on the resource |
-| Create, modify, delete indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner or Contributor on the resource  |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner or Contributor on the resource  |
 | Query an index | Admin or query key (RBAC not applicable) |
 | Query system information, such as returning statistics, counts, and lists of objects. | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
 | Manage admin keys | Admin key, RBAC Owner or Contributor on the resource. |
