@@ -12,6 +12,9 @@
 # How to
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
+#### [Parameters](resource-manager-templates-parameters.md)
+#### [Variables](resource-manager-templates-variables.md)
+#### [Resources](resource-manager-templates-resources.md)
 ### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)

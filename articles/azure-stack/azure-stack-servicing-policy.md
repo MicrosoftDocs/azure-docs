@@ -3,8 +3,8 @@ title: Azure Stack servicing policy | Microsoft Docs
 description: Learn about the Azure Stack servicing policy, and how to keep an integrated system in a supported state.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Azure Stack servicing policy

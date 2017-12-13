@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
 
 ---
@@ -29,9 +29,6 @@ Adaptive application controls help control which applications can run on your VM
 - Avoid old and unsupported apps to run.
 - Prevent specific software tools that are not allowed in your organization.
 - Enable IT to control the access to sensitive data through app usage.
-
-> [!NOTE]
-> Adaptive application controls are available to Azure Security Center Standard customers as a limited public preview. Send an email with your subscription IDs to [us](mailto:ASC_appcontrol@microsoft.com) to join the preview.
 
 ## How to enable adaptive application controls?
 Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups. This feature is only available for Windows machines (all versions, classic, or Azure Resource Manager). The following steps can be used to configure application whitelisting in Security Center:
@@ -69,7 +66,7 @@ In the **Select VMs**, review the list of recommended VMs and uncheck any you do
 
 - **NAME**: the full application path
 - **PROCESSES**: how many applications reside within every path
-- **COMMON**: true indicates that these processes have been executed on most VMs in this resource group.
+- **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group.
 - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval. 
 
 Once you finish your selections, click **Create** button. By default, Security Center always enables application control in *Audit* mode. After validating that the whitelist has not had any adverse effects on your workload, you can change to *Enforce* mode.

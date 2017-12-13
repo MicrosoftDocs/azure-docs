@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Linux VM M
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.service: active-directory

@@ -4,7 +4,7 @@ description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -86,6 +86,8 @@ The following services support Azure AD authentication, and have been tested wit
 | Azure Key Vault | https://vault.azure.net/ | Available | September 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
 | Azure SQL | https://database.windows.net/ | Available | October 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Available | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net/ | Available | December 2017 | |
 
 ## How much does Managed Service Identity cost?
 

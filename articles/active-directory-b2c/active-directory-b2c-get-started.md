@@ -4,7 +4,7 @@ description: A topic on how to create an Azure Active Directory B2C tenant
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: patricka
 
 ms.assetid: eec4d418-453f-4755-8b30-5ed997841b56
