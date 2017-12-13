@@ -1,4 +1,4 @@
----
+﻿---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 08/29/2017
+  ms.date: 11/21/2017
   ms.author: barclayn
 
 

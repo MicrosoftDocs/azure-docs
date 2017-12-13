@@ -1,122 +1,198 @@
 ---
-title: Roaming and Collaboration in Azure Machine Learning Workbench  | Microsoft Docs
-description: List of known issues and a guide to help troubleshoot 
+title: Roaming and collaboration in Azure Machine Learning Workbench | Microsoft Docs
+description: Learn how to set up roaming and collaboration in Machine Learning Workbench.
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017 
+ms.date: 11/16/2017 
 ---
 
 # Roaming and collaboration in Azure Machine Learning Workbench
-This document walks you through how Azure Machine Learning Workbench can help roam your projects across machines as well as enable collaboration with your teammates. 
+This article describes how you can use Azure Machine Learning Workbench to set up projects for roaming between computers and collaborate with team members. 
 
-When you create an Azure Machine Learning project with a remote Git Repository (repo) link, the project metadata and snapshots are stored in the cloud. The cloud link enables you to access the project from a different computer (Roaming). You can also give access to your co-workers, thus enabling collaboration. 
+When you create an Azure Machine Learning project that has a remote Git repository (repo) link, the project metadata and snapshots are stored in the cloud. You can use the cloud link to access the project from a different computer (roaming). You can also collaborate with team members by giving them access to the project. 
 
 ## Prerequisites
-First, install the Azure Machine Learning Workbench with access to an Experimentation Account. Follow the [installation guide](quickstart-installation.md) for more details.
+1. Install the Machine Learning Workbench app. Ensure that you have access to an Azure Machine Learning Experimentation account. For more information, see the [installation guide](quickstart-installation.md).
 
-Second, access [Visual Studio Team System](https://www.visualstudio.com) and create a repo to link your project to. For detailed information about Git, reference the [Using Git Repo with an Azure Machine Learning Workbench Project](using-git-ml-project.md) article.
+2. Access [Visual Studio Team Services](https://www.visualstudio.com) (Team Services), and then create a repo to link your project to. For more information, see [Using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).
 
-## Create a new Azure Machine Learning project
-Launch Azure Machine Learning Workbench, and create a new project (for example, _iris_). Fill the **Visualstudio.com GIT Repository URL** textbox with a valid VSTS Git repo URL. 
->[!IMPORTANT]
->Project creation fails if You do not have read/write access on the Git repo, and the Git repo is not empty, i.e. it already has a master branch.
+## Create a new Machine Learning project
+Open Machine Learning Workbench, and then create a new project (for example, a project named iris). In the **Visualstudio.com GIT Repository URL** box, enter a valid URL for a Team Services Git repo. 
 
-Once the project is created, submit a few runs on any scripts within the project. This action commits project state into the remote Git repo's run history branch. 
+> [!IMPORTANT]
+> If you choose the blank project template, the Git repo you choose to use might already have a master branch. Machine Learning simply clones the master branch locally. It adds the aml_config folder and other project metadata files to the local project folder. 
+>
+> If you choose any other project template, your Git repo *cannot* already have a master branch. If it does, you see an error. The alternative is to use the `az ml project create` command to create the project, with a `--force` switch. This deletes the files in the original master branch and replaces them with the new files in the template that you choose.
 
-If you have setup Git authentication, you can also explicitly operate in the master branch, or create a new branch. 
+After the project is created, submit a few runs on any scripts that are in the project. This action commits the project state to the remote Git repo's run history branch. 
 
-As an example: 
+> [!NOTE] 
+> Only script runs trigger commits to the run history branch. Data prep execution and Notebook runs don't trigger project snapshots in the run history branch.
+
+If you have set up Git authentication, you can also operate in the master branch. Or, you can create a new branch. 
+
+Example: 
 ```
-# check current repo status
+# Check current repo status.
 $ git status
 
-# stage all changes in the current repo
+# Stage all changes in the current repo.
 $ git add -A
 
-# commit changes
+# Commit changes.
 $ git commit -m "my commit fixes this weird bug!"
 
-# push to remote repo.
+# Push to the remote repo.
 $ git push origin master
 ```
 
 ## Roaming
 <a name="roaming"></a>
 
-### Open Azure Machine Learning Workbench on second machine
-Once the VSTS Git repository is linked with your project, you can access the _iris_ project from any computer where you have installed Azure Machine Learning Workbench. 
+### Open Machine Learning Workbench on a second computer
+After the Team Services Git repo is linked with your project, you can access the iris project from any computer that has Machine Learning Workbench installed. 
 
-To access the iris project on another computer, you need to login to the app with the same credentials used while creating the project. Additionally, you need to navigate to the same Experimentation Account and Workspace. The _iris_ project is alphabetically listed with other projects within the workspace. 
+To access the iris project on another computer, you must sign in to the app by using the same credentials that you used to create the project. You also need to be in the same Machine Learning Experimentation account and workspace. The iris project is alphabetically listed with other projects in the workspace. 
 
-### Download project on second machine
-When the workspace is opened on the second machine, the icon adjacent to the _iris_ project is different from the typical folder icon. The download icon indicates that the content of the project is in the cloud and needs to be downloaded to the current machine. 
+### Download the project on a second computer
+When the workspace is open on the second computer, the icon adjacent to the iris project is different from the typical folder icon. The download icon indicates that the contents of the project are in the cloud, and that the project is ready to be downloaded to the current computer. 
 
-![create project](./media/roaming-and-collaboration/downloadable-project.png)
+![Create project](./media/roaming-and-collaboration/downloadable-project.png)
 
-Clicking on the _iris_ project starts a download action. After a short while, when the download completes, the project is ready to be accessed on the second computer. 
+Select the iris project to begin a download. When the download is finished, the project is ready to be accessed on the second computer. 
 
-On Windows, it is `C:\Users\<username>\Documents\AzureML`
+On Windows, the project is located at C:\Users\\<username\>\Documents\AzureML.
 
-On macOS, it is here: `/home/<username>/Documents/AzureML`
+On macOS, the project is located at /home/\<username\>/Documents/AzureML.
 
-In a future release, we plan to enhance the functionality to allow you to select a destination folder. 
+In a future release, we plan to enhance functionality so that you can select a destination folder. 
 
->Note if you happen to have a folder in the Azure ML directory that has the exact same name as the project, the download fails. For the time being, you need to rename the existing folder in order to work around this issue.
+> [!NOTE]
+> If you have a folder in the Machine Learning directory that has the exact same name as the project, the download fails. To work around this issue, temporarily rename the existing folder.
 
 
 ### Work on the downloaded project 
-The newly downloaded project reflects the project state as of the last run in the project. A snapshot of the project state is automatically committed to the run history branch in the VSTS Git repo every time you submit a run. We use the snapshot associated with the latest run when instantiating the project on the second computer. 
+The newly downloaded project reflects the project state at the last run in the project. A snapshot of the project state is automatically committed to the run history branch in the Team Services Git repo every time you submit a run. The snapshot that is associated with the latest run is used to instantiate the project on the second computer. 
  
 
 ## Collaboration
-You can collaborate with your teammates on projects linked to a VSTS Git repo. You can assign permissions to users on the Experimentation Account, Workspace, and Project. At this time, you can perform the Azure Resource Manager commands using the Azure CLI. You can also use [Azure portal](https://portal.azure.com). See [following section](#portal).    
+You can collaborate with team members on projects that are linked to a Team Services Git repo. You can assign permissions to users for the Machine Learning Experimentation account, workspace, and project. Currently, you can perform Azure Resource Manager commands by using Azure CLI. You can also use the [Azure portal](https://portal.azure.com). For more information, see [Use the Azure portal to add users](#portal).    
 
-### Using command line to add Users
-Lets use an example. Say, Alice is the Owner of th e_Iris_ project and she wants to share access with Bob. 
+### Use the command line to add users
+As an example, Alice is the Owner of the iris project. Alice wants to share access to the project with Bob. 
 
-Alice clicks on the **File** menu, and selects the **Command Prompt** menu item to launch the command-prompt configured to the _iris_ project. Alice is then able to decide what level fo access she wants to grant to Bob by executing the following commands.  
+Alice selects the **File** menu, and then selects the **Command Prompt** menu item. The Command Prompt window opens with the iris project. Alice can then decide what level of access she wants to give to Bob. She grants permissions by executing the following commands:  
 
 ```azurecli
-# Find ARM ID of the experimnetation account
+# Find the Resource Manager ID of the Experimentation account.
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <Experimentation account Resource Manager ID>
 
-# Find ARM ID of the workspace
+# Find the Resource Manager ID of the workspace.
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the workspace by inheritance. Bob can invite or remove other users.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-After the role assignment, directly or by inheritance, Bob can see the project in the Workbench project list. The application might need a restart in order to see the project. Bob can then download the project as described in the [Roaming section](#roaming) and collaborate with Alice. 
+After role assignment, either directly or by inheritance, Bob can see the project in the Machine Learning Workbench project list. Bob might need to restart the application to see the project. Bob can then download the project as described in [Roaming](#roaming), and begin to collaborate with Alice. 
 
-The run history for all users collaborating on a project is committed to the same remote Git repo. So when Alice executes a run, Bob can see the run in the run history section of the project in the Workbench app. Bob can also restore the project to the state of any run including runs started by Alice. 
+The run history for all users that collaborate on a project is committed to the same remote Git repo. When Alice executes a run, Bob can see the run in the run history section of the project in the Machine Learning Workbench app. Bob can also restore the project to the state of any run, including runs that Alice started. 
 
-Sharing a remote Git repo for the project enables Alice and Bob to also collaborate on the master branch. If needed, they can also create personal branches and use Git pull-requests and merges to collaborate. 
+By sharing a remote Git repo for the project, Alice and Bob can also collaborate in the master branch. If needed, they can also create personal branches and use Git pull requests and merges to collaborate. 
 
-### Using Azure portal to add users
+### Use the Azure portal to add users
 <a name="portal"></a>
 
-Azure Machine Learning Experimentation Accounts, Workspaces, and Projects are Azure Resource Manager resources. You can use the Access Control link in the [Azure portal](https://portal.azure.com) to assign roles. 
+Machine Learning Experimentation accounts, workspaces, and projects are Azure Resource Manager resources. To assign roles, you can use the **Access Control** link in the [Azure portal](https://portal.azure.com). 
 
-Find the resource you are looking to add users to from the All Resources view. Click on the Access control (IAM) link within page. Add users 
+Find the resource that you want to add users to by using the **All Resources** view. Select the **Access control (IAM)** link, and then select **Add users**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## Sample collaboration workflow
+To illustrate the collaboration workflow, let's walk through an example. Contoso employees Alice and Bob want to collaborate on a data science project by using Machine Learning Workbench. Their identities belong to the same Contoso Azure Active Directory (Azure AD) tenant. Here are the steps Alice and Bob take:
+
+1. Alice creates an empty Git repo in a Team Services project. The Team Services project should be in an Azure subscription that is created under the Contoso Azure AD tenant. 
+
+2. Alice creates a Machine Learning Experimentation account, a workspace, and a Machine Learning Workbench project on her computer. When she creates the project, she enters the Team Services Git repo URL.
+
+3. Alice starts to work on the project. She creates some scripts and executes a few runs. For each run, a snapshot of the entire project folder is automatically pushed as a commit to a run history branch of the Team Services Git repo that Machine Learning Workbench creates.
+
+4. Alice is happy with the work in progress. She wants to commit her changes in the local master branch and then push them to the Team Services Git repo master branch. With the project open, in Machine Learning Workbench, she opens the Command Prompt window, and then enters these commands:
+    
+    ```sh
+    # Verify that the Git remote is pointing to the Team Services Git repo.
+    $ git remote -v
+
+    # Verify that the current branch is master.
+    $ git branch
+
+    # Stage all changes.
+    $ git add -A
+
+    # Commit changes with a comment.
+    $ git commit -m "this is a good milestone"
+
+    # Push the commit to the master branch of the remote Git repo in Team Services.
+    $ git push
+    ```
+
+5. Alice adds Bob to the workspace as a Contributor. She can do this in the Azure portal, or by using the `az role assignment` command, as demonstrated earlier. Alice also grants Bob read/write permissions to the Team Services Git repo.
+
+6. Bob signs in to Machine Learning Workbench on his computer. He can see the workspace that Alice shared with him. He can see the iris project listed under that workspace. 
+
+7. Bob selects the project name. The project is downloaded to his computer.
+    * The downloaded project files are a copy of the snapshot of the latest run that's recorded in the run history. They are not the last commit on the master branch.
+    * The local project folder is set to the master branch, with the unstaged changes.
+
+8. Bob can browse runs that were executed by Alice. He can restore snapshots of any earlier runs.
+
+9. Bob wants to get the latest changes that Alice pushed, and then start working in a different branch. In Machine Learning Workbench, Bob opens a Command Prompt window and executes the following commands:
+
+    ```sh
+    # Verify that the Git remote is pointing to the Team Services Git repo.
+    $ git remote -v
+
+    # Verify that the current branch is master.
+    $ git branch
+
+    # Get the latest commit in the Team Services Git master branch and overwrite current files.
+    $ git pull --force
+
+    # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. Bob modifies the project and submits new runs. The changes are made on the bob branch. Bob's runs also become visible to Alice.
+
+11. Bob is ready to push his changes to the remote Git repo. To avoid conflict with the master branch, where Alice is working, Bob pushes his work to a new remote branch, which is also named bob.
+
+    ```sh
+    # Verify that the current branch is "bob," and that it has unstaged changes.
+    $ git status
+    
+    # Stage all changes.
+    $ git add -A
+
+    # Commit the changes with a comment.
+    $ git commit -m "I found a cool new trick."
+
+    # Create a new branch on the remote Team Services Git repo, and then push the changes.
+    $ git push origin bob
+    ```
+
+12. To tell Alice about the cool new trick in his code, Bob creates a pull request on the remote Git repo from the bob branch to the master branch. Alice can then merge the pull request into the master branch.
+
+## Next steps
+- Learn more about [using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).

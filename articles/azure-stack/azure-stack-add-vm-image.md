@@ -3,8 +3,8 @@ title: Add a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Make a custom virtual machine image available in Azure Stack
@@ -97,7 +97,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
           -EnableAdfsAuthentication:$true
 
         $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS 
+          -ADFS `
           -EnvironmentName AzureStackAdmin 
 
         Login-AzureRmAccount `
@@ -182,7 +182,7 @@ Images must be able to be referenced by a Blob storage URI. Prepare a Windows or
 
 2. Sign in to Azure Stack as operator. In the menu, select **More services** > **Resource Providers**. Then, select  **Compute** > **VM images** > **Add**.
 
-3. Under **Add a VM Image**, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM   image in Resource Manager templates. Make sure to select the **osType** value correctly. For **OD Disk Blob URI**, enter the Blob URI where the    image was uploaded. Then, select **Create** to begin creating the VM Image.
+3. Under **Add a VM Image**, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM   image in Resource Manager templates. Make sure to select the **osType** value correctly. For **OS Disk Blob URI**, enter the Blob URI where the    image was uploaded. Then, select **Create** to begin creating the VM Image.
    
    ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
 
