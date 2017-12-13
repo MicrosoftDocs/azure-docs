@@ -79,7 +79,7 @@ At the date and time specified in the update deployment, the target computers ex
     > An OMS Agent for Linux configured to report to multiple OMS workspaces is not supported with this solution.  
     >
 
-For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux).  For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agents.md).  
+For additional information on how to install the OMS Agent for Linux and download the  latest version, refer to [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux).  For information on how to install the OMS Agent for Windows, review [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### Permissions
 In order to create update deployments, you need to be granted the contributor role in both your Automation account and Log Analytics workspace.  
@@ -124,7 +124,7 @@ On a Windows computer, you can review the following to verify agent connectivity
 1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector.  These events indicate the computer has registered with the OMS workspace and is receiving configuration.  
 
-If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agents.md#network) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md#network).
+If the agent is not able to communicate with the OMS service and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-windows-agent.md#network) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md#network).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or OMS Gateway and you are onboarding this solution, please update the *proxy.conf* permissions to grant the omiuser group read permission on the file by performing the following commands:  

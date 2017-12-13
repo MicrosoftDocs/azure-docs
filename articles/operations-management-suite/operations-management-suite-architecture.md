@@ -23,7 +23,7 @@ ms.author: bwren
 ## Log Analytics
 All data collected by [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) is stored in the OMS repository which is hosted in Azure.  Connected Sources generate data collected into the OMS repository.  There are currently three types of connected sources supported.
 
-* An agent installed on a [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md) computer connected directly to OMS.
+* An agent installed on a [Windows](../log-analytics/log-analytics-windows-agent.md) or [Linux](../log-analytics/log-analytics-linux-agents.md) computer connected directly to OMS.
 * A System Center Operations Manager (SCOM) management group [connected to Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM agents continue to communicate with management servers which forward events and performance data to Log Analytics.
 * An [Azure storage account](../log-analytics/log-analytics-azure-storage.md) that collects [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) data from a worker role, web role, or virtual machine in Azure.
 

@@ -103,11 +103,11 @@ If a password or client secret key ever expires or is lost, you'll need to manua
 2. On this page, click the **Azure Active Directory** tab to view your **Tenant**, **Client ID**, **Client secret key expiration**. **Verify** your **Client secret key** if it has expired.
 
 ## Download and install the agent
-1. In the OMS portal, [Download the agent setup file from OMS](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms).
+1. In the OMS portal, [Download the agent setup file from OMS](log-analytics-windows-agent.md#download-the-agent-setup-file-from-oms).
 2. Use one of the following methods to install and configure the agent on the computer running the Configuration Manager service connection point site system role:
-   * [Install the agent using setup](log-analytics-windows-agents.md#install-the-agent-using-setup)
-   * [Install the agent using the command line](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
-   * [Install the agent using DSC in Azure Automation](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
+   * [Install the agent using setup](log-analytics-windows-agent.md#install-the-agent-using-setup)
+   * [Install the agent using the command line](log-analytics-windows-agent.md#install-the-agent-using-the-command-line)
+   * [Install the agent using DSC in Azure Automation](log-analytics-windows-agent.md#install-the-agent-using-dsc-in-azure-automation)
 
 ## Import collections
 After you've added an OMS connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, the next step is to import collections from Configuration Manager in OMS as computer groups.

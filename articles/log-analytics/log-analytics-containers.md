@@ -511,9 +511,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agent.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agent.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -530,7 +530,7 @@ The Container Monitoring solution collects various performance metrics and log d
 Data is collected every three minutes by the following agent types.
 
 - [OMS Agent for Linux](log-analytics-linux-agents.md)
-- [Windows agent](log-analytics-windows-agents.md)
+- [Windows agent](log-analytics-windows-agent.md)
 - [Log Analytics VM extension](log-analytics-azure-vm-extension.md)
 
 
