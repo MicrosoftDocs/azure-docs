@@ -142,7 +142,7 @@ A few visualization methods include:
 
 ### Automate
 > [!NOTE]
-> As part of the ongoing evolution of Alerts on Microsoft Azure, now a unified experience for alerting is being previewed. More details on [Azure Alerts (Preview)](monitoring-overview-unified.md)
+> As part of the ongoing evolution of Alerts on Microsoft Azure, now a unified experience for alerting is being previewed. More details on [Azure Alerts (Preview)](monitoring-overview-unified-alerts.md)
 
 In the standard Azure Alerts, you can use monitoring data to trigger alerts or even whole processes. Examples include:
 
