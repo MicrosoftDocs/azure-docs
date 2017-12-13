@@ -23,9 +23,8 @@ You can use Windows 7, Windows 8, or Windows 10 Enterprise (x64) in Azure for de
 ![Image details from the Azure portal](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
->For Windows 10 Pro and Windows 10 Pro N image in Azure Gallery, please refer to [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
-
-![Pro Image details from the Azure portal](./media/client-images/windows-client-pro-images.png) 
+> For Windows 10 Pro and Windows 10 Pro N image in Azure Gallery, please refer to [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
+>![Pro Image details from the Azure portal](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## Subscription eligibility
