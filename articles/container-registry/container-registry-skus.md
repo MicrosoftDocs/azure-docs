@@ -52,15 +52,15 @@ You can change a registry's SKU with the Azure CLI or in the Azure portal.
 
 ### Azure CLI
 
-To move between SKUs in the Azure CLI 2.0, use the [az acr update][az-acr-update] command. For example, to switch from Basic or Standard to Premium:
+To move between SKUs in the Azure CLI, use the [az acr update][az-acr-update] command. For example, to switch to Premium:
 
 ```azurecli
-az acr update --name myregistry --resource-group myresourcegroup --sku Premium
+az acr update --name myregistry --sku Premium
 ```
 
 ### Azure portal
 
-In the registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
+In the container registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
 
 ![Update container registry SKU in Azure portal][update-registry-sku]
 
