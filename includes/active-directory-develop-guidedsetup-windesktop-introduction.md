@@ -15,7 +15,7 @@ The sample application that you create with this guide enables a Windows Desktop
 
 ### Handling token acquisition for accessing protected Web APIs
 
-After the user is authenticated, the sample application receives a token that can be used to query Microsoft Graph API or a Web API that's secured by Microsoft Azure Active Directory v2.
+After the user is authenticated, the sample application receives a token that can be used to query Microsoft Graph API or a Web API that's secured by Azure Active Directory v2.
 
 APIs such as Microsoft Graph require a token to allow access to specific resources. For example, a token is required to read a user’s profile, access a user’s calendar, or send email. Your application can request an access token by using MSAL to access these resources by specifying API scopes. This access token is then added to the HTTP Authorization header for every call that's made against the protected resource. 
 
