@@ -15,6 +15,10 @@
     href: automation-watchers-tutorial.md
   - name: Onboard update and change tracking
     href: automation-onboard-solutions.md
+  - name: Identify software on a VM
+    href: automation-tutorial-installed-software.md
+  - name: Troubleshoot changes on a VM
+    href: automation-tutorial-troubleshoot-software.md
 - name: How to
   items:
     - name: Authentication and security

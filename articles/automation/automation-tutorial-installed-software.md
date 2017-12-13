@@ -1,5 +1,5 @@
 ---
-title: Discover what software is installed on your machines | Microsoft Docs 
+title: Discover what software is installed on your machines with Azure Automation | Microsoft Docs 
 description: Use Inventory to discover what sofwared is installed on the machines across your environment.
 services: automation
 keywords: inventory, automation, change, tracking
@@ -14,48 +14,52 @@ manager: carmonm
 
 # Discover what software is installed on your Azure and non-Azure machines
 
-With Inventory, you can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. 
-Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
-This article delves into how to discover what software is installed on what machines in your environment.
+In this tutorial, you learn how to discover what software is installed on what machines in your environment. With Inventory, you can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
-## Before you begin
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * View installed software
+> * Search inventory logs for installed software
+> * What else...
+
+## Prerequisites
+
+To complete this quickstart:
+
+* [Create an Automation account](automation-offering-get-started.md) before you begin.
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-You also need to [create an Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started) and [enable Inventory](../automation/automation-quickstart-inventory.md) before you begin.
+## Log in to Azure
 
+Log in to the Azure portal at http://portal.azure.com.
 
-## Sign in to Azure
-Sign in to the [Azure portal](https://portal.azure.com/).
+## View installed software
 
-## View inventory on an Automation account
-1. In the left pane of the Azure portal, select **Automation accounts**. 
-If it is not visible in the left pane, click **All services** and search for it in the resulting view.
-2. In the list, select an Automation account. 
-3. In the left pane of the Automation account, select **Inventory**.
+1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search for it in the resulting view.
+1. In the list, select an Automation account. 
+1. In the left pane of the Automation account, select **Inventory**.
 
 On the **Inventory** page, click on the **Software** tab.
 
-## Overview of the Software tab
-On the **Software** tab, there is a grid containing software record, grouped by software name and version. 
-The high-level details for each software record are viewable in the grid, 
-including the software name, version, publisher, last refreshed time (the most recent refresh time reported by a machine in the group), and machines (the count of machines with that software).
+On the **Software** tab, there is a table list the software that had been found. The software is grouped by software name and version. 
 
- ![Software inventory](./media/automation-tutorial-sw-installed/inventory-software.png)
+The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time (the most recent refresh time reported by a machine in the group), and machines (the count of machines with that software).
 
-Click on a row to view the properties of the software record and the names of the machines with that software. 
+![Software inventory](./media/automation-tutorial-sw-installed/inventory-software.png)
 
+Click on a row to view the properties of the software record and the names of the machines with that software.
 
-### Search functionality
 To look for a specific software or group of software, you can search in the text box directly above the software list. 
 The filter allows you to search based off the software name, version, or publisher.
 
 For instance, searching for "Contoso" returns all software with a name, publisher, or version containing "Contoso".
 
+## Search inventory logs for installed software
 
-## Using Inventory in Log Analytics
+Inventory generates log data that is sent to Log Analytics. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
 
-Inventory generates log data that is sent to Log Analytics. 
-To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window. 
 Inventory data is stored under the type **ConfigurationData**. 
 The following sample Log Analytics query returns the Publishers that contain "Ubuntu" and the number of Software records (grouped by SoftwareName and Computer) for each Publisher
 
@@ -67,9 +71,18 @@ ConfigurationData
 | summarize count() by Publisher
 ```
 
+Search for a Patch or something else...
+```
+ConfigurationData
+| where   ConfigDataType == "Software"
+| where   SoftwareName contains "KBXXXXXXX" 
+| order by TimeGenerated desc
+```
+
 To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
 
 ### Single machine inventory
+
 To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine. 
 The following example Log Analytics query returns the list of software for a machine named ContosoVM.
 
@@ -83,6 +96,16 @@ ConfigurationData
 
 
 ## Next steps
+
+In this tutorial you learned how view software inventory such as how to:
+
+> [!div class="checklist"]
+> * View installed software
+> * Search inventory logs for installed software
+> * What else...
+
+Follow this link to learn more about ...
+
 
 * To learn about enabling Inventory for your Azure virtual machines, see [Manage an Azure virtual machine with inventory collection](../automation/automation-vm-inventory.md).
 * To learn about managing changes on your machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
