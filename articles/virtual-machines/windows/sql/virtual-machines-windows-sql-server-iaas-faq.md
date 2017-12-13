@@ -39,7 +39,7 @@ This topic provides answers to some of the most common questions about running [
 
 1. **Are existing SQL Server virtual machine gallery images updated?**
 
-   Every two months, SQL Server images in the virtual machine gallery are updated with the latest Windows update. This includes any SQL Server updates that are marked important. However, this update does not include cumulative updates for Windows or SQL Server.
+   Every two months, SQL Server images in the virtual machine gallery are updated with the latest Windows and Linux updates. For Windows images, this includes any updates that are marked important in Windows Update, including important SQL Server security updates and service packs. For Linux images, this includes the latest system updates. SQL Server cumulative updates are handled differently for Linux and Windows. For Linux, SQL Server cumulative updates are also included in the refresh. But at this time, Windows VMs are not updated with SQL Server or Windows Server cumulative updates.
 
 1. **Can SQL Server virtual machine images get removed from the gallery?**
 
