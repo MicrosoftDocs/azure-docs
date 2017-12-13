@@ -34,7 +34,7 @@ The following table lists the throughput available for containers:
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
             <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>1,100 request units per second</p></td>
+            <td valign="top"><p>1000 request units per second</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
@@ -75,7 +75,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Can I set my throughput to less than 400 RU/s?**
 
-400 RU/s is the minimum throughput available on Cosmos DB single partition containers (1,100 RU/s is the minimum for partitioned containers). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
+400 RU/s is the minimum throughput available on Cosmos DB single partition containers (1000 RU/s is the minimum for partitioned containers). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
 
 **How do I set througput using the MongoDB API?**
 
