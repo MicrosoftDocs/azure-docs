@@ -160,7 +160,7 @@ Name | Purpose
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) | Determines the set of additional HTTP methods that can be cached on the network.
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
-[User Variable](#user-variable) | Used primarity with Lua scripts.
+[User Variable](#user-variable) | For internal use only.
 
  
 ## URL features
@@ -1247,7 +1247,7 @@ This feature includes matching criteria that must be met before it can be applie
 
 ---
 ### User Variable
-**Purpose:** Used primarity with Lua scripts. With the User Variable feature, you can use hash-like functionality to secure download URLs with a Lua script.
+**Purpose:** For internal use only.
 
 
 ## Next Steps
