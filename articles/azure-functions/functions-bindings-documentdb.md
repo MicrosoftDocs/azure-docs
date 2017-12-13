@@ -70,16 +70,16 @@ The following example shows a Cosmos DB trigger binding in a *function.json* fil
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "type": "cosmosDBTrigger",
-      "name": "documents",
-      "direction": "in",
-      "leaseCollectionName": "leases",
-      "connectionStringSetting": "<connection-app-setting>",
-      "databaseName": "Tasks",
-      "collectionName": "Items",
-      "createLeaseCollectionIfNotExists": true
-    }
+{
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
 ```
 
 Here's the C# script code:
@@ -106,16 +106,16 @@ The following example shows a Cosmos DB trigger binding in a *function.json* fil
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "type": "cosmosDBTrigger",
-      "name": "documents",
-      "direction": "in",
-      "leaseCollectionName": "leases",
-      "connectionStringSetting": "<connection-app-setting>",
-      "databaseName": "Tasks",
-      "collectionName": "Items",
-      "createLeaseCollectionIfNotExists": true
-    }
+{
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
 ```
 
 Here's the JavaScript code:
@@ -163,7 +163,7 @@ The following table explains the binding configuration properties that you set i
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
-|**leaseCollectionThroughput**| **LeasesCollectionThroughput**| (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is  automatically set when the binding is created using the portal.
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optional) Defines the amount of Request Units to assign when the leases collection is created. This setting is only used When `createLeaseCollectionIfNotExists` is set to `true`. This parameter is  automatically set when the binding is created using the portal.
 | |**LeaseOptions** | Configure lease options by setting properties in an instance of the [Change​Feed​Host​Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) class.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -229,16 +229,16 @@ The following example shows a Cosmos DB input binding in a *function.json* file 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger}",
-      "partitionKey": "{partition key value}",
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "in"
-    }
+{
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger}",
+    "partitionKey": "{partition key value}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
+}
 ```
 The [configuration](#input---configuration) section explains these properties.
 
@@ -263,15 +263,15 @@ The following example shows a Cosmos DB input binding in a *function.json* file 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger}",
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "in"
-    }
+{
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
+}
 ```
 
 The [configuration](#input---configuration) section explains these properties.
@@ -289,16 +289,16 @@ This example requires a `project.json` file that specifies the `FSharp.Interop.D
 dependencies:
 
 ```json
-    {
-     "frameworks": {
-       "net46": {
-        "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-                }
+{
+    "frameworks": {
+        "net46": {
+            "dependencies": {
+                "Dynamitey": "1.0.2",
+                "FSharp.Interop.Dynamic": "3.0.0"
             }
         }
     }
+}
 ```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
@@ -310,16 +310,16 @@ The following example shows a Cosmos DB input binding in a *function.json* file 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "inputDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "id" : "{queueTrigger_payload_property}",
-      "partitionKey": "{queueTrigger_payload_property}",
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "in"
-    }
+{
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger_payload_property}",
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
+}
 ```
 The [configuration](#input---configuration) section explains these properties.
 
@@ -371,15 +371,15 @@ The queue trigger provides a parameter `departmentId`. A queue message of `{ "de
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "documents",
-      "type": "documentdb",
-      "direction": "in",
-      "databaseName": "MyDb",
-      "collectionName": "MyCollection",
-      "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-      "connection": "CosmosDBConnection"
-    }
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "CosmosDBConnection"
+}
 ```
 
 The [configuration](#input---configuration) section explains these properties.
@@ -410,15 +410,15 @@ The queue trigger provides a parameter `departmentId`. A queue message of `{ "de
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "documents",
-      "type": "documentdb",
-      "direction": "in",
-      "databaseName": "MyDb",
-      "collectionName": "MyCollection",
-      "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-      "connection": "CosmosDBConnection"
-    }
+{
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "CosmosDBConnection"
+}
 ```
 
 The [configuration](#input---configuration) section explains these properties.
@@ -501,36 +501,36 @@ The following example shows a [precompiled C# function](functions-dotnet-class-l
 The following example shows a DocumentDB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
-    {
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 The function creates Azure Cosmos DB documents in the following format for each record:
 
 ```json
-    {
-      "id": "John Henry-123456",
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "employeeDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "createIfNotExists": true,
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "out"
-    }
+{
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
+}
 ```
 
 The [configuration](#output---configuration) section explains these properties.
@@ -565,36 +565,36 @@ To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollecto
 The following example shows a DocumentDB output binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
-    {
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 The function creates Azure Cosmos DB documents in the following format for each record:
 
 ```json
-    {
-      "id": "John Henry-123456",
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "employeeDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "createIfNotExists": true,
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "out"
-    }
+{
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
+}
 ```
 The [configuration](#output---configuration) section explains these properties.
 
@@ -625,16 +625,16 @@ This example requires a `project.json` file that specifies the `FSharp.Interop.D
 dependencies:
 
 ```json
-    {
-      "frameworks": {
+{
+    "frameworks": {
         "net46": {
           "dependencies": {
             "Dynamitey": "1.0.2",
             "FSharp.Interop.Dynamic": "3.0.0"
-          }
+           }
         }
-      }
     }
+}
 ```
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
@@ -644,36 +644,36 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 The following example shows a DocumentDB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
-    {
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 The function creates Azure Cosmos DB documents in the following format for each record:
 
 ```json
-    {
-      "id": "John Henry-123456",
-      "name": "John Henry",
-      "employeeId": "123456",
-      "address": "A town nearby"
-    }
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
 ```
 
 Here's the binding data in the *function.json* file:
 
 ```json
-    {
-      "name": "employeeDocument",
-      "type": "documentDB",
-      "databaseName": "MyDatabase",
-      "collectionName": "MyCollection",
-      "createIfNotExists": true,
-      "connection": "MyAccount_COSMOSDB",     
-      "direction": "out"
-    }
+{
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
+}
 ```
 
 The [configuration](#output---configuration) section explains these properties.
