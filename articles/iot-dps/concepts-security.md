@@ -68,18 +68,14 @@ An intermediate certificate is an X.509 certificate which has been signed by the
 
 ### Leaf certificate
 
-The leaf certificate, or end-entity certificate, identifies the certificate holder. It has the root certificate in its certificate chain as well as zero or more intermediate certificates. The leaf certificate is not used to sign any other certificates.
-
-### Device certificate
-
-A device certificate is the end-entity certificate in the certificate chain associated with an IoT Hub device. It uniquely identifies the device to the provisioning service. During authentication, the device uses the private key associated with the device certificate to respond to a proof of possession challenge from the service. To learn more, see [Authenticating devices signed with X.509 CA certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+The leaf certificate, or end-entity certificate, identifies the certificate holder. It has the root certificate in its certificate chain as well as zero or more intermediate certificates. The leaf certificate is not used to sign any other certificates. It uniquely identifies the device to the provisioning service and is sometimes referred to as the device certificate. During authentication, the device uses the private key associated with this certificate to respond to a proof of possession challenge from the service. To learn more, see [Authenticating devices signed with X.509 CA certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## Controlling device access to the provisioning service with X.509 certificates
 
 The provisioning service exposes two types of enrollment entry that you can use to control access for devices that use the X.509 attestation mechanism:  
 
-- [Individual enrollment](./concepts-security.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollment for specific devices.
-- [Enrollment group](./concepts-security.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollment for all devices that have that intermediate or root certificate in their certificate chain. 
+- [Individual enrollment](./concepts-service.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollment for specific devices.
+- [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollment for all devices that have that intermediate or root certificate in their certificate chain. 
 
 It's important to understand how the provisioning service processes enrollment entries:
 
