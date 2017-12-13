@@ -4432,12 +4432,22 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-linux-agents.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-agent-linux",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-linux-computer",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-agent-linux.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-linux-computer",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-windows-agent.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-proxy-firewall.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-windows-agents",
+            "redirect_url": "/azure/log-analytics/log-analytics-windows-agent",
             "redirect_document_id": false
         },
         {
