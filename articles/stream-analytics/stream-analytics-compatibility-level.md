@@ -65,7 +65,7 @@ The following major changes are introduced in compatibility level 1.1:
 
 * **Disable automatic upcast for datetime strings in JSON.**  
 
-  * **In previous versions:** The JSON parser would automatically upcast string values with date/time/zone information to DateTime type. This resulted in losing the timezone information.
+  * **In previous versions:** The JSON parser would automatically upcast string values with date/time/zone information to DateTime type and then convert it to UTC. This resulted in losing the timezone information.
 
   * **In current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone are kept. 
 
