@@ -110,7 +110,7 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
    - remove desktop shortcut that launches the above script
    - download the installer https://aka.ms/azureml-wb-msi and reinstall.
 
-## Get stuck at "Checking experimentation account" screen after logging in
+## Stuck at "Checking experimentation account" screen after logging in
 After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
 1. Shutdown the app
 2. Delete the following file:
@@ -144,6 +144,13 @@ If you have Windows 10 Fall Creators Update, and your project is created in a lo
 
 ## File name too long on Windows
 If you use Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
+
+## Interrupt CLI execution output
+If you kick off an experimentation run using `az ml experiment submit` or `az ml notebook start` and you'd like to interrupt the output: 
+- On Windows use Ctrl-Break key combination from the keyboard
+- On macOS, use Ctrl-C.
+
+Please note that this only interrupts the output stream in the CLI window. It does not actually stop a job that's being executed. If you want to cancel an ongoing job, use `az ml experiment cancel -r <run_id> -t <target name>` command.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 

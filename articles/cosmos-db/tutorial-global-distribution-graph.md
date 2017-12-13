@@ -4,7 +4,7 @@ description: Learn how to setup Azure Cosmos DB global distribution using the Gr
 services: cosmos-db
 keywords: global distribution, graph, gremlin
 documentationcenter: ''
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
 
 ---
