@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 12/13/2017
 ms.author: raynew
 
 ---
@@ -49,41 +49,13 @@ You can customize and extend recovery plans:
 
 - **Add new groups**—Add additional recovery plan groups (up to seven) to the default group, and then add more machines or replication groups to those recovery plan groups. Groups are numbered in the order in which you add them. A virtual machine, or replication group, can only be included in one recovery plan group.
 - **Add a manual action**—You can add manual actions that run before or after a recovery plan group. When the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
-- **Add a script**—You can add scripts that run before or after a recovery plan group. When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 will be created with the name: Group 1: pre-steps. All pre-steps will be listed inside this set. You can only add a script on the primary site if you have a VMM server deployed.
+- **Add a script**—You can add scripts that run before or after a recovery plan group. When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 will be created with the name: Group 1: pre-steps. All pre-steps will be listed inside this set. You can only add a script on the primary site if you have a VMM server deployed. [Learn more](site-recovery-how-to-add-vmmscript.md).
 - **Add Azure runbooks**—You can extend recovery plans with Azure runbooks. For example, to automate tasks, or to create single-step recovery. [Learn more](site-recovery-runbook-automation.md).
 
-## Add scripts
 
-You can use PowerShell scripts in your recovery plans.
+## Add a script, runbook or manual action to a plan
 
- - Ensure that scripts use try-catch blocks so that the exceptions are handled gracefully.
-    - If there is an exception in the script, it stops running and the task shows as failed.
-    - If an error occurs, any remaining part of the script doesn't run.
-    - If an error occurs when you run an unplanned failover, the recovery plan continues.
-    - If an error occurs when you run a planned failover, the recovery plan stops. You need to fix the script, check that it runs as expected, and then run the recovery plan again.
-- The Write-Host command doesn’t work in a recovery plan script, and the script will fail. To create output, create a proxy script that in turn runs your main script. Make sure that all output is piped out using the >> command.
-  * The script times out if it doesn't return within 600 seconds.
-  * If anything is written out to STDERR, the script is classified as failed. This information is displayed in the script execution details.
-
-If you're using VMM in your deployment:
-
-* Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions for the remote share on which the script is located. Test the script to run at the VMM service account privilege level.
-* VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script:
-   - Import-Module -Name virtualmachinemanager. [Learn more](https://technet.microsoft.com/library/hh875013.aspx).
-* Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
-    * If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
-      * Open the Registry Editor and navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
-      * Ensure that you test the script with a user account that has the same permissions as the VMM service account. This checks that standalone tested scripts run in the same way as they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
-        * Open the **64-bit Windows PowerShell** console using elevated privileges.
-        * Type: **Set-executionpolicy bypass**. [Learn more](https://technet.microsoft.com/library/ee176961.aspx).
-
-> [!IMPORTANT]
-> You should set execution policy to Bypass on the 64-bit powershell only. If you have set it for the 32-bit powershell, the scripts will not exeute.
-
-## Add a script or manual action to a plan
-
-You can add a script to the default recovery plan group after you've added VMs or replication groups to it, and created the plan.
+You can add a script or manual action to the default recovery plan group after you've added VMs or replication groups to it, and created the plan.
 
 1. Open the recovery plan.
 2. Click an item in the **Step** list, and then click **Script** or **Manual Action**.
@@ -92,16 +64,22 @@ You can add a script to the default recovery plan group after you've added VMs o
 5. If you add an Azure automation run book, specify the Azure Automation account in which the runbook is located, and select the appropriate Azure runbook script.
 6. Do a failover of the recovery plan, to make sure the script works as expected.
 
+The script or runbook options are available only in the below scenarios when doing a failover or failback. A manual action is available for both failover and failback.
 
-### Add a VMM script
 
-If you have a VMM source site, you can create a script on the VMM server, and include it in your recovery plan.
-
-1. Create a new folder in the library share. For example, \<VMMServerName>\MSSCVMMLibrary\RPScripts. Place it on the source and target VMM servers.
-2. Create the script (for example RPScript), and check it works as expected.
-3. Place the script in the location \<VMMServerName>\MSSCVMMLibrary, on the source and target VMM servers.
+|Scenario               |Failover |Failback |
+|-----------------------|---------|---------|
+|Azure to Azure         |Runbooks |Runbook  |
+|Vmware to Azure        |Runbooks |NA       | 
+|VMM to Azure           |Runbooks |Script   |
+|Hyper-v site to Azure  |Runbooks |NA       |
+|VMM to VMM             |Script   |Script   |
 
 
 ## Next steps
 
 [Learn more](site-recovery-failover.md) about running failovers.
+
+Watch a video to see the recovery plan in action.
+
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
