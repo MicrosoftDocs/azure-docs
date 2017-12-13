@@ -87,20 +87,26 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 After **Update management** is enabled, the **Update management** screen appears.
 If any updates are missing, you'll see a list of missing updates on the **Missing updates** tab.
 
- ![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
+Select the **INFORMATION LINK** on the an update to open the support article for the update in a new window. Here you can learn important information regarding the update.
 
-Each update can be selected
+![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
+
+Clicking anywhere else on the update opens the **Log Search** window for the selected update. The query for the log search is predefined for that particular update. You can modify this query or create your own query to view detailed information about the updates deployed or missing in your environment.
+
+![View update status](./media/automation-tutorial-update-management/logsearch.png)
+
 ## Schedule an update deployment
 
-To install updates, schedule a deployment that follows your release schedule and service window.
+You now know that your VM is missing updates. To install updates, schedule a deployment that follows your release schedule and service window.
 You can choose which update types to include in the deployment.
 For example, you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen.
+Schedule a new Update Deployment for the VM by navigating back to **Update management** and selecting **Schedule update deployment** at the top of the screen.
+
 In the **New update deployment** screen, specify the following information:
 
 * **Name** - Provide a unique name for the update deployment.
-* **Update classification** - Select the types of software the update deployment included in the deployment.
+* **Update classification** - Select the types of software the update deployment included in the deployment. For this tutorial leave all types selected.
 
   The classification types are:
 
@@ -113,15 +119,15 @@ In the **New update deployment** screen, specify the following information:
   * Tools
   * Updates
 
-* **Schedule settings** - You can either accept the default, which is 30 minutes after the current time, or specify a different time.
+* **Schedule settings** - Set the time to 5 minutes in the future. You can also accept the default, which is 30 minutes after the current time.
 You can also specify whether the deployment occurs once or set up a recurring schedule.
-Click the Recurring option under Recurrence to set up a recurring schedule.
+Select **Recurring** under **Recurrence**. Leave the default to 1 day and click **OK**. This sets up a recurring schedule.
 
-  ![Update Schedule Settings screen](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
+* **Maintenance window (minutes)** - Leave this value at the default value. You can specify the period of time you want the update deployment to occur within. This setting helps ensure changes are performed within your defined service windows.
 
-* **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within. This setting helps ensure changes are performed within your defined service windows.
+![Update Schedule Settings screen](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-After you've completed configuring the schedule, click the **Create** button. You are returned to the status dashboard. Notice that the **Scheduled Update deployments** table shows the deployment schedule you created.
+After you've completed configuring the schedule, click the **Create** button. You are returned to the status dashboard. Select **Scheduled Update deployments** to shows the deployment schedule you created.
 
 > [!WARNING]
 > When updates require a reboot, the VM is restarted automatically.
