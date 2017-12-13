@@ -41,7 +41,7 @@ To complete this tutorial:
 
 ## Add the ffmpeg application package
 
-For this tutorial, use the Azure portal to add ffmpeg to your Batch account as an [application package](batch-application-packages). Application packages help you manage task applications and their deployment to the compute nodes in your pool. 
+For this tutorial, use the Azure portal to add ffmpeg to your Batch account as an [application package](batch-application-packages.md). Application packages help you manage task applications and their deployment to the compute nodes in your pool. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **All service** > **Batch accounts** and then click the name of your Batch account.
@@ -72,7 +72,6 @@ cd <wherever>
 Open the solution in Visual Studio. Before you run the app, enter your Batch and Storage account credentials in the project's `Program.cs` file. Get the necessary information from the Batch account in the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands.
 
 ```csharp
-
 // Batch account credentials
 private const string BatchAccountName = "mybatchaccount";
 private const string BatchAccountKey  = "xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ==";
@@ -95,7 +94,7 @@ Right-click the solution in Solution Explorer and click **Build Solution**. Conf
 The following sections break down the sample application into the steps that it performs to process a workload in the Batch service. You will find it helpful to refer to the open solution in Visual Studio while you work your way through the rest of this article, since not every line of code in the sample is discussed.
 
 
-### Blob and Batch clients
+## Blob and Batch clients
 
 * To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
 
@@ -116,8 +115,8 @@ The following sections break down the sample application into the steps that it 
   BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
   BatchClient batchClient = BatchClient.Open(cred);
-
   ```
+
 ## Upload input files
 
 The app passes the `blobClient` object to the `CreateContainerIfNotExistAsync` method to create a storage container for the input MP4 files.
@@ -144,7 +143,7 @@ Two methods in `Program.cs` are involved in uploading the files:
 
 ## Create a Batch pool
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `CreatePoolIfNoneExist`. `CreatePoolIfNoneExist` uses the [BatchClient.PoolOperations.CreatePool](api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server 2012 R2 image published in the Azure Marketplace.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to `CreatePoolIfNoneExist`. `CreatePoolIfNoneExist` uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server 2012 R2 image published in the Azure Marketplace.
 
 The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool. 
 
@@ -164,7 +163,7 @@ VirtualMachineConfiguration virtualMachineConfiguration =
 
 pool = batchClient.PoolOperations.CreatePool(
                     poolId: poolId,
-                    targetDedicatedComputeNodes: 3,
+                    targetDedicatedComputeNodes: 5,
                     virtualMachineSize: "STANDARD_A1_v2",
                     virtualMachineConfiguration: virtualMachineConfiguration); 
 
@@ -195,8 +194,8 @@ job.Commit();
 
 The sample creates tasks in the job with a call to the     `CreateTasks` method. `CreateTasks` creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. Here, the command line runs ffmpeg to convert each input MP4 file to and AVI file.
 
-The sample creates an [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) object for the AVI file generated by each task. Each task's output files (one, in this case) are uploaded to a container in the linked storage account by using the task's [OutputFiles]() property.
-s/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles
+The sample creates an [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) object for the AVI file generated by each task. Each task's output files (one, in this case) are uploaded to a container in the linked storage account by using the task's [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) property.
+
 Then, the sample adds tasks to the job with the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues them to run on the compute nodes. 
 
 ```csharp
@@ -235,12 +234,27 @@ batchClient.JobOperations.AddTaskAsync(jobId, tasks).Wait();
 
 When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes in the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties.
 
-There are many approaches to monitoring task execution. This samples reports only on completion and task failure or success states. Within the `MonitorTasks` method, the app specifies an [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) to efficiently select only minimal information about the tasks. Then, it creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), which provides helper utilities for monitoring task states. In `MonitorTasks`, the sample waits for all tasks to reach TaskState.Completed within a time limit. Then it terminates the job.
+There are many approaches to monitoring task execution. This sample reports only on completion and task failure or success states. Within the `MonitorTasks` method, the app specifies an [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) to efficiently select only minimal information about the tasks. Then, it creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), which provides helper utilities for monitoring task states. In `MonitorTasks`, the sample waits for all tasks to reach `TaskState.Completed` within a time limit. Then it terminates the job.
 
 
 ## Download sample output
-Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to the `DownloadBlobsFromContainer` method. 
+Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to the `DownloadBlobsFromContainer` method. `DownloadBlobsFromContainer` specifies that the files should be downloaded from the output file container to your %TEMP% folder f. Feel free to modify this output location.
 
+```csharp
+// Retrieve a reference to a previously created container
+CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+// Get a flat listing of all the block blobs in the specified container
+foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+{
+// Retrieve reference to the current blob
+loudBlob blob = (CloudBlob)item;
+
+// Save blob contents to a file in the specified folder
+string localOutputFile = Path.Combine(directoryPath, blob.Name);
+blob.DownloadToFile(localOutputFile, FileMode.Create);
+}            
+```
 ## Clean up resources
 
 
