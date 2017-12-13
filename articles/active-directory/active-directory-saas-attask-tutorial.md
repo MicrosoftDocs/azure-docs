@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with @Task| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and @Task.
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: daveba
 manager: mtillman
 editor: ''
 
