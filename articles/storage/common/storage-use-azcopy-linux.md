@@ -598,43 +598,8 @@ Option `--parallel-level` specifies the number of concurrent copy operations. By
 >To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
 
 ## Known issues and best practices
-### Error: .NET Core is not found in the system.
-If you encounter an error stating that .NET Core is not installed in the system, the PATH to the .NET Core binary `dotnet` may be missing.
-
-In order to address this issue, find the .NET Core binary in the system:
-```bash
-sudo find / -name dotnet
-```
-
-This returns the path to the dotnet binary. 
-
-	/opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-Now add this path to the PATH variable. For sudo, edit secure_path to contain the path to the dotnet binary:
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-In this example, secure_path variable reads as:
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-For the current user, edit .bash_profile/.profile to include the path to the dotnet binary in PATH variable 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-Verify that .NET Core is now in PATH:
-```bash
-which dotnet
-sudo which dotnet
-```
+### Error: .NET SDK 2.0 is not found in the system.
+AzCopy depends on the .NET SDK 2.0 starting in the version AzCopy 7.0. Prior to this version AzCopy used .NET Core 1.1. If you encounter an error stating that .NET Core 2.0 is not installed in the system, you may need to install or upgrade using the [.NET Core installation instructions](https://www.microsoft.com/net/learn/get-started/linuxredhat).
 
 ### Error Installing AzCopy
 If you encounter issues with AzCopy installation, you may try to run AzCopy using the bash script in the extracted `azcopy` folder.
