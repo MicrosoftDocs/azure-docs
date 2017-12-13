@@ -16,7 +16,7 @@ The **Web Search API** returns Web pages, news, images, videos, and [entities](h
 ##Endpoint
 To get Web search results using the Bing API, send a `GET` request to the following endpoint. The headers and URL parameters define further specifications.
 
-Endpoint: Returns Web results that are relevant to the user's search query defined by `?q=""`.
+**Endpoint**: Returns Web results that are relevant to the user's search query defined by `?q=""`.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```

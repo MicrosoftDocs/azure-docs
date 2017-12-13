@@ -17,17 +17,17 @@ The **Video Search API**  includes three endpoints.  Endpoint 1 returns videos f
 ##Endpoints
 To get video results using the Bing API, send a `GET` request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
 
-Endpoint 1: Returns videos that are relevant to the user's search query defined by `?q=""`.
+**Endpoint1:** Returns videos that are relevant to the user's search query defined by `?q=""`.
 ``` 
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 ```
 
-Endpoint 2: Returns insights about a video, such as related videos. Include the `modules` [query parameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters), which is a comma-delimited list of insights to request.
+**Endpoint 2:** Returns insights about a video, such as related videos. Include the `modules` [query parameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters), which is a comma-delimited list of insights to request.
 ``` 
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details
 ```
 
-Endpoint 3: Returns videos that are trending based on search requests made by others. The videos are separated into different categories, for example, based on noteworthy people or events.
+**Endpoint 3:** Returns videos that are trending based on search requests made by others. The videos are separated into different categories, for example, based on noteworthy people or events.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending
 ```
