@@ -1,7 +1,7 @@
 ---
 title: Embed Azure Cloud Shell | Microsoft Docs
 description: Learn to embed Azure Cloud Shell.
-services: 
+services: cloud-shell
 documentationcenter: ''
 author: jluk
 manager: timlt
