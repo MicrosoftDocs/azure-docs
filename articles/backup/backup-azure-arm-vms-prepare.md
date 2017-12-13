@@ -27,7 +27,7 @@ ms.author: markgal;trinadhk;
 
 This article provides the steps for preparing your environment to back up an Azure Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
-The Azure Backup service has two types of vaults (backup vaults and Recovery Services vaults) for protecting your VMs. A backup vault helps protect VMs deployed through the classic deployment model. A Recovery Services vault helps protect *both classic-deployed and Resource Manager-deployed VMs*. You must use a Recovery Services vault if you want to protect a Resource Manager-deployed VM.
+The Azure Backup service has two types of vaults for protecting your VMs: backup vaults and Recovery Services vaults. A backup vault helps protect VMs deployed through the classic deployment model. A Recovery Services vault helps protect *both classic-deployed and Resource Manager-deployed VMs*. You must use a Recovery Services vault if you want to protect a Resource Manager-deployed VM.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). For details on working with VMs created through the classic deployment model, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md).
@@ -63,7 +63,7 @@ Before you prepare your environment, be sure to understand these limitations:
 
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backing up VMs encrypted through just a BitLocker encryption key (BEK) is not supported. Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
-* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration, because they require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
+* We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency. 
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
@@ -89,16 +89,16 @@ To create a Recovery Services vault:
 
     ![Create Recovery Services Vault step 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-    The **Recovery Services vaults** blade opens. It prompts you to provide information for **Name**, **Subscription**, **Resource group**, and **Location**.
+    The **Recovery Services vaults** pane opens. It prompts you to provide information for **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Recovery Services vaults blade](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
+    !["Recovery Services vaults" pane](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
 4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains 2 to 50 characters. It must start with a letter, and it can contain only letters, numbers, and hyphens.
-5. Select **Subscription** to see the available list of subscriptions. If you're not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your work or school account is associated with multiple Azure subscriptions.
+5. Select **Subscription** to see the available list of subscriptions. If you're not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your work or school account is associated with multiple Azure subscriptions.
 6. Select **Resource group** to see the available list of resource groups, or select **New** to create a new resource group. For complete information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 7. Select **Location** to select the geographic region for the vault. The vault *must* be in the same region as the virtual machines that you want to protect.
 
    > [!IMPORTANT]
-   > If you're unsure of the location in which your VM exists, close the vault creation dialog box and go to the list of virtual machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data. The Recovery Services vault and the Azure Backup service handle that automatically.
+   > If you're unsure of the location in which your VM exists, close the vault creation dialog box and go to the list of virtual machines in the portal. If you have virtual machines in multiple regions, you need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data. The Recovery Services vault and the Azure Backup service handle that automatically.
    >
    >
 
@@ -109,16 +109,16 @@ To create a Recovery Services vault:
 Now that you've created your vault, learn how to set the storage replication.
 
 ## Set storage replication
-The storage replication option enables you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable.
+The storage replication option enables you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't as durable.
 
 To edit the storage replication setting:
 
-1. On the **Recovery Services vaults** blade, select your vault.
-    When you select your vault, the **Settings** blade (which has the name of the vault at the top) and the vault details blade open.
+1. On the **Recovery Services vaults** pane, select your vault.
+    When you select your vault, the **Settings** pane (which has the name of the vault at the top) and the vault details pane open.
 
    ![Choose your vault from the list of backup vaults](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. On the **Settings** blade, use the vertical slider to scroll down to the **Manage** section, and select **Backup Infrastructure**. In the **General** section, select **Backup Configuration**. On the **Backup Configuration** blade, choose the storage replication option for your vault. By default, your vault has geo-redundant storage.
+2. On the **Settings** pane, use the vertical slider to scroll down to the **Manage** section, and select **Backup Infrastructure**. In the **General** section, select **Backup Configuration**. On the **Backup Configuration** pane, choose the storage replication option for your vault. By default, your vault has geo-redundant storage.
 
    ![List of backup vaults](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
@@ -145,43 +145,43 @@ In the Azure portal, *scenario* refers to what you will put in the Recovery Serv
 
    b. From the list of Recovery Services vaults, select a vault.
 
-      The **Settings** blade and the vault dashboard for the chosen vault open.
+      The **Settings** pane and the vault dashboard for the chosen vault open.
 
-      ![Settings blade and vault dashboard](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+      ![Settings pane and vault dashboard](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 2. On the vault dashboard menu, select **Backup**.
 
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-   The **Backup** and **Backup Goal** blades open.
+   The **Backup** and **Backup Goal** panes open.
 
-3. On the **Backup Goal** blade, set **Where is your workload running?** to **Azure** and **What do you want to backup?** to **Virtual machine**. Then select **OK**.
+3. On the **Backup Goal** pane, set **Where is your workload running?** to **Azure** and **What do you want to backup?** to **Virtual machine**. Then select **OK**.
 
-   ![Backup and Backup Goal blades](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   ![Backup and Backup Goal panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-   This step registers the VM extension with the vault. The **Backup Goal** blade closes and the **Backup policy** blade opens.
+   This step registers the VM extension with the vault. The **Backup Goal** pane closes, and the **Backup policy** pane opens.
 
-   ![Backup and Backup policy blades](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. On the **Backup policy** blade, select the backup policy that you want to apply to the vault.
+   !["Backup" and "Backup policy" panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+4. On the **Backup policy** pane, select the backup policy that you want to apply to the vault.
 
    ![Select backup policy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
    The details of the default policy are listed under the drop-down menu. If you want to create a new policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Select **OK** to associate the backup policy with the vault.
 
-   The **Backup policy** blade closes and the **Select virtual machines** blade opens.
-5. On the **Select virtual machines** blade, choose the virtual machines to associate with the specified policy and select **OK**.
+   The **Backup policy** pane closes, and the **Select virtual machines** pane opens.
+5. On the **Select virtual machines** pane, choose the virtual machines to associate with the specified policy and select **OK**.
 
-   !["Select virtual machines" blade](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+   !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    The selected virtual machine is validated. If you don't see the virtual machines that you expect to see, check that they exist in the same Azure location as the Recovery Services vault and are not already protected in another vault. The vault dashboard shows the location of the Recovery Services vault.
 
-6. Now that you have defined all settings for the vault, on the **Backup** blade, select **Enable backup**. This step deploys the policy to the vault and the VMs. This step does not create the initial recovery point for the virtual machine.
+6. Now that you have defined all settings for the vault, on the **Backup** pane, select **Enable backup**. This step deploys the policy to the vault and the VMs. This step does not create the initial recovery point for the virtual machine.
 
    !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 After you successfully enable the backup, your backup policy will run on schedule. If you want to generate an on-demand backup job to back up the virtual machines now, see [Triggering the backup job](./backup-azure-arm-vms.md#triggering-the-backup-job).
 
-If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines to Azure, be sure that you have properly installed the VM agent and that your virtual machine can communicate with the virtual network.
+If you have problems registering the virtual machine, see the following information on installing the VM agent and on network connectivity. You probably don't need the following information if you are protecting virtual machines created in Azure. But if you migrated your virtual machines to Azure, be sure that you properly installed the VM agent and that your virtual machine can communicate with the virtual network.
 
 ## Install the VM agent on the virtual machine
 For the Backup extension to work, the Azure [VM agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) must be installed on the Azure virtual machine. If your VM was created from the Azure Marketplace, the VM agent is already present on the virtual machine. 
@@ -240,7 +240,7 @@ The following example image shows the three configuration steps necessary to use
 
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-To use an HTTP proxy to communicate with the public internet, follow these steps.
+To use an HTTP proxy to communicate with the public internet, complete the following steps.
 
 > [!NOTE]
 > These steps use specific names and values for this example. When you're entering (or pasting) details into your code, use the names and values for your deployment.
