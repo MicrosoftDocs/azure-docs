@@ -7,11 +7,7 @@
   expanded: true
   items:
   - name: Create an Automation Account
-    href: 
-  - name: Create a Runbook
-    href: 
-  - name: Configure Desired Configuration
-    href: 
+    href: automation-create-standalone-account.md
 - name: Tutorials
   items:
   - name: Track updated files with Watcher Tasks
