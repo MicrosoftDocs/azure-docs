@@ -24,7 +24,6 @@ In this section, you create a self-hosted integration runtime and associate it w
     Description       :
     ```
  ​
-
 3. To retrieve the status of the created integration runtime, run the following command. Confirm that the value of the **State** property is set to **NeedRegistration**. 
 
    ```powershell
@@ -64,6 +63,7 @@ In this section, you create a self-hosted integration runtime and associate it w
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```    
+
 5. Copy one of the keys (exclude the double quotation marks) used to register the self-hosted integration runtime that you install on your machine in the following steps.  
 
 ## Install the integration runtime

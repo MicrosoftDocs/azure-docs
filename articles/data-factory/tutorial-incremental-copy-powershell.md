@@ -186,6 +186,7 @@ Note the following points:
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
+
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
 * Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 

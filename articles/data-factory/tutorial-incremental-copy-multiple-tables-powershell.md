@@ -284,7 +284,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     > [!IMPORTANT]
     > Select the right section based on the authentication you use to connect to SQL Server.
 
-    **If you use SQL authentication, copy the following JSON definition:**
+    If you use SQL authentication, copy the following JSON definition:
 
 	```json
 	{
@@ -304,7 +304,7 @@ In this step, you link your on-premises SQL Server to the data factory.
 		"name": "SqlServerLinkedService"
 	}
    ```    
-    **If you use Windows authentication, copy the following JSON definition:**
+    If you use Windows authentication, copy the following JSON definition:
 
     ```json
     {
