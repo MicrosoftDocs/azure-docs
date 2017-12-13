@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -87,7 +87,7 @@ Select the **Build & Release** tab, then **Builds**, then **+ New definition**. 
 
 ![Choose build template][select-build-template] 
 
-Select **Save & queue** and enter "Hosted VS2017" as the **Agent queue**. Select **Queue** to manually start a build.  Builds also triggers upon push or check-in.
+Enter "Hosted VS2017" as the **Agent queue**. Select **Save and queue** to manually start a build.  Builds also triggers upon push or check-in.
 
 ![Select agent queue][save-and-queue]
 
@@ -95,7 +95,7 @@ To check your build progress, switch to the **Builds** tab.  Once you verify tha
 
 ### Create a release definition  
 
-Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Create release definition**, select the **Azure Service Fabric Deployment** template from the list and click **Next**.  Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
+Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Create release definition**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.  Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
 
 In the **Environments** view, click **Add** to the right of **Cluster Connection**.  Specify a connection name of "mysftestcluster", a cluster endpoint of "tcp://mysftestcluster.westus.cloudapp.azure.com:19000", and the Azure Active Directory or certificate credentials for the cluster. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields. For certificate-based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.  Click **Save** to save the release definition.
 
