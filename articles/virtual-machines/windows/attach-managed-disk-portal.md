@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 
 ---
@@ -32,12 +32,12 @@ You can also [attach a data disk using Powershell](attach-disk-ps.md).
 ## Add a data disk
 1. In the menu on the left, click **Virtual Machines**.
 2. Select the virtual machine from the list.
-3. On the virtual machine blade, click **Disks**.
-   4. On the **Disks** blade, click **+ Add data disk**.
-5. In the drop-down for the new disk, select **Create empty**.
-6. In the **Create managed disk** blade, type in a name for the disk and adjust the other settings as necessary. When you are done, click **Create**.
-7. In the **Disks** blade, click save to save the new disk configuration for the VM.
-6. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3. On the virtual machine page, click **Disks**.
+4. On the **Disks** page, click **+ Add data disk**.
+5. In the drop-down for the new disk, select **Create disk**.
+6. In the **Create managed disk** page, type in a name for the disk and adjust the other settings as necessary. When you are done, click **Create**.
+7. In the **Disks** page, click **Save** to save the new disk configuration for the VM.
+6. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data disks**.
 
 
 ## Initialize a new data disk
