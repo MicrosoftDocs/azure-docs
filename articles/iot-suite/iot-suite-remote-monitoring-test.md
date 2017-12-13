@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Test your solution with simulated devices
 
-This tutorial shows you how to use customize the device simulator microservice with the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
+This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
 In the first scenario, Contoso wants to test a new smart lightbulb device. To perform the tests, you create a new simulated device with the following characteristics:
 
@@ -173,7 +173,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -269,9 +269,9 @@ To test and debug your changes locally, see [Device simulation overview](https:/
 
 Configure the project to copy the new **Lightbulb** device files to the output directory:
 
-* If you are using Visual Studio, make sure you add the three new lightbulb files you created in the previous section to the **Services** project in the solution. Then use **Solution explorer** to mark them to be copied to the output directory.
+* If you are using Visual Studio, make sure you add the four new lightbulb files you created in the previous section to the **Services** project in the solution. Then use **Solution explorer** to mark them to be copied to the output directory.
 
-* If you are using Visual Studio Code, open the **Services.csproj** file and add the three new lightbulb files you created in the previous section. See the existing device model file entries in the **Services.csproj** file as examples.
+* If you are using Visual Studio Code, open the **Services.csproj** file and add the four new lightbulb files you created in the previous section. See the existing device model file entries in the **Services.csproj** file as examples.
 
 To test the new device in a deployed solution, see one of:
 
