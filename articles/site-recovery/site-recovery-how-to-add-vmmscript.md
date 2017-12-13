@@ -28,7 +28,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 You can use PowerShell scripts in your recovery plans. You will need to author them and place them in the VMM library to be accessible from the recovery plan. Below are some considerations while you write the script.
 
- * Ensure that scripts use try-catch blocks so that the exceptions are handled gracefully.
+* Ensure that scripts use try-catch blocks so that the exceptions are handled gracefully.
     - If there is an exception in the script, it stops running and the task shows as failed.
     - If an error occurs, any remaining part of the script doesn't run.
     - If an error occurs when you run an unplanned failover, the recovery plan continues.
@@ -36,6 +36,7 @@ You can use PowerShell scripts in your recovery plans. You will need to author t
         - The Write-Host command doesn’t work in a recovery plan script, and the script will fail. To create output, create a proxy script that in turn runs your main script. Make sure that all output is piped out using the >> command.
         - The script times out if it doesn't return within 600 seconds.
         - If anything is written out to STDERR, the script is classified as failed. This information is displayed in the script execution details.
+
 * Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions for the remote share on which the script is located. Test the script to run at the VMM service account privilege level.
 * VMM cmdlets are delivered in a Windows PowerShell module. The module is installed when you install the VMM console. It can be loaded into your script, using the following command in the script:
    - Import-Module -Name virtualmachinemanager. [Learn more](https://technet.microsoft.com/library/hh875013.aspx).
