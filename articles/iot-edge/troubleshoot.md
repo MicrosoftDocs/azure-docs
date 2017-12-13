@@ -20,34 +20,35 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 ## Standard diagnostic steps 
 
-This section helps you diagnose an issue to understand what's happening. Try each step to gather information about your particular issue, so that you can diagnose it and take action to resolve it:
-
-1. Look at the logs of the docker containers to detect routing issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub.
-
-   ```cmd
-   docker logs <container name>
-   ```
-
-2. Check the messages being sent between IoT Hub and the IoT Edge devices. You can view these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)
-3. Get verbose logs from both the Edge Agent and the Edge Hub containers.
-
-   ```cmd
-   iotedgectl setup --runtime -log -level DEBUG
-   ```
-
-4. Restart the Azure IoT Edge runtime.
+When you encounter an issue, try restarting the Azure IoT Edge runtime. That might resolve the problem before you start looking into logs and error messages. 
 
    ```cmd
    iotedgectl restart
    ```
 
-5. Inspect your edge device environment variables:
+If restarting the runtime doesn't help, then you want to do more digging to see where the error may be occurring. Use the commands and tools in this section to review the logs and messages from your IoT Edge device. 
+
+* Look at the logs of the docker containers to detect routing issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub.
+
+   ```cmd
+   docker logs <container name>
+   ```
+
+* Check the messages being sent between IoT Hub and the IoT Edge devices. You can view these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)
+
+* Get verbose logs from both the Edge Agent and the Edge Hub containers.
+
+   ```cmd
+   iotedgectl setup --runtime -log -level DEBUG
+   ```
+
+* Inspect your edge device environment variables:
 
    ```cmd
    docker exec edgeAgent printenv
    ```
 
-6. Open a console in a container. This step only works on Linux machines.
+* Open a console in a container. This step only works on Linux machines.
 
    ```cmd
    docker exec -it <container name> "bash"
