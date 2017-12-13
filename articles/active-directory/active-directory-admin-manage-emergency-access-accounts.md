@@ -6,7 +6,7 @@ services: active-directory
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markwahl-msft
 ms.author: billmath
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.topic: article-type-from-white-list
 ms.service: active-directory
 ms.workload: identity
@@ -17,7 +17,7 @@ ms.reviewer: markwahl-msft
 
 # Managing emergency access administrative accounts in Azure AD 
 
-For most day-to-day activities, global administrative role rights are not needed.  Users should not be permanently assigned to the role, as the user may inadvertently perform a task with higher permissions than required. When a user does need to act a global administrator, they should activate the role assignment using Azure AD PIM, either on their own account or an alternate administrative account.
+For most day-to-day activities, global administrative role rights are not needed.  Users should not be permanently assigned to the role, as the user may inadvertently perform a task with higher permissions than required. When a user does need to act as a global administrator, they should activate the role assignment using Azure AD PIM, either on their own account or an alternate administrative account.
 
 In addition to users taking on administrative access rights for themselves, customers need to prepare to ensure that they do not get into a situation where they could be inadvertently locked out of administration of their Azure AD tenant due to their inability to sign in or activate an existing individual user's account as an administrator.  They can mitigate the impact of accidental lack of administrative access through storing in their tenant two or more *emergency access accounts*.
 
