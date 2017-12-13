@@ -1,4 +1,4 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -107,6 +107,7 @@ featureFlags:
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -666,7 +667,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                                <p>Language Understanding (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2358,7 +2359,7 @@ featureFlags:
                                         </div>
                                     </div>
                                 </a>
-                            </li>	
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2684,7 +2685,7 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
@@ -3243,7 +3244,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                <a href="/azure/active-directory/develop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4123,7 +4124,7 @@ featureFlags:
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Download</a>
                                                 </p>
                                             </div>
                                         </div>

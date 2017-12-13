@@ -43,10 +43,12 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### Server endpoint
-A server endpoint represents a specific location on a registered server, such as a folder on a server volume or the root of the volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each server endpoint. If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
+A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. Currently, it is not possible to create a server endpoint for the root of a volume (for example `F:\` or `C:\myvolume`, if a volume is mounted as a mount point).
 
 > [!Note]  
 > A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
+
+If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
 
 ### Cloud endpoint
 A cloud endpoint is an Azure file share that is part of a sync group. The entire Azure file share syncs, and an Azure file share can be a member of only one cloud endpoint. Therefore, an Azure file share can be a member of only one sync group. If you add an Azure file share that has an existing set of files as a cloud endpoint to a sync group, the existing files are merged with any other files that are already on other endpoints in the sync group.
@@ -153,6 +155,7 @@ Azure File Sync is available only in the following regions in preview:
 
 | Region | Datacenter location |
 |--------|---------------------|
+| East US | Virginia, USA |
 | West US | California, USA |
 | West Europe | Netherlands |
 | South East Asia | Singapore |
