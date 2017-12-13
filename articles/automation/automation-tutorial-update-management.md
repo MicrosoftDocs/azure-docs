@@ -101,7 +101,10 @@ You now know that your VM is missing updates. To install updates, schedule a dep
 You can choose which update types to include in the deployment.
 For example, you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by navigating back to **Update management** and selecting **Schedule update deployment** at the top of the screen.
+> [!WARNING]
+> When updates require a reboot, the VM is restarted automatically.
+
+Schedule a new update deployment for the VM by navigating back to **Update management** and selecting **Schedule update deployment** at the top of the screen.
 
 In the **New update deployment** screen, specify the following information:
 
@@ -129,9 +132,6 @@ Select **Recurring** under **Recurrence**. Leave the default to 1 day and click 
 
 After you've completed configuring the schedule, click the **Create** button. You are returned to the status dashboard. Select **Scheduled Update deployments** to shows the deployment schedule you created.
 
-> [!WARNING]
-> When updates require a reboot, the VM is restarted automatically.
-
 ## View results of an update deployment
 
 After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
@@ -140,7 +140,7 @@ After it completes, if successful, it changes to **Succeeded**.
 When there are failures with one or more updates in the deployment, the status is **Partially failed**.
 Click the completed update deployment to see the dashboard for that update deployment.
 
-   ![Update Deployment status dashboard for specific deployment](./media/automation-tutorial-update-management/manageupdates-view-results.png)
+![Update Deployment status dashboard for specific deployment](./media/automation-tutorial-update-management/manageupdates-view-results.png)
 
 In the **Update results** tile, a summary provides the total number of updates and deployment results on the VM.
 The table on the right shows a detailed breakdown of each update and the installation results.
@@ -166,7 +166,7 @@ In this tutorial, you learned how to:
 > * Schedule an update deployment
 > * View the results of a deployment
 
-In this tutorial, you learned how to assess the status of available updates, schedule installation of required updates, and review deployment results. To learn more about Update management, continue to the overview for the Update Management solution in OMS.
+Continue to the overview for the Update Management solution in OMS.
 
 > [!div class="nextstepaction"]
 > [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md)
