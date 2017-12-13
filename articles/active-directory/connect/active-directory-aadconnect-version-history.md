@@ -45,7 +45,7 @@ When you first install Azure AD Connect, a new account can be created that is us
 This release tightens the setting on the account that is created and removes this vulnerability.
 
 >[!NOTE]
->This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
 
 To tighten the settings for the service account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). It will tighten the settings on the service account to remove the vulnerability to the below values:
 
