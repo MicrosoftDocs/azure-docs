@@ -39,7 +39,6 @@ The Azure services that support Availability Zones are:
 - Zonal Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
-- SQL Database
 
 ## Supported virtual machine size families
 
