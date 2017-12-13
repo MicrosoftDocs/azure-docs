@@ -298,6 +298,8 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az_gro
 az group delete --name myResourceGroup
 ```
 
+## Next steps
+
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]

@@ -313,6 +313,7 @@ Elapsed time: 00:09:14.3418742
 ```
 Typical execution time is approximately **10 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
 
+## Next steps
 
 In this tutorial, you learned about how to:
 
