@@ -103,7 +103,7 @@ Azure HDInsight has removed the concept of HDInsight Standard and Premium tiers.
 
     For more information, see:
 
-    - [An introduction to Hadoop security with domain-joined HDInsight clusters](./domain-joined/apache-domain-joine-introduction.md)
+    - [An introduction to Hadoop security with domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md)
     - [Plan Azure domain-joined Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
     - [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
