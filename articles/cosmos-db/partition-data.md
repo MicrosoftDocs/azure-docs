@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/13/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
