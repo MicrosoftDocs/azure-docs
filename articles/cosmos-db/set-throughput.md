@@ -49,7 +49,7 @@ The following table lists the throughput available for containers:
 1. In a new window, open the [Azure portal](https://portal.azure.com).
 2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
 3. Select your Cosmos DB account.
-4. In the new window, click **Data Explorer (Preview)** in the navigation menu.
+4. In the new window, click **Data Explorer** in the navigation menu.
 5. In the new window, expand your database and container and then click **Scale & Settings**.
 6. In the new window, type the new throughput value in the **Throughput** box, and then click **Save**.
 
