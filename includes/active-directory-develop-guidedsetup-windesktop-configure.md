@@ -7,9 +7,9 @@ You can quickly register your application by doing the following:
 
 3. In the **Application Name** box, enter a name for your application.
 
-4. Select the **Guided Setup** check box, and then select **Create**.
+4. Ensure that the **Guided Setup** check box is selected, and then select **Create**.
 
-5. Obtain the application ID, and paste it into your code.
+5. Follow the instructions for obtaining the application ID, and paste it into your code.
 
 ### Add your application registration information to your solution (advanced method)
 To add registration information to your solution, do the following:
@@ -25,7 +25,7 @@ To add registration information to your solution, do the following:
 
 6. In the **Application ID** box, copy the GUID.
 
-7. Go to Visual Studio, open the *App.xaml.cs* file, and then replace `your_client_id_here` with the Application ID you just registered and copied.
+7. Go to Visual Studio, open the *App.xaml.cs* file, and then replace `your_client_id_here` with the application ID that you just registered and copied.
 
     ```csharp
     private static string ClientId = "your_application_id_here";
