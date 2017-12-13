@@ -16,26 +16,24 @@ The **Image Search API**  includes three endpoints.  Endpoint 1 returns images f
 ##Endpoints
 To get image results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
 
-Endpoint 1 `GET`: 
+Endpoint 1: Returns images that are relevant to the user's search query defined by `?q=""`.
 ``` 
-https://api.cognitive.microsoft.com/bing/v7.0/images/search
+GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
-Returns images that are relevant to the user's search query defined by `?q=""`.
 
-Endpoint 2 `GET` or `POST`:
+Endpoint 2: Returns insights about an image, using either `GET` or `POST`.
 ``` 
-https://api.cognitive.microsoft.com/bing/v7.0/images/details
+ GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 A GET request returns insights about an image, such as Web pages that include the image. Include the [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter with a `GET` request.
 
 Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. This will return an [insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) to use as a parameter in a subsequent `GET` request, which returns information about people in the image.  Set `modules` to `All` to get all insights, except `RecognizedEntities` in the results of the `POST` without making another call using the `insightsToken`. To specify the image in the body of the `POST` request, you must include the `Content-Type` header and set its value to `multipart/form-data`.
 
 
-Endpoint 3 `GET`:
+Endpoint 3: Returns images that are trending based on search requests made by others. The images are separated into different categories, for example, based on noteworthy people or events.
 ```
-https://api.cognitive.microsoft.com/bing/v7.0/images/trending
+GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 ```
-Returns images that are trending based on search requests made by others. The images are separated into different categories, for example, based on noteworthy people or events.
 
 For a list of markets that support trending images, see [Trending Images](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 

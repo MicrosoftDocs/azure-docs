@@ -16,11 +16,12 @@ The **Web Search API** returns Web pages, news, images, videos, and [entities](h
 ##Endpoint
 To get Web search results using the Bing API, send a `GET` request to the following endpoint. The headers and URL parameters define further specifications.
 
-Endpoint `GET`: 
+Endpoint: Returns Web results that are relevant to the user's search query defined by `?q=""`.
 ```
-https://api.cognitive.microsoft.com/bing/v7.0/search
+GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
-For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) reference.
+Endpoint: For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) reference.
+
 ##Response JSON
 The response to a Web search request includes all results as JSON objects. Parsing the result requires procedures that handle the elements of each type. See the [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) and [source code](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app-source) for examples.
 
