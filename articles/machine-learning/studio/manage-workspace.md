@@ -46,4 +46,7 @@ To manage the web services associated with this workspace, use the Machine Learn
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 > 
->For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal - Public preview](../../active-directory/role-based-access-control-manage-assignments.md).
+>For more information on setting access permissions, see [View access assignments for users and groups in the Azure portal](../../active-directory/role-based-access-control-manage-assignments.md).
+
+## Next steps
+* Learn more about [deploy Machine Learning with Azure Resource Manager Templates](deploy-with-resource-manager-template.md). 
