@@ -67,7 +67,7 @@ The target condition is continuously evaluated to include any new devices that m
 Use any Boolean condition on device twins tags or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Target condition examples:
-* deviceId ='linuxprod1
+* deviceId ='linuxprod1'
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus’
 * tags.environment = 'prod' OR tags.location = 'westus’
