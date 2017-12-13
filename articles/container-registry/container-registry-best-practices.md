@@ -66,7 +66,23 @@ You can find the current usage of a registry in the container registry **Overvie
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
 
-You can manage the size of your registry by using the Azure CLI or the Azure portal. To delete a repository from a registry in the Azure portal, for example, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
+You can manage the size of your registry by using the [Azure CLI][azure-cli] or the [Azure portal][azure-portal]. Only the managed SKUs (Basic, Standard, Premium) support repository and image deletion--you cannot
+
+### Delete in Azure CLI
+
+Use the [az acr repository delete][az-acr-repository-delete] command to delete a repository, or content within a repository.
+
+To delete a repository, including all tags and image layer data within the repository, specify only the repository name when you execute [az acr repository delete][az-acr-repository-delete]. In the following example, we delete the *myapplication* repository, and all tags and image layer data within the repository:
+
+```azurecli
+az acr repository delete --name myregistry --repository myapplication
+```
+
+You can also delete image data from a repository by using the `--tag` and `--manifest` arguments. For details on these arguments, see the [az acr repository delete command reference][az-acr-repository-delete].
+
+### Delete in Azure portal
+
+To delete a repository from a registry in the Azure portal, for example, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
 
 ![Delete a repository in the Azure portal][delete-repository-portal]
 
@@ -79,5 +95,8 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[azure-cli]: /cli/azure/overview
+[azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-skus]: container-registry-skus.md

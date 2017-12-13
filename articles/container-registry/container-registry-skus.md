@@ -17,8 +17,6 @@ Azure Container Registry (ACR) is available in multiple service tiers, known as 
 
 Choosing a higher-level SKU provides more performance and scale, however, all SKUs provide the same programmatic capabilities. With multiple service tiers, you can get started with Basic, then convert to Standard and Premium as your registry usage increases.
 
-&nbsp;
-
 | SKU | Managed | Description |
 | --- | :-------: | ----------- |
 | **Basic** | Yes | A cost-optimized entry point for developers learning about Azure Container Registry. Basic registries have the same programmatic capabilities as Standard and Premium (Azure Active Directory authentication integration, image deletion, and web hooks), however, there are size and usage constraints. |
@@ -44,7 +42,7 @@ Classic registries are "unmanaged" in the sense that the storage account that ba
 
 For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry][container-registry-upgrade].
 
-## Registry SKU feature matrix
+## SKU feature matrix
 
 The following table details the features and limits of the Basic, Standard, and Premium service tiers.
 
