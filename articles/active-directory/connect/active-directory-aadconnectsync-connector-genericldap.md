@@ -4,7 +4,7 @@ description: This article describes how to configure Microsoft's Generic LDAP Co
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b

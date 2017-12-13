@@ -4,7 +4,7 @@ description: Learn how to change the default settings for privileged identities 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa

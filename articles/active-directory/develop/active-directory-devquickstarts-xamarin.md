@@ -4,7 +4,7 @@ description: Build Xamarin applications that integrate with Azure AD for sign-in
 services: active-directory
 documentationcenter: xamarin
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95

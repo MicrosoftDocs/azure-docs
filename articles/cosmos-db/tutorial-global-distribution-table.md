@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # How to setup Azure Cosmos DB global distribution using the Table API

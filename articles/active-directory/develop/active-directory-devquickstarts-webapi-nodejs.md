@@ -4,7 +4,7 @@ description: How to build a Node.js REST web API that integrates with Azure AD f
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
@@ -16,6 +16,7 @@ ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
 ---
+
 # Azure AD Node.js Web API Getting Started
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
