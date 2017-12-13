@@ -55,12 +55,19 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## Build the container image
 
-The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
+The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application. Note that when copying files from your application into the container, you can use wildcard characters such as `*` and `?`. The `*` character will add all files to the destination directory that match it's pattern. The `?` character will do the same but can only be replaced by a single character.
+
+```Dockerfile
+COPY *.jpg /myDir/        # adds all jpg files to /myDir/
+COPY pic-?.jpg /myDir/    # adds all files that match the pattern, e.g. pic-1.jpg, pic-2.jpg
+```
+
+When copying entire directories, avoid using the wildcard `*` after the source directory path (e.g. `./dir/*`). This will copy all files in all subdirectories, but **will not maintain the original directory structure when moved to the destination folder**. Instead you can just leave it out as `COPY ./dir/ /myDir/`.
 
 ```Dockerfile
 FROM node:8.2.0-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/* /usr/src/app/
+COPY ./app/ /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js
