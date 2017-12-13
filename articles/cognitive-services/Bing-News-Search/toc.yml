@@ -6,8 +6,6 @@
       href: search-the-web.md
     - name: News Search endpoints
       href: endpoint-news.md
-    - name: Upgrade from v5 to v7
-      href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
 - name: Quickstarts
@@ -35,6 +33,8 @@
     href: paging-news.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-news-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page News app
