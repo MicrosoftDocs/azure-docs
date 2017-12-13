@@ -25,8 +25,8 @@ This article describes the details of configuring Service Map and onboarding age
 ## Dependency Agent downloads
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## Connected sources
@@ -347,8 +347,8 @@ The following sections list the supported operating systems for the Dependency A
 
 | OS version | Kernel version |
 |:--|:--|
-| 16.04 | 4.4.0-98 |
-| 14.04 | 3.13.0-135<br>4.4.0-98 |
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
 
 ### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6
