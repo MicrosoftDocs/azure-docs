@@ -2,16 +2,16 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Automation
+  - name: What is Automation?
     href: automation-intro.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Automation Account
+  - name: Create an Automation account
     href: automation-create-standalone-account.md
 - name: Tutorials
   items:
-  - name: Track updated files with Watcher Tasks
+  - name: Track updated files with watcher tasks
     href: automation-watchers-tutorial.md
   - name: Onboard update and change tracking
     href: automation-onboard-solutions.md
@@ -21,9 +21,9 @@
       items:
       - name: Create standalone Automation account
         href: automation-create-standalone-account.md
-      - name: Create Azure AD User account
+      - name: Create Azure AD user account
         href: automation-create-aduser-account.md
-      - name: Configure Authentication with AWS
+      - name: Configure authentication with AWS
         href: automation-config-aws-account.md
       - name: Create Automation Run As account
         href: automation-create-runas-account.md
@@ -109,7 +109,7 @@
           href: automation-connections.md
         - name: Credentials
           href: automation-credentials.md
-        - name: Integration Modules
+        - name: Integration modules
           href: automation-integration-modules.md
         - name: Schedules
           href: automation-schedules.md
@@ -125,9 +125,9 @@
           href: automation-scenario-aws-deployment.md
         - name: Remediate Azure VM alert
           href: automation-azure-vm-alert-integration.md
-        - name: Start/stop VM with JSON Tags
+        - name: Start/stop VM with JSON tags
           href: automation-scenario-start-stop-vm-wjson-tags.md
-        - name: Remove Resource Group
+        - name: Remove resource group
           href: automation-scenario-remove-resourcegroup.md
         - name: Source control integration with GitHub Enterprise
           href: automation-scenario-source-control-integration-with-github-ent.md
@@ -163,7 +163,7 @@
       items:
         - name: Migrate from Orchestrator
           href: automation-orchestrator-migration.md
-        - name: Move Automation Account
+        - name: Move Automation account
           href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
