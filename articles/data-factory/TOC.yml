@@ -285,8 +285,6 @@
       href: create-self-hosted-integration-runtime.md     
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md     
-    - name: Join Azure-SSIS integration runtime to a VNET
-      href: join-azure-ssis-integration-runtime-virtual-network.md
   - name: Run SSIS packages in Azure
     items:
     - name: Create Azure-SSIS integration runtime
@@ -295,8 +293,10 @@
       href: join-azure-ssis-integration-runtime-virtual-network.md    
     - name: Manage Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md      
-    - name: Configure Azure-SSIS integration runtime performance
+    - name: Configure performance settings of Azure-SSIS integration runtime
       href: configure-azure-ssis-integration-runtime-performance.md
+    - name: Invoke SSIS packages using stored procedure activity      
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md      
   - name: Create triggers
     items:
     - name: Create a schedule trigger
