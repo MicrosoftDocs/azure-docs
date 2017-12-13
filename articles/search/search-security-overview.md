@@ -76,7 +76,7 @@ You can obtain access keys in the portal or through the [Management REST API](ht
 
 ## Index access
 
-In Azure Search, an individual index is not a securable object. Instead, access to an index are determined at the the service layer (read or write access), plus context of the operation.
+In Azure Search, an individual index is not a securable object. Instead, access to an index is determined at the the service layer (read or write access), along with the context of an operation.
 
 In the case of end-user access, you can structure query requests in your application to connect using a query key, which makes any request read-only, and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously. The structure of the query request itself (a key plus a single target index) defines the security boundary.
 
