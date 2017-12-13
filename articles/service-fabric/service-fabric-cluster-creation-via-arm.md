@@ -622,6 +622,8 @@ After you have created the applications to represent your cluster, assign your u
 2. Select **Azure Active Directory** on the left tab and then select "Enterprise applications".
 3. Select "All applications", and then find and select the web application, which has a name like `myTestCluster_Cluster`.
 4. Click the **Users and groups** tab.
+
+    ![Users and Groups tab][users-and-groups-tab]
 5. Click the **Add user** button on the new page, select a user and the role to assign, and then click the **Select** button at the bottom of the page.
 
     ![Assign users to roles page][assign-users-to-roles-page]
@@ -667,7 +669,7 @@ When you try to sign in to Azure AD in Service Fabric Explorer, the page returns
 The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
 
 #### Solution
-On the **Configure** tab of the cluster (web) application, add the URL of Service Fabric Explorer to the **REPLY URL** list or replace one of the items in the list. When you have finished, save your change.
+Select "App registrations" in AAD page, selct the cluster application, and then select the **Reply URLs** tab. On that page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
 
 ![Web application reply url][web-application-reply-url]
 
@@ -695,7 +697,7 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[link-azure-portal]: https://portal.azure.com
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
@@ -711,6 +713,7 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 [select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
 [assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
 [assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
