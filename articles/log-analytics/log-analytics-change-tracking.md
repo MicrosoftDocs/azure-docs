@@ -40,7 +40,7 @@ Use the following steps to configure files to track on Linux computers.
 4. Click **Save**.  
 
 > [!NOTE]
-> Linux file tracking has additional capabilities including directory tracking, recrusion through directories, and wildcard tracking.
+> Linux file tracking has additional capabilities including directory tracking, recursion through directories, and wildcard tracking.
 
 ### Configure Windows files to track
 Use the following steps to configure files to track on Windows computers.
@@ -65,7 +65,7 @@ Use the following steps to configure registry keys to track on Windows computers
    * **File** (Report file metadata - size, modification date, hash, etc.)
    * **Directory** (Report directory metadata - size, modification date, etc.)
 2. **Links** (Handling Linux symlink references to other files or directories)
-   * **Ignore** (Ignore symlinks during recurions to not include the files/directories referenced)
+   * **Ignore** (Ignore symlinks during recursion to not include the files/directories referenced)
    * **Follow** (Follow the symlinks during recursion to also include the files/directories referenced)
    * **Manage** (Follow the symlinks and alter the treatment of returned content)
 
@@ -92,14 +92,18 @@ Other limitations:
 * When network traffic is high, change records may take up to a maximum of six hours to display.
 * If you modify the configuration while a computer is shut down, the computer might post file changes that belonged to the previous configuration.
 
+### Known Issues
+The Change Tracking solution is currently experiencing the following issues:
+* Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+
 ## Change Tracking data collection details
 Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
 
 The following table shows data collection methods and other details about how data is collected for Change Tracking.
 
-| platform | Direct Agent | Operations Manager agent | Linux agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| platform | Direct Agent | Operations Manager agent | Linux agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows and Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutes to 50 minutes, depending on the change type. See the following table for more information. |
+| Windows and Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutes to 50 minutes, depending on the change type. For more information, view the following table. |
 
 
 The following table shows the data collection frequency for the types of changes.

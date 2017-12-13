@@ -20,11 +20,8 @@ ms.author: mmccrory
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
 
@@ -44,7 +41,7 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
     ![Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
+   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) and then return to this dialog.
    >
    >
 3. In **Roles**, select the role you want to update or select **All** for all roles.
@@ -67,5 +64,5 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 
 ## Additional resources
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
 [Cloud services FAQ - Remote Desktop](cloud-services-faq.md)

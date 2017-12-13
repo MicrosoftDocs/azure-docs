@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) troubleshooting | Microsoft Docs
+title: Azure Cloud Shell troubleshooting | Microsoft Docs
 description: Troubleshooting Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -61,8 +61,9 @@ Known resolutions for issues in Azure Cloud Shell include:
 
 ### GUI applications are not supported
 
-- **Details**: If a user launches a GUI app, the prompt does not return. For example, when a user clones a private GitHub repo that is two factor authentication enabled, a dialog box is displayed for completing the two factor authentication.
-- **Resolution**: `Ctrl+C` to exit the command.
+- **Details**: If a user launches a GUI app, the prompt does not return. For example, when a user clones a private GitHub repo that is two factor authentication enabled, a dialog box is displayed for completing the two factor authentication.  
+- **Resolution**: Close and reopen the shell.
+
 
 ### Get-Help -online does not open the help page
 

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
-description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
+description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -14,15 +14,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/29/2017
 ms.author: mimig
 
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
-This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
+This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [SQL Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ In addition:
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a SQL database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -92,15 +94,21 @@ That completes our work in Data Explorer. Before we move on to working with code
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -206,13 +214,25 @@ Now go back to the Azure portal to get your connection string information and co
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. In the git terminal window, type `mvn package` to install the required Java packages.
+2. In the git terminal window, use the following command to install the required Java packages.
 
-3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start the Java application.
+    ```
+    mvn package
+    ```
 
-    The terminal window displays a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
+3. In the git terminal window, use the following command to start the Java application.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    The terminal window displays a notification that the FamilyDB database was created. 
     
-    Continue to press keys to create the documents and then perform a query.
+4. Press a key to create the collection. 
+
+5. Switch back to the Data Explorer and you'll see that it now contains a FamilyDB database.
+    
+6. Continue to press keys in the console window to have the code create documents and perform a query.
     
     At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
 

@@ -1,9 +1,9 @@
 ---
-title: Azure Functions Table storage bindings
+title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
+ms.author: tdykstra
 ---
-# Azure Functions Table storage bindings
+# Azure Table storage bindings for Azure Functions
 
 This article explains how to work with Azure Table storage bindings in Azure Functions. Azure Functions supports input and output bindings for Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Table storage input binding
+## Input
 
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
 
@@ -280,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Input - Attributes for precompiled C#
+## Input - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table input binding:
 
@@ -294,6 +294,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -304,7 +307,12 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  For a complete example, see [Input - precompiled C# example](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -317,6 +325,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 The storage account to use is determined in the following order:
@@ -341,7 +352,9 @@ The following table explains the binding configuration properties that you set i
 |**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br/>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Input - usage
 
@@ -364,7 +377,7 @@ The Table storage input binding supports the following scenarios:
 
   Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<name>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
-## Table storage output binding
+## Output
 
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
@@ -550,9 +563,9 @@ module.exports = function (context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes
 
- For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
@@ -562,6 +575,9 @@ The attribute's constructor takes the table name. It can be used on an `out` par
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -572,9 +588,14 @@ You can set the `Connection` property to specify the storage account to use, as 
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - Attributes for precompiled C#](#input---attributes-for-precompiled-c).
+For a complete example, see [Output - precompiled C# example](#output---c-example).
+
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes-for-precompiled-c).
 
 ## Output - configuration
 
@@ -588,7 +609,9 @@ The following table explains the binding configuration properties that you set i
 |**tableName** |**TableName** | The name of the table.| 
 |**partitionKey** |**PartitionKey** | The partition key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
 |**rowKey** |**RowKey** | The row key of the table entity to write. See the [usage section](#output---usage) for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br/>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
 

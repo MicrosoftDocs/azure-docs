@@ -50,13 +50,13 @@ If your workspace is automatically upgraded, then you will see a banner indicati
 The following changes are made to your workspace when it's converted:
 
 - Any saved searches, alert rules, and views that you’ve created with the View Designer are automatically converted to the new language.  Searches included in solutions are not automatically converted, but they’re instead converted on the fly when you open them.  
-- [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard are still available, but they're read only.
+- [My dashboard](log-analytics-dashboards.md) is being deprecated in favor of [View Designer](log-analytics-view-designer.md) and [Azure Dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Tiles that you added to My Dashboard are still available, but they're read only.
 - [Power BI integration](log-analytics-powerbi.md) is replaced with a new process.  Any existing Power BI schedules that you created will be disabled, and you need to replace them with the new process.
 - Responses from [alert actions](log-analytics-alerts-actions.md) using webhooks and runbooks have a new format, and you may need to update your alert rules accordingly.
 - Have a look at the [Log Search FAQ](log-analytics-log-search-faq.md) for common questions about the upgrade.
 
 ## How do I know if there were any issues from the upgrade?
-After the upgrade has completed, there will be an **Upgrade Summary** section in the settings for the workspace.  Check this section for information about your upgrade and to view the
+After the upgrade has completed, there will be an **Upgrade Summary** section in the settings for the workspace.  Check this section for information about your upgrade and to view any issues that were encountered.
 
  ![Upgrade summary](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

@@ -10,7 +10,7 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
 ---
 
@@ -125,7 +125,7 @@ with your Azure credentials.
    > If you're signed in with a personal Microsoft account, 
    > such as @outlook.com or @hotmail.com, 
    > the Event Grid trigger might not appear correctly. 
-   > As a workaround, choose [Connect with Service Principal](/azure-resource-manager/resource-group-create-service-principal-portal.md), 
+   > As a workaround, choose [Connect with Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory 
    > that's associated with your Azure subscription, for example, 
    > *user-name*@emailoutlook.onmicrosoft.com.

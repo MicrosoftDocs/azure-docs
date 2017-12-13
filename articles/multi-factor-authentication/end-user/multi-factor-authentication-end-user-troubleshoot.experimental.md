@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
 experiment_id: 34685ebc-9bdb-4e
 ---

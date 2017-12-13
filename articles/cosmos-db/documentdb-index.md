@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB API articles | Microsoft Docs'
-description: A list of all the articles specific to creating document databases with the DocumentDB API in Azure Cosmos DB. 
+title: 'Azure Cosmos DB: SQL API articles | Microsoft Docs'
+description: A list of all the articles specific to creating document databases with the SQL API in Azure Cosmos DB. 
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -16,24 +16,26 @@ ms.date: 10/25/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: DocumentDB API documentation
+# Azure Cosmos DB: SQL API documentation
 
-This article provides links to all Azure Cosmos DB content specific to the DocumentDB API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+This article provides links to all Azure Cosmos DB content specific to the SQL API.
 
 These articles do not apply to the Graph API, Table API, or MongoDB API. 
 
 ## Introduction and concepts
 
-These are must read topics and resources to start learning about the DocumentDB API for Azure Cosmos DB.
+These are must read topics and resources to start learning about the SQL API for Azure Cosmos DB.
 
-- [DocumentDB API introduction](documentdb-introduction.md)
+- [SQL API introduction](documentdb-introduction.md)
 - [Database resource model](documentdb-resources.md)
 - Web site: [Query playground](https://www.documentdb.com/sql/demo)
 - Cheat sheet: [SQL grammar](documentdb-sql-query-cheat-sheet.md)
 
 ## Quickstarts
 
-The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
+The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub are available for each Quickstart. 
 
 - [.NET + Azure portal + Web apps](create-documentdb-dotnet.md)
 - [Java + Azure portal + Web apps](create-documentdb-java.md)
@@ -106,7 +108,7 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 
 ## Samples
 
-These sample pages provide links to sample code and API reference content for the most common DocumentDB API tasks.
+These sample pages provide links to sample code and API reference content for the most common SQL API tasks.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)
