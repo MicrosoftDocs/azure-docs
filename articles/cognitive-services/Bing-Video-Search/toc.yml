@@ -6,8 +6,6 @@
       href: search-the-web.md
     - name: Video Search endpoints
       href: video-search-endpoints.md
-    - name: Use and display requirements
-      href: UseAndDisplayRequirements.md
 - name: Quickstarts
   expanded: true
   items:
@@ -27,6 +25,8 @@
     href: ruby.md
 - name: How to
   items:
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos
