@@ -293,12 +293,12 @@ SSH enables secure communication between a container and a client. In order for 
     ```
 
 * Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) using a shell script in */bin* directory.
- +
- +    ```bash
- +    #!/bin/bash
- +    service ssh start
- +    ```
- +    
+ 
+	```bash
+	#!/bin/bash
+	service ssh start
+	```
+     
 ### Open SSH connection to container
 
 Web App for Containers does not allow external connections to the container. SSH is available only through the Kudu site, which is accessible at `https://<app_name>.scm.azurewebsites.net`.
