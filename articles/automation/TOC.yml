@@ -16,18 +16,8 @@
   items:
   - name: Track updated files with Watcher Tasks
     href: automation-watchers-tutorial.md
-  - name: Deploy updates a virtual machine
-    href: ""
-  - name: Configure a LAMP stack on an Azure VM
-    href: ""
-  - name: Identify software installed in your environment
-    href: automation-tutorial-installed-software.md
-  - name: Troubleshoot changes across your environment
-    href: ""
   - name: Onboard update and change tracking
     href: automation-onboard-solutions.md
-  - name: Creating runbooks for Azure alerts
-    href: ""
 - name: How to
   items:
     - name: Authentication and security
