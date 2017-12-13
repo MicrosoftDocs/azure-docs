@@ -24,9 +24,9 @@ You can connect System Center Configuration Manager to Log Analytics in OMS to s
 Log Analytics supports System Center Configuration Manager current branch, version 1606 and higher.  
 
 ## Configuration overview
-The following steps summarizes the process to connect Configuration Manager to Log Analytics.  
+The following steps summarize the process to connect Configuration Manager to Log Analytics.  
 
-1. In the Azure Management Portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how accomplish this step.
+1. In the Azure Management Portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how to accomplish this step.
 2. In the Azure Management Portal, [provide Configuration Manager (the registered web app) with permission to access OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. In Configuration Manager, [add a connection using the Add OMS Connection Wizard](#add-an-oms-connection-to-configuration-manager).
 4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
@@ -40,7 +40,7 @@ You can read more about connecting Configuration Manager to OMS at [Sync data fr
 The following procedure provides the Azure Management Portal with permissions to access OMS. Specifically, you must grant the *Contributor role* to users in the resource group in order to allow the Azure Management Portal to connect Configuration Manager to OMS.
 
 > [!NOTE]
-> You must specify permissions in OMS for Configuration Manager. Otherwise, you'll receive an error message when you use the configuration wizard in Configuration Manager.
+> You must specify permissions in OMS for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.
 >
 >
 
@@ -62,7 +62,7 @@ The following procedure provides the Azure Management Portal with permissions to
      >
 4. Click **Browse** > **Resource groups** to open **Resource groups**.
 5. In **Resource groups**, click the resource group that you created above to open the &lt;resource group name&gt; settings.  
-   ![resource group settings blade](./media/log-analytics-sccm/sccm-azure03.png)
+   ![resource group settings](./media/log-analytics-sccm/sccm-azure03.png)
 6. In &lt;resource group name&gt; settings, click Access control (IAM) to open &lt;resource group name&gt; Users.  
    ![resource group Users](./media/log-analytics-sccm/sccm-azure04.png)  
 7. In &lt;resource group name&gt; Users, click **Add** to open **Add access**.
@@ -81,16 +81,16 @@ In order to add an OMS connection, your Configuration Manager environment must h
    2. In the Azure Management Portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure Management Portal, you've provided the registered web app with permission to access OMS.  
       ![Connection to OMS Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)
-3. On the **Azure Active Directory** screen, configure your connection settings to OMS by providing your **Tenant** , **Client ID** , and **Client Secret Key** , then select **Next**.  
+3. On the **Azure Active Directory** screen, configure your connection settings to OMS by providing your **Tenant**, **Client ID**, and **Client Secret Key**, then select **Next**.  
    ![Connection to OMS Wizard Azure Active Directory page](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. If you accomplished all the other procedures successfully, then the information on the **OMS Connection Configuration** screen will automatically appear on this page. Information for the connection settings should appear for your **Azure subscription** , **Azure resource group** , and **Operations Management Suite Workspace**.  
+4. If you accomplished all the other procedures successfully, then the information on the **OMS Connection Configuration** screen will automatically appear on this page. Information for the connection settings should appear for your **Azure subscription**, **Azure resource group**, and **Operations Management Suite Workspace**.  
    ![Connection to OMS Wizard OMS Connection page](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. The wizard connects to the OMS service using the information you've input. Select the device collections that you want to sync with OMS and then click **Add**.  
    ![Select Collections](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Verify your connection settings on the **Summary** screen, then select **Next**. The **Progress** screen shows the connection status, then should **Complete**.
 
 > [!NOTE]
-> You must connect OMS to the top-tier site in your hierarchy. If you connect OMS to a standalone primary site and then add a central administration site to your environment, you'll have to delete and recreate the OMS connection within the new hierarchy.
+> You must connect OMS to the top-tier site in your hierarchy. If you connect OMS to a standalone primary site and then add a central administration site to your environment, you have to delete and recreate the OMS connection within the new hierarchy.
 >
 >
 
@@ -99,7 +99,7 @@ After you have linked Configuration Manager to OMS, you can add or remove collec
 ## Update OMS connection properties
 If a password or client secret key ever expires or is lost, you'll need to manually update the OMS connection properties.
 
-1. In Configuration Manager, navigate to **Cloud Services** , then select **OMS Connector** to open the **OMS Connection Properties** page.
+1. In Configuration Manager, navigate to **Cloud Services**, then select **OMS Connector** to open the **OMS Connection Properties** page.
 2. On this page, click the **Azure Active Directory** tab to view your **Tenant**, **Client ID**, **Client secret key expiration**. **Verify** your **Client secret key** if it has expired.
 
 ## Download and install the agent
