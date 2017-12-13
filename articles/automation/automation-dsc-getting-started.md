@@ -23,7 +23,7 @@ manage, and viewing reports. For an overview of what Azure Automation DSC is, se
 [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
 This topic provides a step-by-step guide to using Azure Automation DSC. If you want a sample environment that is already set up without following the steps described in this topic,
-you can use [the following ARM template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
+you can use [the following Resource Manager template](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). This template sets up a completed Azure Automation DSC environment, including an Azure VM that is managed by Azure Automation DSC.
 
 ## Prerequisites
 To complete the examples in this topic, the following are required:
@@ -33,7 +33,7 @@ To complete the examples in this topic, the following are required:
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creating a DSC configuration
-We will create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures either the presence or absence of the **Web-Server** Windows Feature (IIS),
+We create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures either the presence or absence of the **Web-Server** Windows Feature (IIS),
 depending on how you assign nodes.
 
 1. Start the Windows PowerShell ISE (or any text editor).
@@ -70,7 +70,7 @@ This configuration calls one resource in each node block, the [WindowsFeature re
 or absence of the **Web-Server** feature.
 
 ## Importing a configuration into Azure Automation
-Next, we'll import the configuration into the Automation account.
+Next, we import the configuration into the Automation account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, click **All resources** and then the name of your Automation account.
@@ -169,7 +169,7 @@ we cover how to onboard only Azure Resource Manager VMs. For information about o
    [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
 9. In the **Add Azure VMs** blade, click **Create**.
 
-Azure will start the process of onboarding the VM. When it is complete, the VM will show up in the **DSC Nodes** blade in the Automation account.
+Azure starts the process of onboarding the VM. When it is complete, the VM shows up in the **DSC Nodes** blade in the Automation account.
 
 ## Viewing the list of DSC nodes
 You can view the list of all machines that have been onboarded for management in your Automation account in the **DSC Nodes** blade.
