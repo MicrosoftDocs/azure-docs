@@ -669,7 +669,7 @@ When you try to sign in to Azure AD in Service Fabric Explorer, the page returns
 The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
 
 #### Solution
-Select "App registrations" in AAD page, selct the cluster application, and then select the **Reply URLs** tab. On that page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
+Select "App registrations" in AAD page, select your cluster application, and then select the **Reply URLs** button. On "Reply URLs" page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
 
 ![Web application reply url][web-application-reply-url]
 
