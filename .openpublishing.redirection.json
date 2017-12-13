@@ -392,17 +392,17 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
         },            
         {    
             "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
         },           
         {    
             "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-resources",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
         },
         {
