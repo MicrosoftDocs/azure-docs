@@ -52,17 +52,17 @@ The Device Provisioning Service Client SDK helps implement the selected security
 1. Build the SDK for the type of HSM you have selected for your device, using either one of the following commands on the command prompt:
     - For TPM devices:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - For TPM simulator:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - For X.509 devices and simulator:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. The SDK provides default support for devices running Windows or Ubuntu implementations for TPM and X.509 HSMs. For these supported HSMs, proceed to the section titled [Extract the security artifacts](#extractsecurity) below. 
@@ -73,28 +73,26 @@ The Device Provisioning System Client SDK does not provide default support for a
 
 ### Develop your custom repository
 
-1. Develop a GitHub repository to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
+1. Develop a library to access your HSM. This project needs to produce a static library for the Device Provisioning SDK to consume.
 1. Your library must implement the functions defined in the following header file:
-    a. For custom TPM, implement functions defined in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. For custom X.509, implement functions defined in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
-1. Your HSM repository must also contain a `CMakeLists.txt` file at the root for the repository that should be built.
+    a. For custom TPM, implement functions defined in [Custom HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. For custom X.509, implement functions defined in [Custom HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### Integrate with the Device Provisioning Service Client
 
-Once your library successfully builds on its own, you can move to the IoThub C-SDK and pull in your repository:
+Once your library successfully builds on its own, you can move to the IoThub C-SDK and link against you library:
 
 1. Supply the custom HSM GitHub repository, the library path and its name in the following cmake command:
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Replace the `<custom_hsm>` in this command with either `tpm` or `x509`. This command creates a marker for your custom HSM repository inside the `cmake` directory. Note that the custom HSM should still be based on either TPM or X.509 security mechanisms.
-
+   
 1. Open the SDK in visual studio and build it. 
 
-    - The build process clones the custom repository and builds the library.
+    - The build process will compile the SDK library.
     - The SDK will attempt to link against the custom HSM defined in the cmake command.
 
-1. Run the `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` sample to verify if your HSM is implemented correctly.
+1. Run the `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` sample to verify if your HSM is implemented correctly.
 
 <a id="extractsecurity"></a>
 ## Extract the security artifacts
@@ -114,21 +112,30 @@ When your device boots for the first time, the client SDK interacts with your ch
 The last step in the device manufacturing process is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. This SDK provides the following APIs for your applications to use:
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Remember to initialize the variables `dps_uri` and `dps_scope_id` as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. The Device Provisioning client registration API `DPS_Client_LL_Create` connects to the global Device Provisioning Service. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs. The `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
+Remember to initialize the variables `uri` and `id_scope` as mentioned in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence), before using them. The Device Provisioning client registration API `Prov_Device_LL_Create` connects to the global Device Provisioning Service. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs. The `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
 
 
-These APIs help your device to connect and register with the Device Provisioning Service when it boots up, get the information about your IoT hub and then connect to it. The file `dps_client/samples/dps_client_sample/dps_client_sample.c` shows how to use these APIs. In general, you need to create the following framework for the client registration:
+These APIs help your device to connect and register with the Device Provisioning Service when it boots up, get the information about your IoT hub and then connect to it. The file `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` shows how to use these APIs. In general, you need to create the following framework for the client registration:
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -141,18 +148,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
 	    do {
-   			// The dps_register_callback is called when registration is complete or fails
-    		DPS_Client_LL_DoWork(handle);
+   		// The register_callback is called when registration is complete or fails
+    		Prov_Client_LL_DoWork(handle);
 	    } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...
