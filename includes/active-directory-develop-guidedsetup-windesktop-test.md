@@ -9,12 +9,12 @@ When you're ready to run your test, sign in with an Azure Active Directory accou
 ![Sign in to the application](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### Provide consent for application access
-The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in, as shown here: 
+The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and sign you in, as shown here: 
 
 ![Provide your consent for application access](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
 ### View application results
-After you sign in, you should see the user profile information returned by the call to the Microsoft Graph API. The results are displayed in the **API Call Results** box. Basic information about the token that was acquired via the call to `AcquireTokenAsync` or `AcquireTokenSilentAsync` should be visible in the **Token Info** box. The results contain the following properties:
+After you sign in, you should see the user profile information that's returned by the call to the Microsoft Graph API. The results are displayed in the **API Call Results** box. Basic information about the token that was acquired via the call to `AcquireTokenAsync` or `AcquireTokenSilentAsync` should be visible in the **Token Info** box. The results contain the following properties:
 
 |Property  |Format  |Description |
 |---------|---------|---------|
