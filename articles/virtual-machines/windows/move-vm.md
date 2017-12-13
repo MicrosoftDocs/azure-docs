@@ -42,16 +42,16 @@ To move a VM we need to move multiple resources. We can use the output of Find-A
 
 ```azurepowershell-interactive
 
-Move-AzureRmResource -DestinationResourceGroupName <destinationResourceGroup> `
-    -ResourceId <ResourceId,ResourceId,ResourceId>
+Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 	
 To move the resources to different subscription, include the **-DestinationSubscriptionId** parameter. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" `
-    -DestinationResourceGroupName <destinationResourceGroup> `
-    -ResourceId <ResourceId,ResourceId,ResourceId>
+Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+    -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 
 
