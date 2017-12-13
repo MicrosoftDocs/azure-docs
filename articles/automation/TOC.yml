@@ -3,6 +3,7 @@
 - name: Overview
   items:
   - name: What is Automation
+    href: automation-intro.md
 - name: Quickstarts
   expanded: true
   items:
