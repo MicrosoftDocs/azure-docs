@@ -256,9 +256,9 @@ You can however move to Lazy or None indexing mode while a transformation is in 
 * When you move to Lazy, the index policy change is made effective immediately and Azure Cosmos DB starts recreating the index asynchronously. 
 * When you move to None, then the index is dropped effective immediately. Moving to None is useful when you want to cancel an in progress transformation and start fresh with a different indexing policy. 
 
-If you’re using the .NET SDK, you can kick off an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
-
 Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
+
+If you’re using the .NET SDK, you can kick off an indexing policy change using the new **ReplaceDocumentCollectionAsync** method.
 
 **Modify Indexing Policy from Consistent to Lazy**
 
@@ -269,10 +269,9 @@ Here's a code snippet that shows how to modify a collection's indexing policy fr
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-You can check the progress of an index transformation by calling ReadDocumentCollectionAsync, for example, as shown below.
-
 **Track Progress of Index Transformation**
+
+You can track the percentage progress of the index transformation to a consistent index by using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs, and the REST API, support equivalent properties and methods for making indexing policy changes. You can check the progress of an index transformation to a consistent index by calling  **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -286,6 +285,14 @@ You can check the progress of an index transformation by calling ReadDocumentCol
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> The IndexTransformationProgress property is applicable only when transforming to a consistent index. Use the ResourceResponse.LazyIndexingProgress property for tracking transformations to a lazy index.
+>
+
+> [!NOTE]
+> The IndexTransformationProgress and the LazyIndexingProgress properties are populated only in the case of a non-partitioned collection, that is, a collection that is created without a partition key.
+>
 
 You can drop the index for a collection by moving to the None indexing mode. This might be a useful operational tool if you want to cancel an in-progress transformation and start a new one immediately.
 
