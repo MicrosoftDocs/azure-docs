@@ -7,7 +7,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
+ms.date: 12/13/2017
 ---
 
 # Aerial Image Classification
@@ -300,7 +300,7 @@ Once HDInsight cluster creation is complete, register the cluster as a compute t
 1.  Issue the following command from the Azure Machine Learning Command Line Interface:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     This command adds two files, `myhdi.runconfig` and `myhdi.compute`, to your project's `aml_config` folder.
