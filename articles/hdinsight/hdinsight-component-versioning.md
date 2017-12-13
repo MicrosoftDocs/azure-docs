@@ -23,7 +23,7 @@ ms.author: bprakash
 ---
 # What are the Hadoop components and versions available with HDInsight?
 
-Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azure HDInsight, as well as the Standard and Premium service levels. Also, learn how to check Hadoop component versions in HDInsight. 
+Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azure HDInsight, as well as the Enterprise Security Package. Also, learn how to check Hadoop component versions in HDInsight. 
 
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP).
 
@@ -99,7 +99,7 @@ Azure HDInsight has removed the concept of HDInsight Standard and Premium tiers.
 
 - Integration with Active Directory for authentication.
 
-    In the past, you can only create an HDInsight cluster with a local admin user and a local SSH user that have full access to the cluster. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable roll-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. As a domain admin, you can grant users to use their own corporate (domain) user-name and password to access the cluster. 
+    In the past, you can only create HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable roll-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. Domain administrators can grant users to use their own corporate (domain) user-name and password to access the cluster. 
 
     For more information, see:
 
