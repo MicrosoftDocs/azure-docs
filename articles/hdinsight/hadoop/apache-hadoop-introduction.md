@@ -1,6 +1,6 @@
 ---
-title: What are HDInsight, the Hadoop technology stack & clusters? - Azure | Microsoft Docs
-description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Kafka, Hive, HBase for big data analysis.
+title: What are HDInsight, the Hadoop and Spark technology stack? - Azure | Microsoft Docs
+description: An introduction to HDInsight, the Hadoop and Spark technology stack and components, including Kafka, Hive, Storm, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 12/13/2017
 ms.author: cgronlun
 
 ---
-# Introduction to Azure HDInsight, the Hadoop technology stack, and Hadoop clusters
+# Introduction to Azure HDInsight, the Hadoop and Spark technology stack
 This article provides an introduction to Azure HDInsight, a fully managed, full spectrum open source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
@@ -132,7 +132,7 @@ HDInsight clusters support the following languages that are specific to the Hado
 ## Business intelligence on HDInsight
 Familiar business intelligence (BI) tools retrieve, analyze, and report data integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver:
 
-* [Apache Spark BI using data visualization tools with Azure HDInsight](../spark/apache-spark-use-bi-tools)
+* [Apache Spark BI using data visualization tools with Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
 * [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md): Learn how to connect Excel to the Azure Storage account that stores the data from your HDInsight cluster by using Microsoft Power Query for Excel. Windows workstation required. 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. 
