@@ -1,6 +1,6 @@
 ---
 title: Download large amounts of random data from Azure Storage  | Microsoft Docs 
-description: Build a scalable application using Azure blob storage
+description: Learn how to use the Azure SDK to download large amounts of random data from an Azure Storage account 
 services: storage
 documentationcenter: 
 author: georgewallace
