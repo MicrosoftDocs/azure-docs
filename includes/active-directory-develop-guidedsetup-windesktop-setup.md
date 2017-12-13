@@ -1,9 +1,9 @@
 
 ## Set up your project
 
-In this section you create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so that the application can query any web APIs that require a token.
+In this section you create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so that the application can query Web APIs that require a token.
 
-The application that you create with this guide exposes a button to graph and show on-screen results and a sign-out button.
+The application that you create with this guide displays a button that's used to call a graph, an area to show the results on the screen, and a sign-out button.
 
 > [!NOTE]
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
@@ -23,7 +23,7 @@ To create your application, do the following:
     ```
 
     > [!NOTE] 
-    > The previously mentioned package installs Microsoft Authentication Library. MSAL handles acquiring, caching, and refreshing user tokens that are used to access the APIs that are protected by Azure Active Directory v2.
+    > This command installs Microsoft Authentication Library. MSAL handles acquiring, caching, and refreshing user tokens that are used to access the APIs that are protected by Azure Active Directory v2.
     >
 
 ## Add the code to initialize MSAL
