@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -48,13 +48,16 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Select the **QueueTrigger** template for your desired language, and  use the settings as specified in the table.
+2. In the search field, type `queue` and then choose your desired language for the Queue storage trigger template.
 
-    ![Create the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Choose the storage queue trigger template.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Use the settings as specified in the table below the image.
+    ![Configure the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Name your function** | Unique in your function app | Name of this queue triggered function. |
+    | **Name** | Unique in your function app | Name of this queue triggered function. |
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
