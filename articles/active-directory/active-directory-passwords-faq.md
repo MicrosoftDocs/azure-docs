@@ -40,9 +40,9 @@ This FAQ is split into the following sections:
   > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (http://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (http://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
   >
-* **Q:  If I enable password reset for a group and then decide to enable it for everyone will my users have to re-register?**
+* **Q:  If I enable password reset for a group and then decide to enable it for everyone are my users required re-register?**
 
-  > **A:** No. Users who have populated authentication data will not be required to re-register.
+  > **A:** No. Users who have populated authentication data are not required to re-register.
   >
   >
 * **Q:  Can I define password reset data on behalf of my users?**

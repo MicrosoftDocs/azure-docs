@@ -36,7 +36,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 11. Enable password reset. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**. 
 
    > [!NOTE]
-   > Changing this option from a selected group to everyone will not invalidate existing authentication data that a user may have registered as part of a test group. Users who are already configured and have valid authentication data registered will continue to function.
+   > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
 
 12. [Enable Windows 10 users to reset their password at the login screen](active-directory-passwords-login.md).
 
