@@ -19,7 +19,7 @@ ms.author: juluk
 
 # Features & tools for Bash in Azure Cloud Shell
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Features & tools in [PowerShell](features-powershell.md) is also available.
