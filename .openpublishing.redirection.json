@@ -15599,10 +15599,20 @@
         "redirect_url": "https://www.blitline.com",
         "redirect_document_id": false
       },
-       {
-             "source_path": "articles/xplat-cli-connect.md",
-             "redirect_url": "/cli/azure/authenticate-azure-cli",
-             "redirect_document_id": false
-        }
+      {
+        "source_path": "articles/xplat-cli-connect.md",
+        "redirect_url": "/cli/azure/authenticate-azure-cli",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-load.md",
+        "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-polybase-guide.md",
+        "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
+        "redirect_document_id": false
+      }
     ]
 }
