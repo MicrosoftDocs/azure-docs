@@ -20,18 +20,18 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: Tutorials
-  items:
-  - name: Single-page Web app
-    href: tutorials/spellcheck.md
-  - name: Single-page Web app (source code)
-    href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
   - name: Upgrade from v5 to v7
     href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorials/spellcheck.md
+  - name: Single-page Web app (source code)
+    href: tutorials/spellcheck-source.md
 - name: Reference
   items:
   - name: API v7
