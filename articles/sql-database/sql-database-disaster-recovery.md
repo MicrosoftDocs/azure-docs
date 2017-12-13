@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "On Demand"
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -24,7 +24,6 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 
 * [Active geo-replication and failover groups](sql-database-geo-replication-overview.md)
 * [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
-* [Zone-redundant databases](sql-database-high-availability.md#availability-zones)
 
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md).
 

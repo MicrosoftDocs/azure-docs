@@ -14,7 +14,7 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 10/20/2017
+ms.date: 12/13/2017
 ms.workload: "On Demand"
 ms.author: sashan
 ms.reviewer: carlrab
@@ -23,9 +23,6 @@ ms.reviewer: carlrab
 # Designing highly available services using Azure SQL Database
 
 When building and deploying highly available services on Azure SQL Database, you use [failover groups and active geo-replication](sql-database-geo-replication-overview.md) to provide resilience to regional outages and catastrophic failures. It also enables fast recovery to the secondary databases. This article focuses on common application patterns and discusses the benefits and trade-offs of each option. For information about active geo-replication with Elastic Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-
-> [!NOTE]
-> If you are using Premium databases and pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-redundant databases](sql-database-high-availability.md#availability-zones).  
 
 ## Scenario 1: Using two Azure regions for business continuity with minimal downtime
 In this scenario, the applications have the following characteristics: 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Inactive"
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: sashan
 ms.reviewer: carlrab
 ---
@@ -73,25 +73,10 @@ When a secondary replica fails, the database is down to a minimal quorum-set, wi
 
 For the remote storage configurations, SQL Database uses AlwaysON functionality to failover databases during the upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
 
-## Availability Zones
-By default, the quorum-set replicas for the local storage configurations are created in the same datacenter. With the introduction of [Azure Availability Zones](/azure/availability-zones/az-overview.md), Microsoft added the ability to place the different replicas in the quorum-sets to different availability zones in the same region. To eliminate a single point of failure, the control ring also spans multiple zones. The routing to a specific instance of GW or MS on the control ring is managed by  [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). There is no additional cost for customers for the use of Availability Zones in the Premium service tier. By selecting a zone redundant database, you can make your Premium databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic. You can also convert any existing Premium database or pool to the zone redundant configuration.
-
-[!INCLUDE availability-zones-preview-statement.md]
-
-A zone-redundant quorum-set places replicas across multiple physically-isolated availability zones. The increased network latency may increase the commit time and potentially impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is a size of data operation and is similar to the regular service level objective (SLO) update. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
-
-> [!NOTE]
-> In public preview of Availability Zones, only LS configurations (the Premium databases and pools) are supported.
-
-The zone redundant version of the high availability architecture is illustrated by the following diagram:
- 
-![high availability architecture zone redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
 ## Conclusion
-Azure SQL DB is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery, on Azure Storage Blobs for data protection and Availability Zones for higher fault tolerance. At the same time, Azure SQL database uses the AlwaysOn technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
+Azure SQL DB is deeply integrated with the Azure platform and is highly dependent on Service Fabric for failure detection and recovery and on Azure Storage Blobs for data protection. At the same time, Azure SQL database uses the AlwaysOn technology from SQL Server box product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs. 
 
 ## Next steps
 
-- Learn about [Azure Availability Zones](/azure/availability-zones/az-overview.md)
 - Learn about [Service Fabric](/azure/service-fabric/service-fabric-overview.md)
 - Learn about [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) 
