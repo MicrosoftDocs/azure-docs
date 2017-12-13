@@ -69,8 +69,9 @@ To ensure staff are trained in how to use the emergency access accounts:
 5.	Update the credentials.
 
 ## Next steps
-- [Administrator roles](active-directory-assign-admin-roles.md)
-- [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
-- [Administrative units](active-directory-administrative-units-management.md)
-- [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+- [Add a cloud-based user](add-users-azure-active-directory.md) and [assign the new user to the global administrator role](active-directory-users-assign-role-azure-portal.md)
+- [Sign up for Azure Active Directory Premium](active-directory-get-started-premium.md), if you haven’t already
+- [Require Azure MFA for individual users assigned as administrators](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md)
+- [Configure additional protections for global administrators in Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), if you are using Office 365
+- [Perform an access review of global administrators](active-directory-privileged-identity-management-how-to-start-security-review.md) and [transition existing global administrators to more specific administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 
