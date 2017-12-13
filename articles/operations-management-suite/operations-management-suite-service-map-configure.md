@@ -34,7 +34,7 @@ Service Map gets its data from the Microsoft Dependency Agent. The Dependency Ag
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Operations Management Suite is required. Data is forwarded from the management group to the Operations Management Suite repository.|
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
@@ -71,7 +71,7 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
+1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
 2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
 
 ---
@@ -26,6 +26,7 @@ Microsoft Azure Stack supports the following Azure Marketplace items:
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker Extension for Linux Virtual Machines. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | SQL IaaS Extension | <b>Download this extension to deploy any SQL Server on Windows Marketplace items.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Windows Server 2016 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning Server 9.2.1 on Windows Server 2016. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 on Ubuntu 16.04. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2 ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning Server 9.2.1 on CentOS Linux 7.2. | Microsoft |
@@ -153,8 +154,8 @@ Microsoft Azure Stack supports the following Azure Marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marketing, sales, and customer service application. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS and Web Portal Program that creates dynamic websites.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Open Source CRM system: Mobile, Social, and Gamified. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC delivers advanced, multi-layered threat prevention to protect customer assets in Azure from malware and sophisticated threats. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Build, deploy, and manage with Chef Automate, the Continuous Automation Platform. | Chef Software, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC delivers advanced, multi-layered threat prevention to protect customer assets in Azure from malware and sophisticated threats. <b>Download both Check Point vSEC marketplace items.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Build, deploy, and manage with Chef Automate, the Continuous Automation Platform. <b>Download both Chef marketplace items</b> | Chef Software, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux by CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Container Linux is a modern and minimal Linux distribution, providing an easy way to run containers, manage clusters and seamlessly update your servers - all components that enable warehouse-scale compute. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server is the world's most popular Linux for cloud environments. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
@@ -168,7 +169,9 @@ Microsoft Azure Stack supports the following Azure Marketplace items:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro Deep Security extension for Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent for Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro Deep Security extension for Windows. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software Tool v7.1 - Migrate + HA. | ZeroDown Software |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise lets you automate the entire lifecycle of your Azure Stack infrastructure. <b>Download both Puppet Marketplace items.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 
 ### Next steps
 [Download a Marketplace item](azure-stack-download-azure-marketplace-item.md)
