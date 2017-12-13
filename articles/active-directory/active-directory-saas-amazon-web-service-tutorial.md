@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. The Amazon Web Services (AWS) Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
-	![Configure Single Sign-On attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)	
+	![Configure Single Sign-On attributes](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)	
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On add](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-	![Configure Single Sign-On addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+	![Configure Single Sign-On attributes](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -241,7 +241,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. You can provide **Description** to the policy as **This policy will allow to fetch the roles from AWS accounts**.
 
 	c. In the policy document, add the below JSON.
-
+	
+	```
+	
 	{
 
 	"Version": "2012-10-17",
@@ -265,6 +267,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	]
 
 	}
+	
+	```
 
 	d. Make sure that you check on **Use autoformatting for policy editing**.
 
