@@ -19,7 +19,7 @@ ms.author: tarcher
 ---
 
 # Integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline
-You can use an extension installed in Visual Studio Team Services (VSTS) to easily integrate your CI/CD build and release pipeline with Azure DevTest Labs. The extension installs three tasks to create a VM, create a custom image from a VM, and delete a VM. This process makes it easy to, for example, quickly deploy a "golden image" for specific test task, then delete it when the test is finished.
+You can use the **Azure DevTest Labs Tasks extension**  installed in Visual Studio Team Services (VSTS) to easily integrate your CI/CD build and release pipeline with Azure DevTest Labs. The extension installs three tasks to create a VM, create a custom image from a VM, and delete a VM. This process makes it easy to, for example, quickly deploy a "golden image" for specific test task, then delete it when the test is finished.
 
 This article shows how to create and deploy a VM, create a custom image, then delete the VM, all as one complete pipeline. Typically, though, you would use the tasks individually in your own custom build-test-deploy pipeline.
 
@@ -86,7 +86,8 @@ Perform these steps to create the release definition.
    - **userName**: Enter the username you assigned to the VM when you created the Resource Manager template in the Azure portal.
    - **password**: Enter the password you assigned to the VM when you created the Resource Manager template in the Azure portal. Use the "padlock" icon to hide and secure the password.
 
-   **Create a VM**
+   Create a VM
+   ---
 
    The first stage in this deployment is to create the VM to use as the "golden image" for subsequent deployments. You create the VM within your Azure DevTest Lab instance using the task specially developed for this purpose. In the release definition, select **+ Add tasks** and add an **Azure DevTest Labs Create VM** task from the Deploy tab. Configure it as follows:
 
@@ -126,7 +127,8 @@ Perform these steps to create the release definition.
    - The information about the VM you need for the parameters of these tasks is stored in three configuration variables named **labVmRgName**, **labVMIpAddress**, and **labVMFqdn** within the release definition.
    - If you just want to experiment with creating a DevTest Labs VM and a custom image, without deploying an app to it, you can skip this step.
 
-   **Create an image**
+   Create an image
+   ---
 
    The next stage is to create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use this image to create copies of the VM on demand, whenever you want to execute a dev task or run some tests. In the release definition, select **+ Add tasks** and add an **Azure DevTest Labs Create Custom Image** task from the **Deploy** tab. Configure it as follows:
 
@@ -138,7 +140,8 @@ Perform these steps to create the release definition.
    - **Source Lab VM - Source Lab VM ID**: If you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default is *$(labVMId)*.
    - **Output Variables - Lab VM ID**: You need the ID of the newly created image when you want to manage or delete it. The default name of the environment variable that is automatically populated with this ID is set in the **Output Variables** section. You can edit the variable if necessary.
    
-   **Delete the VM**
+   Delete the VM
+   ---
    
    The final stage in this example is to delete the VM you deployed in your Azure DevTest Labs instance. Typically, you delete the VM after you execute the dev tasks or run the tests you need on the deployed VM. In the release definition, select **+ Add tasks** and add an **Azure DevTest Labs Delete VM** task from the **Deploy** tab. Configure it as follows:
 
