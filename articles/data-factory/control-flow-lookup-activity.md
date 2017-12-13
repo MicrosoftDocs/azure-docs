@@ -43,7 +43,7 @@ The following data sources are currently supported for Lookup:
     "typeProperties": {
         "source": {
             "type": "<source type>"
-            <additional source specific propertions (optional)>
+            <additional source specific properties (optional)>
         },
         "dataset": { 
             "referenceName": "<source dataset name>",
