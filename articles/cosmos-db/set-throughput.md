@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/13/2017
 ms.author: mimig
 
 ---
@@ -34,7 +34,7 @@ The following table lists the throughput available for containers:
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
             <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>2,500 request units per second</p></td>
+            <td valign="top"><p>1,100 request units per second</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
@@ -58,7 +58,7 @@ The following table lists the throughput available for containers:
 ## To set the throughput by using the SQL API for .NET
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -67,7 +67,7 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
@@ -75,7 +75,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Can I set my throughput to less than 400 RU/s?**
 
-400 RU/s is the minimum throughput available on Cosmos DB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
+400 RU/s is the minimum throughput available on Cosmos DB single partition containers (1,100 RU/s is the minimum for partitioned containers). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
 
 **How do I set througput using the MongoDB API?**
 
