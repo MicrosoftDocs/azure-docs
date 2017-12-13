@@ -84,7 +84,7 @@ This command deploys the files and directories from the ZIP file to your default
 
 To view the list of deployments for this app, you must use the REST APIs (see next section). 
 
-<!-- [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  -->
+[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
 ## Next steps
 

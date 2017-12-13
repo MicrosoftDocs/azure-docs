@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
+ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
 ---
@@ -101,7 +101,7 @@ http://<app name>.azurewebsites.net
 
 [!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
-## Browse to the app locally
+## Browse to the app
 
 Browse to the deployed application using your web browser.
 
