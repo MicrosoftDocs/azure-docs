@@ -6,15 +6,14 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-
+editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview, mvc
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 112/13/2017
+ms.date: 12/13/2017
 ms.workload: "Active"
 ms.author: carlrab
 ms.reviewer: carlrab
