@@ -1,5 +1,5 @@
 ---
-title: TPredict Twitter sentiment from work embeddings - Azure | Microsoft Docs
+title: Predict Twitter sentiment from work embeddings - Azure | Microsoft Docs
 description: The steps needed to execute your data-science projects
 services: machine-learning
 documentationcenter: ''
@@ -70,7 +70,7 @@ First we use the Word2Vec algorithm in the Skipgram mode as explained in the pap
 
 Skip-gram is a shallow neural network taking the target word encoded as a one hot vector as input and using it to predict nearby words. If _V_ is the size of the vocabulary then the size of the output layer would be __C*V__ where C is the size of the context window. The skip-gram based architecture is shown in the following figure:
 
-![ROC Model Comparison](../media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Skip-gram Model](../media/predict-twitter-sentiment/skip-gram-model.PNG)
 
 ***Skip-gram model***
 
