@@ -62,7 +62,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
  
-3. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
+3. Create a file named **_X509testcert.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
 4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -70,7 +70,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 5. Under the **Add enrollment list entry**, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Certificate .pem or .cer file*, select the certificate file **_X509testcertificate.pem_** created in the previous steps using the *File Explorer* widget.
+    - Under the *Certificate .pem or .cer file*, select the certificate file **_X509testcert.pem_** created in the previous steps using the *File Explorer* widget.
     - Optionally, you may provide the following information:
         - Select an IoT hub linked with your provisioning service.
         - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
