@@ -3,7 +3,7 @@ title: Target Updates using SCCM Collections in OMS Update Management | Microsof
 description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
 services: operations-management-suite
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 
 ---
 

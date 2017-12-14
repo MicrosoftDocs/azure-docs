@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
 
 ---
@@ -206,35 +206,16 @@ For more information, see [Resources section of Azure Resource Manager templates
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
-The following example shows the structure of an output definition:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Element name | Required | Description |
-|:--- |:--- |:--- |
-| outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the output value. Output values support the same types as template input parameters. |
-| value |Yes |Template language expression that is evaluated and returned as output value. |
-
-The following example shows a value that is returned in the Outputs section.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-For more information about working with output, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+For more information, see [Outputs section of Azure Resource Manager templates](resource-manager-templates-outputs.md).
 
 ## Template limits
 
