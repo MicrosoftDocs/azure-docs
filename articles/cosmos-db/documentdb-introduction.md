@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Introduction to the SQL API | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using SQL and JavaScript. 
 keywords: json database, document database
 services: cosmos-db
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
-ms.author: mimig
+ms.author: rafats
 
 ---
 # Introduction to Azure Cosmos DB: SQL API
