@@ -49,7 +49,7 @@ SQL Data Warehouse allows up to 1,024 concurrent connections. All 1,024 connecti
 Concurrency limits are governed by two concepts: *concurrent queries* and *concurrency slots*. For a query to execute, it must execute within both the query concurrency limit and the concurrency slot allocation.
 
 - Concurrent queries are the queries executing at the same time. SQL Data Warehouse supports up to 32 concurrent queries on the larger DWU sizes.
-- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-classes) of the query. 
+- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-class-overview) of the query. 
 
 When concurrency limits are met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, queued queries are released. 
 
@@ -58,7 +58,7 @@ When concurrency limits are met, new queries are queued and executed on a first-
 >
 > 
 
-For concurrency limits based on DWU sizes, visit [concurrency mappings]().
+For concurrency limits based on DWU sizes, visit [concurrency limits][concurrency limits].
 
 ## Resource class overview
 
@@ -81,19 +81,20 @@ Different resource classes offer benefits and drawbacks for users' queries. A la
 Users in **smallrc** and **staticrc10** are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to **xlargerc** or **staticrc80** are given large amounts of memory, and therefore fewer of their queries can run
 concurrently.
 
-For memory mappings of resource classes, visit [memory allocation mappings](workload management mappings).
+For memory mappings of resource classes, visit [memory allocation mappings][memory allocation mappings].
 
 ### Query importance
 
 SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. Workload groups control the *importance* of query which affects the priority of resource allocation to queries.. Importance is used for CPU scheduling. Queries run with high importance will get three times more CPU cycles than those with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance. By extension, the resource class is mapped directly to the assignment of *importance* to a query.
 
-For workload group assignments to resource classes, visit [workload group mappings]().
+For workload group assignments to resource classes, visit [workload group mappings][workload group mappings].
 
 ### Details on resource class assignment
 
 A few more details on resource class:
 
 - *Alter role* permission is required to change the resource class of a user.
+- Adding or removing roles in SQL Data Warehouse is done through [sp_addrolemember](/sql/t-sql/statements/sp-addrolemember-transact-sql) and [sp_droprolemember](/sql/t-sql/statements/sp-droprolemember-transact-sql)
 - Although you can add a user to one or more of the higher resource classes, dynamic resource classes take precedence over static resource classes. That is, if a user is assigned to both **mediumrc**(dynamic) and **staticrc80**(static), **mediumrc** is the resource class that is honored.
 - When a user is assigned to more than one resource class in a specific resource class type (more than one dynamic resource class or more than one static resource class), the highest resource class is honored. That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is honored. And if a user is assigned to both **staticrc20** and **statirc80**, **staticrc80** is honored.
 - The resource class of the system administrative user **cannot** be changed.
@@ -627,3 +628,23 @@ SELECT    w.[pdw_node_id]
 FROM    sys.dm_pdw_wait_stats w;
 ```
 
+## Next steps
+
+For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality].
+
+<!--Image references-->
+
+<!--Article references-->
+
+[memory allocation mappings]: ./workload-management-mappings.md#memory-allocations
+[workload group mappings]: ./workload-management-mappings.md#workload-group-mappings
+[concurrency slot mappings]: ./workload-management-mappings.md#concurrency-slot-consumption
+[concurrency limits]: ./workload-management-mappings.md#concurrency-limits
+[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+
+<!--MSDN references-->
+
+[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+
+<!--Other Web references-->

@@ -25,7 +25,7 @@ This page covers various table which map resource class assignments with the eff
 
 ## Memory Allocations
 
-The following table maps the memory allocated to each distribution by DWU and resource class. For information on the impact of memory allocation and resource classes, see the workload management overview page {TODO}. Note that the higher resource classes have their memory reduced to honor the global DWU limits.
+The following table maps the memory allocated to each distribution by DWU and resource class. For information on the impact of memory allocation and resource classes, see the workload management overview page. Note that the higher resource classes have their memory reduced to honor the global DWU limits.
 
 ### Static Resource Class memory allocation
 
@@ -135,7 +135,7 @@ SQL Data Warehouse grants more memory to queries running in higher resource clas
 | DW3000 |             32             |             120             |           1           |           16           |          32           |           64           |
 | DW6000 |             32             |             240             |           1           |           32           |          64           |          128           |
 
-## Workload group mappings to concurrency slots and importance
+## Workload group mappings
 
 | Workload groups | Concurrency slot mapping | MB / Distribution | Importance mapping |
 | :-------------- | :----------------------: | :---------------: | :----------------- |
