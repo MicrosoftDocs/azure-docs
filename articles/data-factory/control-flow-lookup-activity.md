@@ -58,7 +58,7 @@ The following data sources are currently supported for Lookup:
 Name | Description | Type | Required
 ---- | ----------- | ---- | --------
 dataset | The dataset attribute is to provide the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>`AzureBlobDataset` for [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) as source</li><li>`FileShareDataset` for [File System](connector-file-system.md#dataset-properties) as source</li><li>`AzureSqlTableDataset` for [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) or [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) as source</li><li>`SqlServerTable` for [SQL Server](connector-sql-server.md#dataset-properties) as source</li><li>`AzureTableDataset` for [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) as source</li> | key/value pair | Yes
-source | Dataset-specific source properties, same as copy activity source. Learn details from the "Copy activity properties" section in each corresponding connector topic. | Key/value pair | Yes
+source | Dataset-specific source properties, same as copy activity source. Learn details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
 firstRowOnly | Indicate whether to return only the first row or all rows. | boolean | No. Default is `ture`.
 
 ## Use Lookup activity result in subsequent activity
@@ -77,7 +77,7 @@ The Lookup result is returned in the `output` section in the activity run result
 }
 ```
 
-**When `firstRowOnly` is set to `false`**, the output foramt is as follows. A `count` field indicates how many records are returned, and detailed values are under a fixed `value` array. In such case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md), you can pass the `value` array to ForEach activity `items` field using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value`, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. `Here is an example: @{activity('lookupActivity').output.value[0].tablename}`
+**When `firstRowOnly` is set to `false`**, the output format is as follows. A `count` field indicates how many records are returned, and detailed values are under a fixed `value` array. In such case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md), you can pass the `value` array to ForEach activity `items` field using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value`, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. `Here is an example: @{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -98,7 +98,7 @@ The Lookup result is returned in the `output` section in the activity run result
 ## Example
 In this example, the copy activity copies data from a SQL table in Azure SQL database to Azure Blob Storage. The name of the SQL table is stored in a JSON file in the Blob Storage. The Lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically without redeploying pipelines/datasets. 
 
-This example demostrates look up first row only. For look up all rows and chain with ForEach activity, refer to [Tutorial - Copy data in bulk](tutorial-bulk-copy.md) sample.
+This example demonstrates look up first row only. For look up all rows and chain with ForEach activity, refer to [Tutorial - Copy data in bulk](tutorial-bulk-copy.md) sample.
 
 ### Pipeline
 This pipeline contains two activities: **Look up** and **Copy**. 
