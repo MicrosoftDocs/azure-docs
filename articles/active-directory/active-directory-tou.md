@@ -94,11 +94,11 @@ Users, who are in scope, will see the following once a terms of use is created a
 Users can review and see the terms of use that they have accepted.  This can be done using the following procedure:
 
 1. Navigate and sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-2. In the top right corner, click your name and select **Profile** from the drop-down.
+2. In upper right corner, click your name and select **Profile** from the drop-down.
 ![Profile](media/active-directory-tou/tou14.png)
 
 3. On your Profile, click **Review terms of use**.
-![Audit Event](media/active-directory-tou/tou13.png)
+![Audit Event](media/active-directory-tou/tou13a.png)
 
 4.  From there you can review the terms of use you have accepted. 
 ## Additional information
