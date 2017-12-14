@@ -24,6 +24,7 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 
 * [Active geo-replication and failover groups](sql-database-geo-replication-overview.md)
 * [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Zone-redundant databases](sql-database-zone-redundancy.md)
 
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md).
 
@@ -64,7 +65,7 @@ To restore availability of the database(s) you need to initiate the failover to 
 
 Use one of the following guides to fail over to a geo-replicated secondary database:
 
-* [Fail over to a geo-replicated secondary server using the Azure portal](sql-database-geo-replication-portal.md)
+* [Fail over to a geo-replicated secondary server using the Azure Portal](sql-database-geo-replication-portal.md)
 * [Fail over to the secondary server using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 
 ## Recover using geo-restore

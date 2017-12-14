@@ -33,6 +33,9 @@
 #### [Create a public IP address in an availability zone with PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Create a public IP address in an availability zone with CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### SQL Database
+#### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+
 # Disaster Recovery
 ## [Use Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 
