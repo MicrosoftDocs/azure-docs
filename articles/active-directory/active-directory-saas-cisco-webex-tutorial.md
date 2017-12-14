@@ -76,11 +76,11 @@ To configure the integration of Cisco Webex into Azure AD, you need to add Cisco
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Cisco Webex based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Cisco Webex based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Cisco Webex is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and a related user in Cisco Webex.
 
-In Cisco Webex, give the value **Username** the same value as **user name** in Azure AD. This establishes the link between the two users. 
+In Cisco Webex, give the value **Username** the same value as **user name** in Azure AD. Now you have established the link between the two users. 
 
 To configure and test Azure AD single sign-on with Cisco Webex, complete the following building blocks:
 
@@ -226,7 +226,7 @@ To enable Azure AD users to sign in to Cisco Webex, they must be provisioned in 
 
 	f. In the **Password** box, type the user's password.
 
-	g. In the **Confirm** Password box, re-enter the user's password.
+	g. In the **Confirm** Password box, reenter the user's password.
 
 	h. Select **Add**.
 
