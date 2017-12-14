@@ -32,13 +32,13 @@ When integrating HDInsight with Active Directory, HDInsight cluster nodes are do
 
 To summarize, you need set up an environment with:
 
-- An Active Directory domain controller with LDAPS configured
-- Connectivity from HDInsight’s Virtual Network to your Active Directory domain controller
-- An Organizational Unit created on Active Directory
-- A service account that has permissions to 
+- An Active Directory domain controller with LDAPS configured.
+- Connectivity from HDInsight’s Virtual Network to your Active Directory domain controller.
+- An Organizational Unit created on Active Directory.
+- A service account that has permissions to:
 
-    - Create Service principals in the OU
-    - Join machines to domain and create machine principals in the OU
+    - Create Service principals in the OU.
+    - Join machines to domain and create machine principals in the OU.
 
 The following screenshot shows an OU created in contoso.com. Some of the service principals and machine principals are shown in the screenshot as well.
 
@@ -48,11 +48,11 @@ The following screenshot shows an OU created in contoso.com. Some of the service
 
 There are three ways you can bring Active Directory domain controllers to create Domain-joined HDInsight clusters. 
 
-- Azure Active Directory Domain Services: This service provides a managed Active Directory domain, which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups, and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+- **Azure Active Directory Domain Services**: This service provides a managed Active Directory domain, which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups, and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- Active Directory on Azure IaaS VMs: In this option, you deploy and manage your own Windows Server Active Directory domain on Azure IaaS VMs. For more information, see [Configure domain joined sandbox environment](./apache-domain-joined-configure.md).
+- **Active Directory on Azure IaaS VMs**: In this option, you deploy and manage your own Windows Server Active Directory domain on Azure IaaS VMs. For more information, see [Configure domain joined sandbox environment](./apache-domain-joined-configure.md).
 
-- On-premises Active Directory: In this option, you integrate HDInsight with your on-premises Active Directory domain controller.
+- **On-premises Active Directory**: In this option, you integrate HDInsight with your on-premises Active Directory domain controller.
 
 
 ## Next steps
