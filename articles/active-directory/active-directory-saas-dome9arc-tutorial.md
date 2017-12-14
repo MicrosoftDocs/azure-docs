@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Dome9 Arc, you need the following items:
 
 - An Azure AD subscription
-- A Dome9 Arc single-sign on enabled subscription
+- A Dome9 Arc single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -110,6 +110,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
+	> [!NOTE]
+	> You will select your company name value in the dome9 admin portal which is explained later in the tutorial.
+
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Dome9 Arc Domain and URLs single sign-on information](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
@@ -145,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Dome9 Arc Configuration](./media/active-directory-saas-dome9arc-tutorial/configure3.png)
 
-	a. Enter company name in the **Account ID** textbox.
+	a. Enter company name in the **Account ID** textbox. This value is to be used in the reply url mentioned in the Azure portal URL section.
 
 	b. In the **Issuer** textbox, paste the value of **SAML Entity ID** which you have copied form the Azure portal.
 
