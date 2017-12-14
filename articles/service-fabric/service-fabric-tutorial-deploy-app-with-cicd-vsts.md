@@ -87,15 +87,25 @@ Select the **Build & Release** tab, then **Builds**, then **+ New definition**. 
 
 ![Choose build template][select-build-template] 
 
-Enter "Hosted VS2017" as the **Agent queue**. Select **Save and queue** to manually start a build.  Builds also triggers upon push or check-in.
+In **Tasks**, enter "Hosted VS2017" as the **Agent queue**. 
 
-![Select agent queue][save-and-queue]
+![Select tasks][save-and-queue]
 
-To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster. 
+Under **Triggers**, enable continuous integration by setting **Trigger status**.  Select **Save and queue** to manually start a build.  
+
+![Select triggers][save-and-queue2]
+
+Builds also trigger upon push or check-in. To check your build progress, switch to the **Builds** tab.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster. 
 
 ### Create a release definition  
 
-Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Create release definition**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.  Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
+Select the **Build & Release** tab, then **Releases**, then **+ New definition**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.  
+
+Select **Tasks**->**Environment1** and then **+New** to add a new cluster connection.
+
+![Add cluster connection][add-cluster-connection]
+
+Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
 
 In the **Environments** view, click **Add** to the right of **Cluster Connection**.  Specify a connection name of "mysftestcluster", a cluster endpoint of "tcp://mysftestcluster.westus.cloudapp.azure.com:19000", and the Azure Active Directory or certificate credentials for the cluster. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields. For certificate-based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.  Click **Save** to save the release definition.
 
