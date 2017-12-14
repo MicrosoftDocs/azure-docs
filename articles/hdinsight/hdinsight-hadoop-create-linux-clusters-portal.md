@@ -53,6 +53,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
         For Hadoop, Spark, and Interactive Query cluster types, you can also select to install the **Enterprise Security Package**. Enterprise Security Package enables security features such as Azure Active Directory integration and Apache Ranger for the clusters. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
+        ![Enable Enterprise Security Package](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enable Enterprise Security Package")
      
     	> [!IMPORTANT]
     	> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
