@@ -98,7 +98,7 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 
 ### Enterprise security package
 
-For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](../domain-joined/apache-domain-joined-introduction.md)
+For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md)
 
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
