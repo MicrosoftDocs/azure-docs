@@ -18,7 +18,7 @@ ms.workload: NA
 
 Azure IoT Device Simulation is a tool that can be used to assist in the development and testing of an IoT solution. Device Simulation is a standalone offering that can be used in conjunction with other preconfigured solutions or used with your own custom solutions.
 
-This tutorial walks you through some of the features of Device Simulation to help you understand how it works and how you can use it to test your own IoT solutions.
+This tutorial walks you through some of the features of Device Simulation. It covers how it works enabling you to use it to test your own IoT solutions.
 
 In this tutorial, you learn how to:
 
@@ -47,7 +47,7 @@ Device Simulation can be used with a pre-provisioned IoT hub or with any other A
 
 To target a specific IoT Hub, you can provide the **iothubowner** connection string. You can get this connection string from the [Azure portal](https://portal.azure.com).
 
-1. On the IoT Hub blades in Azure portal click **Shared Access policies**.
+1. On the IoT Hub blades in Azure portal, click **Shared Access policies**.
 1. Click **iothubowner**
 1. copy either the primary or secondary key
 1. Paste this value into the text box under Target IoT Hub.
@@ -60,7 +60,7 @@ The device model allows you to choose what type of device to simulate. You can c
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/devicemodel.png)
 
 #### Pre-Configured device models
-Device Simulation provides three pre-configured device models. Device models for Chillers, Elevators and Trucks are available.
+Device Simulation provides three pre-configured device models. Device models for Chillers, Elevators, and Trucks are available.
 
 Pre-configured device models include multiple sensors along with a pre-determined telemetry frequency. This telemetry frequency is not customizable for these devices.
 
@@ -86,15 +86,15 @@ When the custom device model type is selected, new sensors can be added by click
 
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/customsensors.png)
 
-Custom sensors include the following properties.
+Custom sensors include the following properties:
 
 | Field | Description |
 | ----- | ----------- |
-| Sensor Name | This is a friendly name for the sensor (e.g. temperature or speed) |
-| Behavior | Behaviors allow telemetry data to vary from one message to the next to simulate real-world data. Increment will increase the value by one each message starting at the min value. Once the max value is met then it will start over again at the min value. Decrement behaves in the same way as increment but counts down. Random will randomly select a value between the min value and max value  |
+| Sensor Name | A friendly name for the sensor (for example, temperature or speed) |
+| Behavior | Behaviors allow telemetry data to vary from one message to the next to simulate real-world data. Increment increases the value by one in each message sent starting at the min value. Once the max value is met, then it starts over again at the min value. Decrement behaves in the same way as increment but counts down. THe random behavior generates a random value between the min value and max value  |
 | Min Value | The lowest number representing your acceptable range |
 | Max Value | The largest number representing your acceptable range |
-| Unit | The unit of measurement for the sensor (e.g. °F) |
+| Unit | The unit of measurement for the sensor (for example, °F or MPH) |
 
 ### Number of devices
 Device Simulation allows you to simulate up to 1,000 devices. Support for more devices is coming soon.
@@ -107,7 +107,7 @@ Telemetry frequency allows you to specify how often your simulated devices shoul
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/frequency.png)
 
 > [!NOTE]
-> If you are using an IoT Hub other than the pre-provisioned IoT Hub, then you will want to consider message limits for your target IoT Hub. For example, if you have 1,000 simulated devices sending telemetry every 10 seconds to an S1 Hub you will reach the telemetry limit in just over an hour.
+> If you are using an IoT Hub other than the pre-provisioned IoT Hub, then you should consider message limits for your target IoT Hub. For example, if you have 1,000 simulated devices sending telemetry every 10 seconds to an S1 Hub you will reach the telemetry limit in just over an hour.
 
 ### Simulation duration
 You can choose to run your simulation for a specific length of time or to have your simulation continue to run until you explicitly stop it. When choosing a specific length of time, you can choose any duration from 10 minutes up to 99 hours, 59 minutes, and 59 seconds.
@@ -115,13 +115,13 @@ You can choose to run your simulation for a specific length of time or to have y
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/duration.png)
 
 ### Starting and stopping the simulation
-Once the form has been completely filled out, the **Start Simulation** button will be enabled. Clicking this button will start the simulation.
+Once the form has been filled out, the **Start Simulation** button is enabled. Clicking this button starts the simulation.
 
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/start.png)
 
-If you specified a specific duration for your simulation then it will stop automatically when the time has been reached. You can always stop the simulation early by clicking **Stop Simulation.**
+If you specified a specific duration for your simulation, then it stops automatically when the time has been reached. You can always stop the simulation early by clicking **Stop Simulation.**
 
-If you chose to run your simulation indefinitely then it will run until you click **Stop Simulation.** You can close your browser and come back to the Device Simulation page to stop your simulation at any time.
+If you chose to run your simulation indefinitely, then it runs until you click **Stop Simulation.** You can close your browser and come back to the Device Simulation page to stop your simulation at any time.
 
 ![Target IoT Hub](media/iot-suite-device-simulation-explore/stop.png)
 
