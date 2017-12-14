@@ -124,7 +124,7 @@ Ensure there are no special characters like underscores in the redirect uri.
 
 B2C applications should NOT be edited:
 
-* On other application management portals such as the [Azure classic portal](https://manage.windowsazure.com/) & the [Application Registration Portal](https://apps.dev.microsoft.com/).
+* On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
 * Using Graph API or PowerShell
 
 If you edit the B2C application as described above and try to edit it again in the Azure AD B2C features blade on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You have to delete the application and create it again.

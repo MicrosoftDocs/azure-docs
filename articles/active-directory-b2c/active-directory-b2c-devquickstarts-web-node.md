@@ -50,8 +50,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 - Create an **Application secret** for your application and copy it. You will need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You'll also need this later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## Create your policies
 
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook. You need to create this policy of each type, as described in the

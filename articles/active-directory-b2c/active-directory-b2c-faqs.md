@@ -110,15 +110,14 @@ Follow these steps to delete your Azure AD B2C tenant:
 
 1. Follow these steps to [navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 1. Navigate to the **Applications**, **Identity providers**, and **All policies** and delete all the entries in each of them.
-1. Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
-1. Navigate to the Active Directory extension on the left and click your B2C tenant.
-1. Click the **Users** tab.
+1. Now sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
+1. Switch to the B2C tenant you want to delete.
+1. Select **Users and groups**.
 1. Select each user in turn (exclude the Subscription Administrator user you are currently signed in as). Click **Delete** at the bottom of the page and click **YES** when prompted.
-1. Click the **Applications** tab.
-1. Select **Applications my company owns** in the **Show** drop-down field and click the check mark.
-1. An application called **b2c-extensions-app**. Click **Delete** at the bottom of the page and click **YES** when prompted.
-1. Navigate to the Active Directory extension again and select your B2C tenant.
-1. Click **Delete** at the bottom of the page. To complete the process, follow the instructions on the screen.
+1. Click the **App registrations**.
+2. Select application called **b2c-extensions-app**. Click **Delete** and click **YES** when prompted.
+3. Select **Overview**.
+4. Click **Delete directory**. To complete the process, follow the instructions on the screen.
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
