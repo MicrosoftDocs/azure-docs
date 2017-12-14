@@ -61,7 +61,7 @@ Apps that integrate with Azure Active Directory (AD) must be registered with an 
 * For more information on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
 * See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
-Use the comments section below to provide feedback and help us refine and shape our content.
+Use the following comments section to provide feedback that helps refine and shape our content.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md
