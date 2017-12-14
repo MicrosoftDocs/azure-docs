@@ -52,7 +52,7 @@ A storage account provides a unique namespace to store and access your Azure sto
 
 Follow these steps to create a read-access geo-redundant storage account:
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal.
+1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Storage** from the **New** page, and select **Storage account - blob, file, table, queue** under **Featured**.
 3. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
