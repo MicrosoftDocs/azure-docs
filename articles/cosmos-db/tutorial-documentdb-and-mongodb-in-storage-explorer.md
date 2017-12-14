@@ -29,7 +29,7 @@ In this article, you can learn how to use Storage Explorer to manage Azure Cosmo
 
 ## Prerequisites
 
-An Azure Cosmos DB account for the SQL API or MongoDB API . If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-documentdb-dotnet.md).
+An Azure Cosmos DB account for the SQL API or MongoDB API . If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
 ## Installation
 
@@ -134,7 +134,7 @@ To create a new document, open **Documents** in the left window, click **New Doc
 #### Delete a document
 Click the **Delete** button to delete the selected document.
 #### Query for documents
-Edit the document filter by entering a [SQL query](documentdb-sql-query.md) and then click **Apply**.
+Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
