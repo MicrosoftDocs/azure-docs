@@ -40,7 +40,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 3. Download and extract [Maven 3](https://maven.apache.org/download.cgi) on your machine. 
 
-4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is succesfully installed by running this command your command window:
+4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is successfully installed by running this command your command window:
 
     ```cmd\sh
     mvn --version
@@ -169,7 +169,7 @@ This section shows how to add the provisioning details of your TPM device to the
 
 
 ## Clean up resources
-If you plan to explore the Jave service sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to explore the Java service sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the Java sample output window on your machine.
 1. Close the _X509 Cert Generator_ window on your machine.
