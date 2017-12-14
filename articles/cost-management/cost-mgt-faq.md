@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -42,6 +42,29 @@ Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
 
+## Why don’t I see Optimizer recommendations?
+
+Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are unactivated, including:
+
+- Optimization Manager
+- Sizing Optimization
+- Inefficiencies
+
+If you cannot view any Optimizer recommendation data, then most likely, you have accounts that are unactivated. To activate an account, you need to register it with your Azure credentials.
+
+To activate an account:
+
+1.	In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
+2.	On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
+3.	To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
+4.	Your tenant ID and rate ID is automatically detected. Click **Next**.
+5.	You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
+6.	Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
+7.	If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
+
+After you complete the preceding steps, you can view Optimizer recommendations within one to two days. However, it can take up to five days before full optimization data is available.
+
+
 ## How do I enable suspended or locked-out users?
 
 If you receive an alert with a request to allow access for a user, you need to activate the user account.
@@ -62,10 +85,7 @@ If you change your e-mail address in Cloudyn from the default address in Azure, 
 
 We recommend that you create at least two Cloudyn administrator accounts in case one of the accounts gets locked out.
 
-If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use one of the following URLs:
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use https://azure.cloudyn.com.
 
 Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
