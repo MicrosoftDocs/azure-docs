@@ -25,8 +25,8 @@ This article helps you to manage Azure Multi-Factor Authentication now that you'
 |:--- |:--- |
 | [Block and unblock users](#block-and-unblock-users) |Use the block/unblock users feature to prevent users from receiving authentication requests. |
 | [Fraud alert](#fraud-alert) |Configure the fraud alert feature so that your users can report fraudulent attempts to access their resources. |
-| [One-time bypass](#one-time-bypass) |Use the one-time bypass feature to allow users to authenticate a single time by "bypassing" multi-factor authentication. |
-| [Custom voice messages](#custom-voice-messages) |Use the custom voice messages feature to use your own recordings or greetings with multi-factor authentication. |
+| [One-time bypass](#one-time-bypass) |Use the one-time bypass feature to allow users to authenticate a single time by _bypassing_ Multi-Factor Authentication. |
+| [Custom voice messages](#custom-voice-messages) |Use the custom voice messages feature to use your own recordings or greetings with Multi-Factor Authentication. |
 | [Caching](#caching-in-azure-multi-factor-authentication) |Use the caching feature to set a specific time period so that subsequent authentication attempts succeed automatically. |
 | [Trusted IPs](#trusted-ips) |Administrators of a managed or federated tenant can use the Trusted IPs feature to bypass two-step verification for users who sign in from the company intranet. |
 | [App passwords](#app-passwords) |Use the app password feature to enable an application to bypass Multi-Factor Authentication and continue working. |
@@ -256,7 +256,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 4. Under Multi-Factor Authentication, select **service settings**.
 
-5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options to skip multi-factor authentication:
+5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
    
    * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
@@ -292,7 +292,7 @@ When using app passwords, consider the following important points:
 * The actual password is automatically generated and is not supplied by the user. The automatically generated password is harder for an attacker to guess and is more secure.
 * There is a limit of 40 passwords per user. 
 * Applications that cache passwords and use them in on-premises scenarios can start to fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
-* After multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account. To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
+* After Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account. To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
 
 >[!WARNING]
 >App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. Domain passwords are required to authenticate on-premises. App passwords are required to authenticate with the cloud.
