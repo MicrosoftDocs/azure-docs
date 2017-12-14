@@ -48,9 +48,8 @@ Log in to the Azure portal at http://portal.azure.com.
 
 First you need to enable Update management for your VM for this tutorial.
 
-1. Log in to the Azure Portal
 1. On the left menu, select **Virtual machines** and select a VM from the list
-1. On the left menu, under the **Operations** section, click **Update management**. The **Enable Update Management** page opens.
+2. On the left menu, under the **Operations** section, click **Update management**. The **Enable Update Management** page opens.
 
 Validation is performed to determine if Update management is enabled for this VM.
 The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
@@ -74,7 +73,7 @@ If any of the following prerequisites were found to be missing after the validat
 * [Automation](./automation-offering-get-started.md)
 * A [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are greyed out that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
 ![Enable Update management solution window](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
@@ -85,9 +84,9 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 ## View update assessment
 
 After **Update management** is enabled, the **Update management** screen appears.
-If any updates are missing, you'll see a list of missing updates on the **Missing updates** tab.
+If any updates are missing, you see a list of missing updates on the **Missing updates** tab.
 
-Select the **INFORMATION LINK** on the an update to open the support article for the update in a new window. Here you can learn important information regarding the update.
+Select the **INFORMATION LINK** on the update to open the support article for the update in a new window. Here you can learn important information regarding the update.
 
 ![View update status](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
@@ -109,7 +108,7 @@ Schedule a new update deployment for the VM by navigating back to **Update manag
 In the **New update deployment** screen, specify the following information:
 
 * **Name** - Provide a unique name for the update deployment.
-* **Update classification** - Select the types of software the update deployment included in the deployment. For this tutorial leave all types selected.
+* **Update classification** - Select the types of software the update deployment included in the deployment. For this tutorial, leave all types selected.
 
   The classification types are:
 
@@ -130,7 +129,7 @@ Select **Recurring** under **Recurrence**. Leave the default to 1 day and click 
 
 ![Update Schedule Settings screen](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-After you've completed configuring the schedule, click the **Create** button. You are returned to the status dashboard. Select **Scheduled Update deployments** to shows the deployment schedule you created.
+After you've completed configuring the schedule, click the **Create** button. You are returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
 
 ## View results of an update deployment
 
