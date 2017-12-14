@@ -1,5 +1,5 @@
 ---
-title: Manage multi-tenancy with the Cloud Solution Provider (CSP) program | Microsoft Docs
+title: Manage multi-tenancy in Azure Site Recovery with the Cloud Solution Provider (CSP) program | Microsoft Docs
 description: Describes how to create and manage tenant subscriptions through CSP and deploy Azure Site Recovery in a multi-tenant setup
 services: site-recovery
 documentationcenter: ''
