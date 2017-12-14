@@ -391,6 +391,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },            
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },           
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/powershell-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/powershell-azure-resource-manager",
             "redirect_document_id": false
@@ -4419,6 +4434,181 @@
             "source_path": "articles/documentdb/fundamentals-data-management-nosql-chappell.md",
             "redirect_url": "https://azure.microsoft.com/services/cosmos-db/",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-java.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-nodejs.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-python.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-cpp-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-cpp-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnet-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnetcore-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnetcore-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-index.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-index",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-introduction.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/community.md",
+            "redirect_url": "/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-java-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-java-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-partition-data.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-partition-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-python-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-python-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-resources.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-changefeed.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-changefeed",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-core.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-core",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-node.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-node",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-python.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-metrics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-documentdb-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-develop-sql-api-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-global-distribution-documentdb.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-global-distribution-sql-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-query-documentdb.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-query-sql-api",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/documentdb/index.md",
