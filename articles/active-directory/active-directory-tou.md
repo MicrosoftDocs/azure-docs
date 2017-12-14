@@ -90,7 +90,7 @@ Users, who are in scope, will see the following once a terms of use is created a
 -	This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
 
-### Reviewing Access
+### Review terms of use
 Users can review and see the terms of use that they have accepted.  This can be done using the following procedure:
 
 1. Navigate and sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
