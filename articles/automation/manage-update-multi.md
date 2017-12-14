@@ -3,7 +3,7 @@ title: Manage updates for multiple Azure virtual machines | Microsoft Docs
 description: This topic describes how to manage updates for Azure virtual machines.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
-ms.author: magoedte;eslesar
+ms.author: magoedte;gwallace
 ---
 # Manage updates for multiple machines
 

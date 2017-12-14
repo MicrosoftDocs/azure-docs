@@ -146,10 +146,7 @@ In this step, you define a dataset that represents the data to copy from a sourc
         "properties": {
             "type": "AzureBlob",
             "typeProperties": {
-                "folderPath": {
-                    "value": "@{dataset().path}",
-                    "type": "Expression"
-                }
+                "folderPath": "@{dataset().path}"
             },
             "linkedServiceName": {
                 "referenceName": "AzureStorageLinkedService",
