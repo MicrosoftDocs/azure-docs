@@ -27,7 +27,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 > [!NOTE]
     > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
     >
-    > ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
+    > ![Service information](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
 
 
 ## Prepare the development environment 
@@ -55,7 +55,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 1. The code sample uses a Windows TPM simulator. Run the following command to enable the SAS token authentication. It also generates a Visual Studio solution for the simulated device.
 
     ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
 1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
@@ -64,7 +64,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-    ![TPM Simulator](./media/python-quick-create-simulated-device-x509/tpm-simulator.png)
+    ![TPM Simulator](./media/python-quick-create-simulated-device/tpm-simulator.png)
 
 
 ## Create a device enrollment entry in the Device Provisioning Service
@@ -97,16 +97,13 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
     - If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 
-1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample.
-    
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
-    ```
-
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
     > [!NOTE]
         > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
+
+    > [!NOTE]
+        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
 
 1. Navigate to the samples folder.
 
