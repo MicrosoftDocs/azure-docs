@@ -19,14 +19,14 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL by us
 There are numerous other examples and sample code at the [MySQL Connector examples page](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
+1. This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-- Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
+2. Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
-- Obtain the JDBC driver using one of the following approaches:
-   - Use the Maven package [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to load the necessary libraries into your project.  
+3. Obtain the MySQL Connector/J connector using one of the following approaches:
+   - Use the Maven package [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to include the [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) in the POM file for your project.
    - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## Get connection information
