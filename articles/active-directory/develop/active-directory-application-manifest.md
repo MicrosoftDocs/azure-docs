@@ -20,9 +20,7 @@ ms.reviewer: elisol
 
 ---
 # Azure Active Directory application manifest
-Apps that integrate with Azure Active Directory (AD) must be registered with an Azure AD tenant. This app can be confiured through the portal of the app manifest inside the Azure portal.
-> [!NOTE]
-> You can update the application manifest using the inline editor or you can download and upload it as a JSON file.
+Apps that integrate with Azure Active Directory (AD) must be registered with an Azure AD tenant. This app can be configured using the app manifest (under the Azure AD blade) in the [Azure portal](https://portal.azure.com).
 
 **Manifest Reference**
 
