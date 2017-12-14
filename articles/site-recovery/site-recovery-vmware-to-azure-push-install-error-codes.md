@@ -3,8 +3,8 @@ title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
 description: Troubleshoot errors when replicating Azure virtual machines
 services: site-recovery
 documentationcenter: ''
-author: asgang
-manager: srinathv
+author: anoopkv
+manager: gauravd
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/28/2017
-ms.author: asgang
+ms.date: 12/12/2017
+ms.author: anoopkv
 
 ---
 # Troubleshoot Mobility Service push installation issues

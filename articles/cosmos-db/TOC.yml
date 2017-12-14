@@ -12,15 +12,15 @@
   - name: SQL
     items:
     - name: .NET
-      href: create-documentdb-dotnet.md
+      href: create-sql-api-dotnet.md
     - name: Java
-      href: create-documentdb-java.md
+      href: create-sql-api-java.md
     - name: Node.js
-      href: create-documentdb-nodejs.md
+      href: create-sql-api-nodejs.md
     - name: Python
-      href: create-documentdb-python.md
+      href: create-sql-api-python.md
     - name: Xamarin
-      href: create-documentdb-xamarin-dotnet.md
+      href: create-sql-api-xamarin-dotnet.md
   - name: MongoDB
     items:
     - name: Node.js
@@ -72,7 +72,7 @@
   - name: 1 - Create
     items:
     - name: SQL
-      href: tutorial-develop-documentdb-dotnet.md
+      href: tutorial-develop-sql-api-dotnet.md
     - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
     - name: MongoDB with Angular
@@ -98,7 +98,7 @@
   - name: 3 - Query
     items:
     - name: SQL
-      href: tutorial-query-documentdb.md
+      href: tutorial-query-sql-api.md
     - name: MongoDB
       href: tutorial-query-mongodb.md
     - name: Table
@@ -108,7 +108,7 @@
   - name: 4 - Distribute globally
     items:
     - name: SQL
-      href: tutorial-global-distribution-documentdb.md
+      href: tutorial-global-distribution-sql-api.md
     - name: MongoDB
       href: tutorial-global-distribution-mongodb.md
     - name: Table
@@ -148,7 +148,7 @@
   - name: Multi-model APIs
     items:
     - name: SQL
-      href: documentdb-introduction.md
+      href: sql-api-introduction.md
     - name: MongoDB
       href: mongodb-introduction.md
     - name: Table
@@ -171,18 +171,18 @@
   - name: Develop
     items:
     - name: SQL API
-      href: documentdb-index.md
+      href: sql-api-index.md
       items:
       - name: Resources
-        href: documentdb-resources.md
+        href: sql-api-resources.md
       - name: SQL queries
-        href: documentdb-sql-query.md
+        href: sql-api-sql-query.md
       - name: SQL query performance
-        href: documentdb-sql-query-metrics.md        
+        href: sql-api-sql-query-metrics.md        
       - name: SQL playground
         href: https://www.documentdb.com/sql/demo
       - name: Partitioning
-        href: documentdb-partition-data.md
+        href: sql-api-partition-data.md
       - name: Stored procedures, triggers, and UDFs
         href: programming.md
       - name: Performance testing
@@ -200,39 +200,39 @@
         - name: Write your first app
           items:
           - name: .NET
-            href: documentdb-get-started.md
+            href: sql-api-get-started.md
           - name: .NET Core
-            href: documentdb-dotnetcore-get-started.md
+            href: sql-api-dotnetcore-get-started.md
           - name: Java
-            href: documentdb-java-get-started.md
+            href: sql-api-java-get-started.md
           - name: Node.js
-            href: documentdb-nodejs-get-started.md
+            href: sql-api-nodejs-get-started.md
           - name: C++
-            href: documentdb-cpp-get-started.md
+            href: sql-api-cpp-get-started.md
         - name: Build a web app
           items:
           - name: .NET
-            href: documentdb-dotnet-application.md
+            href: sql-api-dotnet-application.md
           - name: Xamarin
             href: mobile-apps-with-xamarin.md
           - name: Node.js
-            href: documentdb-nodejs-application.md
+            href: sql-api-nodejs-application.md
           - name: Java
-            href: documentdb-java-application.md
+            href: sql-api-java-application.md
           - name: Python Flask
-            href: documentdb-python-application.md
+            href: sql-api-python-application.md
       - name: Samples
         items:
         - name: .NET samples
-          href: documentdb-dotnet-samples.md
+          href: sql-api-dotnet-samples.md
         - name: Node.js samples
-          href: documentdb-nodejs-samples.md
+          href: sql-api-nodejs-samples.md
         - name: Python samples
-          href: documentdb-python-samples.md
+          href: sql-api-python-samples.md
       - name: Resources
         items:
         - name: SQL grammar cheat sheet
-          href: documentdb-sql-query-cheat-sheet.md
+          href: sql-api-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Videos
@@ -377,7 +377,7 @@
     - name: Leverage the ODBC driver for data visualization
       href: odbc-driver.md
     - name: Use Spring Boot Starter with SQL APIs
-      href: documentdb-java-spring-boot-starter-with-cosmos-db.md
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
 - name: Reference
   items:
   - name: Code samples
@@ -385,23 +385,23 @@
   - name: SQL APIs
     items:
     - name: Java
-      href: documentdb-sdk-java.md
+      href: sql-api-sdk-java.md
     - name: .NET
-      href: documentdb-sdk-dotnet.md
+      href: sql-api-sdk-dotnet.md
     - name: .NET Change feed
-      href: documentdb-sdk-dotnet-changefeed.md
+      href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET Core
-      href: documentdb-sdk-dotnet-core.md
+      href: sql-api-sdk-dotnet-core.md
     - name: Node.js
-      href: documentdb-sdk-node.md
+      href: sql-api-sdk-node.md
     - name: Python
-      href: documentdb-sdk-python.md
+      href: sql-api-sdk-python.md
     - name: REST
       href: /rest/api/documentdb/
     - name: REST Resource Provider
       href: /rest/api/documentdbresourceprovider/
     - name: SQL
-      href: documentdb-sql-query-reference.md
+      href: sql-api-sql-query-reference.md
   - name: Table APIs
     items:
     - name: .NET

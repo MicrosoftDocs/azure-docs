@@ -39,7 +39,7 @@ The following table describes the connected sources that are supported by this s
 
 | Connected Source | Support | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | No | Direct Windows agents are not used by the solution. |
+| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents are not used by the solution. |
 | [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents are not used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics does not read the data from a storage account. |

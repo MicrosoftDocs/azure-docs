@@ -71,6 +71,7 @@
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Customize connected factory](iot-suite-connected-factory-customize.md)
 ### [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
+### [Configure connected factory](iot-suite-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 
 # Reference
