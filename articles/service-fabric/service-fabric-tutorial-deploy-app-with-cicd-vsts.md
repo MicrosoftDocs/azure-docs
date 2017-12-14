@@ -107,8 +107,6 @@ Select **Tasks**->**Environment 1** and then **+New** to add a new cluster conne
 
 ![Add cluster connection][add-cluster-connection]
 
-Select the **Build** source, check the **Continuous deployment** box, and click **Create**. 
-
 In the **Add new Service Fabric Connection** view select **Certificate Based** or **Azure Active Directory** authentication.  Specify a connection name of "mysftestcluster" and a cluster endpoint of "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to). 
 
 For certificate based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate. 
@@ -116,8 +114,6 @@ For certificate based authentication, add the **Server certificate thumbprint** 
 For Azure Active Directory credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields. 
 
 Click **Add** to save the cluster connection.
-
-![Add cluster connection][add-cluster-connection] 
 
 Next, add a build artifact to the pipeline so the release definition can find the output from the build. Select **Pipeline** and **Artifacts**->**+Add**.  In **Source (Build definition)**, select the build definition you created previously.  Click **Add** to save the build artifact.
 
