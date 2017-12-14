@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Windows VM us
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 
 ---
@@ -35,7 +35,12 @@ Select your new Network Security Group. Select 'Inbound security rules', then se
 
 ![Add an inbound rule](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Choose a common **Service** from the drop-down menu, such as *HTTP*. You can also select *Custom* to provide a specific port to use. If desired, change the priority or name. The priority affects the order in which rules are applied - the lower the numerical value, the earlier the rule is applied. You can also select **Advanced** at the top of this screen to enter a specific source IP block or port range, for example. When you are ready, select **OK** to create the rule:
+To create a rule that allows traffic:
+
+- Select the **Basic** button. By default, the **Advanced** window provides some additional configuration options, such as to define a specific source IP block or port range.
+- Choose a common **Service** from the drop-down menu, such as *HTTP*. You can also select *Custom* to provide a specific port to use. 
+- If desired, change the priority or name. The priority affects the order in which rules are applied - the lower the numerical value, the earlier the rule is applied.
+- When you are ready, select **OK** to create the rule:
 
 ![Create an inbound rule](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
