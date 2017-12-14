@@ -260,7 +260,7 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 To resolve the problem, delete the old VPN client configuration files from **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, and then run the VPN client installer again.
 
-## Point-to-Site VPN client cannot resolve the FQDN of the resources in the local domain
+## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
 
 ### Symptom
 
@@ -268,7 +268,7 @@ When the client connects to Azure by using point-to-site VPN connection, it cann
 
 ### Cause
 
-Point-to-site VPN client uses Azure DNS servers in the virtual network. The Azure DNS servers might take precedence over the local DNS servers that are configured in the client. So all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
+Point-to-site VPN client uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client, so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
 
 ### Solution
 
