@@ -19,7 +19,7 @@ In this tutorial, you learn how to discover what software is installed on in you
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Onboard a VM for update management
+> * Onboard a VM for Change tracking and Inventory
 > * View installed software
 > * Search inventory logs for installed software
 > * What else...
@@ -38,7 +38,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable Inventory
 
-First you need to enable Change tracking Inventory for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
+First you need to enable Change tracking and Inventory for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
 
 1. On the left menu, select **Virtual machines** and select a VM from the list
 2. On the left menu, under the **Operations** section, click **Inventory**. The **Enable Update Management** page opens.
@@ -64,9 +64,9 @@ If any of the following prerequisites were found to be missing after the validat
 * [Automation](./automation-offering-get-started.md)
 * A [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+The **Change Tracking and Inventory** screen opens. Configure the location, Log analytics workspace, and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
-![Enable Update management solution window](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
+![Enable Update management solution window](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window.
 After the solution is enabled, information about missing updates on the VM flows to Log Analytics.
