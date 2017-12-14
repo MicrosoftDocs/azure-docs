@@ -137,7 +137,7 @@ For resource types that you mostly access through a different resource, you can 
 }
 ```
 
-## Resource location
+## Location
 When deploying a template, you must provide a location for each resource. Different resource types are supported in different locations. To see a list of locations that are available to your subscription for a particular resource type, use Azure PowerShell or Azure CLI. 
 
 The following example uses PowerShell to get the locations for the `Microsoft.Web\sites` resource type:
