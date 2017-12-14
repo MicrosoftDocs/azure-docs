@@ -1,5 +1,5 @@
 ---
-title: Manage storage capacity  | Microsoft Docs
+title: Manage storage capacity in Azure Stack | Microsoft Docs
 description: Monitor and manage available storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''

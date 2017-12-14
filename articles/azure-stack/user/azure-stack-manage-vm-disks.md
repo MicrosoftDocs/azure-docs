@@ -1,5 +1,5 @@
 ---
-title: Manage VM disks | Microsoft Docs
+title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Provision disks for virtual machines for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -236,7 +236,7 @@ The next three commands assign paths of three data disks to the $DataDiskVhdUri0
 ## Distribute the data disks of an existing VM
 If you have a VM with more than one disk in the same container, the service operator of the Azure Stack deployment might ask you to redistribute the disks into individual containers.
 
-To do so, use the scripts from the following location in GitHub. These scripts can be used to move the data disks to different containers. 
+To do so, use the scripts from the following location in GitHub. These scripts can be used to move the data disks to different containers.
 -->
 
 ## Next Steps
