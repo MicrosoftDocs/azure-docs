@@ -69,9 +69,9 @@ Use any Boolean condition on device twins tags or deviceId to select the target 
 Target condition examples:
 * deviceId ='linuxprod1'
 * tags.environment ='prod'
-* tags.environment = 'prod' AND tags.location = 'westus’
-* tags.environment = 'prod' OR tags.location = 'westus’
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = ‘linuxprod1’
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
 
 Here are some constrains when you construct a target condition:
 
