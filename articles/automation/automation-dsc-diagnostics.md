@@ -3,7 +3,7 @@ title: Forward Azure Automation DSC reporting data to OMS Log Analytics | Micros
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
+ms.author: gwallace
 
 ---
 # Forward Azure Automation DSC reporting data to OMS Log Analytics
