@@ -268,29 +268,29 @@ The inbound synchronization rule permits the attribute value to flow from the so
 
 4. Under the **Description** tab, provide the following configuration:
  
-| Attribute | Value | Details |
-| --- | --- | --- |
-| Name | *Provide a name* | For example, *“In from AD – User PreferredDataLocation”* |
-| Description | *Provide a description* |  |
-| Connected System | *Pick the on-premises AD connector* |  |
-| Connected System Object Type | **User** |  |
-| Metaverse Object Type | **Person** |  |
-| Link Type | **Join** |  |
-| Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
+    | Attribute | Value | Details |
+    | --- | --- | --- |
+    | Name | *Provide a name* | For example, *“In from AD – User PreferredDataLocation”* |
+    | Description | *Provide a description* |  |
+    | Connected System | *Pick the on-premises AD connector* |  |
+    | Connected System Object Type | **User** |  |
+    | Metaverse Object Type | **Person** |  |
+    | Link Type | **Join** |  |
+    | Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
 
 5. Go to the **Scoping filter** tab and add a **single scoping filter group with the following clause**:
  
-| Attribute | Operator | Value |
-| --- | --- | --- |
-| adminDescription | NOTSTARTWITH | User\_ | 
+    | Attribute | Operator | Value |
+    | --- | --- | --- |
+    | adminDescription | NOTSTARTWITH | User\_ | 
  
     Scoping filter determines which on-premises AD objects this inbound synchronization rule is applied to. In this example, we use the same scoping filter used as *“In from AD – User Common”* OOB synchronization rule, which prevents the synchronization rule from being applied to User objects created through Azure AD User writeback feature. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation tab** and implement the following transformation rule:
  
-| Flow Type | Target Attribute | Source | Apply Once | Merge Type |
-| --- | --- | --- | --- | --- |
- Direct | PreferredDataLocation | Pick the source attribute | Unchecked | Update |
+    | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
+    | --- | --- | --- | --- | --- |
+    |Direct | PreferredDataLocation | Pick the source attribute | Unchecked | Update |
 
 7. Click **Add** to create the inbound rule.
 
@@ -307,30 +307,30 @@ The outbound synchronization rule permits the attribute value to flow from the M
 
 4. Under the **Description** tab, provide the following configuration:
 
-| Attribute | Value | Details |
-| ----- | ------ | --- |
-| Name | *Provide a name* | For example, “Out to AAD – User PreferredDataLocation” |
-| Description | *Provide a description* ||
-| Connected System | *Select the AAD connector* ||
-| Connected System Object Type | User ||
-| Metaverse Object Type | **Person** ||
-| Link Type | **Join** ||
-| Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. YDo not pick a value that is used by another synchronization rule. |
+    | Attribute | Value | Details |
+    | ----- | ------ | --- |
+    | Name | *Provide a name* | For example, “Out to AAD – User PreferredDataLocation” |
+    | Description | *Provide a description* ||
+    | Connected System | *Select the AAD connector* ||
+    | Connected System Object Type | User ||
+    | Metaverse Object Type | **Person** ||
+    | Link Type | **Join** ||
+    | Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. YDo not pick a value that is used by another synchronization rule. |
 
 5. Go to the **Scoping filter** tab and add a **single scoping filter group with two clauses**:
  
-| Attribute | Operator | Value |
-| --- | --- | --- |
-| sourceObjectType | EQUAL | User |
-| cloudMastered | NOTEQUAL | True |
+    | Attribute | Operator | Value |
+    | --- | --- | --- |
+    | sourceObjectType | EQUAL | User |
+    | cloudMastered | NOTEQUAL | True |
 
-Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to AD – User Identity” OOB synchronization rule. It prevents the synchronization rule from being applied to User objects which are not synchronized from on-premises Active Directory. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to AD – User Identity” OOB synchronization rule. It prevents the synchronization rule from being applied to User objects which are not synchronized from on-premises Active Directory. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
     
 6. Go to the **Transformation** tab and implement the following transformation rule:
 
-| Flow Type | Target Attribute | Source | Apply Once | Merge Type |
-| --- | --- | --- | --- | --- |
-| Direct | PreferredDataLocation | PreferredDataLocation | Unchecked | Update |
+    | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
+    | --- | --- | --- | --- | --- |
+    | Direct | PreferredDataLocation | PreferredDataLocation | Unchecked | Update |
 
 7. Close **Add** to create the outbound rule.
 
