@@ -60,7 +60,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
-* **Azure Storage account**. You use the blob storage as the sink data store. If you don't have a Storage account, see [Create a Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one. Create a container named adftutorial. 
+* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one. Create a container named adftutorial. 
 * **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Create a data source table in your SQL database
@@ -192,10 +192,10 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Storage account and SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your storage account and SQL database. 
 
 ### Create a Storage linked service
-1. Create a JSON file named AzureStorageLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace `<accountName>` and `<accountKey>` with the name and key of your Storage account before you save the file.
+1. Create a JSON file named AzureStorageLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace `<accountName>` and `<accountKey>` with the name and key of your storage account before you save the file.
 
     ```json
     {
@@ -229,7 +229,7 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create a SQL Database linked service
-1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace the &lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your SQL server, database, user ID, and password before you save the file. 
+1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your server, database, user ID, and password before you save the file. 
 
     ```json
     {

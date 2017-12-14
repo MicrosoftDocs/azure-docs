@@ -68,7 +68,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create source tables in your SQL Server database
 
-1. Open SQL Server Management Studio, and connect to your on-premises SQL Server.
+1. Open SQL Server Management Studio, and connect to your on-premises SQL Server database.
 
 2. In **Server Explorer**, right-click the database and choose **New Query**.
 
@@ -107,7 +107,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
 ### Create destination tables in your SQL database
-1. Open SQL Server Management Studio, and connect to your SQL Server.
+1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
 2. In **Server Explorer**, right-click the database and choose **New Query**.
 
@@ -277,7 +277,7 @@ Note the following points:
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
 
 ### Create the SQL Server linked service
-In this step, you link your on-premises SQL Server to the data factory.
+In this step, you link your on-premises SQL Server database to the data factory.
 
 1. Create a JSON file named SqlServerLinkedService.json in the C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. Select the right section based on the authentication you use to connect to SQL Server. Create the local folders if they don't already exist. 
 
@@ -331,8 +331,8 @@ In this step, you link your on-premises SQL Server to the data factory.
     ```
     > [!IMPORTANT]
     > - Select the right section based on the authentication you use to connect to SQL Server.
-    > - Replace the &lt;integration runtime name> with the name of your integration runtime.
-    > - Replace the &lt;servername>, &lt;databasename>, &lt;username>, and &lt;password> with values of your SQL Server before you save the file.
+    > - Replace &lt;integration runtime name> with the name of your integration runtime.
+    > - Replace &lt;servername>, &lt;databasename>, &lt;username>, and &lt;password> with values of your SQL Server database before you save the file.
     > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). An example is `mydomain\\myuser`.
 
 2. In PowerShell, switch to the C:\ADFTutorials\IncCopyMultiTableTutorial folder.
@@ -353,7 +353,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     ```
 
 ### Create the SQL database linked service
-1. Create a JSON file named AzureSQLDatabaseLinkedService.json in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your SQL Server, name of your database, user ID, and password before you save the file. 
+1. Create a JSON file named AzureSQLDatabaseLinkedService.json in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your SQL Server database, name of your database, user ID, and password before you save the file. 
 
     ```json
     {
@@ -670,7 +670,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
  
 ## Run the pipeline
 
-1. Create a parameter file Parameters.json in the same folder with the following content:
+1. Create a parameter file named Parameters.json in the same folder with the following content:
 
     ```json
     {

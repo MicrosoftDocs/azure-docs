@@ -26,8 +26,8 @@ In this case, you define a watermark in your source database. A watermark is a c
 
 For step-by-step instructions, see the following tutorials: 
 
-- [Incrementally copy data from one table in Azure SQL Database to Azure Blob Storage](tutorial-incremental-copy-powershell.md)
-- [Incrementally copy data from multiple tables in an on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
+- [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 ## Delta data loading by using the Change Tracking technology
@@ -38,11 +38,11 @@ The workflow for this approach is depicted in the following diagram:
 ![Workflow for using Change Tracking](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
 
 For step-by-step instructions, see the following tutorial: <br/>
-[Incrementally copy data from Azure SQL Database to Azure Blob Storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+[Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 
 ## Next steps
 Advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
->[Incrementally copy data from one table in Azure SQL Database to Azure Blob Storage](tutorial-incremental-copy-powershell.md)
+>[Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
