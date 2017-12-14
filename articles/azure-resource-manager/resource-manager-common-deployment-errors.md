@@ -31,7 +31,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | AllocationFailed | The cluster or region does not have resources available or cannot support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) and [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal does not have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope. | [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | You sent deployment values that do not match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-manager-template-location.md) |
+| BadRequest | You sent deployment values that do not match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-manager-templates-resources.md#location) |
 | Conflict | You are requesting an operation that is not permitted in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DnsRecordInUse | The DNS record name must be unique. Either provide a different name, or modify the existing record. | |
@@ -48,7 +48,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | InvalidTemplate | Check your template syntax for errors. | [Resolve invalid template](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group you are deploying to. | |
 | LinkedInvalidPropertyId | The resource ID for a resource is not resolving correctly. Check that you provide all required values for the resource ID, including subscription ID, resource group name, resource type, parent resource name (if needed), and resource name. | |
-| LocationRequired | Provide a location for your resource. | [Set location](resource-manager-template-location.md) |
+| LocationRequired | Provide a location for your resource. | [Set location](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Check resource provider registration status, and supported locations. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Register your subscription with the resource provider. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Check resource provider registration status. | [Resolve registration](resource-manager-register-provider-errors.md) |

@@ -5,7 +5,7 @@ description: What is the difference between Azure Active Directory B2B collabora
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 
