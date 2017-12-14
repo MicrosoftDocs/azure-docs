@@ -139,24 +139,24 @@
       items:
       - name: Overview and prerequisites 
         href: site-recovery-deployment-planner.md
-      - name: Run the deployment planner 
+      - name: Run the Deployment Planner tool
         href: site-recovery-vmware-deployment-planner-run.md
       - name: Analyze the generated report
         href: site-recovery-vmware-deployment-planner-analyze-report.md
-      - name: Analyze the disaster recovery cost estimation report 
+      - name: Analyze the cost estimation report 
         href: site-recovery-vmware-deployment-planner-cost-estimation.md
     - name: Scale out process servers for VMware replication
       href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-    - name: Deployment planning and tool for Hyper-V replication to Azure
+    - name: Deployment Planner tool for Hyper-V replication to Azure
       href: 
       items:
       - name: Overview and prerequisites 
         href: site-recovery-hyper-v-deployment-planner.md
-      - name: Run the deployment planner 
+      - name: Run the Deployment Planner tool
         href: site-recovery-hyper-v-deployment-planner-run.md
       - name: Analyze the generated report
         href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-      - name: Analyze the disaster recovery cost estimation report 
+      - name: Analyze the cost estimation report 
         href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
     - name: Performance scale tests for Hyper-V replication between on-premises sites
       href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
@@ -176,8 +176,10 @@
         href: site-recovery-prepare-target-physical-to-azure.md
     - name: Configure replication settings for VMware to Azure
       href: site-recovery-setup-replication-settings-vmware.md
-    - name: Exclude disks from replication
+    - name: Exclude disks from replication for VMware to Azure
       href: site-recovery-exclude-disk.md
+    - name: Exclude disks from replication for Hyper-V to Azure
+      href: site-recovery-hyper-v-exclude-disk.md
     - name: Deploy the Mobility service for VMware replication
       href: site-recovery-vmware-to-azure-install-mob-svc.md
       items:

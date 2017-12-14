@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 
 ---
@@ -32,26 +32,26 @@ You can also [attach a data disk using Powershell](attach-disk-ps.md).
 ## Add a data disk
 1. In the menu on the left, click **Virtual Machines**.
 2. Select the virtual machine from the list.
-3. On the virtual machine blade, click **Disks**.
-   4. On the **Disks** blade, click **+ Add data disk**.
-5. In the drop-down for the new disk, select **Create empty**.
-6. In the **Create managed disk** blade, type in a name for the disk and adjust the other settings as necessary. When you are done, click **Create**.
-7. In the **Disks** blade, click save to save the new disk configuration for the VM.
-6. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3. On the virtual machine page, click **Disks**.
+4. On the **Disks** page, click **+ Add data disk**.
+5. In the drop-down for the new disk, select **Create disk**.
+6. In the **Create managed disk** page, type in a name for the disk and adjust the other settings as necessary. When you are done, click **Create**.
+7. In the **Disks** page, click **Save** to save the new disk configuration for the VM.
+6. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data disks**.
 
 
 ## Initialize a new data disk
 
 1. Connect to the VM.
-1. Click the start menu inside the VM and type **diskmgmt.msc** and hit **Enter**. This will start the Disk Management snap-in.
-2. Disk Management will recognize that you have a new, un-initialized disk and the Initialize Disk window will pop up.
+1. Click the start menu inside the VM and type **diskmgmt.msc** and hit **Enter**. Disk Management snap-in opens.
+2. Disk Management recognizes that you have a new, un-initialized disk and the **Initialize Disk** window pops up.
 3. Make sure the new disk is selected and click **OK** to initialize it.
-4. The new disk will now appear as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** will start.
+4. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** opens.
 5. Go through the wizard, keeping all of the defaults, when you are done select **Finish**.
 6. Close Disk Management.
-7. You will get a pop-up that you need to format the new disk before you can use it. Click **Format disk**.
+7. You get a pop-up that you need to format the new disk before you can use it. Click **Format disk**.
 8. In the **Format new disk** dialog, check the settings and then click **Start**.
-9. You will get a warning that formatting the disks will erase all of the data, click **OK**.
+9. You get a warning that formatting the disks erases all of the data, click **OK**.
 10. When the format is complete, click **OK**.
 
 ## Use TRIM with standard storage
@@ -78,4 +78,4 @@ defrag.exe <volume:> -l
 You can also ensure the entire volume is trimmed by formatting the volume.
 
 ## Next steps
-If you application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
