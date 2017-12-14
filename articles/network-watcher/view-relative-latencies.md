@@ -112,7 +112,7 @@ ReachabilityReport : [
                      ]
 ```
 
-In the returned output, the value for **Score** is the relative latency across regions and providers. A score of 1 is the best (lowest) latency, whereas 100 is the worst latency. The relative latencies are averaged for the day. In the previous example, while it's clear that there is a small difference between the latency of the two providers, it's also clear that the latencies for both providers are relatively high on the 1-100 scale. 
+In the returned output, the value for **Score** is the relative latency across regions and providers. A score of 1 is the worst (highest) latency, whereas 100 is the lowest latency. The relative latencies are averaged for the day. In the previous example, while it's clear that there is a small difference between the latency of the two providers, it's also clear that the latencies for both providers are low on the 1-100 scale. 
 
 Running the previous command using *East US*, instead of *West US* for the `-Location` parameter returns the following output:
 
@@ -146,7 +146,7 @@ ReachabilityReport : [
                      ]
 ```
 
-Similar to the first example, there is a small difference in the latency between the two providers. Comparing the output returned in the two examples though, you can see that for the specified date range, latency for both providers is relatively lower to the *East US* Azure region than it is to the *West US* region when communication comes from the state of Washington. This result might be unexpected, since the West US region is physically closer to the state of Washington than the East US region is. 
+Similar to the first example, there is a small difference in the latency between the two providers. Comparing the output returned in the two examples though, you can see that for the specified date range, latency for both providers is relatively higher to the *East US* Azure region than it is to the *West US* region when communication comes from the state of Washington. This result is expected, since the West US region is physically closer to the state of Washington than the East US region is. 
 
 Though the date range specified is only for one day in the previous example, you could run the command against larger date ranges to determine average relative latencies over time. If you know where your users are coming from, this information can help you determine the optimal region to deploy your Azure services in, if minimizing latency between your users and Azure services is your goal.
 
