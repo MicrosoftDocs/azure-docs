@@ -106,9 +106,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Edcor Domain and URLs single sign-on information](./media/active-directory-saas-edcor-tutorial/tutorial_edcor_url1.png)
 
-    a. In the **Identifier** textbox, type a URL: `https://sso.edcor.com/sp/ACS.saml2`
+    In the **Identifier** textbox, type a URL: `https://sso.edcor.com/sp/ACS.saml2`
 
-	b. In the **Reply URL** textbox, type a URL: `https://sso.edcor.com/sp/ACS.saml2`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
