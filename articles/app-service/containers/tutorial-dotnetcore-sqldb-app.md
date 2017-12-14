@@ -162,7 +162,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Configure an environment variable
 
-To set connection strings for your Azure app, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
+To set connection strings for your Azure app, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

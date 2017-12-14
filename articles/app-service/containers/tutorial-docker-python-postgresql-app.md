@@ -409,7 +409,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.
+Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.
 
 The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app.
 
@@ -440,7 +440,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
 
 The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 
