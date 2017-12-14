@@ -50,7 +50,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## Set up an Application Insights resource
-Application Insights is Azure's application performance management platform, and Service Fabric's recommended platform for application monitoring and diagnostics. To create an Application Insights resource, navigate to [Azure portal](https://portal.azure.com). Click **New** on the left navigation menu to open up Azure Marketplace. Click on **Monitoring + Management** and then **Application Insights**.
+Application Insights is Azure's application performance management platform, and Service Fabric's recommended platform for application monitoring and diagnostics. To create an Application Insights resource, navigate to [Azure portal](https://portal.azure.com). Click **Create a resource** on the left navigation menu to open up Azure Marketplace. Click on **Monitoring + Management** and then **Application Insights**.
 
 ![Create new AI resource](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
