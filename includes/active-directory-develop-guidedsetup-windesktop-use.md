@@ -178,5 +178,5 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 ### More information
 
 In addition to the access token that's used to call the Microsoft Graph API, after the user signs in, MSAL also obtains an ID token. This token contain a small subset of information that's pertinent to users. The `DisplayBasicTokenInfo` method displays the basic information that's contained in the token. For example, it displays the user's display name and ID, as well as the token expiration date and the string representing the access token itself. You can select the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
-<!--end-collapse-->s
+<!--end-collapse-->
 
