@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/06/2017
+ms.date: 12/13/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job in the portal
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs  *tasks* on the pool. This example is basic but introduces you to key concepts of the Batch service.
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. Batch supports both Linux and Windows workloads, but this quickstart creates a pool of Windows nodes, but you can aeach task displays environment variables set by Batch on the compute node. This example is basic but introduces you to key concepts of the Batch service.
 
 ## Log in to Azure 
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Create Batch account
 
 Follow these steps to create a sample Batch account for test purposes. You need an account to create compute resources (pools of compute nodes) and Batch jobs. As shown in this example, you can link an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
 
 
-1. Select **New** > **Compute** > **Batch Service**. 
+1. Click **Create a resource** > **Compute** > **Batch Service**. 
 
   ![Batch in the Marketplace][marketplace_portal]
 
@@ -43,16 +43,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
   ![Create a Batch account][account_portal]  
 
 
-
 When the **Deployment succeeded** message appears, go to the Batch account in the portal.
-
-## View account properties
-
-View and manage Batch account settings and properties by using the left menu. For example, click **Keys** to see the account name, URL, and access keys. Though not needed for this quickstart, this information is used to access the account through the Batch APIs.
-
-  ![View account keys][account_keys]
-
-To see the linked storage account name and keys, click **Storage account**.
 
 ## Create a Batch pool
 
@@ -92,17 +83,17 @@ A Batch job specifies a pool to run tasks on and optional settings such as a pri
 
   ![Create a job][job_create]
 
-After the job is crated, the **Tasks** page opens.
+After the job is created, the **Tasks** page opens.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command displays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set AZ_BATCH` command on a compute node, and then wait 90 seconds. The `set AZ_BATCH` command displays the Windows environment variables that Azure Batch creates on each node. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 1. Click **Add**.
 
 2. Enter a **Task ID**, such as *mytask-windows*. 
 
-3. In **Command line**, enter `cmd /c "set & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and click **OK**.
+3. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and click **OK**.
 
   ![Create a task][task_create]
 
@@ -111,7 +102,7 @@ After the task is created, it starts running on one of the nodes in the pool.
 While the task runs, create a second task with an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
 
 > [!TIP]
-> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "printenv; sleep 90s"`.
+> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "printenv AZ_BATCH; sleep 90s"`.
 >
 
 ## View task output
