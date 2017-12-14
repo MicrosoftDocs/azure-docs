@@ -62,7 +62,7 @@ Here are some notes about the orchestration trigger:
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
-* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization inputs directly in the function signature are not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
+* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
 * **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 
 > [!NOTE]
@@ -81,7 +81,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-Most orchestrator functions call other functions, so here is a "Hello World" example that demonstrates how to call a function:
+Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -137,7 +137,7 @@ Here are some notes about the activity trigger:
 The activity trigger binding supports both inputs and outputs, just like the orchestration trigger. Here are some things to know about input and output handling:
 
 * **inputs** - Activity functions natively use [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter type. Alternatively, an activity function can be declared with any parameter type that is JSON-serializable. When you use `DurableActivityContext`, you can call [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) to fetch and deserialize the activity function input.
-* **outputs** - Activity triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
+* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 * **metadata** - Activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
 
 > [!NOTE]
@@ -176,7 +176,7 @@ The orchestration client binding enables you to write functions which interact w
 
 If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute.
 
-If you're using scripting languages (e.g. *.csx* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of function.json:
+If you're using scripting languages (e.g. *.csx* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -224,7 +224,7 @@ public static Task Run(
 
 ### Client sample (not Visual Studio)
 
-If you're not using Visual Studio for development, you can create the following function.json file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
+If you're not using Visual Studio for development, you can create the following *function.json* file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
 
 ```json
 {
