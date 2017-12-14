@@ -9,6 +9,7 @@
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
 ## [Connectivity check](network-watcher-connectivity-overview.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
@@ -56,6 +57,7 @@
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # How to
 ## [Monitor VPN Gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnose On-Premises connectivity via VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,6 +74,7 @@
 ### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Use Grafana](network-watcher-nsg-grafana.md)
 ### [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determine relative latency between a location and Azure region](view-relative-latencies.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
