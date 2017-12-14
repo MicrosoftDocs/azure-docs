@@ -19,13 +19,13 @@ ms.author: zivr
 
 ---
 
-# Azure Metadata Service: Scheduled Events (Preview) for Linux VMs
+# Azure Metadata Service: Scheduled Events (preview) for Linux VMs
 
 > [!NOTE] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
+Scheduled Events is a subservice under Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
 
@@ -49,7 +49,7 @@ Scheduled Events provides events in the following use cases:
 
 ## The basics  
 
- Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
+  Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
 ### Scope
 Scheduled events are delivered to:
@@ -65,7 +65,7 @@ For VMs that are enabled for virtual networks, the full endpoint for the latest 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-In the case where a VM is created within a virtual network, the metadata service is available from a static nonroutable IP, `169.254.169.254`.
+In the case where a VM is created within a virtual network, Metadata Service is available from a static nonroutable IP, `169.254.169.254`.
 If the VM is not created within a virtual network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
@@ -82,7 +82,7 @@ The Scheduled Events service is versioned. Versions are mandatory, and the curre
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Use headers
-When you query the metadata service, you must provide the header `Metadata:true` to ensure the request wasn't unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request results in a "Bad Request" response from the metadata service.
+When you query Metadata Service, you must provide the header `Metadata:true` to ensure the request wasn't unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request results in a "Bad Request" response from Metadata Service.
 
 ### Enable Scheduled Events
 The first time you make a request for scheduled events, Azure implicitly enables the feature on your VM. As a result, expect a delayed response in your first call of up to two minutes.
@@ -150,7 +150,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 
 ### Start an event 
 
-After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to the metadata service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). 
+After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to Metadata Service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). 
 
 The following JSON sample is expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains `EventId` for the event you want to expedite:
 ```
@@ -173,7 +173,7 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 
 ## Python sample 
 
-The following sample queries the metadata service for scheduled events and approves each outstanding event:
+The following sample queries Metadata Service for scheduled events and approves each outstanding event:
 
 ```python
 #!/usr/bin/python
