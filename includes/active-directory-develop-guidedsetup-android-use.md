@@ -150,7 +150,6 @@
             };
         }
 
-
         /* Callback used for interactive request.  If succeeds we use the access
             * token to call the Microsoft Graph. Does not check cache
             */
