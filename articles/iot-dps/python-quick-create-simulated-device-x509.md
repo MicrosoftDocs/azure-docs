@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](python-quick-create-simulated-device-x509.md)
 
-These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -30,7 +30,6 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     > ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 
-<a id="setupdevbox"></a>
 ## Prepare the development environment 
 
 1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
@@ -39,7 +38,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample.
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
@@ -64,7 +63,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-1. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
+1. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*, making sure to include both of these lines as well. 
+
+    ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
 1. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
@@ -86,22 +87,12 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
    On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 
-<a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
 
-1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
+1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
     - If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 
-1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages or proceed with the following manual steps:
-    - Download [Boost](http://www.boost.org/users/download/) and extract the files.
-        - Open a Visual Studio command prompt, navigate to the _boost\_{version}_ folder, and run the following commands:
-            - `boostrap.bat`
-            - `bjam` or `bjam address-model=64` for 64-bit
-        - Set an enviornment variable **BOOST\_ROOT** to the Boost's folder location
-    - Download [OpenSSL](https://www.openssl.org/source/) and extract the files.
-        - Set the following environment variables to the OpenSSL's folder location: **OpenSSLDir**, **OPENSSL\_CONF**, and **OPENSSL\_ROOT\_DIR**
-    - Navigate to _azure-iot-sdk-python/build\_all/windows_
-        - Run the command `build_client`
+1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
 1. Navigate to the samples folder.
 
@@ -127,7 +118,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     python provisioning_device_client_sample.py
     ```
 
-![successful enrollment]()
+![successful enrollment](./media/python-quick-create-simulated-device/enrollment-success.png)
 
 1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
