@@ -27,7 +27,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/automation/media/index/automation.svg
       text: Create Account
-      href: "/azure/automation/first-textual-runbook"
+      href: "/azure/automation/automation-quickstart-create-account"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
