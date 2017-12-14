@@ -24,7 +24,7 @@ This article helps you to manage Azure Multi-Factor Authentication now that you'
 | Feature | Description | 
 |:--- |:--- |
 | [Block and unblock users](#block-and-unblock-users) |Use the block/unblock users feature to prevent users from receiving authentication requests. |
-| [Fraud alert](#fraud-alert) |Configure the fraud alert feature to let users report fraudulent attempts to access their resources. |
+| [Fraud alert](#fraud-alert) |Configure the fraud alert feature so that your users can report fraudulent attempts to access their resources. |
 | [One-time bypass](#one-time-bypass) |Use the one-time bypass feature to allow users to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom voice messages](#custom-voice-messages) |Use the custom voice messages feature to use your own recordings or greetings with multi-factor authentication. |
 | [Caching](#caching-in-azure-multi-factor-authentication) |Use the caching feature to set a specific time period so that subsequent authentication attempts succeed automatically. |
@@ -59,7 +59,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 5. Select **Unblock** to finish unblocking the user.
 
 ## Fraud alert
-Configure the _fraud alert_ feature to let your users report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
+Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
 
 ### Turn on fraud alerts
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
@@ -92,7 +92,7 @@ Configure the _fraud alert_ feature to let your users report fraudulent attempts
 
 5. Under **Multi-Factor Authentication**, select **Manage service settings**.
 
-6. At the bottom of the Service Settings page, select **Go to the portal**.
+6. At the bottom of the **Service Settings** page, select **Go to the portal**.
 
 7. In the Azure Multi-Factor Authentication Management Portal, under **View A Report**, select **Fraud Alert**.
 
@@ -130,7 +130,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 
 5. Under **Multi-Factor Authentication**, select **Manage service settings**.
 
-6. At the bottom of the Service Settings page, select **Go to the portal**.
+6. At the bottom of the **Service Settings** page, select **Go to the portal**.
 
 7. In the Azure Multi-Factor Authentication Management Portal, under **View A Report**, select **One-Time Bypass**.
 
@@ -139,7 +139,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 9. Select **Run** to view a report of bypasses. To export the report, select **Export to CSV**.
 
 ## Custom voice messages
-The _custom voice messages_ feature lets you use your own recordings or greetings for two-step verification. These messages can be used in addition to or to replace the Microsoft recordings.
+You can use your own recordings or greetings for two-step verification with the _custom voice messages_ feature. These messages can be used in addition to or to replace the Microsoft recordings.
 
 Before you begin, be aware of the following restrictions:
 
@@ -164,7 +164,7 @@ Before you begin, be aware of the following restrictions:
 6. Select **Add**.
 
 ## Caching in Azure Multi-Factor Authentication
-The _caching_ feature lets you set a time period to allow authentication attempts after a user is authenticated. Subsequent authentication attempts for the user within the specified time period succeed automatically. Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress. 
+ You can set a time period to allow authentication attempts after a user is authenticated by using the _caching_ feature. Subsequent authentication attempts for the user within the specified time period succeed automatically. Caching is primarily used when on-premises systems, such as VPN, send multiple verification requests while the first request is still in progress. This feature allows the subsequent requests to succeed automatically, after the user succeeds the first verification in progress. 
 
 >[!NOTE]
 >The caching feature is not intended to be used for sign-ins to Azure Active Directory (Azure AD).
@@ -193,7 +193,7 @@ The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by admini
 | Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet.|
 | Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
 
-The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside of the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
+The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
 
 **End-user experience inside of corpnet**
 
@@ -201,7 +201,7 @@ When the Trusted IPs feature is disabled, two-step verification is required for 
 
 When the Trusted IPs feature is enabled, two-step verification is *not* required for browser flows. App passwords are *not* required for older rich client applications, provided that the user hasn't created an app password. After an app password is in use, the password remains required. 
 
-**End-user experience outside of corpnet**
+**End-user experience outside corpnet**
 
 Regardless of whether the Trusted IPs feature is enabled, two-step verification is required for browser flows. App passwords are required for older rich client applications. 
 
@@ -229,9 +229,9 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 3. Select **Configure MFA trusted IPs**.
 
-4. On the Service Settings page, under **Trusted IPs**, choose from the following two options:
+4. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options:
    
-   * **For requests from federated users originating from my intranet**: To choose this option, check the box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
+   * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
      ```
      c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);
@@ -256,9 +256,9 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 4. Under Multi-Factor Authentication, select **service settings**.
 
-5. On the Service Settings page, under **Trusted IPs**, choose from the following two options to skip multi-factor authentication:
+5. On the **Service Settings** page, under **Trusted IPs**, choose from the following two options to skip multi-factor authentication:
    
-   * **For requests from federated users on my intranet**: To choose this option, check the box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
+   * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:<br/>
 
      ```
      c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);
@@ -291,7 +291,7 @@ When using app passwords, consider the following important points:
 * App passwords are only entered once per application. Users don't have to keep track of the passwords or enter them every time.
 * The actual password is automatically generated and is not supplied by the user. The automatically generated password is harder for an attacker to guess and is more secure.
 * There is a limit of 40 passwords per user. 
-* Applications that cache passwords and use them in on-premises scenarios can start to fail because the app password isn't known outside of the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
+* Applications that cache passwords and use them in on-premises scenarios can start to fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
 * After multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. Administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account. To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
 
 >[!WARNING]
@@ -341,14 +341,14 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 4. Under Multi-Factor Authentication, select **service settings**.
 
-5. On the Service Settings page, select the radio button next to **Allow users to create app passwords to sign in to non-browser apps**.
+5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
 
    ![Allow users to create app passwords](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### Create app passwords
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
+Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## Remember Multi-Factor Authentication for trusted devices
@@ -362,14 +362,14 @@ The _remember Multi-Factor Authentication_ feature for devices and browsers that
 
 ### How the feature works
 
-The remember Multi-Factor Authentication feature sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** checkbox at sign-in. The user isn't prompted again for Multi-Factor Authentication from that same browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they're prompted again to verify. 
+The remember Multi-Factor Authentication feature sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in. The user isn't prompted again for Multi-Factor Authentication from that same browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they're prompted again to verify. 
 
-The **Don't ask again for X days** checkbox isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days. 
+The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days. 
 
 The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days.
 
 >[!IMPORTANT]
->The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through the Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
+>The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
 >
 >If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. This reaction sets off a verification loop between Azure AD and AD FS.
 >
@@ -383,7 +383,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 4. Under Multi-Factor Authentication, select **service settings**.
 
-5. On the Service Settings page, under **manage remember multi-factor authentication**, check the **Allow users to remember multi-factor authentication on devices they trust** box.
+5. On the **Service Settings** page, under **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
 
    ![Remember Multi-Factor Authentication for trusted devices](./media/multi-factor-authentication-whats-next/remember.png)
 
@@ -398,7 +398,7 @@ After you enable the remember Multi-Factor Authentication feature, users can mar
 ![Select "Don't ask again" for trusted devices](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## Selectable verification methods
-The _selectable verification methods_ feature lets you choose the verification methods that are available for your users. The following table provides a brief overview of the methods.
+You can choose the verification methods that are available for your users by using the _selectable verification methods_ feature. The following table provides a brief overview of the methods.
 
 When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md).
 
@@ -418,7 +418,7 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 
 4. Under Multi-Factor Authentication, select **service settings**.
 
-5. On the Service Settings page, under **verification options**, select/unselect the methods to provide to your users.
+5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
 
    ![Select the verification methods](./media/multi-factor-authentication-whats-next/authmethods.png)
 
