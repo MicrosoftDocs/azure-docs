@@ -118,11 +118,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     python provisioning_device_client_sample.py
     ```
 
-![successful enrollment](./media/python-quick-create-simulated-device/enrollment-success.png)
+![successful enrollment](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
-    ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device-x509/hub-registration.png) 
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
