@@ -636,6 +636,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/resource-manager-template-best-practices.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/best-practices-resource-manager-state.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/resource-manager-template-lock.md",
             "redirect_url": "/azure/templates/microsoft.authorization/locks",
             "redirect_document_id": false
