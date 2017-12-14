@@ -94,7 +94,7 @@ A few notes on the column values:
 * **Timestamp**: The UTC timestamp of the history event.
 * **Name**: The name of the function that was invoked.
 * **Input**: The JSON-formatted input of the function.
-* **Result**: The JSON-formatted output of the function; that is, its return value.
+* **Result**: The output of the function; that is, its return value.
 
 > [!WARNING]
 > While it's useful as a debugging tool, don't take any dependency on this table. It may change as the Durable Functions extension evolves.
