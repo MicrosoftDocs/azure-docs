@@ -94,6 +94,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
+    > [!NOTE]
+        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
+
 1. Navigate to the samples folder.
 
     ```cmd/sh
