@@ -10,11 +10,13 @@ ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ---
 
 # Azure Database for MySQL: Use Java to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
+
+There are numerous other examples and sample code at the [MySQL Connector examples page](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -25,7 +27,7 @@ This quickstart uses the resources created in either of these guides as a starti
 
 - Obtain the JDBC driver using one of the following approaches:
    - Use the Maven package [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to load the necessary libraries into your project.  
-   - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, please consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -389,5 +391,7 @@ public class DeleteTable {
 ```
 
 ## Next steps
+There are numerous other examples and sample code at the [MySQL Connector/J examples page](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
+
 > [!div class="nextstepaction"]
 > [Migrate your MySQL database to Azure Database for MySQL using dump and restore](concepts-migrate-dump-restore.md)
