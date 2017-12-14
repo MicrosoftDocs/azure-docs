@@ -27,7 +27,6 @@ To register your application and add your application registration information t
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
-
 <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
 
@@ -49,6 +48,5 @@ To register your application and add your application registration information t
         </intent-filter>
     </activity>
     ```
-
 <!-- Workaround for Docs conversion bug -->
 9. In the `BrowserTabActivity` node, replace *[Enter the application Id here]* with the application ID.
