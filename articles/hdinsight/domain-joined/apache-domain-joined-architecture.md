@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: saurinsh
 
 ---
@@ -41,8 +41,8 @@ To summarize, you need set up an environment with:
     - Join machines to domain and create machine principals in the OU
 
 The following screenshot shows an OU created in contoso.com. Some of the service principals and machine principals are shown in the screenshot as well.
-There other two screenshots show the forward and reverse lookup entries created in the DNS server.
- 
+
+![Domain Joined HDInsight clusters ou](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ### Three ways of bringing your own Active Directory domain controllers
 
