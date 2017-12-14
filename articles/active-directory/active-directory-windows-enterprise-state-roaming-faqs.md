@@ -5,9 +5,8 @@ services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
-
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
@@ -71,7 +70,7 @@ In the November 2015 or later releases of Windows 10, Enterprise State Roaming i
 ## Do settings sync for Azure AD accounts from multiple tenants?
 When multiple Azure AD accounts from different Azure AD tenants are on the same device, you must update the device's registry to communicate with Azure Rights Management (Azure RMS) for each Azure AD tenant.  
 
-1. Find the GUID for each Azure AD tenant. Open the Azure classic portal and select an Azure AD tenant. The GUID for the tenant is in the URL in the address bar of your browser. For example:
+1. Find the GUID for each Azure AD tenant. Open the Azure portal and select an Azure AD tenant. The GUID for the tenant is in the URL in the address bar of your browser. For example:
     `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. After you have the GUID, you will need to add the registry key
    **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
