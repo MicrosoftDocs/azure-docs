@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Automation account
-description: Azure Quickstart - Create Automation Account
-services: azure-automation
+title: Azure Quickstart - Create an Azure Automation account | Microsoft Docs
+description: Learn how to create an Azure Automation account and run a runbook
+services: automation
 author: csand-msft
 ms.author: csand
 ms.date: 12/13/2017
@@ -23,13 +23,13 @@ Log in to Azure at https://portal.azure.com
 
 1. Click the **New** button found on the upper left-hand corner of Azure.
 
-2. Select **Monitoring + Management**, and then select **Automation**. 
+1. Select **Monitoring + Management**, and then select **Automation**.
 
-3. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. When complete, click **Create**, to start the Automation account deployment.
+1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. When complete, click **Create**, to start the Automation account deployment.
 
     ![Enter information about your Automation account in the page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-4. The Automation account is pinned to the Azure dashboard. When the deployment has completed, the Automation account overview automatically opens.
+1. The Automation account is pinned to the Azure dashboard. When the deployment has completed, the Automation account overview automatically opens.
 
     ![Automation account overview](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -37,22 +37,19 @@ Log in to Azure at https://portal.azure.com
 
 Run one of the tutorial runbooks.
 
-1. Click **Runbooks** in the Automation account TOC. The runbooks list displays.  By default several tutorial runbooks are enabled in the account.
+1. Click **Runbooks** under **PROCESS AUTOMATION**. The list of runbooks is displayed. By default several tutorial runbooks are enabled in the account.
 
     ![Automation account runbooks list](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
-
-2. Select the **AzureAutomationTutorialScript** runbook. The runbook overview displays. 
+1. Select the **AzureAutomationTutorialScript** runbook. This opens the runbook overview page.
 
     ![Runbook overview](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-
-3. Click **Start** to start the runbook.  The runbook job page displays.
+1. Click **Start**, and on the **Start Runbook** page, click **OK** to start the runbook.
 
     ![Runbook job page](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-
-4. After the **Job status** becomes **Running**, click **Output** or **All Logs** to view the runbook job output.  For this tutorial runbook the output is a list of your Azure resources.
+1. After the **Job status** becomes **Running**, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
 
 ## Clean up resources
 
@@ -63,4 +60,4 @@ When no longer needed, delete the resource group, Automation account, and all re
 In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first runbook.
 
 > [!div class="nextstepaction"]
-> [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
+> [Automation Quickstart - Create Runbook](./automation-first-runbook-textual.md)
