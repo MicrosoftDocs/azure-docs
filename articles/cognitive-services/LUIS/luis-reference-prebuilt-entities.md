@@ -1,6 +1,6 @@
 ---
 title: LUIS Prebuilt entities reference | Microsoft Docs
-description: This article contains lists of the pre-built entities that are included in Language Understanding Intelligent Services (LUIS).
+description: This article contains lists of the pre-built entities that are included in Language Understanding (LUIS).
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -8,21 +8,21 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
 # Prebuilt entities reference
 
-LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
-------|------|------|------|------|------|------|------|------|------|
-DatetimeV2   |    ✔   |   -   |   -   |   ✔   |    ✔   |   -   |   -   |   -   |   -   |
- Datetime   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
+------|:------:|------|------|------|------|------|------|------|------|
+DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   `*`   |   `*`   |   -   |   -   |
+ Datetime   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |   -   |
 Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
@@ -30,11 +30,22 @@ Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   
 Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Geography   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Encyclopedia   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Geography   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Encyclopedia   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+
+`*` = coming soon
+
+`X` = See notes on [Deprecated prebuilt entities](#deprecated-prebuilt-entities)
+
+## Deprecated prebuilt entities
+
+The following prebuilt entities are deprecated and can't be added to new LUIS apps.
+* **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in preexisting apps that use it.
+* **Geography**: Existing LUIS apps that use **builtin.geography** will be supported until December 2018.
+* **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** will be supported until December 2018.
 
 ## Examples of prebuilt entities
 The following table lists prebuilt entities with example utterances and their return values.
@@ -265,7 +276,7 @@ The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href=#subtypes-of-datetimev2>Subtypes of datetimeV2</a>.
+The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -288,7 +299,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <td> 
    <table>
    <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range, or time range.</td></tr>
-   <tr><td>type</td><td><b>string</b>. One of the following <a href=#subtypes-of-datetimev2>subtypes of datetimeV2</a>: 
+   <tr><td>type</td><td><b>string</b>. One of the following <a href="#subtypes-of-datetimev2">subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
    <li>builtin.datetimeV2.time
@@ -559,7 +570,7 @@ Pre-built entity   |   Example utterance   |   JSON
 ```builtin.datetime.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetime.set", "resolution": {"time": "XXXX-WXX"} }```|
 ```builtin.datetimeV2.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
 
-<!-- TODO: Verify whether the following are by design 
+<!-- TODO: Re-add when the behavior of the following work as intended 
 builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set", "entity": "every morning", "resolution": {"time": "XXXX-XX-XXTMO"}	}```|
 builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datetimeV2.timerange", "entity": "morning", "resolution": { "values": [{"timex": "TMO", "type": "timerange", "start": "08:00:00", "end": "12:00:00"}]	} }```|
 
