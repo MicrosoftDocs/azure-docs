@@ -237,7 +237,7 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-state.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-state",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -641,7 +641,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/best-practices-resource-manager-state.md",
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-state.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
