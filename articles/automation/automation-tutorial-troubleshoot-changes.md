@@ -63,7 +63,7 @@ If these prerequisites aren't met, a banner appears that gives you the option to
 To enable the solution, click the banner.
 If any of the following prerequisites were found to be missing after the validation, they're automatically added:
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md) workspace
+* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) workspace
 * [Automation](./automation-offering-get-started.md)
 * A [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) is enabled on the VM
 
@@ -190,4 +190,4 @@ In this tutorial you learned how to:
 Continue to the overview for the Change tracking and Inventory solution to learn more about it.
 
 > [!div class="nextstepaction"]
-> [Change management and Inventory solution](../operations-management-suite/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Change management and Inventory solution](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
