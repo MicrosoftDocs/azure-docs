@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Vodeclic with Azure Active Director
 Integrating Vodeclic with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Vodeclic.
-- You can enable your users to automatically get signed on to Vodeclic (single sign-on) with their Azure AD accounts.
+- You can enable your users to automatically get signed on to Vodeclic (single sign-on, or SSO) with their Azure AD accounts.
 - You can manage your accounts in one central location--the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Vodeclic, you need the following items:
 
 - An Azure AD subscription
-- A Vodeclic single sign-on-enabled subscription
+- A Vodeclic SSO-enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -55,7 +55,7 @@ To configure the integration of Vodeclic into Azure AD, you need to add Vodeclic
 
 **To add Vodeclic from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left pane, select the **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
@@ -81,11 +81,11 @@ In Vodeclic, give the value **Username** the same value as **user name** in Azur
 
 To configure and test Azure AD single sign-on with Vodeclic, complete the following building blocks:
 
-1. **[Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Vodeclic test user](#create-a-vodeclic-test-user)** to have a counterpart of Britta Simon in Vodeclic that is linked to the Azure AD representation of the user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+1. [Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create a Vodeclic test user](#create-a-vodeclic-test-user) to have a counterpart of Britta Simon in Vodeclic that is linked to the Azure AD representation of the user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on) to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** box, type a URL with the following pattern: `https://<companyname>.lms.vodeclic.net/auth/saml`
 	 
 	> [!NOTE] 
-	> These values aren't real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact the [Vodeclic Client support team](mailto:hotline@vodeclic.com) to get these values.
+	> These values aren't real. Update these values with the actual identifier, reply URL, and sign-on URL. Contact the [Vodeclic Client support team](mailto:hotline@vodeclic.com) to get these values.
 
 5. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
@@ -126,10 +126,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-vodeclic-tutorial/tutorial_general_400.png)
 	
-7. To configure single sign-on on the **Vodeclic** side, send the downloaded **Metadata XML** to the [Vodeclic support team](mailto:hotline@vodeclic.com). They set this setting to have the SAML single-sign-on connection set properly on both sides.
+7. To configure single sign-on on the **Vodeclic** side, send the downloaded **Metadata XML** to the [Vodeclic support team](mailto:hotline@vodeclic.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
