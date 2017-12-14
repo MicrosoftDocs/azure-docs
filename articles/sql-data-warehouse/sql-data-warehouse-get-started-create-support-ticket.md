@@ -55,7 +55,7 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
 6. Click **Create** to submit the support request.
 
 ## Monitor a support ticket
-After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
+After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **All support requests** on the dashboard.
 
 ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
