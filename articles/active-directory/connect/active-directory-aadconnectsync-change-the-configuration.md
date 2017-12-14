@@ -475,35 +475,35 @@ The inbound synchronization rule permits the attribute value to flow from the so
 3. Click **Add new rule** button to create a new inbound rule.
 4. Under the **Description** tab, provide the following configuration:
 
-| Attribute | Value | Details |
-| --- | --- | --- |
-| Name | *Provide a name* | For example, *“In from AD – User UserType”* |
-| Description | *Provide a description* |  |
-| Connected System | *Pick the on-premises AD connector* |  |
-| Connected System Object Type | **User** |  |
-| Metaverse Object Type | **Person** |  |
-| Link Type | **Join** |  |
-| Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
+    | Attribute | Value | Details |
+    | --- | --- | --- |
+    | Name | *Provide a name* | For example, *“In from AD – User UserType”* |
+    | Description | *Provide a description* |  |
+    | Connected System | *Pick the on-premises AD connector* |  |
+    | Connected System Object Type | **User** |  |
+    | Metaverse Object Type | **Person** |  |
+    | Link Type | **Join** |  |
+    | Precedence | *Choose a number between 1 – 99* | 1 – 99 is reserved for custom sync rules. Do not pick a value that is used by another synchronization rule. |
 
 5. Go to the **Scoping filter** tab and add a **single scoping filter group with the following clause**:
  
-| Attribute | Operator | Value |
-| --- | --- | --- |
-| adminDescription | NOTSTARTWITH | User\_ | 
+    | Attribute | Operator | Value |
+    | --- | --- | --- |
+    | adminDescription | NOTSTARTWITH | User\_ | 
  
     Scoping filter determines which on-premises AD objects this inbound synchronization rule is applied to. In this example, we use the same scoping filter used as “In from AD – User Common” OOB synchronization rule, which prevents the synchronization rule from being applied to User objects created through Azure AD User writeback feature. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation tab** and implement the desired transformation rule. For example, you have designated an unused on-premises AD attribute (e.g., extensionAttribute1) as the source attribute for UserType, you can implement a direct attribute flow:
  
-| Flow Type | Target Attribute | Source | Apply Once | Merge Type |
-| --- | --- | --- | --- | --- |
-| Direct | UserType | extensionAttribute1 | Unchecked | Update |
+    | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
+    | --- | --- | --- | --- | --- |
+    | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
     Another example – You want to derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD UserPrincipalName attribute ends with domain part “@partners.fabrikam123.org”. You can implement an expression:
 
-| Flow Type | Target Attribute | Source | Apply Once | Merge Type |
-| --- | --- | --- | --- | --- |
-| Direct | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
+    | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
+    | --- | --- | --- | --- | --- |
+    | Direct | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
 
 7. Click **Add** to create the inbound rule.
 
