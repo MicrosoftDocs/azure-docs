@@ -22,7 +22,7 @@ ms.author: dobett
 
 The Connected factory preconfigured solution shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
 
-This article uses Contoso as na example to describe how to configure the topology of a Connected factory solution.
+This article uses Contoso as an example to describe how to configure the topology of a Connected factory solution.
 
 ## Simulated factories configuration
 
@@ -32,17 +32,17 @@ Each Contoso factory has production lines that consist of three stations each. E
 * Test station
 * Packaging station
 
-These OPC UA servers send telemetry data from OPC UA nodes. This telemetry includes:
+These OPC UA servers have OPC UA nodes and [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sends the values of these nodes to Connected factory. This includes:
 
 * Current operational status such as current power consumption.
 * Production information such as the number of products produced.
 
-You can use the dashboard to drill into the Contoso factory topology from a global view down to a station level view. The Connect factory dashboard enables:
+You can use the dashboard to drill into the Contoso factory topology from a global view down to a station level view. The Connected factory dashboard enables:
 
-* The computation and visualization of OEE and KPI figures for each layer in the topology.
-* The visualization of  current values of telemetry from the stations.
+* The visualization of OEE and KPI figures for each layer in the topology.
+* The visualization of current values of OPC UA nodes in the stations.
 * The aggregation of the OEE and KPI figures from the station level to the global level.
-* The definition of alerts and actions to perform if values reach specific thresholds.
+* The visualization of alerts and actions to perform if values reach specific thresholds.
 
 ## Connected factory topology
 
@@ -58,14 +58,13 @@ Every node in the topology has a common set of properties that define:
 * A unique identifier for the topology node.
 * A name.
 * A description.
-* The location by city, country, latitude, and longitude.
 * An image.
 * The children of the topology node.
 * Minimum, target, and maximum values for OEE and KPI figures and the alert actions to execute.
- 
+
 ## Topology configuration file
 
-To configure the properties listed in the previous section, the Connected factory solution uses a configuration file called `ContosoTopologyDescription.json`.
+To configure the properties listed in the previous section, the Connected factory solution uses a configuration file called [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 You can find this file in the solution source code in the `WebApp/Contoso/Topology` folder.
 
@@ -89,7 +88,7 @@ The following snippet shows an outline of the `ContosoTopologyDescription.json` 
 }
 ```
 
-Common properties of `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, and `<station_configuration>` are:
+The common properties of `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, and `<station_configuration>` are:
 
 * **Name** (type string)
 
@@ -126,7 +125,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
   This property must be set to the OPC UA Application URI of the OPC UA server.
   Because it must be globally unique by OPC UA specification, this property is used to identify the station topology node.
 
-* **OpcNodes, which are an array of OPC UA nodes (type `<opc_node_description>`)
+* **OpcNodes**, which are an array of OPC UA nodes (type `<opc_node_description>`)
 
 `<location_definition>` has properties:
 
@@ -196,7 +195,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
 
 * **NodeId** (type string)
 
-  Address of the OPC UA node in the station’s (OPC UA server’s) address space. Syntax must be as specified in the OPC UA specification for a **NodeId**.
+  Address of the OPC UA node in the station’s (OPC UA server’s) address space. Syntax must be as specified in the OPC UA specification for a NodeId.
 
 * **SymbolicName** (type string)
 
@@ -217,7 +216,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
 
 * **OpCode** (type string)
 
-  Gives a hint about how the value of the OPC UA node is handled in Time Series Insight queries and OEE/KPI calculations. Each Time Series Insight query targets a specific timespan, which is a parameter of the query and delivers a result. The OpCode controls how the result is computed and can be one of the following values:
+  Indicates how the value of the OPC UA node is handled in Time Series Insight queries and OEE/KPI calculations. Each Time Series Insight query targets a specific timespan, which is a parameter of the query and delivers a result. The OpCode controls how the result is computed and can be one of the following values:
 
   * **Diff**: difference between the last and the first value in the timespan.
   * **Avg**: the average of all values in the timespan.
@@ -258,7 +257,7 @@ The `<factory_configuration>` and `<production_line_configuration>` items have a
 
   Defines the set of actions, which can be taken as response to a maximum alert.
 
-At the station level, you also see Simulation objects. These objects are only used to configure the Connected factory simulation and are not of interest for configuring a real topology.
+At the station level, you also see **Simulation** objects. These objects are only used to configure the Connected factory simulation and should not be used to configure a real topology.
 
 ## How the configuration data is used at runtime
 
@@ -281,9 +280,9 @@ The WebApp maintains an internal data dictionary containing information of all t
 
 ### OEE/KPI computation
 
-To calculate OEE/KPI figures, you need to know:
+The OEE/KPI figures for the Connected factory simulation are parameterized by:
 
-* The telemetry values to be included in the calculation.
+* The OPC UA node values to be included in the calculation.
 * How the figure is computed from the telemetry values.
 
 Connected factory uses the OEE formulas as published by the http://oeeindustrystandard.oeefoundation.org.
@@ -303,11 +302,11 @@ Connected factory supports a simple minimum/maximum threshold-based alert genera
 
 For certain operations, such as visualizing the last value or creating Time Series Insight queries, the WebApp needs an addressing scheme for the ingested telemetry data. The telemetry sent to Connected factory also needs to be stored in internal data structures. The two properties enabling these operations are at station (OPC UA server) and OPC UA node level:
 
-* OpcUri
+* **OpcUri**
 
   Identifies (globally unique) the OPC UA server the telemetry comes from. In the ingested messages, this property is sent as **ApplicationUri**.
 
-* NodeId
+* **NodeId**
 
   Identifies the node value in the OPC UA server. The format of the property must be as specified in the OPC UA specification. In the ingested messages, this property is sent as **NodeId**.
 
