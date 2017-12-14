@@ -611,7 +611,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
                                             </a>
@@ -2578,7 +2578,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="/bot-framework/bot-service-overview-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
