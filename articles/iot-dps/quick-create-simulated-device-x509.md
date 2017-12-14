@@ -1,6 +1,6 @@
 ---
-title: Provision an X.509 simulated device to Azure IoT Hub | Microsoft Docs
-description: Azure Quickstart - Create and provision an X.509 simulated device using Azure IoT Hub Device Provisioning Service
+title: Provision a simulated X.509 device to Azure IoT Hub | Microsoft Docs
+description: Azure Quickstart - Create and provision a simulated X.509 device using Azure IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
 author: dsk-2015
@@ -25,6 +25,7 @@ These steps show how to simulate an X.509 device on your development machine run
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 <a id="setupdevbox"></a>
+
 ## Prepare the development environment 
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.

@@ -17,12 +17,12 @@ ms.custom: mvc
 
 # Enroll X.509 devices to IoT Hub Device Provisioning Services
 > [!div class="op_single_selector"]
-> * [TPM](quick-enroll-device-tpm.md)
-> * [X.509](quick-enroll-device-x509.md)
+> * [TPM](quick-enroll-device-tpm-java.md)
+> * [X.509](quick-enroll-device-x509-java.md)
 
 These steps show how to enroll X.509 simulated devices programmatically to the Azure IoT Hub Device Provisioning Services, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although these steps will work on both Windows as well as Linux machines, we will use a Windows development machine for the purpose of this article.
 
-Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md), as well as [Create and provision an X.509 simulated device](quick-create-simulated-device-x509.md) before you proceed.
+Make sure to [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md), as well as [Simulate X.509 simulated device](quick-create-simulated-device-x509.md) before you proceed.
 
 <a id="setupdevbox"></a>
 

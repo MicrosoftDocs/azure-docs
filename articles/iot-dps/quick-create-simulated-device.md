@@ -1,11 +1,11 @@
 ---
-title: Provision a simulated device to Azure IoT Hub | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated device using Azure IoT Hub Device Provisioning Service
+title: Provision a simulated TPM device to Azure IoT Hub | Microsoft Docs
+description: Azure Quickstart - Create and provision a simulated TPM device using Azure IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/18/2017
+ms.date: 12/16/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -25,6 +25,7 @@ These steps show how to create a simulated device on your development machine ru
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 <a id="setupdevbox"></a>
+
 ## Prepare the development environment 
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
@@ -50,26 +51,38 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 6. The code sample uses a Windows TPM simulator. Run the following command to enable the SAS token authentication. It also generates a Visual Studio solution for the simulated device.
 
     ```cmd/sh
-    cmake -Ddps_auth_type=tpm_simulator ..
+    cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
 7. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
+   If you are in the *cmake* folder, then follow the following commands:
+
     ```cmd/sh
-    .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+    cd..
+    .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-## Create a device enrollment entry in the Device Provisioning Service
+<a id="simulatetpm"></a>
+
+## Simulate TPM device
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-2. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
+2. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
-3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+3. Run the solution. The output window displays the **_Registration ID_** and the **_Endorsement Key_** needed for device enrollment. Note down these values. 
 
-4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-5. Under the **Add enrollment list entry**, enter the following information:
+<a id="portalenrollment"></a>
+
+## Create a device enrollment entry in the portal
+
+1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+
+2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+
+3. Under the **Add enrollment list entry**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
     - Select an IoT hub linked with your provisioning service.
@@ -83,22 +96,33 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 
 <a id="firstbootsequence"></a>
+
 ## Simulate first boot sequence for the device
 
-1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_Global device endpoint_** and the **_ID Scope_** values.
+1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_ID Scope_** value.
 
     ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. In Visual Studio on your machine, select the sample project named **dps_client_sample** and open the file **dps_client_sample.c**.
+2. In the Visual Studio *Solution Explorer* on your machine, navigate to the folder **Provision\_Samples**. Select the sample project named **prov\_dev\_client\_sample** and open the file **prov\_dev\_client\_sample.c**.
 
-3. Assign the _ID Scope_ value to the `dps_scope_id` variable. Notice that the `dps_uri` variable has the same value as the _Global device endpoint_. 
+3. Assign the _ID Scope_ value to the `id_scope` variable. 
 
     ```c
-    static const char* dps_uri = "global.azure-devices-provisioning.net";
-    static const char* dps_scope_id = "[DPS Id Scope]";
+    static const char* id_scope = "[ID Scope]";
     ```
 
-4. Right-click the **dps_client_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+4. In the **main()** function in the same file, make sure the **SECURE_DEVICE_TYPE** is set to TPM.
+
+    ```c
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    ```
+
+   Comment out or delete the statement `hsm_type = SECURE_DEVICE_TYPE_X509;` that is present by default. 
+
+5. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the solution. 
+
+6. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT Devices** blade. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -116,7 +140,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
