@@ -375,7 +375,7 @@ WebApplicationReplyUrl is the default endpoint that Azure AD returns to your use
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
+You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure portal][azure-portal], you should see two new entries:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -614,7 +614,7 @@ In case you run into issues and get cryptic messages, then use "-Debug" as an op
 <a name="assign-roles"></a>
 
 ## Assign users to roles
-After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][link-azure-portal].
+After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure portal][azure-portal].
 
 1. In the Azure portal, select your tenant on the top-right corner.
 
@@ -697,7 +697,7 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[link-azure-portal]: https://portal.azure.com
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
