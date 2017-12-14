@@ -56,7 +56,9 @@ vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/
 diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
 storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
 
-az resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag --destination-group "myDestinationResourceGroup"
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+	--destination-group "myDestinationResourceGroup"
 ```
 
 If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId** parameter to specify the destination subscription.
