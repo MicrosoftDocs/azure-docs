@@ -219,7 +219,7 @@
 
 <!--start-collapse-->
 ### More information
-#### Get a user token interactive
+#### Get a user token interactively
 Calling the `AcquireTokenAsync` method results in a window that prompts users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired).
 
 #### Get a user token silently
