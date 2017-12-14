@@ -77,7 +77,7 @@ This article answers common questions about Azure Files features and functionali
 
 ## Azure File Sync
 * <a id="afs-region-availability"></a>**What regions are supported for Azure File Sync (preview)?**  
-    Currently, Azure File Sync is available in West US, West Europe, Australia East, and Southeast Asia. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
+    Currently, Azure File Sync is available in East US, West US, West Europe, Australia East, and Southeast Asia. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Can I have domain-joined and non-domain-joined servers in the same sync group?**  
     Yes. A sync group can contain server endpoints that have different Active Directory memberships, even if they are not domain-joined. Although this configuration technically works, we do not recommend this as a typical configuration because access control lists (ACLs) that are defined for files and folders on one server might not be able to be enforced by other servers in the sync group. For best results, we recommend syncing between servers that are in the same Active Directory forest, between servers that are in different Active Directory forests but which have established trust relationships, or between servers that are not in a domain. We recommend that you avoid using a mix of these configurations.

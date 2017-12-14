@@ -321,13 +321,6 @@ Media Services SDK for .NET is now version 3.0.0.7
 * **Origin** was renamed to [StreamingEndpoint].
 * A change in the default behavior when using the **Azure portal** to encode and then publish MP4 files.
 
-Previously, when using the Azure Classic portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
-
-Currently, you have the following two options to solve the problem.
-
-* Enable streaming units and use dynamic packaging to stream the .mp4 asset as a smooth streaming presentation.
-* Create a SAS url to download (or progressively play) the .mp4. For more information about how to create a SAS locator, see [Delivering Content].
-
 ### <a id="sept_14_GA_changes"></a>New features/scenarios that are part of GA release
 * **Indexer Media Processor**. For more information, see [Indexing Media Files with Azure Media Indexer].
 * The [StreamingEndpoint] entity now enables you to add custom domain (host) names.
