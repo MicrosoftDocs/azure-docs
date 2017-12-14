@@ -23,7 +23,7 @@ This article shows you how to use a ZIP file to deploy your web app to [Azure Ap
 
 This ZIP file deployment uses the same Kudu service that powers continuous integration-based deployments. Kudu supports the following functionality for ZIP file deployment: 
 
-- Deletion of files leftover from a previous deployment.
+- Deletion of files left over from a previous deployment.
 - Option to turn on the default build process, which includes package restore.
 - [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts.  
 - Deployment logs. 
@@ -91,7 +91,7 @@ To view the list of deployments for this app, you must use the REST APIs (see ne
 For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
-## More Resources
+## More resources
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service Deployment Credentials](app-service-deploy-ftp.md)
