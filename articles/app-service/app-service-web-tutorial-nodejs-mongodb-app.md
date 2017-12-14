@@ -253,7 +253,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
+To set app settings, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
@@ -457,7 +457,7 @@ If you added any articles earlier, you still can see them. Existing data in your
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail) command in the Cloud Shell.
+To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

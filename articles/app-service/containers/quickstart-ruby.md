@@ -98,7 +98,7 @@ Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appserv
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Next, issue the [az webapp create](https://docs.microsoft.com/cli/azure/webapp) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
+Next, issue the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -143,7 +143,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
