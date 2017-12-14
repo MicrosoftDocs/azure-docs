@@ -189,7 +189,7 @@ If you're using scripting languages (e.g. *.csx* files) for development, the orc
 ```
 
 * `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target orchestrator functions.
-* `connectionName` - The name of an app setting that contains a storage connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default connection string for the function app is used.
+* `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default storage account connection string for the function app is used.
 
 > [!NOTE]
 > In most cases, we recommend that you omit these properties and rely on the default behavior.
