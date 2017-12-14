@@ -37,7 +37,9 @@ Microsoft data centers provide industry-leading physical security and are compli
 
 Azure Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. 
 
-On the backend storage used for indexes and other constructs, Azure Search leverages the full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) of the storage layer for all new search services created after December 31, 2017. Encryption is in effect in all regional data centers offering Azure Search resources. Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific services or indexes, nor manage keys directly, nor supply your own. To download the report, go to [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+On the backend storage used for indexes and other constructs, Azure Search leverages the encryption capabilities of those platforms. Full [AICPA SOC 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) is available for all search services (new and existing), in all data centers offering Azure Search. To review the full report, go to [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+
+Encryption is transparent, with encryption keys managed internally, and universally applied. You cannot turn it off for specific search services or indexes, nor manage keys directly, nor supply your own. 
 
 ## Azure-wide logical security
 
