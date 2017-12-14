@@ -47,7 +47,7 @@ Follow these steps to [Manage firewall rules by using the Azure portal](../sql-d
 
     ![Connect to SQL Server](./media/documentation-government-connect-with-ssms-img3.png)
 
-Your SSMS is now connected to your Azure Government subscription.
+SSMS is now connected to your Azure Government subscription.
 
 ## Next steps
 * Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
