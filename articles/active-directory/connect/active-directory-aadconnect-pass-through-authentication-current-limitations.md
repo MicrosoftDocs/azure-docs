@@ -41,6 +41,7 @@ The following scenarios are _not_ supported:
 - App passwords for Multi-Factor Authentication.
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
+- The Apple Device Enrollment Program (Apple DEP) does not support Modern Authentication. Apple DEP devices will fail to enroll into Intune for domains using Pass-through Authentication.
 
 >[!IMPORTANT]
 >As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
