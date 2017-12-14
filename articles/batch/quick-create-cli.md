@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/28/2017
+ms.date: 12/12/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs *tasks* on the pool. This example is basic but introduces you to the key concepts of the Batch service.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs *tasks* on the pool. This example is basic but introduces you to key concepts of the Batch service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 As shown in this quickstart, you can link an Azure general purpose storage account with your Batch account. The storage account is useful to deploy applications and store input and output data. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
-az storage account create --resource-group myResourceGroup --name myStorageAccount --location eastus --sku Standard_LRS
+az storage account create --resource-group myResourceGroup --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 
@@ -52,16 +52,16 @@ az storage account create --resource-group myResourceGroup --name myStorageAccou
 
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. You need an account to create compute resources (pools of compute nodes) and Batch jobs.
 
-The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*, and links the storage account you created.  
+The following example creates a Batch account named *mybatchaccount* in *myResourceGroup*, and links the storage account you created.  
 
 ```azurecli-interactive 
-az batch account create --name myBatchAccount --storage-account myStorageAccount --resource-group myResourceGroup --location eastus
+az batch account create --name mybatchaccount --storage-account mystorageaccount --resource-group myResourceGroup --location eastus
 ```
 
 Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key. After you log in, you create and manage resources in that account.
 
 ```azurecli-interactive 
-az batch account login --name myBatchAccount --resource-group myResourceGroup --shared-key-auth
+az batch account login --name mybatchaccount --resource-group myResourceGroup --shared-key-auth
 ```
 
 ## Create a Batch pool 
