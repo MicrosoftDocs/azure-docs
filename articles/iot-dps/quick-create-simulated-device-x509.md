@@ -54,18 +54,19 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     cmake -Duse_prov_client:BOOL=ON ..
     ```
 
+<a id="portalenroll"></a>
 
 ## Create a device enrollment entry in the Device Provisioning Service
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Samples** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
+2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at *-----END PUBLIC KEY-----*, making sure to include both of these lines as well. 
  
 3. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
 4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+4. Open **Manage enrollments** blade for your service. Select **Individual Enrollments** tab, and click the **Add** button at the top. 
 
 5. Under the **Add enrollment list entry**, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
@@ -83,6 +84,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 
 <a id="firstbootsequence"></a>
+
 ## Simulate first boot sequence for the device
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_ID Scope_** value.
@@ -91,22 +93,37 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. In Visual Studio on your machine, navigate to the sample project named **prov\_dev\_client\_sample** under the **Provision\_Samples** folder, and open the file **prov\_dev\_client\_sample.c**.
 
-3. Assign the _ID Scope_ value to the `scope_id` variable. 
+3. Assign the _ID Scope_ value to the `id_scope` variable. 
 
     ```c
-    static const char* scope_id = "[ID Scope]";
+    static const char* id_scope = "[ID Scope]";
     ```
 
-4. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. Look for message indicating successful registration with your hub: *Registration Information received from service: yourhuburl!*. Close the window when prompted.
+4. In the **main()** function in the same file, make sure the **SECURE_DEVICE_TYPE** is set to X.509.
 
-5. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+    ```c
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
+
+   Comment out or delete the statement `hsm_type = SECURE_DEVICE_TYPE_TPM;` that may be present. 
+
+5. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. Look for message indicating successful registration with your hub: *Registration Information received from service: yourhuburl!*. Close the window when prompted.
+
+6. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT Devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
-> [!NOTE]
-> If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
->
+    If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
+
+> [!IMPORTANT]
+> The steps in the Quickstart will also work for *Group Enrollment* of X.509 devices, by making the following modifications:
+>    1. Configure your Windows machine to use **OpenSSL** library instead of the default **SChannel** by following the section on **WebSockets** in the [
+Set up a Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#windows) guide. Note that Linux machines use OpenSSL by default. 
+>    2. In step 2 of the [Create a device enrollment entry in the Device Provisioning Service](#portalenroll) section above, enter `g` for group enrollment.
+>    3. In steps 4 and 5 of the [same section](#portalenroll), select **Enrollment Groups** and enter the required information for the group entry.  
+>
 
 ## Clean up resources
 
@@ -118,7 +135,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this Quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
+> [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
