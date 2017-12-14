@@ -22,7 +22,6 @@ In this tutorial you learn how to:
 > * Onboard a VM for Change tracking and Inventory
 > * View installed software
 > * Search inventory logs for installed software
-> * What else...
 
 ## Prerequisites
 
@@ -69,7 +68,7 @@ The **Change Tracking and Inventory** screen opens. Configure the location, Log 
 ![Enable Update management solution window](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window.
-After the solution is enabled, information about missing updates on the VM flows to Log Analytics.
+After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ## View installed software
@@ -84,11 +83,11 @@ On the **Software** tab, there is a table list the software that had been found.
 
 The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time (the most recent refresh time reported by a machine in the group), and machines (the count of machines with that software).
 
-![Software inventory](./media/automation-tutorial-sw-installed/inventory-software.png)
+![Software inventory](./media/automation-tutorial-installed-software/inventory-software.png)
 
 Click on a row to view the properties of the software record and the names of the machines with that software.
 
-To look for a specific software or group of software, you can search in the text box directly above the software list. 
+To look for a specific software or group of software, you can search in the text box directly above the software list.
 The filter allows you to search based off the software name, version, or publisher.
 
 For instance, searching for "Contoso" returns all software with a name, publisher, or version containing "Contoso".
@@ -97,23 +96,15 @@ For instance, searching for "Contoso" returns all software with a name, publishe
 
 Inventory generates log data that is sent to Log Analytics. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
 
-Inventory data is stored under the type **ConfigurationData**. 
-The following sample Log Analytics query returns the Publishers that contain "Ubuntu" and the number of Software records (grouped by SoftwareName and Computer) for each Publisher
+Inventory data is stored under the type **ConfigurationData**.
+The following sample Log Analytics query returns the Publishers that contain "Microsoft" and the number of Software records (grouped by SoftwareName and Computer) for each Publisher.
 
 ```
 ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 | where ConfigDataType == "Software"
-| search Publisher:"Ubuntu"
+| search Publisher:"Microsoft"
 | summarize count() by Publisher
-```
-
-Search for a Patch or something else...
-```
-ConfigurationData
-| where   ConfigDataType == "Software"
-| where   SoftwareName contains "KBXXXXXXX" 
-| order by TimeGenerated desc
 ```
 
 To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
@@ -137,12 +128,9 @@ ConfigurationData
 In this tutorial you learned how view software inventory such as how to:
 
 > [!div class="checklist"]
+> * Onboard a VM for Change tracking and Inventory
 > * View installed software
 > * Search inventory logs for installed software
-> * What else...
-
-Follow this link to learn more about ...
-
 
 * To learn about enabling Inventory for your Azure virtual machines, see [Manage an Azure virtual machine with inventory collection](../automation/automation-vm-inventory.md).
 * To learn about managing changes on your machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
