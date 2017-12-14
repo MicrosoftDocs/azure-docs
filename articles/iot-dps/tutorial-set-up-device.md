@@ -80,7 +80,7 @@ The Device Provisioning System Client SDK does not provide default support for a
 
 ### Integrate with the Device Provisioning Service Client
 
-Once your library successfully builds on its own, you can move to the IoThub C-SDK and link against you library:
+Once your library successfully builds on its own, you can move to the IoThub C-SDK and link against your library:
 
 1. Supply the custom HSM GitHub repository, the library path and its name in the following cmake command:
     ```cmd/sh
