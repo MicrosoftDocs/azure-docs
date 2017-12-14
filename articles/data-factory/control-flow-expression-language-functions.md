@@ -76,7 +76,7 @@ In the following example, the BlobDataset takes a parameter named **path**. Its 
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
-            "folderPath": "@{dataset().path}"
+            "folderPath": "@dataset().path"
         },
         "linkedServiceName": {
             "referenceName": "AzureStorageLinkedService",
