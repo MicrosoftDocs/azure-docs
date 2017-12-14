@@ -34,7 +34,7 @@ For more details about SaaS app integration with Azure AD, see [What is applicat
 To configure Azure AD integration with Cisco Webex, you need the following items:
 
 - An Azure AD subscription
-- A Cisco Webex single-sign-on enabled subscription
+- A Cisco Webex single sign-on-enabled subscription
 
 > [!NOTE]
 > We don't recommend using a production environment to test the steps in this tutorial.
@@ -88,7 +88,7 @@ To configure and test Azure AD single sign-on with Cisco Webex, complete the fol
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 3. **[Create a Cisco Webex test user](#create-a-cisco-webex-test-user)** to have a counterpart of Britta Simon in Cisco Webex that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** to verify that that the configuration works.
+5. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Cisco Webex Domain and URLs single sign-on information](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
-	a. In the **Sign-on URL** tbox, type a URL with the following pattern: `https://<subdomain>.webex.com`
+	a. In the **Sign-on URL** box, type a URL with the following pattern: `https://<subdomain>.webex.com`
 
-    b. In the **Identifier** textbox, type the URL `http://www.webex.com`
+    b. In the **Identifier** box, type the URL `http://www.webex.com`
 
-	c. In the **Reply URL** textbox, type a URL with the following pattern: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
+	c. In the **Reply URL** box, type a URL with the following pattern: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual reply URL and sign-on URL. Contact [Cisco Webex Client support team](https://www.webex.co.in/support/support-overview.html) to get these values. 
@@ -164,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	j. Select **Update**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app! After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
@@ -235,7 +235,7 @@ To enable Azure AD users to sign in to Cisco Webex, they must be provisioned in 
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Cisco Webex.
+In this section, you enable the user Britta Simon to use Azure single sign-on by granting them access to Cisco Webex.
 
 ![Assign the user role][200] 
 
@@ -269,7 +269,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you click the Cisco Webex tile in the access panel, you should get automatically signed-in to your Cisco Webex application.
+When you click the Cisco Webex tile in the access panel, you should get automatically signed in to your Cisco Webex application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
