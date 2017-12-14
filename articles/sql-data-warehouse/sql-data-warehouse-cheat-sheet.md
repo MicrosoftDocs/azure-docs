@@ -135,16 +135,6 @@ Deploy in a click your spokes in SQL DB databases from SQL DW:
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-## Next steps
-If you are unable to find a solution to your issue above, here are some other resources you can try.
-
-* [Blogs]
-* [Feature requests]
-* [Videos]
-* [CAT team blogs]
-* [MSDN forum]
-* [Stack Overflow forum]
-* [Twitter]
 
 <!--Image references-->
 [Sketch]:/media/sql-data-warehouse-cheat-sheet/picture_flow.png
