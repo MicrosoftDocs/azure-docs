@@ -43,5 +43,5 @@ IoT Edge runtime includes everything that Microsoft distributes to be installed 
 ## IoT Edge set modules to a single device
 An operation that copies the content of an IoT Edge manifest on one device' module twin. The underlying API is a generic 'apply configuration', which simply takes an IoT Edge manifest as an input.
 
-## IoT Edge target Condition
+## IoT Edge target condition
 In an IoT Edge deployment, Target condition is any Boolean condition on device twins’ tags to select the target devices of the deployment, e.g. "tag.environment = prod". The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do. Learn more about [target condition](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
