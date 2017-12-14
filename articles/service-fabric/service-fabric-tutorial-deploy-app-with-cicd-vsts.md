@@ -127,10 +127,6 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 ![Enable trigger][enable-trigger]
 
-Click **Run on agent**, then select **Hosted VS2017** for **Deployment queue**. Click **Save** to save the release definition.  
-
-![Run on agent][run-on-agent]
-
 Select **+Release** -> **Create Release** -> **Create** to manually create a release.  Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3". 
 
 ## Commit and push changes, trigger a release
@@ -200,4 +196,3 @@ Advance to the next tutorial:
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png
