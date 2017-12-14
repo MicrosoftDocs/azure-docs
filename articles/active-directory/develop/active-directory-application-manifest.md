@@ -53,15 +53,15 @@ Apps that integrate with Azure Active Directory (AD) must be registered with an 
 |supportsConvergence     |  boolean       |   false      |         |
 |replyUrls     |  String array       |   http:<i></i>//localhost     |  This multivalue property holds the list of registered redirect_uri values that Azure AD will accept as as destinations when returining tokens. |
 |requiredResourceAccess     |     Type of array    |    [{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}]     |   Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.|
-|resourceAppId     |    Identifier string     |  ""      |   The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.      |
-|resourceAccess     |  Type of array       | See the example value for the requiredResourceAccess property.        |   The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource (contains the id and type values of the specified resources)        |
+|resourceAppId     |    Identifier string     |  ""      |   The unique identifier for the resource that the application requires access to. This value should be equal to the appId declared on the target resource application.      |
+|resourceAccess     |  Type of array       | See the example value for the requiredResourceAccess property.        |   The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource (contains the ID and type values of the specified resources)        |
 |samlMetadataUrl|string|http:<i></i>//MyRegisteredAppSAMLMetadata|The URL to the SAML metadata for the application.| 
 
 ## Next steps
-* For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
+* For more information on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
 * See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
-Please use the comments section below to provide feedback and help us refine and shape our content.
+Use the comments section below to provide feedback and help us refine and shape our content.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md
