@@ -30,11 +30,12 @@ JSON values in the definition can be literal or expressions that are evaluated a
 "name": "value"
 ```
 
- or  
+ (or)  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Functions and variables in Data Factory V1](v1/data-factory-functions-variables.md).
@@ -50,20 +51,99 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"@@"|A 1 character string that contains '@' is returned.|  
 |" @"|A 2 character string that contains ' @' is returned.|  
   
- Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Using string interpolation, the result is always a string. Say I have defined `myNumber` as `42` and  `myString` as  ༖༗:  
+ Using string interpolation, the result is always a string. Say I have defined `myNumber` as `42` and  `myString` as  `foo`:  
   
 |JSON value|Result|  
 |----------------|------------|  
-|"@parameters('myString')"|Returns `foo` as a string.|  
-|"@{parameters('myString')}"|Returns `foo` as a string.|  
-|"@parameters('myNumber')"|Returns `42` as a *number*.|  
-|"@{parameters('myNumber')}"|Returns `42` as a *string*.|  
-|"Answer is: @{parameters('myNumber')}"|Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(parameters('myNumber')))"|Returns the string `Answer is: 42`|  
-|"Answer is: @@{parameters('myNumber')}"|Returns the string `Answer is: @{parameters('myNumber')}`.|  
+|"@pipeline().parameters.myString"| Returns `foo` as a string.|  
+|"@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
+|"@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
+|"@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
+|"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
+### Examples
+
+#### A dataset with a paremeter
+In the following example, the BlobDataset takes a parameter named **path**. It's value is used to set a value for the **folderPath** property by using the following expressions: `@{dataset().path}`. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": {
+                "value": "@{dataset().path}",
+                "type": "Expression"
+            }
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### A pipeline with a parameter
+In the following example, the pipeline takes **inputPath** and **outputPath** parameters. The **path** for the parameterized blob dataset is set by using values of these parameters. The syntax used here is: `pipeline().parameters.parametername`. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
 ## Functions  
  You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  
@@ -73,7 +153,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
   
 |Function name|Description|  
 |-------------------|-----------------|  
-|concat|Combines any number of strings together. For example, if parameter1 is `foo,` the following expression would return `somevalue-foo-somevalue`:  `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: String *n*<br /><br /> **Description**: Required. The strings to combine into a single string.|  
+|concat|Combines any number of strings together. For example, if parameter1 is `foo,` the following expression would return `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: String *n*<br /><br /> **Description**: Required. The strings to combine into a single string.|  
 |substring|Returns a subset of characters from a string. For example, the following expression:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> returns:<br /><br /> `foo`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string from which the substring is taken.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Start index<br /><br /> **Description**: Required. The index of where the substring begins in parameter 1.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Length<br /><br /> **Description**: Required. The length of the substring.|  
 |replace|Replaces a string with a given string. For example, the  expression:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> returns:<br /><br /> `the new string`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: string<br /><br /> **Description**: Required.  If parameter 2 is found in parameter 1, the string that is searched for parameter 2 and updated with parameter 3.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Old string<br /><br /> **Description**: Required. The string to replace with parameter 3 when a match is found in parameter 1<br /><br /> **Parameter number**: 3<br /><br /> **Name**: New string<br /><br /> **Description**: Required. The string that is used to replace the string in parameter 2 when a match is found in parameter 1.|  
 |guid| Generates a globally unique string (aka. guid). For example, the following output could be generated `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. A single format specifier that indicates [how to format the value of this Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). The format parameter can be "N", "D", "B", "P", or "X". If format is not provided, "D" is used.|  
@@ -106,7 +186,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
   
 |Function name|Description|  
 |-------------------|-----------------|  
-|equals|Returns true if two values are equal. For example, if parameter1 is foo, the following expression would return `true`: `equals(parameters('parameter1'), 'foo')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to compare to **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to compare to **Object 1**.|  
+|equals|Returns true if two values are equal. For example, if parameter1 is foo, the following expression would return `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to compare to **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to compare to **Object 1**.|  
 |less|Returns true if the first argument is less than the second. Note, values can only be of type integer, float, or string. For example, the following expression returns `true`:  `less(10,100)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to check if it is less than **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to check if it is greater than **Object 1**.|  
 |lessOrEquals|Returns true if the first argument is less than or equal to the second. Note, values can only be of type integer, float, or string. For example, the following expression returns `true`:  `lessOrEquals(10,10)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to check if it is less or equal to **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to check if it is greater than or equal to **Object 1**.|  
 |greater|Returns true if the first argument is greater than the second. Note, values can only be of type integer, float, or string. For example, the following expression returns `false`:  `greater(10,10)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Object 1<br /><br /> **Description**: Required. The object to check if it is greater than **Object 2**.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Object 2<br /><br /> **Description**: Required. The object to check if it is less than **Object 1**.|  
@@ -134,11 +214,11 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |Function name|Description|  
 |-------------------|-----------------|  
 |int|Convert the parameter to an integer. For example, the following expression returns 100 as a number, rather than a string:  `int('100')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to an integer.|  
-|string|Convert the parameter to a string. For example, the following expression returns `'10'`:  `string(10)` You can also convert an object to a string, for example if the **foo** parameter is an object with one property `bar : baz`, then the following would return `{"bar" : "baz"}` `string(parameters('foo'))`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a string.|  
+|string|Convert the parameter to a string. For example, the following expression returns `'10'`:  `string(10)` You can also convert an object to a string, for example if the **foo** parameter is an object with one property `bar : baz`, then the following would return `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a string.|  
 |json|Convert the parameter to a JSON type value. It is the opposite of string(). For example, the following expression returns `[1,2,3]` as an array, rather than a string:<br /><br /> `parse('[1,2,3]')`<br /><br /> Likewise, you can convert a string to an object. For example, `json('{"bar" : "baz"}')` returns:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that is converted to a native type value.<br /><br /> The json function supports xml input as well. For example, the parameter value of:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> is converted to the following json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convert the parameter argument to a floating-point number. For example, the following expression returns `10.333`:  `float('10.333')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a floating-point number.|  
 |bool|Convert the parameter to a Boolean. For example, the following expression returns `false`:  `bool(0)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a boolean.|  
-|coalesce|Returns the first non-null object in the arguments passed in. Note: an empty string is not null. For example, if parameters 1 and 2 are not defined, this returns `fallback`:  `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: Object*n*<br /><br /> **Description**: Required. The objects to check for `null`.|  
+|coalesce|Returns the first non-null object in the arguments passed in. Note: an empty string is not null. For example, if parameters 1 and 2 are not defined, this returns `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: Object*n*<br /><br /> **Description**: Required. The objects to check for `null`.|  
 |base64|Returns the base64 representation of the input string. For example, the following expression returns `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String 1<br /><br /> **Description**: Required. The string to encode into base64 representation.|  
 |base64ToBinary|Returns a binary representation of a base64 encoded string. For example, the following expression returns the binary representation of some string: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The base64 encoded string.|  
 |base64ToString|Returns a string representation of a based64 encoded string. For example, the following expression returns some string: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The base64 encoded string.|  
@@ -154,7 +234,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |uriComponentToBinary|Returns a binary representation of a URI encoded string. For example, the following expression returns a binary representation of `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br />**Description**: Required. The URI encoded string.|  
 |uriComponentToString|Returns a string representation of a URI encoded string. For example, the following expression returns `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Parameter number**: 1<br /><br />**Name**: String<br /><br />**Description**: Required. The URI encoded string.|  
 |xml|Return an xml representation of the value. For example, the following expression returns an xml content represented by `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. The xml function supports JSON object input as well. For example, the parameter `{ "abc": "xyz" }` is converted to an xml content `\<abc>xyz\</abc>`<br /><br /> **Parameter number**: 1<br /><br />**Name**: Value<br /><br />**Description**: Required. The value to convert to XML.|  
-|xpath|Return an array of xml nodes matching the xpath expression of a value that the xpath expression evaluates to.<br /><br />  **Example 1**<br /><br /> Assume the value of parameter ‘p1’ is a string representation of the following XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. This code: `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> would return<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> whereas<br /><br /> 2. This code: `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> would return<br /><br /> `13`<br /><br /> <br /><br /> **Example 2**<br /><br /> Given the following XML content:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  This code: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> or<br /><br /> 2. This code: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> returns<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. This code: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> returns<br /><br /> ``bar``<br /><br /> **Parameter number**: 1<br /><br />**Name**: Xml<br /><br />**Description**: Required. The XML on which to evaluate the XPath expression.<br /><br /> **Parameter number**: 2<br /><br />**Name**: XPath<br /><br />**Description**: Required. The XPath expression to evaluate.|  
+|xpath|Return an array of xml nodes matching the xpath expression of a value that the xpath expression evaluates to.<br /><br />  **Example 1**<br /><br /> Assume the value of parameter ‘p1’ is a string representation of the following XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. This code: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> would return<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> whereas<br /><br /> 2. This code: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> would return<br /><br /> `13`<br /><br /> <br /><br /> **Example 2**<br /><br /> Given the following XML content:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  This code: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> or<br /><br /> 2. This code: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> returns<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. This code: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> returns<br /><br /> ``bar``<br /><br /> **Parameter number**: 1<br /><br />**Name**: Xml<br /><br />**Description**: Required. The XML on which to evaluate the XPath expression.<br /><br /> **Parameter number**: 2<br /><br />**Name**: XPath<br /><br />**Description**: Required. The XPath expression to evaluate.|  
 |array|Convert the parameter to an array.  For example, the following expression reutrns `["abc"]`: `array('abc')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to an array.|
 |createArray|Creates an array from the parameters.  For example, the following expression returns `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Parameter number**: 1 ... n<br /><br /> **Name**: Any n<br /><br /> **Description**: Required. The values to combine into an array.|
 
