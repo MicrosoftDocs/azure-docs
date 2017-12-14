@@ -18,7 +18,7 @@
   - name: Identify software on a VM
     href: automation-tutorial-installed-software.md
   - name: Troubleshoot changes on a VM
-    href: automation-tutorial-troubleshoot-software.md
+    href: automation-tutorial-troubleshoot-changes.md
 - name: How to
   items:
     - name: Authentication and security

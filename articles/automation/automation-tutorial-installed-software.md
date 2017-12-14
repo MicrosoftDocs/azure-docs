@@ -35,12 +35,12 @@ To complete this tutorial:
 
 Log in to the Azure portal at http://portal.azure.com.
 
-## Enable Inventory
+## Enable Change tracking and Inventory
 
 First you need to enable Change tracking and Inventory for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
 
 1. On the left menu, select **Virtual machines** and select a VM from the list
-2. On the left menu, under the **Operations** section, click **Inventory**. The **Enable Update Management** page opens.
+2. On the left menu, under the **Operations** section, click **Inventory**. The **Enable Change tracking and Inventory** page opens.
 
 Validation is performed to determine if Inventory is enabled for this VM.
 The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
@@ -65,7 +65,7 @@ If any of the following prerequisites were found to be missing after the validat
 
 The **Change Tracking and Inventory** screen opens. Configure the location, Log analytics workspace, and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
-![Enable Update management solution window](./media/automation-tutorial-installed-software/installed-software-enable.png)
+![Enable change tracking solution window](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window.
 After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
