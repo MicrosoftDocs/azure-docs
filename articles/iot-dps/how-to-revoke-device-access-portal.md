@@ -82,7 +82,7 @@ An enrollment group is an entry for devices that share a common attestation mech
     6. Once the action is completed, you will see your entry removed from the list of enrollment groups.  
 
 > [!NOTE]
-> If you delete an enrollment group for a certificate, devices that have that certificate in their certificate chain may still be able to enroll if an enabled enrollment group for the root certificate or another intermediate certificate higher up in their signing chain exists.
+> If you delete an enrollment group for a certificate, devices that have that certificate in their certificate chain may still be able to enroll if an enabled enrollment group for the root certificate or another intermediate certificate higher up in their certificate chain exists.
 
 ## Blacklist specific devices in an enrollment group
 
