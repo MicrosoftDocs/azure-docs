@@ -95,7 +95,7 @@ The following table lists the versions of HDInsight that are currently available
 
 ## Enterprise Security Package for HDInsight
 
-Azure HDInsight has removed the concept of HDInsight Standard and Premium tiers. The premium tier is replaced with the Enterprise Security Package. The Enterprise Security Package supports: 
+Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
 
 - Integration with Active Directory for authentication.
 
@@ -108,9 +108,10 @@ Azure HDInsight has removed the concept of HDInsight Standard and Premium tiers.
     - [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
     - [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-- Integration with Apache Ranger for authorization.
+- Authorization for data
 
-    With the Enterprise Security Package, you can configure rolle-based access control for the supported cluster types.  You can also set file and folder permissions for data stored in Azure Data Lake Store.
+    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+    - You can set access control on files and folders.
 
     For more information, see:
 
