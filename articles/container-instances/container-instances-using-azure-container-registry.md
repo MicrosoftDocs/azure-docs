@@ -1,23 +1,15 @@
 ---
-title: Deploy to Azure Container Instances from the Azure Container Registry | Azure Docs
-description: Deploy to Azure Container Instances from the Azure Container Registry
+title: Deploy to Azure Container Instances from the Azure Container Registry
+description: Deploy Azure Container Instances from the Azure Container Registry
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
-tags: 
-keywords: ''
 
-ms.assetid: 
-ms.service: 
-ms.devlang: na
-ms.topic: na
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: container-instances
+ms.topic: article
 ms.date: 08/02/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Deploy to Azure Container Instances from the Azure Container Registry
@@ -29,10 +21,10 @@ The Azure Container Registry is an Azure-based, private registry, for Docker con
 The Azure CLI includes commands for creating and managing containers in Azure Container Instances. If you specify a private image in the `create` command, you can also specify the image registry password required to authenticate with the container registry.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-The `create` command also supports specifying the `image-registry-login-server` and `image-registry-username`. However, the login server for the Azure Container Registry is always *registryname*.azurecr.io and the default username is *registryname*, so these values are inferred from the image name if not explicitly provided.
+The `create` command also supports specifying the `registry-login-server` and `registry-username`. However, the login server for the Azure Container Registry is always *registryname*.azurecr.io and the default username is *registryname*, so these values are inferred from the image name if not explicitly provided.
 
 ## Using an Azure Resource Manager template
 

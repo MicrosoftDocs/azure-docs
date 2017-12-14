@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Python and the DocumentDB API | Microsoft Docs'
-description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
+title: 'Azure Cosmos DB: Build an app with Python and the SQL API | Microsoft Docs'
+description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -9,29 +9,32 @@ editor: ''
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 11/29/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a DocumentDB API app with Python and the Azure portal
+# Azure Cosmos DB: Build a SQL API app with Python and the Azure portal
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [DocumentDB Python API](documentdb-sdk-python.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](documentdb-sdk-python.md).
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-    * [Visual Studio 2015](http://www.visualstudio.com/) or higher.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* In addition:
+    * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
     * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
     * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
 
@@ -43,7 +46,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Clone the sample application
 
-Now let's clone a DocumentDB API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Now let's clone a SQL API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
@@ -60,7 +63,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
 * The DocumentClient is initialized.
 
     ```python
-    # Initialize the Python DocumentDB client
+    # Initialize the Python client
     client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
     ```
 
@@ -68,7 +71,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
 
     ```python
     # Create a database
-    db = client.CreateDatabase({ 'id': config['DOCUMENTDB_DATABASE'] })
+    db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
     ```
 
 * A new collection is created.
@@ -82,7 +85,7 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBGet
     }
 
     # Create a collection
-    collection = client.CreateCollection(db['_self'], { 'id': config['DOCUMENTDB_COLLECTION'] }, options)
+    collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
     ```
 
 * Some documents are created.
@@ -127,11 +130,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.MASTERKEY` in `DocumentDBGetStarted.py`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## Run the app
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
@@ -158,6 +161,6 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the DocumentDB API](import-data.md)
+> [Import data into Azure Cosmos DB for the SQL API](import-data.md)
 
 

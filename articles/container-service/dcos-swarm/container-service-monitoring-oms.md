@@ -1,23 +1,15 @@
 ---
-title: Monitor Azure DC/OS cluster - Operations Management | Microsoft Docs
+title: Monitor Azure DC/OS cluster - Operations Management
 description: Monitor an Azure Container Service DC/OS cluster with Microsoft Operations Management Suite.
 services: container-service
-documentationcenter: ''
 author: keikhara
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: ''
 
-ms.assetid: 01f1a77e-f3e1-4ec0-ad4c-d91298afa55c
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
-
+ms.custom: mvc
 ---
 
 # Monitor an Azure Container Service DC/OS cluster with Operations Management Suite

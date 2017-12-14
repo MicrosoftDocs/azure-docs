@@ -4,7 +4,7 @@ description: How to build a Node.js web API that accepts tokens from a B2C tenan
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
@@ -32,7 +32,7 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 To do this sample, you need to:
 
 1. Register an application with Azure AD.
-2. Set up your application to use Passport's `azure-ad-passport` plug-in.
+2. Set up your application to use Passport's `passport-azure-ad` plug-in.
 3. Configure a client application to call the "to-do list" web API.
 
 ## Get an Azure AD B2C directory

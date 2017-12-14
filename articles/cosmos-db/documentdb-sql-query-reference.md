@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB DocumentDB API: SQL syntax | Microsoft Docs"
-description: Reference documentation for the Azure Cosmos DB DocumentDB API SQL query language.
+title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
+description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
-ms.date: 06/13/2017
+ms.date: 10/18/2017
 ms.author: mimig
 
 ---
 
-# Azure Cosmos DB DocumentDB API: SQL syntax reference
+# Azure Cosmos DB SQL syntax reference
 
-The Azure Cosmos DB DocumentDB API supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the DocumentDB API SQL query language.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-For a walkthrough of the DocumentDB API SQL query language, see [SQL queries for Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the SQL query language, which is compatible with SQL API accounts.
+
+For a walkthrough of the SQL query language, see [SQL queries for Azure Cosmos DB](documentdb-sql-query.md).  
   
 We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   
@@ -661,7 +663,7 @@ ORDER BY <sort_specification>
   
      **Syntax conventions**  
   
-     The following table describes the conventions used to describe syntax in the DocumentDB API Query Language reference.  
+     The following table describes the conventions used to describe syntax in the following SQL reference.  
   
     |**Convention**|**Used for**|  
     |-|-|    
@@ -2023,7 +2025,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
  Here is the result set.  
   
 ```  
-[{"$1": "ab", "$2": "ab"}]  
+[{"$1": "a", "$2": "ab"}]  
 ```  
   
 ####  <a name="bk_length"></a> LENGTH  
@@ -2444,12 +2446,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
- Returns a Boolean indicating whether the array contains the specified value.  
-  
+Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. 
+
  **Syntax**  
   
 ```  
-ARRAY_CONTAINS (<arr_expr>, <expr>)  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
  **Arguments**  
@@ -2461,6 +2463,10 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
 -   `expr`  
   
      Is any valid expression.  
+
+-   `bool_expr`  
+  
+     Is any boolean expression.       
   
  **Return Types**  
   
@@ -2480,6 +2486,25 @@ SELECT
   
 ```  
 [{"$1": true, "$2": false}]  
+```  
+
+ The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
+  
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{
+  "$1": true,
+  "$2": false,
+  "$3": false
+}] 
 ```  
   
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
@@ -2516,7 +2541,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ```  
   
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
- Returns a Boolean indicating whether the array contains the specified value.  
+ Returns part of an array expression.
   
  **Syntax**  
   
@@ -2766,6 +2791,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## Next steps  
  [SQL syntax and SQL query for Azure Cosmos DB](documentdb-sql-query.md)   
- [Azure Cosmos DB documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

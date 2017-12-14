@@ -1,22 +1,15 @@
 ---
-title: Azure Container Service tutorial - Manage DC/OS | Microsoft Docs
+title: Azure Container Service tutorial - Manage DC/OS
 description: Azure Container Service tutorial - Manage DC/OS
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: tutorial
 ms.date: 07/17/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Azure Container Service tutorial - Manage DC/OS
@@ -39,10 +32,10 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 First, create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 Next, create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.

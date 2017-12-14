@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a web app with .NET and the DocumentDB API | Microsoft Docs'
-description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
+title: 'Azure Cosmos DB: Build a web app with .NET and the SQL API | Microsoft Docs'
+description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -9,20 +9,22 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: quickstart
+ms.date: 11/29/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal
+# Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](documentdb-sdk-dotnet.md), as shown in the following screenshot. 
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](documentdb-sdk-dotnet.md), as shown in the following screenshot. 
 
 ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
@@ -30,7 +32,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create a database account
@@ -51,7 +54,7 @@ You can now add data to your new collection using Data Explorer.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a few documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+2. Now add a document to the collection with the following structure.
 
      ```json
      {
@@ -67,13 +70,15 @@ You can now add data to your new collection using Data Explorer.
 
     ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-     You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to `SELECT * FROM c ORDER BY c.name ASC`, to return all the documents in alphabetic ascending order of the name property. 
+4.  Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+
+     You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses `SELECT * FROM c` to retrieve all documents in the collection, but you can change that to a different [SQL query](documentdb-sql-query.md), such as `SELECT * FROM c ORDER BY c._ts DESC`, to return all the documents in descending order based on their timestamp.
  
      You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
 
 ## Clone the sample application
 
-Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
@@ -89,24 +94,29 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized on line 73.
+* The DocumentClient is initialized on line 78.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* A new database is created on line 88.
+* A new database is created on line 93.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created on line 107.
+* A new collection is created on line 112.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 

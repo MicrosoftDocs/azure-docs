@@ -15,33 +15,30 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/06/2017
 ms.author: jgao
 
 ---
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
-The [Secure transfer required](../storage/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. 
-
->[!NOTE] 
-> Creating clusters with secure transfer enabled storage account using .NET SDK is not currently supported. The workaround is to set "wasbs" in the property "fs.defaultFS" in core-site configuration as part of ClusterCreateParametersExtended.
+The [Secure transfer required](../storage/common/storage-require-secure-transfer.md) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection. This feature and the wasbs scheme are only supported by HDInsight cluster version 3.6 or newer. 
 
 ## Prerequisites
 Before you begin this tutorial, you must have:
 
 * **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/storage-require-secure-transfer.md).
+* **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md).
 * **A Blob container on the storage account**. 
 ## Create cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in a [public container](https://hditutorialdata.blob.core.windows.net/securetransfer/azuredeploy-new.json). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in [Gibhub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fsecuretransfer%2Fazuredeploy-new.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Follow the instructions to create the cluster with the following specifications: 
 
@@ -50,7 +47,7 @@ In this section, you create a Hadoop cluster in HDInsight using an [Azure Resour
     - Use short name for the storage account.
     - Both the storage account and the blob container must be created beforehand. 
 
-    For the instructions, see [Create cluster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+    For the instructions, see [Create cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 If you use script action to provide your own configuration files, you must use wasbs in the following settings:
 
@@ -74,7 +71,7 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight][hdinsight-use-hive].
 * To learn about Pig, a language used to transform data, see [Use Pig with HDInsight][hdinsight-use-pig].
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
-* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 To learn more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
@@ -91,12 +88,12 @@ To learn more about creating or managing an HDInsight cluster, see the following
   * The location of Hadoop files and examples on the local file system
   * The use of Azure Storage (WASB) instead of HDFS as the default data store
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
+[1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 

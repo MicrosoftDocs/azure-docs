@@ -4,7 +4,7 @@ description: Using External Table bindings in Azure Functions
 services: functions
 documentationcenter: ''
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -199,4 +199,6 @@ Add the column names `Id`, `LastName`, `FirstName` to the first row, then popula
 dataSetName is “default.”
 
 ## Next steps
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

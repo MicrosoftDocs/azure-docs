@@ -1,6 +1,6 @@
 ### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure Blob Storage account](../articles/storage/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/storage-introduction.md).
+* An [Azure Blob Storage account](../articles/storage/common/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/common/storage-introduction.md).
 
 Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
 

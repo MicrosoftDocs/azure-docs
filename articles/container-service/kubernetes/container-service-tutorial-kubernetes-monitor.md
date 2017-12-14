@@ -1,25 +1,20 @@
 ---
-title: Azure Container Service tutorial - Monitor Kubernetes | Microsoft Docs
+title: Azure Container Service tutorial - Monitor Kubernetes
 description: Azure Container Service tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
 services: container-service
-documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: tutorial
 ms.date: 07/25/2017
 ms.author: danlep
+ms.custom: mvc
 ---
 
 # Monitor a Kubernetes cluster with Operations Management Suite
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Monitoring your Kubernetes cluster and containers is critical, especially when you manage a production cluster at scale with multiple apps. 
 
@@ -34,9 +29,9 @@ This tutorial, part seven of seven, covers the following tasks:
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
+In previous tutorials, an application was packaged into container images, these images uploaded to Azure Container Registry, and a Kubernetes cluster created. 
 
-At minimum, this tutorial requires a Kubernetes cluster with Linux agent nodes, and an Operations Management Suite (OMS) account. If needed, sign up for a [free OMS trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial).
+If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## Get Workspace settings
 
@@ -134,7 +129,7 @@ In the OMS portal, look for a **Containers** summary tile on the OMS dashboard. 
 
 Similarly, in the Azure portal, go to **Log Analytics** and select your workspace name. To see the **Containers** summary tile, click **Solutions** > **Containers**. To see details, click the tile.
 
-See the [Azure Log Analytics documentation](../../log-analytics/index.md) for detailed guidance on querying and analyzing monitoring data.
+See the [Azure Log Analytics documentation](../../log-analytics/index.yml) for detailed guidance on querying and analyzing monitoring data.
 
 ## Next steps
 

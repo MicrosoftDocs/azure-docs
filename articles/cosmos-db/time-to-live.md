@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
 
 ---
@@ -38,7 +38,7 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (`ttl` + `_ts` >= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 
@@ -49,7 +49,7 @@ The above logic can be shown in the following matrix:
 | TTL = n on document |Nothing to override at the document level. TTL on a document in un-interpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 ## Configuring TTL
-By default, time to live is disabled by default in all Cosmos DB collections and on all documents.
+By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or in the Azure portal, in the **Settings** section for the collection. 
 
 ## Enabling TTL
 To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the Cosmos DB service should monitor this collection for documents that have overridden this default.
@@ -146,6 +146,9 @@ To disable TTL entirely on a collection and stop the background process from loo
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## TTL and Index interaction
+TTL addition or change is a change to underlying index. When there is no TTL and you provide a valid TTL value - this results in re-index operation. For consistent Index - user will not see any change in Index state. In case of  lazy index - the index first of all is always catching up and with this change in ttl, index is recreated from scratch. The impact in latter case is that queries done during the index rebuild will not return complete or correct results. 
+Please do not change TTL for lazy index if you need exact data count etc as indexing mode itself is lazy.  Ideally consistent index should be always chosen. 
 
 ## FAQ
 **What will TTL cost me?**

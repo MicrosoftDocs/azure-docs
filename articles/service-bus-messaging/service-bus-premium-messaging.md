@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/28/2017
-ms.author: darosa;sethm
+ms.date: 11/10/2017
+ms.author: sethm
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -43,7 +43,7 @@ The following sections discuss a few differences between Premium and Standard me
 
 ### Partitioned queues and topics
 
-Partitioned queues and topics are supported in Premium Messaging; in fact these entities are always partitioned (and cannot be disabled). However, Premium partitioned queues and topics do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary to improve performance. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. 
+Partitioned queues and topics are supported in Premium Messaging; in fact these entities are always partitioned (and cannot be disabled). However, Premium partitioned queues and topics do not function the same way as in the Standard tier of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary to improve performance. Additionally, the partition count has been changed from 16 partitions in Standard Messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. 
 
 With Premium messaging, when you specify the size of an entity with [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), that size is split equally across the 2 partitions, unlike [Standard partitioned entities](service-bus-partitioning.md#standard) in which the total size is 16 times the specified size. 
 
@@ -57,12 +57,11 @@ If you have code running under Standard messaging and want to port it to the Pre
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md). Make sure you select **Premium** under **Pricing tier**.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Choose your pricing tier**.
 
 ![create-premium-namespace][create-premium-namespace]
 
 You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
-
 
 ## Next steps
 
@@ -71,7 +70,7 @@ To learn more about Service Bus Messaging, see the following topics.
 * [Introducing Azure Service Bus Premium Messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus Messaging overview](service-bus-messaging-overview.md)
-* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

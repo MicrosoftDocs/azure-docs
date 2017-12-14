@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with WeChat accounts in yo
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: d2424c66-ba68-4d82-847e-d137683527b0
@@ -36,7 +36,7 @@ To use WeChat as an identity provider in Azure Active Directory (Azure AD) B2C, 
 5. Find and copy the **APP ID** and **APP KEY**. You will need these later.
 
 ## Configure WeChat as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "WeChat".

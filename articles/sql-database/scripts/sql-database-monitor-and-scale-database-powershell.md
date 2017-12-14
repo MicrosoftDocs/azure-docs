@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.custom: monitor & tune, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -19,7 +19,7 @@ ms.date: 06/23/2017
 ms.author: janeng
 ---
 
-# Monitor and scale a single SQL database using PowerShell
+# Use PowerShell to monitor and scale a single SQL database
 
 This PowerShell script example monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 
@@ -34,7 +34,7 @@ This PowerShell script example monitors the performance metrics of a database, s
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation

@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Workers | Microsoft Docs
 description: This article provides information on installing and using Hybrid Runbook Worker which is a feature of Azure Automation that allows you to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
-ms.author: bwren
+ms.date: 08/21/2017
+ms.author: magoedte;bwren
 ---
 
 # Automate resources in your data center or cloud with Hybrid Runbook Worker
-Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks against the machine directly and outside itself against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
+Runbooks in Azure Automation cannot access resources in other clouds or in your on-premises environment since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks directly on the computer hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.  
 
 This functionality is illustrated in the following image:<br>  
 
@@ -43,9 +43,9 @@ You can use the following criteria to determine whether Azure Automation with Hy
 * SMA is included with System Center; and therefore, requires a System Center 2012 R2 license. Azure Automation is based on a tiered subscription model.
 * Azure Automation has advanced features such as graphical runbooks that are not available in SMA.
 
-## Installing Hybrid Runbook Worker
+## Installing the Windows Hybrid Runbook Worker 
 
-To install and configure a Hybrid Runbook Worker, there are two methods available.  The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.  
+To install and configure a Windows Hybrid Runbook Worker, there are two methods available.  The recommended method is using an Automation runbook to completely automate the process required to configure a Windows computer.  The second method is following a step-by-step procedure to manually install and configure the role.  
 
 > [!NOTE]
 > To manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes.  For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).           
@@ -56,7 +56,7 @@ Review the following information regarding the [hardware and software requiremen
  
 ### Automated deployment
 
-Perform the following steps to automate the installation and configuration of the Hybrid Worker role.  
+Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role.  
 
 1. Download the *New-OnPremiseHybridWorker.ps1* script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment and copy it to the worker.  
 
@@ -100,7 +100,7 @@ Follow the instructions at [To add a solution using the Solutions Gallery](../lo
 #### 3. Install the Microsoft Monitoring Agent
 The Microsoft Monitoring Agent connects computers to Operations Management Suite.  When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
-Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agents.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
+Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
 
 When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.   
 

@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Microsoft Azure Stack Development Kit architecture
+
+*Applies to: Azure Stack Development Kit*
+
 The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
 
 ## Logical architecture diagram

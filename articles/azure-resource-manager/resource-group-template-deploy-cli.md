@@ -75,55 +75,11 @@ az group deployment create \
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 
-## Deploy template from Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-You can use [Cloud Shell](../cloud-shell/overview.md) to run the Azure CLI commands for deploying your template. However, you must first load your template into the file share for your Cloud Shell. If you have not used Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for information about setting it up.
+In the Cloud Shell, use the following commands:
 
-1. Log in to the [Azure portal](https://portal.azure.com).   
-
-2. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
-
-   ![Select resource group](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Select the storage account for your Cloud Shell.
-
-   ![Select storage account](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Select **Files**.
-
-   ![Select files](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Select the file share for Cloud Shell. The name pattern is `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Select file share](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Select **Add directory**.
-
-   ![Add directory](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Name it **templates**, and select **Okay**.
-
-   ![Name directory](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Select your new directory.
-
-   ![Select directory](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Select **Upload**.
-
-   ![Select upload](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Find and upload your template.
-
-   ![Upload file](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Open the prompt.
-
-   ![Open Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. Enter the following commands in the Cloud Shell:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```

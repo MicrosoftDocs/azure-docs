@@ -3,8 +3,8 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: billmath
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
-ms.author: kgremban
+ms.date: 10/12/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 Connectors are what make Azure AD Application Proxy possible. They are simple, easy to deploy and maintain, and super powerful. This article discusses what connectors are, how they work, and some suggestions for how to optimize your deployment. 
 
-## What is an Application Proxy connector
+## What is an Application Proxy connector?
 
 Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. Connectors load-balance automatically, and can help to optimize your network structure. 
 
@@ -33,10 +33,11 @@ To deploy Application Proxy successfully, you need at least one connector, but w
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](active-directory-application-proxy-enable.md).
 
 ## Maintenance
-The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporary not available, it doesn't respond to this traffic.
+The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporarily not available, it doesn't respond to this traffic.
 
 The connectors are stateless and have no configuration data on the machine. The only data they store is the settings for connecting the service and its authentication certificate. When they connect to the service, they pull all the required configuration data and refresh it every couple of minutes.
-They also poll the server to find out whether there is a newer version of the connector. If one is found, the connectors update themselves.
+
+Connectors also poll the server to find out whether there is a newer version of the connector. If one is found, the connectors update themselves.
 
 You can monitor your connectors from the machine they are running on, using either the event log and performance counters. Or you can view their status from the Application Proxy page of the Azure portal:
 
@@ -58,13 +59,26 @@ You may experience downtime when your connector updates if:
 
 ## Creating connector groups
 
-There are many reasons to create connector groups, including:
+Connector groups enable you to assign specific connectors to serve specific applications. You can group a number of connectors together, and then assign each application to a group. 
 
-* Higher availability
-* Better latency for tenants with applications in multiple regions
-* Organized resources that are easier to manage
+Connector groups make it easier to manage large deployments. They also improve latency for tenants that have applications hosted in different regions, because you can create location-based connector groups to serve only local applications. 
 
-To learn more about the benefits of connector groups, see [Publish applications on separate networks and locations using connector groups](active-directory-application-proxy-connectors-azure-portal.md).
+To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](active-directory-application-proxy-connectors-azure-portal.md).
+
+## Capacity Planning 
+
+While connectors will automatically load balance within a connector group, it is also important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Please note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load.  Also note that there will be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS.
+
+|Cores|RAM|Expected Latency (MS)-P99|Max TPS|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
+ 
+>[!NOTE]
+>There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
 
 ## Security and networking
 
@@ -85,6 +99,8 @@ Since connectors are stateless, they are not affected by the number of users or 
 The connector performance is bound by CPU and networking. CPU performance is needed for SSL encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud. 
+
+The load balancing happens between connectors of a given connector group. We do a variation of a round-robin to determine which connector in the group serves a particular request. After choosing a the connector, we maintain a session affinity between that user and application for the duration of the session. If for any reason that connector or machine become unavailable, the traffic will start going to another connector in the group. This resiliency is also why we recommend having multiple connectors.
 
 Another factor that affects performance is the quality of the networking between the connectors, including: 
 
@@ -136,7 +152,7 @@ The connectors have both admin and session logs. The admin logs include key even
 
 To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
 
-You can examine the state of the service in the Services window. The connector comprises two Windows Services: the actual connector, and the updater. Both of them are required to run all the time.
+You can examine the state of the service in the Services window. The connector comprises two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 
  ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 

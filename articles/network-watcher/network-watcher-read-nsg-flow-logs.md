@@ -3,7 +3,7 @@ title: Read NSG flow logs | Microsoft Docs
 description: This article shows how to parse NSG flow logs
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/25/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Read NSG flow logs
@@ -32,7 +32,7 @@ Before you begin, you must have Network Security Group Flow Logging enabled on o
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob. Update the script to contain valid values for your environment.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 # The SubscriptionID to use

@@ -41,7 +41,7 @@ First you need to enable the DNS service in your cluster. Get the template for t
     }
     ```
 
-2. Now enable the DNS service by adding following `addonFeatures` section after the `fabricSettings` section as shown in the following snippet: 
+2. Now enable the DNS service by adding the following `addonFeatures` section after the `fabricSettings` section as shown in the following snippet: 
 
     ```json
         "fabricSettings": [

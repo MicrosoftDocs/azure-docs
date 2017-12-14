@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 05/15/2017
 ms.author: sdanie
 
 ---
@@ -105,31 +105,31 @@ There are seven outbound port requirements.
 - Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
 - The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 
-| Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
-| --- | --- | --- | --- | --- |
-| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) |* |
-| 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) |* |
-| 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
-| 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
-| 20226 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
-| 13000-13999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
-| 15000-15999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+| Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
+| --- | --- | --- | --- | --- | --- |
+| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) | (Redis subnet) |* |
+| 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) | (Redis subnet) |* |
+| 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
+| 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
+| 20226 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+| 13000-13999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+| 15000-15999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 
 ### Inbound port requirements
 
 There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same VNET or internal to the Redis subnet communications.
 
-| Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
-| --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing |Virtual Network, Azure Load Balancer |
-| 8443 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
-| 8500 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
-| 10221-10231 |Inbound |TCP |Internal communications for Redis |(Redis subnet), Azure Load Balancer |
-| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing |Virtual Network, Azure Load Balancer |
-| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing |Virtual Network, Azure Load Balancer |
-| 16001 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
-| 20226 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
+| Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
+| --- | --- | --- | --- | --- | --- |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+| 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
+| 10221-10231 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
+| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
+| 20226 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 ### Additional VNET network connectivity requirements
 

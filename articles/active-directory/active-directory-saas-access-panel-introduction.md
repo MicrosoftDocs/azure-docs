@@ -4,7 +4,7 @@ description: Learn how to use variations of the access panel (web browser, Andro
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017

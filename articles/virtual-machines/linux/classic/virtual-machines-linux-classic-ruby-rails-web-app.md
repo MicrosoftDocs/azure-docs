@@ -25,7 +25,7 @@ This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a differen
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## Create an Azure VM
@@ -136,9 +136,9 @@ To use Azure services from your Ruby application, see:
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
+[tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
 [vm-instructions]:createportal.md
 
 <!-- External Links -->

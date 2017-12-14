@@ -219,7 +219,7 @@ if (adlaClient.Account.Exists(rg, adla))
 Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage Account](../storage/storage-introduction.md)
+* [Azure Storage Account](../storage/common/storage-introduction.md)
 
 ### Link to an Azure Storage account
 

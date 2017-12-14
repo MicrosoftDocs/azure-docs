@@ -19,12 +19,10 @@ ms.author: cynthn
 
 ---
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
+
+
 
 You can also [attach a data disk to a Linux VM in the Azure portal](../../linux/attach-disk-portal.md).
 
@@ -32,7 +30,7 @@ Before you attach a disk, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
@@ -40,6 +38,7 @@ You can also [attach a data disk using Powershell](../../virtual-machines-window
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com/).

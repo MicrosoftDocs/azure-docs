@@ -4,7 +4,7 @@ description: This topic compares the encoding capabilities of **Media Encoder St
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a79437c0-4832-423a-bca8-82632b2c47cc
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
 
 ---
 
@@ -115,6 +115,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Output Video Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Only 8 bit 4:2:0 |Yes |
+| HEVC (H.265; 8-bit and 10-bit;)  |No |Yes |
 | Avid DNxHD (in MXF) |No |Yes |
 | MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |No |Yes |
 | MPEG-1 |No |Yes |

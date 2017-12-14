@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Azure operational security overview| Microsoft Docs
 description: This article provides an overview of the Azure operational security.
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
 
 # Azure operational security overview
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure. [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) is a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cyber security threat landscape.
-
-Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
 
 This Azure Operational Security Overview article focuses on the following areas:
 
@@ -159,5 +157,5 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 To learn more about OMS Security and Audit solution, see the following articles:
 
 - [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Monitoring Resources in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

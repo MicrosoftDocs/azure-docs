@@ -1,25 +1,19 @@
 ---
-title: Monitor Azure DC/OS cluster - Dynatrace | Microsoft Docs
+title: Monitor Azure DC/OS cluster - Dynatrace
 description: Monitor an Azure Container Service DC/OS cluster with Dynatrace. Deploy the Dynatrace OneAgent by using the DC/OS dashboard.
 services: container-service
-documentationcenter: ''
 author: MartinGoodwell
-manager: ''
-editor: ''
-tags: acs, azure-container-service
-keywords: Containers, DC/OS, Azure
+manager: timlt
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
-
+ms.custom: mvc
 ---
+
 # Monitor an Azure Container Service DC/OS cluster with Dynatrace SaaS/Managed
+
 In this article, we show you how to deploy the [Dynatrace](https://www.dynatrace.com/) OneAgent to monitor all the agent nodes in your Azure Container Service cluster. You need an account with Dynatrace SaaS/Managed for this configuration. 
 
 ## Dynatrace SaaS/Managed

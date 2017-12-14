@@ -70,7 +70,7 @@ azure login
 <a id="upload"> </a>
 
 ## Step 3: Upload the image to Azure
-You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/storage-create-storage-account.md).
+You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/common/storage-create-storage-account.md).
 
 Use the Azure CLI to upload the image by using the following command:
 
