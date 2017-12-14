@@ -11,6 +11,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
+        "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
@@ -383,6 +388,21 @@
         {
             "source_path": "articles/java-download-azure-sdk.md",
             "redirect_url": "/java/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },            
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },           
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
         },
         {
@@ -4427,12 +4447,22 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-linux-agents.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-agent-linux",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-linux-computer",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-agent-linux.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-linux-computer",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/log-analytics/log-analytics-windows-agent.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-proxy-firewall.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-windows-agents",
+            "redirect_url": "/azure/log-analytics/log-analytics-windows-agent",
             "redirect_document_id": false
         },
         {
@@ -6521,6 +6551,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/dns/dns-getstarted-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-getstarted-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/dns/dns-operations-dnszones-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-operations-dnszones-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/dns/dns-operations-recordsets-cli-nodejs.md",
+            "redirect_url": "/azure/dns/dns-operations-recordsets-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-accelerated-networking-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
             "redirect_document_id": false
@@ -7414,6 +7459,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
+            "redirect_url": "tutorial-vmware-to-vmware",
             "redirect_document_id": false
         },
 		{
@@ -15564,10 +15614,20 @@
         "redirect_url": "https://www.blitline.com",
         "redirect_document_id": false
       },
-       {
-             "source_path": "articles/xplat-cli-connect.md",
-             "redirect_url": "/cli/azure/authenticate-azure-cli",
-             "redirect_document_id": false
-        }
+      {
+        "source_path": "articles/xplat-cli-connect.md",
+        "redirect_url": "/cli/azure/authenticate-azure-cli",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-load.md",
+        "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-polybase-guide.md",
+        "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
+        "redirect_document_id": false
+      }
     ]
 }

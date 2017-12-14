@@ -1,22 +1,13 @@
 ---
 title: About Azure Migrate | Microsoft Docs
 description: Provides an overview of the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/06/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 
 # About Azure Migrate
 
@@ -89,7 +80,7 @@ The table summarizes the ports needed for Azure Migrate communications.
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
 |Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
-|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
+|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 
   

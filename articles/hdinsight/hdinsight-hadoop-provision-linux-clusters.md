@@ -96,6 +96,10 @@ For more information, see [Default node configuration and virtual machine sizes 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+### Enterprise security package
+
+For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md)
+
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 

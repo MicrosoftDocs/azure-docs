@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ Messages delivered to Queue storage can be accessed from anywhere in the world. 
 
 One common scenario for listening to Media Services notifications is if you are developing a content management system that needs to perform some additional task after an encoding job completes (for example, to trigger the next step in a workflow, or to publish content).
 
-This topic shows how to get notification messages from Queue storage.  
+This article shows how to get notification messages from Queue storage.  
 
 ## Considerations
 Consider the following when developing Media Services applications that use Queue storage:
@@ -51,7 +51,7 @@ The code example in this section does the following:
 9. Deletes the queue and the notification end point.
 
 > [!NOTE]
-> The recommended way to monitor a job’s state is by listening to notification messages, as shown in the following example.
+> The recommended way to monitor a job’s state is by listening to notification messages, as shown in the following example:
 >
 > Alternatively, you could check on a job’s state by using the **IJob.State** property.  A notification message about a job’s completion may arrive before the state on **IJob** is set to **Finished**. The **IJob.State**  property reflects the accurate state with a slight delay.
 >
@@ -60,7 +60,8 @@ The code example in this section does the following:
 ### Create and configure a Visual Studio project
 
 1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
-2. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\Media" path is used.
+2. Create a new folder (folder can be anywhere on your local drive) and copy a .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\Media" path is used.
+3. Add a reference to the **System.Runtime.Serialization** library.
 
 ### Code
 
@@ -117,9 +118,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -135,11 +141,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -323,7 +333,8 @@ namespace JobNotification
     }
 }
 ```
-The preceding example produced the following output. Your values will vary.
+
+The preceding example produced the following output: Your values will vary.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

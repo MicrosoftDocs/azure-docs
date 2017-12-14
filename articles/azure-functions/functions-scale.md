@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/overview/serverless-computing/) app model. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux hosting is currently only available on an App Service plan.
+> [Linux hosting](functions-create-first-azure-function-azure-cli-linux.md) is currently only available on an App Service plan.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
@@ -44,7 +44,7 @@ On an App Service plan you can scale between tiers to allocate different amount 
 When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of 10 minutes. 
 
 > [!NOTE]
-> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 

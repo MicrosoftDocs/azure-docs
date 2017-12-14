@@ -3,7 +3,7 @@ title: Configure servers to a desired state and manage drift with Azure Automati
 description: Tutorial - Manage server configurations with Azure Automation DSC
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
 ---
 
@@ -153,10 +153,10 @@ You can get reports on the compliance status of a DSC node by calling the `Get-A
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports Get-Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
 
 # Display the most recent report
-$report[0]
+$reports[0]
 ```
 
 ## Next steps
