@@ -14,9 +14,8 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: v-shysun
-ms.custom: H1Hack27Feb2017
 ---
 # Frequently asked questions for SQL Server on Windows Azure Virtual Machines
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
 ---
 # What is SQL Server on Azure Virtual Machines? (Windows)
@@ -38,12 +38,19 @@ SQL Server Azure VMs can take advantage of [Automated Backup](virtual-machines-w
 
 If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple SQL Server Azure VMs in a virtual network. You can configure your high availability solution manually, or you can use templates in the Azure portal for automatic configuration. For an overview of all high availability options, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
+## Performance
+
+Azure virtual machines offer different machine sizes to meet various workload demands. SQL VMs also provide automated storage configuration optimized for your performance requirements. For more information about conffiguring storage for SQL VMs, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md). For fine tuning performance, see the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+
 ## Get started with SQL VMs
 
 To get started, choose a SQL Server virtual machine image with your required version, edition, and operating system. The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images.
 
 > [!TIP]
 > To understand the VM and SQL pricing for these images, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+
+> [!TIP]
+> To understand the update and lifecycle policy for SQL Server virtual machine gallery images, see the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ### <a id="payasyougo"></a> Pay as you go
 The following table provides a matrix of pay-as-you-go SQL Server images.
