@@ -40,10 +40,6 @@ To complete this tutorial:
 
 * Download the latest version of AzCopy on [Linux](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
-Log in to the [Azure Portal](https://portal.azure.com/).
-
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
 ## Log in to the [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
@@ -88,7 +84,7 @@ Specifying option `--recursive` and `/S` in the AzCopy on Linux and Windows resp
 ## Modify the data for testing purposes
 Modify or create new files in your source directory - `myfolder`for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively. If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer`/ `/XO` and `/XN` parameters in the AzCopy Linux and Windows command respectively. AzCopy uploads only the updated data based on their timestamp.
  
-# [Linux](#tab/cronjob/linux)
+# [Linux](#tab/linux)
     azcopy \
     --source /mnt/myfolder \
     --destination https://myaccount.blob.core.windows.net/mycontainer \
@@ -96,7 +92,7 @@ Modify or create new files in your source directory - `myfolder`for testing purp
     --recursive \
     --exclude-older
 
-# [Windows](#tab/scheduledtask/windows)
+# [Windows](#tab/windows)
     azCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
 ---
 
@@ -118,9 +114,9 @@ AzCopy is run with verbose `--verbose` (Linux) and `/V` (Windows) option, and th
 In this tutorial, [Schtasks](https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
  **Schtasks** enables administrator to create, delete, query, change, run, and end scheduled tasks on local or remote computer; and **Cron** allows Linux and Unix users to run commands or scripts at specified date and time using [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)
 
-To create a cron job on Linux, enter the following command on a terminal. 
+**To create a cron job on Linux**, enter the following command on a terminal. 
 
-```
+```bash
 crontab -e 
 */5 * * * * sh /path/to/script.sh 
 ```
@@ -128,9 +124,9 @@ crontab -e
 Specifying the cron expression `*/5 * * * * ` in the command means that the shell script `script.sh` should execute every five minutes. The script can be scheduled to run at a specific time daily, monthly, or yearly. See [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for a job execution. 
 
 
-To create a scheduled task on Windows, enter the following command on command prompt or PowerShell.
+**To create a scheduled task on Windows**, enter the following command on command prompt or PowerShell.
 
-``` 
+```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
 ```
 
