@@ -50,7 +50,7 @@ To delete an utterance, select the three dots (...) icon at the right end of the
 ![Delete utterance](./media/add-example-utterances/delete-utterance-ddl.png)
 
 ## Reassign an utterance
-Adding an utterance to an intent means that it is labeled under that intent. You can change the intent label of one or more utterances by moving them to another intent. To change the intent label, select the utterances, click **Reassign predicted intent**, and then select the intent where you want to move them.
+Adding an utterance to an intent means that it is labeled under that intent. You can change the intent label of one or more utterances by moving them to another intent. To change the intent label, select the utterances, click **Reassign Labeled intent**, and then select the intent where you want to move them.
 
 ![Reassign utterance](./media/add-example-utterances/reassign-utterance.png) 
 
