@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: bradsev;
 
 ---
@@ -22,7 +22,7 @@ ms.author: bradsev;
 
 This article shows how to collaborate effectively when using the **Word2Vec** word embedding algorithm and the **Sentiment Specific Word Embedding (SSWE) Algorithm** to predict Twitter sentiment with the Azure Machine Learning Workbench. The key to facilitating effective team collaboration on data science projects is to standardize the structure and documentation of the projects with an established data science lifecycle. The [Team Data Science Process (TDSP)](overview.md) provides just such a structured [lifecycle](lifecycle.md). Creating data science projects with the TDSP template provides this standardized framework for Azure Machine Learning projects.
 
-Previously, the TDSP team had released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now the creation of Azure Machine Learning projects that are instantiated with [TDSP structure and documentation templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) has been enabled. For instructions on how to use TDSP structure and templates in Azure Machine Learning, see [Structure projects with the Team Data Science Process template](how-to-use-tdsp-in-azure-ml.md). 
+Previously, the TDSP team had released a [GitHub repository for the TDSP project structure and templates](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Now the creation of Azure Machine Learning projects that are instantiated with [TDSP structure and documentation templates for Azure Machine Learning](https://github.com/amlsamples/tdsp) has been enabled. For instructions on how to use TDSP structure and templates in Azure Machine Learning, see [Structure projects with the Team Data Science Process template](../preview/how-to-use-tdsp-in-azure-ml.md). 
 
 
 ## Link to GitHub repository
