@@ -33,7 +33,7 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With 
 As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, highly responsive applications:
 
 * **Turnkey global distribution**
-    * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://azure.microsoft.com/regions/), with the [click of a button](tutorial-global-distribution-documentdb.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
+    * You can [distribute your data](distribute-data-globally.md) to any number of [Azure regions](https://azure.microsoft.com/regions/), with the [click of a button](tutorial-global-distribution-sql-api.md). This enables you to put your data where your users are, ensuring the lowest possible latency to your customers. 
     * Using Azure Cosmos DB's multi-homing APIs, the app always knows where the nearest region is and sends requests to the nearest data center. All of this is possible with no config changes. You set your write-region and as many read-regions as you want, and the rest is handled for you.
 
 * **Multiple data models and popular APIs for accessing and querying data**
@@ -94,7 +94,7 @@ Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handl
 ## Next steps
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB's SQL API](create-documentdb-dotnet.md)
+* [Get started with Azure Cosmos DB's SQL API](create-sql-api-dotnet.md)
 * [Get started with Azure Cosmos DB's MongoDB API](create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB's Table API](create-table-dotnet.md)
