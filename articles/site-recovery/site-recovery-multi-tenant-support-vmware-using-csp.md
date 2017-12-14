@@ -19,16 +19,16 @@ ms.author: manayar
 ---
 # Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through CSP
 
-Azure Site Recovery supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios. Refer to the article on [Managing multi-tenancy with CSP](site-recovery-manage-multi-tenancy-with-csp) for details on creating and managing tenant subscriptions through CSP.
+Azure Site Recovery supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios. For details on creating and managing tenant subscriptions see [Managing multi-tenancy with CSP](site-recovery-manage-multi-tenancy-with-csp.md) .
 
 This guidance draws heavily from the existing documentation for replicating VMware virtual machines to Azure. For more information, see [Replicate VMware virtual machines to Azure with Site Recovery](site-recovery-vmware-to-azure.md).
 
 ## Multi-tenant environments
 There are three major multi-tenant models:
 
-* **Shared Hosting Services Provider (HSP)**: The partner owns the physical infrastructure and uses shared resources (vCenter, datacenters, physical storage, and so on) to host multiple tenants’ VMs on the same infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own disaster recovery as a self-service solution.
+* **Shared Hosting Services Provider (HSP)**: The partner owns the physical infrastructure, and uses shared resources (vCenter, datacenters, physical storage, and so on) to host multiple tenants’ VMs on the same infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own disaster recovery as a self-service solution.
 
-* **Dedicated Hosting Services Provider**: The partner owns the physical infrastructure but uses dedicated resources (multiple vCenters, physical datastores, and so on) to host each tenant’s VMs on a separate infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own it as a self-service solution.
+* **Dedicated Hosting Services Provider**: The partner owns the physical infrastructure, but uses dedicated resources (multiple vCenters, physical datastores, and so on) to host each tenant’s VMs on a separate infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own it as a self-service solution.
 
 * **Managed Services Provider (MSP)**: The customer owns the physical infrastructure that hosts the VMs, and the partner provides disaster-recovery enablement and management.
 
@@ -42,9 +42,9 @@ The architecture is presented in the following diagram:
 ![Shared HSP with one vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
 **Shared-hosting scenario with one vCenter**
 
-As seen in the preceding diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs and enables tenant isolation. A VMware virtual-machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. We follow the same principles for multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
+As seen in the preceding diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs and enables tenant isolation. A VMware virtual-machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. The same principles apply to multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
 
-The data-isolation requirement necessitates that all sensitive infrastructure information (such as access credentials) remain undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
+The data-isolation requirement necessitates that all sensitive infrastructure information (such as access credentials) remains undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
 * Configuration server (CS)
 * Process server (PS)
 * Master target server (MT)
@@ -55,7 +55,7 @@ A scale-out PS is also under the partner's control.
 
 - **vCenter access account**: Use this account to discover tenant VMs. It has vCenter access permissions assigned to it (as described in the next section). To help avoid accidental access leaks, we recommend that partners enter these credentials themselves in the configuration tool.
 
-- **Virtual machine access account**: Use this account to install the mobility agent on the tenant VMs through an automatic push. It is usually a domain account that a tenant might provide to a partner or that, alternatively, the partner might manage directly. If a tenant doesn't want to share the details with the partner directly, he or she can be allowed to enter the credentials through limited-time access to the CS or, with the partner's assistance, install mobility agents manually.
+- **Virtual machine access account**: Use this account to install the mobility agent on the tenant VMs through an automatic push. It is usually a domain account that a tenant might provide to a partner, or one that the partner might manage directly. If a tenant doesn't want to share the details with the partner directly, they can be allowed to enter the credentials through limited-time access to the CS or, with the partner's assistance, install mobility agents manually.
 
 ### Requirements for a vCenter access account
 
@@ -97,7 +97,7 @@ The vCenter account-access procedure is as follows:
 >| Host and host cluster | Azure_Site_Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
 >| Datastore and datastore cluster | Azure_Site_Recovery | Same as preceding. |
 >| Network | Azure_Site_Recovery |  |
->| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) if any are outside the CS machine. |
+>| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) outside the CS machine. |
 >| Tenant VMs | Azure_Site_Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
 
 The vCenter account access is now complete. This step fulfills the minimum permissions requirement to complete failback operations. You can also use these access permissions with your existing policies. Just modify your existing permissions set to include role permissions from step 2, detailed previously.
@@ -123,6 +123,6 @@ As shown in the following diagram, the architectural difference in a managed ser
 **Managed service scenario with multiple vCenters**
 
 ## Next steps
-[Learn more](site-recovery-role-based-linked-access-control) about role-based access control to manage Azure Site Recovery deployments.
+[Learn more](site-recovery-role-based-linked-access-control.md) about role-based access control to manage Azure Site Recovery deployments.
 
-[Manage multi-tenancy with CSP](site-recovery-manage-multi-tenancy-with-csp)
+[Manage multi-tenancy with CSP](site-recovery-manage-multi-tenancy-with-csp.md)

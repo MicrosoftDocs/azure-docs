@@ -19,7 +19,7 @@ ms.author: manayar
 ---
 # Manage multi-tenancy with the Cloud Solution Provider (CSP) program
 
-The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, our partners own the end-to-end relationship with customers and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers and combine the subscriptions with their own value-added, customized offerings.
+The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers and combine the subscriptions with their own value-added, customized offerings.
 
 With Azure Site Recovery, partners can manage the complete Disaster Recovery solution for customers directly through CSP. Or they can use CSP to set up Site Recovery environments and let customers manage their own disaster-recovery needs in a self-service manner. In both scenarios, partners are the liaison between Site Recovery and their customers. Partners service the customer relationship and bill customers for Site Recovery usage.
 
@@ -29,7 +29,7 @@ This article describes how a partner can create and manage tenant subscriptions 
 
 - [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
 - [Prepare](tutorial-prepare-on-premises-vmware.md) VMware on-premises VMware servers and VMs.
-- For each tenant, create a separate management server that can communicate with the tenant VMs and partner’s vCenter. Only the partner has access rights to this server. Refer to the [multi-tenant VMware](site-recovery-multi-tenant-support-vmware-using-csp) guidance for more details different multi-tenant environments.
+- For each tenant, create a separate management server that can communicate with the tenant VMs and partner’s vCenter. Only the partner has access rights to this server. For more details on  different multi-tenant environments refer to the [multi-tenant VMware](site-recovery-multi-tenant-support-vmware-using-csp.md) guidance .
 
 ## Create a tenant account
 
@@ -105,7 +105,7 @@ Partners can also add a new user to the tenant subscription through the CSP port
 
 	![The tenant's CSP subscription page](./media/site-recovery-manage-multi-tenancy-with-csp/users-and-licences.png)
 
-	You can now create a new user by entering the relevant details and selecting permissions or by uploading the list of users in a CSV file.
+	You can now create a new user by entering the relevant details, and selecting permissions, or by uploading the list of users in a CSV file.
 
 2. After you've created a new user, go back to the Azure portal, and then, on the **Subscription** blade, select the relevant subscription.
 
@@ -116,9 +116,9 @@ Partners can also add a new user to the tenant subscription through the CSP port
 
 	For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 
-  Azure Site Recovery also has three [pre-defined user roles](site-recovery-role-based-linked-access-control) that can be used to further restrict access levels as required.
+  Azure Site Recovery also has three [pre-defined user roles](site-recovery-role-based-linked-access-control.md) that can be used to further restrict access levels as required.
 
 ## Next steps
-  [Learn more](site-recovery-role-based-linked-access-control) about role-based access control to manage Azure Site Recovery deployments.
+  [Learn more](site-recovery-role-based-linked-access-control.md) about role-based access control to manage Azure Site Recovery deployments.
 
-  [Manage multi-tenant VMware environments](site-recovery-multi-tenant-support-vmware-using-csp)
+  [Manage multi-tenant VMware environments](site-recovery-multi-tenant-support-vmware-using-csp.md)
