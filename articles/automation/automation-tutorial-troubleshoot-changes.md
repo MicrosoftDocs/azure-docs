@@ -22,9 +22,10 @@ In this tutorial you learn how to:
 > * Onboard a VM for Change tracking and Inventory
 > * View changes
 > * Search inventory logs for installed software
-> * Enable Activity log tracking
-> * Stop and Start your VM
-> * Review change results
+> * Configure change tracking
+> * Enable Activity log connection
+> * Trigger an event
+> * View changes
 
 ## Prerequisites
 
@@ -74,52 +75,11 @@ Enabling the solution can take up to 15 minutes. During this time, you shouldn't
 After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
-## View changes
-
-1. In the left pane of the Azure portal, select **Automation accounts**. 
-If it is not visible in the left pane, click **All services** and search for it in the resulting view.
-2. In the list, select an Automation account. 
-3. In the left pane of the Automation account, select **Change tracking**.
-
-![Creating an alert on OMS classic portal](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
-
-## Using the Change tracking views
-The Change tracking experience is made up three main components: the swimlane visualization, the change list, and the change filters.
-The three components work together to create a robust and interactive exploration experience.
-
-![Creating an alert on OMS classic portal](./media/automation-tutorial-troubleshoot-changes/change-view.png)
-
-### Swimlane visualization
-On the **Change tracking** page, there is a large visualization consisting of multiple bar graphs and a line graph at the top. 
-The swimlane visualization shows changes that have occurred over time. 
-After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. 
-Each row of bar graphs represents a different trackable Change type. 
-These types are Linux daemons, files, Windows Registry keys, software, and Windows services.
-
->[!NOTE] 
-> To add an Activity Log connection, click the **Manage Activity Log Connection** button at the top of the page.
->
->
-
-
-### Change list
-Below the swimlane visualization, there are two tabs (**Changes** and **Events**) and a table. 
-While on the **Changes** tab, the table displays the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
-While on the **Events** tab, the table displays the connected Activity Log events and their corresponding details with the most recent first. 
-
-On both tabs, you can click on a row to drilldown and view additional details about the record.
-
-### Change filters
-There are two dropdowns on the top of the page that allow you to filter the data shown in the swimlane visualization and the change list. 
-The **Change types** dropdown lets you filter which Change types are displayed in your results. 
-The time range dropdown lets you filter the results to a specific time window.
-
-
 
 ## Using Change tracking in Log Analytics
 
 Change tracking generates log data that is sent to Log Analytics. 
-To search the logs by running queries, select **Log Analytics** at the top of the **Change tracking** window. 
+To search the logs by running queries, select **Log Analytics** at the top of the **Change tracking** window.
 Change tracking data is stored under the type **ConfigurationChange**. 
 The following sample Log Analytics query returns all the Windows Services that have been stopped.
 
@@ -130,47 +90,20 @@ ConfigurationChange
 
 To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
 
-### Alerting on changes
-Log Analytics provides the capability to alert based on a query. 
-
-For the process of creating alert rules, see the following articles:
-
-* Create alert rules using [OMS portal](../log-analytics/log-analytics-alerts-creating.md)
-* Create alert rules using [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
-* Create alert rules using [REST API](../log-analytics/log-analytics-api-alerts.md)
-
-
-In the following example image, an alert is being created for services that are stopped and are of the startup type "Manual". 
-On the alert page, you can configure what happens when an alert is triggered, such as an email notification, webhook, Azure Automation runbook, or an ITSM connection.
-
-   ![Creating an alert on OMS classic portal](./media/automation-tutorial-troubleshoot-changes/alert.png)
-
-To learn more about creating alerts based on Log Analytics queries, see [Understanding Alerts in Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts).
-
-
-### Changes for a single machine
-To see the changes for a single machine, you can access Change Tracking from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine. 
-The following sample Log Analytics query returns the list of software changes for a machine named `ContosoVM`.
-
-```
-ConfigurationChange
-| where ConfigChangeType == "Software" 
-| where Computer =="ContosoVM"
-```
-
 ## Configure Change tracking
+
+Change tracking gives you the ability to track configuration changes on your VM. The following steps show you how to configure tracking of registry keys and files.
+ 
 To choose which files and Registry keys to collect and track, select **Edit settings** at the top of the **Change tracking** page.
 
 > [!NOTE]
 > Inventory and Change tracking use the same collection settings, and settings are configured on a workspace level.
->
->
 
 In the **Workspace Configuration** window, add the Windows Registry keys, Windows files, or Linux files to be tracked, as outlined in the next three sections.
 
 ### Add a Windows Registry key
 
-1. On the **Windows Registry** tab, select **Add**.  
+1. On the **Windows Registry** tab, select **Add**.
     The **Add Windows Registry for Change Tracking** window opens.
 
    ![Change Tracking add registry](./media/automation-vm-change-tracking/change-add-registry.png)
@@ -210,9 +143,51 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 8. Under **Use Sudo**, to track files that require the `sudo` command to access, select **On**. Otherwise, select **Off**.
 9. Select **Save**.
 
+## Enable Activity log connection
 
-## Next steps
+From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page.  Select **Connect** to connect Change tracking to the Azure activity log for your VM.
 
-* To learn about Change tracking and how to configure your collection settings, see [Track changes in your environment with the Change tracking solution](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-change-tracking).
-* To learn about enabling Inventory for your Azure virtual machines, see [Enable Inventory](../automation/automation-vm-inventory.md).
-* To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
+With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is dealocated, select **Start** to restart your VM.
+
+Stopping and starting a VM logs an event in it's activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Like in the preceding step, each event can be selected to view detailed information on the event.
+
+![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
+
+## View changes
+
+Once the Change tracking and Inventory solution is enabled, you can view the results on the **Change tracking** page.
+
+From within your VM, select **Change tracking** under **OPERATIONS**.
+
+![Creating an alert on OMS classic portal](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+
+The chart shows changes that have occurred over time.
+After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events.
+Each row of bar graphs represents a different trackable Change type.
+These types are Linux daemons, files, Windows Registry keys, software, and Windows services.
+The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
+The **Events** tab, the table displays the connected Activity Log events and their corresponding details with the most recent first.
+
+You can see in the results, that there were multiple changes to the system, including changes to services and software. You can use the filters at the top of the page to filter the results by **Change type** or by a time range.
+
+Select a **WindowsServices** change, this opens the **Change Details** window. The change details window shows details about the change and the values before and after the change. In this instance the Software Protection service was stopped.
+
+![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
+
+## Next Steps
+
+In this tutorial you learned how to:
+
+> [!div class="checklist"]
+> * Onboard a VM for Change tracking and Inventory
+> * View changes
+> * Search inventory logs for installed software
+> * Configure change tracking
+> * Enable Activity log connection
+> * Trigger an event
+> * View changes
+
+Continue to the overview for the Change tracking and Inventory solution to learn more about it.
+
+> [!div class="nextstepaction"]
+> [Change management and Inventory solution](../operations-management-suite/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)

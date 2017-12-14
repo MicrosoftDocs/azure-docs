@@ -5,7 +5,7 @@ services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/13/2017
+ms.date: 12/14/2017
 ms.topic: hero-article
 ms.service: automation
 ms.custom: mvc
@@ -73,13 +73,13 @@ It can take between 30 minutes and 6 hours for the data to be available for anal
 
 ## View installed software
 
-1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search for it in the resulting view.
-1. In the list, select an Automation account. 
-1. In the left pane of the Automation account, select **Inventory**.
+Once the Change tracking and Inventory solution is enabled, you can view the results on the **Inventory** page.
+
+From within your VM, select **Inventory** under **OPERATIONS**.
 
 On the **Inventory** page, click on the **Software** tab.
 
-On the **Software** tab, there is a table list the software that had been found. The software is grouped by software name and version. 
+On the **Software** tab, there is a table list the software that had been found. The software is grouped by software name and version.
 
 The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time (the most recent refresh time reported by a machine in the group), and machines (the count of machines with that software).
 
@@ -122,7 +122,6 @@ ConfigurationData
 | render table
 ```
 
-
 ## Next steps
 
 In this tutorial you learned how view software inventory such as how to:
@@ -132,6 +131,7 @@ In this tutorial you learned how view software inventory such as how to:
 > * View installed software
 > * Search inventory logs for installed software
 
-* To learn about enabling Inventory for your Azure virtual machines, see [Manage an Azure virtual machine with inventory collection](../automation/automation-vm-inventory.md).
-* To learn about managing changes on your machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
-* To learn about managing Windows and package updates on your machines, see [The Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
+Continue to the overview for the Change tracking and Inventory solution to learn more about it.
+
+> [!div class="nextstepaction"]
+> [Change management and Inventory solution](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)

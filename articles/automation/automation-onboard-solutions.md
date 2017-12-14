@@ -23,10 +23,11 @@ ms.author: eamono
 In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions for VMs to Azure Automation:
 
 > [!div class="checklist"]
-> * Onboard an Azure virtual machine manually.
-> * Install and update required Azure modules.
-> * Import a runbook that onboards Azure VMs.
-> * Start the runbook that onboards Azure VMs automatically.
+> * Onboard an Azure VM
+> * Enable solutions
+> * Install and update modules
+> * Import the onboarding runbook
+> * Start the runbook
 
 ## Prerequisites
 
@@ -36,7 +37,7 @@ To complete this tutorial, the following are required:
 * [Automation account](automation-offering-get-started.md) to manage machines.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
 
-## Onboard an Azure virtual machine manually
+## Onboard an Azure VM
 
 To onboard Azure Virtual Machines automatically, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
 
@@ -84,7 +85,7 @@ Now that the solutions are enabled, you can add an Azure VM to onboard to those 
 > [!NOTE]
 > If you do not wait for the other solution to complete, when Enabling the next solution you receive a message stating: *Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.*
 
-## Install and update required Azure modules
+## Install and update modules
 
 It is required to update to the latest Azure modules and import `AzureRM.OperationalInsights` to successfully automate solution onboarding.
 
@@ -100,7 +101,7 @@ From the **Modules** page, select **Browse gallery** to open up the module galle
 
 ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-## Import a runbook to onboard solutions to Azure VMs
+## Import the onboarding runbook
 
 1. From your Automation Account, select on **Runbooks** under the **PROCESS AUTOMATION**.
 1. Select **Browse gallery**.
@@ -110,7 +111,7 @@ From the **Modules** page, select **Browse gallery** to open up the module galle
 
 1. On the **Runbook** page, select **Edit**, then select **Publish**. On the **Publish Runbook** dialog, select **Yes** to publish the runbook.
 
-## Start the runbook that onboards Azure VMs automatically
+## Start the runbook
 
 You must have onboarded either change tracking or update solutions to an Azure VM in order to start this runbook. It requires an existing virtual machine and resource group with the solution onboarded for parameters.
 

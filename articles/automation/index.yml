@@ -36,8 +36,8 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Configure watcher tasks</a>
-    - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
     - html: <a href="/azure/automation/automation-tutorial-update-management">Manage updates on your VM</a>
+    - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
     - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify software installed on a VM</a>
     - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Troubleshoot changes on a VM</a>
 - title: Free Pluralsight Video Training

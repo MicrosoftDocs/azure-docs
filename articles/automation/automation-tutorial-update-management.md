@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: zachal
 ---
 
@@ -165,7 +165,7 @@ In this tutorial, you learned how to:
 > * Schedule an update deployment
 > * View the results of a deployment
 
-Continue to the overview for the Update Management solution in OMS.
+Continue to the overview for the Update Management solution.
 
 > [!div class="nextstepaction"]
-> [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md)
+> [Update Management solution](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
