@@ -29,24 +29,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this quickstart:
 
-* [Install Git](https://git-scm.com/).
-* [Install Visual Studio](https://www.visualstudio.com/) 2015 or a more recent version. 
-* Create an Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* [Visual Studio 2015](https://www.visualstudio.com/) or a more recent version. 
+* An Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. (*Link to be updated*)
+
+
+Change to the directory that contains the sample code:
 
 ```bash
-git clone <whatever>
-```
-
-Change to the directory that contains the sample code
-
-```bash
-cd <wherever>
+cd <TBD>
 ```
 
 ## Build and run the app

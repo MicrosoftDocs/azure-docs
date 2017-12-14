@@ -29,24 +29,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this quickstart:
-
-* [Install Git](https://git-scm.com/)
-* [Install Python](https://www.python.org/downloads/)
-* Create an Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+* An Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. (*Link to be updated*)
+
+Change to the directory that contains the sample code:
 
 ```bash
-git clone <whatever>
-```
-
-Change to the directory that contains the sample code
-
-```bash
-cd <wherever>
+cd <TBD>
 ```
 
 ## Run the app
