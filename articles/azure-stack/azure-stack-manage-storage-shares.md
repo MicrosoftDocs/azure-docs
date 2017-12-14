@@ -116,7 +116,7 @@ When it's necessary to free space on a share, use the least invasive methods fir
 
 You can reclaim the capacity used by tenant accounts that have been deleted. This capacity is automatically reclaimed when the data [retention period](azure-stack-manage-storage-accounts.md#set-the-retention-period) is reached, or you can act to reclaim it immediately.
 
-For more information, see [Reclaim capacity](azure-stack-manage-storage-accounts.md#reclaim-capacity) in Manage storage resources.
+For more information, see [Reclaim capacity](azure-stack-manage-storage-accounts.md#reclaim) in Manage storage resources.
 
 ### Migrate a container between volumes
 *This option applies only to multi-node deployments.*
