@@ -3,7 +3,7 @@
 
 This guide demonstrates how a native Android application can get an access token and call the Microsoft Graph API or other APIs that require access tokens from an Azure Active Directory v2 endpoint.
 
-When you've completed the guide, your application will be able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). THe application will also use work and school accounts from any company or organization that uses Azure Active Directory.  
+When you've completed the guide, your application will be able to call a protected API that uses personal accounts (including outlook.com, live.com, and others). The application will also use work and school accounts from any company or organization that uses Azure Active Directory.  
 
 ## How this sample works
 ![How this sample works](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
