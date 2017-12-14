@@ -65,7 +65,7 @@ To restore availability of the database(s) you need to initiate the failover to 
 
 Use one of the following guides to fail over to a geo-replicated secondary database:
 
-* [Fail over to a geo-replicated secondary server using the Azure Portal](sql-database-geo-replication-portal.md)
+* [Fail over to a geo-replicated secondary server using the Azure portal](sql-database-geo-replication-portal.md)
 * [Fail over to the secondary server using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 
 ## Recover using geo-restore
