@@ -147,15 +147,15 @@ If you are unable to find a solution to your issue above, here are some other re
 * [Twitter]
 
 <!--Image references-->
-[Sketch]:media/sql-data-warehouse-cheat-sheet/picture_flow.png
+[Sketch]:./media/sql-data-warehouse-cheat-sheet/picture_flow.png
 
 <!--Article references-->
-[data loading]:design-elt-data-loading.md
-[deeper guidance]: guidance-for-loading-data.md
-[indexes]:sql-data-warehouse-tables-index.md
-[partitions]:sql-data-warehouse-tables-partition.md
-[statistics]:sql-data-warehouse-tables-statistics.md
-[resource classes and concurrency]:sql-data-warehouse-develop-concurrency.md
+[data loading]:./design-elt-data-loading.md
+[deeper guidance]: ./guidance-for-loading-data.md
+[indexes]:./sql-data-warehouse-tables-index.md
+[partitions]:./sql-data-warehouse-tables-partition.md
+[statistics]:./sql-data-warehouse-tables-statistics.md
+[resource classes and concurrency]:./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 
