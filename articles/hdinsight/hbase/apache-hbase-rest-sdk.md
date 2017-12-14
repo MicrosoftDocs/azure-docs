@@ -20,7 +20,7 @@ ms.author: ashishth
 ---
 # Use the HBase .NET SDK
 
-[HBase](hdinsight-hbase-overview.md) provides two primary choices to work with your data: [Hive queries, and calls to HBase's RESTful API](hdinsight-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
+[HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 
 For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API.
 
@@ -117,7 +117,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implements BigTable, so the data format looks like the following:
 
-![User with Cluster User role](./media/hdinsight-using-hbase-rest-sdk/table.png)
+![User with Cluster User role](./media/apache-hbase-rest-sdk/table.png)
 
 ## Select data
 
