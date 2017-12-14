@@ -44,7 +44,7 @@ Log in to the [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
-Log in to the [Azure Portal](https://portal.azure.com/).
+## Log in to the [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -81,23 +81,23 @@ There are several ways to upload data to Azure Blob Storage using AzCopy on [Win
     azCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
-Replace **\<key\>** with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under Settings in your storage account. Select a key, and paste in the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it.  Update the source path to your data directory, and replace **myaccount** in the destination URL to your storage account.
+Replace **\<key\>** with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under Settings in your storage account. Select a key, and paste in the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it.  Update the source path to your data directory, and replace **myaccount** in the destination URL to your storage account name.
 
-Specifying option `--recursive` and `/S` in the AzCopy on Linux and Windows respectivelyy, uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files are uploaded as well.
+Specifying option `--recursive` and `/S` in the AzCopy on Linux and Windows respectively, uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files are uploaded as well.
 
 ## Modify the data for testing purposes
-Modify or create new files in your source directory - `myfolder`for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively. If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` parameters in the AzCopy command. AzCopy uploads only the updated data based on their timestamp.
+Modify or create new files in your source directory - `myfolder`for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively. If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer`/ `/XO` and `/XN` parameters in the AzCopy Linux and Windows command respectively. AzCopy uploads only the updated data based on their timestamp.
  
-# [Linux](#tab/linux)
-azcopy \
+# [Linux](#tab/cronjob/linux)
+    azcopy \
     --source /mnt/myfolder \
     --destination https://myaccount.blob.core.windows.net/mycontainer \
     --dest-key <key> \
     --recursive \
     --exclude-older
 
-# [Windows](#tab/windows)
-azCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+# [Windows](#tab/scheduledtask/windows)
+    azCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
 ---
 
 ## Create a scheduled task or cron job 
@@ -106,16 +106,16 @@ You create a scheduled task/cron job that runs an AzCopy command script that ide
 Copy the AzCopy command to a text editor. Update the parameter values of AzCopy command to the appropriate values. Save the file as `script.sh` or `script.bat` for AzCopy on Linux and Windows respectively. 
 
 # [Linux](#tab/linux)
-   azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
+    azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
 # [Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    Azcopy /Source:C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    Azcopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy is run with verbose `--verbose` (Linux) and `/V` (Windows) option, and the output is redirected into a log file. 
 
-In this tutorial, [Schtasks](https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab]((http://crontab.org/) command is used to create a cron job on Linux. 
+In this tutorial, [Schtasks](https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
  **Schtasks** enables administrator to create, delete, query, change, run, and end scheduled tasks on local or remote computer; and **Cron** allows Linux and Unix users to run commands or scripts at specified date and time using [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)
 
 To create a cron job on Linux, enter the following command on a terminal. 
@@ -125,8 +125,7 @@ crontab -e
 */5 * * * * sh /path/to/script.sh 
 ```
 
-Specifying a cron expression `0 2 * * * ` in the command means that the shell script `script.sh` should execute every two hours. The script can be scheduled to run at a specific time daily, monthly, or yearly. Check [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for a job execution. 
-To see what crontabs are currently running on your system, open a terminal and run `crontab -l`.
+Specifying the cron expression `*/5 * * * * ` in the command means that the shell script `script.sh` should execute every five minutes. The script can be scheduled to run at a specific time daily, monthly, or yearly. See [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for a job execution. 
 
 
 To create a scheduled task on Windows, enter the following command on command prompt or PowerShell.
@@ -137,7 +136,6 @@ schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Docu
 
 The command uses the `/SC` parameter to specify a minute schedule and the `/MO` parameter to specify an interval of five minutes. The `/TN` parameter is used to specify the task name, and `/TR` parameter to specify the path to `script.bat` file. Visit [schtasks](https://technet.microsoft.com/en-us/library/cc772785(v=ws.10).aspx#BKMK_minutes) to learn more about creating scheduled task on 
 Windows.
-
 
  
 To validate the scheduled task/cron job executes correctly, create new files in your directory `myfolder`. Wait for five minutes to confirm the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task/cron job. 

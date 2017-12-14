@@ -214,7 +214,9 @@
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: AzCopy on Linux
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Using the Import/Export service
+    - name: Migrate on-premise data to cloud storage using AzCopy
+      href: ../common/storage-use-azcopy-migrate-onpremise-data-to-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+   - name: Using the Import/Export service
       href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Using the Import/Export Tool
       href: ../common/storage-import-export-tool-how-to.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
