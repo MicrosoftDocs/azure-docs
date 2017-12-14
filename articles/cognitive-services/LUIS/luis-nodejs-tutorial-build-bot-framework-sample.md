@@ -32,18 +32,18 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
 1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**.
 
-    ![Create new resource](../media/bot-builder-nodejs-use-luis/bot-service-creation.png)
+    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
 2. In the search box, search for **Web App Bot**. 
 
-    ![Create new resource](../media/bot-builder-nodejs-use-luis/bot-service-selection.png)
+    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
 
-    ![Bot Service blade](../media/bot-builder-nodejs-use-luis/bot-service-setting-callout-template.png)
+    ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
     * Check the box to confirm to the terms of service.
 
