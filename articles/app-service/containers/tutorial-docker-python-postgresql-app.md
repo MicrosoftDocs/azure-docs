@@ -116,7 +116,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Log in to Azure
 
-You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/#az_login) command and follow the on-screen directions.
+You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/?view=azure-cli-latest#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -124,7 +124,7 @@ az login
 
 ### Create a resource group
 
-Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az_group_create).
+Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -134,11 +134,11 @@ The following example creates a resource group in the West US region:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Use the [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) Azure CLI command to list available locations.
+Use the [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI command to list available locations.
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command.
+Create a PostgreSQL server with the [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) command.
 
 In the following command, substitute a unique server name for the *\<postgresql_name>* placeholder and a user name for the *\<admin_username>* placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user name is for the initial database admin user account. You are prompted to pick a password for this user.
 
@@ -359,7 +359,7 @@ In this step, you deploy your Docker container-based Python Flask application to
 
 ### Create an App Service plan
 
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 

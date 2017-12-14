@@ -376,7 +376,7 @@ Azure Container Registry is a managed Docker service from Azure for hosting priv
 
 ### Create an Azure Container Registry
 
-In the Cloud Shell, use the [az acr create](https://docs.microsoft.com/cli/azure/acr#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
+In the Cloud Shell, use the [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) command to create an Azure Container Registry. Pass in the name, resource group, and `Basic` for the SKU. Available SKUs are `Classic`, `Basic`, `Standard`, and `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -414,7 +414,7 @@ Use an existing service principal and assign access:
 
 ### Log in to Azure Container Registry
 
-In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) command in the Cloud Shell. 
+In order to push an image to the registry, you need to supply credentials so the registry accepts the push. You can retrieve these credentials by using the [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) command in the Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -478,7 +478,7 @@ Listing the images in the registry confirms that `mydockerimage` is in the regis
 
 You can configure Web App for Containers so that it runs a container stored in the Azure Container Registry. Using the Azure Container Registry is just like using any private registry, so if you need to use your own private registry, the steps to complete this task are similar.
 
-In the Cloud Shell, run [az acr credential show](/cli/azure/acr/credential#az_acr_credential_show) to display the username and password for the Azure Container Registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
+In the Cloud Shell, run [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) to display the username and password for the Azure Container Registry. Copy the username and one of the passwords so you can use it to configure the web app in the next step.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
