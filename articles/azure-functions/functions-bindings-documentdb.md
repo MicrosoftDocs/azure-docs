@@ -63,7 +63,7 @@ The following example shows a [precompiled C# function](functions-dotnet-class-l
     }
 ```
 
-### Trigger - C# script
+### Trigger - C# script example
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
 
@@ -99,7 +99,7 @@ Here's the C# script code:
     }
 ```
 
-### Trigger - JavaScript
+### Trigger - JavaScript example
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
 
