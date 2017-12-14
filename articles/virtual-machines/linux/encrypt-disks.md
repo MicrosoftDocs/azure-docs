@@ -141,7 +141,7 @@ Supported scenarios and requirements for disk encryption:
 
 * The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard A, D, DS, G, GS, etc series VMs.
+* Standard A, D, DS, G, GS, etc., series VMs.
 * Updating the cryptographic keys on an already encrypted Linux VM.
 
 Disk encryption is not currently supported in the following scenarios:
@@ -151,7 +151,7 @@ Disk encryption is not currently supported in the following scenarios:
 * Disabling OS disk encryption on Linux VMs.
 * Use of custom Linux images.
 
-For more information on supported scenarios and limitations, see [Azure Disk Encruption for IaaS VMs](../../security/azure-security-disk-encryption.md)
+For more information on supported scenarios and limitations, see [Azure Disk Encryption for IaaS VMs](../../security/azure-security-disk-encryption.md)
 
 
 ## Create Azure Key Vault and keys
@@ -177,7 +177,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since we created a standard Key Vault.
+You can store cryptographic keys using software or Hardware Security Model (HSM) protection. Using an HSM requires a premium Key Vault. There is an additional cost to creating a premium Key Vault rather than standard Key Vault that stores software-protected keys. To create a premium Key Vault, in the preceding step add `--sku Premium` to the command. The following example uses software-protected keys since you created a standard Key Vault.
 
 For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [az keyvault key create](/cli/azure/keyvault/key#create). The following example creates a key named *myKey*:
 
@@ -280,7 +280,7 @@ Once you have encrypted your data disks, you can later add additional virtual di
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Re-run the command to encrypt the virtual disks as follows:
+Rerun the command to encrypt the virtual disks as follows:
 
 ```azurecli
 az vm encryption enable \
