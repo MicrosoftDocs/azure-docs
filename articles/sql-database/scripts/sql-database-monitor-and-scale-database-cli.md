@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
 ---
 
@@ -32,6 +32,9 @@ If you choose to install and use the CLI locally, this topic requires that you a
 ## Sample script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) to get a list of operations performed on the database and use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)to cancel an update operation on the database.
 
 ## Clean up deployment
 

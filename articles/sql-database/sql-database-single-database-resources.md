@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "On Demand"
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
 
 ---
@@ -45,6 +45,8 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a database |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
 |[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool. For example, use the **MaxSizeBytes** property to set the maximum size for a database.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Gets the status of database operations. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Cancels the asynchronous updateslo operation on the database.|
 
 
 > [!TIP]
@@ -61,7 +63,8 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
-
+|[az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)|Gets a list of operations performed on the database.|
+|[az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Cancels the asynchronous operation on the database.|
 
 > [!TIP]
 > For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -99,6 +102,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
+|[Operations - List](/rest/api/sql/Operations/List)|Lists all of the available SQL Rest API operations.|
 
 
 
