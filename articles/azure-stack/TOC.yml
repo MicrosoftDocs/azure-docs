@@ -108,7 +108,7 @@
     - name: Manage storage resources
       href: azure-stack-manage-storage-accounts.md
     - name: Manage storage capacity
-     href: azure-stack-manage-storage-shares.md
+      href: azure-stack-manage-storage-shares.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
