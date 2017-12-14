@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
 
 ---
@@ -87,7 +87,7 @@ $ObjectDN = The Active Directory account whose permissions need to be tightened.
 $Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
 
 >[!NOTE] 
->$credential.UserName should be in domain\username format.  
+>$credential.UserName should be in FQDN\username format. Example: corp.contoso.com\bsimon 
 
 ##### Example:
 
