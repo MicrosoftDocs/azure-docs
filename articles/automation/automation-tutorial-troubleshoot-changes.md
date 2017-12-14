@@ -20,7 +20,6 @@ In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Onboard a VM for Change tracking and Inventory
-> * View changes
 > * Search inventory logs for installed software
 > * Configure change tracking
 > * Enable Activity log connection
@@ -180,7 +179,6 @@ In this tutorial you learned how to:
 
 > [!div class="checklist"]
 > * Onboard a VM for Change tracking and Inventory
-> * View changes
 > * Search inventory logs for installed software
 > * Configure change tracking
 > * Enable Activity log connection
