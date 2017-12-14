@@ -425,7 +425,7 @@ Before enabling synchronization of the UserType attribute, you must first decide
 The steps to enable synchronization of the UserType attribute can be summarized as: 
 
 >[!NOTE]
-> The rest of this section covers these steps. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured or have a staging server, you need to adjust the steps accordingly.For detailed step instructions see the steps outlined in [Enable-synchronization-of-preferredDataLocation](#enable-synchronization-PreferredDataLocation).
+> The rest of this section covers these steps. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured or have a staging server, you need to adjust the steps accordingly.
 
 1.	Disable **sync scheduler** and verify there is no synchronization in progress
 2.	Add the **source attribute** to the on-premises AD Connector schema
@@ -491,7 +491,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 | --- | --- | --- |
 | adminDescription | NOTSTARTWITH | User\_ | 
  
-    Scoping filter determines which on-premises AD objects this inbound synchronization rule is applied to. In this example, we use the same scoping filter used as “In from AD – User Common” OOB synchronization rule, which prevents the synchronization rule from being applied to User objects created through Azure AD User writeback feature. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scoping filter determines which on-premises AD objects this inbound synchronization rule is applied to. In this example, we use the same scoping filter used as “In from AD – User Common” OOB synchronization rule, which prevents the synchronization rule from being applied to User objects created through Azure AD User writeback feature. You may need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation tab** and implement the desired transformation rule. For example, you have designated an unused on-premises AD attribute (e.g., extensionAttribute1) as the source attribute for UserType, you can implement a direct attribute flow:
  
@@ -499,7 +499,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 | --- | --- | --- | --- | --- |
 | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
-    Another example – You want to derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD UserPrincipalName attribute ends with domain part “@partners.fabrikam123.org”. You can implement an expression:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another example – You want to derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD UserPrincipalName attribute ends with domain part “@partners.fabrikam123.org”. You can implement an expression:
 
 | Flow Type | Target Attribute | Source | Apply Once | Merge Type |
 | --- | --- | --- | --- | --- |
