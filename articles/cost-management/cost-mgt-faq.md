@@ -44,7 +44,7 @@ You also might need to give department administrators, account owners, and enter
 
 ## Why don’t I see Optimizer recommendations?
 
-Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are unactivated, including:
+Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are *unactivated*, including:
 
 - Optimization Manager
 - Sizing Optimization
