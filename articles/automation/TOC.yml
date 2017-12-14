@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Create an Automation account
-    href: automation-create-standalone-account.md
+    href: automation-quickstart-create-account.md
 - name: Tutorials
   items:
   - name: Track updated files with watcher tasks
