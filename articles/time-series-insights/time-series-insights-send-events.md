@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 11/15/2017
 ---
 # Send events to a Time Series Insights environment using event hub
-This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [time series insights](https://insights.timeseries.azure.com).
+This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## Configure an event hub
 1. To create an event hub, follow instructions from the Event Hub [documentation](../event-hubs/event-hubs-create.md).
@@ -23,7 +23,7 @@ This article explains how to create and configure event hub and run a sample app
 
 3. Select your event hub by clicking on its name.
 
-4. Under Entities in the middle configuration window, click **Event Hubs** again.
+4. Under **Entities** in the middle configuration window, click **Event Hubs** again.
 
 5. Select the name of the event hub to configure it.
 
@@ -34,7 +34,7 @@ This article explains how to create and configure event hub and run a sample app
 7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
    > [!IMPORTANT]
-   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If the consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
 8. Under the **Settings** heading, select **Share access policies**.
 
@@ -239,4 +239,5 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
-View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [View your environment in Time Series Insights explorer](https://insights.timeseries.azure.com).

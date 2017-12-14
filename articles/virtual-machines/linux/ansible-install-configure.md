@@ -35,7 +35,7 @@ Now create a VM and install Ansible for one of the following distros:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
-- [SLES 12.2 SP2](#sles-122-sp2)
+- [SLES 12 SP2](#sles-12-sp2)
 
 ### Ubuntu 16.04 LTS
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
@@ -100,7 +100,7 @@ sudo pip install ansible[azure]
 Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
-### SLES 12.2 SP2
+### SLES 12 SP2
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
 
 ```bash

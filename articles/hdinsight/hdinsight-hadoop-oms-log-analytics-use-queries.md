@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
 
 ---
@@ -30,7 +30,7 @@ Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HD
 
 * You must have configured an HDInsight cluster to use Azure Log Analytics. For instructions, see [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* You must have added the HDInsight cluster-specific management solutions to the OMS workspace as described in [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* You must have added the HDInsight cluster-specific management solutions to the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) workspace as described in [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## Analyze HDInsight cluster metrics
 
@@ -149,5 +149,5 @@ You can use any query that you want to create an alert.
 
 ## See also
 
-* [Working with OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Working with Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

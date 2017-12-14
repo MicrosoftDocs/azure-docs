@@ -4,7 +4,7 @@ description: How to fix common errors encountered when installing the access pan
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

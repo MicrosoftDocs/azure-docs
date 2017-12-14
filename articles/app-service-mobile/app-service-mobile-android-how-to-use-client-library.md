@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 11/16/2017
 ms.author: glenga
 ---
 # How to use the Azure Mobile Apps SDK for Android
@@ -61,10 +61,10 @@ Change both **build.gradle** files:
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    Currently the latest version is 3.3.0. The supported versions are listed [on bintray][14].
+    Currently the latest version is 3.4.0. The supported versions are listed [on bintray][14].
 
 ### <a name="enable-internet"></a>Enable internet permission
 
@@ -978,7 +978,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```

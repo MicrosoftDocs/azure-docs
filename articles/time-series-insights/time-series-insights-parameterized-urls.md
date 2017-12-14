@@ -3,15 +3,15 @@ title: Share Azure Time Series Insights custom views with parameterized URLs | M
 description: This article describes how to develop parameterized URLs in Azure Time Series Insights, so that a customer view can easily be shared.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
-ms.author: kfile
+author: MarkMcGeeAtAquent
+ms.author: MarkMcGeeAtAquent
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ---
 # Share a custom view using a parameterized URL
 
@@ -72,7 +72,7 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
 
 For example, to add time series definitions as a URL parameter, you can use the following:
 
-```
+```https
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -85,7 +85,9 @@ Using these example time series definitions for
  
 you can construct the following parameterized URL for a view:
 
-`https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]`
+```https
+https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+```
 
 If you had used Time Series Insights explorer to build the view described by the preceding URL, it would appear like this:
 
