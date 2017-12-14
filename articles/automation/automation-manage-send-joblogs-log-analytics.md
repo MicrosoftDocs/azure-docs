@@ -59,7 +59,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 
 ```powershell-interactive
 $workspaceId = "[resource id of the log analytics workspace]"
-$automationAccountId = "[your resource id]"
+$automationAccountId = "[resource id of your automation account]"
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 ```
