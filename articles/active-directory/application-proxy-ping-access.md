@@ -70,6 +70,8 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 4. Select **On-premises application**.
 5. Fill out the required fields with information about your new app. Use the following guidance for the settings:
    - **Internal URL**: Normally you provide the URL that takes you to the app’s sign in page when you’re on the corporate network. For this scenario the connector needs to treat the PingAccess proxy as the front page of the app. Use this format: `https://<host name of your PA server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
+    > [!WARNING]
+    > For this type of SSO, the internal URL must use https and cannot use http.
    - **Pre-authentication method**: Azure Active Directory
    - **Translate URL in Headers**: No
 
@@ -133,7 +135,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use GraphAPI to set the app field *acceptMappedClaims* to **True**. You can only use Azure AD Graph Explorer to make this configuration. 
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use GraphAPI to set the app field *acceptMappedClaims* to **True**. You can use Azure AD Graph Explorer to make this configuration or use the manifest for the application in Azure AD.    
 
 This example uses Graph Explorer:
 
@@ -144,6 +146,12 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+This example uses the [Azure portal](https://portal.azure.com) to udpate the *acceptedMappedClaims* field:
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+2. Select **Azure Active Directory** > **App registrations**.
+3. Select your application > **Manifest**.
+4. Select **Edit**, search for the *acceptedMappedClaims* field and change the value to **true**.
+5. Select **Save**.
 
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
