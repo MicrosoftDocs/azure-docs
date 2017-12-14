@@ -57,7 +57,7 @@ X.509 certificates are typically arranged in a certificate chain of trust. If a 
 
 An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same intermediate or root CA. The enrollment group entry is configured with the X.509 certificate associated with the intermediate or root CA, as well as any configuration values, such as twin state and IoT hub connection, that are shared by devices with that certificate in their certificate chain. To blacklist the certificate, you can either disable or delete its enrollment group:
 
-- To temporarily blacklist the signing certificate, you can disable its enrollment group. 
+- To temporarily blacklist the certificate, you can disable its enrollment group. 
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
     2. Click the provisioning service you want to blacklist the signing certificate from in the list of resources.
@@ -69,7 +69,7 @@ An enrollment group is an entry for devices that share a common attestation mech
         ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
     
-- To permanently blacklist the signing certificate, you can delete its enrollment group.
+- To permanently blacklist the certificate, you can delete its enrollment group.
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
     2. Click the provisioning service you want to blacklist your device from in the list of resources.
@@ -80,6 +80,9 @@ An enrollment group is an entry for devices that share a common attestation mech
         ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
     6. Once the action is completed, you will see your entry removed from the list of enrollment groups.  
+
+> [!NOTE]
+> If you delete an enrollment group for a certificate, devices that have that certificate in their certificate chain may still be able to enroll if an enabled enrollment group for the root certificate or another intermediate certificate higher up in their signing chain exists.
 
 ## Blacklist specific devices in an enrollment group
 

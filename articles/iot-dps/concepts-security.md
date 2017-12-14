@@ -77,10 +77,11 @@ The provisioning service exposes two types of enrollment entry that you can use 
 - [Individual enrollment](./concepts-service.md#individual-enrollment) entries are configured with the device certificate associated with a specific device. These entries control enrollment for specific devices.
 - [Enrollment group](./concepts-service.md#enrollment-group) entries are associated with a specific intermediate or root CA certificate. These entries control enrollment for all devices that have that intermediate or root certificate in their certificate chain. 
 
-It's important to understand how the provisioning service processes enrollment entries:
+When a device connects to the provisioning service, the service prioritizes more specific enrollment entries over less specific enrollment entries. That is, if an individual enrollment for the device exists, the provisioning service applies that entry. If there is no individual enrollment for the device and an enrollment group for the first intermediate certificate in the device's certificate chain exists, the service applies that entry, and so on up the chain to the root. The service applies the first applicable entry that it finds, such that:
 
-- For a device to be provisioned, it must have either an enabled individual enrollment for its device certificate or an enabled enrollment group for the root certificate or one of the intermediate certificates in its certificate chain. 
-- Disabled enrollment entries take precedence over enabled entries. This means that a device will not be provisioned if either a disabled individual enrollment for the device or a disabled group enrollment for the root or one of the intermediate certificates in the device's certificate chain exists -- regardless of whether enabled enrollment entries exist for other certificates in the device's chain. 
+- If the first enrollment entry found is enabled, the service provisions the device.
+- If the first enrollment entry found is disabled, the service does not provision the device.  
+- If no enrollment entry is found for any of the certificates in the device's certificate chain, the service does not provision the device. 
 
 This mechanism and the hierarchical structure of certificate chains provides powerful flexibility in how you can control access for individual devices as well as for groups of devices. For example, imagine five devices with the following certificate chains: 
 
