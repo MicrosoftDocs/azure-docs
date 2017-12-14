@@ -37,7 +37,7 @@ You should consider the following information before you configure scaling for y
 
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-* Auto Scale only happens when all the roles are in Ready State.  
+* Auto Scale only happens when all the roles are in **Ready** state.  
 
 
 ## Where scale is located
