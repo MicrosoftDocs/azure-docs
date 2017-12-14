@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](python-quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
 
-These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -30,7 +30,6 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     > ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 
-<a id="setupdevbox"></a>
 ## Prepare the development environment 
 
 1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
@@ -59,11 +58,13 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     cmake -Duse_prov_client:BOOL=ON ..
     ```
 
-1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
+
+    ![TPM Simulator](./media/python-quick-create-simulated-device-x509/tpm-simulator.png)
 
 
 ## Create a device enrollment entry in the Device Provisioning Service
@@ -71,6 +72,8 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
 1. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
+
+    ![TPM setup](./media/python-quick-create-simulated-device/tpm-setup.png)
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
@@ -89,7 +92,6 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 
-<a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
 
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
@@ -101,16 +103,10 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
-1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages or proceed with the following manual steps:
-    - Download [Boost](http://www.boost.org/users/download/) and extract the files.
-        - Open a Visual Studio command prompt, navigate to the _boost\_{version}_ folder, and run the following commands:
-            - `boostrap.bat`
-            - `bjam` or `bjam address-model=64` for 64-bit
-        - Set an enviornment variable **BOOST\_ROOT** to the Boost's folder location
-    - Download [OpenSSL](https://www.openssl.org/source/) and extract the files.
-        - Set the following environment variables to the OpenSSL's folder location: **OpenSSLDir**, **OPENSSL\_CONF**, and **OPENSSL\_ROOT\_DIR**
-    - Navigate to _azure-iot-sdk-python/build\_all/windows_
-        - Run the command `build_client --use_tpm_simulator`
+1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
+
+    > [!NOTE]
+        > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
 
 1. Navigate to the samples folder.
 
@@ -135,6 +131,8 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```cmd/sh
     python provisioning_device_client_sample.py
     ```
+
+    ![Successful registration](./media/python-quick-create-simulated-device/registration-success.png)
 
 1. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
 
