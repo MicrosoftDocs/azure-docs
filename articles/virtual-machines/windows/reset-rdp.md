@@ -19,7 +19,7 @@ ms.author: genli
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration, this is not supported on Windows Domain Controllers. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password. If you are using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the Classic deployment model](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
@@ -60,7 +60,8 @@ $cred=Get-Credential
 ```
 
 > [!NOTE] 
-> If you type a different name than the current local administrator account on your VM, the VMAccess extension renames the local administrator account, assigns your specified password to that account, and issues a Remote Desktop logoff event. If the local administrator account on your VM is disabled, the VMAccess extension enables it.
+> If you type a different name than the current local administrator account on your VM, the VMAccess extension will add a local administrator account with that name, and assign your specified password to that account. If the local administrator account on your VM exists, it will reset the password and if the account is disabled, the VMAccess extension enables it.
+
 
 The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to the credentials specified.
 
