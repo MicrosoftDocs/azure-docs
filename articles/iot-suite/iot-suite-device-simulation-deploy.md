@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Deploy Azure IoT Device Simulation
+# Deploy the Azure IoT device simulation solution
 
-This tutorial shows you how to provision Device Simulation. You deploy the solution from azureiotsuite.com.
+This tutorial shows you how to provision a device simulation solution. You deploy the solution from azureiotsuite.com.
 
 In this tutorial, you learn how to:
 
@@ -47,7 +47,7 @@ Before you deploy the solution to your Azure subscription, you must choose some 
 
 1. Select the **Subscription** and **Region** you want to use to provision the solution.
 
-1. Specify if you want a new IoT Hub deployed with your Device simulation solution. If you check this box, a new IoT Hub is deployed into your subscription. Regardless of choice, you can always point your simulation at any IoT Hub.
+1. Specify if you want a new IoT Hub deployed with your device simulation solution. If you check this box, a new IoT Hub is deployed into your subscription. Regardless of choice, you can always point your simulation at any IoT Hub.
 
 1. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run:
 
@@ -57,7 +57,7 @@ Before you deploy the solution to your Azure subscription, you must choose some 
 
 When the provisioning process is complete, you can sign in to your device simulation solution.
 
-1. On the **Provisioned solutions** page, click **Launch** under your new Device simulation solution:
+1. On the **Provisioned solutions** page, click **Launch** under your new device simulation solution:
 
     ![Choose new solution](media/iot-suite-device-simulation-deploy/newsolution.png)
 
