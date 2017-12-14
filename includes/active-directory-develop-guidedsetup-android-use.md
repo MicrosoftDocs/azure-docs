@@ -216,6 +216,7 @@
 
     }
     ```
+
 <!--start-collapse-->
 ### More information
 #### Get a user token interactive
