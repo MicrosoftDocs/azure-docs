@@ -176,8 +176,10 @@
         href: site-recovery-prepare-target-physical-to-azure.md
     - name: Configure replication settings for VMware to Azure
       href: site-recovery-setup-replication-settings-vmware.md
-    - name: Exclude disks from replication
+    - name: Exclude disks from replication for VMware to Azure
       href: site-recovery-exclude-disk.md
+    - name: Exclude disks from replication for Hyper-V to Azure
+      href: site-recovery-hyper-v-exclude-disk.md
     - name: Deploy the Mobility service for VMware replication
       href: site-recovery-vmware-to-azure-install-mob-svc.md
       items:
