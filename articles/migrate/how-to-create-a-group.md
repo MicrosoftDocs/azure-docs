@@ -1,21 +1,15 @@
 ---
 title: Group machines for assessment with Azure Migrate | Microsoft Docs
 description: Describes how to group machines before you run an assessment with the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 5c279804-aa30-4946-a222-6b77c7aac508
-ms.service: migrate
+ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
 ---
+
+
 
 # Group machines for assessment
 

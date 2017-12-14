@@ -22,8 +22,12 @@
     href: storage-quickstart-blobs-java.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Ruby 
+    href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
+  - name: Work with blobs - Storage Explorer
+    href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutorials
   items:
   - name: Upload and process an image
@@ -44,6 +48,16 @@
         href: storage-simulate-failure-ragrs-account-app.md
   - name: Search unstructured data in cloud storage
     href: storage-unstructured-search.md
+  - name: Optimize storage application performance and scalability
+    items:
+      - name: Create a VM and storage account
+        href: storage-blob-scalable-app-create-vm.md
+      - name: Upload large data to an Azure storage account
+        href: storage-blob-scalable-app-upload-files.md
+      - name: Download large data from a Azure storage account
+        href: storage-blob-scalable-app-download-files.md
+      - name: Verify throughput and latency metrics
+        href: storage-blob-scalable-app-verify-metrics.md
 - name: Samples
   items:
   - name: .NET
