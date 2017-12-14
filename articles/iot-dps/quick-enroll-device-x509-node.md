@@ -18,7 +18,7 @@ ms.custom: mvc
 # Enroll X.509 devices to IoT Hub Device Provisioning Services
 > [!div class="op_single_selector"]
 > * [TPM](quick-create-simulated-device.md)
-> * [X.509](quick-create-simualted-device-x509.md)
+> * [X.509](quick-create-simulated-device-x509.md)
  
 These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using sample code available in the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node). Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for this article.
  
