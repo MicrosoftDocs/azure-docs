@@ -110,14 +110,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign-on URL** box, type a URL with the following pattern: `https://<subdomain>.webex.com`
 
-    b. In the **Identifier** box, type the URL `http://www.webex.com`
+    b. In the **Identifier** box, type the URL `http://www.webex.com`.
 
 	c. In the **Reply URL** box, type a URL with the following pattern: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual reply URL and sign-on URL. Contact [Cisco Webex Client support team](https://www.webex.co.in/support/support-overview.html) to get these values. 
 
-5. On the **SAML Signing Certificate** section, select **Metadata XML** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, select **Metadata XML**, and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
@@ -164,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	j. Select **Update**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app! After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app! After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -241,7 +241,7 @@ In this section, you enable the user Britta Simon to use Azure single sign-on by
 
 **To assign Britta Simon to Cisco Webex, take the following steps:**
 
-1. In the Azure portal, open the applications view. Next, go to the directory view and then to **Enterprise applications**.  
+1. In the Azure portal, open the applications view. Next, go to the directory view, and then to **Enterprise applications**.  
 
 2. Select **All applications**.
 
@@ -261,7 +261,7 @@ In this section, you enable the user Britta Simon to use Azure single sign-on by
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the Users list.
 
-6. Click the **Select** button in the **Users and groups** dialog box.
+6. In the **Users and groups** dialog box, click the **Select** button .
 
 7. Select the **Assign** button in the **Add Assignment** dialog box.
 	
@@ -269,7 +269,7 @@ In this section, you enable the user Britta Simon to use Azure single sign-on by
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you click the Cisco Webex tile in the access panel, you should get automatically signed in to your Cisco Webex application.
+When you select the Cisco Webex tile in the access panel, you automatically get signed in to your Cisco Webex application.
 
 For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
