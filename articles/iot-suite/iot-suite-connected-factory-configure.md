@@ -329,7 +329,7 @@ The configuration for this OPC UA node looks like the following snippet:
 },
 ```
 
-This configuration enables querying of the telemetry values of this node using Time Series Insights. The central Time Series Insights query retrieves:
+This configuration enables querying of the telemetry values of this node using Time Series Insights. The Time Series Insights query retrieves:
 
 * The number of values.
 * The minimal value.
