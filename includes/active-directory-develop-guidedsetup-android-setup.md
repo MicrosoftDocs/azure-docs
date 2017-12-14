@@ -34,54 +34,53 @@ The package in the preceding code installs Microsoft Authentication Library. MSA
 3. Add the `android:orientation="vertical"` property to the `LinearLayout` node.
 4. Paste the following code into the `LinearLayout` node, replacing the current content:
 
-```xml
-<TextView
-    android:text="Welcome, "
-    android:textColor="#3f3f3f"
-    android:textSize="50px"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="15dp"
-    android:id="@+id/welcome"
-    android:visibility="invisible"/>
-
-<Button
-    android:id="@+id/callGraph"
-    android:text="Call Microsoft Graph"
-    android:textColor="#FFFFFF"
-    android:background="#00a1f1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="200dp"
-    android:textAllCaps="false" />
-
-<TextView
-    android:text="Getting Graph Data..."
-    android:textColor="#3f3f3f"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:id="@+id/graphData"
-    android:visibility="invisible"/>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dip"
-    android:layout_weight="1"
-    android:gravity="center|bottom"
-    android:orientation="vertical" >
+    ```xml
+    <TextView
+        android:text="Welcome, "
+        android:textColor="#3f3f3f"
+        android:textSize="50px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/welcome"
+        android:visibility="invisible"/>
 
     <Button
-        android:text="Sign Out"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/callGraph"
+        android:text="Call Microsoft Graph"
         android:textColor="#FFFFFF"
         android:background="#00a1f1"
-        android:textAllCaps="false"
-        android:id="@+id/clearCache"
-        android:visibility="invisible" />
-</LinearLayout>
-```
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textAllCaps="false" />
 
+    <TextView
+        android:text="Getting Graph Data..."
+        android:textColor="#3f3f3f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/graphData"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:text="Sign Out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:textColor="#FFFFFF"
+            android:background="#00a1f1"
+            android:textAllCaps="false"
+            android:id="@+id/clearCache"
+            android:visibility="invisible" />
+    </LinearLayout>
+    ```
