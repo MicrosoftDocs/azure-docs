@@ -18,13 +18,13 @@ ms.custom: mvc
  # Enroll X.509 devices to IoT Hub Device Provisioning Services
  > [!div class="op_single_selector"]
  > * [TPM](quick-create-simulated-device.md)
- > * [X.509](quick-create-simualted-device-x509.md)
+ > * [X.509](quick-create-simulated-device-x509.md)
  
- These steps show how to enroll TPM simulated devices programmatically to the Azure IoT Hub Device Provisioning Service, using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) with the help of a sample Node.js application. Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for the purpose of this article.
+ These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) and a sample Node.js application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for the purpose of this article.
  
  Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed. 
 
-If you want to enroll a simulated device at the end of this tutorial, follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) up until the step where you get an endorsement key for the device. Note down the endorsement key, you will use it later in this quickstart. **Do not follow the steps to create an individual enrollment using the Azure portal.**
+If you want to enroll a simulated device at the end of this Quickstart, follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) up until the step where you get an endorsement key for the device. Note down the endorsement key, you will use it later in this Quickstart. **Do not follow the steps to create an individual enrollment using the Azure portal.**
  
 <a id="setupdevbox"></a>
  
@@ -87,16 +87,18 @@ If you want to enroll a simulated device at the end of this tutorial, follow the
 
     ![Enrollment properties in the portal](./media/quick-enroll-device-tpm-node/verify-enrollment-portal.png) 
  
+Now that you've created an individual enrollment for a TPM device, if you want to enroll a simulated device, you can continue with the remaining steps in [Create and provision a simulated device](quick-create-simulated-device.md). Be sure to Skip the steps to create an individual enrollment using the Azure portal in that Quickstart.
+
+
 ## Clean up resources
-**TBD**
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
- 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
-4. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
+If you plan to explore the Node.js service samples, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+
+1. Close the Node.js sample output window on your machine.
+1. If you created a simulated TPM device, close the TPM simulator window.
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
  
 ## Next steps
-**TBD**
-In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you’ve programmatically created an individual enrollment entry for a TPM device, and, optionally, created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
