@@ -32,6 +32,10 @@ To set or change the service tier, performance level, or storage amount for a ne
 
 ![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Click **Overview** to monitor and/or cancel an ongoing operation.
+
+![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
 >
