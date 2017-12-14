@@ -11,7 +11,7 @@
 ## [Connect to Azure Government from Visual Studio](documentation-government-get-started-connect-with-vs.md)
 ## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-
+## [Connect to Azure Government from SSMS](documentation-government-connect-ssms.md)
 
 # How To
 ## Plan

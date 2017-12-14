@@ -127,7 +127,9 @@
     - name: Classify US incomes - TDSP project
       href: scenario-tdsp-classifying-us-incomes.md
     - name: Image classification using CNTK
-      href: scenario-image-classification-using-cntk.md     
+      href: scenario-image-classification-using-cntk.md
+    - name: Deep Learning for Predictive Maintenance 
+      href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Reference
   items:  
   - name: Data preparation
@@ -176,6 +178,8 @@
       href: release-notes-sprint-0.md
     - name: Sprint 1 - November 2017
       href: release-notes-sprint-1.md
+    - name: Sprint 2 - December 2017
+      href: release-notes-sprint-2.md
 - name: Resources
   items:  
   - name: Frequently asked questions

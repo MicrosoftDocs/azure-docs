@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management access restriction policies
@@ -22,17 +22,11 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="AccessRestrictionPolicies"></a> Access restriction policies  
   
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.  
-  
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.  
-  
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.  
-  
 -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.  
-  
 -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  
-  
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.  
-  
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.  
   
 ##  <a name="CheckHTTPHeader"></a> Check HTTP header  
@@ -231,7 +225,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ##  <a name="SetUsageQuota"></a> Set usage quota by subscription  
@@ -287,7 +280,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
@@ -348,7 +340,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ##  <a name="ValidateJWT"></a> Validate JWT  
@@ -519,8 +510,13 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

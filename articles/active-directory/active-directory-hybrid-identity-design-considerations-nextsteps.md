@@ -4,7 +4,7 @@ description: A synopsis and next steps after you have read the Hybrid Identity d
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789

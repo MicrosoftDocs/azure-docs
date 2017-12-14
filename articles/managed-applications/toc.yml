@@ -12,8 +12,6 @@
   items:
   - name: Create service catalog application
     href: publish-service-catalog-app.md
-  - name: Create marketplace application
-    href: publish-marketplace-app.md
 - name: Samples
   items:
   - name: Azure CLI
