@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/30/2017
+ms.date: 12/13/2017
 ms.author: genli
 
 ---
-# Add or change Azure administrator roles that manage the subscription or services
+# Add or change Azure subscription administrators
 
-You can change the Azure administrator that manages your Azure subscription or manages the Azure services used in your subscription. To view Azure billing information and manage subscriptions, you must sign in to the Account Center as the Account Administrator. 
+Use Azure Role-Based Access Control (RBAC) and classic subscription administrator roles to manage access to your Azure subscription. To view Azure billing information and manage subscriptions, you must sign in to the Account Center as the Account Administrator. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
 ## Add an RBAC Owner admin for a subscription in Azure portal 
 
-To add someone as an admin for a subscription in the Azure portal, we recommend giving them an [RBAC](../active-directory/role-based-access-control-configure.md) Owner role. The Owner role can manage the resources in the subscription that you assigned and doesn't have access privilege to other subscriptions. The Owners you add through the [Azure portal](https://portal.azure.com) can't manage resource in the [Azure classic portal](https://manage.windowsazure.com).
+To add someone as an admin for Azure subscription service administration, we recommend giving them an [RBAC](../active-directory/role-based-access-control-what-is.md) Owner role. The Owner role can manage the resources in the subscription that you assigned and doesn't have access privilege to other subscriptions.
 
 1. Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription that you want the admin to access.
@@ -39,13 +39,14 @@ To add someone as an admin for a subscription in the Azure portal, we recommend 
 
 Only an Owner can be added as a Co-administrator. Other users with roles such as Contributor and Reader cannot be added as Co-administrators.
 
+    >[!TIP]
+    >You only need to add the "Owner" account as co-administrator if the user needs to manage Azure classic deployments. We recommend using RBAC for all other purposes.
+
 1. If you haven't already, add someone as an Owner following instructions from above.
-2. **Right-click** the Owner user you just added, and then select **Add as co-administrator**. If you do not see the **Add as co-administrator** option, fresh the page or try another Internet browser. 
+2. **Right-click** the Owner user you just added, and then select **Add as co-administrator**. If you do not see the **Add as co-administrator** option, refresh the page or try another Internet browser. 
 
      ![Screenshot that adds co-administrator](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    >[!TIP]
-    >You need to add the "Owner" account as co-administrator if the user needs to manage the Azure services in [Azure classic portal](https://manage.windowsazure.com/).
 
     To remove the Co-administrator permission, **right-click** the "Co-administrator" user and then select **Remove co-administrator**.
 
@@ -55,7 +56,7 @@ Only an Owner can be added as a Co-administrator. Other users with roles such as
 
 ## Change the Service Administrator for an Azure subscription
 
-Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up, the Service Administrator is the same as the Account Administrator.
+Only the Account Administrator can change the Service Administrator for a subscription. By default, when you sign up, the Service Administrator is the same as the Account Administrator. If the Service Administrator is changed to a different user, then the Account Administrator loses access to Azure portal. However, the Account Administrator can always use Account Center to change the Service Administrator back to themselves.
 
 1. Make sure your scenario is supported by checking the [limits for changing Service Administrators](#limits).
 1. Sign in to [Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
@@ -71,7 +72,7 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 ### Limitations for changing Service Administrators
 
-* Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the directory.
+* Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, go to [**Subscriptions**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), then select a subscription to see the directory.
 * If you are signed in with a Work or School account, you can add other accounts in your organization as Service Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator, but can't add john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. Users signed in with Work or School accounts can continue to add Microsoft Account users as Service Administrator.
 
   | Sign-in Method | Add Microsoft Account user as SA? | Add Work or School account in the same organization as SA? | Add Work or School account in different organization as SA? |
@@ -81,27 +82,27 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 ## Change the Account Administrator for an Azure subscription
 
-To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](billing-subscription-transfer.md).
+The Account Admin is the user that initially signed up for the Azure subscription, and is responsible as the billing owner of the subscription. To change the Account Administrator of a subscription, see [Transfer ownership of an Azure subscription to another account](billing-subscription-transfer.md).
 
 <a name="check-the-account-administrator-of-the-subscription"></a>
 
 **Not sure who the Account Administrator is?** Follow these steps:
 
-1. Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sign in to the [**Subscriptions** in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
-## Types of Azure admin accounts
+## Types of subscription admins vs. RBAC
 
- Account Administrator, Service Administrator, and Co-administrator are the three kinds of administrator roles in Microsoft Azure. The following table describes the difference between these three administrative roles.
+ Account Administrator, Service Administrator, and Co-administrator are the three kinds of classic subscription administrator roles in Azure. The following table describes the difference between these three administrative roles. 
 
-| Administrative role | Limit | Description |
+| Classic subscription administrator | Limit | Description |
 | --- | --- | --- |
-| Account Administrator (AA) |1 per Azure account |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator. |
-| Service Administrator (SA) |1 per Azure subscription |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator. |
-| Co-administrator (CA) in the [Azure classic portal](https://manage.windowsazure.com) |200 per subscription |This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. |
+| Account Administrator (AA) |1 per Azure account |This is the user who signed up for the Azure subscription, and is authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks. These include being able to create new subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator. Conceptually, the Account Admin is the billing owner of the subscription. In RBAC, the Account Administrator isn't assigned a role.|
+| Service Administrator (SA) |1 per Azure subscription |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator. In RBAC, the Owner role is given to the Service Administrator at the subscription scope.|
+| Co-administrator (CA) |200 per subscription |This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. In RBAC, the Owner role is given to the Co-Administrator at the subscription scope.|
 
-Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+If possible, we recommend using Azure Role-based Access Control (RBAC), which allows users to be added to multiple roles. To learn more, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 
 ## Learn more about resource access control and Active Directory
