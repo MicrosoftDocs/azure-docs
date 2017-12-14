@@ -62,8 +62,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
     ![Link the hub name to link to the DPS instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
-3. Now you should see the selected hub under the **Linked IoT hubs** blade. 
-Note: You might need to hit the "Refresh" button to show the **Linked IoT hubs**.
+3. Now you should see the selected hub under the **Linked IoT hubs** blade. You might need to click **Refresh** to show **Linked IoT hubs**.
 
 
 
