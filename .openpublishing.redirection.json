@@ -237,7 +237,7 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-state.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-state",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -617,7 +617,7 @@
         },
         {
             "source_path": "articles/resource-manager-template-best-practices.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-best-practices",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
         },
         {
@@ -633,6 +633,16 @@
         {
             "source_path": "articles/resource-manager-template-links.md",
             "redirect_url": "/rest/api/resources/resourcelinks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-best-practices.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-state.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
