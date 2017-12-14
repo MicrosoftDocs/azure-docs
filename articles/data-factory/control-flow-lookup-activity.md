@@ -77,7 +77,7 @@ The Lookup result is returned in the `output` section in the activity run result
 }
 ```
 
-**When `firstRowOnly` is set to `false`**, the output foramt is as follows. A `count` field indicates how many records are returned, and detailed values are under a fixed `value` array. In such case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md), you can pass the `value` array to ForEach activity `items` field using the pattern of `@activity('MyLookupActivity').output.value`.
+**When `firstRowOnly` is set to `false`**, the output foramt is as follows. A `count` field indicates how many records are returned, and detailed values are under a fixed `value` array. In such case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md), you can pass the `value` array to ForEach activity `items` field using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value`, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. `Here is an example: @{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
