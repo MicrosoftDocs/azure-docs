@@ -20,21 +20,21 @@ ms.author: magoedte
 # Forward job status and job streams from Automation to Log Analytics (OMS)
 Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
-* Get insight on your Automation jobs
-* Trigger an email or alert based on your runbook job status (for example, failed or suspended)
-* Write advanced queries across your job streams
-* Correlate jobs across Automation accounts
-* Visualize your job history over time     
+* Get insight on your Automation jobs.
+* Trigger an email or alert based on your runbook job status (for example, failed or suspended).
+* Write advanced queries across your job streams.
+* Correlate jobs across Automation accounts.
+* Visualize your job history over time.
 
 ## Prerequisites and deployment considerations
 To start sending your Automation logs to Log Analytics, you need:
 
-1. The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-2. A Log Analytics workspace. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 
-3. The ResourceId for your Azure Automation account
+* The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* A Log Analytics workspace. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 
+* The ResourceId for your Azure Automation account.
 
 
-To find the ResourceId for your Azure Automation account 
+To find the ResourceId for your Azure Automation account:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
@@ -57,12 +57,12 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 1. On your computer, start **Windows PowerShell** from the **Start** screen.
 2. Run the following PowerShell, and edit the value for the `[your resource id]` and `[resource id of the log analytics workspace]` with the values from the preceding step.
 
-```powershell-interactive
-$workspaceId = "[resource id of the log analytics workspace]"
-$automationAccountId = "[resource id of your automation account]"
+   ```powershell-interactive
+   $workspaceId = "[resource id of the log analytics workspace]"
+   $automationAccountId = "[resource id of your automation account]"
 
-Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
-```
+   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   ```
 
 After running this script, you'll see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
 
@@ -77,8 +77,8 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 In the output ensure that:
-+ Under *Logs*, the value for *Enabled* is *True*
-+ The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace
++ Under *Logs*, the value for *Enabled* is *True*.
++ The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace.
 
 ## Log Analytics records
 
@@ -164,13 +164,13 @@ Finally, you may want to visualize your job history over time. You can use this 
 
 ## Summary
 By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by:
-+ Setting up alerts to notify you when there is an issue
++ Setting up alerts to notify you when there is an issue.
 + Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
 
 Log Analytics provides greater operational visibility to your Automation jobs and can help address incidents quicker.  
 
 ## Next steps
-* To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md)
-* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
-* To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+* To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
+* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
+* To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
