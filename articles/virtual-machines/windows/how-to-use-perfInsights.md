@@ -60,8 +60,7 @@ This is a passive collection of information that shouldn't affect the system.
 This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
 > [!Note]
-> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ### Slow VM analysis 
@@ -73,8 +72,7 @@ This scenario runs a [performance counter](https://msdn.microsoft.com/library/wi
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [Diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
-> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ### Azure Files analysis 
@@ -104,8 +102,7 @@ This scenario runs a special performance counter capture together with a network
 When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (Performance Counter, Xperf, Network, and StorPort) if you want. After tracing is completed, the tool runs the Diskspd benchmark, if it is selected. 
 
 > [!Note]
-> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
-> increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An increased workload that is caused by a trace or benchmark test can adversely affect the performance of your VM.
 >
 
 ## What kind of information is collected by the script?
@@ -219,7 +216,7 @@ To run the PerfInsights script, follow these steps:
 
     You might have to enter "y" to confirm that you want to change the execution policy.
 
-    In the Notice and Consent dialog box, you have the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then select **Run Script**.
+    In the **Notice and Consent** dialog box, you have the option to share diagnostic information with Microsoft Support. You must also consent to the license agreement to continue. Make your selections, and then select **Run Script**.
 
     ![Screenshot of Notice and Consent dialog box](media/how-to-use-perfInsights/disclaimer.png)
 
@@ -284,7 +281,7 @@ When the traces or operations are completed, a new file appears in D:\\log\_coll
 
 ## Review the diagnostics report
 
-Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip file,**, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
+Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
 
 Select the **Findings** tab.
 
