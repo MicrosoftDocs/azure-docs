@@ -1,6 +1,6 @@
 ---
-title: Using the HBase REST SDK - Azure HDInsight | Microsoft Docs
-description: 
+title: Use the HBase .NET SDK - Azure HDInsight | Microsoft Docs
+description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -18,22 +18,21 @@ ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
 ---
-# Using the HBase REST SDK
+# Use the HBase .NET SDK
 
-When you use [HBase](hdinsight-hbase-overview.md) as your massively scalable NoSQL database, you are given two primary choices to work with your data: [Hive queries and calls to HBase's RESTful API](hdinsight-hbase-tutorial-get-started-linux.md). A common way to work with the REST API is through the use of `curl`, or similar.
+[HBase](hdinsight-hbase-overview.md) provides two primary choices to work with your data: [Hive queries, and calls to HBase's RESTful API](hdinsight-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 
-If your developers are more familiar with `C#`, with .NET as the platform of choice, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API, and is available as a NuGet package to quickly get started.
+For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API.
 
-## Installing the SDK
+## Install the SDK
 
 The HBase .NET SDK is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
     Install-Package Microsoft.HBase.Client
 
+## Instantiate a new HBaseClient object
 
-## Instantiating a new HBaseClient object
-
-To begin using the library, you must instantiate a new `HBaseClient` object, passing in `ClusterCredentials` composed of the `Uri` to your cluster, the Hadoop user name and password.
+To use the SDK, instantiate a new `HBaseClient` object, passing in `ClusterCredentials` composed of the `Uri` to your cluster, and the Hadoop user name and password.
 
 ```c#
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
@@ -44,11 +43,11 @@ Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PAS
 
 ## Create a new table
 
-HBase, like any other RDBMS, stores data in tables. A table consists of a `Rowkey`, the primary key and one or more group of columns known as **Column families**. The data in table is horizontally distributed by `Rowkey` range into **Regions**. Each region has a start and end key. A table can have one or more regions. As the data in table grows, HBase splits large regions into smaller regions. Regions are stored in **Region Servers**. One region server can store multiple regions.
+HBase stores data in tables. A table consists of a *Rowkey*, the primary key, and one or more groups of columns called *column families*. The data in each table is horizontally distributed by a Rowkey range into *regions*. Each region has a start and end key. A table can have one or more regions. As the data in table grows, HBase splits large regions into smaller regions. Regions are stored in *region servers*, where one region server can store multiple regions.
 
-The data is physically stored in **HFiles**. A single HFile contains data for one table, one region and one column family. Rows in HFile are stored sorted on Rowkey. HFile has a B+ Tree index for speedy retrieval of the rows.
+The data is physically stored in *HFiles*. A single HFile contains data for one table, one region, and one column family. Rows in HFile are stored sorted on Rowkey. Each HFile has a *B+ Tree* index for speedy retrieval of the rows.
 
-To create a new table, you specify a `TableSchema` and columns. In the code below, we are first checking for the existence of the table prior to creating it.
+To create a new table, specify a `TableSchema` and columns. The following code checks whether the table 'RestSDKTable` already exists - if not, the table is created.
 
 ```c#
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -62,19 +61,19 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-We created a new table named "RestSDKTable" with two column families, t1 and t2. As discussed above, column families are stored separately in different HFiles, thus it makes sense to have a separate column family for data which is queried often. For example, we'll add columns to the t1 column family that we'll query often.
+This new table has two column families, t1 and t2. Since column families are stored separately in different HFiles, it makes sense to have a separate column family for frequently queried data. In the following [Insert data](#insert-data) example, columns are added to the t1 column family.
 
 ## Delete a table
 
-Deleting a table is as simple as this:
+To delete a table:
 
 ```c#
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
-## Inserting data
+## Insert data
 
-When you insert data, you must specify a unique row key. This serves as the Id for the row. All of the data is stored in a `byte[]` array. You'll notice that we are storing the `title`, `director`, and `release_date` columns within the t1 column family, and `description` and `tagline` within the t2 column family. This is because we tend to query the t1 column family more often. You may partition your data into column families however you see fit.
+To insert data, you specify a unique row key as the row identifier. All data is stored in a `byte[]` array. The following code defines and adds the `title`, `director`, and `release_date` columns to the t1 column family, as these columns are the most frequently accessed. The `description` and `tagline` columns are added to the t2 column family. You can partition your data into column families as needed.
 
 ```c#
 var key = "fifth_element";
@@ -116,14 +115,13 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implements BigTable. Thus, the format from our data above will look like:
+HBase implements BigTable, so the data format looks like the following:
 
 ![User with Cluster User role](./media/hdinsight-using-hbase-rest-sdk/table.png)
 
+## Select data
 
-## Selecting data
-
-To read data from the HBase table, pass the table name and row key to the `GetCellsAsync` method to return the `CellSet`.
+To read data from an HBase table, pass the table name and row key to the `GetCellsAsync` method to return the `CellSet`.
 
 ```c#
 var key = "fifth_element";
@@ -137,7 +135,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 // With the previous insert, it should yield: "The Fifth Element"
 ```
 
-In this case, we're just returning the first matching row (there should only be one when using a unique key), then converting the returned values into `string` format from the `byte[]` array. You may also convert the values to other types, such as an integer for our movie's release date:
+In this case, the code returns only the first matching row, as there should only be one row for a unique key. The returned value is changed into `string` format from the `byte[]` array. You can also convert the value to other types, such as an integer for the movie's release date:
 
 ```c#
 var releaseDateField = cells.rows[0].values
@@ -152,9 +150,9 @@ Console.WriteLine(releaseDate);
 // Should return 1997
 ```
 
-## Scanning over rows
+## Scan over rows
 
-HBase uses `scan` to retrieve one or more rows. In this example, we're requesting multiple rows in batches of 10, and retrieving data whose key values are between 25 and 35. After retrieving our rows, we delete the scanner to clean up resources.
+HBase uses `scan` to retrieve one or more rows. This example requests multiple rows in batches of 10, and retrieves data whose key values are between 25 and 35. After retrieving all rows, delete the scanner to clean up resources.
 
 ```c#
 var tableName = "mytablename";
@@ -190,10 +188,7 @@ finally
 }
 ```
 
-
-## Next steps
-
-In this article, we learned how to use the HBase .NET SDK to work with the HBase REST API. Learn more about HBase and other tools to work with its data by following the links below.
+## See also
 
 * [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * Build an end-to-end application with [Analyze real-time Twitter sentiment with HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

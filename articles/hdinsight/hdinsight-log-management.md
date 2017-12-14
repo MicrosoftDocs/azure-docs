@@ -18,22 +18,22 @@ ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashish
 ---
-# Manage Logs for a HDInsight Cluster
+# Manage logs for an HDInsight cluster
 
 This article provides guidance on management of the myriad log files that a HDInsight cluster produces.  Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Properly managing these log files is an important aspect of maintaining a healthy HDInsight cluster. The management of these files can also be dictated by regulatory requirements.  Also, due to number and size of logs, you want to optimize log storage and archival for service cost management.
 
 There are a set of general steps to take when managing HDInsight cluster logs.  They include retaining information about all aspects of the environment.  This includes, but is not limited to,  all associated Azure Services, cluster configuration, job execution information and any error states.  The most common steps taken in this process are listed below.
 
-### Managing HDInsight Cluster Log Steps  
+## Managing HDInsight Cluster Log Steps  
+
 * Step 1: Determine log retention policies
 * Step 2: Manage cluster service versions configuration logs
 * Step 3: Manage cluster Job Execution Log Files 
 * Step 4: Forcast log volume storage sizes and costs
 * Step 5: Determine log archive policies and processes
 
----
-
 ## Step 1: Determine log retention policies
+
 The first step in creating a HDInsight cluster(s) log management strategy is to gather information about business scenarios and job execution (log) history storage requirements. You will use this information to design and implement your cluster log management practices.
 
 #### Cluster Details

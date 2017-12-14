@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot a failed HDInsight cluster - Azure HDInsight | Microsoft Docs
+title: Troubleshoot a slow or failing HDInsight cluster - Azure HDInsight | Microsoft Docs
 description: Troubleshoot a slow or failing HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
 ---
-# Troubleshooting a Failed or Slow HDInsight Cluster
+# Troubleshoot a slow or failing HDInsight cluster
 
 This article walks you through the process of troubleshooting an HDInsight cluster that is either in the failed state, or running slowly. A 'Failed Cluster' is defined as one that has terminated with an error code. If your jobs are taking longer to run than expected, or you are seeing slow response times in general, you may be experiencing failures upstream from your cluster, such as the services on which the cluster runs. However, the most common cause of these slowdowns have to do with scale. When you provision a new HDInsight cluster, you have many options for selecting [virtual machine sizes](hdinsight-using-external-metadata-stores.md) to preserve your metadata when you delete and recreate your cluster.
 
@@ -32,7 +32,7 @@ There are a set of general steps to take when diagnosing a failed or slow cluste
 * Step 4: Review the environment stack and versions
 * Step 5: Examine the cluster log files
 * Step 6: Check configuration settings
-* Step 7: Reproduce the failure on a different Cluster 
+* Step 7: Reproduce the failure on a different cluster 
 
 ---
 
