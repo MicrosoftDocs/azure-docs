@@ -15803,6 +15803,11 @@
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-polybase-guide.md",
         "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
         "redirect_document_id": false
-      }
+      },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+      "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+      "redirect_document_id": true
+    }
     ]
 }
