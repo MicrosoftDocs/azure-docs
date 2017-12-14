@@ -16,6 +16,16 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
