@@ -153,7 +153,7 @@ You can get a free *Internal Transactions Level 1 Bing Maps for Enterprise* plan
 
 ### How to obtain your Bing Maps API for Enterprise QueryKey
 
-Once you have created your Bing Maps for Enterprise plan, add a Bing Maps for Enterprise resource to the resource group of your Connected factory solution in the Azure portal.
+Once you have created your Bing Maps API for Enterprise plan, add a Bing Maps for Enterprise resource to the resource group of your Connected factory solution in the Azure portal.
 
 1. In the Azure portal, navigate to the resource group that contains your Bing Maps API for Enterprise plan.
 
@@ -173,11 +173,11 @@ To enable the interactive map while you are debugging locally, set the value of 
 
 To change the static image shown io the home page of the dashboard, replace the image `WebApp\Content\img\world.jpg`. Then rebuild and redeploy the WebApp.
 
-### How do I use non OPC UA data with Connected factory?
+### How do I use non OPC UA devices with Connected factory?
 
 To send telemetry data from non OPC UA devices to Connected factory:
 
-1. Configure a new station in the Connected factory topology in the `ContosoTopologyDescription.json` file.
+1. [Configure a new station in the Connected factory topology](iot-suite-connected-factory-configure.md) in the `ContosoTopologyDescription.json` file.
 
 1. Ingest the telemetry data in Connected factory compatible JSON format:
 
