@@ -276,10 +276,10 @@ Then run `New-CADevice "<yourTestDevice>"` in your PowerShell window, using the 
 
 ## Clean up certificates
 
-In your start bar or **Settings** app, search for and select **Manage computer certificates**. Remove any certificates issued by **Azure IoT CA TestOnly\***. These certificates should exist in the following three locations: 
+In your start bar or **Settings** app, search for and select **Manage computer certificates**. Remove any certificates issued by **Azure IoT CA TestOnly***. These certificates should exist in the following three locations: 
 
 * Certificates - Local Computer > Personal > Certificates
 * Certificates - Local Computer > Trusted Root Certification Authorities > Certificates
 * Certificates - Local Computer > Intermediate Certificate Authorities > Certificates
 
-![Remove Azure IoT CA TestOnly certificates](./media/iot-hub-security-x509-create-certificates/cleanup.png)
+   ![Remove Azure IoT CA TestOnly certificates](./media/iot-hub-security-x509-create-certificates/cleanup.png)
