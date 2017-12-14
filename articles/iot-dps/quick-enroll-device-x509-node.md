@@ -24,7 +24,7 @@ These steps show how to programmatically create an enrollment group for an inter
  
 Before you proceed, make sure to complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md). 
 
-To complete this Quickstart, you need a .pem file that contains an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a certificate, and perform proof-of-possession with the service to verify the certificate. To use this tooling, clone the IoT c SDK and follow the steps in the `azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md` file.
+To complete this Quickstart, you need a .pem file that contains an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate, and perform proof-of-possession with the service to verify the certificate. To use this tooling, clone the IoT c SDK and follow the steps in the `azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md` file.
 
 <a id="setupdevbox"></a>
  
@@ -84,13 +84,13 @@ To complete this Quickstart, you need a .pem file that contains an intermediate 
     ![Enrollment properties in the portal](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## Clean up resources
-If you plan to continue working on and exploring enrollment groups, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all Azure resources created by this Quickstart.
+If you plan to to explore the Node.js service samples, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all Azure resources created by this Quickstart.
  
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
-4. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
+1. Close the Node.js sample output window on your machine.
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Enrollment Groups** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart and click the **Delete** button at the top of the blade.  
+3. From your Device Provisioning service in the Azure portal, click **Certificates**, click the certificate you uploaded for this Quickstart, and click the **Delete** button at the top of the **Certificate Details** window.  
  
 ## Next steps
-**TBD**
 In this Quickstart, you created a group enrollment for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
  
 > [!div class="nextstepaction"]
