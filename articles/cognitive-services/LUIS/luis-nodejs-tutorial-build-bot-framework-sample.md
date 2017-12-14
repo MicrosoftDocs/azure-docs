@@ -18,7 +18,7 @@ This tutorial walks you through building a bot with the [Bot Framework][BotFrame
 
 ## Prerequisite
 
-Before you create the bot, follow the steps in [Create an app](./luis-get-started-create-app) to build the LUIS app that it uses.
+Before you create the bot, follow the steps in [Create an app](./luis-get-started-create-app.md) to build the LUIS app that it uses.
 
 The bot responds to intents from the HomeAutomation domain that are in the LUIS app. For each of these intents, the LUIS app provides an intent that maps to it. The bot provides a dialog that handles the intent that LUIS detects.
 
