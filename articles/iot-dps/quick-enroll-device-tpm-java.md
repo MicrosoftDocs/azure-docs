@@ -99,7 +99,7 @@ This section shows how to add the provisioning details of your TPM device to the
 
 3. Optionally, you may choose to configure your provisioning service through the sample code:
     - To add this configuration to the sample, follow these steps:
-        1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](http://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
+        1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
             ```Java
             private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```

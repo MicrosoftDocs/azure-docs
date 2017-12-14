@@ -75,7 +75,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 This section shows how to add the provisioning details of your TPM device to the sample code. In the Java source code, navigate to the sample folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Open the file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** in an editor of your choice, and add the following details:
 
 1. Add the *Provisioning Connection String* for your provisioning service:
-    1. Navigate to your provisioning service in the [Azure portal](portal.azure.com). 
+    1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
     2. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
     3. Copy the **Primary key connection string**. 
 
@@ -120,7 +120,7 @@ This section shows how to add the provisioning details of your TPM device to the
  
 3. Optionally, you may choose to configure your provisioning service through the sample code:
     - To add this configuration to the sample, follow these steps:
-        1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
+        1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
             ```Java
             private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
