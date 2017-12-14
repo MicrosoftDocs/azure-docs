@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
 
 ---
@@ -89,8 +89,18 @@ Users, who are in scope, will see the following once a terms of use is created a
 ![Audit Event](media/active-directory-tou/tou10.png)
 -	This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
-- Users can see the terms of use that they have accpeted by navigating to https://myapps.microsoft.com.
 
+### Reviewing Access
+Users can review and see the terms of use that they have accepted.  This can be done using the following procedure:
+
+1. Navigate and sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. In the top right corner, click your name and select **Profile** from the drop-down.
+![Profile](media/active-directory-tou/tou14.png)
+
+3. On your Profile, click **Review terms of use**.
+![Audit Event](media/active-directory-tou/tou13.png)
+
+4.  From there you can review the terms of use you have accepted. 
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
 
