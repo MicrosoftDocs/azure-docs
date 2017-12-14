@@ -83,8 +83,9 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Where 
 
-$ObjectDN = The Active Directory account whose permissions need to be tightened.
-$Credential = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
 
 >[!NOTE] 
 >$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
