@@ -147,7 +147,7 @@ If you are unable to find a solution to your issue above, here are some other re
 * [Twitter]
 
 <!--Image references-->
-[Sketch]:./media/sql-data-warehouse-cheat-sheet/picture_flow.png
+[Sketch]:/media/sql-data-warehouse-cheat-sheet/picture_flow.png
 
 <!--Article references-->
 [data loading]:./design-elt-data-loading.md
