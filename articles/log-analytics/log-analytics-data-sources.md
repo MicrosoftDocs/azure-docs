@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 12/14/2017
 ms.author: bwren
 
 ---
@@ -43,7 +43,7 @@ You configure data sources from the **Data** menu in Log Analytics **Advanced Se
 
 ![Configure Windows events](./media/log-analytics-data-sources/configure-events.png)
 
-1. In the Azure portal, select **Log Analytics** > your workspace . **Advanced Settings**.
+1. In the Azure portal, select **Log Analytics** > your workspace > **Advanced Settings**.
 2. Select **Data**.
 3. Click on the data source you want to configure.
 4. Follow the link to the documentation for each data source in the above table for details on their configuration.

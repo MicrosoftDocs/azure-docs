@@ -1,6 +1,6 @@
 ---
-title: Collect custom logs in OMS Log Analytics | Microsoft Docs
-description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the OMS repository.
+title: Collect custom logs in Azure Log Analytics | Microsoft Docs
+description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the Log Analytics workspace.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
 
 ---
@@ -39,10 +39,10 @@ The log files to be collected must match the following criteria.
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
 ### Step 1. Open the Custom Log Wizard
-The Custom Log Wizard runs in the OMS portal and allows you to define a new custom log to collect.
+The Custom Log Wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
-1. In the OMS portal, go to **Settings**.
-2. Click on **Data** and then **Custom logs**.
+1. In the Azure portal, select **Log Analytics** > your workspace > **Advanced Settings**.
+2. Click on **Data** > **Custom logs**.
 3. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 4. Click **Add+** to open the Custom Log Wizard.
 
@@ -51,7 +51,7 @@ You start by uploading a sample of the custom log.  The wizard will parse and di
 
 **New Line** is the default delimiter and is used for log files that have a single entry per line.  If the line starts with a date and time in one of the available formats, then you can specify a **Timestamp** delimiter which supports entries that span more than one line.
 
-If a timestamp delimiter is used, then the TimeGenerated property of each record stored in OMS will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
+If a timestamp delimiter is used, then the TimeGenerated property of each record stored in Log Analyticss will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
 
 
 1. Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
@@ -100,13 +100,12 @@ The entire log entry will be stored in a single property called **RawData**.  Yo
 
 Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](log-analytics-custom-fields.md) documentation for this information.
 
-## Disabling a custom log
-You cannot remove a custom log definition once it's been created, but you can disable it by removing all of its collection paths.
+## Removing a custom log
+Use the following process in the Azure portal to remove a custom log that you previously defined.
 
-1. In the OMS portal, go to **Settings**.
-2. Click on **Data** and then **Custom logs**.
-3. Click **Details** next to the custom log definition to disable.
-4. Remove each of the collection paths for the custom log definition.
+1. From the **Data** menu in the **Advanced Settings** for your workspace, select **Custom Logs** to list all your custom logs.
+2. Click **Remove** next to the custom log to remove.
+
 
 ## Data collection
 Log Analytics will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect entries from where it last left off, even if those entries were created while the agent was offline.
@@ -124,7 +123,7 @@ Custom log records have a type with the log name that you provide and the proper
 | ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
 
 ## Log searches with custom log records
-Records from custom logs are stored in the OMS repository just like records from any other data source.  They will have a type matching the name that you provide when you define the log, so you can use the Type property in your search to retrieve records collected from a specific log.
+Records from custom logs are stored in the Log Analytics workspace just like records from any other data source.  They will have a type matching the name that you provide when you define the log, so you can use the Type property in your search to retrieve records collected from a specific log.
 
 The following table provides different examples of log searches that retrieve records from custom logs.
 
