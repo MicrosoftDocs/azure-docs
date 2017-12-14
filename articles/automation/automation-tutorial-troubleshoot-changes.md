@@ -147,7 +147,7 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 
 From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page.  Select **Connect** to connect Change tracking to the Azure activity log for your VM.
 
-With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is dealocated, select **Start** to restart your VM.
+With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is deallocated, select **Start** to restart your VM.
 
 Stopping and starting a VM logs an event in it's activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Like in the preceding step, each event can be selected to view detailed information on the event.
 
