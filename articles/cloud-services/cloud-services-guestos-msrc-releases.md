@@ -30,7 +30,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4041681] |October non-security rollup |2.67 |October 10, 2017 |
 | N/A | [4041690] |October non-security rollup |3.55 |October 10, 2017 |
 | N/A | [4041693] |October non-security rollup |4.48 |October 10, 2017 |
-| N/A | [3191566] |Update for Windows Management Framework 5.1  |2.67 |September 12, 2017 |
 | N/A | [3191565] |Update for Windows Management Framework 5.1  |3.55 |September 12, 2017 |
 | N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |September 12, 2017 |
 
@@ -569,7 +568,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4041681]: http://support.microsoft.com/kb/4041681
 [4041693]: http://support.microsoft.com/kb/4041693
 [4041690]: http://support.microsoft.com/kb/4041690
-[3191566]: http://support.microsoft.com/kb/3191566
 [3191565]: http://support.microsoft.com/kb/3191565
 [3191564]: http://support.microsoft.com/kb/3191564
 
