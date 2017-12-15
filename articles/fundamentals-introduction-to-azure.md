@@ -532,6 +532,6 @@ The difference between the two is that Marketplace is outside of the Azure Manag
 SendGrid is an application in the Azure Store that allows you to send email. It offers additional functionality like reliable delivery and statistics.  You can buy this application and related services rather than try to build such an infrastructure yourself.  
 
 ## Getting Started
-Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/downloads/), and go for it. Cloud computing is the new default--get started now.
+Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](https://azure.microsoft.com/en-us/downloads/), and go for it. Cloud computing is the new default--get started now.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

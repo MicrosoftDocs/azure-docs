@@ -54,13 +54,11 @@ This scenario details the construction of a machine learning energy demand forec
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
 - This sample assumes that you are running Azure ML Workbench on Windows 10 with [Docker engine](https://www.docker.com/) locally installed. If you are using macOS, the instructions are largely the same.
-- Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization installed with a local deployment environment set up and a model management account created as described in this  [guide](./model-management-configuration.md).
 - This sample requires that you update the Pandas installation to version 0.20.3 or higher and install matplotlib. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## Create a new Workbench project
@@ -75,7 +73,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-There are two datasets: `nyc_demand.csv` and `nyc_weather.csv`:
+Two datasets are provided with this sample and are downloaded using the `1-data-preparation.ipynb` notebook: `nyc_demand.csv` and `nyc_weather.csv`.
 
 **nyc_demand.csv** contains hourly energy demand values for New York City for the years 2012-2017. The data has the following simple structure:
 
