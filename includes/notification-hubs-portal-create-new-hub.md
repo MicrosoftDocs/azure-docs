@@ -18,11 +18,11 @@
    
       ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-    After you've created the namespace and notification hub, the Azure portal opens. 
+    After you've created the namespace and notification hub, open it by selecting **All resources** and then select the created notification hub from the list. 
    
-      ![Azure portal - notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+      ![Azure portal - notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
 
-4. Select **Settings** > **Access Policies**. Note the two connection strings that are available to you. You will need them to handle push notifications later.
+4. Select **Access Policies**. Note the two connection strings that are available to you. You will need them to handle push notifications later.
    
       ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
