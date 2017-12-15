@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
-ms.author: saurse;trinadhk;markgal;
+ms.author: cwatson
 
 ---
 # Restore files to a Windows server or Windows client machine using the classic deployment model
