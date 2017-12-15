@@ -20,16 +20,16 @@ ms.author: bsiva
 ---
 # Replicate and failover VMware virtual machines to Azure using Azure Site Recovery PowerShell
 
-In this article you'll see how to use Azure PowerShell to replicate and failover VMware virtual machines to Azure using Azure PowerShell. 
+In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell. 
 
-You'll learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > - Create a Recovery Services vault.
 > - Set the vault context.
 > - Validate that your Configuration Server and Scale out Process servers are registered to the vault.
 > - Create a replication policy and map it for use with the Configuration Server.
-> - Add a vCenter server to discover VMware virtual machines managed by the server.
+> - Add a vCenter server and discover VMware virtual machines.
 > - Create storage accounts to replicate virtual machines to.
 > - Replicate VMware virtual machines to Azure storage accounts.
 > - Configure failover settings for replicating virtual machines.
@@ -41,7 +41,7 @@ You'll learn how to:
 Before you start:
 - Make sure that you understand the [scenario architecture and components](concepts-vmware-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
-- You'll need version 5.0.1 or greater of the AzureRm PowerShell module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- You have version 5.0.1 or greater of the AzureRm PowerShell module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Log in to your Microsoft Azure subscription
 
@@ -57,7 +57,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## Create a Recovery Services vault
 
-* Create a resource group in which to create the Recovery Services vault. In the example below, we create a resource group name VMwareDRtoAzurePS in the East Asia region.
+* Create a resource group in which to create the Recovery Services vault. In the example below, the resource group is named VMwareDRtoAzurePS and is created in the East Asia region.
 
 ```azurepowershell
 New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -70,7 +70,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
    
-* Create a Recovery services vault. In the example below, we create a Recovery services vault named VMwareDRToAzurePs in the East Asia region and in the resource group we created in the previous step.
+* Create a Recovery services vault. In the example below, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
 
 ```azurepowershell
 New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
@@ -85,7 +85,7 @@ SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ``` 
 
-* Download the vault registration key for the vault. The vault registration key will be used to register the Configuration Server to this vault as part of the on-premises Configuration Server software installation process.
+* Download the vault registration key for the vault. The vault registration key is used to register the on-premises Configuration Server to this vault. Registration is part of the Configuration Server software installation process.
 
 ```azurepowershell
 #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
@@ -100,14 +100,16 @@ FilePath
 C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
 ```
 
-Use the downloaded vault registration key and follow the steps outlined in [Choose your protection goals](site-recovery-set-up-vmware-to-azure.md#choose-your-protection-goals) and Step 1 of [Set up the source environment](site-recovery-set-up-vmware-to-azure.md#set-up-the-source-environment) to complete installation and registration of the Configuration Server to the vault.
+Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
+* [Choose your protection goals](site-recovery-set-up-vmware-to-azure.md#choose-your-protection-goals)
+* [Set up the source environment](site-recovery-set-up-vmware-to-azure.md#set-up-the-source-environment) 
 
 ## Set the vault context
 
 > [!TIP]
-> The Azure Site Recovery PowerShell module (AzureRm.RecoveryServices.SiteRecovery module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This articles uses the cmdlet aliases for ease of reading.
+> The Azure Site Recovery PowerShell module (AzureRm.RecoveryServices.SiteRecovery module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This article uses the cmdlet aliases for ease of reading.
 
-Set the vault context using the Set-ASRVaultContext cmdlet. Once the vault context is set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault. In the example below, we use the vault details retrieved and saved into the $vault variable in the previous step to specify the vault context for the PowerShell session.
+Set the vault context using the Set-ASRVaultContext cmdlet. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault. In the example below, the vault details from the $vault variable is used to specify the vault context for the PowerShell session.
  ```azurepowershell
 Set-ASRVaultContext -Vault $vault
 ```
@@ -117,20 +119,19 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
 
-Subsequent sections of this article assume that the vault context for Azure Site Recovery operations has been specified as shown here.
+Subsequent sections of this article assume that the vault context for Azure Site Recovery operations has been set.
 
 ## Validate that your Configuration Server and Scale out Process servers are registered to the vault
 
-For the rest of the examples in this article assume:
-- We have registered a Configuration server named *ConfigurationServer* to this vault
-- We have an additional Process Server named *ScaleOut-ProcessServer*
-- We have setup accounts named *vCenter_account*, *WindowsAccount*, and *LinuxAccount* on the Configuration server. These accounts will be used to add the vCenter server to discover virtual machines, and to push install the mobility service software on Windows and Linux servers that are to be replicated.
+ Assume:
+- A Configuration server named *ConfigurationServer* has been registered to this vault
+- An additional Process Server named *ScaleOut-ProcessServer* has been registered to *ConfigurationServer*
+- Accounts named *vCenter_account*, *WindowsAccount*, and *LinuxAccount* have been set up on the Configuration server. These accounts are used to add the vCenter server to discover virtual machines, and to push-install the mobility service software on Windows and Linux servers that are to be replicated.
 
-We'll now verify that the Configuration server is successfully registered to the vault, and is reporting the additional Process server and accounts that we've provisioned.
-
-* Registered Configuration Servers are represented by a fabric object in Azure Site Recovery. In this step we get the list of fabric objects in the vault and identify the Configuration Server.
+Registered Configuration Servers are represented by a fabric object in Azure Site Recovery. In this step, get the list of fabric objects in the vault and identify the Configuration Server.
 
 ```azurepowershell
+# Verify that the Configuration server is successfully registered to the vault
 $ASRFabrics = Get-ASRFabric
 $ASRFabrics.count
 ```
@@ -164,9 +165,9 @@ for($i=0; $i -lt $ProcessServers.count; $i++) {
 1     ConfigurationServer
 ```
 
-As can be seen from the output above ***$ProcessServers[0]*** corresponds to *ScaleOut-ProcessServer* and ***$ProcessServers[1]*** corresponds to the Process Server role on *ConfigurationServer*
+From the output above ***$ProcessServers[0]*** corresponds to *ScaleOut-ProcessServer* and ***$ProcessServers[1]*** corresponds to the Process Server role on *ConfigurationServer*
 
-* Identify accounts that have been setup on the Configuration Server.
+* Identify accounts that have been set up on the Configuration Server.
 ```azurepowershell
 $AccountHandles = $ASRFabrics[0].FabricSpecificDetails.RunAsAccounts
 #Print the account details
@@ -179,11 +180,11 @@ AccountId AccountName
 2         WindowsAccount
 3         LinuxAccount
 ```
-As can be seen from the output above ***$AccountHandles[0]*** corresponds to the account *vCenter_account*, ***$AccountHandles[1]*** to account *WindowsAccount*, and ***$AccountHandles[2]*** to account *LinuxAccount*
+From the output above ***$AccountHandles[0]*** corresponds to the account *vCenter_account*, ***$AccountHandles[1]*** to account *WindowsAccount*, and ***$AccountHandles[2]*** to account *LinuxAccount*
 
 ## Create a replication policy and map it for use with the Configuration Server
 
-In this step we'll create two replication policies. One policy to replicate VMware virtual machines to Azure, and the other one which will be used to replicate failed over virtual machines running in Azure, back to the on-premises VMware site.
+In this step, two replication policies are created. One policy to replicate VMware virtual machines to Azure, and the other to replicate failed over virtual machines running in Azure back to the on-premises VMware site.
 
 > [!NOTE]
 > Most Azure Site Recovery operations are executed asynchronously. When you initiate an operation, an Azure Site Recovery job is submitted and a job tracking object is returned. This job tracking object can be used to monitor the status of the operation.
@@ -229,7 +230,7 @@ $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolic
 
 Use the job details in *$Job_FailbackPolicyCreate* to track the operation to completion.
 
-* Map the replication policies created in the previous step for use with the Configuration Server by creating a Protection container mapping.
+* Create a protection container mapping to map replication policies with the Configuration Server.
 
 ```azurepowershell
 #Get the protection container corresponding to the Configuration Server
@@ -261,7 +262,7 @@ $Job_AssociateFailbackPolicy.State
 
 ```
 
-## Add a vCenter server to discover VMware virtual machines
+## Add a vCenter server and discover VMware virtual machines
 
 Add a vCenter Server by IP address or hostname. The **-port** parameter specifies the port on the vCenter server to connect to, **-Name** parameter specifies a friendly name to use for the vCenter server, and the  **-Account** parameter specifies the account handle on the Configuration server to use to discover virtual machines managed by the vCenter server.
 
@@ -298,12 +299,12 @@ Tasks            : {Adding vCenter server}
 Errors           : {}
 ```
 
-## Create storage accounts to replicate virtual machines to
+## Create storage accounts
 
-In this step we'll create the storage accounts to be used for replication. We'll use these storage accounts later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.
+In this step, the storage accounts to be used for replication are created. These storage accounts are used later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.
 
 > [!NOTE]
-> While replicating on-premises virtual machines to a premium storage account, you'll need to specify an additional standard storage account (log storage account) that'll be used to hold replication logs as an intermediate store till the logs can be applied on the premium storage target.
+> While replicating on-premises virtual machines to a premium storage account, you need to specify an additional standard storage account (log storage account). The log storage account  holds replication logs as an intermediate store until the logs can be applied on the premium storage target.
 >
 
 ```azurepowershell
@@ -317,18 +318,18 @@ $ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMw
 
 ## Replicate VMware virtual machines
 
-It takes about 15-20 minutes for virtual machines to be discovered from the vCenter server. Once discovered a protectable item object is created in Azure Site Recovery for each discovered virtual machine. In this step we'll replicate three of the discovered virtual machines to the Azure Storage accounts we created in the previous step.
+It takes about 15-20 minutes for virtual machines to be discovered from the vCenter server. Once discovered, a protectable item object is created in Azure Site Recovery for each discovered virtual machine. In this step, three of the discovered virtual machines are replicated to the Azure Storage accounts created in the previous step.
 
-You'll need the following details to protect a discovered virtual machine:
+You will need the following details to protect a discovered virtual machine:
 * The protectable item to be replicated.
-* The storage account to replicate the virtual machine to. Additionally you'll need a log storage if protecting virtual machines to a premium storage account.
-* The Process Server to be used for replication. We've already retrieved the list of available process servers and saved those details in the ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* and ***$ProcessServers[1]*** *(ConfigurationServer)* variables.
-* The account to use to push install the Mobility service software onto the machines. We've already retrieved the necessary accounts and stored them in the ***$AccountHandles*** variable.
+* The storage account to replicate the virtual machine to. Additionally, a log storage is needed to protect virtual machines to a premium storage account.
+* The Process Server to be used for replication. The list of available process servers has been retrieved and saved in the ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* and ***$ProcessServers[1]*** *(ConfigurationServer)* variables.
+* The account to use to push-install the Mobility service software onto the machines. The list of available accounts has been retrieved and stored in the ***$AccountHandles*** variable.
 * The protection container mapping for the replication policy to be used for replication.
 * The resource group in which virtual machines must be created on failover.
-* Optionally, the Azure virtual network and subnet to which the failed over virtual machine should be connected. This can also be specified at a later time.
+* Optionally, the Azure virtual network and subnet to which the failed over virtual machine should be connected.
 
-We'll now replicate the following virtual machines using the settings specified in this table
+Now replicate the following virtual machines using the settings specified in this table
 
 
 |Virtual machine  |Process Server        |Storage Account              |Log Storage account  |Policy           |Account for Mobility service installation|Target resource group  | Target virtual network  |Target subnet  |
@@ -370,7 +371,7 @@ $Job_EnableRepication3 = New-ASRReplicationProtectedItem -VMwareToAzure -Protect
 
 ```
 
-Once the enable replication job completes successfully, initial replication will be started for the virtual machines. Initial replication may take a while depending on the amount of data to be replicated and the bandwidth available for replication. After initial replication completes the virtual machine will move to a protected state. Once the virtual machine reaches a protected state you can perform a test failover for the virtual machine, add it to recovery plans etc.
+Once the enable replication job completes successfully, initial replication is started for the virtual machines. Initial replication may take a while depending on the amount of data to be replicated and the bandwidth available for replication. After initial replication completes, the virtual machine moves to a protected state. Once the virtual machine reaches a protected state you can perform a test failover for the virtual machine, add it to recovery plans etc.
 
 You can check the replication state and replication health of the virtual machine with the Get-ASRReplicationProtectedItem cmdlet.
 
@@ -389,13 +390,13 @@ Win2K12VM1   Protected                       Normal
 
 Failover settings for protected machines can be updated using the Set-ASRReplicationProtectedItem cmdlet. Some of the settings that can be updated through this cmdlet are:
 * Name of the virtual machine to be created on failover
-* VM size of the virtual machine that'll be created on failover
+* VM size of the virtual machine to be created on failover
 * Azure virtual network and subnet that the NICs of the virtual machine should be connected to on failover
 * Failover to managed disks
 * Apply Azure Hybrid Use Benefit
 * Assign a static IP address from the target virtual network to be assigned to the virtual machine on failover.
 
-In this example, we'll update the VM size of the virtual machine to be created on failover for the virtual machine *Win2K12VM1* and specify that the virtual machine use managed disks on failover.
+In this example, we update the VM size of the virtual machine to be created on failover for the virtual machine *Win2K12VM1* and specify that the virtual machine use managed disks on failover.
 
 ```azurepowershell
 $ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
@@ -432,11 +433,11 @@ TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGrou
 #Start the test failover operation
 $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
 ```
-Once the test failover job completes successfully, you'll notice that a virtual machine suffixed with *"-Test"* (Win2K12VM1-Test in this case) to its name is created in Azure. 
+Once the test failover job completes successfully, you will notice that a virtual machine suffixed with *"-Test"* (Win2K12VM1-Test in this case) to its name is created in Azure. 
 
 You can now connect to the test failed over virtual machine, and validate the test failover.
 
-Cleanup test failover using the Start-ASRTestFailoverCleanupJob cmdlet. This operation will delete the virtual machine created as part of the test failover operation.
+Cleanup test failover using the Start-ASRTestFailoverCleanupJob cmdlet. This operation deletes the virtual machine created as part of the test failover operation.
 
 ```azurepowershell
 $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
@@ -444,7 +445,7 @@ $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $Rep
 
 ## Failover to Azure
 
-In this step we'll failover the virtual machine Win2K12VM1 to a specific recovery point.
+In this step, we failover the virtual machine Win2K12VM1 to a specific recovery point.
 
 ```azurepowershell
 # Get the list of available recovery points for Win2K12VM1
@@ -468,7 +469,7 @@ $Job_Failover.State
 Succeeded
 ```
 
-Once the virtual machine is failed over successfully, and you are ready to failback, commit the failover operation and setup reverse replication from Azure back to the on-premises VMware site.
+Once failed over successfully, you can commit the failover operation and setup reverse replication from Azure back to the on-premises VMware site.
 
 ## Next steps
 View the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
