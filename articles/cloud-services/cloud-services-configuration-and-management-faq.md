@@ -95,7 +95,7 @@ To set up a static IP address, you need to create a reserved IP. This reserved I
 See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
 
 ## Why does the drive on my cloud service VM show very little free disk space?
-This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %uproot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
+This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
 The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
