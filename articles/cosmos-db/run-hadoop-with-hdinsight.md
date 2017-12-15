@@ -159,7 +159,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
     ![Diagram for Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Step 3: Run a Hive job using Cosmos DB and HDInsight
+## <a name="RunHive"></a>Step 3: Run a Hive job using Azure Cosmos DB and HDInsight
 > [!IMPORTANT]
 > All variables indicated by < > must be filled in using your configuration settings.
 >
@@ -185,7 +185,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -205,7 +205,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -284,7 +284,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
     Documents will be distributed round-robin across multiple collections. A batch of documents will be stored in one collection, then a second batch of documents will be stored in the next collection, and so forth.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -395,7 +395,7 @@ We have open sourced our Hadoop Connector. If you're interested, you can contrib
 
 To learn more, see the following articles:
 
-* [Develop a Java application with Documentdb][documentdb-java-application]
+* [Develop a Java application with Azure Cosmos DB][sql-api-java-application]
 * [Develop Java MapReduce programs for Hadoop in HDInsight][hdinsight-develop-deploy-java-mapreduce]
 * [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]
 * [Use MapReduce with HDInsight][hdinsight-use-mapreduce]
@@ -407,14 +407,14 @@ To learn more, see the following articles:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
