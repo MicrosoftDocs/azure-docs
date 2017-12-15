@@ -47,7 +47,7 @@ The following table lists the latency information for activity reports.
 
 **Report:** Sign-ins  
 **Minimum:** 30 minutes  
-**Average:** 2 hours 
+**Average:** 2 hours  
 **Remarks:** In some instances, it can take up to 24 hours for sign-in activity data to show up. This includes sign-ins activity data coming from legacy office applications.  
 
 
