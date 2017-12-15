@@ -53,6 +53,7 @@
 
 ## Device simulation
 ### [Deploy device simulation](iot-suite-device-simulation-deploy.md)
+### [Explore device simulation](iot-suite-device-simulation-explore.md)
 
 # How To
 ## Remote monitoring
