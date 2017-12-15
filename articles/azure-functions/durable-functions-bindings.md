@@ -56,7 +56,7 @@ Here are some notes about the orchestration trigger:
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage. These return values can be queried by the orchestration client binding, described later.
 
 > [!WARNING]
-> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Doing so has the potential to cause problems with the Durable Task extension because those bindings may not obey the single-threading and I/O rules.
+> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Doing so has the potential to cause problems with the Durable Functions extension because those bindings may not obey the single-threading and I/O rules.
 
 ### Trigger usage
 
