@@ -18,14 +18,13 @@ Build a chat bot with integrated language understanding.
 
 ## Prerequisite
 
-Before you create the bot, follow the steps in [Create an app](./luis-get-started-create-app.md) to build the LUIS app that it uses.
-
-The bot responds to intents from the HomeAutomation domain that are in the LUIS app. For each of these intents, the LUIS app provides an intent that maps to it. The bot provides a dialog that handles the intent that LUIS detects.
+> [!div class="checklist"]
+> [HomeAutomation LUIS app](./luis-get-started-create-app.md). The intents from this LUIS app map to the bot's dialog handlers. 
 
 | Intent | Example utterance | Bot functionality |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | Turn on the lights. | The bot invokes the `TurnOnDialog` when the `HomeAutomation.TurnOn` is detected. This dialog is where you'd invoke an IoT service to turn on a device and tell the user that the device has been turned on. |
-| HomeAutomation.TurnOff | Turn off the bedroom lights. | The bot invokes the `TurnOffDialog` when the `HomeAutomation.TurnOff` is detected. This dialog where you'd invoke an IoT service to turn off a device and tell the user that the device has been turned off. |
+| HomeAutomation.TurnOn | Turn on the lights. | When the LUIS intent `HomeAutomation.TurnOn` is detected, the bot invokes the `OnIntent` dialog handler. This dialog is where you'd call an IoT service to turn on a device and tell the user that the device has been turned on. |
+| HomeAutomation.TurnOff | Turn off the bedroom lights. | When the LUIS intent `HomeAutomation.TurnOff` is detected, the bot invokes the`TurnOffDialog` dialog handler. This dialog is where you'd call an IoT service to turn off a device and tell the user that the device has been turned off. |
 
 ## Create a Language Understanding bot with Bot Service
 
@@ -170,7 +169,7 @@ The code view is replaced with a terminal window showing the progress and result
 
 ## Test the bot
 
-In the Azure Portal, click on **Test in Web Chat** to test the bot. Type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
+In the Azure portal, click on **Test in Web Chat** to test the bot. Type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
 
    ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
