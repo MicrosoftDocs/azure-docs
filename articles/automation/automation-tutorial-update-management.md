@@ -34,10 +34,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this tutorial, you need:
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
+* An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
 
 ## Log in to Azure

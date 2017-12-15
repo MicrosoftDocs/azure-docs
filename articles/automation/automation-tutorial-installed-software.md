@@ -1,6 +1,6 @@
 ---
 title: Discover what software is installed on your machines with Azure Automation | Microsoft Docs 
-description: Use Inventory to discover what sofwared is installed on the machines across your environment.
+description: Use Inventory to discover what software is installed on the machines across your environment.
 services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
@@ -14,7 +14,7 @@ manager: carmonm
 
 # Discover what software is installed on your Azure and non-Azure machines
 
-In this tutorial, you learn how to discover what software is installed on in your environment. With Inventory, you can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+In this tutorial, you learn how to discover what software is installed in your environment. With Inventory, you can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
 In this tutorial you learn how to:
 
@@ -25,10 +25,10 @@ In this tutorial you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this tutorial, you need:
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
+* An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
 
 ## Log in to Azure
