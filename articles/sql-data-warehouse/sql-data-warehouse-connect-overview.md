@@ -22,7 +22,7 @@ ms.author: anvang;barbkess;kevin
 This article helps you get connected to SQL Data Warehouse for the first time.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is sample.database.windows.net. To find the fully qualified server name:
+The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
 2. Click on **SQL data warehouses**.
@@ -90,6 +90,6 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 
