@@ -35,7 +35,7 @@ Complete the following tasks before completing any steps in any section of this 
 
 ## <a name="vm-create"></a>Add existing network interfaces to a new VM
 
-When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces, using the Azure portal. You can do both using the CLI or PowerShell. Before using PowerShell or the CLI to create a VM with an existing network interface however, familiarize yourself with the [contraints](#constraints). If you create a virtual machine with multiple network interfaces, complete the steps in [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a-virtual-machine- operating-system-with-multiple-network-interfaces).
+When you create a VM through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You cannot add existing network interfaces to a new VM, or create a VM with multiple network interfaces, using the Azure portal. You can do both using the CLI or PowerShell. Before using PowerShell or the CLI to create a VM with an existing network interface however, familiarize yourself with the [constraints](#constraints). If you create a virtual machine with multiple network interfaces, complete the steps in [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a-virtual-machine- operating-system-with-multiple-network-interfaces).
 
 **Commands**
 
@@ -127,11 +127,11 @@ Since the default behavior uses weak host routing, we recommend restricting seco
 
 ## <a name="vm-add-nic"></a>Add a network interface to an existing VM
 
-1. Login to the Azure portal.
-2. In the search box at the top of the portal, search for the name of the name of the VM you want to add the network interface to, or browse for the VM by clicking **All services**, then **Virtual machines**. Once you've found the VM, click it. The VM you want to add a network interface to must support the number of network interfaces you want to add. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles.  
+1. Log in to the Azure portal.
+2. In the search box at the top of the portal, search for the name of the VM you want to add the network interface to, or browse for the VM by clicking **All services**, then **Virtual machines**. Once you've found the VM, click it. The VM you want to add a network interface to must support the number of network interfaces you want to add. To learn how many network interfaces each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles.  
 3. Click **Overview**, under **SETTINGS**. Click **Stop**, and wait until the **Status** of the VM changes to *Stopped (deallocated)*. 
 4. Click **Networking**, under **SETTINGS**.
-5. Click **Attach network interface**. From the list of existing network interfaces that aren't currently attached to another VM, click the network interface you'd like to attach. The network interface you select cannot have accelerated networking enabled, cannot have an IPv6 address assigned to it, and must exist in the same virtual network as the virtual network the network interface currently attached to the VM is in. If you don't have an existing network interface, you must first create one. Click **Create network interface** to create one. To learn more about creating a network interface, see [Create a network interface](virtual-network-network-interface#create-a-network-interface).
+5. Click **Attach network interface**. From the list of existing network interfaces that aren't currently attached to another VM, click the network interface you'd like to attach. The network interface you select cannot have accelerated networking enabled, cannot have an IPv6 address assigned to it, and must exist in the same virtual network as the virtual network the network interface currently attached to the VM is in. If you don't have an existing network interface, you must first create one. To create a network interface, click **Create network interface**. To learn more about creating a network interface, see [Create a network interface](virtual-network-network-interface#create-a-network-interface).
 6. Click **OK**.
 7. Click **Overview**, under **SETTINGS**. Click **Start** to start the virtual machine. Azure assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. If you require that your secondary network interfaces communication with resources outside their subnet, you must configure settings within the VM operating system. For details, see [Routing within a virtual machine operating system with multiple network interfaces](#routing-within-a virtual-machine-operating-system-with-multiple-network-interfaces).
 
@@ -158,8 +158,8 @@ You can view the network interfaces currently attached to a VM to learn about ea
 
 ## <a name="vm-remove-nic"></a> Remove a network interface from a VM
 
-1. Login to the Azure portal.
-2. In the search box at the top of the portal, search for the name of the name of the VM you want to remove (detach) the network interface from, or browse for the VM by clicking **All services**, then **Virtual machines**. Once you've found the VM, click it.
+1. Log in to the Azure portal.
+2. In the search box at the top of the portal, search for the name of the VM you want to remove (detach) the network interface from, or browse for the VM by clicking **All services**, then **Virtual machines**. Once you've found the VM, click it.
 3. Click **Overview**, under **SETTINGS**. Click **Stop**, and wait until the **Status** of the VM changes to *Stopped (deallocated)*. 
 4. Click **Networking**, under **SETTINGS**.
 5. Click **Detach network interface**. From the list of network interfaces currently attached to the virtual machine, click the network interface you'd like to detach. If only one network interface is listed, you cannot detach it, because a virtual machine must always have at least one network interface attached to it.
