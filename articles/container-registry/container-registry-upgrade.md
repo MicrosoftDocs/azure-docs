@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Upgrade a Classic container registry
 
-Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the [Basic, Standard, and Premium SKUs](container-registry-skus.md) (collectively known as *managed* SKUs). This article dtails how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
+Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries). This article details how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
 
 ## Why upgrade?
 
@@ -32,7 +32,7 @@ Managed registry storage provides the following benefits:
 
 * Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
 * Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
-* Ability to freely [move between SKUs](#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase. The underlying implementation of how ACR achieves the desired throughput is expressed as *intent* (by selecting higher-tier SKUs), without you having to manage the details of the implementation.
+* Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
 
 ## Migration considerations
 

@@ -38,7 +38,7 @@ Managed registries are backed by an Azure Storage account managed by Azure. That
 
 ### Unmanaged (Classic)
 
-Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, [geo-replication][container-registry-geo-replication] and [webhooks][container-registry-webhook]).
+Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication] and [webhooks][container-registry-webhook]).
 
 For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry][container-registry-upgrade].
 
@@ -50,7 +50,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Changing SKUs
 
-You can change a registry's SKU with the Azure CLI or in the Azure portal.
+You can change a registry's SKU with the Azure CLI or in the Azure portal. You can move freely between managed SKUs as long as the SKU you're switching to has the required maximum storage capacity. If you switch to one of the managed SKUs from Classic, you cannot move back to Classic--it is a one-way conversion.
 
 ### Azure CLI
 
@@ -65,6 +65,8 @@ az acr update --name myregistry --sku Premium
 In the container registry **Overview** in the Azure portal, select **Update**, then select a new **SKU** from the SKU drop-down.
 
 ![Update container registry SKU in Azure portal][update-registry-sku]
+
+If you have a Classic registry, you can't select a managed SKU within the Azure portal. Instead, you must first [upgrade][container-registry-upgrade] to a managed registry (see [Changing from Classic](changing-from-classic)).
 
 ## Changing from Classic
 

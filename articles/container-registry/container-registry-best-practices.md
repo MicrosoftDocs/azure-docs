@@ -19,7 +19,7 @@ By following these best practices, you can help maximize the performance and cos
 
 Create your container registry in the same Azure region in which you deploy containers. Placing your registry in a region that is network-close to your container hosts can help lower both latency and cost.
 
-Network-close deployment is one of the primary reasons for using a private container registry. Docker images have a great [layering construct](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) that allows for incremental deployments. However, new nodes need to pull all layers required for a given image. This initial `docker pull` can quickly add up to multiple gigabytes. Having a private registry close to your deployment minimizes the network latency.
+Network-close deployment is one of the primary reasons for using a private container registry. Docker images have an efficient [layering construct](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) that allows for incremental deployments. However, new nodes need to pull all layers required for a given image. This initial `docker pull` can quickly add up to multiple gigabytes. Having a private registry close to your deployment minimizes the network latency.
 Additionally, all public clouds, Azure included, implement network egress fees. Pulling images from one datacenter to another adds network egress fees, in addition to the latency.
 
 ## Geo-replicate multi-region deployments
@@ -66,7 +66,7 @@ You can find the current usage of a registry in the container registry **Overvie
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
 
-You can manage the size of your registry by using the [Azure CLI][azure-cli] or the [Azure portal][azure-portal]. Only the managed SKUs (Basic, Standard, Premium) support repository and image deletion--you cannot
+You can manage the size of your registry by using the [Azure CLI][azure-cli] or the [Azure portal][azure-portal]. Only the managed SKUs (Basic, Standard, Premium) support repository and image deletion--you cannot delete repositories, images, or tags in a Classic registry.
 
 ### Delete in Azure CLI
 
@@ -82,9 +82,11 @@ You can also delete image data from a repository by using the `--tag` and `--man
 
 ### Delete in Azure portal
 
-To delete a repository from a registry in the Azure portal, for example, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
+To delete a repository from a registry in the Azure portal, first navigate to your container registry. Then, under **SERVICES**, select **Repositories**, and right-click the repository you want to delete. Select **Delete** to delete the repository and the Docker images it contains.
 
 ![Delete a repository in the Azure portal][delete-repository-portal]
+
+In a similar manner, you can also delete tags from a repository. Navigate to the repository, right-click on the tag you wish to delete under **TAGS**, and select **Delete**.
 
 ## Next steps
 
