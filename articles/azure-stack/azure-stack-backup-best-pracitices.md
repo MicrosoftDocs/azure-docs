@@ -1,5 +1,23 @@
+---
+title: Infrastructure Backup Service best practices for Azure Stack | Microsoft Docs
+description: You can follow set of best practices when you deploy and manage Azure Stack in your data center to help mitigate data loss if there is a catastrophic failure.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
 # Infrastructure Backup Service best practices
-<azure-stack-backup-best-pracitices.md>.
 
 You can follow set of best practices when you deploy and manage Azure Stack in your data center to help mitigate data loss if there is a catastrophic failure.
 
@@ -19,11 +37,11 @@ UNC path must use a fully qualified domain name (FQDN). IP address is possible i
 
 The encryption key is used to encrypt backup data that gets exported to external storage. The key can be generated using AzureStack-Tools. 
 
-![AzureStack-Tools](\media\azure-stack-backup\azure-stack-backup-encryption1.png)
+![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
 
 The key must be stored in a secure location (for example, Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 
-![Stored the key a secure location.](\media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Stored the key a secure location.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
 
 ## Operational best practices
 

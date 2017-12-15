@@ -1,5 +1,23 @@
+---
+title: Infrastructure Backup Service reference | Microsoft Docs
+description: This article contains reference material for the Azure Stack Infastructure Backup Service.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
 # Infrastructure Backup Service reference
-<azure-stack-backup-reference.md>
 
 ## Azure backup infrastructure
 

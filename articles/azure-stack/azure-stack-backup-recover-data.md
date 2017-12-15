@@ -1,5 +1,23 @@
+---
+title: Recover from catastrophic data loss in Azure Stack using the Infrastructure Backup Service | Microsoft Docs
+description: When a catastrophic failure causes Azure Stack to fail, your can restore your infrastructure data when reestablishing your Azure Stack deployment.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
 # Recover from catastrophic data loss
-<azure-stack-backup-recover-data.md>
 
 Azure Stack runs Azure services in your datacenter. Azure Stack is designed to run on environments as small as four nodes installed in a single rack. There is a real possibility of a data loss issue that can impact parts or the entire Azure Stack Cloud. Compared to Azure, which runs in more than 40 regions in multiple datacenters and zones in each region, user resources can span many servers, racks, datacenters, and regions. With Azure Stack, you only have the choice to deploy the entire cloud to a single rack. In the worst case, the Azure Stack Cloud can suffer catastrophic data loss due to a disaster or major product bug. In this case, Azure Stack instance goes offline. All of the data is potentially unrecoverable.
 
@@ -13,11 +31,11 @@ Depending on the root cause of the data loss, you may need to simply heal a sing
 
 The journey of protecting Azure Start starts with backing up the infrastructure and app/tenant data separately. This document covers how to protect the infrastructure. 
 
-![Initial deployment of Azure Stack](\media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Initial deployment of Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
 
 In worst case scenarios where all data is lost, recovering Azure Stack is the process of restoring the infrastructure data unique to that deployment of Azure Stack and all user data. 
 
-![Redeploy Azure Stack](\media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Redeploy Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
 ## Data in backups
 

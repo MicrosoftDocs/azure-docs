@@ -1,7 +1,25 @@
-# Back up Azure Stack
-<azure-stack-backup-back-up-Azure-Stack.md>
+---
+title: Back up Azure Stack | Microsoft Docs
+description: Perform an on-demand backup on Azure-Stack with backup in place.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
 
-Perform an on-demand backup on Azure-Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration console](azure-stack-backup-enablebackup-console.md).
+ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
+# Back up Azure Stack
+
+Perform an on-demand backup on Azure-Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration console](azure-stack-backup-enable-backup-console.md).
 
 ## Start Azure Stack Backup
 

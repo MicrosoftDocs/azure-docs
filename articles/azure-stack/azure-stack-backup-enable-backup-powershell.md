@@ -1,5 +1,23 @@
+---
+title: Enable Backup for Azure Stack with PowerShell | Microsoft Docs
+description: Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
 # Enable Backup for Azure Stack with PowerShell
-<azure-stack-backup-enablebackup-powershell.md>
 
 Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. The cmdlets to enable backup, start backup, and get backup information are all accessible via the operator management endpoint
 

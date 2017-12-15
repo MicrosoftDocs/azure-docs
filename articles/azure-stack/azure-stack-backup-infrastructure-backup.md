@@ -1,5 +1,23 @@
+---
+title: Backup and data recovery for Azure Stack with the Infrastructure Backup Service | Microsoft Docs
+description: You can back up and restore configuration and service data using the Infrastructure Backup Service.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+
+ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2017
+ms.author: mabrigg
+
+---
 # Backup and data recovery for Azure Stack with the Infrastructure Backup Service
-<azure-stack-backup-infrastructure-backup.md>
 
 You can back up and restore configuration and service data using the Infrastructure Backup Service. Each Azure Stack installation contains an instance of the service. You can use the backup in a redeployment for the Azure Stack cloud to restore identity, security, and Azure Resource Manager data.
 
@@ -31,7 +49,7 @@ The following table summarizes the important features of infrastructure backup.
 
 ## Next steps
 
-- Learn how to [Enable Backup for Azure Stack from the administration console](azure-stack-backup-enablebackup-console.md).
-- Learn how to [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enablebackup-powershell.md).
+- Learn how to [Enable Backup for Azure Stack from the administration console](azure-stack-backup-enable-backup-console.md).
+- Learn how to [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 - Learn how to [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md)
 - Learn how to [Recover from catastrophic data loss](azure-stack-backup-recover-data.md)
