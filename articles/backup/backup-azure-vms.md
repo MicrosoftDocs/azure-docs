@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: markgal;trinadhk;
+ms.author: cwatson
 
 ---
 # Back up Azure virtual machines (classic portal)
