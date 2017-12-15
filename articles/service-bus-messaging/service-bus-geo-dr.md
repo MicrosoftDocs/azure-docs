@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: sethm
 
 ---
@@ -80,11 +80,11 @@ If you made a mistake; for example, you paired the wrong regions during the init
 
 ## Use existing namespace as alias
 
-If you have a scenario in which you cannot change the connections of producers and consumers, you can reuse your namespace name as the alias name. See code (TBD add link).
+If you have a scenario in which you cannot change the connections of producers and consumers, you can reuse your namespace name as the alias name. See the [sample code on GitHub here](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## Samples
 
-The samples on GitHub show how to set up and initiate a failover. These samples demonstrate the following concepts:
+The [samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) show how to set up and initiate a failover. These samples demonstrate the following concepts:
 
 - Settings required in Azure Active Directory to use Azure Resource Manager with Service Bus. 
 - Steps required to execute the sample code. 
