@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk;markgal;
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
 
 ---
