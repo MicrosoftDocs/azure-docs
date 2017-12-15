@@ -104,5 +104,5 @@ The following alerts are supported by the system:
 
 ## Next steps
 
--- Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).  
--- Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).
+ - Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).  
+ - Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).

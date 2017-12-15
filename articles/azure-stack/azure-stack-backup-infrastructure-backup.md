@@ -28,7 +28,7 @@ You can enable backup when you are ready to put your cloud into production. Do n
 Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> The Infrastructure Backup Service does not include user data and applications. For information on backing up and restore App Services, Functions, SQL, and MySQL resource providers and associated user data `in a separate document`.
+> The Infrastructure Backup Service does not include user data and applications. For information on backing up and restore App Services, Functions, SQL, and MySQL resource providers and associated user data see `suggestion? https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms?` .
 
 ## The Infrastructure Backup Service
 
@@ -45,7 +45,7 @@ The services contains the following features.
 ## Verify requirements for the Infrastructure Backup Service
 
 - **Storage location**  
-  You need a file share accessible from Azure Stack that can contain seven backups. Each backup is about 10 gb. Your share should be able to store 70 gigs of backups. For more information about selecting a storage location for the Azure Stack Infrastructure Backup Service, see [Infrastructure Backup Service Best Practices](azure-stack-backup-best-pracitices.md).
+  You need a file share accessible from Azure Stack that can contain seven backups. Each backup is about 10 GB. Your share should be able to store 70 GB of backups. For more information about selecting a storage location for the Azure Stack Infrastructure Backup Service, see [Backup Controller requirements](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credentials**  
   You need a domain user account and credentials, for example, you may use the Azure Stack administrator credentials.
 - **Encryption key**  

@@ -44,4 +44,4 @@ You can also confirm the backup completed from the administration portal. Naviga
 
 ## Next steps
 
-- Next step...
+- Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).

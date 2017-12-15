@@ -32,7 +32,7 @@ Enable the Infrastructure Back Service through the administration portal so that
 3. Type the **Username** using the domain and username. For example, `Contoso\administrator`.
 4. Type the **Password** for the user.
 5. Type the password again to **Confirm Password**.
-6. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).(http://azure-stack-backup-enable-backup-powershell#generate-a-new-encryption-key). 
+6. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
 7. Select **OK** to save your backup controller settings.
 
 To execute a backup, you need to download the Azure Stack Tools, and then run the PowerShell cmdlet **Start-AzSBackup** on your Azure Stack administration node. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md).

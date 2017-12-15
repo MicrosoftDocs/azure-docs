@@ -46,9 +46,9 @@ Open Windows PowerShell with an elevated prompt. Edit the following PowerShell s
 
 | Variable    | Description |
 |---          |---          |
-| $TenantName | Azure Active Directory tenant name |
-| Operator account name        | Your Azure Stack operator account name|
-| Azure Resource Manager Endpoint | URL to the administrator portal |
+| $TenantName | Azure Active Directory tenant name. |
+| Operator account name        | Your Azure Stack operator account name. |
+| Azure Resource Manager Endpoint | URL to the Azure Resource Manager. |
 
    ```powershell
    # Specify Azure Active Directory tenant name
