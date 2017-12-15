@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 12/20/2017
 ms.author: marsma
 ---
 
@@ -42,7 +42,7 @@ During the conversion process, all `docker push` operations are blocked, while `
 
 Do not delete or modify the contents of the storage account backing your Classic registry during the conversion process. Doing so can result in the corruption of your container images.
 
-Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is longer used by ACR.
+Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is longer used by ACR. After you've verified that the migration was successful, consider deleting the storage account to help minimize cost.
 
 >[!IMPORTANT]
 > Upgrading from Classic to one of the managed SKUs is a **one-way process**. Once you've converted a Classic registry to Basic, Standard, or Premium, you cannot revert to Classic. You can, however, freely move between managed SKUs with sufficient capacity for your registry.
