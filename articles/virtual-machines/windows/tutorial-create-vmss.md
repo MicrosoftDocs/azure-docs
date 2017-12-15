@@ -233,7 +233,7 @@ If takes a few minutes to update the specified number of instances in your scale
 
 
 ### Configure autoscale rules
-Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
+Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance:
 
 ```powershell
 # Define your scale set information
@@ -242,7 +242,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -255,7 +255,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
