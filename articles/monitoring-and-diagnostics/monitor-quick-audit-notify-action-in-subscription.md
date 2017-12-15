@@ -25,7 +25,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a network security group
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Networking**, select **Network security group**.
 
