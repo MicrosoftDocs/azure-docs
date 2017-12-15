@@ -70,19 +70,39 @@ For this tutorial, we will create a new Linux VM. You can also opt to use an exi
    az login
    ```
 
-2. Create a User Assigned MSI using [az identity create](/cli/azure). The following example creates an MSI named *myMSI*. The `-g` parameter specifies the resource group for the User Assigned MSI. Update these values as appropriate for your environment:
+2. Create a User Assigned MSI using [az identity create](/cli/azure). The `-g` parameter specifies the resource group where the MSI will be created, and the `-n` parameter specifes its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
     ```azurecli-interactive
-    az identity create -g DevTest -n myMSI
+    az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-## Associate your User Assigned MSI with your Linux VM
 
-1. Associate the User Assigned MSI using [az vm assign-identity](/cli/azure/identity/#assign). The following example associates the MSI named *myMSI* with a VM named *DevTestVM*. Update these values as appropriate for your environment:
+The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
+
+    ```json
+    {
+    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+    "location": "westcentralus",
+    "name": "<MSI NAME>",
+    "principalId": "9012",
+    "resourceGroup": "<RESOURCE GROUP>",
+    "tags": {},
+    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    }
+
+    ```
+
+## Assign your user-assigned MSI to your Linux VM
+
+Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, we will be assigning it to a single VM. You can also assign it to more than one VM.
+
+1. Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
     ```azurecli-interactive
-    az vm assign-identity --g DevTest --n DevTestVM –identities "/subscriptions/1234/resourcegroups/DevTest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myMSI"
+    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
     ```
-The response includes the details for the user assigned MSI created. Please note the ID value for your MSI, as it will be used in the next step.
 
 ## Enable MSI on your VM
 
@@ -156,7 +176,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The response back with the specific Resource Group information: 
      
     ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    {"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
      
 ## Related content
