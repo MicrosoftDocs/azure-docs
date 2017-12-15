@@ -96,8 +96,6 @@ The response contains details for the user-assigned MSI created. Please note the
 
 ## Assign your user-assigned MSI to your Linux VM
 
-Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, we will be assigning it to a single VM. You can also assign it to more than one VM.
-
 1. Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
     ```azurecli-interactive
