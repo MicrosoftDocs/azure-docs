@@ -1,4 +1,4 @@
----
+﻿---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -181,6 +181,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
                                                 </ul>
@@ -611,7 +612,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
                                             </a>
@@ -2578,7 +2579,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

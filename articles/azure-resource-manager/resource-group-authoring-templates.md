@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
 
 ---
@@ -136,18 +136,16 @@ Each element contains properties you can set. The following example contains the
 
 This article describes the sections of the template in greater detail.
 
-## Expressions and functions
+## Syntax
 The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
 
 Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
 
-The following example shows how to use several functions when constructing values:
+The following example shows how to use several functions when constructing a value:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -206,35 +204,16 @@ For more information, see [Resources section of Azure Resource Manager templates
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
-The following example shows the structure of an output definition:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Element name | Required | Description |
-|:--- |:--- |:--- |
-| outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the output value. Output values support the same types as template input parameters. |
-| value |Yes |Template language expression that is evaluated and returned as output value. |
-
-The following example shows a value that is returned in the Outputs section.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-For more information about working with output, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+For more information, see [Outputs section of Azure Resource Manager templates](resource-manager-templates-outputs.md).
 
 ## Template limits
 
