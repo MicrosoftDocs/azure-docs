@@ -33,7 +33,7 @@ Enable the Infrastructure Back Service through the administration console so tha
 6. Provide a pre-share key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface Refer to online for more information on how to generate a pre-shared key. 
 7. Select OK to save your backup controller settings.
 
-To execute a backup, you need to download the Azure Stack Tools, and then run the PowerShell cmdlet **Start-AzSBackup** on your Azure Stack administration node. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md#confirm-backup-completed-in-the administration-console).
+To execute a backup, you need to download the Azure Stack Tools, and then run the PowerShell cmdlet **Start-AzSBackup** on your Azure Stack administration node. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md).
 
 ## Next steps
 
