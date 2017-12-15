@@ -101,6 +101,8 @@ Users can review and see the terms of use that they have accepted.  This can be 
 ![Audit Event](media/active-directory-tou/tou13a.png)
 
 4.  From there you can review the terms of use you have accepted. 
+
+
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
 
