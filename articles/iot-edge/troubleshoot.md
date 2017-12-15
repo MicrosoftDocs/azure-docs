@@ -52,7 +52,7 @@ After investigating the logs and messages for information, you can also try rest
 
 The Edge Agent starts and runs successfully for about a minute, then stops. The logs indicate that the Edge Agent is attempting to connect to IoT Hub over AMQP, and then approximately 30 seconds later attempt to connect using AMQP over websocket. When that fails, the Edge Agent exits. 
 
-Example edgeAgent logs:
+Example Edge Agent logs:
 
 ```
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -71,10 +71,13 @@ Ensure that there is a route to the internet for the IP addresses assigned to th
 
 ## Edge Hub fails to start
 
-The Edge hub fails to start, and prints the following message to the logs: 
+The Edge Hub fails to start, and prints the following message to the logs: 
 
 ```
-One of more errors occurred. (Docker API responded with status code=InternalServerError, response={\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
+One of more errors occurred. 
+(Docker API responded with status code=InternalServerError, response=
+{\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
+Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
 ### Root cause
