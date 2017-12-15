@@ -33,8 +33,8 @@ For more details about SaaS app integration with Azure AD, see [What is applicat
 
 To configure Azure AD integration with Cisco Webex, you need the following items:
 
-- An Azure AD subscription
-- A Cisco Webex single sign-on-enabled subscription
+- An Azure AD subscription.
+- A Cisco Webex single sign-on-enabled subscription.
 
 > [!NOTE]
 > We don't recommend using a production environment to test the steps in this tutorial.
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Federation Protocol** list, select **SAML 2.0**.
 
-	b. For **SSO profile**, select **SP Intiated**.
+	b. For **SSO profile**, select **SP Initiated**.
 
 	c. Open your downloaded certificate in Notepad, and then copy the content.
 
