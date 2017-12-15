@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
-ms.author: markgal;
+ms.author: cwatson
 
 ---
 # Manage Azure Backup vaults and servers using the classic deployment model
