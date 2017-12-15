@@ -20,7 +20,7 @@ ms.author: azfuncdf
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` or `Task.Delay`.
 
-You create a durable timer by calling [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). The method returns a task that resumes on a specified date and time.
+You create a durable timer by calling the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) method in [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). The method returns a task that resumes on a specified date and time.
 
 ## Timer limitations
 
@@ -32,14 +32,14 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 ## Usage for delay
 
-The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
+The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for five days.
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
     {
         DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
         await context.CreateTimer(deadline, CancellationToken.None);
