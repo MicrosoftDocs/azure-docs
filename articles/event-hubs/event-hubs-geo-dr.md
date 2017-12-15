@@ -17,7 +17,7 @@ ms.author: sethm
 
 ---
 
-# Azure Event Hubs geo-disaster recovery
+# Azure Event Hubs Geo-disaster recovery
 
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
