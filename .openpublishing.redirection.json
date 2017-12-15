@@ -75,6 +75,21 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/linux/azure-vm-storage-overview.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
@@ -237,7 +252,7 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-state.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-state",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -617,7 +632,7 @@
         },
         {
             "source_path": "articles/resource-manager-template-best-practices.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-best-practices",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
         },
         {
@@ -633,6 +648,16 @@
         {
             "source_path": "articles/resource-manager-template-links.md",
             "redirect_url": "/rest/api/resources/resourcelinks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-best-practices.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-state.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -15803,6 +15828,11 @@
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-polybase-guide.md",
         "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
         "redirect_document_id": false
-      }
+      },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+      "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+      "redirect_document_id": true
+    }
     ]
 }
