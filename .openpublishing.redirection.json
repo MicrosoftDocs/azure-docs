@@ -15854,10 +15854,75 @@
         "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
         "redirect_document_id": false
       },
-    {
-      "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
-      "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
-      "redirect_document_id": true
-    }
+      {
+        "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+        "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "articles/backup/backup-azure-dpm-introduction-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-dpm-introduction",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-manage-vms-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-manage-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-manage-windows-server-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-manage-windows-server",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-microsoft-azure-backup-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-restore-vms.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-restore-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-restore-windows-server-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-restore-windows-server",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-classic-automation.md",
+        "redirect_url": "/azure/backup/backup-azure-vms-automation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-prepare.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-troubleshoot-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-vms-troubleshoot",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-client-automation-classic.md",
+        "redirect_url": "/azure/backup/backup-client-automation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-configure-vault-classic.md",
+        "redirect_url": "/azure/backup/backup-configure-vault",
+        "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/backup/backup-dpm-automation-classic.md",
+      "redirect_url": "/azure/backup/backup-dpm-automation",
+      "redirect_document_id": false
+     }
     ]
 }
