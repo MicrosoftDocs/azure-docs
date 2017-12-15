@@ -95,7 +95,7 @@ Another full IDE option is to install a desktop IDE and use it to access the clu
 Lastly, you can access the R Server console on the edge node by typing **R** at the Linux command prompt after connecting via SSH or PuTY. When using the console interface, it is convenient to run a text editor for R script development in another window, and cut and paste sections of your script into the R console as needed.
 
 ## Learn about pricing
-The fees that are associated with an HDInsight cluster with R Server are structured similarly to the fees for the standard HDInsight clusters. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift. For more information about HDInsight pricing, and the availability of a 30-day free trial, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+The fees that are associated with an HDInsight cluster with R Server are structured similarly to the fees for the standard HDInsight clusters. They are based on the sizing of the underlying VMs across the name, data, and edge nodes, with the addition of a core-hour uplift. For more information about HDInsight pricing see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Next steps
 To learn more about how to use R Server with HDInsight clusters, see the following topics:
