@@ -42,7 +42,7 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
 
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
- try restarting the Azure IoT Edge runtime. That might resolve the problem before you start looking into logs and error messages. 
+After investigating the logs and messages for information, you can also try restarting the Azure IoT Edge runtime:
 
    ```cmd
    iotedgectl restart
