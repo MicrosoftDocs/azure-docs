@@ -26,7 +26,7 @@ To set up a Cosmos DB indexer, you must have an [Azure Search service](search-cr
 If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources.
 
 > [!NOTE]
-> Cosmos DB is the next generation of DocumentDB. Although the product name is changed, syntax is the same as before. Please continue to specify `documentdb` as directed in this indexer article. 
+> Azure Cosmos DB is the next generation of DocumentDB. Although the product name is changed, syntax is the same as before. Please continue to specify `documentdb` as directed in this indexer article. 
 
 > [!TIP]
 > You can launch the **Import data** wizard from the Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
@@ -292,5 +292,5 @@ The following example creates a data source with a soft-deletion policy:
 ## <a name="NextSteps"></a>Next steps
 Congratulations! You have learned how to integrate Azure Cosmos DB with Azure Search using the indexer for Cosmos DB.
 
-* To learn how more about Azure Cosmos DB, see the [Cosmos DB service page](https://azure.microsoft.com/services/documentdb/).
+* To learn how more about Azure Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/cosmos-db/).
 * To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).

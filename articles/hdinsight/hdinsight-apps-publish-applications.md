@@ -43,8 +43,7 @@ Two steps are involved in publishing applications in the Marketplace. First, def
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -52,7 +51,6 @@ Two steps are involved in publishing applications in the Marketplace. First, def
 | Field | Description | Possible values |
 | --- | --- | --- |
 | types |The cluster types that the application is compatible with. |Hadoop, HBase, Storm, Spark (or any combination of these) |
-| tiers |The cluster tiers that the application is compatible with. |Standard, Premium (or both) |
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
 ## Application installation script

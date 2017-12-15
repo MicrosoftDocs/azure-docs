@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
-ms.author: marsma
+ms.author: tamram
 ---
 
 # Create a storage account and rotate its account access keys

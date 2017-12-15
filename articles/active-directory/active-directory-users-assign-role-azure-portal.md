@@ -5,7 +5,7 @@ description: Explains how to change user administrative information in Azure Act
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a1ca1a53-50d8-4bf0-ae8f-73fa1253e2d9

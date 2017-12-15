@@ -111,8 +111,8 @@ $poolSetting = Get-AzureRmApplicationGatewayBackendHttpSettings -Name "appGatewa
 # Retrieve an existing backend pool
 $pool = Get-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw
 
-# Create a new path based rule
-$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -BackendAddressPool $pool -BackendHttpSettings $poolSetting
+# Create a new path rule for the path map configuration
+$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -RedirectConfiguration $redirectconfig
 
 # Create a path map to add to the rule
 Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pathRule -DefaultBackendAddressPool $pool -DefaultBackendHttpSettings $poolSetting -ApplicationGateway $gw
@@ -121,7 +121,7 @@ Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pat
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -ApplicationGateway $gw
 
 # Add a new rule to handle the redirect and use the new listener
-Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -RedirectConfiguration $redirectconfig -ApplicationGateway $gw
+Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -ApplicationGateway $gw
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 

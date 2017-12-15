@@ -3,7 +3,7 @@ title: What's new in Azure Machine Learning | Microsoft Docs
 description: New features that are available in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: ''
 

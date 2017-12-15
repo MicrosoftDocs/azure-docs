@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ---
 # Customize server configuration parameters by using Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MySQL server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified. 
@@ -29,7 +29,7 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 For the definition of each of the listed parameters, see the MySQL reference section on [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## Show server configuration parameter details
-To show details about a particular configuration parameter for a server, run the [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) command.
+To show details about a particular configuration parameter for a server, run the [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) command.
 
 This example shows details of the **slow\_query\_log** server configuration parameter for server **myserver4demo.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive

@@ -32,12 +32,13 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 
 ## Load & move data
-### [Overview](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Overview](design-elt-data-loading.md)
+### [Guidance](guidance-for-loading-data.md)
 
 
 ## Integrate
 ### [Overview](sql-data-warehouse-overview-integrate.md)
+### [SQL Database elastic query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Monitor & tune
@@ -100,9 +101,8 @@
 
 
 ## Integrate
-###  [Configure elastic query from SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Configure SQL Database elastic query](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Add an Azure Stream Analytics job](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Configure elastic query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Use machine learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Visualize with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

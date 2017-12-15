@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
-ms.author: marsma
+ms.author: tamram
 ---
 
 # Create a storage account using the Azure CLI
