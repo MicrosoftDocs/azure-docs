@@ -148,7 +148,7 @@ In this section, you add a new controller to the WebAPI back end to handle reque
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure classic portal](http://manage.windowsazure.com)):
+6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](http://portal.azure.com)):
    
         public class Notifications
         {

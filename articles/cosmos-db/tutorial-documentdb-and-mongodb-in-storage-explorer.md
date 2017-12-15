@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: ''
-author: Jiaj-Li 
+author: jejiang 
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -17,19 +17,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li 
+ms.author: Jejiang 
 
 ---
 # Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
 
-Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL and MongoDB accounts.
+Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL and MongoDB accounts. The Azure Storage Explorer does not work with the Azure Cosmos DB Local Emulator. 
 
 In this article, you can learn how to use Storage Explorer to manage Azure Cosmos DB.
 
 
 ## Prerequisites
 
-An Azure Cosmos DB account for the SQL API or MongoDB API . If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-documentdb-dotnet.md).
+An Azure Cosmos DB account for the SQL API or MongoDB API . If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
 ## Installation
 
@@ -134,7 +134,7 @@ To create a new document, open **Documents** in the left window, click **New Doc
 #### Delete a document
 Click the **Delete** button to delete the selected document.
 #### Query for documents
-Edit the document filter by entering a [SQL query](documentdb-sql-query.md) and then click **Apply**.
+Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

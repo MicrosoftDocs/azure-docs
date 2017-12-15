@@ -107,6 +107,8 @@
       href: azure-stack-viewing-public-ip-address-consumption.md
     - name: Manage storage resources
       href: azure-stack-manage-storage-accounts.md
+    - name: Manage storage capacity
+      href: azure-stack-manage-storage-shares.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
@@ -233,6 +235,10 @@
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Related
+  items:
+  - name: Azure Stack User Documentation
+    href: /azure/azure-stack/user/
 - name: Resources
   items:
   - name: Azure Roadmap

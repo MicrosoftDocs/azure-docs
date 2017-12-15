@@ -32,8 +32,8 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 
 ## Load & move data
-### [Overview](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Overview](design-elt-data-loading.md)
+### [Guidance](guidance-for-loading-data.md)
 
 
 ## Integrate
