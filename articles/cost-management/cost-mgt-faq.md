@@ -85,9 +85,9 @@ If you change your e-mail address in Cloudyn from the default address in Azure, 
 
 We recommend that you create at least two Cloudyn administrator accounts in case one of the accounts gets locked out.
 
-If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use https://azure.cloudyn.com.
+If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Avoid using the Cloudyn direct URL [https://app.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
 ## How do I activate unactivated accounts with Azure credentials?
 
