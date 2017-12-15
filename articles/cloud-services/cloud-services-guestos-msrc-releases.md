@@ -13,12 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-10 | [4048953] |Windows 10 updates |5.13 |November 14, 2017 |
+| Rel 17-10 | [4048960], [4048962], [4048961] |Windows Security only |2.68, 3.55, 4.48 |November 14, 2017 |
+| Rel 17-10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |November 14, 2017 |
+| Rel 17-10 | [4048951] |Flash |3.55, 4.48, 5.13 |November 14, 2017 |
+| N/A | [4041681] |October non-security rollup |2.67 |October 10, 2017 |
+| N/A | [4041690] |October non-security rollup |3.55 |October 10, 2017 |
+| N/A | [4041693] |October non-security rollup |4.48 |October 10, 2017 |
+| N/A | [3191565] |Update for Windows Management Framework 5.1  |3.55 |September 12, 2017 |
+| N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |September 12, 2017 |
 
 ## October Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -545,6 +558,19 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 
