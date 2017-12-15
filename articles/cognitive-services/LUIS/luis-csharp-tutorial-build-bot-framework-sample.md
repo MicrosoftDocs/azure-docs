@@ -159,6 +159,15 @@ Change **ShowLuisResult** method to round the score, collect the entities, and d
 
    [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=71-81&dedent=8 "Display message in chat bot")]
 
+## Build the bot
+In the code editor, right-click on `build.cmd` and select **Run from Console**.
+
+![Build Web bot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+
+The code view is replaced with a terminal window showing the progress and results of the build.
+
+![Build Web bot success](./media/luis-tutorial-cscharp-web-bot/bot-service-build-success.png)
+
 ## Test the bot
 
 In the Azure Portal, click on **Test in Web Chat** to test the bot. Type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
