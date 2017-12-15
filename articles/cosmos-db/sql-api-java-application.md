@@ -758,4 +758,3 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
 
-[1]: media/sql-api-java-application/keys.png
