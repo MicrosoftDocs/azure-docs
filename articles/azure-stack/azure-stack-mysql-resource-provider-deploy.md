@@ -328,7 +328,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
 | **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
-
+| **AcceptLicense** | Skips the prompt to accept the GPL License  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## Remove the MySQL Resource Provider Adapter
 
