@@ -4676,6 +4676,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-windows-agents.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-proxy-firewall.md",
             "redirect_url": "/azure/log-analytics/log-analytics-windows-agent",
             "redirect_document_id": false
