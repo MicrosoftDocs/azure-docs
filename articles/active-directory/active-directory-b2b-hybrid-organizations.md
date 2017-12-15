@@ -1,6 +1,6 @@
 ---
-title: Provide partner access in hybrid organizations with B2B collaboration | Microsoft Docs
-description: Give partners access to both local and cloud resources with Azure Active Directory B2B collaboration
+title: Azure Active Directory B2B collaboration for hybrid organizations | Microsoft Docs
+description: Give partners access to both local and cloud resources with Azure AD B2B collaboration
 services: active-directory
 documentationcenter: ''
 author: twooley
@@ -17,7 +17,7 @@ ms.reviewer: sasubram
 
 ---
 
-# Provide partner access in hybrid organizations with B2B collaboration
+# Azure Active Directory B2B collaboration for hybrid organizations
 
 In a hybrid organization, where you have both on-premises and cloud resources, you might want to give external partners access to both local and cloud resources. For access to local resources, you can manage partner accounts locally in your on-premises Active Directory environment. Partners sign in with their partner account credentials to access your organization's resources. To give partners access to cloud resources using these same credentials, you can now use Azure Active Directory (Azure AD) Connect to sync the partner accounts to the cloud as Azure AD B2B users (that is, users with UserType = Guest).
 
