@@ -141,7 +141,7 @@ namespace Microsoft.Bot.Sample.LuisBot
 ```
 
 ## Change code to use HomeAutomation prebuilt domain
-Remove the three intents attributes and methods for Greeting, Cancel, and Help. These are not used in the HomeAutomation prebuilt domain. Make sure to keep the None intent attribute and method. 
+Remove the three intents attributes and methods for **Greeting**, **Cancel**, and **Help**. These are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
 
 Add constants to manage strings:
 
@@ -149,7 +149,7 @@ Add constants to manage strings:
 
 Add the code for the new intents of HomeAutomation.TurnOn and HomeAutomation.TurnOff:
 
-   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=53-69&dedent=8 "Add Intents")]
+   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=59-69&dedent=8 "Add Intents")]
 
 Add the code to get any entities found by LUIS:
 
