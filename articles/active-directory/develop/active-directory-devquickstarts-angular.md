@@ -18,7 +18,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure AD AngularJS Getting Started
+# Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 

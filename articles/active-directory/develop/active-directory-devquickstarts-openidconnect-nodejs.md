@@ -1,5 +1,5 @@
 ---
-title: Azure AD Node.js Web App Getting Started | Microsoft Docs
+title: Azure AD Node.js web app getting started | Microsoft Docs
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
@@ -18,7 +18,7 @@ ms.author: nacanuma
 ms.custom: aaddev
 
 ---
-# Azure AD Node.js Web App Getting Started
+# Azure AD Node.js web app getting started
 Here we use Passport to:
 
 * Sign the user in to the app with Azure Active Directory (Azure AD).

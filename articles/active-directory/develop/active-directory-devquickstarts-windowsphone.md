@@ -18,7 +18,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure AD Windows Phone Getting Started
+# Azure AD Windows Phone getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -69,7 +69,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* In the DirectorySearcher project, open `MainPage.xaml.cs`.  Replace the values in the `Config Values` region to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
+* In the DirectorySearcher project, open `MainPage.xaml.cs`.  Replace the values in the `Config Values` region to reflect the values you input into the Azure portal.  Your code will reference these values whenever it uses ADAL.
   * The `tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
   * The `clientId` is the clientId of your application you copied from the portal.
 * You now need to discover the callback uri for your Windows Phone app.  Set a breakpoint on this line in the `MainPage` method:
@@ -153,7 +153,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's id on the page:
+* You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's ID on the page:
 
 ```C#
 // Update the Page UI to represent the signed in user

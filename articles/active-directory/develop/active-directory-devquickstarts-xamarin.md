@@ -1,5 +1,5 @@
 ---
-title: Azure AD Xamarin Getting Started | Microsoft Docs
+title: Azure AD Xamarin getting started | Microsoft Docs
 description: Build Xamarin applications that integrate with Azure AD for sign-in and call Azure AD-protected APIs using OAuth.
 services: active-directory
 documentationcenter: xamarin
@@ -18,7 +18,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure AD Xamarin Getting Started
+# Azure AD Xamarin getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

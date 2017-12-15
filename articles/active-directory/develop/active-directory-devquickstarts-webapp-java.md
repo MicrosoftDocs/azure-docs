@@ -1,5 +1,5 @@
 ---
-title: Azure AD Java Web App Getting Started | Microsoft Docs
+title: Azure AD Java web app getting started | Microsoft Docs
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
@@ -18,7 +18,7 @@ ms.author: nacanuma
 ms.custom: aaddev
 
 ---
-# Azure AD Java Web App Getting Started
+# Azure AD Java web app getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (Azure AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of Java web apps by using the Microsoft implementation of the community-driven Azure Active Directory Authentication Library for Java (ADAL4J).

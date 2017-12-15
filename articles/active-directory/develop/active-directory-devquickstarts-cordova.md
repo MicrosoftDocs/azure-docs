@@ -18,7 +18,7 @@ ms.author: vittorib
 ms.custom: aaddev
 
 ---
-# Azure AD Cordova Getting Started
+# Azure AD Cordova getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

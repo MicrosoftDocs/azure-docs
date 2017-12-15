@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET Web API Getting Started | Microsoft Docs
+title: Azure AD .NET Web API getting started | Microsoft Docs
 description: How to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
 services: active-directory
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dastrock
 ms.custom: aaddev
 
 ---
-# Azure AD .NET Web API Getting Started
+# Azure AD .NET Web API getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 If you’re building an application that provides access to protected resources, you need to know how to prevent unwarranted access to those resources.
