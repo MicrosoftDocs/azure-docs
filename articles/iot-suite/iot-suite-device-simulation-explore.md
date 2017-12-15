@@ -95,7 +95,7 @@ Custom sensors have the following properties:
 | Field | Description |
 | ----- | ----------- |
 | Sensor Name | A friendly name for the sensor such as **temperature** or **speed**. |
-| Behavior | Behaviors enable telemetry data to vary from one message to the next to simulate real-world data. **Increment** increases the value by one in each message sent starting at the minimum value. Once the maximum value is met, then it starts over again at the minimum value. **Decrement** behaves in the same way as **increment** but counts down. The random behavior generates a random value between the minimum value and maximum values. |
+| Behavior | Behaviors enable telemetry data to vary from one message to the next to simulate real-world data. **Increment** increases the value by one in each message sent starting at the minimum value. Once the maximum value is met, then it starts over again at the minimum value. **Decrement** behaves in the same way as **Increment** but counts down. The **Random** behavior generates a random value between the minimum value and maximum values. |
 | Min Value | The lowest number representing your acceptable range. |
 | Max Value | The largest number representing your acceptable range. |
 | Unit | The unit of measurement for the sensor such as °F or MPH. |
@@ -108,7 +108,7 @@ Device Simulation currently enables you to simulate up to 1,000 devices.
 
 ### Telemetry frequency
 
-Telemetry frequency enables you to specify how often your simulated devices should send data to the IoT hub. You can send data as frequently as every 10 seconds or as infrequently as 99 hours, 59 minutes, and 59 seconds.
+Telemetry frequency enables you to specify how often your simulated devices should send data to the IoT hub. You can send data as frequently as every 10 seconds or as infrequently every as 99 hours, 59 minutes, and 59 seconds.
 
 ![Telemetry frequency](media/iot-suite-device-simulation-explore/frequency.png)
 
@@ -134,4 +134,4 @@ If you chose to run your simulation indefinitely, then it runs until you click *
 ![Stop simulation](media/iot-suite-device-simulation-explore/stop.png)
 
 > [!NOTE]
-> Only one simulation can be run at a time. You must stop the currently running simulation to start a new simulation.
+> Only one simulation can be run at a time. You must stop the currently running simulation before you start a new simulation.
