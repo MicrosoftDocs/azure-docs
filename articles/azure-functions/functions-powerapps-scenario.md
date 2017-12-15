@@ -42,7 +42,7 @@ In this topic, you learn how to:
 ## Prerequisites
 
 + An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
-+ Excel and the [Excel sample file](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) because you will use Excel as a data source for your app.
++ Excel and the [Excel sample file](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) that you will use as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
@@ -68,35 +68,35 @@ The custom API (also known as a custom connector) is available in PowerApps, but
 ## Create an app and add data sources
 Now you're ready to create the app in PowerApps, and add the Excel data and the custom API as data sources for the app.
 
-1. In [web.powerapps.com](https://web.powerapps.com), in the left pane, click **New App**.
+1. In [web.powerapps.com](https://web.powerapps.com), choose **Start from blank** > ![Phone app icon](media/functions-powerapps-scenario/icon-phone-app.png) (phone) > **Make this app**.
 
-1. Under **Blank app**, click **Phone layout**.
+    ![Start from blank - phone app](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Create tablet app](media/functions-powerapps-scenario/create-phone-app.png)
-
-    The app opens in PowerApps Studio for web. The following image shows the different parts of PowerApps Studio. This image is for the finished app; you will see a blank screen at first in the middle pane.
+    The app opens in PowerApps Studio for web. The following image shows the different parts of PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) Left navigation bar**, in which you see a hierarchical view of all the controls on each screen
+    **(A) Left navigation bar**, in which you see a hierarchical view of all the controls on each screen
 
-    **(2) Middle pane**, which shows the screen that you're working on
+    **(B) Middle pane**, which shows the screen that you're working on
 
-    **(3) Right pane**, where you set options such as layout and data sources
+    **(C) Right pane**, where you set options such as layout and data sources
 
-    **(4) Property** drop-down list, where you select the properties that formulas apply to
+    **(D) Property** drop-down list, where you select the properties that formulas apply to
 
-    **(5) Formula bar**, where you add formulas (as in Excel) that define app behavior
+    **(E) Formula bar**, where you add formulas (as in Excel) that define app behavior
     
-    **(6) Ribbon**, where you add controls and customize design elements
+    **(F) Ribbon**, where you add controls and customize design elements
 
 1. Add the Excel file as a data source.
 
-    1. In the right pane, on the **Data** tab, click **Add data source**.
+    The data you will import looks like the following:
 
-        ![Add data source](media/functions-powerapps-scenario/add-data-source.png)
+    ![Excel data to import](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Click **Add static data to your app**.
+    1. On the app canvas, choose **connect to data**.
+
+    1. On the **Data** panel, click **Add static data to your app**.
 
         ![Add data source](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -106,9 +106,10 @@ Now you're ready to create the app in PowerApps, and add the Excel data and the 
 
         ![Add data source](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. Add the custom API as a data source.
 
-    1. On the **Data** tab, click **Add data source**.
+    1. On the **Data** panel, click **Add data source**.
 
     1. Click **Turbine Repair**.
 
@@ -127,17 +128,21 @@ Now that the data sources are available in the app, you add a screen to your app
 
     ![Change title and resize gallery](media/functions-powerapps-scenario/gallery-title.png)
 
-1. With the gallery selected, in the right pane, on the **Data** tab, change the data source from **CustomGallerySample** to **Turbines**.
+1. With the gallery selected, in the right pane, under **Properties**, click **CustomGallerySample**.
 
     ![Change data source](media/functions-powerapps-scenario/change-data-source.png)
 
+1. In the **Data** panel, select **Turbines** from the list.
+
+    ![Select data source](media/functions-powerapps-scenario/select-data-source.png)
+
     The data set doesn't contain an image, so next you change the layout to better fit the data. 
 
-1. Still in the right pane, change **Layout** to **Title, subtitle, and body**.
+1. Still in the **Data** panel, change **Layout** to **Title, subtitle, and body**.
 
     ![Change gallery layout](media/functions-powerapps-scenario/change-layout.png)
 
-1. As the last step in the right pane, change the fields that are displayed in the gallery.
+1. As the last step in the **Data** panel, change the fields that are displayed in the gallery.
 
     ![Change gallery fields](media/functions-powerapps-scenario/change-fields.png)
     
@@ -156,6 +161,8 @@ Now that the data sources are available in the app, you add a screen to your app
 1. You don't need the original screen in the app. In the left pane, hover over **Screen1**, click **. . .**, and **Delete**.
 
     ![Delete screen](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Click **File**, and name the app. Click **Save** on the left menu, then click **Save** in the bottom right corner.
 
 There's a lot of other formatting you would typically do in a production app, but we'll move on to the important part for this scenario - calling the function.
 
