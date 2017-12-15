@@ -121,6 +121,21 @@
         href: azure-stack-replace-disk.md
       - name: Replace component
         href: azure-stack-replace-component.md
+    - name: Back up Azure Stack
+      href: azure-stack-backup-infrastructure-backup.md
+      items:
+      - name: Enable Backup for Azure Stack from the administration console
+        href: azure-stack-backup-enable-backup-console.md
+      - name: Enable Backup for Azure Stack with PowerShell
+        href: azure-stack-backup-enable-backup-powershell.md
+      - name: Back up Azure Stack
+        href: azure-stack-backup-back-up-Azure-Stack.md
+      - name: Recover from catastrophic data loss
+        href: azure-stack-backup-recover-data.md
+      - name: Backup Best Practices
+        href: azure-stack-backup-best-pracitices.md
+      - name: Backup Reference
+        href: azure-stack-backup-reference.md
   - name: Security, compliance & identity
     items:
     - name: Security overview
