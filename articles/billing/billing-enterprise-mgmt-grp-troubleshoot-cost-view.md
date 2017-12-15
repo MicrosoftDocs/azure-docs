@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: rithorn
 ---
 
@@ -43,4 +43,3 @@ If you are receiving an error message "This asset is unavailable" when trying to
 
 Contact the administer of the subscription or management groups to be given access.  
 * For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
-* For management groups, RBAC access is not available and is coming soon. Contact your enterprise portal administer to have access assigned.   
