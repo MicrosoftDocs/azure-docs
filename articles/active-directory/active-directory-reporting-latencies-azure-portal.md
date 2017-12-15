@@ -42,9 +42,6 @@ The following table lists the latency information for activity reports.
 
 
 
-
-
-
 ## Security reports
 
 There are two areas of security reporting:
