@@ -26,7 +26,7 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
 2. On the Home screen, click the **Help + support** tab.
    
     ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
-3. On the Help + Support blade, click **New support request** and fill out the **Basic blade**.
+3. On the Help + Support blade, click **New support request** and fill out the **Basics** blade.
 
    Select your [Azure support plan][Azure support plan].
    
@@ -38,11 +38,11 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
         
     ![Basics blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
     ![Basics blade1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
-4. Fill out the **Problem blade** .
+4. Fill out the **Problem** blade.
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
-   > By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply the 7.5 by the total [DWU][DWU] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. 
+   > By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply 7.5 by the total [DWU][DWU] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and unpaused databases count toward the DTU quota. 
    > 
    > 
    
@@ -57,7 +57,7 @@ After you have submitted the support request, the Azure support team will contac
 
 ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
-## Other Resources
+## Other resources
 Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][Stack Overflow] or on the [Azure SQL Data Warehouse MSDN forum][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
