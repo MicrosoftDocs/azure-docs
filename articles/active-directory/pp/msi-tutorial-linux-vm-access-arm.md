@@ -39,13 +39,18 @@ You learn how to:
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
+To run the CLI script examples in this tutorial, you have two options:
+
+- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block (see next section).
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Linux Virtual Machine in a new Resource Group
 
-For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
+For this tutorial, we will create a new Linux VM. You can also opt to use an existing VM.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -56,6 +61,28 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
+
+## Create a new User Assigned MSI
+
+1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+
+   ```azurecli
+   az login
+   ```
+
+2. Create a User Assigned MSI using [az identity create](/cli/azure). The following example creates an MSI named *myMSI*. The `-g` parameter specifies the resource group for the User Assigned MSI. Update these values as appropriate for your environment:
+
+    ```azurecli-interactive
+    az identity create -g DevTest -n myMSI
+    ```
+## Associate your User Assigned MSI with your Linux VM
+
+1. Associate the User Assigned MSI using [az vm assign-identity](/cli/azure/identity/#assign). The following example associates the MSI named *myMSI* with a VM named *DevTestVM*. Update these values as appropriate for your environment:
+
+    ```azurecli-interactive
+    az vm assign-identity --g DevTest --n DevTestVM –identities "/subscriptions/1234/resourcegroups/DevTest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myMSI"
+    ```
+The response includes the details for the user assigned MSI created. Please note the ID value for your MSI, as it will be used in the next step.
 
 ## Enable MSI on your VM
 
