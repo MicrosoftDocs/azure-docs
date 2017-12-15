@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: ''
 ---
@@ -42,34 +42,8 @@ In this topic, you learn how to:
 ## Prerequisites
 
 + An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
-+ Excel, because you will use Excel as a data source for your app.
++ Excel and the [Excel sample file](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) because you will use Excel as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
-
-
-## Prepare sample data in Excel
-You start off by preparing sample data that you use in the app. Copy the following table into Excel. 
-
-| Title      | Latitude  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Yes             | 6               | This is the second issue this month.       |
-| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Yes             | 6               |                                            |
-| Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Yes             | 7               |                                            |
-| Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Yes             | 40               | We have some parts coming in for this one. |
-
-1. In Excel, select the data, and on the **Home** tab, click **Format as table**.
-
-    ![Format as table](media/functions-powerapps-scenario/format-table.png)
-
-1. Select any style, and click **OK**.
-
-1. With the table selected, on the **Design** tab, enter `Turbines` for **Table Name**.
-
-    ![Table name](media/functions-powerapps-scenario/table-name.png)
-
-1. Save the Excel workbook.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
