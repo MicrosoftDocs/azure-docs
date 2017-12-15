@@ -21,7 +21,9 @@ ms.author: mabrigg
 
 ## Azure backup infrastructure
 
-Azure Stack’s consists of many services that comprise the portal, Azure Resource Manager, and infrastructure management experience. Azure Stack’s appliance-like management experience is focused on reducing the complexity exposed to the operator of the solution. 
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Azure Stack consists of many services that comprise the portal, Azure Resource Manager, and infrastructure management experience. The appliance-like management experience of Azure Stack focuses on reducing the complexity exposed to the operator of the solution. 
 
 Infrastructure Backup is designed to internalize the complexity of backing up and restoring data for infrastructure services, ensuring operators can focus on managing the solution and maintaining an SLA to users. 
 
@@ -88,4 +90,4 @@ Consider these limits as you plan, deploy, and operate your Microsoft Azure Stac
 
 ## Next steps
 
- - To learn more...
+ - To learn more about the Infrastructure Backup Service, see [Backup and data recovery for Azure Stack with the Infrastructure Backup Service](azure-stack-backup-infrastructure-backup.md).

@@ -19,9 +19,11 @@ ms.author: mabrigg
 ---
 # Recover from catastrophic data loss
 
-Azure Stack runs Azure services in your datacenter. Azure Stack is designed to run on environments as small as four nodes installed in a single rack. There is a real possibility of a data loss issue that can impact parts or the entire Azure Stack Cloud. Compared to Azure, which runs in more than 40 regions in multiple datacenters and zones in each region, user resources can span many servers, racks, datacenters, and regions. With Azure Stack, you only have the choice to deploy the entire cloud to a single rack. In the worst case, the Azure Stack Cloud can suffer catastrophic data loss due to a disaster or major product bug. In this case, Azure Stack instance goes offline. All of the data is potentially unrecoverable.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Depending on the root cause of the data loss, you may need to simply heal a single infrastructure service or restore the entire Azure Stack instance. you may even need to restore to different hardware in the same location or in a different location.
+Azure Stack runs Azure services in your datacenter. Azure Stack can run on environments as small as four nodes installed in a single rack. In contrast, Azure runs in more than 40 regions in multiple datacenters and multiple zones in each region. User resources can span multiple servers, racks, datacenters, and regions. With Azure Stack, you only have the choice to deploy your entire cloud to a single rack. This exposes your cloud to the risk of catastrophic events at your datacenter or failures due to major product bugs. When a disaster strikes, the Azure Stack instance goes offline. All of the data is potentially unrecoverable.
+
+Depending on the root cause of the data loss, you may need to repair a single infrastructure service or restore the entire Azure Stack instance. You may even need to restore to different hardware in the same location or in a different location.
 
 | Scenario                                                           | Data Loss                            | Considerations                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
@@ -45,24 +47,24 @@ Azure Stack supports a type of deployment called cloud recovery mode. This mode 
  - Internal identity systems
  - Federated identify configuration (disconnected deployments)
  - Root certificates used by internal certificate authority
- - Azure Resource Manager configuration user data – subscriptions, plans, offers, and (storage, network, compute) quotas
+ - Azure Resource Manager configuration user data, such as subscriptions, plans, offers, and quotas for storage, network, and compute resources
  - KeyVault secrets and vaults
  - RBAC policy assignments and role assignments 
 
-None of the user IaaS or PaaS resources are recovered – IaaS VMs, storage accounts, blobs, tables, network configuration etc. The purpose of cloud recovery is to ensure your operators and users can log back into the portal after deployment is complete. Users logging back in will not see any of their resources. Users have their subscriptions restored and along with that the original plans and offers policies defined by the administrator. Users logging back into the system will operate under the same constraints imposed by the original solution before the disaster. After cloud recovery completes, the operator can restore value-add and third-party RPs and associated data using a manual process that is published separately.
+None of the user Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) resources are recovered. That is IaaS VMs, storage accounts, blobs, tables, network configuration, and so on, are lost. The purpose of cloud recovery is to ensure your operators and users can log back into the portal after deployment is complete. Users logging back in will not see any of their resources. Users have their subscriptions restored and along with that the original plans and offers policies defined by the administrator. Users logging back into the system operates under the same constraints imposed by the original solution before the disaster. After cloud recovery completes, the operator can manually restore value-add and third-party RPs and associated data.
 
 ## Infrastructure Backup components
 
 Infrastructure Backup includes the following components:
 
  - **Infrastructure Backup Controller**  
- The Infrastructure Backup Controller is instantiated with and resides in every Azure Stack cloud.
+ The Infrastructure Backup Controller is instantiated with and resides in every Azure Stack Cloud.
  - **Backup Resource Provider**  
  The Backup Resource Provider (Backup RP) is composed of the user interface and application program interfaces (API)s exposing basic backup functionality for Azure Stack infrastructure.
 
 ### Infrastructure Backup Controller
 
-The Infrastructure Backup Controller is a Service Fabric service gets instantiated for an Azure Stack cloud. Backup resources are created at a regional level and capture region-specific service data from AD, CA, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
+The Infrastructure Backup Controller is a Service Fabric service gets instantiated for an Azure Stack Cloud. Backup resources are created at a regional level and capture region-specific service data from AD, CA, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
 
 ## Backup Resource Provider
 
@@ -76,4 +78,4 @@ The Backup Resource Provider presents user interface in the Azure Stack portal f
 
 ## Next steps
 
-Learn how to prepare the system for backup. 
+ - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-pracitices.md).

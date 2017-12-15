@@ -19,16 +19,20 @@ ms.author: mabrigg
 ---
 # Backup and data recovery for Azure Stack with the Infrastructure Backup Service
 
-You can back up and restore configuration and service data using the Infrastructure Backup Service. Each Azure Stack installation contains an instance of the service. You can use the backup in a redeployment for the Azure Stack cloud to restore identity, security, and Azure Resource Manager data.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Backup can only be enabled after Azure Stack deployment and once the cloud is operational. Enable backup if you are going to put your cloud into production. However, if you plan to perform testing and validation for a long period of time, then do not enable backup. You can enable backup when you are ready to put the cloud into production. 
+You can back up and restore configuration and service data using the Infrastructure Backup Service. Each Azure Stack installation contains an instance of the service. You can use backups created by the service for the redeployment of the Azure Stack Cloud to restore identity, security, and Azure Resource Manager data.
+
+You can enable backup when you are ready to put your cloud into production. Do not enable backup if you plan to perform testing and validation for a long period of time.
+
+Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
 > The Infrastructure Backup Service does not include user data and applications. For information on backing up and restore App Services, Functions, SQL, and MySQL resource providers and associated user data `in a separate document`.
 
-Features of the 
+## The Infrastructure Backup Service
 
-The following table summarizes the important features of infrastructure backup.
+The services contains the following features.
 
 | Feature                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,15 +45,15 @@ The following table summarizes the important features of infrastructure backup.
 ## Verify requirements for the Infrastructure Backup Service
 
 - **Storage location**  
-  You need a file share accessible from Azure Stack. For more information about selecting a storage location for the Azure Stack Infrastructure Backup Service, see [Infrastructure Backup Service Best Practices](azure-stack-backup-best-pracitices.md).
+  You need a file share accessible from Azure Stack that can contain seven backups. Each backup is about 10 gb. Your share should be able to store 70 gigs of backups. For more information about selecting a storage location for the Azure Stack Infrastructure Backup Service, see [Infrastructure Backup Service Best Practices](azure-stack-backup-best-pracitices.md).
 - **Credentials**  
   You need a domain user account and credentials, for example, you may use the Azure Stack administrator credentials.
 - **Encryption key**  
-  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more information on how to generate a pre-shared key, see [article Title](http://). 
+  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key,follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
 
 ## Next steps
 
-- Learn how to [Enable Backup for Azure Stack from the administration console](azure-stack-backup-enable-backup-console.md).
+- Learn how to [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 - Learn how to [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 - Learn how to [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md)
 - Learn how to [Recover from catastrophic data loss](azure-stack-backup-recover-data.md)

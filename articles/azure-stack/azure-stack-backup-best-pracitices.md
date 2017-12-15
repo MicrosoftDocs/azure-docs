@@ -1,6 +1,6 @@
 ---
 title: Infrastructure Backup Service best practices for Azure Stack | Microsoft Docs
-description: You can follow set of best practices when you deploy and manage Azure Stack in your data center to help mitigate data loss if there is a catastrophic failure.
+description: You can follow set of best practices when you deploy and manage Azure Stack in your datacenter to help mitigate data loss if there is a catastrophic failure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -19,19 +19,21 @@ ms.author: mabrigg
 ---
 # Infrastructure Backup Service best practices
 
-You can follow set of best practices when you deploy and manage Azure Stack in your data center to help mitigate data loss if there is a catastrophic failure.
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You should review the best practices at a regular interval to help validate that your installation is still in compliance when changes are made to the operation flow. Should you encounter any issues while implementing these best practices, contact Microsoft Support for assistance. `URL for contact information.`
+You can follow best practices when you deploy and manage Azure Stack in your datacenter to help mitigate data loss in the event of a catastrophic failure.
+
+You should review the best practices at a regular interval to verify that your installation is still in compliance when changes are made to the operation flow. Should you encounter any issues while implementing these best practices, contact Microsoft Support for help.
 
 ## Configuration best practices
 
 ### Deployment
 
-The recommendation is to enable Infrastructure Backup after deployment of each Azure Stack cloud. Using AzureStack-Tools you can schedule backups from any client/server with access to the operator management API endpoint. 
+Enable Infrastructure Backup after deployment of each Azure Stack Cloud. Using AzureStack-Tools you can schedule backups from any client/server with access to the operator management API endpoint.
 
 ### Networking
 
-UNC path must use a fully qualified domain name (FQDN). IP address is possible if name resolution is not possible. 
+The Universal Naming Convention (UNC) string for the path must use a fully qualified domain name (FQDN). IP address is possible if name resolution is not possible. A UNC string specifies the location of resources such as shared files or devices.
 
 ### Encryption
 
@@ -45,37 +47,41 @@ The key must be stored in a secure location (for example, Azure Key Vault secret
 
 ## Operational best practices
 
-## Backups
+### Backups
 
  - Infrastructure Backup Controller needs to be triggered on demand. Recommendation is to backup at least two times per day.
- - Backup jobs execute while the system is running so there is no downtime to the management experiences or user applications. Expect the backup jobs to take 20-40 minutes for a solution that is under reasonable load. 
- - Manual backup of network switches and Hardware Lifecycle Host should be stored on the same backup share where Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for the scale unit the configuration belongs to. 
- - Folder structure
+ - Backup jobs execute while the system is running so there is no downtime to the management experiences or user applications. Expect the backup jobs to take 20-40 minutes for a solution that is under reasonable load.
+ - Manual backup of network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
 
-      - Infrastructure creates MASBACKUP folder automatically. This is a Microsoft-managed share. You can create shares at the same level as MASBACKUP. It is not recommended creating folders or storage data inside of MASBACKUP that Azure Stack does not create. 
-      - User FQDN and region to differentiate backup data from different clouds. 
+### Folder Names
+
+ - Infrastructure creates MASBACKUP folder automatically. This is a Microsoft-managed share. You can create shares at the same level as MASBACKUP. It is not recommended creating folders or storage data inside of MASBACKUP that Azure Stack does not create. 
+ -  User FQDN and region in your folder name to differentiate backup data from different clouds.  
 
 For example, the backup share is AzSBackups hosted on fileserver01.contoso.com. In that file share there may be a folder per Azure Stack deployment using the external domain name and a subfolder that uses the region name. 
 
-FQDN: contoso.com
+FQDN: contoso.com  
 Region: nyc
-`    \\fileserver01.contoso.com\AzSBackups`
-`    \\fileserver01.contoso.com\AzSBackups\contoso.com`
-`\\fileserver01.contoso.com\AzSBackups\contoso.com\nyc`
-`\\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup`
+
+
+    \\fileserver01.contoso.com\AzSBackups
+    \\fileserver01.contoso.com\AzSBackups\contoso.com
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
 
 MASBackup folder is where Azure Stack stores its backup data. You should not use this folder to store your own data. OEM should not use this folder to store any backup data either. 
 
 OEMs are encouraged to store backup data for their components under the region folder. For example:
 
-`    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH`
-`    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches`
-`    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData`
-`    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration`
+
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
+    \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
 
 ### Restore
 
-In the event of catastrophic data loss but the hardware is still usable, redeployment of Azure Stack is required. During redeployment, you can specify the storage location and credentials required to access backups. In this mode, there is no need to specify the services that need to be restored. Infrastructure Backup Controller injects control plane state as part of the deployment workflow. 
+If there is catastrophic data loss but the hardware is still usable, redeployment of Azure Stack is required. During redeployment, you can specify the storage location and credentials required to access backups. In this mode, there is no need to specify the services that need to be restored. Infrastructure Backup Controller injects control plane state as part of the deployment workflow.
 
 If there is a disaster that renders the hardware unusable, redeployment is only possible on new hardware. Redeployment can take several weeks while replacement hardware is ordered and arrives in the datacenter. Restore of control plane data is possible at any time. However, restore is not supported if the version of the redeployed instance is more than one version greater than the version used in the last backup. 
 
@@ -98,4 +104,5 @@ The following alerts are supported by the system:
 
 ## Next steps
 
-- Next step...
+-- Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).  
+-- Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).

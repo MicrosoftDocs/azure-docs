@@ -19,40 +19,20 @@ ms.author: mabrigg
 ---
 # Enable Backup for Azure Stack with PowerShell
 
-Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. The cmdlets to enable backup, start backup, and get backup information are all accessible via the operator management endpoint
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. You can access the PowerShell cmdlets to enable backup, start backup, and get backup information via the operator management endpoint.
 
 ## Download Azure Stack Tools
 
-Configure Azure Stack tools using these instructions: [https://github.com/Azure/AzureStack-Tools](https://github.com/Azure/AzureStack-Tools). 
-
-Copying the file locally (for example, C:\tools)
-
-Open Windows PowerShell with an elevated prompt, and run the following commands:
-
-   ```powershell
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
-   expand-archive master.zip -DestinationPath . -Force
-   cd AzureStack-Tools-master
-   ```
-
-##  Configure Azure Stack Tools
-
-Open Windows PowerShell with an elevated prompt, and run the following commands:
-
-   ```powershell
-   Install-Module -Name 'AzureRm.Bootstrapper'
-   Install-AzureRmProfile -profile '2017-03-09-profile' -Force
-   Install-Module -Name AzureStack -RequiredVersion 1.2.11
-   ```
-
-The script may take several minutes to run.
+Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  Load the Connect and Infrastructure modules
 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
 
    ```powershell
-   cd C:\tools\AzureStack-Tools-master\Connect
+    cd C:\tools\AzureStack-Tools-master\Connect
     Import-Module .\AzureStack.Connect.psm1
     
     cd C:\tools\AzureStack-Tools-master\Infrastructure
@@ -62,7 +42,13 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
 ##  Setup Rm environment and log into the operator management endpoint
 
-Open Windows PowerShell with an elevated prompt, and run the following commands:
+Open Windows PowerShell with an elevated prompt. Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
+
+| Variable    | Description |
+|---          |---          |
+| $TenantName | Azure Active Directory tenant name |
+| Operator account name        | Your Azure Stack operator account name|
+| Azure Resource Manager Endpoint | URL to the administrator portal |
 
    ```powershell
    # Specify Azure Active Directory tenant name
@@ -93,7 +79,7 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
     Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
-## Generate  a new encryption key
+## Generate a new encryption key
 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
 
@@ -103,7 +89,13 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
 ## Provide the backup share, credentials, and encryption key to enable backup
 
-Open Windows PowerShell with an elevated prompt, and run the following commands:
+Open Windows PowerShell with an elevated prompt. Edit the following PowerShell script by adding the variables for your environment. Run the updated script to provide the backup share, credentials, and encryption key to the Infrastructure Backup Service.
+
+| Variable        | Description   |
+|---              |---                                        |
+| $username       | Type the **Username** using the domain and username for the shared drive location. For example, `Contoso\administrator`. |
+| $password       | Type the **Password** for the user. |
+| $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
 
    ```powershell
    $username = "domain\backupoadmin"
@@ -121,7 +113,12 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
    ```powershell
    Get-AzsBackupLocation | ConvertTo-Json 
-   {
+   ```
+
+The result should look like the following JSON output:
+
+   ```json
+      {
     "ExternalStoreDefault":  {
         "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
         "UserName":  "domain\backupoadmin",
@@ -134,9 +131,9 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
         "LastBackupTime":  null
        }
    } 
-
    ```
 
 ## Next steps
 
-- Next step...
+ - Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md).
+- Learn to verify that your backup ran, see [Confirm backup completed in administration portal](azure-stack-backup-back-up-Azure-Stack.md).
