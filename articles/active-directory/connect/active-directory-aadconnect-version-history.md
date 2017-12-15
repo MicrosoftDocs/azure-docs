@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: billmath
 
 ---
@@ -41,13 +41,16 @@ Status: December 12th, 2017
 >This is a security related hotfix for Azure AD Connect
 
 ### Azure AD Connect
-When you first install Azure AD Connect, a new account can be created that is used to run the Azure AD Connect service. Before this release, the account was created with settings that allowed a user with password adminsitrator rights the ability to change the password to a value know to them.  This allowed you to sign in using this account, and this would constitute an elevation of privilege security breach. 
-This release tightens the setting on the account that is created and removes this vulnerability.
+An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) to ensure that the recommended permission changes described under section [Lock down access to the AD DS account](#lock) are automatically applied when Azure AD Connect creates the AD DS account. 
+
+- When setting up Azure AD Connect, the installing administrator can either provide an existing AD DS account, or let Azure AD Connect automatically create the account. The permission changes are automatically applied to the AD DS account that is created by Azure AD Connect during setup. They are not applied to existing AD DS account provided by the installing administrator.
+- For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
 
 >[!NOTE]
->This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For exisating installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
 
-To tighten the settings for the service account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). It will tighten the settings on the service account to remove the vulnerability to the below values:
+#### <a name="lock"></a> Lock down access to the AD DS account
+Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
 
 *	Disable inheritance on the specified object
 *	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
@@ -64,10 +67,13 @@ Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
 Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
 Allow    | Authenticated Users           | List Contents        | This object  |
 Allow    | Authenticated Users           | Read All Properties  | This object  |
+Allow    | Authenticated Users           | Read Permissions     | This object  |
+
+To tighten the settings for the AD DS account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). The PowerShell script will assign the permissions mentioned above to the AD DS account.
 
 #### PowerShell script to tighten a pre-existing service account
 
-To use the PowerShell script, to apply these settings, to a pre-existing service account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+To use the PowerShell script, to apply these settings, to a pre-existing AD DS account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
 
 ##### Usage:
 
@@ -77,11 +83,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Where 
 
-$ObjectDN = The Active Directory account whose permissions need to be tightened.
-$Credential = The credential used to authenticate the client when talking to Active Directory. This is generally the Enterprise Admin credentials used to create the account whose permissions needs tightening.
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
 
 >[!NOTE] 
->$credential.UserName should be in domain\username format.  
+>$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
 
 ##### Example:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
 
-                                                                                                               
-
-## 1.1.649.0
-Status: October 27 2017
-
->[!NOTE]
->This build is not available to customers through the Azure AD Connect Auto Upgrade feature
+For more information, see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## 1.1.649.0
 Status: October 27 2017
