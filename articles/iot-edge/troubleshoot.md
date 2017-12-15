@@ -74,7 +74,7 @@ Ensure that there is a route to the internet for the IP addresses assigned to th
 The Edge Hub fails to start, and prints the following message to the logs: 
 
 ```
-One of more errors occurred. 
+One or more errors occurred. 
 (Docker API responded with status code=InternalServerError, response=
 {\"message\":\"driver failed programming external connectivity on endpoint edgeHub (6a82e5e994bab5187939049684fb64efe07606d2bb8a4cc5655b2a9bad5f8c80): 
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
