@@ -92,7 +92,7 @@ If you receive a similar error, run the [az acr update][az-acr-update] command a
 
 When you upgrade a Classic registry by using the Azure portal, Azure automatically selects the lowest-level SKU that can accommodate your images. For example, if your registry contains 12 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
 
-To upgrade your Classic registry by using the Azure portal, navigate to the container registry **Overview** and select **Upgrade to managed registries**.
+To upgrade your Classic registry by using the Azure portal, navigate to the container registry **Overview** and select **Upgrade to managed registry**.
 
 ![Classic registry upgrade button in the Azure portal UI][update-classic-01-upgrade]
 
