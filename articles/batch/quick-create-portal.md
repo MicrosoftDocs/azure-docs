@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/13/2017
+ms.date: 12/15/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job in the portal
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. Batch supports both Linux and Windows workloads, but this quickstart creates a pool of Windows nodes, but you can aeach task displays environment variables set by Batch on the compute node. This example is basic but introduces you to key concepts of the Batch service.
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. The pool in this example contains Windows VMs, but Batch also supports Linux pools to run Linux jobs. Each sample task displays environment variables set by Batch on a compute node. This example is basic but introduces you to key concepts of the Batch service. 
 
 ## Log in to Azure 
 
@@ -27,7 +27,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create Batch account
 
-Follow these steps to create a sample Batch account for test purposes. You need an account to create compute resources (pools of compute nodes) and Batch jobs. As shown in this example, you can link an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
+Follow these steps to create a sample Batch account for test purposes. You need an account to create Batch pools and Batch jobs. As shown here, you can link an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
 
 
 1. Click **Create a resource** > **Compute** > **Batch Service**. 
@@ -36,7 +36,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 2. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. 
 
-3. In **Storage account**, select an existing general purpose storage account or create a new one.
+3. In **Storage account**, select an existing general-purpose storage account or create a new one.
 
 4. Keep the defaults for remaining settings, and click **Create** to create the account.
 
@@ -47,12 +47,12 @@ When the **Deployment succeeded** message appears, go to the Batch account in th
 
 ## Create a Batch pool
 
-Create a sample pool of Windows virtual machines for test purposes. The pool consists of 2 size A1 nodes running Windows Server 2016 from the Azure Marketplace. If you prefer a Linux pool, select one of the available Linux distributions.
+Create a sample pool of Windows VMs for test purposes. The pool for this quick example consists of 2 size A1 nodes running Windows Server 2012 R2 Datacenter from the Azure Marketplace. 
 
 
 1. In the Batch account, click **Pools** > **Add**.
 
-2. Enter a **Pool ID**, such as *mypool-windows*. 
+2. Enter a **Pool ID**, such as *mypool*. 
 3. In **Operating System**, select the following settings (you can explore other options):
 
   * **Image Type** - Marketplace (Linux/Windows)
@@ -65,11 +65,15 @@ Create a sample pool of Windows virtual machines for test purposes. The pool con
 
   ![Select a pool operating system][pool_os] 
 
-4. In **Node Size**, select Standard_A1. In **Target dedicated nodes**, enter 2. Keep the defaults for remaining settings, and click **OK** to create the pool.
+4. Scroll down to add **Node Size** and **Scale** settings:
+  * In **Node pricing tier**, select *Standard_A1*. This size offers a good balance of performance versus cost for this quick example.
+  * In **Target dedicated nodes**, enter 2. 
 
   ![Select a pool size][pool_size] 
 
-While the compute nodes are starting, you see a **Resizing** message. You can go ahead and schedule a job while the pool is resizing. After a few minutes, the **Allocation state** of the nodes is **Steady**. 
+5. Keep the defaults for remaining settings, and click **OK** to create the pool.
+
+While the compute nodes are starting, you see an **Allocation state** of **Resizing**. You can go ahead and create a job and tasks while the pool is resizing. After a few minutes, the state of the nodes is **Steady**, indicating they are ready to run tasks. 
 
 
 
@@ -79,7 +83,7 @@ A Batch job specifies a pool to run tasks on and optional settings such as a pri
 
 1. In the account view, click **Jobs** > **Add**. 
 
-2. Enter a **Job ID**, such as *myjob-windows*. In **Pool**, select the pool you created. Keep the defaults for the remaining settings, and click **OK**.
+2. Enter a **Job ID**, such as *myjob*. In **Pool**, select the pool you created. Keep the defaults for the remaining settings, and click **OK**.
 
   ![Create a job][job_create]
 
@@ -87,11 +91,15 @@ After the job is created, the **Tasks** page opens.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set AZ_BATCH` command on a compute node, and then wait 90 seconds. The `set AZ_BATCH` command displays the Windows environment variables that Azure Batch creates on each node. When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to display the Batch environment variables on a compute node, and then waits 90 seconds. 
+
+When you use Batch, the **Command line** is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes. 
+
+To create the first task:
 
 1. Click **Add**.
 
-2. Enter a **Task ID**, such as *mytask-windows*. 
+2. Enter a **Task ID**, such as *mytask*. 
 
 3. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and click **OK**.
 
@@ -99,11 +107,7 @@ Now create sample tasks to run in the job. Typically you create multiple tasks t
 
 After the task is created, it starts running on one of the nodes in the pool.
 
-While the task runs, create a second task with an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
-
-> [!TIP]
-> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "printenv AZ_BATCH; sleep 90s"`.
->
+To create a second task, go back to step 1. Enter a different **Task ID**, but specify an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
 
 ## View task output
 
@@ -112,7 +116,7 @@ The preceding task examples complete in a couple of minutes. To view the output 
 
 ![View task output][task_output]
 
-The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs, you can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
+The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs and tasks, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines.
 
 
 
@@ -123,7 +127,7 @@ When no longer needed, delete the resource group, Batch account, and all related
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. To learn more about Azure Batch, continue to the Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
