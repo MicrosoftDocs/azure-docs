@@ -23,10 +23,10 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 | Report | Location | Description |
 |:--- |:--- |:--- |
-| Blocked User History | MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
+| Blocked User History | Azure AD > MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
 | Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
-| Bypassed User History | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
-| Server status | MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
+| Bypassed User History | Azure AD > MFA Server > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
+| Server status | Azure AD > MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
 
 ## View reports 
 
