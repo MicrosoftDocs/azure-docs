@@ -149,7 +149,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 1. Build and run the app on your device to verify that there are no failures.
 
 ## Send test push notifications
-You can test receiving notifications in your app by sending push notifications in the [Azure Portal] via the **Troubleshooting** section in the hub blade (use the *Test Send* option).
+You can test receiving notifications in your app by sending push notifications in the [Azure Portal] via the *Test Send* option.
 
 ![Azure Portal - Test Send][30]
 
