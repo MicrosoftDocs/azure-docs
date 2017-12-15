@@ -4,7 +4,7 @@ description: How to build a Cordova application that integrates with Azure AD fo
 services: active-directory
 documentationcenter: ''
 author: vibronet
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345

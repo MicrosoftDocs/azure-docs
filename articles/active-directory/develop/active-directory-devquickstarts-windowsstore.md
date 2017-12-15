@@ -4,7 +4,7 @@ description: Build Windows Store apps that integrate with Azure AD for sign-in a
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68

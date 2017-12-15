@@ -2,19 +2,11 @@
 title: Azure Container Instances tutorial - Prepare Azure Container Registry
 description: Azure Container Instances tutorial - Prepare Azure Container Registry
 services: container-instances
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: mmacy
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc

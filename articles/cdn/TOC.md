@@ -20,16 +20,19 @@
  
 ## Manage
 ### [Manage with Azure PowerShell](cdn-manage-powershell.md)
+### [Restrict access by country](cdn-restrict-access-by-country.md)
+### [Improve performance by compressing files](cdn-improve-performance.md)
+### Control caching behavior
+#### [How caching works](cdn-how-caching-works.md)
+#### [Control caching behavior with caching rules](cdn-caching-rules.md)
+#### Cache content by query strings
+##### [Standard tier](cdn-query-string.md)
+##### [Premium tier](cdn-query-string-premium.md)
+#### [Purge cached assets](cdn-purge-endpoint.md)
+#### [Pre-load cached assets](cdn-preload-endpoint.md)
 ### Configure time-to-live
 #### [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
-### [Restrict access by country](cdn-restrict-access-by-country.md)
-### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
 ### [Token authentication](cdn-token-auth.md)
 ### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
@@ -38,13 +41,14 @@
 
 ## Analyze
 ### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
-#### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
-#### [Custom reports from Verizon](cdn-verizon-custom-reports.md)
 #### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
-### Analytics tools for Azure CDN from Verizon
-#### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-#### [View real-time statistics](cdn-real-time-stats.md)
-#### [Analyze edge node performance](cdn-edge-performance.md)
+#### Analytics tools for Azure CDN from Verizon
+##### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+##### [Custom reports from Verizon](cdn-verizon-custom-reports.md)
+#### Analytics tools for Azure CDN Premium from Verizon
+##### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
+##### [View real-time statistics](cdn-real-time-stats.md)
+##### [Analyze edge node performance](cdn-edge-performance.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)

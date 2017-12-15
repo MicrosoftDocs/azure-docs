@@ -1,23 +1,15 @@
 ---
-title: Quickstart - Azure Kubernetes cluster for Windows | Microsoft Docs
+title: Quickstart - Azure Kubernetes cluster for Windows
 description: Quickly learn to create a Kubernetes cluster for Windows containers in Azure Container Service with the Azure CLI.
-documentationcenter: ''
+services: container-service
 author: dlepow
 manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-
 ---
 
 # Deploy Kubernetes cluster for Windows containers
