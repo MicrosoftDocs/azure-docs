@@ -62,7 +62,7 @@ The following platform features are useful for mobile production sites:
 
   Discover more about [staging environments].
 
-* **Continuous deployment**: App Service can integrate with common supply chain management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
+* **Continuous deployment**: App Service can integrate with common source control management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
 
   Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
 
