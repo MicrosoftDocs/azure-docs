@@ -80,7 +80,7 @@ If you made a mistake; for example, you paired the wrong regions during the init
 
 ## Samples
 
-The samples on GitHub show how to set up and initiate a failover. These samples demonstrate the following concepts:
+The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
 
 - Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
 - Steps required to execute the sample code. 
