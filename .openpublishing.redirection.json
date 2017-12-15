@@ -16,6 +16,21 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
@@ -73,6 +88,21 @@
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
             "redirect_document_id": false
         },
         {
@@ -15487,6 +15517,11 @@
         {
           "source_path": "articles/billing/billing-credit-card-fails-during-azure-sign-up.md",
           "redirect_url": "https://support.microsoft.com/help/4042960",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md",
+          "redirect_url": "/azure/active-directory/active-directory-how-subscriptions-associated-directory",
           "redirect_document_id": false
         },
 	    {
