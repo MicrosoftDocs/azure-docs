@@ -29,9 +29,9 @@ Workload management in SQL Data Warehouse is governed by the use of resource cla
 
 *Resource classes* assign a set amount of system resources such as memory to users. 
 
-*Concurrency slots* represent the reservation of total concurrency a particular query will have based on its resource class. 
+*Concurrency slots* represent the reservation of total concurrency a particular query has based on its resource class. 
 
-*Workload groups* assign *importance* to various resource classes which manages the systems priority in granting resources.
+*Workload groups* assign *importance* to various resource classes, which manages the systems priority in granting resources.
 
 Users should focus on workload management to:
 
@@ -68,15 +68,15 @@ Resource classes help you control memory allocation and CPU cycles given to a qu
 
 #### Static Resource Classes
 
-Static resource classes (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) allocate the same amount of memory regardless of the current DWU provided that the current DWU has enough memory. This means that on larger DWUs, you can run more queries in each resource class concurrently. **We recommend users to select static resource class assignments for most resource class assignments.**
+Static resource classes (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) allocate the same amount of memory regardless of the current DWU provided that the current DWU has enough memory. On larger DWUs, you can run more queries concurrently with more granular static resource classes. **We recommend users to select static resource class assignments for most resource class assignments.**
 
 #### Dynamic Resource Classes
 
-Dynamic resource classes (**smallrc, mediumrc, largerc, xlargerc**) allocate a variable amount of memory depending on the current DWU. This means that when you scale up to a larger DWU, your queries automatically get more memory. 
+Dynamic resource classes (**smallrc, mediumrc, largerc, xlargerc**) allocate a variable amount of memory depending on the current DWU. If you scale up to a larger DWU, your queries will automatically receive  more memory. 
 
 ### Memory allocation
 
-Different resource classes offer benefits and drawbacks for users' queries. A larger resource class gives a user's queries access to more memory, which may mean queries execute faster.  However, higher resource classes also reduce the number of concurrent queries that can run. **This is the trade-off between allocating large amounts of memory to a single query or allowing other queries, which also need memory allocations, to run concurrently**. If one user is given high allocations of memory for a query, other users will not have access to that same memory to run a query.
+Different resource classes offer benefits and drawbacks for users' queries. A larger resource class gives a user's queries access to more memory, which may mean queries execute faster.  However, higher resource classes also reduce the number of concurrent queries that can run. **This is the trade-off between allocating large amounts of memory to a single query or allowing other queries, which also need memory allocations, to run concurrently**.
 
 Users in **smallrc** and **staticrc10** are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to **xlargerc** or **staticrc80** are given large amounts of memory, and therefore fewer of their queries can run
 concurrently.
@@ -85,7 +85,7 @@ For memory mappings of resource classes, visit [memory allocation mappings][memo
 
 ### Query importance
 
-SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. Workload groups control the *importance* of queries, which in turn affect the priority of resource allocation to those queries. Importance is used for CPU scheduling. Queries run with high importance will get three times more CPU cycles than those with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance. By extension, the resource class is mapped directly to the assignment of *importance* to a query.
+SQL Data Warehouse implements resource classes by using workload groups. There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. Workload groups control the *importance* of queries, which in turn affect the priority of resource allocation to those queries. Importance is used for CPU scheduling. Queries run with *high importance* receive three times more CPU cycles than those with *medium importance*. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance. By extension, the resource class is mapped directly to the assignment of *importance* to a query.
 
 For workload group assignments to resource classes, visit [workload group mappings][workload group mappings].
 
@@ -120,7 +120,7 @@ To reiterate, the following statements honor resource classes:
 
 ## Query exceptions to concurrency limits
 
-Some queries do not honor the resource class to which the user is assigned. These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation. The goal of these exceptions is to avoid larger memory allocations for queries that will never need them. In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in smallrc. The resources required to fulfill this operation are very low, so it does not make sense to include the query in the concurrency slot model.  These queries are also not limited by the 32 user concurrency limit, an unlimited number of these queries can run up to the session limit of 1,024 sessions.
+Some queries do not honor the resource class to which the user is assigned. These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation. The goal of these exceptions is to avoid larger memory allocations for queries that do not need significant amounts of memory. In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in smallrc. The resources required to fulfill this operation are low, so it does not make sense to include the query in the concurrency slot model.  These queries are also not limited by the 32 user concurrency limit, an unlimited number of these queries can run up to the session limit of 1,024 sessions.
 
 The following statements do not honor resource classes:
 
@@ -132,8 +132,8 @@ The following statements do not honor resource classes:
 - TRUNCATE TABLE
 - ALTER AUTHORIZATION
 - CREATE LOGIN
-- CREATE, ALTER or DROP USER
-- CREATE, ALTER or DROP PROCEDURE
+- CREATE, ALTER, or DROP USER
+- CREATE, ALTER, or DROP PROCEDURE
 - CREATE or DROP VIEW
 - INSERT VALUES
 - SELECT from system views and DMVs
@@ -143,16 +143,15 @@ The following statements do not honor resource classes:
 ## Selecting proper resource class
 
 A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher-quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
-There are a couple of best practices to follow here. As mentioned above, SQL DW supports two kinds of resource class types: static resource classes and dynamic resource classes.
 
 ### Resource classes and loading
 
 1. If the expectations are loads with regular amount of data, a static resource class is a good choice. Later, when scaling up to get more computational power, the data warehouse will be able to run more concurrent queries out-of-the-box, as the load user does not consume more memory.
 2. If the expectations are bigger loads in some occasions, a dynamic resource class is a good choice. Later, when scaling up to get more computational power, the load user will get more memory out-of-the-box, hence allowing the load to perform faster.
 
-The memory needed to process loads efficiently depends on the nature of the table loaded and the amount of data processed. For instance, loading data into CCI tables requires some memory to let CCI rowgroups reach optimality. For more details, see the Columnstore indexes - data loading guidance.
+The memory needed to process loads efficiently depends on the nature of the table loaded and the amount of data processed. For instance, loading data into CCI tables requires some memory to let CCI rowgroups reach optimality. 
 
-As a best practice, we advise you to use at least 200MB of memory for loads.
+As a best practice, one should use at least 200MB of memory for load queries.
 
 ### Resource classes and querying
 
@@ -161,7 +160,7 @@ Queries have different requirements depending on their complexity. Increasing me
 1. If the expectations are regular, complex queries (for instance, to generate daily and weekly reports) and do not need to take advantage of concurrency, a dynamic resource class is a good choice. If the system has more data to process, scaling up the data warehouse will therefore automatically provide more memory to the user running the query.
 2. If the expectations are variable or diurnal concurrency patterns (for instance if the database is queried through a web UI broadly accessible), a static resource class is a good choice. Later, when scaling up to data warehouse, the user associated with the static resource class will automatically be able to run more concurrent queries.
 
-Selecting proper memory grant depending on the need of your query is non-trivial, as it depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, selection, and group predicates. From a general standpoint, allocating more memory will allow queries to complete faster, but would reduce the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm. To fine-tune throughput, trying various flavors of resource classes may be required.
+Selecting proper memory grant depending on the need of your query is non-trivial, as it depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, selection, and group predicates. From a general standpoint, allocating more memory allows queries to complete faster, but would reduce the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm. To fine-tune throughput, trying various flavors of resource classes may be required.
 
 ## Next steps
 
