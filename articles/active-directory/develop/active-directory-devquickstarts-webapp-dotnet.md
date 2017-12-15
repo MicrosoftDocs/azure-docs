@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dastrock
 ms.custom: aaddev
-
 ---
+
 # Azure AD .NET web app getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
