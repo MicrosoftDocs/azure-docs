@@ -1,5 +1,5 @@
 ---
-title: 'GitHub identity provider configuration | Microsoft Docs'
+title: 'GitHub identity provider configuration - Azure AD B2C | Microsoft Docs'
 description: Provide sign-up and sign-in to customers with GitHub accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
@@ -30,17 +30,17 @@ To use GitHub as an identity provider in Azure AD B2C, you need to create a GitH
 1. Enter an **Application name** and your **Homepage URL**.
 1. For the **Authorization callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
 1. Click **Register application**.
-1. Copy the values of **Client ID** and **Client Secret**. You will need both of them to configure GitHub as an identity provider for your Azure AD B2C tenant.
+1. Save the values of **Client ID** and **Client Secret**. You will need both in the next section.
 
 ## Configure GitHub as an identity provider in your Azure AD B2C tenant
 
 1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-2. On the B2C features blade, click **Identity providers**.
-3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "GitHub".
-5. Click **Identity provider type**, select **GitHub**, and click **OK**.
-6. Click **Set up this identity provider** and enter the client ID and client secret of the GitHub OAuth application that you copied earlier.
-7. Click **OK** and then click **Create** to save your GitHub configuration.
+1. On the B2C features blade, click **Identity providers**.
+1. Click **+Add** at the top of the blade.
+1. Provide a friendly **Name** for the identity provider configuration. For example, enter "GitHub".
+1. Click **Identity provider type**, select **GitHub**, and click **OK**.
+1. Click **Set up this identity provider** and enter the client ID and client secret of the GitHub OAuth application that you copied earlier.
+1. Click **OK** and then click **Create** to save your GitHub configuration.
 
 ## Next steps
 
