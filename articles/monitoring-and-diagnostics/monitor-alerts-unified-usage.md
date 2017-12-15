@@ -38,7 +38,7 @@ Detailed following is step-by-step guide to using Azure Alerts (Preview).
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
     ![Monitoring](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
-2. Select the **Add Alert Rule** button to create a new alert in Azure.
+2. Select the **New Alert Rule** button to create a new alert in Azure.
     ![Add Alert](./media/monitor-alerts-unified/AlertsPreviewOption.png)
 
 3. The Create Alert section is shown with the three parts consisting of: *Define alert condition*, *Define alert details*, and *Define action group*.
@@ -64,7 +64,7 @@ As Azure Alerts (Preview) allows for creation of various types of alerts from a 
 
    ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Log Alerts*: Ensure **Resource Type** is selected platform or monitor service and an analytics source like *Log Analytics*, then once appropriate **resource** is chosen click *Done* button. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option.
+8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics*, then once appropriate **resource** is chosen click *Done* button. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option.
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
 9.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week. 
@@ -108,10 +108,9 @@ Within a few minutes, the alert is active and triggers as previously described.
 2. The **Alerts (Preview) Dashboard** is displayed - wherein all Azure Alerts are unified and displayed in a singular board
    ![Alert Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
 1. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
-    - *Total Alerts*: The number of Alerts active for the selected s    ubscriptions until date
-    - *Unresolved Alerts*: The number of Alerts currently in unresolved state
+    - *Fired Alerts*: The number of Alerts currently which have met logic and in fired state
     - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
-2. A list of all unresolved alerts is shown which the user can click to view details and perform actions such as *mark as resolved*.
+2. A list of all fired alerts is shown which the user can click to view details
 3. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*
 
 ## Managing your alerts in Azure portal
