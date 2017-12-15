@@ -22,7 +22,7 @@ Predictive maintenance is also popular. In predictive maintenance, many differen
 
 In predictive maintenance scenarios, data is collected over time to monitor the state of equipment. The goal is to find patterns that can help predict and ultimately prevent failures. Using [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) networks is a deep learning method that is especially appealing in predictive maintenance. LSTM networks are good at learning from sequences. Time series data can be used to look back at longer periods of time to detect failure patterns.
 
-In this tutorial, we build an LSTM network for the data set and scenario that are described at [Predictive maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We use the network to predict the remaining useful life of aircraft engines. The template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future. Using this prediction, maintenance can be planned in advance, to prevent failure.
+In this tutorial, we build an LSTM network for the data set and scenario that are described at [Predictive Maintenance](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). We use the network to predict the remaining useful life of aircraft engines. The template uses simulated aircraft sensor values to predict when an aircraft engine will fail in the future. Using this prediction, maintenance can be planned in advance, to prevent failure.
 
 This tutorial uses the [Keras](https://keras.io/) deep learning library, and the Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) as a back end.
 
@@ -40,7 +40,7 @@ We suggest that you examine the data format and complete all three steps of the 
 
 - An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
 - Azure Machine Learning Workbench, with a workspace created.
-- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and a [model management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- For model operationalization: Azure Machine Learning Operationalization, with a local deployment environment set up, and an [Azure Machine Learning Model Management account](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
 
 ## Create a new Workbench project
 
@@ -58,13 +58,13 @@ On your local computer, on the Machine Learning Workbench **File** menu, select 
 
 `az ml experiment prepare --target docker --run-configuration docker`
 
-We suggest running the notebook server on a  DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). After the DSVM is configured, run the following two commands:
+We suggest running the notebook server on a  DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). After the DSVM is configured, run the following commands to prepare the Docker images:
 
 `az ml computetarget attach remotedocker --name [connection_name] --address [VM_IP_address] --username [VM_username] --password [VM_password]`
 
 `az ml experiment prepare --target [connection_name] --run-configuration [connection_name]`
 
-With the docker images prepared, open the Jupyter notebook server. To open the Jupyter notebook server, either go to the Machine Learning Workbench **Notebooks** tab, or start a browser-based server:
+With the Docker images prepared, open the Jupyter notebook server. To open the Jupyter notebook server, either go to the Machine Learning Workbench **Notebooks** tab, or start a browser-based server:
 `az ml notebook start`
 
 Notebooks are stored in the Code directory in the Jupyter environment. Run these notebooks sequentially as numbered, starting with Code\1_data_ingestion_and_preparation.ipynb.
@@ -118,15 +118,15 @@ The notebook tests the functions by using the model definition before it package
 
 ## Conclusion
 
-This tutorial uses a simple scenario in which only one data source (sensor values) is used to make predictions. In more advanced predictive maintenance scenarios, like the [predictive maintenance modeling guide R notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), many data sources might be used. Other data sources might include historical maintenance records, error logs, and machine and operator features. Additional data sources might require different types of treatments to be used in deep learning networks. It's also important to tune the models for the right parameters, like for window size. 
+This tutorial uses a simple scenario in which only one data source (sensor values) is used to make predictions. In more advanced predictive maintenance scenarios, like the [Predictive Maintenance Modeling Guide R Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), many data sources might be used. Other data sources might include historical maintenance records, error logs, and machine and operator features. Additional data sources might require different types of treatments to be used in deep learning networks. It's also important to tune the models for the right parameters, like for window size. 
 
-You can edit relevant parts of this scenario, and try different problem scenarios, such as the ones described in the [Predictive maintenance modeling guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1), which involves multiple other data sources.
+You can edit relevant parts of this scenario, and try different problem scenarios, such as the ones described in the [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1), which involves multiple other data sources.
 
 
 ## References
 
-- [Predictive maintenance solution template](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
-- [Predictive maintenance modeling guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
-- [Predictive maintenance modeling guide Python notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
-- [Predictive maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+- [Predictive Maintenance Solution Template](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
+- [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
+- [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
