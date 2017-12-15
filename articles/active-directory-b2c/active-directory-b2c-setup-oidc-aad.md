@@ -57,7 +57,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Click **Identity provider type**, select **Custom Open ID Connect**, and click **OK**.
 1. Click **Set up this identity provider**.
 
-    1. Set **Metadata url** to `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (e.g. contoso.com).
+    1. Set **Metadata url** to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (e.g. contoso.com).
     1. Set **Domain hint** to the value you want to use for the `domain_hint` parameter. This parameter is used to automatically select the identity provider for the user to sign in with. 
     1. Enter the client ID and client secret of the Azure AD application that you created in the previous section.
     1. Set **Scope** to `openid` or the set of privileges that you would like to obtain from Azure AD.
