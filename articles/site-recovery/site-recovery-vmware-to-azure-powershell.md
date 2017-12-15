@@ -154,6 +154,7 @@ FabricSpecificDetails : Microsoft.Azure.Commands.RecoveryServices.SiteRecovery.A
 ```
 
 * Identify the Process Servers that can be used to replicate machines.
+
 ```azurepowershell
 $ProcessServers = $ASRFabrics[0].FabricSpecificDetails.ProcessServers
 for($i=0; $i -lt $ProcessServers.count; $i++) {
@@ -168,6 +169,7 @@ for($i=0; $i -lt $ProcessServers.count; $i++) {
 From the output above ***$ProcessServers[0]*** corresponds to *ScaleOut-ProcessServer* and ***$ProcessServers[1]*** corresponds to the Process Server role on *ConfigurationServer*
 
 * Identify accounts that have been set up on the Configuration Server.
+
 ```azurepowershell
 $AccountHandles = $ASRFabrics[0].FabricSpecificDetails.RunAsAccounts
 #Print the account details
@@ -180,6 +182,7 @@ AccountId AccountName
 2         WindowsAccount
 3         LinuxAccount
 ```
+
 From the output above ***$AccountHandles[0]*** corresponds to the account *vCenter_account*, ***$AccountHandles[1]*** to account *WindowsAccount*, and ***$AccountHandles[2]*** to account *LinuxAccount*
 
 ## Create a replication policy and map it for use with the Configuration Server
@@ -224,6 +227,7 @@ Errors           : {}
 ```
 
 * Create a replication policy to use for failback from Azure to the on-premises VMware site.
+
 ```azurepowershell
 $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
 ```
@@ -424,6 +428,7 @@ Errors           : {}
 ```
 
 ## Perform a test failover, validate, and cleanup test failover
+
 ```azurepowershell
 #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
