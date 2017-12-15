@@ -84,19 +84,19 @@ For this example, we created two custom fields in Log Analytics: **SvcDisplayNam
 
 It can be any service of interest. For this, example we're referencing one of the pre-existing services that are included with the Windows OS. The alert action is configured to execute the runbook used in this example and run on the hybrid runbook worker, which is enabled on the target system.   
 
-The runbook code activity **Get Service Name from LA** converts the JSON-formatted string into an object type and filter on the item **SvcDisplayName_CF** to extract the display name of the Windows service and pass this value onto the next activity, which verifies the service is stopped before attempting to restart it. **SvcDisplayName_CF** is a [custom field](../log-analytics/log-analytics-custom-fields.md) created in Log Analytics to demonstrate this example.
+The runbook code activity **Get Service Name from LA** converts the JSON-formatted string into an object type and filters on the item **SvcDisplayName_CF**. It extracts the display name of the Windows service and passes this value to the next activity, which verifies that the service is stopped before attempting to restart it. **SvcDisplayName_CF** is a [custom field](../log-analytics/log-analytics-custom-fields.md) that we created in Log Analytics to demonstrate this example.
 
 ```powershell
 $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
 $SearchResult.SvcDisplayName_CF  
 ```
 
-When the service stops, the alert rule in Log Analytics detects a match and trigger the runbook and send the alert context to the runbook. The runbook takes action to verify that the service is stopped. If so, the runbook attempts to restart the service, verify it started correctly, and output the results.     
+When the service stops, the alert rule in Log Analytics detects a match, triggers the runbook, and sends the alert context to the runbook. The runbook tries to verify that the service is stopped. If so, the runbook attempts to restart the service, verify that it started correctly, and output the results.     
 
-Alternatively, if you don't have your Automation account linked to your Operations Management Suite workspace, you configure the alert rule with a webhook action. The webhook action triggers the runbook and configures the runbook to convert the JSON-formatted string and filter on \*.SearchResult\* by following the guidance mentioned earlier.    
+Alternatively, if you don't have your Automation account linked to your Operations Management Suite workspace, you configure the alert rule with a webhook action. The webhook action triggers the runbook. It also configures the runbook to convert the JSON-formatted string and filter on **SearchResult** by following the guidance mentioned earlier.    
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md), the webook payload has changed. Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
+> If your workspace has been upgraded to the [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md), the webook payload has changed. Details of the format are in the [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## Next steps
 
