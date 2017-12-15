@@ -66,7 +66,7 @@ In the container registry **Overview** in the Azure portal, select **Update**, t
 
 ![Update container registry SKU in Azure portal][update-registry-sku]
 
-If you have a Classic registry, you can't select a managed SKU within the Azure portal. Instead, you must first [upgrade][container-registry-upgrade] to a managed registry (see [Changing from Classic](changing-from-classic)).
+If you have a Classic registry, you can't select a managed SKU within the Azure portal. Instead, you must first [upgrade][container-registry-upgrade] to a managed registry (see [Changing from Classic](#changing-from-classic)).
 
 ## Changing from Classic
 
