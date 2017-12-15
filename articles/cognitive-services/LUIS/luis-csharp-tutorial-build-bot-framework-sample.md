@@ -2,8 +2,8 @@
 title: Integrate LUIS with a bot using the Bot Builder SDK for C# in Azure | Microsoft Docs 
 description: Build a bot integrated with a LUIS application using the Bot Framework. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
@@ -12,178 +12,173 @@ ms.date: 12/13/2017
 ms.author: v-geberr
 ---
 
-# Integrate LUIS with a bot using the Bot Builder SDK for C#
+# Web App Bot using the LUIS template for C#
 
-This tutorial walks you through building a bot with the [Bot Framework][BotFramework] that's integrated with a LUIS app.
+Build a chat bot with integrated language understanding.
 
-The bot provides functionality for searching for hotels, and finding hotel reviews. For each of these activities, the LUIS app provides an intent that maps to it. The bot responds to user utterances according to the intent that LUIS detects.
+## Prerequisite
 
-| Intent | Example utterance | 
-|:----:|:----------:|
-| SearchForHotels | Find hotels in Seattle. | 
-| FindHotelReviews | Get a review of the Contoso hotel. |
+Before you create the bot, follow the steps in [Create an app](./luis-get-started-create-app.md) to build the LUIS app that it uses.
 
+The bot responds to intents from the HomeAutomation domain that are in the LUIS app. For each of these intents, the LUIS app provides an intent that maps to it. The bot provides a dialog that handles the intent that LUIS detects.
 
-<!-- 
-The bot recognizes the following intents and entities: 
-| Intent | Example utterance | Recognized entity in utterance |Entity type |
-|:----:|:----------:|:-----:|:-----:|
-| SearchForHotels | Find hotels in Seattle. | Seattle | Location |
-| FindHotelReviews | Get a review of the Contoso hotel. | Contoso | HotelName |
--->
+| Intent | Example utterance | Bot functionality |
+|:----:|:----------:|---|
+| HomeAutomation.TurnOn | Turn on the lights. | The bot invokes the `TurnOnDialog` when the `HomeAutomation.TurnOn` is detected. This dialog is where you'd invoke an IoT service to turn on a device and tell the user that the device has been turned on. |
+| HomeAutomation.TurnOff | Turn off the bedroom lights. | The bot invokes the `TurnOffDialog` when the `HomeAutomation.TurnOff` is detected. This dialog where you'd invoke an IoT service to turn off a device and tell the user that the device has been turned off. |
 
-When a user talks to your bot with a phrase such as "Search hotels in Seattle", the bot calls into your LUIS app with the LUIS endpoint URL. LUIS returns a response to the bot and the bot constructs a response to the user. 
+## Create a Language Understanding bot with Bot Service
 
-In the Bot Framework Emulator, you can see what is happening from the user's view as well as the HTTP request/response log in the log panel.
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**.
 
-## Prerequisites
-The tutorial assumes you have the following before you begin the next steps:
+    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
-* The latest version of [Visual Studio][VisualStudio] installed 
-* An Azure LUIS subscription
+2. In the search box, search for **Web App Bot**. 
 
-## Outline of steps
-The steps in this tutorial are summarized here. More details will be given in the following sections for these steps. 
+    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
-* Download and install the [Bot Framework emulator][Github-BotFramework-Emulator-Download].
-* Download the [LUIS-Samples][Github-LUIS-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
-* In [luis.ai][LUIS-website], create and publish a LUIS app from a file provided in BotBuilder-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
-* In Visual Studio, edit the bot's RootLuisDialog.cs for the LUIS endpoint.
-* In Visual Studio, start the bot. Note the port, such as 3979
-* Start the Bot Framework Emulator. Enter the URL for the bot, such as http://localhost:3979/api/messages.
-* Ask the bot: "Search hotels in Seattle"
-* View the bot's response
+3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
+    * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+    * Select the subscription, [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
+    * Select the **Language understanding (Node.js)** template for the **Bot template** field.
 
->[!NOTE]
-* If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
-* Bot Builder is used as an NuGet dependency in the LUIS sample bot application. You don’t have to do anything in order to get the dependency. It is already included for you.
+    ![Bot Service blade](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
-## Download and install the Bot Emulator
-The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
+    * Check the box to confirm to the terms of service.
 
-## Clone or download the LUIS-Samples repository
- [LUIS-Samples][Github-LUIS-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./bot-integration-samples/hotel-finder/csharp/][Github-LUIS-Samples-cs-hotel-bot].
+4. Confirm that the bot service has been deployed.
+    * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
+    * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
 
-Clone or download the repository to your computer. You edit and run the bot-integration-samples/hotel-finder/csharp sample found in this repository.
+> [!Note]
+> This web app bot creation process also created a new LUIS app for you. Its name contains the Web app bot's name. It has been trained and published for you. 
 
-## Create a new LUIS Application from the application definition file
-Create a [luis.ai][LUIS-website] account and log in.
+## Try the default bot
 
-In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found in the ./LUIS-Samples/bot-integration-samples/hotel-finder/csharp folder. The file contains the application definition for the LUIS app the sample bot uses.
+Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources blade.
 
-1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import new app**.
-2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the **Intents** page of the Hotel Finder app<!-- which looks like the following screen-->. 
-3. Click the **Train** button to train the app. 
-4. Once the app is trained, <!-- you need to change the [Assigned endpoint key][AssignedEndpointDoc]-->click the **PUBLISH** tab to open the **Publish app** page. Then click the **Publish to production slot** button to publish the app. 
-5. Copy your the endpoint URL shown in the table entry for the key named `Starter_Key`. This URL contains your LUIS app ID and your LUIS subscription ID.
+Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
-The URL looks something like the following URL: 
+  ![Test the bot in Web Chat](./media/luis-tutorial-cscharp-web-bot/bot-service-web-chat.png)
 
-```
-# LUIS endpoint URL
-https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/a0be191c-ebe0-4153-a4c3-d880b9c5d753?subscription-key=a237d6bc86cd4562bf67b09dff44d2e6&timezoneOffset=0&verbose=true&q=
-```
+The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
 
-The number after `/apps/` in the URL is your app ID. The number in the query string for subscription-key is your subscription ID. Using the above example, the app ID is: 
+## Connect your LUIS app to the bot
 
-```
-a0be191c-ebe0-4153-a4c3-d880b9c5d753
-```
+Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app.
 
-and the subscription ID is:
+  ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-id.png)
 
-```
-a237d6bc86cd4562bf67b09dff44d2e6
-```
+If you don't have the LUIS app ID, log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. 
 
-and the domain is the base URL:
+1. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
+2. In the **Settings** page for the LUIS app, find and copy the app ID.
+3. If you haven't trained the app, click the **Train** button in the upper right to train your app.
+4. If you haven't published the app, click **Publish** in the top navigation bar to open the **Publish** page. Click the **Publish to production slot** button. 
 
-```
-https://westus.api.cognitive.microsoft.com
-```
+## Modify the bot code
 
+Click **Build** and then click **Open online code editor**.
 
-## Set the LUIS endpoint in the LUIS sample bot
-In Visual Studio, set your LUIS application credentials. Open the `RootLuisDialog.cs` file and change the `LuisModel` attribute settings for the app ID, subscription ID, and domain:
+   ![Open online code editor](./media/luis-tutorial-cscharp-web-bot/bot-service-build.png)
 
-```
-[LuisModel("a0be191c-ebe0-4153-a4c3-d880b9c5d753", "a237d6bc86cd4562bf67b09dff44d2e6", domain: "westus.api.cognitive.microsoft.com")]
-[Serializable]
-public class RootLuisDialog : LuisDialog<object>
-```
+In the code editor, open `/Dialogs/BasicLuisDialog.cs`. It contains the following code:
 
-## Start the bot
-From Visual Studio, start the LUIS bot sample. A browser window will open including the URL with a port number. The port number, such as 3979, is necessary for the next step.
+```CSharp
+using System;
+using System.Configuration;
+using System.Threading.Tasks;
 
-## Start the Bot Emulator
-Start the Bot Framework emulator.
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Luis;
+using Microsoft.Bot.Builder.Luis.Models;
 
-The Bot Emulator needs the sample bot's endpoint such as http://localhost:3979/api/messages. Enter that into the address bar at the top of the emulator. It asks you for the Bot's application ID and password. You don't need those values if the bot is local to your computer, so click on CONNECT. 
+namespace Microsoft.Bot.Sample.LuisBot
+{
+    // For more information about this template visit http://aka.ms/azurebots-csharp-luis
+    [Serializable]
+    public class BasicLuisDialog : LuisDialog<object>
+    {
+        public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
+            ConfigurationManager.AppSettings["LuisAppId"], 
+            ConfigurationManager.AppSettings["LuisAPIKey"], 
+            domain: ConfigurationManager.AppSettings["LuisAPIHostName"])))
+        {
+        }
 
-If you see the following connection error in the log, the Bot Emulator cannot find your bot. 
+        [LuisIntent("None")]
+        public async Task NoneIntent(IDialogContext context, LuisResult result)
+        {
+            await this.ShowLuisResult(context, result);
+        }
 
-```
-POST connect ECONNREFUSED 127.0.0.1:3979
-```
+        // Go to https://luis.ai and create a new intent, then train/publish your luis app.
+        // Finally replace "Gretting" with the name of your newly created intent in the following handler
+        [LuisIntent("Greeting")]
+        public async Task GreetingIntent(IDialogContext context, LuisResult result)
+        {
+            await this.ShowLuisResult(context, result);
+        }
 
-If you see this successful HTTP response in the log, the Bot emulator connected to the LUIS sample bot:
-```
-POST 202 [conversationUpdate] 
-```
+        [LuisIntent("Cancel")]
+        public async Task CancelIntent(IDialogContext context, LuisResult result)
+        {
+            await this.ShowLuisResult(context, result);
+        }
 
-## Ask the bot a question
-In the bottom bar of the emulator, enter:
+        [LuisIntent("Help")]
+        public async Task HelpIntent(IDialogContext context, LuisResult result)
+        {
+            await this.ShowLuisResult(context, result);
+        }
 
-```
-Search hotels in Seattle
-``` 
-The bot should respond with suggestions for hotels.
-
-## See the bot's response
-In the left panel of the emulator, the user sees suggested hotels. 
-
-In the right panel, the HTTP conversation between the bot emulator and the LUIS sample bot is shown.
-
-```
-Log
-[13:10:55] Emulator listening on http://[::]:61655 
-[13:10:55] ngrok not configured (only needed when connecting to remotely hosted bots) 
-[13:10:55] Connecting to bots hosted remotely 
-[13:10:55] Edit ngrok settings 
-[13:10:55] Checking for new version... 
-[13:10:56] Application is up to date. 
-[13:11:51] -> POST 202 [conversationUpdate] 
-[13:11:51] -> POST 202 [conversationUpdate] 
-[13:12:01] -> POST 202 [message] search for hotels in seattle 
-[13:12:01] <- GET 200 getPrivateConversationData 
-[13:12:01] <- GET 200 getUserData 
-[13:12:01] <- GET 200 getConversationData 
-[13:12:02] <- POST 200 setPrivateConversationData 
-[13:12:02] <- POST 200 Reply[message] Welcome to the Hotels finder! We are analyzing you... 
-[13:12:02] <- POST 200 Reply[message] Looking for hotels in seattle... 
-[13:12:02] <- POST 200 Reply[event] Debug Event 
-[13:12:03] <- POST 200 setPrivateConversationData 
-[13:12:03] <- POST 200 Reply[message] I found 5 hotels: 
-[13:12:03] <- POST 200 Reply[message] application/vnd.microsoft.card.hero 
-[13:12:03] <- POST 200 Reply[event] Debug Event 
+        private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
+        {
+            await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
+            context.Wait(MessageReceived);
+        }
+    }
 ```
 
-## See the LUIS response while running the bot
-The Bot Builder SDK uses the LUIS endpoint API you set in the **RootLuisDialog.cs** file in the class level attribute **LuisModel**. The LuisModel is defined as: 
+## Change code to use HomeAutomation prebuilt domain
+Remove the three intents attributes and methods for Greeting, Cancel, and Help. These are not used in the HomeAutomation prebuilt domain. Make sure to keep the None intent attribute and method. 
 
-```
-public LuisModelAttribute(string modelID, string subscriptionKey, LuisApiVersion apiVersion = LuisApiVersion.V2, string domain = null, bool log = true, bool spellCheck = false, bool staging = false, bool verbose = false);
-```
+Add constants to manage strings:
 
-Set a breakpoint in each of the methods decorated with your LUIS intents of Help, None, ShowHotelsReviews, and SearchHotels. And enter your query again: "Search hotels in Seattle".
+   [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-When the breakpoint stops in the **SearchHotels** intent's method of **Search**, you can inspect what LUIS returned with the result parameter. The result parameter includes **TopScoringIntent** which in this case is "SearchHotels" as well as all entities and Intents found.
+Add the code for the new intents of HomeAutomation.TurnOn and HomeAutomation.TurnOff:
+
+   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=53-69&dedent=8 "Add Intents")]
+
+Add the code to get any entities found by LUIS:
+
+   [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-51&dedent=8 "Collect entities")]
+
+Change **ShowLuisResult** method to round the score, collect the entities, and display message in chat bot:
+
+   [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=71-81&dedent=8 "Display message in chat bot")]
+
+## Test the bot
+
+In the Azure Portal, click on **Test in Web Chat** to test the bot. Type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
+
+   ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
+
+> [!TIP]
+> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/train-test).
+
 
 ## Next steps
 
-* You can learn more about this [specific sample][Github-LUIS-Samples-cs-hotel-bot-readme]. 
-* Try to improve your LUIS app's performance by continuing to [add](Add-example-utterances.md) and [label utterances](Label-Suggested-Utterances.md).
-* Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
+
+You'll notice that the bot provides dialogs for handling Help, Cancel, and Greeting intents. You can try to add these intents to the LUIS app and test them using the bot.
+
+> [!NOTE] 
+> The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. 
+
+> [!div class="nextstepaction"]
+> [Add intents](./add-intents.md)
 
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
