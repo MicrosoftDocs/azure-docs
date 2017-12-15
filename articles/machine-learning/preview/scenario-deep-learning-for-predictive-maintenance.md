@@ -120,7 +120,7 @@ The notebook tests the functions by using the model definition before it package
 
 This tutorial uses a simple scenario in which only one data source (sensor values) is used to make predictions. In more advanced predictive maintenance scenarios, like the [predictive maintenance modeling guide R notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), many data sources might be used. Other data sources might include historical maintenance records, error logs, and machine and operator features. Additional data sources might require different types of treatments to be used in deep learning networks. It's also important to tune the models for the right parameters, like for window size. 
 
-You can edit relevant parts of this scenario, and try different problem scenarios, such as the ones described in the [Predictive maintenance modeling guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1) where multiple other data sources are involved.
+You can edit relevant parts of this scenario, and try different problem scenarios, such as the ones described in the [Predictive maintenance modeling guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1), which involves multiple other data sources.
 
 
 ## References
