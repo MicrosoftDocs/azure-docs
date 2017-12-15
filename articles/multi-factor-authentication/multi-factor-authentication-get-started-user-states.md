@@ -20,18 +20,18 @@ ms.custom: it-pro
 
 # How to require two-step verification for a user or group
 
-There are two approaches for requiring two-step verification. The first option is to enable each individual user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they always perform two-step verification (with some exceptions, such as when they sign in from trusted IP addresses or if the remembered devices feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
+You can take one of two approaches for requiring two-step verification. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they always perform two-step verification (with some exceptions, such as when they sign in from trusted IP addresses or when the remembered devices feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
 >[!TIP] 
 >Choose one of these methods to require two-step verification, not both. Enabling a user for Azure MFA overrides any conditional access policies.
 
-## Which option is right for you
+## Which option is right for you?
 
 **Enabling Azure MFA by changing user states** is the traditional approach for requiring two-step verification. It works for both Azure MFA in the cloud and Azure MFA Server. All users that you enable have the same experience, which is to perform two-step verification every time they sign in. Enabling a user overrides any conditional access policies that might affect that user. 
 
 **Enabling Azure MFA with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure MFA in the cloud, though, and conditional access is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones. 
 
-Both of these options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
+Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
 
 ## Enable Azure MFA by changing user status
 
@@ -68,11 +68,11 @@ Use the following steps to access the page where you can view and manage user st
    ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
 
    >[!TIP]
-   >*Enabled* users automatically switch to *enforced* when they register for Azure MFA. Do not manually change the user state to enforced. 
+   >*Enabled* users are automatically switched to *enforced* when they register for Azure MFA. Do not manually change the user state to enforced. 
 
 5. Confirm your selection in the pop-up window that opens. 
 
-After you enable users, you should notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they'll need to create app passwords. You can also include a link to our [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
+After you enable users, you should notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. You can also include a link to the [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
 
 ### Use PowerShell
 To change the user status state using [Azure AD PowerShell](/powershell/azure/overview), change `$st.State`. There are three possible states:
@@ -81,7 +81,7 @@ To change the user status state using [Azure AD PowerShell](/powershell/azure/ov
 * Enforced
 * Disabled  
 
-Don't move users directly to the *Enforced* state. Non-browser-based apps will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
+Don't move users directly to the *Enforced* state. Non-browser-based apps stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
 
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 
@@ -91,7 +91,7 @@ Using PowerShell is a good option when you need to bulk enabling users. Create a
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-The following is an example:
+The following script is an example:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -110,7 +110,7 @@ Conditional access is a paid feature of Azure Active Directory, with many config
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Go to **Azure Active Directory** > **Conditional access**.
 3. Select **New policy**.
-4. Under **Assignments**, select **Users and groups**. Use the **Include** and **Exclude** tabs to specify which users and groups will be managed by the policy.
+4. Under **Assignments**, select **Users and groups**. Use the **Include** and **Exclude** tabs to specify which users and groups the policy manages.
 5. Under **Assignments**, select **Cloud apps**. Choose to include **All cloud apps**.
 6. Under **Access controls**, select **Grant**. Choose **Require multi-factor authentication**.
 7. Turn **Enable policy** to **On** and then select **Save**.
