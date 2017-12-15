@@ -22,22 +22,29 @@ ms.reviewer: calebb
 
 # Azure Active Directory what if tool - preview
 
-[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know whether the conditional access policies in your environment works as expected? You can use the **conditional access what if policy evaluation tool** to answer this question.
+[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know whether the conditional access policies in your environment work as expected? To answer this question, you can use the **conditional access what if policy evaluation tool**.
 
 This article explains how you can use this tool to test your conditional access policies.
 
 ## What it is
 
-**The conditional access what if policy evaluation tool** allows you to understand the impact your conditional access policies have in your environment. Instead of test driving your policies by performing multiple sign-ins, this tool enables you to simulate the impact of your policies on sign-ins. 
-
-The what if tool provides you with the ability to select the conditions that are satisfied by the sign-in in your simulation. When you run a simulation, the returned result displays a list of policies that satisfy these conditions. In the returned list of policies, you can also see the controls each policy would enforce. 
-
-The tool does not only list Azure AD conditional access policies, but also classic policies that are affected, including a link to the classic policies user interface. You can use this information during a migration of classic policies.
- 
+The **conditional access what if policy evaluation tool** allows you to understand the impact your conditional access policies have in your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation determines the impact this sign-in has on your policies and generates a simulation report. The report does not only cover conditional access policies but also [classic policies](active-directory-conditional-access-migration#classic-policies.md) if they exist.    
 
 ## How it works
 
-The condition options in the what if tool mimic the condition options in conditional access policy. The Conditions supplied in "What If" populate a NuGet package which Azure AD uses to perform policy evaluation. Those policies that have their Conditions satisfied appear in the Evaluation results and they indicate the Access Controls that are enforced. 
+In the **conditional access what if policy evaluation tool**, you first need to configure the settings of a sign-in scenario you want to simulate. These settings include:
+
+- The user you want to test drive
+
+- The cloud apps the user would attempt to access
+
+- The conditions under which access to the configures cloud apps is performed
+     
+As a next step, you can initiate a simulation run that evaluates the impact of your settings. The configured settings populate a [NuGet package](https://docs.microsoft.com/nuget/what-is-nuget) Azure AD uses to perform a policy evaluation. Only policies that are enabled are part of an evaluation run.
+
+
+When the evaluation has finished, the tool generates a report of the evaluation results.
+
 
 ## Running the tool
 
@@ -47,8 +54,14 @@ To start the tool, in the toolbar on top of the list of policies, click **What i
 
 ![What if](./media/active-directory-conditional-access-whatif/01.png)
 
+Before you can run an evaluation, you must configure the settings.
 
-## What you need to know
+## Settings
+
+This section provides you with information about the settings of simulation run.
+
+![What if](./media/active-directory-conditional-access-whatif/02.png)
+
 
 ### User
 
@@ -56,28 +69,28 @@ You can only select one user. This is the only field you must set.
 
 ### Cloud apps
 
-Select **All cloud apps** to see all policies applying to the specified user. This is the default setting.
-You can narrow down the scope to policies affecting specific cloud apps by selecting them.
-
-### Policies
-
-The what if tool only evaluates conditional access policies that are enabled.
+The default for this setting is **All cloud apps**. The default setting performs an evaluation of all available policies in your environment. You can narrow down the scope to policies affecting specific cloud apps.
 
 
-## Supported conditions
+### IP address
 
-The **what if** tool supports the following conditions:
+The IP address is a single IPv4 address to mimic the [location condition](active-directory-conditional-access-azure-portal.md#locations). The address represents Internet facing address of the device used by your user to sign in. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com).    
 
-![What if](./media/active-directory-conditional-access-whatif/02.png)
+### Device platforms
+
+This setting mimics the [device platforms condition](active-directory-conditional-access-azure-portal.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. It is important to remember that browsers that were opened in private mode cannot satisfy [device-based](active-directory-conditional-access-policy-connected-applications.md) policy checks because the primary refresh token (PRT) is not forwarded in this mode.
+
+### Client apps
+
+This setting mimics the [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps).
+By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. 
+
+Selecting **Browser** evaluates all policies having at least **Browser** selected. Selecting **Mobile apps and desktop clients** evaluates all policies having at least **Mobile apps and desktop clients** selected. 
 
 
-- **IP address** - A single IPv4 address. This is be the Internet facing IPv4 address of the device the user signed in from. You can verify the IP address of a device by, for example, navigating to [What is my IP address](https://whatismyipaddress.com). 
+### Sign-in risk
 
-- **[Device platforms](active-directory-conditional-access-azure-portal.md#device-platforms)** - This setting is the equivalent of **All platforms (including unsupported)**. It is important to remember browsers that were opened in private mode cannot satisfy device-based policy checks because the primary refresh token (PRT) is not forwarded in this mode.
-
-- **[Client apps](active-directory-conditional-access-azure-portal.md#client-apps)** - By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. Selecting **Browser** evaluates all policies having at least **Browser** selected. Selecting **Mobile apps and desktop clients** evaluates all policies having at least **Mobile apps and desktop clients** selected. 
-
-- **[Sign-in risk](active-directory-conditional-access-azure-portal.md#sign-in-risk)**   
+This setting mimics the [sign-in risk condition](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
 
 
 ## Evaluation 
@@ -93,7 +106,7 @@ You start an evaluation by clicking **What if**. The evaluation result provides 
 
 If classic policies exists for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-On the list of policies that apply to your selected user, you can also find a list of grant controls and session controls your user must satisfy.
+On the list of policies that apply to your selected user, you can also find a list of [grant controls](active-directory-conditional-access-controls#grant-controls.md) and [session](active-directory-conditional-access-controls#session-controls.md) controls your user must satisfy.
 
 On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
 
@@ -104,3 +117,5 @@ On the list of policies that don't apply to your user, you can and also find the
 - If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md)  
