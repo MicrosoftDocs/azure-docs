@@ -75,6 +75,21 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/linux/azure-vm-storage-overview.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",

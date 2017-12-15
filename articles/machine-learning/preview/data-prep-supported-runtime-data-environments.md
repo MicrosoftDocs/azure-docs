@@ -32,4 +32,4 @@ Azure Data Lake Store is not currently supported for any compute target.
 
 **Uses Maven JDBC SQL Server driver 6.2.1. You must ensure that this package (or a compatible one) is included in your spark_dependencies.yml file for the compute environment.
 
-***Supports Azure SQL Database, Azure SQL Data Warehouse, or SQL Server provided the database can be reached from the compute environment. 
+***Supports Azure SQL Database or SQL Server provided the database can be reached from the compute environment. 
