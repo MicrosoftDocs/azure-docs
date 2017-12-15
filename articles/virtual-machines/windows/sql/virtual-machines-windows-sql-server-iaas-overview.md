@@ -40,7 +40,7 @@ If you require high availability, consider configuring SQL Server Availability G
 
 ## Performance
 
-Azure virtual machines offer different machine sizes to meet various workload demands. SQL VMs also provide automated storage configuration optimized for your performance requirements. For more information about conffiguring storage for SQL VMs, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md). For fine tuning performance, see the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+Azure virtual machines offer different machine sizes to meet various workload demands. SQL VMs also provide automated storage configuration, which is optimized for your performance requirements. For more information about configuring storage for SQL VMs, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md). To fine-tune performance, see the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 ## Get started with SQL VMs
 
