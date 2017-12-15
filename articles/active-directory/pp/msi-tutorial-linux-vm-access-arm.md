@@ -1,10 +1,10 @@
 ---
-title: Use a Linux VM MSI to access Azure Resource Manager
-description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
+title: Use a Linux VM User-Assigned MSI to access Azure Resource Manager
+description: A tutorial that walks you through the process of using a User-Assigned Managed Service Identity (MSI) on a Linux VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: BryanLa
-manager: mbaldwin
+author: bryanLa
+manager: mtillman
 editor: bryanla
 
 ms.service: active-directory
@@ -12,28 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
-ms.author: bryanla
+ms.date: 12/19/2017
+ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager
+# Use a Linux VM User-Assigned Managed Service Identity (MSI) to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, and then use that identity to access the Azure Resource Manager API. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
+This tutorial explains how to create a User-Assigned Managed Service Identity (MSI), assign it to a Linux Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. 
+
+Managed Service Identities are automatically managed by Azure. They enable authentication to services that support Azure AD authentication, without needing to embed credentials into your code.
+
 You learn how to:
 
 > [!div class="checklist"]
-> * Enable MSI on a Linux Virtual Machine 
-> * Grant your VM access to a Resource Group in Azure Resource Manager 
-> * Get an access token using the VM identity and use it to call Azure Resource Manager 
+> * Create a User-Assigned MSI
+> * Assign the MSI to a Linux VM 
+> * Grant the MSI access to a Resource Group in Azure Resource Manager 
+> * Get an access token using the MSI and use it to call Azure Resource Manager 
 
 ## Prerequisites
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+
+To run the CLI script examples in this tutorial, you have two options:
+
+- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block (see next section).
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
 
 ## Sign in to Azure
 
