@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example-monitor-scale-single Azure SQL database | Microsoft Docs
 description: Azure PowerShell example script to monitor and scale a single Azure SQL database
 services: sql-database
@@ -30,7 +30,7 @@ This PowerShell script example monitors the performance metrics of a database, s
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Use |[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) to get the status of database operations and use [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) to cancels an update operation on the database.|
+> Use [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) to get the status of database operations and use [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) to cancels an update operation on the database.
 
 ## Clean up deployment
 
