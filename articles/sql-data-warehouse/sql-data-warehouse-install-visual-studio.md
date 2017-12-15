@@ -24,7 +24,7 @@ To develop applications for SQL Data Warehouse, we recommend using the most rece
 Using Visual Studio with SSDT will allow you to use the SQL Server Object Explorer to visually explore tables, views, stored procedures and many more objects in your SQL Data Warehouse as well as run queries.
 
 > [!NOTE]
-> SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version. To receive period updates on this feature, please vote on [UserVoice].
+> SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version. To receive periodic updates on this feature, please vote on [UserVoice].
 > 
 > 
 
