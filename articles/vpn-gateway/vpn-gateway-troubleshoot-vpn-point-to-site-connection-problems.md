@@ -278,7 +278,7 @@ To resolve the problem, make sure that the Azure DNS servers that used on the Az
 
 ### Cause
 
-This problem may occurs if VPN client does not get the routes from Azure VPN gateway.
+This problem may occur if VPN client does not get the routes from Azure VPN gateway.
 
 ### Solution
 
@@ -307,8 +307,8 @@ Make sure that RADIUS server is configured correctly. For More information, see 
 
 ### Cause
 
-Root certificate had not been installed. The root certificate is missing from the certificates that were installed in the client's certificate store.
+Root certificate had not been installed. The root certificate is installed in the client's **Trusted certificates** store.
 
 ### Solution
 
-To resolve this problem, install the root certificate as the Trusted Certificates in the client.
+To resolve this problem, install the root certificate as the trusted certificate in the client.
