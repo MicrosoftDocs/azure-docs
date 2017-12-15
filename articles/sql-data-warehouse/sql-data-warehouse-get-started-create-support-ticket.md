@@ -19,7 +19,7 @@ ms.author: kevin;barbkess
 
 ---
 # How to create a support ticket for SQL Data Warehouse
-If you are having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
+If you are having any issues with your SQL Data Warehouse, create a support ticket so the engineering support team can assist you.
 
 ## Create a support ticket
 1. Open the [Azure portal][Azure portal].
@@ -30,8 +30,8 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
 
    Select your [Azure support plan][Azure support plan].
    
-   * **Billing, quota and subscription management** support is available at all support levels.
-   * **Break-fix** support is provided through [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] or [Premier][Premier] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+   * **Billing, quota, and subscription management** support are available at all support levels.
+   * **Break-fix** support is provided through [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct], or [Premier][Premier] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
    * **Developer mentoring** and **advisory services** are available at the [Professional Direct][Professional Direct] and [Premier][Premier] support levels. 
      
      If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][Microsoft Premier online portal].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][Azure support FAQs].  
@@ -42,7 +42,7 @@ If you are having any issues with your SQL Data Warehouse, please create a suppo
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
-   > By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply 7.5 by the total [DWU][DWU] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and unpaused databases count toward the DTU quota. 
+   > By default, each SQL server (for example, myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply 7.5 by the total [DWU][DWU] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and unpaused databases count toward the DTU quota. 
    > 
    > 
    
