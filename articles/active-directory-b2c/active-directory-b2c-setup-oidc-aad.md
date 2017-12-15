@@ -19,6 +19,9 @@ ms.author: parja
 ---
 # Azure Active Directory B2C: Sign in using Azure AD accounts through a built-in policy
 
+> [!NOTE]
+> **This feature is in preview.**  Contact [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) to have your test tenant enabled with this feature.  Do not use this on production tenants.
+
 This article shows you how to enable sign-in for users from a specific Azure Active Directory (Azure AD) organization using built-in policies.
 
 ## Create an Azure AD app
