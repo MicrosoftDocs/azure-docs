@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: zivr
 
 ---
@@ -31,9 +31,9 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications.  
-- Soon after the notification, a self-service window is set. During this window, you can find which of your virtual machines is included in this wave and start maintenance using proactive redeploy. 
-- Following the self-service window, a scheduled maintenance window begins. At this time, Azure schedules and applies the required maintenance to your virtual machine. 
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../monitoring-and-diagnostics/monitoring-overview-activity-logs).  
+- At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
+- After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.
 
@@ -41,8 +41,38 @@ The goal in having two windows is to give you enough time to start maintenance a
 You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
  > [!NOTE]
- > If you try to start maintenance and fail, Azure marks your VM as **skipped** and does not reboot it during the scheduled maintenance window. Instead, you are contacted in a later time with a new schedule. 
+ > If you try to start maintenance and fail, Azure marks your VM as **skipped**. You will no longer be able to use the Customer Initiated Maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase.
 
+
+ 
+## Should you start maintenance using during the self-service window?  
+
+The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
+
+> [!NOTE] 
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for cloud services and virtual machine scale sets.
+
+
+Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
+	- Let Azure trigger the maintenance, but be aware that the order of update domains being impacted does not necessarily happen sequentially and that there is a 30-minute pause between update domains.
+	- If a temporary loss of some of your capacity (1/UD Count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period. 
+
+**Don't** use self-service maintenance in the following scenarios: 
+	- If you shut down your VMs frequently, either manually, using Dev/Test labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+	- On short-lived VMs which you know will be deleted before the end of the maintenance wave. 
+	- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+	- For cases where you resize your VM often, as it could revert the maintenance status. 
+	- If you have adopted scheduled events which enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
+
+Use self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
+
+It is best to use self-service maintenance in the following cases:
+	- You need to communicate an exact maintenance window to your management or end-customer. 
+	- You need to complete the maintenance by a given date. 
+	- You need to control the sequence of maintenance, e.g., multi-tier application to guarantee safe recovery.
+	- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
+
+ 
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
@@ -137,13 +167,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:**Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, refer to Manage the availability of Windows virtual machines in Azure or Manage the availability of Linux virtual machines in Azure.
-
-**Q: I have disaster recovery set in another region. Am I safe?**
-
-**A:** Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage. During planned maintenance, Azure may schedule a similar window for users to start the maintenance, however the scheduled maintenance window will be different between the paired regions.  
-
-For more information on Azure regions, refer to Regions and availability for virtual machines in Azure.  You can see the full list of regional pairs here.
+For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
 
 **Q: How do I get notified about planned maintenance?**
 
@@ -153,20 +177,10 @@ For more information on Azure regions, refer to Regions and availability for vir
 
 **A:** Information related to planned maintenance is available during a planned maintenance wave only for the VMs which are going to be impacted by it. In other words, if you see not data, it could be that the maintenance wave has already completed (or not started) or that your virtual machine is already hosted in an updated server.
 
-**Q: Should I start the maintenance on my virtual machine?**
-
-**A:** In general, workloads which are deployed in a cloud service, availability set, or virtual machines scale set, are resilient to planned maintenance.  During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially.
-
-You may want to start maintenance yourself in the following cases:
-- Your application runs on a single virtual machine and you need to apply all maintenance during off-hours
-- You need to coordinate the time of the maintenance as part of your SLA
-- You need more than 30 minutes between each VM restart even within an availability set.
-- You want to take down the entire application (multiple tiers, multiple update domains) in order to complete the maintenance faster.
-
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use scheduled events and query from within the virtual machine and receive a 10 minutes notification prior to a VM reboot.
-  
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 10 minutes notification before a VM reboot.
+
 **Q: How long will it take you to reboot my virtual machine?**
 
 **A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services, scale sets, or availability set, you will be given 30 minutes between each group of VMs (UD). 
@@ -184,7 +198,7 @@ You may want to start maintenance yourself in the following cases:
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
 1.	You are using a subscription marked as Microsoft internal.
 2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled or modified so that your VMs are no longer impacted by it.
-3.	You don’t have the ‘maintenance’ column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
+3.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
@@ -193,6 +207,11 @@ You may want to start maintenance yourself in the following cases:
 2.	Your VM was *service healed* to another node due to a hardware fault
 3.	You have selected to stop (deallocate) and restart the  VM
 4.	You have **auto shutdown** turned on for the VM
+
+
+**Q: Maintenance of my availability set takes a long time, and I now see “skipped” status on some of my availability set instances. Why?** 
+
+**A:** If you have clicked to update multiple instances in an availability set in short succession, Azure will queue these requests and starts to update only the VMs in one update domain (UD) at a time. However, since there might be a pause between update domains, the update might appear to take longer. If the update queue takes longer than 60 minutes, some instances will show the **skipped** state even if they have been updated successfully. To avoid this incorrect status, update your availability sets by clicking only on instance within one availability set and wait for the update on that VM to complete before clicking on the next VM in a different update domain.
 
 
 ## Next Steps
