@@ -136,18 +136,16 @@ Each element contains properties you can set. The following example contains the
 
 This article describes the sections of the template in greater detail.
 
-## Expressions and functions
+## Syntax
 The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
 
 Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
 
-The following example shows how to use several functions when constructing values:
+The following example shows how to use several functions when constructing a value:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
