@@ -50,7 +50,7 @@ You can use the Azure portal, PowerShell, REST API, and CLI to query for the mai
 The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
 
 > [!NOTE] 
-> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for cloud services and virtual machine scale sets.
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for cloud services (Web/Worker Role) and virtual machine scale sets.
 
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
@@ -158,9 +158,9 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: How long will it take you to reboot my virtual machine?**
 
-**A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services, scale sets, or availability set, you will be given 30 minutes between each group of VMs (UD). 
+**A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use cloud services (Web/Worker Role), scale sets, or availability set, you will be given 30 minutes between each group of VMs (UD). 
 
-**Q: What will be the experience in the case of cloud services, scale sets, and Service Fabric?**
+**Q: What will be the experience in the case of cloud services (Web/Worker Role), scale sets, and Service Fabric?**
 
 **A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time.  
 
