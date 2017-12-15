@@ -5,16 +5,15 @@ description: How to restore a deleted user, view restorable users, or permanentl
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
-ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: curtand                       
 ms.reviewer: jeffsta
 ms.custom: it-pro
@@ -26,15 +25,15 @@ ms.custom: it-pro
 This article contains instructions to restore or permanently delete a previously deleted user. When you delete a user in the Azure Active Directory (Azure AD), the deleted user is retained for 30 days from the deletion date. During that time, the user and its properties can be restored. 
 
 ## Required permissions
-The following permissions are sufficient to restore a group:
+The following permissions are sufficient to restore a user.
 
 Role  | Permissions 
 --------- | ---------
-Company Administrator, Partner Tier2 support, and Intune Service Admins | Can restore any deleted user 
-User Account Administrator and Partner Tier1 support | Can restore any deleted user except those users assigned to the Company Administrator role
+Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can restore deleted users 
+Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can permenantly delete users
 
 ## How to restore a deleted user
-In the Azure portal, you can now
+In the Azure portal, you can:
 * Restore a deleted user 
 * Permanently delete a user 
 
