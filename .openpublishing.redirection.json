@@ -26,6 +26,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
+        "redirect_url": "/active-directory/active-directory-saas-tutorial-list",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
