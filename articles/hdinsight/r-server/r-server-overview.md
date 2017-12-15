@@ -22,6 +22,8 @@ ms.author: bradsev
 
 Microsoft R Server is available as a deployment option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+
 Clusters can be sized appropriately to the projects and tasks at hand and then torn down when they're no longer needed. Since they're part of Azure HDInsight, these clusters come with enterprise-level 24/7 support, an SLA of 99.9% up-time, and the ability to integrate with other components in the Azure ecosystem.
 
 R Server on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. The routines in ScaleR, Microsoft’s big data analytics package included with R Server, are also available.
