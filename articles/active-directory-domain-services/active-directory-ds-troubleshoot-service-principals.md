@@ -7,13 +7,13 @@ author: eringreenlee
 manager: mahesh-unnikrishnan
 editor:
 
-ms.assetid:
+ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date:
+ms.date: 12/12/2017
 ms.author: ergreenl
 
 ---
