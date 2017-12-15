@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
 
 ---
@@ -57,17 +57,31 @@ The system account must have the following privileges:
     a. On Azure Stack Development Kit (ASDK) installations, sign in to the physical host.
 
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
+    
+    >[!NOTE]
+    > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation will fail otherwise. The ASDK host meets this criteria.
+    
 
-3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and execute the self-extractor to extract the contents to a temporary directory.
+3. Download the MySQL resource provider binary and execute the self-extractor to extract the contents to a temporary directory.
 
-    > [!NOTE]
-    > If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestackmysqlrp1709).
+    >[!NOTE] 
+    > The resource provider build corresponds to Azure Stack builds. You must download the correct binary for the version of Azure Stack that is running.
+
+    | Azure Stack Build | MySQL RP installer |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    If you need to provide your own certificate, you need the following certificate:
+    If you need to provide your own certificate, you will need a PFX file placed in the **DependencyFilesLocalPath** (see below) as follows:
 
-    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [mysqladapter] used during install.
+    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of mysqladapter.dbadapter.\<region\>.\<external fqdn\>
+    - This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates.
+    - Only a single certificate file exists in the DependencyFilesLocalPath.
+    - The file name must not contain any special characters.
+
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
@@ -114,7 +128,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
