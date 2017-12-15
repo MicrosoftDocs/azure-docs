@@ -41,7 +41,7 @@ The goal in having two windows is to give you enough time to start maintenance a
 You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
  > [!NOTE]
- > If you try to start maintenance and fail, Azure marks your VM as **skipped**. You will no longer be able to use the Customer Initiated Maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase.
+ > If you try to start maintenance and the request fails, Azure marks your VM as **skipped**. You will no longer be able to use the Customer Initiated Maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase.
 
 
  
@@ -55,7 +55,7 @@ The following guidelines should help you to decide whether you should use this c
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
 	- Let Azure trigger the maintenance, but be aware that the order of update domains being impacted does not necessarily happen sequentially and that there is a 30-minute pause between update domains.
-	- If a temporary loss of some of your capacity (1/UD Count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period. 
+	- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period. 
 
 **Don't** use self-service maintenance in the following scenarios: 
 	- If you shut down your VMs frequently, either manually, using DevTest labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
@@ -64,7 +64,7 @@ Self-service maintenance is not recommended for deployments using **availability
 	- For cases where you resize your VM often, as it could revert the maintenance status. 
 	- If you have adopted scheduled events which enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
 
-Use self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
+**Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
 
 It is best to use self-service maintenance in the following cases:
 	- You need to communicate an exact maintenance window to your management or end-customer. 
@@ -165,7 +165,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **Q: If I follow your recommendations for High Availability by using an Availability Set, am I safe?**
 
-**A:**Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
+**A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
 For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
 
@@ -179,7 +179,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 10 minutes notification before a VM reboot.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 15 minute notification before a VM reboot.
 
 **Q: How long will it take you to reboot my virtual machine?**
 
@@ -191,7 +191,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: I have received an email about hardware decommissioning, is this the same as planned maintenance?**
 
-**A:** While hardware decommissioning is a planned maintenance event, we have not yet onboarded this use case to the new experience.  We expect customers to get confused in case they receive two similar emails about two different planned maintenance waves.
+**A:** While hardware decommissioning is a planned maintenance event, we have not yet onboarded this use case to the new experience.  
 
 **Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
