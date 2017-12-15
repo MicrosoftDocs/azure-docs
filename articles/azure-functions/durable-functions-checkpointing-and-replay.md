@@ -86,7 +86,7 @@ A few notes on the column values:
     * **TaskScheduled**: An activity function was scheduled. The name of the activity function is captured in the `Name` column.
     * **TaskCompleted**: An activity function completed. The result of the function is in the `Result` column.
     * **TimerCreated**: A durable timer was created. The `FireAt` column contains the scheduled UTC time at which the timer expires.
-    * **TimerFired**: A durable timer expired.
+    * **TimerFired**: A durable timer fired.
     * **EventRaised**: An external event was sent to the orchestration instance. The `Name` column captures the name of the event and the `Input` column captures the payload of the event.
     * **OrchestratorCompleted**: The orchestrator function awaited.
     * **ContinueAsNew**: The orchestrator function completed and restarted itself with new state. The `Result` column contains the value, which is used as the input in the restarted instance.
@@ -94,7 +94,7 @@ A few notes on the column values:
 * **Timestamp**: The UTC timestamp of the history event.
 * **Name**: The name of the function that was invoked.
 * **Input**: The JSON-formatted input of the function.
-* **Output**: The output of the function; that is, its return value.
+* **Result**: The output of the function; that is, its return value.
 
 > [!WARNING]
 > While it's useful as a debugging tool, don't take any dependency on this table. It may change as the Durable Functions extension evolves.
