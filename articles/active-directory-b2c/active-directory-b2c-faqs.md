@@ -6,15 +6,14 @@ author: PatAltimore
 manager: mtillman
 editor: saeeda
 
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.custom: seo
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.reviewer: saeeda
 ---
 
 # Azure AD B2C: Frequently asked questions (FAQ) 
