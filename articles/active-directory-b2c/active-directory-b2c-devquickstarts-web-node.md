@@ -11,10 +11,9 @@ ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-
 ---
 
 # Azure AD B2C: Add sign-in to a Node.js web app
