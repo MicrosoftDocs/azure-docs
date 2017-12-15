@@ -28,7 +28,11 @@ To use GitHub as an identity provider in Azure AD B2C, you need to create a GitH
 1. Go to the [GitHub Developer settings](https://github.com/settings/developers) after signing into GitHub.
 1. Click **New OAuth App**
 1. Enter an **Application name** and your **Homepage URL**.
-1. For the **Authorization callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com).
+1. For the **Authorization callback URL**, enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Replace **{tenant}** with your Azure AD B2C tenant's name (for example, contosob2c.onmicrosoft.com).
+
+    >[!NOTE]
+    >The value for "tenant" must be all lowercase in the **Sign-on URL**.
+
 1. Click **Register application**.
 1. Save the values of **Client ID** and **Client Secret**. You will need both in the next section.
 
