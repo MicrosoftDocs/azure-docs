@@ -73,7 +73,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-There are two datasets: `nyc_demand.csv` and `nyc_weather.csv`:
+Two datasets are provided with this sample and are downloaded using the `1-data-preparation.ipynb` notebook: `nyc_demand.csv` and `nyc_weather.csv`.
 
 **nyc_demand.csv** contains hourly energy demand values for New York City for the years 2012-2017. The data has the following simple structure:
 
