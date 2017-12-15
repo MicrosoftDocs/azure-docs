@@ -31,7 +31,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../monitoring-and-diagnostics/monitoring-overview-activity-logs).  
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -50,7 +50,7 @@ You can use the Azure portal, PowerShell, REST API, and CLI to query for the mai
 The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
 
 > [!NOTE] 
-> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role), Service Fabric and Virtual Machine Scale Sets.
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets.
 
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
@@ -58,7 +58,7 @@ Self-service maintenance is not recommended for deployments using **availability
 	- If a temporary loss of some of your capacity (1/UD Count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period. 
 
 **Don't** use self-service maintenance in the following scenarios: 
-	- If you shut down your VMs frequently, either manually, using Dev/Test labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+	- If you shut down your VMs frequently, either manually, using DevTest labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
 	- On short-lived VMs which you know will be deleted before the end of the maintenance wave. 
 	- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
 	- For cases where you resize your VM often, as it could revert the maintenance status. 
@@ -124,7 +124,7 @@ To get the maintenance status of a VM named *myVM*, type:
 azure vm show myVM 
 ``` 
 
-To start maintenance on you classic VM named *myVM* in the *myService* service and *myDeployment* deployment, type:
+To start maintenance on your classic VM named *myVM* in the *myService* service and *myDeployment* deployment, type:
 
 ```
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
