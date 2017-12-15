@@ -22,7 +22,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 ## Wait for events
 
-The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The caller declares the *name* of the event and the *shape of the data* it expects to receive.
+The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -41,7 +41,7 @@ public static async Task Run(
 }
 ```
 
-The preceding example listens for a single event and takes action when it's received.
+The preceding example listens for a specific single event and takes action when it's received.
 
 You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
 
