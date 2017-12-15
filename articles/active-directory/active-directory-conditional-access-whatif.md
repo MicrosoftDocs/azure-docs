@@ -28,7 +28,7 @@ This article explains how you can use this tool to test your conditional access 
 
 ## What it is
 
-The **conditional access what if policy evaluation tool** allows you to understand the impact your conditional access policies have in your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation determines the impact this sign-in has on your policies and generates a simulation report. The report does not only cover conditional access policies but also [classic policies](active-directory-conditional-access-migration#classic-policies.md) if they exist.    
+The **conditional access what if policy evaluation tool** allows you to understand the impact your conditional access policies have in your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation determines the impact this sign-in has on your policies and generates a simulation report. The report does not only cover conditional access policies but also [classic policies](active-directory-conditional-access-migration.md#classic-policies) if they exist.    
 
 ## How it works
 
@@ -106,7 +106,7 @@ You start an evaluation by clicking **What if**. The evaluation result provides 
 
 If classic policies exists for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-On the list of policies that apply to your selected user, you can also find a list of [grant controls](active-directory-conditional-access-controls#grant-controls.md) and [session](active-directory-conditional-access-controls#session-controls.md) controls your user must satisfy.
+On the list of policies that apply to your selected user, you can also find a list of [grant controls](active-directory-conditional-access-controls.md#grant-controls) and [session](active-directory-conditional-access-controls.md#session-controls) controls your user must satisfy.
 
 On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
 
