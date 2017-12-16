@@ -21,8 +21,6 @@ ms.author: adigan;giridham;jimpark;markgal;trinadhk
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
