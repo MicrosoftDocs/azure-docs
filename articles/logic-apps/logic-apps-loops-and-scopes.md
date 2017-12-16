@@ -25,7 +25,7 @@ Logic Apps provides a number of ways to work with arrays, collections, batches, 
   
 Logic Apps allows you to loop over a set of data and perform an action for each item.  Looping over a collection is possible via the `foreach` action.  In the designer, you can add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  You may add multiple actions per foreach loop.  Once within the loop, you can begin to specify what should occur at each value of the array.
 
-  This example sends an email for each email address that contains 'microsoft.com'. If using code-view, you can specify a for each loop like the following:
+  This example sends an email for each email address that contains 'microsoft.com'. If using code-view, you can specify a for each loop like the following example:
 
 ``` json
 {
@@ -116,9 +116,9 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## SplitOn and debatching
 
-Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added. The `spliton` command starts a run per item in the array.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view. You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` runs asynchronously and sends an immediate `202 Accepted` response.  
+Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This debatching can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` is added. The `spliton` command starts a run per item in the array.  SplitOn can only be added to a trigger which can be manually configured or overridden. You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` runs asynchronously and sends an immediate `202 Accepted` response.  
 
-SplitOn can be specified in code-view as the following example.  This example receives an array of items and debatches on each row.
+  This example receives an array of items and debatches on each row. SplitOn can be specified in code-view as the following example:
 
 ```
 {
