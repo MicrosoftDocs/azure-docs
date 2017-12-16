@@ -45,8 +45,6 @@ Change to the directory that contains the Visual Studio solution:
 cd <TBD>
 ```
 
-## Get account credentials
-
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 Open the solution in Visual Studio, and update the following strings in `program.cs`:
@@ -150,6 +148,8 @@ See the file `Program.cs` and the following sections for details.
 
 To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
+The number of nodes (`PoolNodeCount`) and VM size (`PoolVMSize`) are defined constants. The sample by default creates a pool of 2 size *Standard_A1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
+
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits the pool to the Batch service.
 
 ```csharp
@@ -169,8 +169,8 @@ try
 {
     CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: PoolId,
-    targetDedicatedComputeNodes: 2,
-    virtualMachineSize: "STANDARD_A1_v2",
+    targetDedicatedComputeNodes: PoolNodeCount,
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration
     );
 
