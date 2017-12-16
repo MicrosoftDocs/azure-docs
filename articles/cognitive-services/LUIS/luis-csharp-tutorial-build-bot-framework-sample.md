@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/15/2017
 ms.author: v-geberr
 ---
 
@@ -28,7 +28,7 @@ Build a chat bot with integrated language understanding.
 
 ## Create a Language Understanding bot with Bot Service
 
-1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**.
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the top left menu and click **See all**.
 
     ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
@@ -36,12 +36,12 @@ Build a chat bot with integrated language understanding.
 
     ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
-3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
+3. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
 
-    ![Bot Service blade](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+    ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
     * Check the box to confirm to the terms of service.
 
@@ -54,7 +54,7 @@ Build a chat bot with integrated language understanding.
 
 ## Try the default bot
 
-Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources blade.
+Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources.
 
 Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
@@ -167,6 +167,9 @@ The code view is replaced with a terminal window showing the progress and result
 
 ![Build Web bot success](./media/luis-tutorial-cscharp-web-bot/bot-service-build-success.png)
 
+> [!TIP]
+> An alternative method to build the bot is to select the bot name in the top blue bar, and select **Open Kudu Console**. The console opens to D:\home. Change the directory to D:\home\site\wwwroot by typing `cd site\wwwroot`. Run the build script here by typing `build.cmd` 
+
 ## Test the bot
 
 In the Azure portal, click on **Test in Web Chat** to test the bot. Type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
@@ -179,11 +182,10 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 
 ## Next steps
 
-
-You'll notice that the bot provides dialogs for handling Help, Cancel, and Greeting intents. You can try to add these intents to the LUIS app and test them using the bot.
+Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, and **Greeting** intents. Remember to train and publish [LUIS](https://www.luis.ai) and to [build](#build-the-bot) the web app bot. 
 
 > [!NOTE] 
-> The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. 
+> The LUIS app created by the web app bot contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** when you created the Bot Service. 
 
 > [!div class="nextstepaction"]
 > [Add intents](./add-intents.md)
