@@ -131,7 +131,7 @@ bot.set('storage', tableStorage);
 
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;  
-// var luisAppId = 'fea40ab2-99ee-4e31-b2e0-15d93fac4cf1' // Default was: 70549b08-4ecd-4be2-8176-a3fd5472f48b
+
 var luisAPIKey = process.env.LuisAPIKey;
 var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
 
@@ -219,14 +219,14 @@ bot.dialog('TurnOffDialog',
         var intent = args.intent;
         var device = builder.EntityRecognizer.findEntity(intent.entities, 'HomeAutomation.Device');
 
-        // Turn on a specific device if a device entity is detected by LUIS
+        // Turn off a specific device if a device entity is detected by LUIS
         if (device) {
-            session.send('Ok, turning on the %s.', device.entity);
-            // Put your code here for calling the IoT web service that turns on a device
+            session.send('Ok, turning off the %s.', device.entity);
+            // Put your code here for calling the IoT web service that turns off a device
         } else {
-            // Assuming turning on lights is the default
-            session.send('Ok, turning on the lights');
-            // Put your code here for calling the IoT web service that turns on a device
+            // Assuming turning off lights is the default
+            session.send('Ok, turning off the lights');
+            // Put your code here for calling the IoT web service that turns off a device
         }
         session.endDialog();
     }
