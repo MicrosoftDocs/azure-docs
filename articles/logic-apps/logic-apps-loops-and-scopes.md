@@ -63,7 +63,7 @@ If using code-view, you can specify a for each loop like below.  This is an exam
 }
 ```
   
-  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration will execute in parallel by default.  
+  A `foreach` action can iterate over arrays with thousands of entities.  Each iteration will execute in parallel by default.  See [Limits and configuration](logic-apps-limits-and-config.md) for details on array and concurrency limits.
 
 ### Sequential ForEach loops
 
@@ -80,7 +80,7 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## Until loop
   
-  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.
   
   If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
   
@@ -114,7 +114,7 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## SplitOn and debatching
 
-Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asynchronously and send an immediate `202 Accepted` response.  
+Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view. You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asynchronously and send an immediate `202 Accepted` response.  
 
 SplitOn can be specified in code-view as the following example.  This receives an array of items and debatches on each row.
 
