@@ -1,6 +1,6 @@
 ---
-title: Embed Azure Cloud Shell | Microsoft Docs
-description: Learn to embed Azure Cloud Shell.
+title: Incorporer Azure Cloud Shell | Microsoft Docs
+description: Apprendre à Incorporer Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
 author: jluk
@@ -13,37 +13,37 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 11/12/2017
 ms.author: juluk
 ---
-# Embed Azure Cloud Shell
+# Incorporer Azure Cloud Shell
 
-Embedding Cloud Shell enables developers and content writers to directly open Cloud Shell from a dedicated URL, [shell.azure.com](https://shell.azure.com). This immediately brings the full power of Cloud Shell's authentication, tooling, and up-to-date Azure CLI/Azure PowerShell tools to your users.
+Incorporer Cloud Shell permet aux développeurs et aux rédacteurs de contenus, d'ouvrir directement Cloud Shell depuis une URL dédiée, [shell.azure.com](https://shell.azure.com). Cela apporte immédiatement toute la puissance de l'authentification, de l'outillage et des outils à jour Azure PowerShell Azure CLI / Azure, pour vos utilisateurs.
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
 
-## How-to
+## Comment faire ?
 
-Integrate Cloud Shell's launch button into markdown files by copying the following:
+Incorporer le bouton de lancement Cloud Shell dans les fichiers markdown en copiant l'élément suivant :
 
 ```markdown
-[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Lancer Cloud Shell")](https://shell.azure.com)
 ```
 
-The HTML to embed a pop-up Cloud Shell is below:
+Le code HTML pour incorporer une fenêtre Cloud Shell est le suivant :
 ```html
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
-## Customize experience
+## Personnalisez l'expérience
 
-Set a specific shell experience by augmenting your URL.
+Définissez une expérience shell spécifique en personnalisant votre URL.
 |Experience   |URL   |
 |---|---|
-|Most recently used shell   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|Shell le plus utilisé récemment   |shell.azure.com           |
+|Bash                              |shell.azure.com/bash       |
+|PowerShell                        |shell.azure.com/powershell |
 
-## Next steps
-[Bash in Cloud Shell quickstart](quickstart.md)<br>
-[PowerShell in Cloud Shell quickstart](quickstart-powershell.md)
+## Etapes suivantes
+[Bash dans Cloud Shell démarrage rapide](quickstart.md)<br>
+[PowerShell dans Cloud Shell démarrage rapide](quickstart-powershell.md)
