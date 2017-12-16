@@ -81,7 +81,7 @@ Response parameters can be used as part of modifying the response to the client.
 
 * **{backend.response.statusCode}**: The HTTP status code that's returned on the back-end response.
 * **{backend.response.statusReason}**: The HTTP reason phrase that's returned on the back-end response.
-* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the request, the value will be the empty string.
+* **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the response, the value will be the empty string.
 
 ### <a name="use-appsettings"></a>Reference application settings
 
