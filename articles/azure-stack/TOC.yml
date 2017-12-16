@@ -195,6 +195,8 @@
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
+      - name: Supported guest operating systems for Azure Stack 
+        href: azure-stack-supported-os.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
       - name: Add virtual machine scale sets

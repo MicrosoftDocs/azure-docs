@@ -81,9 +81,9 @@ The file must include two functions: init and run.
 
 Add following code at the top of the score.py file to enable data collection functionality that helps collect model input and prediction data
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Check [model data collection](how-to-use-model-data-collection.md) section for more details on how to use this feature.
 
