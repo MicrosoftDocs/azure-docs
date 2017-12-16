@@ -8,6 +8,7 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
 ---
