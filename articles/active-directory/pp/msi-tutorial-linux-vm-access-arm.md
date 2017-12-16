@@ -103,6 +103,20 @@ Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on mult
     ```azurecli-interactive
     az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
     ```
+## Enable MSI on your VM
+
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
+
+1. Select the **Virtual Machine** that you want to enable MSI on.
+2. On the left navigation bar click **Configuration**.
+3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+4. Ensure you click **Save** to save the configuration.
+
+    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+
+5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
+
+    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
 
