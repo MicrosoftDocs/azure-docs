@@ -35,7 +35,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** blade consolidates all your monitoring settings and data in one view.
 
     ![The "Monitor" service](./media/monitoring-action-groups/home-monitor.png)
-2. In the **Activity log** section, select **Action groups**.
+2. In the **Settings** section, select **Action groups**.
 
     ![The "Action groups" tab](./media/monitoring-action-groups/action-groups-blade.png)
 3. Select **Add action group**, and fill in the fields.
