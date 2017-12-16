@@ -20,52 +20,81 @@ ms.custom: mvc
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
  
-These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using sample code available in the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node). Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for this article.
+These steps show how to programmatically create an enrollment group for an intermediate or root CA X.509 certificate using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) and a Node.js sample. Although these steps work on both Windows and Linux machines, this article uses a Windows development machine.
  
-Before you proceed, make sure to complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md). 
 
-To complete this Quickstart, you need a .pem file that contains an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate, and perform proof-of-possession with the service to verify the certificate. To use this tooling, clone the IoT c SDK and follow the steps in the `azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md` file.
+## Prerequisites
 
-<a id="setupdevbox"></a>
- 
-## Prepare the development environment 
- 
-1. Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine. 
- 
-5. Make sure [git](https://git-scm.com/download/) is installed on your machine and is added to the environment variable `PATH`. 
- 
- 
-<a id="downloadnode"></a>
- 
-## Download the Node.js source code
- 
-1. Open a command prompt. Clone the GitHub repo for the IoT Node.js SDK:
-     
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
-    ```
- 
-2. Copy the following files from the `azure-iot-sdk-node\provisioning\service\samples` folder to a working folder where you want to run the sample:
+- Make sure to complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md). 
 
-    - packages.json
-    - create_enrollment_group.js
  
-## Build and run sample enrollment
+- Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
+
+
+- You need a .pem file that contains an intermediate or root CA X.509 certificate that has been uploaded to and verified with your provisioning service. The **Azure IoT c SDK** contains tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. To use this tooling, clone the [Azure IoT c SDK](https://github.com/Azure/azure-iot-sdk-c) and follow the steps in [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) on your machine.
+
+## Create the erollment group sample 
+
  
 1. From a command window in your working folder, run:
   
      ```cmd\sh
-     npm install
+     npm install azure-iot-provisioning-service
      ```  
+
+2. Using a text editor, create a **create_enrollment_group.js** file in your working folder. Add the following code to the file and save:
+
+    ```
+    'use strict';
+    var fs = require('fs');
+
+    var provisioningServiceClient = require('azure-iot-provisioning-service').ProvisioningServiceClient;
+
+    var serviceClient = provisioningServiceClient.fromConnectionString(process.argv[2]);
+
+    var enrollment = {
+      enrollmentGroupId: 'first',
+      attestation: {
+        type: 'x509',
+        x509: {
+          signingCertificates: {
+            primary: {
+              certificate: fs.readFileSync(process.argv[3], 'utf-8').toString()
+            }
+          }
+        }
+      },
+      provisioningStatus: 'disabled'
+    };
+
+
+    serviceClient.createOrUpdateEnrollmentGroup(enrollment, function(err, enrollmentResponse) {
+      if (err) {
+        console.log('error creating the group enrollment: ' + err);
+      } else {
+        console.log("enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
+        enrollmentResponse.provisioningStatus = 'enabled';
+        serviceClient.createOrUpdateEnrollmentGroup(enrollmentResponse, function(err, enrollmentResponse) {
+          if (err) {
+            console.log('error updating the group enrollment: ' + err);
+          } else {
+            console.log("updated enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
+          }
+        });
+      }
+    });
+    ````
+
+## Run the enrollment group sample
  
-2. To run the sample, you need the connection string for your provisioning service. 
+1. To run the sample, you need the connection string for your provisioning service. 
     1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
     2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
     ![Get provisioning service connection string from the portal](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. You also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, click  **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.
+3. As stated in [Prerequisites](#prerequisites), you also need a .pem file that contains an X.509 intermediate or root CA certificate that has been previously uploaded and verified with your provisioning service. To check that your certificate has been uploaded and verified, on the Device Provisioning Service summary page in the Azure portal, click  **Certificates**. Find the certificate that you want to use for the group enrollment and ensure that its status value is *verified*.
 
     ![Verified certificate in the portal](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
