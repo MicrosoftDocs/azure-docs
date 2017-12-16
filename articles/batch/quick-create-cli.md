@@ -58,7 +58,7 @@ The following example creates a Batch account named *mybatchaccount* in *myResou
 az batch account create --name mybatchaccount --storage-account mystorageaccount --resource-group myResourceGroup --location eastus
 ```
 
-Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key. (Batch also supports Azure Active Directory authentication.) After you log in, you create and manage resources in that account.
+Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key.  After you log in, you create and manage resources in that account.
 
 ```azurecli-interactive 
 az batch account login --name mybatchaccount --resource-group myResourceGroup --shared-key-auth
