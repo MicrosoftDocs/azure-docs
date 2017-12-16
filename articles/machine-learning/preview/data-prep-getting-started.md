@@ -1,6 +1,7 @@
 ---
 title: Getting started with Data Preparation for Azure Machine Learning | Microsoft Docs
 description: This is the getting started guide for the data prep section of AML workbench
+services: machine-learning
 author: cforbe
 ms.author: cforbe
 ms.service: machine-learning
