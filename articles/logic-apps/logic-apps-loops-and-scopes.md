@@ -23,9 +23,9 @@ Logic Apps provides a number of ways to work with arrays, collections, batches, 
   
 ## ForEach loop and arrays
   
-Logic Apps allows you to loop over a set of data and perform an action for each item.  This looping over a collection is possible via the `foreach` action.  In the designer, you can add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  You may add multiple actions per foreach loop.  Once within the loop, you can begin to specify what should occur at each value of the array.
+Logic Apps allows you to loop over a set of data and perform an action for each item.  Looping over a collection is possible via the `foreach` action.  In the designer, you can add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  You may add multiple actions per foreach loop.  Once within the loop, you can begin to specify what should occur at each value of the array.
 
-If using code-view, you can specify a for each loop like the following example.  This example sends an email for each email address that contains 'microsoft.com':
+  This example sends an email for each email address that contains 'microsoft.com'. If using code-view, you can specify a for each loop like the following:
 
 ``` json
 {
@@ -80,13 +80,15 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## Until loop
   
-  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for using an until loop is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.
   
-  If using code-view, you can specify an until loop like the following example.  This example calls an HTTP endpoint until the response body has the value 'Completed'.  It completes when either 
+  This example calls an HTTP endpoint until the response body has the value 'Completed'.  It completes when either: 
   
   * HTTP Response has status of 'Completed'
   * It has tried for one hour
   * It has looped 100 times
+  
+  If using code-view, you can specify an until loop like the following example:
   
   ``` json
   {
@@ -136,7 +138,7 @@ SplitOn can be specified in code-view as the following example.  This example re
 
 ## Scopes
 
-It is possible to group a series of actions together using a scope.  Scopes are useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
+It is possible to group a series of actions together using a scope.  Scopes are useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following example:
 
 
 ```
