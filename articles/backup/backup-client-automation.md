@@ -195,7 +195,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Keep the passphrase information safe and secure once it is set. You are not be able to restore data from Azure without this passphrase.
+> Keep the passphrase information safe and secure once it is set. You can't restore data from Azure without this passphrase.
 >
 >
 
@@ -215,7 +215,7 @@ PS C:\> $newpolicy = New-OBPolicy
 At this time the policy is empty and other cmdlets are needed to define what items will be included or excluded, when backups will run, and where the backups will be stored.
 
 ### Configuring the backup schedule
-The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
+The first of the 3 parts of a policy are the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 * **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
@@ -416,7 +416,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-You can view the details of the existing backup policy using the [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. You can drill-down further using the [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet for the backup schedule and the [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet for the retention policies
+You can view the details of the existing backup policy using the [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. You can drill down further using the [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet for the backup schedule and the [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet for the retention policies
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -456,8 +456,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### Performing an ad-hoc backup
-Once a backup policy has been set the backups will occur per the schedule. Triggering an ad-hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+### Performing an ad hoc backup
+Once a backup policy has been set the backups will occur per the schedule. Triggering an ad hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -497,7 +497,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### Choosing a backup point from which to restore
-You retreive a list of backup points by executing the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *D:* and use it to recover a specific file.
+You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *D:* and use it to recover a specific file.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
