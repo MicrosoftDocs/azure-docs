@@ -26,7 +26,7 @@ You can configure a list of actions with action groups. These groups then can be
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an SMS, send an email, call a webhook, or send data to an ITSM tool.
+* **Action type**: Send an SMS, send an email, call a webhook, send data to an ITSM tool, or call an Azure Automation runbook.
 * **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
@@ -53,9 +53,9 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select SMS, email, webhook, or ITSM.
+    b. **Action Type**: Select SMS, email, webhook, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Runbook, or ITSM Connection details. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
 
 > [!NOTE]
 > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
