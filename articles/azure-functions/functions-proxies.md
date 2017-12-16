@@ -47,13 +47,13 @@ With Azure Functions Proxies, you can modify requests to and responses from the 
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from proxies.json, see [Define a requestOverrides object].
+Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from *proxies.json*, see [Define a requestOverrides object].
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Currently, there is no portal experience for modifying responses. To learn how to apply this capability from proxies.json, see [Define a responseOverrides object].
+Currently, there is no portal experience for modifying responses. To learn how to apply this capability from *proxies.json*, see [Define a responseOverrides object].
 
 ## <a name="using-variables"></a>Use variables
 
@@ -94,12 +94,12 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a proxies.json file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The feature must be [enabled](#enable) for the file to be processed. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The Azure Functions Proxies feature must be [enabled](#enable) for the file to be processed. 
 
 > [!TIP] 
-> If you have not set up one of the deployment methods, you can also work with the proxies.json file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
+> If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
 
-Proxies.json is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
+*Proxies.json* is defined by a proxies object, which is composed of named proxies and their definitions. Optionally, if your editor supports it, you can reference a [JSON schema](http://json.schemastore.org/proxies) for code completion. An example file might look like the following:
 
 ```json
 {
@@ -126,7 +126,7 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 * **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
 
 > [!NOTE] 
-> The route property Azure Functions Proxies does not honor the routePrefix property of the Functions host configuration. If you want to include a prefix such as /api, it must be included in the route property.
+> The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
@@ -190,7 +190,7 @@ An example configuration might look like the following:
 }
 ```
 > [!NOTE] 
-> In this example, the body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
+> In this example, the response's body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
 ## <a name="enable"></a>Enable Azure Functions Proxies
 
