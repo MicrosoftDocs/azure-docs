@@ -4,7 +4,7 @@ description: How to summarize and analyze a large collection of documents, inclu
 services: machine-learning
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
