@@ -96,38 +96,26 @@ The response contains details for the user-assigned MSI created. Please note the
 
 ## Assign your user-assigned MSI to your Linux VM
 
+Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, we will be assigning it to a single VM. You can also assign it to more than one VM.
+
 1. Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
     ```azurecli-interactive
     az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
     ```
 
-## Enable MSI on your VM
+## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
+MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tuturial, we will access the Azure Resource Manager API. 
 
-1. Select the **Virtual Machine** that you want to enable MSI on.
-2. On the left navigation bar click **Configuration**.
-3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
-4. Ensure you click **Save** to save the configuration.
-
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
-
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
-## Grant your VM access to a Resource Group in Azure Resource Manager 
-
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication. The Azure Resource Manager API supports Azure AD authentication. First, we need to grant this VM's identity access to a resource in Azure Resource Manager, in this case the Resource Group in which the VM is contained.  
+Before your code can access the API though, we need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained.  
 
 1. Navigate to the tab for **Resource Groups**.
 2. Select the specific **Resource Group** you created earlier.
 3. Go to **Access control(IAM)** in the left panel.
 4. Click to **Add** a new role assignment for your VM. Choose **Role** as **Reader**.
-5. In the next dropdown, **Assign access to** the resource **Virtual Machine**.
-6. Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**.
-7. Finally, in **Select** choose your Linux Virtual Machine in the dropdown and click **Save**.
+5. In the next dropdown, **Assign access to** the resource **Azure AD user, group, or application**.
+6. Finally, in **Select** search for the name of your user assigned MSI and click **Save**. 
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
@@ -139,10 +127,10 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
  
-    The CURL request for the access token is below.  
+    The CURL request to acquire an access token is shown below. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command: 
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
     ```
     
     > [!NOTE]
@@ -162,16 +150,16 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     "token_type":"Bearer"} 
     ```
     
-    You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
+Now you will use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
     
     > [!NOTE]
-    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+    > The URL is case-sensitive, so be sure to use the exact same case you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    The response back with the specific Resource Group information: 
+    The response contains the specific Resource Group information: 
      
     ```bash
     {"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
