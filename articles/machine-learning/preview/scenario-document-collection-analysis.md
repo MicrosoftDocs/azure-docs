@@ -6,6 +6,7 @@ author: kehuan
 ms.author: kehuan
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
 ---
