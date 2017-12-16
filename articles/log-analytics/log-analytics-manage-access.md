@@ -47,7 +47,7 @@ Based on the preceding characteristics, you may want to create multiple workspac
 * You are a managed service provider and need to keep Log Analytics data for each customer you manage isolated from other customer’s data.
 * You manage multiple customers and you want each customer / department / business group to see their own data but not the data for others.
 
-When using agents to collect data, you can [configure each agent to report to one or more workspaces](log-analytics-windows-agents.md).
+When using agents to collect data, you can [configure each agent to report to one or more workspaces](log-analytics-windows-agent.md).
 
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. However, the Microsoft Monitoring Agent on the computer can be configured to report to both Operations Manager and a different Log Analytics workspace.  
 

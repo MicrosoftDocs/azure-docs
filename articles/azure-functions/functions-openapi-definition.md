@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ---
@@ -45,9 +45,17 @@ You must have a function app to host the execution of your functions. A function
 
 This tutorial uses an HTTP triggered function that takes two parameters: the estimated time to make a turbine repair (in hours); and the capacity of the turbine (in kilowatts). The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period.
 
-1. Expand your function app, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Enter `TurbineRepair` for the function **Name** and click **Create**.
+1. Expand your function app and select the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates. 
 
-    ![Function Apps blade, Functions +](media/functions-openapi-definition/add-function.png)
+    ![Functions quickstart page in the Azure portal](media/functions-openapi-definition/add-first-function.png)
+
+2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
+ 
+    ![Choose the HTTP trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
+
+    ![Create the HTTP triggered function](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
