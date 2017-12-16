@@ -67,7 +67,6 @@ These steps show how to programmatically create an enrollment group for an inter
       provisioningStatus: 'disabled'
     };
 
-
     serviceClient.createOrUpdateEnrollmentGroup(enrollment, function(err, enrollmentResponse) {
       if (err) {
         console.log('error creating the group enrollment: ' + err);
