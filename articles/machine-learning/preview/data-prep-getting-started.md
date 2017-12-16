@@ -3,6 +3,7 @@ title: Getting started with Data Preparation for Azure Machine Learning | Micros
 description: This is the getting started guide for the data prep section of AML workbench
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

@@ -5,6 +5,7 @@ services: machine-learning
 documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
+manager: mwinkle
 ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article

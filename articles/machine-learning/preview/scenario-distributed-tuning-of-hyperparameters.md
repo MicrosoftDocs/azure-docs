@@ -6,6 +6,7 @@ author: pechyony
 ms.service: machine-learning
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ---
