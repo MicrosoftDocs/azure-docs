@@ -65,7 +65,7 @@ To set the managed application resource name, you must include a value named `ap
     "pwd": "[steps('vmCredentials').vmPwd.password]",
     "applicationResourceName": "[steps('appSettings').vmName]"
 }
-```json
+```
 
 ## Functions
 Similar to template functions in Azure Resource Manager (both in syntax and functionality), CreateUiDefinition provides functions for working with elements' inputs and outputs, as well as features such as conditionals.
