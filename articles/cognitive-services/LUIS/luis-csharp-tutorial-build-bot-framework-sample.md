@@ -66,7 +66,7 @@ The bot responds by saying "You have reached Greeting. You said: hello". This co
 
 Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app.
 
-  ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-id.png)
+  ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
 If you don't have the LUIS app ID, log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. 
 
