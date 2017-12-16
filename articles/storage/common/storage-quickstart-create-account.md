@@ -220,7 +220,8 @@ In this quick start, you've created a general-purpose standard storage account. 
 
 # [Portal](#tab/portal)
 
-TBD
+> [!div class="nextstepaction"]
+> [Transfer objects to/from Azure Blob storage using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
 
 # [PowerShell](#tab/powershell)
 

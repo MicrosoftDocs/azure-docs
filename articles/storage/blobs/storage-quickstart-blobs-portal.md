@@ -30,7 +30,7 @@ To create a container in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
 2. In the left menu for the storage account, scroll to the **Blob Service** section, then select **Browse Blobs**.
-3. Click the Add Container button.
+3. Click the **Add Container** button.
 4. Enter a name for your new container. The container name must be lowercase, must start with a letter or numberm and can contain only letters, numbers, and the dash (-) character. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 6. Click **OK** to create the container.
@@ -44,9 +44,9 @@ Block blobs consist of blocks of data assembled to make a blob. Most scenarios u
 To upload a block blob to your new container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the container you created in the previous section.
-2. Select the container to show the blobs it contains. Since this is a new container, it doesn't yet contain any blobs.
+2. Select the container to show a list of blobs it contains. In this case, since you created a new container, it won't yet contain any blobs.
 3. Click the **Upload** button to upload a blob to the container.
-4. Browse to find a file to upload as a block blob, and click **Upload**.
+4. Browse your local file system to find a file to upload as a block blob, and click **Upload**.
      
     ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -54,6 +54,15 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
     ![Screenshot showing the list of blobs in the container](media/storage-quickstart-blobs-portal/list-blobs.png)
 
+## Download a block blob
+
+You can download a block blob to display in the browser or save to your local file system. To download a block blob, follow these steps:
+
+1. Navigate to the list of blobs that you uploaded in the previous section. 
+2. Select the blob to download.
+3. Right-click the **More** button (**...**), and select **Download**. 
+
+![Screenshot showing how to download a blob in the Azure portal](media/storage-quickstart-blobs-portal/download-blob.png)
 
 ## Clean up resources
 
@@ -65,6 +74,8 @@ To delete the container:
 2. Select the container to delete.
 3. Right-click the **More** button (**...**), and select **Delete**.
 4. Confirm that you want to delete the container.
+
+    ![Screenshot showing how to delete a container from the Azure portal](media/storage-quickstart-blobs-portal/delete-container.png)   
 
 ## Next steps
 

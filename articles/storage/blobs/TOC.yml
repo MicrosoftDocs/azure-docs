@@ -10,10 +10,8 @@
   items:
   - name: Create a storage account
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Create a storage account - PowerShell
-    href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Create a storage account - CLI
-    href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Work with blobs - Azure portal
+    href: storage-quickstart-blobs-portal.md
   - name: Work with blobs - PowerShell
     href: storage-quickstart-blobs-powershell.md
   - name: Work with blobs - CLI
