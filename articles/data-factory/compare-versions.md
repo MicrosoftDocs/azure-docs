@@ -79,11 +79,11 @@ Control activity | Description
 [Wait activity](control-flow-wait-activity.md) | Pauses the pipeline for a specified period of time.
 
 ## Deploy SSIS packages to Azure 
-You use Azure-SQL Server Integration Services (SSIS) if you want to move your SSIS workloads to the cloud, create a data factory by using V2, and provision an Azure-SSIS Integration Runtime (IR).
+You use Azure-SSIS if you want to move your SSIS workloads to the cloud, create a data factory by using V2, and provision an Azure-SSIS Integration Runtime.
 
-The Azure-SSIS IR is a fully managed cluster of Azure VMs (nodes) that are dedicated to running your SSIS packages in the cloud. After you provision Azure-SSIS IR, you can use the same tools that you have been using to deploy SSIS packages to an on-premises SSIS environment. 
+The Azure-SSIS Integration Runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to running your SSIS packages in the cloud. After you provision Azure-SSIS Integration Runtime, you can use the same tools that you have been using to deploy SSIS packages to an on-premises SSIS environment. 
 
-For example, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SSIS packages to this runtime on Azure. For step-by-step instructions, see the tutorial [Deploy SQL Server integration services packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
+For example, you can use SQL Server Data Tools or SQL Server Management Studio to deploy SSIS packages to this runtime on Azure. For step-by-step instructions, see the tutorial [Deploy SQL Server integration services packages to Azure](tutorial-deploy-ssis-packages-azure.md). 
 
 ## Flexible scheduling
 In Data Factory V2, you do not need to define dataset availability schedules. You can define a trigger resource that can schedule pipelines from a clock scheduler paradigm. You can also pass parameters to pipelines from a trigger for a flexible scheduling and execution model. 
@@ -97,7 +97,7 @@ V2 supports the copying of data to and from more data stores than V1. For a list
 - [V2 - supported data stores](copy-activity-overview.md#supported-data-stores-and-formats)
 
 ## Support for on-demand Spark cluster
-V2 supports the creation of an on-demand HDInsight Spark cluster. To create an on-demand Spark cluster, specify the cluster type as Spark in your on-demand, HDInsight linked service definition. Then you can configure the Spark activity in your pipeline to use this linked service. 
+V2 supports the creation of an on-demand Azure HDInsight Spark cluster. To create an on-demand Spark cluster, specify the cluster type as Spark in your on-demand, HDInsight linked service definition. Then you can configure the Spark activity in your pipeline to use this linked service. 
 
 At runtime, when the activity is executed, the Data Factory service automatically creates the Spark cluster for you. For more information, see the following articles:
 
