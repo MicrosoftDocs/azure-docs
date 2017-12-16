@@ -89,11 +89,17 @@ You can use this sample shell script to set those variables:
 ```bash
 #!/bin/sh
 echo "Setting environment variables for Terraform"
-export ARM_SUBSCRIPTION_ID=your_subscription_id
-export ARM_CLIENT_ID=your_appId
-export ARM_CLIENT_SECRET=your_password
-export ARM_TENANT_ID=your_tenant_id
+export TF_VAR_ARM_SUBSCRIPTION_ID=your_subscription_id
+export TF_VAR_ARM_CLIENT_ID=your_appId
+export TF_VAR_ARM_CLIENT_SECRET=your_password
+export TF_VAR_ARM_TENANT_ID=your_tenant_id
 ```
+> [!TIP] 
+The name of the environment variable must be **TF_VAR_** followed by the variable name, and the value is the value of the variable.
+For example, given the configuration below:
+`variable "client_id" {}` 
+The variable needs to be set via an environment variable as:
+`export TF_VAR_ARM_client_id=your_appId`
 
 ## Run a sample script
 
