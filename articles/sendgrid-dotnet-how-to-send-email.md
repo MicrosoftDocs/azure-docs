@@ -156,7 +156,7 @@ The below example can be used to send an email from ASP .NET Core api using the 
 
 In this example the Api key has been stored in the `appsettings.json` file  which can be overridden from Azure portal as shown in above examples.
 
-The content of `appsettings.json` file looks like below  -
+The contents of `appsettings.json` file should look like below  -
 
     {
        "Logging": {
@@ -170,7 +170,6 @@ The content of `appsettings.json` file looks like below  -
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-
 As first step we need to add the below code in Startup.cs file of the .NET Core api project. This is required so that we can access the `SENDGRID_API_KEY` from the `appsettings.json` file by using dependency injection in the api controller. The `IConfiguration` interface can be injected at the constructor of controller after adding it in the `ConfigureServices` method below. The content of `Startup.cs` file looks like below after adding the required code -
 
         public IConfigurationRoot Configuration { get; }
@@ -182,10 +181,52 @@ As first step we need to add the below code in Startup.cs file of the .NET Core 
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-At the controller after injecting the `IConfiguration` interface we can use the `CreateSingleEmailToMultipleRecipients` method of the `MailHelper` class to send a single email to multiple recipients . 
+At the controller after injecting the `IConfiguration` interface we can use the `CreateSingleEmailToMultipleRecipients` method of the `MailHelper` class to send a single email to multiple recipients . It accepts one addtional boolean parameter named `showAllRecipients` . This parameter can be used to control whether email receipients will be able to see each others mail id who are in the `To` section of email. The sample code for controller should be like below 
 
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using SendGrid;
+    using SendGrid.Helpers.Mail;
+    using Microsoft.Extensions.Configuration;
 
+    namespace SendgridMailApp.Controllers
+    {
+        [Route("api/[controller]")]
+        public class NotificationController : Controller
+        {
+           private readonly IConfiguration _configuration;
 
+           public NotificationController(IConfiguration configuration)
+           {
+             _configuration = configuration;
+           }      
+        
+           [Route("SendNotification")]
+           public async Task PostMessage()
+           {
+              var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
+              var client = new SendGridClient(apiKey);
+              var from = new EmailAddress("noreply@example.com", "Sendgrid user");
+              List<EmailAddress> tos = new List<EmailAddress>
+              {
+                  new EmailAddress("Example1@testmail.com", "Recipient 1"),
+                  new EmailAddress("Example2@testmail.com", "Recipient 2"),
+                  new EmailAddress("Example3@testmail.com","Recipient 3")
+              };
+            
+              var subject = "Hello world email from Sendgrid ";
+              var htmlContent = "<strong>Hello world in HTML content</strong>";
+              var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
+              var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
+              //
+              var response = await client.SendEmailAsync(msg);
+          }
+       }
+    }
+    
 ## How to: Add an attachment
 Attachments can be added to a message by calling the **AddAttachment** method and minimally specifying the file name and Base64 encoded content you want to attach. You can include multiple attachments by calling this method once for each file you wish to attach or by using the **AddAttachments** method. The following example demonstrates adding an attachment to a message:
 
