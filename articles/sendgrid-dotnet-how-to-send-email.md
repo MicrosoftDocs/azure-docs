@@ -221,7 +221,6 @@ At the controller after injecting the `IConfiguration` interface we can use the 
               var htmlContent = "<strong>Hello world in HTML content</strong>";
               var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
               var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
-              //
               var response = await client.SendEmailAsync(msg);
           }
        }
