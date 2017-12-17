@@ -117,7 +117,7 @@ You may store these credentials via your Azure Portal by clicking Application se
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-The following examples show how to send a message using the Web API.
+The following examples show how to send a message using a console application.
 
     using System;
     using System.Threading.Tasks;
@@ -149,6 +149,42 @@ The following examples show how to send a message using the Web API.
             }
         }
     }
+    
+## How to: Send email from ASP .NET Core API using MailHelper class
+
+The below example can be used to send an email from ASP .NET Core api using the `MailHelper` class of `SendGrid.Helpers.Mail` namespace. For this example we are using ASP .NET Core 1.0. 
+
+In this example the Api key has been stored in the `appsettings.json` file  which can be overridden from Azure portal as shown in above examples.
+
+The content of `appsettings.json` file looks like below  -
+
+    {
+       "Logging": {
+       "IncludeScopes": false,
+       "LogLevel": {
+       "Default": "Debug",
+       "System": "Information",
+       "Microsoft": "Information"
+         }
+       },
+     "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+
+
+As first step we need to add the below code in Startup.cs file of the .NET Core api project. This is required so that we can access the `SENDGRID_API_KEY` from the `appsettings.json` file by using dependency injection in the api controller. The `IConfiguration` interface can be injected at the constructor of controller after adding it in the `ConfigureServices` method below. The content of `Startup.cs` file looks like below after adding the required code -
+
+        public IConfigurationRoot Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Add mvc here
+            services.AddMvc();
+            services.AddSingleton<IConfiguration>(Configuration);
+        }
+
+At the controller after injecting the `IConfiguration` interface we can use the `CreateSingleEmailToMultipleRecipients` method of the `MailHelper` class to send a single email to multiple recipients . 
+
+
 
 ## How to: Add an attachment
 Attachments can be added to a message by calling the **AddAttachment** method and minimally specifying the file name and Base64 encoded content you want to attach. You can include multiple attachments by calling this method once for each file you wish to attach or by using the **AddAttachments** method. The following example demonstrates adding an attachment to a message:
