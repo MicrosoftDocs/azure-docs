@@ -152,7 +152,7 @@ The following examples show how to send a message using a console application.
     
 ## How to: Send email from ASP .NET Core API using MailHelper class
 
-The below example can be used to send an email from ASP .NET Core api using the `MailHelper` class of `SendGrid.Helpers.Mail` namespace. For this example we are using ASP .NET Core 1.0. 
+The below example can be used to send a single email to multiple persons from ASP .NET Core api using the `MailHelper` class of `SendGrid.Helpers.Mail` namespace. For this example we are using ASP .NET Core 1.0. 
 
 In this example the Api key has been stored in the `appsettings.json` file  which can be overridden from Azure portal as shown in above examples.
 
