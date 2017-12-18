@@ -28,15 +28,15 @@ Once it is associated with a managed service identity, an Event Hubs client can 
 
 ## Event Hubs roles and permissions
 
-For the initial public preview release, you can only add a managed service identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager and not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) class under a managed service identity. 
+For the initial public preview release, you can only add a managed service identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager and not through the native Event Hubs REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed service identity. 
  
-In an upcoming update, Azure Event Hubs will add explicit roles for "Sender" and "Receiver" that enable granting only send or receive permissions. The receive permission also includes read-only access to obtain information about the entity, and also includes permission to control the message disposition, including moving it to the dead-letter queue. In subsequent updates during the preview, it will also be possible to associate MSI with roles at the level of individual entities, allowing for fine grained access control. In addition to the predefined roles, you will be able to compose custom roles from the underlying Event Hubs permission set. 
+In an upcoming update, Azure Event Hubs will add explicit roles for "Sender" and "Receiver" that enable you to grant only send or receive permissions. The receive permission also includes read-only access to obtain information about the entity, and also includes permission to control the message disposition, including moving it to the dead-letter queue. In subsequent updates during the preview, it will also be possible to associate MSI with roles at the level of individual entities, enabling fine grained access control. In addition to the predefined roles, you will be able to compose custom roles from the underlying Event Hubs permission set. 
 
 ## Use Event Hubs with a Managed Service Identity
 
-The following section describes the steps required to create and deploy an example application that runs under a managed service identity, how to grant that identity access to an Event Hubs namespace, and how the application interacts with event hubs using that identity.
+The following section describes the steps required to create and deploy a sample application that runs under a managed service identity, how to grant that identity access to an Event Hubs namespace, and how the application interacts with event hubs using that identity.
 
-This introduction creates a web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). The steps required for a VM-hosted application are similar.
+This introduction describes a web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). The steps required for a VM-hosted application are similar.
 
 ### Create an App Service web application
 
@@ -54,11 +54,11 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that have preview support for MSI: **US East**, **US East 2**, or **West Europe**. 
 
-Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed service identity to the **Owner** role. To do so, search the name of the created web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
+Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed service identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
 ![](./media/event-hubs-managed-service-identity/msi2.png)
  
-Now your web application's managed service identity has access to the Event Hubs namespace, and to the event hub you previously created. 
+The web application's managed service identity now has access to the Event Hubs namespace, and to the event hub you previously created. 
 
 ### Run the app
 
