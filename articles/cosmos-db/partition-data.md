@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/15/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -58,7 +58,7 @@ Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosm
 > It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum).
 >
 
-Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
+Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
 
 It is a good idea to check how your data is distributed in partitions. To check this in portal, go to your Azure Cosmos DB account and click on **Metrics** in **Monitoring** section and then on right pane click on **storage** tab to see how your data is partitioned in different physical partition.
 
