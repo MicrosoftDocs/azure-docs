@@ -84,16 +84,11 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
    ![Open online code editor](./media/luis-tutorial-cscharp-web-bot/bot-service-build.png)
 
-2. Right click `build.cmd` and choose **Run from Console** to build the app. There are several build steps the service completes automatically for you. The build is complete when it finished with:
-
-    ```
-    Finished successfully.
-    ```
+2. Right click `build.cmd` and choose **Run from Console** to build the app. There are several build steps the service completes automatically for you. The build is complete when it finished with "Finished successfully."
 
 3. In the code editor, open `/Dialogs/BasicLuisDialog.cs`. It contains the following code:
 
    [!code-csharp[Default BasicLuisDialog.cs](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/Default_BasicLuisDialog.cs "Default BasicLuisDialog.cs")]
-
 
 ## Change code to HomeAutomation intents
 Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
