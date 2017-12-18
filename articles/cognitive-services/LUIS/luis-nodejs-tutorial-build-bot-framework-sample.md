@@ -236,7 +236,33 @@ bot.dialog('CancelDialog',
 
 ## Add dialogs to handle the HomeAutomation intents
 
-Now that the notes recognizer is set up to point to the LUIS app, you can add code for the dialogs. The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
+Now that the notes recognizer is set up to point to the LUIS app, you can add code for the dialogs. 
+
+First, delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
+
+```javascript
+var intents = new builder.IntentDialog({ recognizers: [recognizer] })
+.matches('Greeting', (session) => {
+    session.send('You reached Greeting intent, you said \'%s\'.', session.message.text);
+})
+.matches('Help', (session) => {
+    session.send('You reached Help intent, you said \'%s\'.', session.message.text);
+})
+.matches('Cancel', (session) => {
+    session.send('You reached Cancel intent, you said \'%s\'.', session.message.text);
+})
+.onDefault((session) => {
+    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
+});
+
+bot.dialog('/', intents);
+
+```
+
+
+<!-- move this section to "Add TurnOn intent 
+The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
+-->
 
 ### Add a dialog that matches HomeAutomation.TurnOn
 
@@ -264,6 +290,8 @@ bot.dialog('TurnOnDialog',
     matches: 'HomeAutomation.TurnOn'
 })
 ```
+
+The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
 
 ### Add a dialog that matches HomeAutomation.TurnOff
 
