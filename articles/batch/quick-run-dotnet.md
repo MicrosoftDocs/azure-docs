@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Run your first Batch job using the .NET API
 
-This quickstart runs an Azure Batch job from an app built on the Azure Batch .NET API. The application uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+This quickstart runs an Azure Batch job from an application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
 
 Each sample task displays the contents of the file downloaded to the compute node. This example is basic but introduces key concepts of the Batch service. 
 
@@ -61,7 +61,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 ## Build and run the app
 
-To see the Batch workflow in action, build and run the application. After running the application, we  walk through what each part of the application does. 
+To see the Batch workflow in action, build and run the application. After running the application, see the walkthrough to learn what each part of the application does. 
 
 
 * Right-click the solution in Solution Explorer, and click **Build Solution**. 
@@ -104,8 +104,8 @@ Typical execution time is approximately 5 minutes when you run the application i
 The .NET app in this quickstart does the following:
 
 * Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch.
-* Creates a pool of two compute nodes.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a command line. 
+* Creates a pool of two compute nodes running Windows Server.
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. 
 * Displays files returned by each task.
 
 
@@ -148,7 +148,7 @@ See the file `Program.cs` and the following sections for details.
 
 To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes (`PoolNodeCount`) and VM size (`PoolVMSize`) are defined constants. The sample by default creates a pool of 2 size *Standard_A1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
+The number of nodes (`PoolNodeCount`) and VM size (`PoolVMSize`) are defined constants. The sample by default creates a pool of 2 size *Standard_A1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example. 
 
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits the pool to the Batch service.
 
