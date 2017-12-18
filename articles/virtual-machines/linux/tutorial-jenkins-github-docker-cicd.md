@@ -164,7 +164,7 @@ In Jenkins, a new build starts under the **Build history** section of the bottom
 ## Define Docker build image
 To see the Node.js app running based on your GitHub commits, lets build a Docker image to run the app. The image is built from a Dockerfile that defines how to configure the container that runs the app. 
 
-From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In our example, that was named *HelloWorld*.
+From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In this example, that was named *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
