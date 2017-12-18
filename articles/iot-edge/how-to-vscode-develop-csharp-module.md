@@ -64,7 +64,7 @@ Install and start the Azure IoT Edge runtime on your device. And deploy a simula
 7. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
 8. To stop your IoT Edge runtime and the sensor module, you can type and select **Edge: Stop Edge** in Command Palette.
 
-## Develop and deploy a C# module
+## Develop and deploy a C# module in VS Code
 In tutorial [Develop a C# module](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), you update, build, and publish your module image in VS Code and then visit Azure portal to deploy your C# module. This section introduces how to use VS Code to deploy and monitor your C# module.
 
 ### Start a local docker registry

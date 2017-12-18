@@ -34,7 +34,7 @@
     href: how-to-install-iot-core.md
   - name: Use VS Code to develop IoT Edge solutions
     items:
-      - name: Develop debug and deploy C# module
+      - name: Develop and deploy C# module
         href: how-to-vscode-develop-csharp-module.md
       - name: Debug C# module
         href: how-to-vscode-debug-csharp-module.md
