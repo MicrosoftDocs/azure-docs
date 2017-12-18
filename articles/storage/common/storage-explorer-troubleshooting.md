@@ -185,3 +185,9 @@ If none of the solutions work for you, submit your issue through the feedback to
 To do this, click **Help** menu, and then click **Send Feedback**.
 
 ![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+
+## Possible solution with "Target Azure Stack"
+
+If the above approach did not work on the Mac, try enabling "Target Azure Stack".
+
+
