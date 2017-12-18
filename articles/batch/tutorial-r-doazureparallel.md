@@ -214,7 +214,7 @@ Now run the code using `foreach` with the `%dopar%` keysord to compare how long 
 
 ```R
 # Optimize runtime. Chunking allows running multiple iterations on a single R instance.
-opt <- list(chunkSize = 13) 
+opt <- list(chunkSize = 10) 
 start_p <- Sys.time()  
 closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar% { 
   replicate(100000, getClosingPrice()) 

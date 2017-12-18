@@ -54,6 +54,9 @@ pip install azure.storage
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 
+Open the file `python_quickstart_client.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts.
+
+
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
 _BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
@@ -64,7 +67,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 ## Run the app
 
-To see the Batch workflow in action, build and run the application. After running the application, see the walkthrough to learn what each part of the application does. 
+To see the Batch workflow in action, run the application. After running the application, go to the walkthrough to learn what each part of the application does. 
 
 
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.

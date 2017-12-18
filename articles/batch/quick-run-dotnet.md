@@ -61,7 +61,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 ## Build and run the app
 
-To see the Batch workflow in action, build and run the application. After running the application, see the walkthrough to learn what each part of the application does. 
+To see the Batch workflow in action, build and run the application. After running the application, go to the walkthrough to learn what each part of the application does. 
 
 
 * Right-click the solution in Solution Explorer, and click **Build Solution**. 
