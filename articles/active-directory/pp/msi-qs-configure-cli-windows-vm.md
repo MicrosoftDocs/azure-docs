@@ -53,6 +53,12 @@ To run the CLI script examples in this tutorial, you have two options:
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
+The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
+
+    ```json
+    {
+    }
+    ```
 
 4. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with a user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the <RESOURCE GROUP>, <VM NAME>, <USER NAME>, <PASSWORD>, and <MSI ID> parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property : 
 
