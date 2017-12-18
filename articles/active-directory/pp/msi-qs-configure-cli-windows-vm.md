@@ -1,10 +1,10 @@
 ---
-title: How to configure MSI on an Azure VM using Azure CLI
-description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using Azure CLI.
+title: How to configure a user-assigned MSI for an Azure VM using Azure CLI
+description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using Azure CLI.
 services: active-directory
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -12,38 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/19/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Configure a VM Managed Service Identity (MSI) using Azure CLI
+# Configure a user-assigned Managed Service Identity (MSI) for a VM using Azure CLI
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure VM, using Azure CLI.
+In this article, you will learn how to enable and remove a user-assigned MSI for an Azure VM, using Azure CLI.
 
 ## Prerequisites
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-To run the CLI script examples, you have three options:
+To run the CLI script examples in this tutorial, you have two options:
 
-- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) from the Azure portal (see next section).
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
-
-[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
+- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block (see next section).
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console. 
 
 ## Enable MSI during creation of an Azure VM
 
-To create an MSI-enabled VM:
-
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
