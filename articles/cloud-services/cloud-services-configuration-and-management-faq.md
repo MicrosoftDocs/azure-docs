@@ -24,7 +24,7 @@ This article includes frequently asked questions about configuration and managem
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Certitificates
+## Certificates
 
 ### Why is the certificate chain of my cloud service SSL certificate incomplete?
     
@@ -85,7 +85,7 @@ You haveâ€¯exhausted the local storage quota for writing to the log directory.â€
 
 For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
-* [IIS Logs stops writing in cloud service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [IIS Logs stop writing in cloud service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ## Network Configuration
 
