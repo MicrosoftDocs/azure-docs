@@ -115,7 +115,7 @@ To use a private container image registry, add an object to the JSON document wi
 Create a resource group with the [az group create][az-group-create] command.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
 Deploy the template with the [az group deployment create][az-group-deployment-create] command.
@@ -147,7 +147,7 @@ myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-s
 View the log output of a container using the [az container logs][az-container-logs] command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
 Output:
@@ -162,7 +162,7 @@ listening on port 80
 To see the logs for the side-car container, run the same command specifying the second container name.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Output:
