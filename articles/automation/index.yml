@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/02/2017
+  ms.date: 12/13/2017
   ms.author: gwallace
 abstract:
   description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment. Tutorials, API references, and other documentation show you how to automate processes, perform update management, deliver desired state configuration, track changes, and collect inventory.
@@ -36,7 +36,10 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Configure watcher tasks</a>
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Manage updates on your VM</a>
     - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify software installed on a VM</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Troubleshoot changes on a VM</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
