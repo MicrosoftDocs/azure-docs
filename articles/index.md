@@ -108,6 +108,7 @@ featureFlags:
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
