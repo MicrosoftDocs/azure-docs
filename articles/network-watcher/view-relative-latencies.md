@@ -21,7 +21,7 @@ ms.custom:
 ---
 # View relative latency to Azure regions from specific locations
 
-In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to view relative latencies across Internet service providers to Azure regions, from specific locations.
+In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to determine relative network latencies between physical locations and Azure regions, across different Internet service providers, over specified timeframes.
 
 ## Register for the preview 
 
@@ -60,61 +60,21 @@ Create a network watcher. You must have a network watcher created in at least on
 New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
-## View relative provider latencies between a location and Azure regions
+## Compare relative network latencies to a single Azure region from a specific location
 
-Retrieve a network watcher. The network watcher can be from any region.
-
-```powershell
-$nw = Get-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
-```
-
-View the relative Internet service provider latencies from a specific location to an Azure region. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US Azure region for December 1, 2017:
+View the relative Internet service provider latencies from a specific location to Azure regions. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcher $nw -Location "West US" -Country "United States" -State "washington" -StartTime "2017-12-01" -EndTime "2017-12-02"
+Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location "West US 2" -Country "United States" -State "washington" -StartTime "2017-12-13" -EndTime "2017-12-15"
 ```
 
 > [!NOTE]
-> The region you specify in the previous command doesn't need to be the same as the region you specified when you retrieved the network watcher. The previous command simply requires that you specify an existing network watcher. The network watcher can be in any region. If you specify values for `-Country` and `-State`, they must be valid. The values are case-sensitive. For a list of valid values, run the commands in [View available countries, states, cities, and providers](#view-available). 
+> The region you specify in the previous command doesn't need to be the same as the region you specified when you retrieved the network watcher. The previous command simply requires that you specify an existing network watcher. The network watcher can be in any region. If you specify values for `-Country` and `-State`, they must be valid. The values are case-sensitive. Data is available for a limited number of countries, states, and cities. Run the commands in [View available countries, states, cities, and providers](#view-available) to view a list of available countries, cities, and states to use with the previous command. 
 
 > [!WARNING]
-> You must specify a date after November 14, 2017 for `-StartTime` and `-EndTime`. Specifying a date prior to November 14, 2017 returns no data.
+> You must specify a date after November 14, 2017 for `-StartTime` and `-EndTime`. Specifying a date prior to November 14, 2017 returns no data. 
 
-The following output is returned from the previous command:
-
-```json
-AggregationLevel   : State
-ProviderLocation   : {
-                       "Country": "United States",
-                       "State": "washington"
-                     }
-ReachabilityReport : [
-                       {
-                         "Provider": "<Provider 1>",
-                         "AzureLocation": "West US",
-                         "Latencies": [
-                           {
-                             "TimeStamp": "2017-12-01T00:00:00Z",
-                             "Score": 91
-                           }
-                         ]
-                       },
-                       {
-                         "Provider": "<Provider 2>",
-                         "AzureLocation": "West US",
-                         "Latencies": [
-                           {
-                             "TimeStamp": "2017-12-01T00:00:00Z",
-                             "Score": 94
-                           }
-                         ]
-                       }
-                     ]
-```
-
-In the returned output, the value for **Score** is the relative latency across regions and providers. A score of 1 is the worst (highest) latency, whereas 100 is the lowest latency. The relative latencies are averaged for the day. In the previous example, while it's clear that there is a small difference between the latency of the two providers, it's also clear that the latencies for both providers are low on the 1-100 scale. 
-
-Running the previous command using *East US*, instead of *West US* for the `-Location` parameter returns the following output:
+The output from the previous command follows:
 
 ```json
 AggregationLevel   : State
@@ -124,43 +84,60 @@ ProviderLocation   : {
                      }
 ReachabilityReport : [
                        {
-                         "Provider": "<Provider 1>",
-                         "AzureLocation": "East US",
+                         "Provider": "Qwest Communications Company, LLC - ASN 209",
+                         "AzureLocation": "West US 2",
                          "Latencies": [
                            {
-                             "TimeStamp": "2017-12-01T00:00:00Z",
-                             "Score": 83
+                             "TimeStamp": "2017-12-14T00:00:00Z",
+                             "Score": 92
+                           },
+                           {
+                             "TimeStamp": "2017-12-13T00:00:00Z",
+                             "Score": 92
                            }
                          ]
                        },
                        {
-                         "Provider": "<Provider 2>",
-                         "AzureLocation": "East US",
+                         "Provider": "Comcast Cable Communications, LLC - ASN 7922",
+                         "AzureLocation": "West US 2",
                          "Latencies": [
                            {
-                             "TimeStamp": "2017-12-01T00:00:00Z",
-                             "Score": 84
+                             "TimeStamp": "2017-12-14T00:00:00Z",
+                             "Score": 96
+                           },
+                           {
+                             "TimeStamp": "2017-12-13T00:00:00Z",
+                             "Score": 96
                            }
                          ]
                        }
                      ]
 ```
 
-Similar to the first example, there is a small difference in the latency between the two providers. Comparing the output returned in the two examples though, you can see that for the specified date range, latency for both providers is relatively higher to the *East US* Azure region than it is to the *West US* region when communication comes from the state of Washington. This result is expected, since the West US region is physically closer to the state of Washington than the East US region is. 
+In the returned output, the value for **Score** is the relative latency across regions and providers. A score of 1 is the worst (highest) latency, whereas 100 is the lowest latency. The relative latencies are averaged for the day. In the previous example, while it's clear that the latencies were the same both days and that there is a small difference between the latency of the two providers, it's also clear that the latencies for both providers are low on the 1-100 scale. While this is expected, since the state of Washington in the United States is physically close to the West US 2 Azure region, sometimes results aren't as expected. The larger the date range you specify, the more you can average latency over time.
 
-Though the date range specified is only for one day in the previous example, you could run the command against larger date ranges to determine average relative latencies over time. If you know where your users are coming from, this information can help you determine the optimal region to deploy your Azure services in, if minimizing latency between your users and Azure services is your goal.
+## Compare relative network latencies across Azure regions from a specific location
+
+If, instead of specifying the relative latencies between a specific location and a specific Azure region using `-Location`, you wanted to determine the relative latencies to all Azure regions from a specific physical location, you can do that too. For example, the following command returns the relative network latencies to all Azure regions between December 13-15, 2017 for the Comcast Internet service provider:
+
+```powershell
+Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Provider "Comcast Cable Communications, LLC - ASN 7922"  -Country "United States" -State "washington" -StartTime "2017-12-13" -EndTime "2017-12-15"
+```
+
+>[!NOTE]
+Unlike when you specify a single location, if you don't specify a location, or specify multiple locations, such as "West US2", "West US", you must specify an Internet service provider when running the command. 
 
 ## <a name="view-available"></a>View available countries, states, cities, and providers
 
-To view a list of all available countries, states, cities, and internet service providers, enter the following command:
+Data is available for specific Internet service providers, countries, states, and cities. To view a list of all available Internet service providers, countries, states, and cities, that you can view data for, enter the following command:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-The previous command requires you to specify an existing network watcher. The example specified the *NetworkWatcher_eastus* network watcher in a resource group named *NetworkWatcherRG*, but you can specify any existing network watcher. If you don't have an existing network watcher, create one by completing the tasks in [Create a network watcher](#create-a-network-watcher). 
+Data is only available for the countries, states, and cities returned by the previous command. The previous command requires you to specify an existing network watcher. The example specified the *NetworkWatcher_eastus* network watcher in a resource group named *NetworkWatcherRG*, but you can specify any existing network watcher. If you don't have an existing network watcher, create one by completing the tasks in [Create a network watcher](#create-a-network-watcher). 
 
-You can filter the output returned by specifying valid values for **Country**, **State**, and **City**, if desired.  For example, to view the list of providers available in Seattle, Washington, in the United States, enter the following command:
+After running the previous command, you can filter the output returned by specifying valid values for **Country**, **State**, and **City**, if desired.  For example, to view the list of Internet service providers available in Seattle, Washington, in the United States, enter the following command:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList `
