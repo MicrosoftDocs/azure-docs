@@ -42,7 +42,7 @@ See the following guidance document:
 
 [Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-Please note that a CSR is just a text file. It does NOT have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+The CSR is just a text file. It does not have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
 
 ### My Cloud Service Management Certificate is expiring. How to renew it?
 
@@ -140,7 +140,7 @@ For more information, see:
 - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
-Note that the above steps could be automated via a startup task so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
+These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
 
  
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
