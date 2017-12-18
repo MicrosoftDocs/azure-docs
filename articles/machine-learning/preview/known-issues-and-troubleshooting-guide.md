@@ -25,7 +25,7 @@ The forum URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum).
 ## Gather diagnostics information
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:
 
-### Installer
+### Installer log
 If you run into issue during installation, the installer log files are here:
 
 ```
@@ -37,18 +37,7 @@ If you run into issue during installation, the installer log files are here:
 ```
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### App Update 
-#### No update notification on Windows desktop 
-This issue will be addressed in an upcoming update. In the meantime, the workaround is to avoid launching the app from the shortcut pinned to the Taskbar. Instead to launch the app by using the Start menu or Start search-bar, or the shortcut on your desktop (if you have one). 
-
-#### No update notification on an Ubuntu Data Sciece Virtual Machine (DSVM)
-Perform the following steps to download the latest application :   
-   - remove the folder \Users\AppData\Local\amlworkbench
-   - remove script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - remove desktop shortcut that launches the above script
-   - install cleanly using [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### Workbench desktop app
+### Workbench desktop app log
 If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
 ```
 # Windows
@@ -59,7 +48,7 @@ If you have trouble logging in, or if the Workbench desktop crashes, you can fin
 ``` 
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### Experiment execution
+### Experiment execution log
 If a particular script fails during submission from the desktop app, try to resubmit it through CLI using `az ml experiment submit` command. This should give you full error message in JSON format, and most importantly it contains an **operation ID** value. Send us the JSON file including the **operation ID** and we can help diagnose. 
 
 If a particular script succeeds in submission but fails in execution, it should print out the **Run ID** to identify that particular run. You can package up the relevant log files using the following command:
