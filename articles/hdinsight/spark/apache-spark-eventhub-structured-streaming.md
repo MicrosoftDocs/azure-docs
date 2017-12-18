@@ -82,7 +82,7 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
 5. The application you build requires the Spark Streaming Event Hubs package. To run the Spark Shell so that it automatically retrieves this dependency from [Maven Central](https://search.maven.org), be sure the supply the packages switch with the Maven coordinates as follows:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Once the Spark Shell is finished loading, you should see:
 
@@ -90,10 +90,10 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -111,8 +111,12 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. If you look at your EventHub-compatible endpoint in the following form, the part that reads `iothub-xxxxxxxxxx` is your EventHub-compatible Namespace name, and can be used for `eventhubs.namespace`. The field `SharedAccessKeyName` can be used for `eventhubs.policyname`, and `SharedAccessKey` for `eventhubs.policykey`: 
 
-8. Paste the modified snippet into the waiting scala> prompt and press return. You should see output similar to:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Paste the modified snippet into the waiting scala> prompt and press return. You should see output similar to:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -126,31 +130,31 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. Next, you begin to author a Spark Structured Streaming query be specifying the source. Paste the following into Spark Shell and press return.
+10. Next, you begin to author a Spark Structured Streaming query be specifying the source. Paste the following into Spark Shell and press return.
 
-        val inputStream = spark.readStream.
-        format("eventhubs").
-        options(eventhubParameters).
-        load()
+         val inputStream = spark.readStream.
+         format("eventhubs").
+         options(eventhubParameters).
+         load()
 
-10. You should see output similar to:
+11. You should see output similar to:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. Next, author the query so that it writes its output to the Console. Do this by pasting the following into Spark Shell and pressing return.
+12. Next, author the query so that it writes its output to the Console. Do this by pasting the following into Spark Shell and pressing return.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. You should see some batches start with output similar to the following
+13. You should see some batches start with output similar to the following
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. This is followed by the output results of the processing of each microbatch of events. 
+14. This is followed by the output results of the processing of each microbatch of events. 
 
         -------------------------------------------
         Batch: 0
@@ -182,8 +186,8 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. As new events arrive from the Event Producer, they are processed by this Structured Streaming query.
-15. Be sure to delete your HDInsight cluster when you are finished running this sample.
+15. As new events arrive from the Event Producer, they are processed by this Structured Streaming query.
+16. Be sure to delete your HDInsight cluster when you are finished running this sample.
 
 
 
