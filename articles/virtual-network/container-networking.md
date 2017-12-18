@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network for containers | Microsoft Docs
-description: Learn about the CNI plug-in for Kubernetes clusters, whichh enables containers to communicate with each other, and other resources, in a virtual network.
+description: Learn about the CNI plug-in for Kubernetes clusters, which enables containers to communicate with each other, and other resources, in a virtual network.
 services: virtual-network
 documentationcenter: na
 author: jimdial
