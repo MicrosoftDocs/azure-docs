@@ -48,7 +48,7 @@ The following table shows the different methods you can use to set up an HDInsig
 ## Quick create: Basic cluster setup
 This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using *Quick create* or *Custom*. 
 
-![hdinsight create options custom quick create](./media/hdinsight-haoop-provision-linux-cluster/hdinsight-create-options.png)
+![hdinsight create options custom quick create](./media/hdinsight-hadoop-provision-linux-cluster/hdinsight-creation-options.png)
 
 Follow instructions on the screen to do a basic cluster setup. Details are provided below for:
 
@@ -91,7 +91,7 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 
 For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Direcotry. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
-![hdinsight create options choose enterprise security package](./media/hdinsight-haoop-provision-linux-cluster/hdinsight-creation-enterprise-security-package.png)
+![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-cluster/hdinsight-creation-enterprise-security-package.png)
 
 For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
 
