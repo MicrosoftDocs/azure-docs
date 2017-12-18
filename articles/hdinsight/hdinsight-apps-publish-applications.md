@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 
 ---
@@ -37,21 +37,20 @@ You also must register your developer account. For more information, see [Publis
 ## Define the application
 Two steps are involved in publishing applications in the Marketplace. First, define a *createUiDef.json* file. The createUiDef.json file indicates which clusters your application is compatible with. Then, publish the template from the Azure portal. Here's a sample createUiDef.json file:
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "versions": ["3.6"]
     }
-
+}
+```
 
 | Field | Description | Possible values |
 | --- | --- | --- |
 | types |The cluster types that the application is compatible with. |Hadoop, HBase, Storm, Spark (or any combination of these) |
-| tiers |The cluster tiers that the application is compatible with. |Standard, Premium (or both) |
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
 ## Application installation script
@@ -60,7 +59,7 @@ When an application is installed on a cluster (either on an existing cluster, or
   > [!IMPORTANT]
   > The name of the application installation script must be unique for a specific cluster. The script name must have the following format:
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > The script name has three parts:
   > 

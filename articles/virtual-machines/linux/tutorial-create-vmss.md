@@ -4,7 +4,7 @@ description: Create and deploy a highly available application on Linux VMs using
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/08/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Linux
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
 > [!div class="checklist"]
 > * Use cloud-init to create an app to scale
@@ -32,14 +32,14 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Scale Set overview
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
 
 VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
-Scale sets support up to 1,000 VMs when you use an Azure platform image. For production workloads, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 300 VMs in a scale set when using a custom image.
 
 
 ## Create an app to scale
@@ -184,13 +184,13 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#scale). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#scale). The following example sets the number of VMs in your scale set to *3*:
 
 ```azurecli-interactive 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
-    --new-capacity 5
+    --new-capacity 3
 ```
 
 
@@ -264,7 +264,7 @@ az monitor autoscale-settings create \
     }'
 ```
 
-To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter.
+To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter. For more design information on the use of autoscale, see [autoscale best practices](/azure/architecture/best-practices/auto-scaling).
 
 
 ### Get connection info
@@ -326,6 +326,7 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 > * Use cloud-init to create an app to scale
 > * Create a virtual machine scale set
 > * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 

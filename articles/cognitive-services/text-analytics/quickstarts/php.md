@@ -33,7 +33,7 @@ The Language Detection API detects the language of a text document, using the [D
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -47,17 +47,17 @@ The Language Detection API detects the language of a text document, using the [D
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.0/languages';
 
@@ -92,7 +92,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = DetectLanguage ($host, $path, $subscriptionKey, $data);
+$result = DetectLanguage ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -152,7 +152,7 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -166,17 +166,17 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.0/sentiment';
 
@@ -210,7 +210,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetSentiment ($host, $path, $subscriptionKey, $data);
+$result = GetSentiment ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
@@ -244,7 +244,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -258,17 +258,17 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-$subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
 $path = '/text/analytics/v2.0/keyPhrases';
 
@@ -303,7 +303,7 @@ $data = array (
 
 print "Please wait a moment for the results to appear.";
 
-$result = GetKeyPhrases ($host, $path, $subscriptionKey, $data);
+$result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
 echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>

@@ -8,7 +8,7 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 12/11/2017
 ms.author: heidist
 ---
 
@@ -18,13 +18,13 @@ The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
-Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../overview.md#supported-languages).
+Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
 
 ## Concepts
 
-Text Analytics uses a machine learning classification techniques algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words.   
+Text Analytics uses a machine learning classification algorithm to generate a sentiment score between 0 and 1. Scores closer to 1 indicate positive sentiment, while scores closer to 0 indicate negative sentiment. The model is pretrained with an extensive body of text with sentiment associations. Currently, it is not possible to provide your own training data. The model uses a combination of techniques during text analysis, including text processing, part-of-speech analysis, word placement, and word associations. For more information about the algorithm, see [Introducing Text Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
-Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text.
+Sentiment analysis is performed on the entire document, as opposed to extracting sentiment for a particular entity in the text. In practice, there is a tendency for scoring accuracy to improve when documents contain one or two sentences rather than a large block of text. During an objectivity assessment phase, the model determines whether a document as a whole is objective or contains sentiment. A document that is mostly objective does not progress to the sentiment detection phrase, resulting in a .50 score, with no further processing. For documents continuing in the pipeline, the next phase generates a score above or below .50, depending on the degree of sentiment detected in the document.
 
 ## Preparation
 
@@ -32,7 +32,7 @@ Sentiment analysis produces a higher quality result when you give it smaller chu
 
 You must have JSON documents in this format: id, text, language
 
-Document size must be under 10 KB per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
+Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
 
 ```
     {
@@ -88,13 +88,13 @@ Analysis is performed upon receipt of the request. The service accepts up to 100
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 
-## Step 3: Handle results
+## Step 3: View results
 
 The sentiment analyzer classifies text as predominantly positive or negative, assigning a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string cannot be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-The response includes a sentiment score between 0.0 (negative) and 1.0 (positive) to indicate relative sentiment.
+The following example shows the response for the document collection in this article.
 
 ```
 {
@@ -142,4 +142,4 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extract keywords](text-analytics-how-to-keyword-extraction.md)
+> [Extract key phrases](text-analytics-how-to-keyword-extraction.md)

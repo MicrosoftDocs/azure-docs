@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: darosa;sethm
+ms.date: 10/05/2017
+ms.author: sethm
 
 ---
 
 # Event Hubs Capture walkthrough: Python
 
-Event Hubs Capture is a feature of Event Hubs that enables you to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see the [overview article](event-hubs-archive-overview.md).
+Event Hubs Capture is a feature of Event Hubs that enables you to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see the [overview article](event-hubs-capture-overview.md).
 
 This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub is configured to use the Capture feature to write this data to blob storage in batches. The capturereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
 
@@ -161,15 +161,12 @@ This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/pyth
 You can learn more about Event Hubs by visiting the following links:
 
 * [Overview of Event Hubs Capture][Overview of Event Hubs Capture]
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
+* [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [Event Hubs overview][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md

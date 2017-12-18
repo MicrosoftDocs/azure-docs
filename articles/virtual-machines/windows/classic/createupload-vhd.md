@@ -23,6 +23,7 @@ This article shows you how to upload your own generalized VM image as a virtual 
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. You can also [upload](../upload-generalized-managed.md) a virtual machine using the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Prerequisites
 This article assumes you have:
@@ -84,7 +85,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
     ```
 
 ## Step 3: Upload the .vhd file
-Use the [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) to upload the VHD.
+Use the [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) to upload the VHD.
 
 From the Azure PowerShell window you used in the previous step, type the following command and replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
@@ -93,7 +94,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## Step 4: Add the image to your list of custom images
-Use the [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet to add the image to the list of your custom images.
+Use the [Add-AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) cmdlet to add the image to the list of your custom images.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

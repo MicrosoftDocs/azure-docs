@@ -36,7 +36,7 @@ There are three types of rules:
 > 
 
 ## Security Baseline Assessment
-You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard.  Execute the following steps to access the security baseline assessment dashboard:
+You can review your current security baseline assessment for all computers that are monitored by OMS Security and Audit using the dashboard. Execute the following steps to access the security baseline assessment dashboard:
 
 1. In the **Microsoft Operations Management Suite** main dashboard, click **Security and Audit** tile.
 2. In the **Security and Audit** dashboard, click **Baseline Assessment** under **Security Domains**. The **Security Baseline Assessment** dashboard appears as shown in the following image:
@@ -50,7 +50,7 @@ This dashboard is divided in three major areas:
 * **Computers missing baseline assessment**: this section list the computers that were not accessed due to operating system incompatibility or failures. 
 
 ### Accessing computers compared to baseline
-Ideally all your computers are be compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
+Ideally all your computers are compliant with the security baseline assessment. However it is expected that in some circumstances this doesn't happen. As part of the security management process, it is important to include reviewing the computers that failed to pass all security assessment tests. A quick way to visualize that is by selecting the option **Computers accessed** located in the **Computers compared to baseline** section. You should see the log search result showing the list of computers as shows in the following screen:
 
 ![Computer accessed results](./media/oms-security-baseline/oms-security-baseline-fig2.png)
 

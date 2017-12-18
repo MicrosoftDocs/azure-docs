@@ -86,15 +86,24 @@ and specify criteria for releasing the batch, for example:
 
    * **Batch Name**: The name used to identify the batch, 
    which is "TestBatch" in this example.
+   * **Release Criteria**: The batch release criteria, which can be based on the message count, schedule, or both.
+   
+     ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Message Count**: The number of messages to hold as a batch 
    before releasing for processing, which is "5" in this example.
 
-   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+
+   * **Schedule**: The batch release schedule for processing, which is "every 5 minutes" in this example.
+
+     ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
 
 4. Add another action that sends an email when the batch trigger fires. 
-Each time the batch has five items, the logic app sends an email.
+Each time the batch has five items or its past 5 minutes, the logic app sends an email.
 
-   1. Under the batch trigger, choose **+ New Step** > **Add an action**.
+   1. Under the batch trigger, choose **+ New step** > **Add an action**.
 
    2. In the search box, enter "email" as your filter.
    Based on your email provider, select an email connector.
@@ -144,6 +153,12 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 7.  Now that you created a batch receiver logic app, save your logic app.
 
     ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > A partition has a limit of 5,000 messages or 80 MB. 
+    > If either condition is met, the batch might be released, 
+    > even when the user-defined condition is not met.
+
 
 <a name="batch-sender"></a>
 

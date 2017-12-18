@@ -28,7 +28,7 @@ To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV
 
 For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md). 
 
-For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -43,7 +43,7 @@ on, there are a couple of options.
 The detailed usage CSV file shows your charges by billing
 period and daily usage. To get your detailed usage CSV file, see
 [Get your Azure billing invoice and daily usage
-data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+data](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Your usage charges are displayed at the meter level. The following terms mean the same thing in both the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown in the detailed usage file.
 
@@ -78,7 +78,7 @@ To learn about each of the columns in the CSV, see [Understand your Azure detail
 
 ### Option 2: Review your invoice and compare with the usage and costs in the Azure portal
 
-The Azure portal can also help you verify your charges. The Azure
+The Azure portal can also help you verify your charges.The Azure
 portal provides cost management charts for a quick overview of your
 usage and the charges on your invoice.
 

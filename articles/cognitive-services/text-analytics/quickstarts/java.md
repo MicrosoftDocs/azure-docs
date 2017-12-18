@@ -32,7 +32,7 @@ The Language Detection API detects the language of a text document, using the [
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `host` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -87,17 +87,17 @@ public class DetectLanguage {
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "enter key here";
+// Replace the accessKey string value with your valid access key.
+	static String accessKey = "enter key here";
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
 	static String path = "/text/analytics/v2.0/languages";
@@ -110,7 +110,7 @@ public class DetectLanguage {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -206,7 +206,7 @@ The Sentiment Analysis API detexts the sentiment of a set of text records, using
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -262,17 +262,17 @@ public class GetSentiment {
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "enter key here";
+// Replace the accessKey string value with your valid access key.
+	static String accessKey = "enter key here";
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
 	static String path = "/text/analytics/v2.0/sentiment";
@@ -285,7 +285,7 @@ public class GetSentiment {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -355,7 +355,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `accessKey` value with an access key valid for your subscription.
 4. Replace the location in `uriBase` (currently `westus`) to the region you signed up for.
 5. Run the program.
 
@@ -411,17 +411,17 @@ public class GetKeyPhrases {
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "enter key here";
+// Replace the accessKey string value with your valid access key.
+	static String accessKey = "enter key here";
 
 // Replace or verify the region.
 
-// You must use the same region in your REST API call as you used to obtain your subscription keys.
-// For example, if you obtained your subscription keys from the westus region, replace 
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
 // "westcentralus" in the URI below with "westus".
 
-// NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-// a free trial subscription key, you should not need to change this region.
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
 	static String path = "/text/analytics/v2.0/keyPhrases";
@@ -434,7 +434,7 @@ public class GetKeyPhrases {
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
 		connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());

@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -15,7 +15,10 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Create and provision a simulated device using IoT Hub Device Provisioning Service (preview)
+# Create and provision a simulated device using IoT Hub Device Provisioning Services
+> [!div class="op_single_selector"]
+> * [TPM](quick-create-simulated-device.md)
+> * [X.509](quick-create-simulated-device-x509.md)
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
@@ -24,7 +27,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
+1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
 2. Download and install the [CMake build system](https://cmake.org/download/).
 

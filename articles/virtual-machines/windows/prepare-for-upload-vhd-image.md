@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 08/01/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
@@ -424,4 +424,5 @@ If there’s any data disk that is attached to the VM, the Temporal drive volume
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
+* [Troubleshoot Azure Windows virtual machine activation problems](troubleshoot-activation-problems.md)
 

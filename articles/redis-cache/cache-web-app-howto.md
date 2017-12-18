@@ -66,7 +66,7 @@ If you have Visual Studio 2013, you can [download the latest Azure SDK for Visua
 
     Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default may be set to something else. To change it, click **Change Authentication** and select **No Authentication**.
 
-    If you are following along with Visual Studio 2015, clear the **Host in the cloud** checkbox. You'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    If you are following along with Visual Studio 2015, clear the **Host in the cloud** checkbox. You'll [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Select project template][cache-select-template]
 4. Click **OK** to create the project.
@@ -822,7 +822,7 @@ Once you have selected or created the cache to use, browse to the cache in the A
 * For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
   * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
-* Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md).
+* Learn more about [web apps in Azure App Service](../app-service/app-service-web-overview.md).
 * Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 * Explore Azure Redis Cache premium features
   

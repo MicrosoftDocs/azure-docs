@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
 
 ---
@@ -67,6 +67,15 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
+### Can I update my Policy-based VPN gateway to Route-based?
+No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
+1. Delete any connections associated with the gateway to be deleted.
+2. Delete the gateway:
+* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### Do I need a 'GatewaySubnet'?
 
 Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your VNet in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
@@ -107,11 +116,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Classic deployment model
 
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-* Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
-### Can I configure Forced Tunneling?
+### Can I configure Force Tunneling?
 
-Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -155,9 +163,17 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## <a name="P2S"></a>Point-to-Site connections
+## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+This section applies to the Resource Manager deployment model.
+
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+
+This section applies to the Resource Manager deployment model.
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 

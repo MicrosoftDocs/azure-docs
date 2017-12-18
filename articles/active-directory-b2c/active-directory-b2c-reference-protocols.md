@@ -4,7 +4,7 @@ description: How to build apps directly by using the protocols that are supporte
 services: active-directory-b2c
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 5e407d0a-73a2-4d74-ac81-3aa6c31ddcee

@@ -14,7 +14,7 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
@@ -99,7 +99,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 ### <a name="whoisaa"></a> Who is the account administrator of the subscription?
 
-The Account Administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
+The Account Administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
 1. Visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription you want to check, and then look under **Settings**.

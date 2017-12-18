@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ---
 
 # Mount an Azure File share and access the share in Windows
-[Azure File storage](../storage-dotnet-how-to-use-files.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
@@ -26,7 +26,8 @@ You can mount Azure File shares on a Windows installation that is running either
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -34,7 +35,8 @@ You can mount Azure File shares on a Windows installation that is running either
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10 versions 1507, 1511, 1607, and 1703
+<sup>1</sup>Windows Server version 1709.  
+<sup>2</sup>Windows 10 versions 1507, 1607, 1703, and 1709.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -44,7 +46,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
 * **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: Azure File storage uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
+* **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
 ## Mount the Azure File share with File Explorer
 > [!Note]  
@@ -58,7 +60,7 @@ You can mount Azure File shares on a Windows installation that is running either
 
 3. **Copy the UNC path from the "Connect" pane in the Azure portal**: A detailed description of how to find this information can be found [here](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![The UNC path from the Azure File storage Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Select the Drive letter and enter the UNC path.** 
     
@@ -116,24 +118,24 @@ You can mount Azure File shares on a Windows installation that is running either
 >   ```
 
 ## Next steps
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### Conceptual articles and videos
-* [Azure File storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [How to use Azure File storage with Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md)
 
-### Tooling support for Azure File storage
+### Tooling support for Azure Files
 * [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Troubleshooting Azure File storage problems - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Troubleshooting Azure Files problems - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrating data to Azure File ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

@@ -25,8 +25,8 @@ This article describes the details of configuring Service Map and onboarding age
 ## Dependency Agent downloads
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## Connected sources
@@ -34,7 +34,7 @@ Service Map gets its data from the Microsoft Dependency Agent. The Dependency Ag
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Operations Management Suite is required. Data is forwarded from the management group to the Operations Management Suite repository.|
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
@@ -71,7 +71,7 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
+1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
 2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -132,8 +132,57 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### Shell script for Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
+
+## Azure VM Extension
+You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
+
+To deploy the Azure VM Extension via PowerShell, you can use the following example:
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+	""
+	$name = $_.Name
+	$os = $_.StorageProfile.OsDisk.OsType
+	$location = $_.Location
+	$vmRmGroup = $_.ResourceGroupName
+	"${name}: ${os} (${location})"
+	Date -Format o
+	$ext = $OsExtensionMap.($os.ToString())
+	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+	$result.IsSuccessStatusCode
+}
+```
+
+An even easier way to ensure the the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+	"type": "DependencyAgentWindows",
+	"typeHandlerVersion": "9.1",
+	"autoUpgradeMinorVersion": true
+}
+
+```
+
 
 ## Desired State Configuration
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
@@ -176,10 +225,15 @@ An administrator can uninstall the Dependency Agent for Windows through Control 
 An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
 
 ### Uninstall the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
-
-	rpm -e dependency-agent dependency-agent-connector
-
+You can uninstall the Dependency Agent from Linux with the following command.
+<br>RHEL, CentOs, or Oracle:
+```
+sudo rpm -e dependency-agent
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent
+```
 ## Troubleshooting
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
@@ -231,6 +285,7 @@ Service Map is currently available in the following Azure regions:
 - East US
 - West Europe
 - West Central US
+- Southeast Asia
 
 
 ## Supported operating systems
@@ -263,6 +318,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### Red Hat Linux 6
 | OS version | Kernel version |
@@ -276,6 +332,7 @@ The following sections list the supported operating systems for the Dependency A
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### Red Hat Linux 5
 | OS version | Kernel version |
@@ -283,10 +340,17 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
+### Ubuntu Server
+- Custom kernels, including recompiles of standard kernels, are not supported.
 
+| OS version | Kernel version |
+|:--|:--|
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
+
+### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6
 | OS version | Kernel version
 |:--|:--|

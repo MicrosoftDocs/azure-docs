@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: jdial;narayan;annahar
+ms.date: 09/25/2017
+ms.author: jdial;anavin
 
 ---
 # Create a virtual network peering - Resource Manager, different subscriptions 
@@ -30,9 +30,11 @@ The steps to create a virtual network peering are different, depending on whethe
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
-A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. A virtual network peering can only be created between two virtual networks that exist in the same Azure region. When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions must both be associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, or that exist in subscriptions associated to different Azure Active Directory tenants, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
+A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
 
-You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an Azure Resource Manager [template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
+This tutorial peers virtual networks in the same region. The ability to peer virtual networks in different regions is currently in preview. Complete the steps in [Register for global virtual network peering](#register) before attempting to peer virtual networks in different regions, or the peering fails. The ability to connect virtual networks in different regions with an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is generally available, and does not require registration.
+
+You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
 ## <a name="portal"></a>Create peering - Azure portal
 
@@ -124,7 +126,6 @@ Instead of installing the CLI and its dependencies, you can use the Azure Cloud 
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-	 The permission assignment for UserB is not a requirement. Peering can be established even if users individually raise peering requests for their respective virtual networks, as long as the requests match. Adding a privileged user of myVNetB as a network contributor in the local virtual network makes it easier to do the setup.
 3. Log out of Azure as UserA using the `az logout` command, then log in to Azure as UserB. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. Create myVnetB. Copy the script contents in step 2 to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID of SubscriptionB. Change 10.0.0.0/16 to 10.1.0.0/16, change all As to B, and all Bs to A. Copy the modified script, paste it in to your CLI session, and press `Enter`. 
 5. Log out of Azure as UserB and log in to Azure as UserA.
@@ -198,7 +199,6 @@ This tutorial uses different accounts for each subscription. If you're using an 
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
    	```
 
-	The permission assignment for UserB is not a requirement. Peering can be established even if users individually raise peering requests for their respective virtual networks, as long as the requests match. Adding a privileged user of the other virtual network as a user in the local virtual network makes it easier to do the setup.
 5. Log out UserA from Azure and log in UserB. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 6. Copy the script contents in step 4 to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID for subscription B. Change 10.0.0.0/16 to 10.1.0.0/16. Change all As to B and all Bs to A. To execute the script, copy the modified script, paste into PowerShell, and then press `Enter`.
 7. Log out UserB from Azure and log in UserA.
@@ -222,7 +222,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    The state is **Initiated**. It changes to **Connected** once you setup the peering to myVnetA from myVnetB.
+    The state is **Initiated**. It changes to **Connected** once you set up the peering to myVnetA from myVnetB.
 
 10. Log out UserA from Azure and log in UserB.
 11. Create the peering from myVnetB to myVnetA. Copy the script contents in step 8 to a text editor on your PC. Replace `<SubscriptionB-Id>` with the ID of subscription A and change all As to B and all Bs to A. To execute the script, copy the modified script, paste it in to PowerShell, and then press `Enter`.
@@ -238,7 +238,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 ## <a name="template"></a>Create peering - Resource Manager template
 
-1. Complete the steps in the [Portal](#portal), [Azure CLI](#cli), or [PowerShell](#powershell) sections of this article to create a virtual network and assign the appropriate [permissions](#permissions) to the account in each subscription.
+1. To create a virtual network and assign the appropriate [permissions](#permissions) to the account in each subscription, complete the steps in the [Portal](#portal), [Azure CLI](#cli), or [PowerShell](#powershell) sections of this article.
 2. Save the text that follows to a file on your local computer. Replace `<subscription ID>` with UserA's subscription ID. You might save the file as vnetpeeringA.json, for example.
 
 	```json
@@ -269,11 +269,11 @@ This tutorial uses different accounts for each subscription. If you're using an 
  	}
 	```
 
-3. Log into Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
+3. Log in to Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
 4. Copy the example json from step 2 to a file on your computer and make changes to the lines that begin with:
 	- **name**: Change *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*.
 	- **id**: Replace `<subscription ID>` with UserB's subscription ID and change *myVnetB* to *myVnetA*.
-5. Complete step 3 again, logged into Azure as UserB.
+5. Complete step 3 again, logged in to Azure as UserB.
 6. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
 7. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete) section of this article, using either the Azure portal, PowerShell, or the Azure CLI.
 
@@ -328,6 +328,56 @@ When you've finished this tutorial, you might want to delete the resources you c
     ```powershell
     Remove-AzureRmResourceGroup -Name myResourceGroupB -force
     ```
+
+## <a name="register"></a>Register for the global virtual network peering preview
+
+The ability to peer virtual networks in different regions is currently in preview. The capability is available in a limited set of regions (initially, US West Central, Canada Central, and US West 2). Virtual network peerings created between virtual networks in different regions may not have the same level of availability and reliability as a peering between virtual networks in the same region. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
+
+To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in) using Azure PowerShell or the Azure CLI:
+
+### PowerShell
+
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Start a PowerShell session and log in to Azure using the `Login-AzureRmAccount` command.
+3. Register the subscription that each virtual network you want to peer is in for the preview by entering the following commands:
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+4. Confirm that you are registered for the preview by entering the following command:
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+
+    Do not complete the steps in the Portal, Azure CLI, PowerShell, or Resource Manager template sections of this article until the **RegistrationState** output you receive after entering the previous command is **Registered** for both subscriptions.
+
+### Azure CLI
+
+1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+2. Ensure you are using version 2.0.18 or higher of the Azure CLI by entering the `az --version` command. If you are not, install the most recent version.
+3. Log in to Azure with the `az login` command.
+4. Register for the preview by entering the following commands:
+
+   ```azurecli-interactive
+   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
+   az provider register --name Microsoft.Network
+   ```
+
+5. Confirm that you are registered for the preview by entering the following command:
+
+    ```azurecli-interactive
+    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    ```
+
+    Do not complete the steps in the Portal, Azure CLI, PowerShell, or Resource Manager template sections of this article until the **RegistrationState** output you receive after entering the previous command is **Registered** for both subscriptions.
 
 ## Next steps
 

@@ -180,11 +180,14 @@ The standard analyzer breaks the input text into the following two tokens, annot
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### Exceptions to lexical analysis 
 
 Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query with term *air-condition\** in our example, are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 <a name="stage3"></a>
+
 ## Stage 3: Document retrieval 
 
 Document retrieval refers to finding documents with matching terms in the index. This stage is understood best through an example. Let's start with a hotels index having the following simple schema: 
@@ -233,7 +236,13 @@ Further assume that this index contains the following four documents:
 
 To understand retrieval, it helps to know a few basics about indexing. The unit of storage is an inverted index, one for each searchable field. Within an inverted index is a sorted list of all terms from all documents. Each term maps to the list of documents in which it occurs, as evident in the example below.
 
-To produce the terms in an inverted index, the search engine performs lexical analysis over the content of documents, similar to what happens during query processing. Text inputs are passed to an analyzer, lower-cased, stripped of punctuation, and so forth, depending on the analyzer configuration. It's common, but not required, to use the same analyzers for search and indexing operations so that query terms look more like terms inside the index.
+To produce the terms in an inverted index, the search engine performs lexical analysis over the content of documents, similar to what happens during query processing:
+
+1. *Text inputs* are passed to an analyzer, lower-cased, stripped of punctuation, and so forth, depending on the analyzer configuration. 
+2. *Tokens* are the output of text analysis.
+3. *Terms* are added to the index.
+
+It's common, but not required, to use the same analyzers for search and indexing operations so that query terms look more like terms inside the index.
 
 > [!Note]
 > Azure Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  

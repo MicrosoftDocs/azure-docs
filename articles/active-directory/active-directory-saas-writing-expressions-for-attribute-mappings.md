@@ -4,7 +4,7 @@ description: Learn how to use expression mappings to transform attribute values 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/17/2017
 ms.author: markvi
 
 ---

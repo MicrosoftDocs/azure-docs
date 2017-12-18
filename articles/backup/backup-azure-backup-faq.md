@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 
 ---
 # Questions about the Azure Backup service
@@ -43,12 +43,12 @@ No. The vault is created at a subscription level and cannot be reassigned to ano
 All existing Backup vaults in the [classic portal](https://manage.windowsazure.com) continue to be supported. However, you can no longer use the classic portal to deploy new Backup vaults. Microsoft recommends using Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only. If you attempt to create a Backup vault in the classic portal, you will be redirected to the [Azure portal](https://portal.azure.com).
 
 ### Can I migrate a Backup vault to a Recovery Services vault? <br/>
-Unfortunately no, you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not currently available.
+Yes, you can now upgrade your Backup vault to a Recovery Services vault. For details, refer the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### I backed up my classic VMs in a Backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
-1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Delete the backup/snapshot extension from the VM.
 3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
 4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](backup-azure-vms-first-look-arm.md).
@@ -110,7 +110,6 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 and latest SPs |64 bit |Essential |
 | Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 **For Azure VM backup:**
 

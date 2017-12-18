@@ -1308,11 +1308,11 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     "parameters": {
         "firstObject": {
             "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
+            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"three": "c", "four": "d", "five": "e"}
+            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -1342,7 +1342,7 @@ The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 To deploy this example template with Azure CLI, use:

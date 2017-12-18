@@ -100,10 +100,10 @@ input {
          storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
          container => "insights-logs-networksecuritygroupflowevent"
          codec => "json"
-         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
          # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-         file_head_bytes => 21
-         file_tail_bytes => 9
+         file_head_bytes => 12
+         file_tail_bytes => 2
          # Enable / tweak these settings when event is too big for codec to handle.
          # break_json_down_policy => "with_head_tail"
          # break_json_batch_count => 2

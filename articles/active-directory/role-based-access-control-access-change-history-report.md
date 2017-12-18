@@ -4,7 +4,7 @@ description: Generate a report that lists all changes in access to your Azure su
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory

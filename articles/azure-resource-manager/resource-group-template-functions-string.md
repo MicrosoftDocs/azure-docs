@@ -31,6 +31,7 @@ Resource Manager provides the following functions for working with strings:
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -847,6 +848,89 @@ To deploy this example template with PowerShell, use:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+## guid
+
+`guid (baseString, ...)`
+
+Creates a value in the format of a globally unique identifier based on the values provided as parameters.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| baseString |Yes |string |The value used in the hash function to create the GUID. |
+| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+
+### Remarks
+
+This function is helpful when you need to create a value in the format of a globally unique identifier. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment.
+
+The returned value is not a random string, but rather the result of a hash function. The returned value is 36 characters long. It is not globally unique.
+
+The following examples show how to use guid to create a unique value for commonly used levels.
+
+Unique scoped to subscription
+
+```json
+"[guid(subscription().subscriptionId)]"
+```
+
+Unique scoped to resource group
+
+```json
+"[guid(resourceGroup().id)]"
+```
+
+Unique scoped to deployment for a resource group
+
+```json
+"[guid(resourceGroup().id, deployment().name)]"
+```
+
+### Return value
+
+A string containing 36 characters in the format of a globally unique identifier.
+
+### Examples
+
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) returns results from guid:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "guidPerSubscription": {
+            "value": "[guid(subscription().subscriptionId)]",
+            "type": "string"
+        },
+        "guidPerResourceGroup": {
+            "value": "[guid(resourceGroup().id)]",
+            "type": "string"
+        },
+        "guidPerDeployment": {
+            "value": "[guid(resourceGroup().id, deployment().name)]",
+            "type": "string"
+        }
+    }
+}
+```
+
+To deploy this example template with Azure CLI, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+```
+
+To deploy this example template with PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
