@@ -58,7 +58,7 @@ echo $STORAGE_KEY
 
 ## Deploy the container and mount the volume
 
-To mount an Azure file share as a volume in a container, specify the share and volume mount point when you create the container with [az container create](/cli/azure/container#az_container_create). If you've followed the previous steps, you can mount the share you created earlier by using the following command to create a container:
+To mount an Azure file share as a volume in a container, specify the share and volume mount point when you create the container with [az container create][az-container-create]. If you've followed the previous steps, you can mount the share you created earlier by using the following command to create a container:
 
 ```azurecli-interactive
 az container create \
@@ -75,14 +75,23 @@ az container create \
 
 ## Manage files in mounted volume
 
-Once the container starts up, you can use the simple web app deployed via the [seanmckenna/aci-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show](/cli/azure/container#az_container_show) command:
+Once the container starts up, you can use the simple web app deployed via the [seanmckenna/aci-hellofiles][aci-hellofiles] image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-You can use the [Azure portal](https://portal.azure.com) or a tool like the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to retrieve and inspect the file written to the file share.
+You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file written to the file share.
 
 ## Next steps
 
 Learn about the relationship between [Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md).
+
+<!-- LINKS - External -->
+[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[portal]: https://portal.azure.com
+[storage-explorer]: https://storageexplorer.com
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
