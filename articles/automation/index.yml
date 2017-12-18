@@ -29,6 +29,10 @@ sections:
       text: Create Account
       href: "/azure/automation/automation-quickstart-create-account"
     - image: 
+        src: /azure/automation/media/index/runbooks.svg
+      text: Create a Runbook
+      href: "/azure/automation/automation-quickstart-create-runbook"
+    - image: 
         src: /azure/automation/media/index/dscconfig.svg
       text: Create a DSC configuration
       href: "/azure/automation/automation-quickstart-dsc-config"
