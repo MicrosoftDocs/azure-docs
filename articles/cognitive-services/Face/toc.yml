@@ -9,7 +9,7 @@
   - name: Identify faces in image
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Add faces
-    href: Face-API-How-to-Topics/face-how-to-add-faces.md
+    href: Face-API-How-to-Topics/how-to-add-faces.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
@@ -54,7 +54,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services&query=Face
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: Glossary

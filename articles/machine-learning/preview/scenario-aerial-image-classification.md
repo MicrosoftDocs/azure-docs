@@ -3,11 +3,13 @@ title: Aerial Image Classification  | Microsoft Docs
 description: Provides instructions for real world scenario on aerial image classification
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
+ms.workload: data-services
+ms.date: 12/13/2017
 ---
 
 # Aerial Image Classification
@@ -63,7 +65,7 @@ The following instructions guide you through the process of setting up execution
         - "Install Azure Python SDK"
     - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
     - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
 
@@ -153,14 +155,14 @@ We now create the storage account that hosts project files that must be accessed
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Expect file transfer to take up to 20 minutes. While you wait, you can proceed to the following section: You may need to open another Command Line Interface through Workbench and redefine the temporary variables there.
+    Expect file transfer to take around one hour. While you wait, you can proceed to the following section: you may need to open another Command Line Interface through Workbench and redefine the temporary variables there.
 
 #### Create the HDInsight Spark cluster
 
 Our recommended method to create an HDInsight cluster uses the HDInsight Spark cluster resource manager template included in the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project.
 
-1. The HDInsight Spark cluster template is the "template.json" file under the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project. By default, the template creates a Spark cluster with 40 worker nodes. If you must adjust that number, open the template in your favorite text editor and replace all instances of "40" with the worker node number of your choice.
-    - You may encounter out-of-memory errors if the number of worker nodes you choose is small. To combat memory errors, you may run the training and operationalization scripts on a subset of the available data as described later in this document.
+1. The HDInsight Spark cluster template is the "template.json" file under the "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" subfolder of this project. By default, the template creates a Spark cluster with 40 worker nodes. If you must adjust that number, open the template in your favorite text editor and replace any instances of "40" with the worker node number of your choice.
+    - You may encounter out-of-memory errors later if the number of worker nodes you choose is smaller. To combat memory errors, you may run the training and operationalization scripts on a subset of the available data as described later in this document.
 2. Choose a unique name and password for the HDInsight cluster and write them where indicated in the following command: Then create the cluster by issuing the commands:
 
     ```
@@ -244,12 +246,10 @@ If desired, you can confirm that the data transfer has proceeded as planned by l
 
 #### Create a Batch AI cluster
 
-1. Create the cluster by issuing the following commands:
+1. Create the cluster by issuing the following command:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Use the following command to check your cluster's provisioning status:
@@ -300,7 +300,7 @@ Once HDInsight cluster creation is complete, register the cluster as a compute t
 1.  Issue the following command from the Azure Machine Learning Command Line Interface:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     This command adds two files, `myhdi.runconfig` and `myhdi.compute`, to your project's `aml_config` folder.

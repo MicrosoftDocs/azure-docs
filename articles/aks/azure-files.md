@@ -1,23 +1,15 @@
 ---
-title: Use Azure File with AKS | Microsoft Docs
+title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
 
 # Using Azure Files with Kubernetes
@@ -71,7 +63,7 @@ Next, encode the storage account key. If needed, replace `$STORAGE_KEY` with the
 echo -n $STORAGE_KEY | base64
 ```
 
-Create a file named `azure-secret.yml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
+Create a file named `azure-secret.yaml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
 
 ```yaml
 apiVersion: v1
@@ -87,12 +79,12 @@ data:
 Use the [kubectl create][kubectl-create] command to create the secret.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## Mount file share as volume
 
-You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
+You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
@@ -117,7 +109,7 @@ spec:
 Use kubectl to create a pod.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
@@ -127,13 +119,16 @@ You now have a running container with your Azure file share mounted in the `/mnt
 Learn more about Kubernetes volumes using Azure Files.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure Files](https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md)
+> [Kubernetes plugin for Azure Files][kubernetes-files]
 
-<!-- LINKS -->
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+
+<!-- LINKS - internal -->
+[az-group-create]: /cli/azure/group#az_group_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[az-group-create]: /cli/azure/group#az_group_create

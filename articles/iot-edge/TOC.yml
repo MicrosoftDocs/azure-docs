@@ -42,9 +42,11 @@
         href: how-to-vscode-develop-csharp-function.md
       - name: Debug Azure Functions (C#)
         href: how-to-vscode-debug-csharp-function.md
+  - name: Troubleshoot
+    href: troubleshoot.md
 - name: Concepts
   items: 
-  - name: Iot Edge modules
+  - name: IoT Edge modules
     href: iot-edge-modules.md
     items: 
     - name: Development
@@ -59,6 +61,8 @@
     href: iot-edge-as-gateway.md
   - name: Security
     href: security.md
+  - name: IoT Edge glossary
+    href: iot-edge-glossary.md
 - name: Resources
   items:
   - name: Azure Certified for IoT device catalog

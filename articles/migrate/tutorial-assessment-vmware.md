@@ -1,21 +1,11 @@
 ---
 title: Discover and assess on-premises VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to discover and assess on-premises VMware VMs for migration to Azure, using the Azure Migrate service. 
-services: migration-planner
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: a2521630-730f-4d8b-b298-e459abdced46
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: tutorial
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
 
 # Discover and assess on-premises VMware VMs for migration to Azure
@@ -174,7 +164,7 @@ This view shows the readiness status for each machine.
 This view shows the total compute and storage cost of running the VMs in Azure along with the details for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties. 
 
 > [!NOTE]
-> The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. It does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
+> The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. Azure Migrate does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
 
 Estimated monthly costs for compute and storage are aggregated for all VMs in the group. 
 

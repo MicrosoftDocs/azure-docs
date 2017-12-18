@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: Azure MFA, 
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: multi-factor-authentication
