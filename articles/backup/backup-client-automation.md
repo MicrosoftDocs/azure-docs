@@ -215,7 +215,7 @@ PS C:\> $newpolicy = New-OBPolicy
 At this time the policy is empty and other cmdlets are needed to define what items will be included or excluded, when backups will run, and where the backups will be stored.
 
 ### Configuring the backup schedule
-The first of the 3 parts of a policy are the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
+The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 * **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
