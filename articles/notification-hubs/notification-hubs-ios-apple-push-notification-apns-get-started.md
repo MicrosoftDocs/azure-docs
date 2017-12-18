@@ -95,61 +95,66 @@ Your notification hub is now configured to work with APNS, and you have the conn
 4. Download the [Windows Azure Messaging Framework] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
 
     ![Unzip Azure SDK][10]
-5. Add a new header file to your project named `HubInfo.h`. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
+5. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
+```obj-c
+    #ifndef HubInfo_h
+    #define HubInfo_h
    
-        #ifndef HubInfo_h
-        #define HubInfo_h
+        #define HUBNAME @"<Enter the name of your hub>"
+        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
-            #define HUBNAME @"<Enter the name of your hub>"
-            #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    #endif /* HubInfo_h */
+```
+6. Open your **AppDelegate.h** file add the following import directives:
+```obj-c
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+    #import <UserNotifications/UserNotifications.h> 
+    #import "HubInfo.h"
+```
+7. In your **AppDelegate.m file**, add the following code in the **didFinishLaunchingWithOptions** method based on your version of iOS. This code registers your device handle with APNs:
+```obj-c
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
    
-        #endif /* HubInfo_h */
-6. Open your `AppDelegate.h` file add the following import directives:
-   
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-         #import <UserNotifications/UserNotifications.h> 
-         #import "HubInfo.h"
-7. In your `AppDelegate.m file`, add the following code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNs:
-   
-         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-                                                UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-   
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+```
    
 8. In the same file, add the following methods:
+```obj-c
+     - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+        SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                    notificationHubPath:HUBNAME];
    
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-            SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                        notificationHubPath:HUBNAME];
-   
-            [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-                if (error != nil) {
-                    NSLog(@"Error registering for notifications: %@", error);
-                }
-                else {
-                    [self MessageBox:@"Registration Status" message:@"Registered"];
-                }
-            }];
+        [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            }
+            else {
+                [self MessageBox:@"Registration Status" message:@"Registered"];
+            }
+        }];
         }
    
-        -(void)MessageBox:(NSString *)title message:(NSString *)messageText
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-                cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
-        }
+    -(void)MessageBox:(NSString *)title message:(NSString *)messageText
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+```
 
     This code connects to the notification hub using the connection information you specified in HubInfo.h. It then gives the device token to the notification hub so that the notification hub can send notifications.
 
 9. In the same file, add the following method to display a **UIAlert** if the notification is received while the app is active:
-
+```obj-c
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
         }
+```
 
-1. To verify there are no failures, build and run the app on your device.
+10. To verify there are no failures, build and run the app on your device.
 
 ## Send test push notifications
 You can test receiving notifications in your app by sending push notifications in the [Azure portal] via the *Test Send* option.
@@ -194,15 +199,15 @@ If you want to send push notifications from within an app, this section provides
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. Open `HubInfo.h` and add the following constants, which will be used for sending notifications to your hub. Replace the placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.
+3. Open **HubInfo.h** and add the following constants, which will be used for sending notifications to your hub. Replace the placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-4. Add the following `#import` statements to your `ViewController.h` file.
+4. Add the following `#import` statements to your **ViewController.h** file.
    
         #import <CommonCrypto/CommonHMAC.h>
         #import "HubInfo.h"
-5. In `ViewController.m` add the following code to the interface implementation. This code will parse your *DefaultFullSharedAccessSignature* connection string. As mentioned in the [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information is used to generate a SaS token for the **Authorization** request header.
+5. In **ViewController.m** add the following code to the interface implementation. This code will parse your *DefaultFullSharedAccessSignature* connection string. As mentioned in the [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information is used to generate a SaS token for the **Authorization** request header.
    
         NSString *HubEndpoint;
         NSString *HubSasKeyName;
@@ -237,7 +242,7 @@ If you want to send push notifications from within an app, this section provides
                 }
             }
         }
-6. In `ViewController.m`, update the `viewDidLoad` method to parse the connection string when the view loads. Also add the utility methods, shown below, to the interface implementation.  
+6. In **ViewController.m**, update the **viewDidLoad** method to parse the connection string when the view loads. Also add the utility methods, shown below, to the interface implementation.  
 
         - (void)viewDidLoad
         {
@@ -263,7 +268,7 @@ If you want to send push notifications from within an app, this section provides
 
 
 
-1. In `ViewController.m`, add the following code to the interface implementation to generate the SaS authorization token that will be provided in the **Authorization** header, as mentioned in the [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+1. In **ViewController.m**, add the following code to the interface implementation to generate the SaS authorization token that will be provided in the **Authorization** header, as mentioned in the [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).
    
         -(NSString*) generateSasToken:(NSString*)uri
         {
@@ -310,7 +315,7 @@ If you want to send push notifications from within an app, this section provides
    
             return token;
         }
-2. Ctrl+drag from the **Send Notification** button to `ViewController.m` to add an action named **SendNotificationMessage** for the **Touch Down** event. Update method with the following code to send the notification using the REST API.
+2. Ctrl+drag from the **Send Notification** button to **ViewController.m** to add an action named **SendNotificationMessage** for the **Touch Down** event. Update method with the following code to send the notification using the REST API.
    
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -367,7 +372,7 @@ If you want to send push notifications from within an app, this section provides
             }];
             [dataTask resume];
         }
-3. In `ViewController.m`, add the following delegate method to support closing the keyboard for the text field. Ctrl+drag from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
+3. In **ViewController.m**, add the following delegate method to support closing the keyboard for the text field. Ctrl+drag from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
    
         //===[ Implement UITextFieldDelegate methods ]===
    
@@ -376,7 +381,7 @@ If you want to send push notifications from within an app, this section provides
             [textField resignFirstResponder];
             return YES;
         }
-4. In `ViewController.m`, add the following delegate methods to support parsing the response by using `NSXMLParser`.
+4. In **ViewController.m**, add the following delegate methods to support parsing the response by using `NSXMLParser`.
    
        //===[ Implement NSXMLParserDelegate methods ]===
    
