@@ -24,13 +24,7 @@ These steps show how to simulate an X.509 device on your development machine run
 
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
-> [!NOTE]
-    > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
-    >
-    > ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-
-<a id="setupdevbox"></a>
 ## Prepare the development environment 
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
@@ -45,17 +39,10 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Navigate to the root and build the project. 
+1. Navigate to the certificate generator project and build the project. 
 
     ```cmd/sh
-    cd azure-iot-sdk-java
-    mvn install -DskipTests=true
-    ```
-
-1. Navigate to the certificate generator project folder and build the project.
-
-    ```cmd/sh
-    cd provisioning/provisioning-tools/provisioning-x509-cert-generator
+    cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
     mvn clean install
     ```
 
@@ -66,24 +53,32 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-    1. For **Individual Enrollment**:
+1. Create the enrollment information in either of the following ways, as per your setup:
+
+    - For **Individual Enrollment**:
         - Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Client Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+
+            ![Individual certificate generator](./media/java-quick-create-simulated-device-x509/individual.png)
+
         - Create a file named **_X509individual.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
         - Enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the Quickstart. Note the _Client Cert_ and _Client Cert Private Key_ values.
-
-    1. For **Group Enrollment**:
+    
+    - For **Group Enrollment**:
         - Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Root Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+
+            ![Group certificate generator](./media/java-quick-create-simulated-device-x509/group.png)
+
         - Create a file named **_X509group.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
         - Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the Quickstart. Note the _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ values.
-
-    ![Certificate generator](./media/java-quick-create-simulated-device-x509/certificate.png)
 
 
 ## Create a device enrollment entry in the Device Provisioning Service
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
-    1. For **Individual Enrollment**, on the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+1. Enter the enrollment information in either of the following ways, as per your setup:
+
+    - **Individual Enrollment**: On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
         1. Under the **Add enrollment list entry**, enter the following information:
             - Select **X.509** as the identity attestation *Mechanism*.
@@ -98,57 +93,91 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
        On successful enrollment, your X.509 device appears as **microsoftriotcore** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-    1. For **Group Enrollment**, on the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
+    - **Enrollment groups**: On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
 
-        1. Under the **Add Certficate**, enter the following information:
-            - Enter a unique certficate name.
+        1. Under the **Add Certificate**, enter the following information:
+            - Enter a unique certificate name.
             - Select the **_X509group.pem_** file you created previously.
             - Once complete, click the **Save** button.
 
-        1. Select the newly created certficate:
-            - Click **Generate Verification Code**.  Copy the code generated.
+        ![Add certificate](./media/java-quick-create-simulated-device-x509/add-certificate.png)
+
+        1. Select the newly created certificate:
+            - Click **Generate Verification Code**. Copy the code generated.
             - Enter the _verification code_ or right-click to paste in your running _provisioning-x509-cert-generator_ window.  Press **Enter**.
             - Copy to the clipboard the output of `Validation Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
             - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
             - Select the **_X509validation.pem_** file in the Azure portal. Click **Verfiy**.
 
+            ![Validate certificate](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
+
+            ![Validation generator](./media/java-quick-create-simulated-device-x509/validation-generator.png)
+
         1. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
             - Enter a unique group name.
-            - Select the unique certficate name created previously
+            - Select the unique certificate name created previously
             - Optionally, you may provide the following information:
                 - Select an IoT hub linked with your provisioning service.
                 - Update the **Initial device twin state** with the desired initial configuration for the device.
 
+        ![Enter X.509 group enrollment information in the portal blade](./media/java-quick-create-simulated-device-x509/enter-group-enrollment.png)
 
-<a id="firstbootsequence"></a>
+        On successful enrollment, your X.509 device group appears under the *Group Name* column in the *Enrollment Groups* tab.
+
+
 ## Simulate first boot sequence for the device
 
-1. Open a command prompt. Navigate to the sample project folder.
+1. Open a command prompt. Navigate to the sample project folder. Have your _Id Scope_ and _Provisioning Service Global Endpoint_ ready.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-    1. For **Individual Enrollment**, edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_ and _Client Cert Private Key_ as noted before.
+    ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. Enter the enrollment information in either of the following ways, as per your setup:
 
-    1. For **Group Enrollment**, edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ as noted before.
+    - **Individual Enrollment**: 
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        private static final Collection<String> signerCertificates = new LinkedList<>();
-        ```
+        1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_ and _Client Cert Private Key_ as noted before.
+
+            ```java
+            private static final String idScope = "[Your ID scope here]";
+            private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+            private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+            private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+            private static final String leafPrivateKey = "<Your Private PEM Key here>";
+            ```
+
+    - **Group Enrollment**: 
+
+        1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ as noted before.
+
+            ```java
+            private static final String idScope = "[Your ID scope here]";
+            private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+            private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+            private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+            private static final String leafPrivateKey = "<Your Private PEM Key here>";
+            private static final Collection<String> signerCertificates = new LinkedList<>();
+            ```
+
+            - Use the format for including your certificate and key:
+            
+                ```java
+                private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "-----END CERTIFICATE-----\n";
+                private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXX\n" +
+                    "-----END PRIVATE KEY-----\n";
+                ```
 
         1. Add the following lines of code to the beginning of the `main` function.
         
@@ -159,46 +188,25 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     		signerCertificates.add(intermediatePem);
     		signerCertificates.add(root);
             ```
-
-        > [!NOTE]
-        > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
     
-        > [!NOTE]
-        > When including your certificates and key use the format:
-        >
-        >    ```java
-        >    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "-----END CERTIFICATE-----\n";
-        >    private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXX\n" +
-        >        "-----END PRIVATE KEY-----\n";
-        >    ```
-        >
-        >    and
-        >
-        >    ```java
-        >    String intermediatePem = "-----BEGIN CERTIFICATE-----\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "-----END CERTIFICATE-----\n";
-        >    String rootPem = "-----BEGIN CERTIFICATE-----\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-        >        "-----END CERTIFICATE-----\n";
-        >    ```
+            - Use the following format for including your certificates:
+        
+                ```java
+                String intermediatePem = "-----BEGIN CERTIFICATE-----\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "-----END CERTIFICATE-----\n";
+                String rootPem = "-----BEGIN CERTIFICATE-----\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+                    "-----END CERTIFICATE-----\n";
+                ```
 
 1. Build the sample. Navigate to the target folder and execute the created jar file.
 
