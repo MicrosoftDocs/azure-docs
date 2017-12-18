@@ -5,7 +5,7 @@ services: machine-learning
 author: FrancescaLazzeri
 ms.author: Lazzeri
 manager: ireiter
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 

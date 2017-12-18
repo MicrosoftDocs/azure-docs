@@ -25,7 +25,7 @@ The forum URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum).
 ## Gather diagnostics information
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:
 
-### Installer
+### Installer log
 If you run into issue during installation, the installer log files are here:
 
 ```
@@ -37,18 +37,7 @@ If you run into issue during installation, the installer log files are here:
 ```
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### App Update 
-#### No update notification on Windows desktop 
-This issue will be addressed in an upcoming update. In the meantime, the workaround is to avoid launching the app from the shortcut pinned to the Taskbar. Instead to launch the app by using the Start menu or Start search-bar, or the shortcut on your desktop (if you have one). 
-
-#### No update notification on an Ubuntu Data Sciece Virtual Machine (DSVM)
-Perform the following steps to download the latest application :   
-   - remove the folder \Users\AppData\Local\amlworkbench
-   - remove script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - remove desktop shortcut that launches the above script
-   - install cleanly using [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### Workbench desktop app
+### Workbench desktop app log
 If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
 ```
 # Windows
@@ -59,7 +48,7 @@ If you have trouble logging in, or if the Workbench desktop crashes, you can fin
 ``` 
 You can zip up the contents of these directories and send it to us for diagnostics.
 
-### Experiment execution
+### Experiment execution log
 If a particular script fails during submission from the desktop app, try to resubmit it through CLI using `az ml experiment submit` command. This should give you full error message in JSON format, and most importantly it contains an **operation ID** value. Send us the JSON file including the **operation ID** and we can help diagnose. 
 
 If a particular script succeeds in submission but fails in execution, it should print out the **Run ID** to identify that particular run. You can package up the relevant log files using the following command:
@@ -92,6 +81,8 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 - Text clustering transforms are not supported on Mac.
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
+
+- Jupyter Notebooks have a max size limit of 5 MB when opening them from the Workbench app. You can open large notebooks from CLI using 'az ml notebook start' command, and clean cell outputs to reduce the file size.
 
 ## Can't update Workbench
 When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
@@ -217,6 +208,18 @@ If you are executing in a local Docker container on Windows, setting `sharedVolu
 * When sharing C drive using domain credentials, the sharing might stop working on networks where the domain controller is not reachable (for example, home network, public wifi etc.). For more information, see [this post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 You can also avoid the sharing problem, at a small performance cost, by setting `sharedVolumne` to `false` in the `docker.compute` file.
+
+## Wipe clean Workbench installation
+You generally don't need to do this. But in case you must wipe clean an installation, here are the steps:
+
+- On Windows:
+  - First make sure you use _Add or Remove Programs_ applet in the _Control Panel_ to remove the _Azure Machine Learning Workbench_ application entry.  
+  - Then you can download and run either one of the following scripts:
+    - [Windows command line script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (You may need to run `Set-ExecutionPolicy Unrestricted` in a privilege-elevated PowerShell window before you can run the script.)
+- On macOS:
+  - Just download and run the [macOS bash shell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## Some useful Docker commands
 

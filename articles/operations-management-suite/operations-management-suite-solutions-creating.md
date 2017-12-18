@@ -35,7 +35,7 @@ The basic strategy is to start your management solution by building the individu
 ## Design your solution
 The most common pattern for a management solution is shown in the following diagram.  The different components in this pattern are discussed in the below.
 
-![OMS solution overview](media/operations-management-suite-solutions/solution-overview.png)
+![OMS solution overview](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### Data sources
