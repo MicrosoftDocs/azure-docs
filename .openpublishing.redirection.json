@@ -5877,7 +5877,17 @@
         },
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
-            "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-cli.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-quickstart-create-storage-account-powershell.md",
+            "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=powershell",
             "redirect_document_id": false
         },
         {
