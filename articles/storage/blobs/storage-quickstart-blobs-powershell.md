@@ -30,7 +30,7 @@ This quick start requires the Azure PowerShell module version 3.6 or later. Run 
 
 ## Create a container
 
-Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
 
 Set the container name, then create the container using [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), setting the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
 
