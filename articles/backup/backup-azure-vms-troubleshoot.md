@@ -160,7 +160,11 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    * Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    * Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
+<<<<<<< HEAD
    * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#network-connectivity).
+=======
+   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-vms-prepare.md).
+>>>>>>> 3f4a8261320f9034c910976aae81660a1525d9ff
    * Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]
