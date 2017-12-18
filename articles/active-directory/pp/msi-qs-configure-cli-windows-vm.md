@@ -1,10 +1,10 @@
 ---
-title: How to configure MSI on an Azure VM using Azure CLI
-description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using Azure CLI.
+title: How to configure a user-assigned MSI for an Azure VM using Azure CLI
+description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using Azure CLI.
 services: active-directory
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/19/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Configure a VM Managed Service Identity (MSI) using Azure CLI
+# Configure a user-assigned Managed Service Identity (MSI) for a VM using Azure CLI
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you will learn how to enable and remove MSI for an Azure VM, using Azure CLI.
+In this article, you will learn how to enable and remove a user-assigned MSI for an Azure VM, using Azure CLI.
 
 ## Prerequisites
 
@@ -39,11 +39,9 @@ To run the CLI script examples, you have three options:
 
 ## Enable MSI during creation of an Azure VM
 
-To create an MSI-enabled VM:
-
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
