@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 12/18/2017
 ms.author: lmolkova
 
 ---
 
-# Application Insights for Console Applications
+# Application Insights for console applications
 [Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
 
-You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
+You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 ## Getting started
 
@@ -35,7 +35,57 @@ You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a
     telemetryClient.TrackTrace("Hello World!");
 ```
 
-* Install and configure latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
+* Install latest version of [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
+
+You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
+
+### Using config file
+
+By default, Application Insights SDK looks for `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created
+
+```C#
+    TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
+```
+
+You may also specify path to the config file.
+
+```C#
+    TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
+```
+
+Please refer to the [configuration file reference](app-insights-configuration-with-applicationinsights-config.md) for more details. 
+
+You may get a full example of the relevant config file by installing latest version of [Application Insights SDK for web Applications](app-insights-asp-net.md). Here we provide **minimal** configuration for dependency collection that is equivalent to code example below.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+  <TelemetryInitializers>
+    <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector"/>
+  </TelemetryInitializers>
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+      <ExcludeComponentCorrelationHttpHeadersOnDomains>
+        <Add>core.windows.net</Add>
+        <Add>core.chinacloudapi.cn</Add>
+        <Add>core.cloudapi.de</Add>
+        <Add>core.usgovcloudapi.net</Add>
+        <Add>localhost</Add>
+        <Add>127.0.0.1</Add>
+      </ExcludeComponentCorrelationHttpHeadersOnDomains>
+      <IncludeDiagnosticSourceActivities>
+        <Add>Microsoft.Azure.ServiceBus</Add>
+        <Add>Microsoft.Azure.EventHubs</Add>
+      </IncludeDiagnosticSourceActivities>
+    </Add>
+  </TelemetryModules>
+  <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel, Microsoft.AI.ServerTelemetryChannel"/>
+</ApplicationInsights>
+
+```
+
+### Configuring telemetry collection from code
+
 * During application start-up create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 
 ```C#
@@ -67,7 +117,7 @@ You need a subscription with [Microsoft Azure](http://azure.com). Sign in with a
 
 * For .NET Framework Windows app, you may also install and initialize Performance Counter collector module as described [here](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
-## Full Example
+#### Full example
 
 ```C#
     static void Main(string[] args)
