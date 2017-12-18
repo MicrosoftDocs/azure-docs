@@ -24,7 +24,7 @@ This article includes frequently asked questions about configuration and managem
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Certificates
+## Certificate
 
 ### Why is the certificate chain of my cloud service SSL certificate incomplete?
     
@@ -157,10 +157,10 @@ Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it
 
 See [Azure RBAC vs. classic subscription administrators](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
 
-## RDP
+## Remote desktop
 
-### Can Microsoft internal engineers RDP to cloud service instances without permission?
-Microsoft follows a strict process that will not allow internal engineers to RDP into your cloud service without written permission (email or other written communication) from the owner or their designee.
+### Can Microsoft internal engineers remote desktop to cloud service instances without permission?
+Microsoft follows a strict process that will not allow internal engineers to remote desktop into your cloud service without written permission (email or other written communication) from the owner or their designee.
 
 ### I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
 
