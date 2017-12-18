@@ -1,6 +1,6 @@
 ---
 title: Use Visual Studio Code to develop C# module with Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to debug C# module with Azure IoT Edge
+description: Develop and deploy C# module with Azure IoT Edge in VS Code without context switching
 services: iot-edge
 keywords: 
 author: shizn
