@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -125,25 +125,18 @@ Results:
 
 ### Table API
 
-With the Table API, you specify the throughput for tables in the appSettings configuration for your application.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Then you create a table by using the Azure Table storage SDK. The partition key is implicitly created as the `PartitionKey` value. 
+To create a a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 400);
 ```
+
+Throughput is set as an argument of CreateIfNotExists.
+
+The partition key is implicitly created as the `PartitionKey` value. 
 
 You can retrieve a single entity by using the following snippet:
 
