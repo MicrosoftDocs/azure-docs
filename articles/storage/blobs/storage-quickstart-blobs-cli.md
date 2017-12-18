@@ -48,7 +48,7 @@ First, create a file to upload to a blob.
 If you're using the Azure cloud shell, use the following in order to create a file:
 `vi helloworld` when the file opens, press **insert**, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
 
-In this example, we upload a blob to the container we created in the last step with the [az storage blob upload](/cli/azure/storage/blob#upload) command.
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob#upload) command.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -57,7 +57,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-If you used the previously described method to create a file in your Azure Cloud Shell, you can use this CLI command instead (note that we didn't need to specify a path since the file was created at the base directory, normally you'd need to specify a path):
+If you used the previously described method to create a file in your Azure Cloud Shell, you can use this CLI command instead (note that you didn't need to specify a path since the file was created at the base directory, normally you'd need to specify a path):
 
 ```azurecli-interactive
 az storage blob upload \
