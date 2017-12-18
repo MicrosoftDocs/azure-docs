@@ -4,7 +4,7 @@ description: Overview of Service Bus client diagnostics and end-to-end tracing
 services: service-bus-messaging
 documentationcenter: ''
 author: lmolkova
-manager: timlt
+manager: bfung
 editor: ''
 
 ms.service: service-bus-messaging
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/18/2017
 ms.author: lmolkova
 
 ---
 
-# Distributed Tracing and cCrrelation Through the Service Bus Messaging
+# Distributed tracing and correlation through the Service Bus Messaging
 
 One of the common problems in microservices development is the ability to trace operation from a client (application or browser) through all the services involved in processing for debugging, performance analysis, A/B testing and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work such as request or message processing latency and results, external dependency calls; another part is correlation of these diagnostics events (telemtery) beyond process boundaries.
@@ -35,7 +35,7 @@ The protocol is based on the [HTTP Correlation protocol](https://github.com/dotn
 
 # Service Bus .NET Client auto-tracing
 
-Starting with version TBD [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) provides tracing instrumentation points that can be used by Microsoft ApplicationInsights, other tracing system or hooked by a piece of client code.
+Starting with version 3.0.0 [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) provides tracing instrumentation points that can be used by Microsoft Application Insights, other tracing system or hooked by a piece of client code.
 The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done with the [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), message processing is also instrumented
 
 Below we go through the steps needed to enable the instrumentation.
@@ -50,7 +50,7 @@ For non-ASP.NET applications, please refer to [Azure Application Insights for Co
 
 If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. 
 
-### Trace Message Processing
+### Trace message processing
 
 If you manually receive and process messages, please refer to the following example in order to track message processing and correlate it with any nested telemetry:
 
@@ -87,7 +87,7 @@ In case you make calls to external components during message processing, they wi
 
 ## Tracking Service Bus calls in .NET applications without tracing system
 
-If your tracing system does not support automated tracking of Service Bus calls (or if you want to implement this support in the tracing system), this section describes how to do that.
+If you are not using Application Insights as a tracing system, and your tracing system does not support, this section describes how to track Service Bus client calls.
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -206,7 +206,7 @@ Note that efficient way to log Tags is to iterate over them, so the above exampl
     
 ```
 
-#### Filtering and Sampling
+#### Filtering and sampling
 
 In some cases, it's desirable to log only part of the events. It could be logging only 'Stop' events as we've done in above example or sampling percentage of the events to reduce performance overhead or log storage consumption. 
 `DiagnosticSource` provide way to achieve it with `IsEnabled` predicate. Please refer to the [Context-Based Filtering in DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering) for more details.
