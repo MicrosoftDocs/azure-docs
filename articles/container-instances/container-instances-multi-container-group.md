@@ -14,15 +14,15 @@ ms.custom: mvc
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
+Azure Container Instances supports the deployment of multiple containers onto a single host using a *container group*. This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-This document walks you through running a simple multi-container sidecar configuration by using an Azure Resource Manager template.
+This document walks you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
 
 ## Configure the template
 
 Create a file named `azuredeploy.json` and copy the following JSON into it.
 
-In this sample, a container group with two containers and a public IP address is defined. The first container in the group runs an Internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+In this sample, a container group with two containers and a public IP address is defined. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
 This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
 
