@@ -34,9 +34,15 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Follow the steps at [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md) to create a Resource Manager template in your subscription.
 1. Save the template as a file on your computer. Name the file **CreateVMTemplate.json**.
-1. Configure the **CreateVMTemplate.json** file for Windows Remote Management (WinRM), as described in [this blog post](http://visualstudiogeeks.com/blog/DevOps/Configure-winrm-with-ARM-template-in-AzureDevTestLab-VM-deployment-using-PowerShell-artifact).
+1. Add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM (before generating the Resource Manager template).
 
    WinRM access is required to use deploy tasks such as **Azure File Copy** and **PowerShell on Target Machines**.
+
+   > [!NOTE]
+   > When using WinRM with a Shared IP address, you must add a NAT rule to map an external port to the WinRM port. This is not required if the VM is created with a Public IP address.
+   >
+   >
+
 
 1. Check the template into your source control system.
 1. Open a text editor and copy the following script into it.
@@ -138,7 +144,7 @@ Perform these steps to create the release definition.
    - **Custom Image Name**: Enter a name for the custom image.
    - **Description**: Optionally enter a description to make it easy to select the correct image later.
    - **Source Lab VM - Source Lab VM ID**: If you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default is *$(labVMId)*.
-   - **Output Variables - Lab VM ID**: You need the ID of the newly created image when you want to manage or delete it. The default name of the environment variable that is automatically populated with this ID is set in the **Output Variables** section. You can edit the variable if necessary.
+   - **Output Variables - Custom Image ID**: You need the ID of the newly created image when you want to manage or delete it. The default name of the environment variable that is automatically populated with this ID is set in the **Output Variables** section. You can edit the variable if necessary.
    
    Delete the VM
    ---
