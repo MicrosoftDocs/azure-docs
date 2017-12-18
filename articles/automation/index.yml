@@ -28,6 +28,10 @@ sections:
         src: https://docs.microsoft.com/azure/automation/media/index/automation.svg
       text: Create Account
       href: "/azure/automation/automation-quickstart-create-account"
+    - image: 
+        src: https://docs.microsoft.com/azure/automation/media/index/dscconfig.svg
+      text: Create a DSC configuration
+      href: "/azure/automation/automation-quickstart-dsc-config"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
