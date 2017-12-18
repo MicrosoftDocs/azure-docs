@@ -165,7 +165,7 @@ To cancel an in-progress refresh operation, use the DELETE verb on the refresh I
 
 ## POST /sync
 
-Having performed refresh operations, it may be necessary to synchronize the new data with replicas for query scale out. To perform a synchronize operation for a model, use the POST verb on the /sync function. The Location header in the response includes the sync operation ID.
+Having performed refresh operations, it may be necessary to synchronize the new data with replicas for query scale-out. To perform a synchronize operation for a model, use the POST verb on the /sync function. The Location header in the response includes the sync operation ID.
 
 ## GET /sync?operationId=<operationId>
 
@@ -193,7 +193,7 @@ Values for ```syncstate```:
 ## Code sample
 
 Here's a C# code sample to get you started, [RestApiSample on GitHub](
-https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample]).
+https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
 
 ### To use the code sample
 
