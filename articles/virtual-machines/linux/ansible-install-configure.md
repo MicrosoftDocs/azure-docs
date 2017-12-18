@@ -40,7 +40,7 @@ Now, create a VM and install Ansible for one of the following distros of your ch
 ### Ubuntu 16.04 LTS
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -71,7 +71,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 ### CentOS 7.3
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -103,7 +103,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 ### SLES 12 SP2
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
