@@ -26,7 +26,7 @@ sections:
     items: 
     - image: 
         src: /azure/automation/media/index/automation.svg
-      text: Create an Automation ccount
+      text: Create an Automation account
       href: "/azure/automation/automation-quickstart-create-account"
     - image: 
         src: /azure/automation/media/index/runbook.svg
