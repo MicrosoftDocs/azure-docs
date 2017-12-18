@@ -19,7 +19,7 @@ ms.author: jdial
 ---
 # Container networking
 
-Azure provides a Container Networking Interface (CNI) plugin that allows you to deploy and manage your own Kubernetes cluster, with native Azure networking capability. The plugin is enabled, by default, when deploying Kuberenetes clusters with the [Azure Container Service Engine](https://github.com/Azure/acs-engine) (or ACS engine).
+Azure provides a Container Networking Interface (CNI) plugin that allows you to deploy and manage your own Kubernetes cluster, with native Azure networking capability. The plugin is enabled, by default, when deploying Kubernetes clusters with the [Azure Container Service Engine](https://github.com/Azure/acs-engine) (or ACS engine).
 
 ## Networking capabilities
 
