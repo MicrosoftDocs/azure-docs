@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 12/18/2017
 ms.author: kumud
 ---
 
@@ -26,7 +26,7 @@ For example, suppose you purchase the domain 'contoso.net' and create a zone wit
 
 ## Create a DNS zone
 
-1. Sign in to the Azure portal
+1. Sign in to the Azure portal.
 1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone page.
 
     ![DNS zone](./media/dns-domain-delegation/dns.png)
