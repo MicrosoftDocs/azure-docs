@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
 
 ---
@@ -164,6 +164,73 @@ You can specify these parameters in the command line. If you do not, or any para
 2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.\<location\>.sqladapter** resource group and verify that all four deployments succeeded.
 
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## Update the SQL Resource Provider Adapter (multi-node only, builds 1710 and later)
+Whenever the Azure Stack build is updated, a new SQL Resource Provider Adapter will be released. While the existing adapter might continue to work, it is advisable to update to the latest build as soon as possible after the Azure Stack is updated. The update process is very similar to the installation process described above. A new VM will be created with the latest RP code, and settings will be migrated to this new instance including database and hosting server information, as well as the necessary DNS record.
+
+Use the UpdateSQLProvider.ps1 script with the same arguments as above. You must provide the certificate here as well.
+
+> [!NOTE]
+> Update is only supported on multi-node systems.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### UpdateSQLProvider.ps1 parameters
+You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
+
+| Parameter Name | Description | Comment or Default Value |
+| --- | --- | --- |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
+| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
+| **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
+| **DependencyFilesLocalPath** | Your certificate PFX file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
+| **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
+| **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
+| **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
+| **DebugMode** | Prevents automatic cleanup on failure | No |
+
 
 
 ## Remove the SQL Resource Provider Adapter
