@@ -17,7 +17,7 @@ ms.service: iot-edge
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy your IoT Edge modules. 
 
 ## Prerequisites
-This tutorial assumes that your are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
+This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
 Make sure you have completed following tutorials before you start this guidance.
 - Deploy Azure IoT Edge on a simulated device in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) or [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -96,9 +96,6 @@ The following steps show you how to create an IoT Edge module based on .NET core
 3. Select  **File** > **Open Folder**.
 4. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
 5. In VS Code explorer, click **Program.cs** to open it.
-
-   ![Open Program.cs][1]
-
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
