@@ -19,9 +19,9 @@ ms.author: tarcher
 ---
 # Add an internal support statement to a lab in Azure DevTest Labs
 
-Azure DevTest Labs lets you customize your lab with an internal support statement that provides users with support information about the lab. For example, you can list the contact information for assistance should a user need help with troubleshooting or accessing resources in the lab.
+Azure DevTest Labs lets you customize your lab with an internal support statement that provides users with support information about the lab. For example, you can list the contact information to assist a user that might need help with troubleshooting or accessing resources in the lab.
 
-An internal support statement is intended to let you post lab information that doesn't typically change very often. To notify users about lab info that is more temporary in nature – such as recent updates to lab policies – see [Post announcement in a lab](devtest-lab-announcements.md).
+An internal support statement is intended to let you post lab information that doesn't typically change too often. To notify users about lab info that is more temporary in nature – such as recent updates to lab policies – see [Post announcement in a lab](devtest-lab-announcements.md).
 
 You can easily disable or edit a support statement after it is no longer applicable.
 
@@ -40,7 +40,7 @@ You can easily disable or edit a support statement after it is no longer applica
 
 1. To create an internal support message for the users in this lab, set Enabled to **Yes**.
 
-1. In the **Support message** field, enter the internal support statement that you want to present to your lab users. The support message accepts Markdown. As you enter the message text, you can view the **Preview** area at the bottom of the screen to see how the message will appear to users.
+1. In the **Support message** field, enter the internal support statement that you want to present to your lab users. The support message accepts Markdown. As you enter the message text, you can view the **Preview** area at the bottom of the screen to see how the message appears to users.
 
     ![Internal support screen to create the message.](./media/devtest-lab-internal-support-message/devtestlab-add-support-statement.png)
 
@@ -65,5 +65,5 @@ When you no longer want to show this support message to lab users, return to the
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
-* Internal support statements are typically used to provide support information that doesn't change very often. You can also learn how to [post an announcement to a lab](devtest-lab-announcements.md) that informs users of more temporary changes or updates to the lab.
+* Internal support statements are typically used to provide support information that doesn't change that frequently. You can also learn how to [post an announcement to a lab](devtest-lab-announcements.md) that informs users of more temporary changes or updates to the lab.
 * [Set policies and schedules](devtest-lab-set-lab-policy.md) provides information about how you can apply other restrictions and conventions across your subscription by using customized policies.
