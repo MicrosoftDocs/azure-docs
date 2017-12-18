@@ -99,7 +99,15 @@ Each item in the modules dictionary contains specific information about a module
    * onFailure - If the module crashes, the Edge agent restarts it. If the module shuts down cleanly, the Edge agent does not restart it.
    * Unhealthy - If the module crashes or is deemed unhealthy, the Edge agent restarts it.
    * Always - If the module crashes, is deemed unhealthy, or shuts down in any way, the Edge agent restarts it. 
-   
+
+IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
+  * 200	- Deployment was successful
+  * 400	- The deployment configuration is malformed or invalid.
+  * 417	- The device does not have a deployment configuration set.
+  * 412	- The schema version in the deployment configuration is invalid.
+  * 406	- The edge device is offline or not sending status reports.
+  * 500	- An error occurred in the edge runtime.
+
 ### Security
 
 The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. These features will be added at general availability of V2 features. 
