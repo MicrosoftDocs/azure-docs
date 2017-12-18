@@ -50,7 +50,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux Virtual Machine in a new Resource Group
 
-For this tutorial, we will create a new Linux VM. You can also opt to use an existing VM.
+For this tutorial, you first create a new Linux VM. You can also opt to use an existing VM.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -62,7 +62,7 @@ For this tutorial, we will create a new Linux VM. You can also opt to use an exi
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
-## Create a new User Assigned MSI
+## Create a new User-Assigned MSI
 
 1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
@@ -70,7 +70,7 @@ For this tutorial, we will create a new Linux VM. You can also opt to use an exi
    az login
    ```
 
-2. Create a User Assigned MSI using [az identity create](/cli/azure). The `-g` parameter specifies the resource group where the MSI will be created, and the `-n` parameter specifes its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+2. Create a User-Assigned MSI using [az identity create](/cli/azure). The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -96,7 +96,7 @@ The response contains details for the user-assigned MSI created. Please note the
 
 ## Assign your user-assigned MSI to your Linux VM
 
-Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, we will be assigning it to a single VM. You can also assign it to more than one VM.
+Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, you assign it to a single VM. You can also assign it to more than one VM.
 
 1. Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
@@ -106,28 +106,28 @@ Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on mult
 
 ## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
 
-MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tuturial, we will access the Azure Resource Manager API. 
+MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code accesses the Azure Resource Manager API. 
 
-Before your code can access the API though, we need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained.  
+Before your code can access the API though, you need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained.  
 
 1. Navigate to the tab for **Resource Groups**.
 2. Select the specific **Resource Group** you created earlier.
 3. Go to **Access control(IAM)** in the left panel.
 4. Click to **Add** a new role assignment for your VM. Choose **Role** as **Reader**.
 5. In the next dropdown, **Assign access to** the resource **Azure AD user, group, or application**.
-6. Finally, in **Select** search for the name of your user assigned MSI and click **Save**. 
+6. Finally, in **Select** search for the name of your user-assigned MSI and click **Save**. 
 
     ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
  
-    The CURL request to acquire an access token is shown below. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command: 
+    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command: 
     
     ```bash
     curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
@@ -150,7 +150,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     "token_type":"Bearer"} 
     ```
     
-Now you will use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
+Now you use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
     
     > [!NOTE]
     > The URL is case-sensitive, so be sure to use the exact same case you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
