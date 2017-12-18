@@ -1,21 +1,13 @@
 ﻿---
-title: Kubernetes on Azure tutorial  - Deploy Cluster | Microsoft Docs
+title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -33,7 +25,7 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 
 ## Before you begin
 
-In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
+In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 ## Enabling AKS preview for your Azure subscription
 While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
@@ -46,17 +38,17 @@ After registering, you are now ready to create a Kubernetes cluster with AKS.
 
 ## Create Kubernetes cluster
 
-The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./tutorial-kubernetes-prepare-acr.md).
+The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial][aks-tutorial-prepare-acr].
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
 
 ## Install the kubectl CLI
 
-To connect to the Kubernetes cluster from your client computer, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.
+To connect to the Kubernetes cluster from your client computer, use [kubectl][kubectl], the Kubernetes command-line client.
 
 If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command:
 
@@ -72,7 +64,7 @@ To configure kubectl to connect to your Kubernetes cluster, run the following co
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
 
 ```azurecli
 kubectl get nodes
@@ -99,4 +91,13 @@ In this tutorial, a Kubernetes cluster was deployed in AKS. The following steps 
 Advance to the next tutorial to learn about running application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Deploy application in Kubernetes](./tutorial-kubernetes-deploy-application.md)
+> [Deploy application in Kubernetes][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

@@ -4,7 +4,7 @@ description: Use Azure Active Directory to enable single sign-on to all of the S
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00

@@ -1,6 +1,6 @@
 ---
-title: About disks and VHDs for Microsoft Azure Windows VMs | Microsoft Docs
-description: Learn about the basics of disks and VHDs for Windows virtual machines in Azure.
+title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Windows VMs | Microsoft Docs
+description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
 services: storage
 documentationcenter: ''
 author: robinsh
@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
 
 ---
-# About disks and VHDs for Azure Windows VMs
+# About disks storage for Azure Windows VMs
 Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 
 
 In this article, we will talk about the different uses for the disks, and then discuss the different types of disks you can create and use. This article is also available for [Linux virtual machines](../linux/about-disks-and-vhds.md).
@@ -76,6 +76,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## Next steps
-* [Attach a disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
-* [Change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so your application can use the D: drive for data.
+* [Attach a disk](attach-disk-portal.md) to add additional storage for your VM.
+* [Create a snapshot](snapshot-copy-managed-disk.md).
+* [Convert to managed disks](convert-unmanaged-to-managed-disks.md).
+
 

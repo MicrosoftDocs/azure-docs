@@ -3,7 +3,7 @@ title: Track changes in your Azure virtual machines | Microsoft Docs
 description: Use change tracking to track changes in the files and registry on your virtual machines. 
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom:  
 ---
 

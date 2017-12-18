@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # How to use Azure Table storage from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
 This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.

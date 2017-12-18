@@ -1,9 +1,7 @@
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+1. Sign in to the [Azure portal](http://portal.azure.com).  
+2. Click **New** > **Compute** > **See All** and then type **SUSE**.
    
-    ![Create a New Virtual Machine][Image1]
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
+3. Select an OpenSUSE virtual machine image, and then click the arrow to continue.
 5. On the first **Virtual machine configuration** page:
    
    * Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
@@ -49,7 +47,5 @@ You'll use SSH or PuTTY to connect to the virtual machine, depending on the oper
 3. After installation is done, select **Finish**.  Your system is now up to date.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
