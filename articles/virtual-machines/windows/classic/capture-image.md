@@ -39,7 +39,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 >
 >
 
-Prior to capturing an image of an Azure virtual machine, it is recommended the target virtual machine be backed up. Azure virtual machines can be backed up using Azure Backup. For details, see [Back up Azure virtual machines](../../../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+Prior to capturing an image of an Azure virtual machine, it is recommended the target virtual machine be backed up. Azure virtual machines can be backed up using Azure Backup. For details, see [Back up Azure virtual machines](../../../backup/backup-azure-arm-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
 
 ## Capture the virtual machine
 1. In the [Azure portal](http://portal.azure.com), **Connect** to the virtual machine. For instructions, see [How to sign in to a virtual machine running Windows Server][How to sign in to a virtual machine running Windows Server].

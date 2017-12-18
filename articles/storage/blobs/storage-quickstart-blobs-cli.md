@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a container
 
-Blobs are always uploaded into a container. Containers allow you to organize groups of blobs like you organize files in directories on your computer.
+Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
 
 Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#create) command.
 
@@ -44,7 +44,11 @@ az storage container create --name mystoragecontainer
 
 Blob storage supports block blobs, append blobs, and page blobs. Most files stored in Blob storage are stored as block blobs. Append blobs are used when data must be added to an existing blob without modifying its existing contents, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
 
-In this example, we upload a blob to the container we created in the last step with the [az storage blob upload](/cli/azure/storage/blob#upload) command.
+First, create a file to upload to a blob.
+If you're using the Azure cloud shell, use the following in order to create a file:
+`vi helloworld` when the file opens, press **insert**, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
+
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob#upload) command.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -53,7 +57,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+If you used the previously described method to create a file in your Azure Cloud Shell, you can use this CLI command instead (note that you didn't need to specify a path since the file was created at the base directory, normally you'd need to specify a path):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 This operation creates the blob if it doesn't already exist, and overwrites it if it does. Upload as many files as you like before continuing.
+
+To upload multiple files at the same time, you can use the [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch) command.
 
 ## List the blobs in a container
 
@@ -67,7 +82,7 @@ az storage blob list \
 
 ## Download a blob
 
-Use the [az storage blob download](/cli/azure/storage/blob#download) command to download a blob you uploaded earlier.
+Use the [az storage blob download](/cli/azure/storage/blob#download) command to download the blob you uploaded earlier.
 
 ```azurecli-interactive
 az storage blob download \
