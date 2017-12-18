@@ -48,7 +48,7 @@ The following limitations exist when using this capability:
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Regions:** The capability is available in many Azure regions, and continues to expand. For a full list, see [Azure Virtual Networking Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
 * **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3, and CentOS 7.3 (Published by “Rogue Wave Software”).
-* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). The set of supported VM instance sizes continues to expand.
+* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](sizes.md). The set of supported VM instance sizes continues to expand.
 * **Deployment through Azure Resource Manager (ARM) only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 You can use the [Azure portal](#portal) or Azure [PowerShell](#powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS instructions, see [RHEL and CentOS](#rhel-and-centos).
@@ -175,7 +175,7 @@ From the Bash shell, enter `uname -r` and and confirm that the operating system 
     * **RHEL**: 7.3, or greater
     * **CentOS**: XXX, or greater
 
-If the version of your distribution is less than the versions listed, complete the steps in [Configure the operating system - earlier versions](configure-the-operating-system---earlier-versions), instead of the steps in this section.
+If the version of your distribution is less than the versions listed, complete the steps in [Configure the operating system - earlier versions](#configure-the-operating-system---earlier-versions), instead of the steps in this section.
 
 Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
   		  
@@ -192,7 +192,7 @@ The VM restarts after a 60 second pause. Once the VM restarts, SSH into the VM a
 
 ## Configure the operating system - earlier versions
 
-If your distribution is the same, or a later version than the distribution versions listed in [Configure the operating system - recent versions](configure-the-operating-system---earlier-versions), skip this step. Creating VMs with earlier distribution versions requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
+If your distribution is the same, or a later version than the distribution versions listed in [Configure the operating system - recent versions](#configure-the-operating-system---recent-versions), skip this step. Creating VMs with earlier distribution versions requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
 
 ### Phase 1: Prepare a base image 
 
@@ -330,7 +330,7 @@ The following instructions bring up the DPDK with MLX4. You can use DPDK by eith
 
 The DPDK application on Azure has to bind to a Fail-safe poll mode driver (PMD), since the packets can show up either on the VF interface or the synthetic interface. Binding applications to the Fail-safe PMD library ensures that applications can see all packets. 
 
-If you're not already connected to the VM via SSH, [SSH into the VM](ssh-to-the-vm). Download the Fail-safe PMD script:
+If you're not already connected to the VM via SSH, [SSH into the VM](#ssh-to-the-vm). Download the Fail-safe PMD script:
 
 ```bash
 wget https://gallery.technet.microsoft.com/Azure-DPDK-Failsafe-PMD-c34b1a4b/file/183012/1/failsafe.sh
