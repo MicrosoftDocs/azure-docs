@@ -26,11 +26,11 @@ The targeted readers for this document are engineers who work in DRM subsystems 
 
 In this discussion of DRM, we also include common encryption (CENC) with multi-DRM. A major trend in online streaming and the OTT industry is to use CENC with multi-native DRM on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
-The benefits of CENC with multi-DRM are:
+The benefits of CENC with multi-DRM are that it:
 
-* Reduces encryption cost because a single encryption process is used to target different platforms with its native DRMs
-* Reduces the cost of managing encrypted assets because only a single copy of encrypted assets is needed
-* Eliminates DRM client licensing cost because the native DRM client is usually free on its native platform
+* Reduces encryption cost because a single encryption process is used to target different platforms with its native DRMs.
+* Reduces the cost of managing encrypted assets because only a single copy of encrypted assets is needed.
+* Eliminates DRM client licensing cost because the native DRM client is usually free on its native platform.
 
 Microsoft is an active promoter of DASH and CENC together with some major industry players. Azure Media Services provides support for DASH and CENC. For recent announcements, see the following blogs:
 
@@ -55,7 +55,7 @@ The following table summarizes the native platform/native app and browsers suppo
 | **Client platform** | **Native DRM support** | **Browser/app** | **Streaming formats** |
 | --- | --- | --- | --- |
 | **Smart TVs, operator STBs, OTT STBs** |PlayReady primarily, and/or Widevine, and/or other |Linux, Opera, WebKit, other |Various formats |
-| **Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
+| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -72,8 +72,8 @@ To make your selection, keep in mind:
 
  There are two options for a typical multi-DRM:
 
-* Option 1: PlayReady and Widevine
-* Option 2: PlayReady, Widevine, and FairPlay
+* PlayReady and Widevine
+* PlayReady, Widevine, and FairPlay
 
 ## A reference design
 This section presents a reference design that is agnostic to the technologies used to implement it.
@@ -94,7 +94,7 @@ The following diagram illustrates the high-level interaction among the component
 
 The design has three basic layers:
 
-* A back office layer (black) is not exposed externally.
+* A back-office layer (black) is not exposed externally.
 * A DMZ layer (dark blue) contains all the endpoints that face the public.
 * A public internet layer (light blue) contains the CDN and players with traffic across the public internet.
 
@@ -134,7 +134,7 @@ If you use a public cloud for license delivery, persistent and nonpersistent lic
 
     Total number of licenses requested for all kids' movies/device = [number of movies watched] x [number of sessions]
 
-The two different designs result in very different license request patterns. The different patterns result in different license delivery cost, if license delivery service is provided by a public cloud such as Media Services.
+The two different designs result in very different license request patterns. The different patterns result in different license delivery cost if license delivery service is provided by a public cloud such as Media Services.
 
 ## Map design to technology for implementation
 Next, the generic design is mapped to technologies on the Azure/Media Services platform by specifying which technology to use for each building block.
@@ -207,7 +207,7 @@ Implementation includes the following steps:
 
 8. Create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player's ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-9. Test matrix:
+9. The following table shows the test matrix.
 
     | **DRM** | **Browser** | **Result for entitled user** | **Result for unentitled user** |
     | --- | --- | --- | --- |
@@ -280,7 +280,7 @@ The ASP.NET player application uses HTTPS as a best practice, so Media Player is
 
 In the reference implementation for DRM-protected contents, both the application and streaming are under HTTPS. For open contents, the player doesn't need authentication or a license, so you can use either HTTP or HTTPS.
 
-### Azure AD signing key rollover
+### Azure Active Directory signing key rollover
 Signing key rollover is an important point to take into consideration in your implementation. If you ignore it, the finished system eventually stops working completely, within six weeks at the most.
 
 Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
