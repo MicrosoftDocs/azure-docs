@@ -18,8 +18,8 @@ ms.date: 12/18/2017
 ms.author: owend
 
 ---
-# Asynchronous Refresh with the REST API
-By using any programming language that supports REST calls, you can  perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale out. 
+# Asynchronous refresh with the REST API
+By using any programming language that supports REST calls, you can  perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale-out. 
 
 Data-refresh operations can take some time depending on a number of factors including data volume, level of optimization using partitions, etc. These operations have traditionally been invoked with existing methods such as using [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
 
@@ -111,7 +111,7 @@ CommitMode is equal to partialBatch. It's used when doing an initial load of lar
 
 ## GET /refreshes/<refreshId>
 
-To check the status of a refresh operation, use the GET verb on the refresh ID. Here's an example of the response body. The status field returns **inProgress** if the operation is in progress.
+To check the status of a refresh operation, use the GET verb on the refresh ID. Here's an example of the response body. If the operation is in progress, **inProgress** is returned in status.
 
 ```
 {
@@ -140,7 +140,7 @@ To check the status of a refresh operation, use the GET verb on the refresh ID. 
 To get a list of historical refresh operations for a model, use the GET verb on the /refreshes collection. Here's an example of the response body. 
 
 > [!NOTE]
-> At time of writing, the last 30 days of refresh operations are stored and returned, but this could change.
+> At time of writing, the last 30 days of refresh operations are stored and returned, but this number could change.
 
 ```
 [
@@ -182,18 +182,18 @@ To check the status of a sync operation, use the GET verb passing the operation 
 }
 ```
 
-Values for syncstate:
+Values for ```syncstate```:
 
 - 0: Replicating. Database files are being replicated to a target folder.
 - 1: Rehydrating. The database is being rehydrated on read-only server instance(s).
 - 2: Completed. The sync operation completed successfully.
 - 3: Failed. The sync operation failed.
-- 4: Finalizing. The sync operation has completed but is performing clean up steps.
+- 4: Finalizing. The sync operation has completed but is performing cleanup steps.
 
 ## Code sample
 
 Here's a C# code sample to get you started, [RestApiSample on GitHub](
-[https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample]).
+https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample]).
 
 ### To use the code sample
 
@@ -232,13 +232,14 @@ This form of authentication requires an Azure application be created with the ne
     ![Select Read and Write all models](./media/analysis-services-async-refresh/aas-async-select-read.png)
 
 7.	In the code sample, find the **UpdateToken()** method. Observe the contents of this method.
-8.	Find **string clientID = …**, and then enter the **Application ID** you copied from step 3 above.
+8.	Find **string clientID = …**, and then enter the **Application ID** you copied from step 3.
 9.	Run the sample.
 
 #### Service principal
-See the [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blog post for how to set up a service principal and assign the necessary permissions in Azure Analysis Services. Once you've completed the steps detailed in the blog post, comploete the following additional steps:
 
-1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID. See code comments for additional information.
+See the [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blog post for how to set up a service principal and assign the necessary permissions in Azure Analysis Services. Once you've completed the steps detailed in the blog post, complete the following additional steps:
+
+1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID. See code comments for more information.
 2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
 3.	Run the sample.
 
