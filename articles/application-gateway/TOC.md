@@ -35,7 +35,7 @@
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
-## Configure URL path based routing
+## Configure URL path-based routing
 ### [Azure portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)

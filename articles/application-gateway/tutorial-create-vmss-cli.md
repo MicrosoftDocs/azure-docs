@@ -9,7 +9,7 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 12/18/2017
 ms.author: davidmu
 
 ---
@@ -40,7 +40,7 @@ The following example creates a resource group named *myResourceGroupAG* in the 
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources 
 
 Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -92,7 +92,7 @@ az network application-gateway create \
 
 ## Create a virtual machine scale set with the default backend pool
 
-In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. You can use [az vmss create](/cli/azure/vmss#az_vmss_create) to create the scale set.
+In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -112,7 +112,7 @@ az vmss create \
 
 ### Install NGINX
 
-In your current shell, create a file named customConfig.json and paste the following configuration. You can use any editor you wish to create the file in the Cloud Shell.  Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file.
+You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
 
 ```json
 {
@@ -135,7 +135,7 @@ az vmss extension set \
 
 ## Test the application gateway
 
-You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
