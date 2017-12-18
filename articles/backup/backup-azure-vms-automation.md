@@ -19,11 +19,6 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Classic](backup-azure-vms-classic-automation.md)
->
->
 
 This article shows you how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager resource and is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to protect Azure Service Manager-deployed VMs, and Azure Resource Manager-deployed VMs.
 

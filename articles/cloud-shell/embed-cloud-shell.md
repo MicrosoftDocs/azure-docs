@@ -27,13 +27,22 @@ Embedding Cloud Shell enables developers and content writers to directly open Cl
 Integrate Cloud Shell's launch button into markdown files by copying the following:
 
 ```markdown
-[![Launch Cloud Shell](https:shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
 The HTML to embed a pop-up Cloud Shell is below:
 ```html
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
+
+## Customize experience
+
+Set a specific shell experience by augmenting your URL.
+|Experience   |URL   |
+|---|---|
+|Most recently used shell   |shell.azure.com           |
+|Bash                       |shell.azure.com/bash       |
+|PowerShell                 |shell.azure.com/powershell |
 
 ## Next steps
 [Bash in Cloud Shell quickstart](quickstart.md)<br>
