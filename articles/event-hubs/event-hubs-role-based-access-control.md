@@ -30,13 +30,13 @@ An application that uses AAD RBAC does not need to handle SAS rules and keys or 
 
 For the initial public preview, you can only add AAD accounts and service principals to the "Owner" or "Contributor" roles of an Event Hubs namespace. This operation grants the identity full control over all entities in the namespace. Management operations that change the namespace topology are initially only supported though Azure resource management and not through the native Event Hubs REST management interface. This support also means that the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object cannot be used with an AAD account.  
 
-In an upcoming update, Event Hubs will add explicit roles for "Sender" and "Receiver" that enable you to grant only send or receive permissions. The receive permission also includes read-only access to obtain information about the entity, and also includes permission to control the message disposition. In subsequent updates during the preview, it will also be possible to associate AAD accounts and service principals with roles at the level of individual entities, enabling fine grained access control. In addition to the predefined roles, composing custom roles from the underlying Event Hubs permission set will also be enabled. 
+In an upcoming update, Event Hubs will add explicit roles for "Sender" and "Receiver" that enable you to grant only send or receive permissions. The receive permission also provides read-only access to obtain information about the entity, and includes permission to control the message disposition. In subsequent updates during the preview, it will also be possible to associate AAD accounts and service principals with roles at the level of individual entities, enabling fine grained access control. In addition to the predefined roles, composing custom roles from the underlying Event Hubs permission set will also be enabled. 
 
 ## Use Event Hubs with an AAD domain user account
 
 The following section describes the steps required to create and run a sample application that prompts for an interactive AAD user to log on, how to grant Event Hubs access to that user account, and how to use that identity to access Event Hubs. 
 
-This introduction describes a simple console application, the [code for which is on Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+This introduction describes a simple console application, the [code for which is on Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/).
 
 ### Create an Active Directory user account
 
