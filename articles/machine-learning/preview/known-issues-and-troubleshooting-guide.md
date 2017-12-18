@@ -15,10 +15,8 @@ ms.date: 09/20/2017
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
 This article helps you find and correct errors or failures encountered as a part of using the Azure Machine Learning Workbench application. 
 
-> [!IMPORTANT]
-> When communicating with the support team, it is important to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
-
-![check version number](media/known-issues-and-troubleshooting-guide/buildno.png)
+## Find the Workbench build number
+When communicating with the support team, it is important to include the build number of the Workbench app. On Windows, you can find out the build number by clicking on the **Help** menu and choose **About Azure ML Workbench**. On macOS, you can click on the **Azure ML Workbench** menu and choose **About Azure ML Workbench**.
 
 ## Machine Learning MSDN Forum
 We have an MSDN Forum that you can post questions. The product team monitors the forum actively. 
@@ -38,6 +36,17 @@ If you run into issue during installation, the installer log files are here:
 /tmp/amlinstaller/logs/*
 ```
 You can zip up the contents of these directories and send it to us for diagnostics.
+
+### App Update 
+#### No update notification on Windows desktop 
+This issue will be addressed in an upcoming update. In the meantime, the workaround is to avoid launching the app from the shortcut pinned to the Taskbar. Instead to launch the app by using the Start menu or Start search-bar, or the shortcut on your desktop (if you have one). 
+
+#### No update notification on an Ubuntu Data Sciece Virtual Machine (DSVM)
+Perform the following steps to download the latest application :   
+   - remove the folder \Users\AppData\Local\amlworkbench
+   - remove script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remove desktop shortcut that launches the above script
+   - install cleanly using [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### Workbench desktop app
 If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
@@ -72,17 +81,52 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
     >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - Max allowed experiment execution time: seven days
+
 - Max size of tracked file in `outputs` folder after a run: 512 MB
   - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - SSH keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is currently supported.
 
+- When using HDInsight cluster as compute target, it must use Azure blob as primary storage. Using Azure Data Lake Storage is not supported.
+
 - Text clustering transforms are not supported on Mac.
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
-## Delete Experimentation Account
-You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first.
+- Jupyter Notebooks have a max size limit of 5 MB when opening them from the Workbench app. You can open large notebooks from CLI using 'az ml notebook start' command, and clean cell outputs to reduce the file size.
+
+## Can't update Workbench
+When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
+
+![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
+
+### You are launching Workbench from a pinned shortcut on the task bar
+You may have already installed the update. But your pinned shortcut is still pointing to the old bits on disk. You can verify this by browsing to the `%localappdata%/AmlWorkbench` folder and see if you have latest version installed there, and examine the property of the pinned shortcut to see where it is pointing to. If verified, simply remove the old shortcut, launch Workbench from Start menu, and optionally create a new pinned shortcut on the task bar.
+
+### You installed Workbench using the "install Azure ML Workbench" link on a Windows DSVM
+Unfortunately there is no easy fix on this one. You have to perform the following steps to remove the installed bits, and download the latest installer to fresh-install the Workbench: 
+   - remove the folder `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - remove script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remove desktop shortcut that launches the above script
+   - download the installer https://aka.ms/azureml-wb-msi and reinstall.
+
+## Stuck at "Checking experimentation account" screen after logging in
+After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
+1. Shutdown the app
+2. Delete the following file:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Restart the app.
+
+## Can't delete Experimentation Account
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
 
 ```azure-cli
 # delete a project
@@ -97,9 +141,18 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 You can also delete the projects and workspaces from within the Workbench app.
 
+## Can't open file if project is in OneDrive
+If you have Windows 10 Fall Creators Update, and your project is created in a local folder mapped to OneDrive, you might find that you cannot open any file in Workbench. This is due to a bug introduced by the Fall Creators Update that causes node.js code to fail in a OneDrive folder. The bug will be fixed soon by Windows update, but until then, please do not create projects in a OneDrive folder.
 
 ## File name too long on Windows
-If you uses Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a somewhat misleading "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
+If you use Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
+
+## Interrupt CLI execution output
+If you kick off an experimentation run using `az ml experiment submit` or `az ml notebook start` and you'd like to interrupt the output: 
+- On Windows use Ctrl-Break key combination from the keyboard
+- On macOS, use Ctrl-C.
+
+Please note that this only interrupts the output stream in the CLI window. It does not actually stop a job that's being executed. If you want to cancel an ongoing job, use `az ml experiment cancel -r <run_id> -t <target name>` command.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
@@ -151,9 +204,9 @@ A quick fix is to remove all Docker images you no longer use. The following Dock
 $ docker system prune -a
 ```
 
-You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+You can also add a data disk and configure Docker engine to use the data disk for storing images. Here is [how to add a data disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). You can then [change where Docker stores images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here is [how you can expand the OS disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## Sharing C drive on Windows
 If you are executing in a local Docker container on Windows, setting `sharedVolumes` to `true` in the `docker.compute` file under `aml_config` can improve execution performance. However, this requires you share C drive in the _Docker for Windows Tool_. If you are not able to share C drive, try the following tips:

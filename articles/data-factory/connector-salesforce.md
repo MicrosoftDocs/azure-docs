@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/24/2017
 ms.author: jingwang
 
 ---
@@ -62,8 +62,8 @@ The following properties are supported for Salesforce linked service:
 | type |The type property must be set to: **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store security token in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account.<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>You can choose to mark this field as a SecureString to store it securely in ADF, or store security token in Azure Key Vault and let the copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
@@ -245,13 +245,13 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Salesforce input dataset name>",
+                "referenceName": "<input dataset name>",
                 "type": "DatasetReference"
             }
         ],
         "outputs": [
             {
-                "referenceName": "<output dataset name>",
+                "referenceName": "<Salesforce output dataset name>",
                 "type": "DatasetReference"
             }
         ],

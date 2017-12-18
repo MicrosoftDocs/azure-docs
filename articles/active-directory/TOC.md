@@ -58,6 +58,7 @@
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -73,7 +74,6 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Classic portal](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +94,6 @@
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +134,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](active-directory-passwords-how-it-works.md)
 ### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR and Windows 10](active-directory-passwords-login.md)
 ### [SSPR Policies ](active-directory-passwords-policy.md)
 ### [SSPR Customization](active-directory-passwords-customize.md)
 ### [SSPR Data requirements](active-directory-passwords-data.md)
@@ -206,11 +206,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
-#### Use the classic portal
-##### [Download connectors](application-proxy-enable-classic-portal.md)
-##### [Publish apps](active-directory-application-proxy-publish.md)
-##### [Use connectors](active-directory-application-proxy-connectors.md)
-##### [Conditional access](active-directory-application-proxy-conditional-access.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -225,7 +220,6 @@
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
-#### [Self-service access](active-directory-self-service-application-access.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
 #### [Tenant restrictions](active-directory-tenant-restrictions.md)
@@ -249,13 +243,12 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Overview](active-directory-add-domain-concepts.md)
-#### [Manage domain names](active-directory-domains-manage-azure-portal.md)
-##### [Classic portal](active-directory-add-manage-domain-names.md)
+#### [Quickstart](add-custom-domain.md)
+#### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
-#### [Take over an unmanaged directory](domains-admin-takeover.md)
+### [Take over an unmanaged directory](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -273,6 +266,7 @@
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -291,8 +285,9 @@
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
 #### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+#### [Migrate classic policies](active-directory-conditional-access-migration.md)
 #### Tasks
-##### [Migrate classic policies](active-directory-conditional-access-migration.md)
+##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)

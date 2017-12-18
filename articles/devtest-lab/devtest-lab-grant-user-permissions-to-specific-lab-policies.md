@@ -84,9 +84,9 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 ## Next steps
 Once you've granted user permissions to specific lab policies, here are some next steps to consider:
 
-* [Secure access to a lab](devtest-lab-add-devtest-user.md).
-* [Set lab policies](devtest-lab-set-lab-policy.md).
-* [Create a lab template](devtest-lab-create-template.md).
-* [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
-* [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md).
+* [Secure access to a lab](devtest-lab-add-devtest-user.md)
+* [Set lab policies](devtest-lab-set-lab-policy.md)
+* [Create a lab template](devtest-lab-create-template.md)
+* [Create custom artifacts for your VMs](devtest-lab-artifact-author.md)
+* [Add a VM to a lab](devtest-lab-add-vm.md)
 

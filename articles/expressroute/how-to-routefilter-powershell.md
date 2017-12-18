@@ -67,7 +67,7 @@ To be able to successfully connect to services through Microsoft peering, you mu
 
 Before you begin configuration, make sure you meet the following criteria:
 
- - Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShelll](/powershell/azure/install-azurerm-ps).
+ - Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
   > [!NOTE]
   > Download the latest version from the PowerShell Gallery, rather than using the Installer. The Installer currently does not support the required cmdlets.

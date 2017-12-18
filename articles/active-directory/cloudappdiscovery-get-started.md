@@ -5,7 +5,7 @@ services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
@@ -35,7 +35,7 @@ Cloud App Discovery in Azure AD is now based on integration with data available 
 
 2. [Set up continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) to analyze all logs that are forwarded from your network using the Cloud App Security log collector. You can use them to identify new apps and usage trends.
 
-3. If your logs are not currently supported, [set up a custom log parser](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) so that Cloud App Discovery can analyze them.
+3. If your logs are not currently supported, [set up a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser) so that Cloud App Discovery can analyze them.
   
 ## Log processing flow
 
@@ -81,6 +81,7 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 * Barracuda - Web App Firewall (W3C)
 * Blue Coat Proxy SG - Access log (W3C)
 * Check Point
+* Cisco ASA FirePOWER
 * Cisco ASA Firewall (For Cisco ASA firewalls, set the information level to 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe

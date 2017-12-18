@@ -3,7 +3,6 @@
 
 # Get Started
 
-## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
 ### [Azure portal](search-create-index-portal.md)
@@ -20,33 +19,33 @@
 
 # Tutorials
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Develop in .NET](search-howto-dotnet-sdk.md)
+## [Synonyms preview in .NET](search-synonyms-tutorial-sdk.md)
+## [SQL data indexer in .NET](search-indexer-tutorial.md)
+## [Portal walkthrough](search-get-started-portal.md)
 ## [Search semi-structured data](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Explore the REST API](search-fiddler.md)
 
 # How to
 
-## Plan and design
+## Plan & Design
+### [Choose a SKU](search-sku-tier.md)
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
-## Develop
+## Security
+### [Data and operational security](search-security-overview.md)
+### [Secure with identity filters](search-security-trimming-for-azure-search.md)
+### [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Development
 ### [API versions](search-api-versions.md)
+### [Develop in Node.js](search-get-started-nodejs.md)
+### [Develop in Java](search-get-started-java.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
 ### [Handle concurrent updates](search-howto-concurrency.md)
 ### [Code samples](https://azure.microsoft.com/resources/samples/?service=search)
-## Manage
-### Administer Azure Search
-#### [Azure portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Monitor usage and statistics](search-monitor-usage.md)
-### [Search traffic analytics](search-traffic-analytics.md)
-### [Performance and optimization](search-performance-optimization.md)
 ## Load data
 ### [Indexer overview](search-indexer-overview.md)
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
@@ -71,7 +70,6 @@
 #### [Overview](search-filters.md)
 #### [Facet filters](search-filters-facets.md)
 #### [Language filters](search-filters-language.md)
-#### [Security trimming](search-security-trimming-for-azure-search.md)
 #### [Expression syntax reference](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paging results](search-pagination-page-layout.md)
 ### [Scoring](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -79,6 +77,12 @@
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
 ### [moreLikeThis preview](search-more-like-this.md)
+## Administration & Analytics
+### [Manage using Azure portal](search-manage.md)
+### [Manage using PowerShell](search-manage-powershell.md)
+### [Monitor usage and statistics](search-monitor-usage.md)
+### [Search traffic analytics](search-traffic-analytics.md)
+### [Performance and optimization](search-performance-optimization.md)
 
 # Reference
 

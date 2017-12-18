@@ -79,7 +79,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
    > Accessing CDN content using HTTPS has the following constraints:
    > 
    > * You must use the SSL certificate provided by the CDN. Third-party certificates are not supported.
-   > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Enable or disable HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
+   > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
   
 9. Click the **Add** button to create the new endpoint.
    

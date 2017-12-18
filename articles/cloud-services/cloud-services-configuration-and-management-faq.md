@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/11/2017
 ms.author: genli
 
 ---
@@ -95,7 +95,7 @@ To set up a static IP address, you need to create a reserved IP. This reserved I
 See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
 
 ## Why does the drive on my cloud service VM show very little free disk space?
-This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %uproot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
+This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 
 The %approot% drive size is calculated as <size of .cspkg + max journal size + a margin of free space>, or 1.5 GB, whichever is larger. The size of your VM has no bearing on this calculation. (The VM size only affects the size of the temporary C: drive.) 
 
@@ -179,6 +179,19 @@ Using any of the approaches above, the respective certificates (*.pfx) for the s
 
 Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud Service. 
 
+## What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?
+
+* Ability to generate a new certificate for Remote Desktop Protocol (RDP) is coming soon. Alternatively, you can run this script:
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+* Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+
+
 ## How to enable HTTP/2 on Cloud Services VM?
 
 Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you do not need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
@@ -205,3 +218,59 @@ Once this has been done, you can verify whether the HTTP/2 has been enabled or n
 - Enable F12 Developer Tool in Internet Explorer/Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
+
+## The Azure portal doesn't display the SDK version of my Cloud Service. How can I get that?
+
+We are working on bringing this feature on the Azure portal. Meanwhile, you can use following PowerShell commands to get the SDK version:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
+
+This error may occur if you use the RDP file from a machine that is joined to Azure Active Directory. To resolve this issue, follow these steps:
+
+1. Right-click the RDP file you downloaded and then select **Edit**.
+2. Add "&#92;" as prefix before the username. For example, use **.\username** instead of  **username**.
+
+## I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
+
+An already deployed Cloud Service gets billed for the Compute and Storage it uses. So even if you shut down the Azure VM, you will still get billed for the Storage. 
+
+Here is what you can do to reduce your billing without losing the IP address for your service:
+
+1. [Reserve the IP address](../virtual-network/virtual-networks-reserved-public-ip.md) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Delete the deployments. Don’t delete the xxx.cloudapp.net, so that you can use it for future.
+3. If you want to redeploy the Cloud Service by using the same reserve IP that you reserved in your subscription, see [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## My Cloud Service Management Certificate is expiring. How to renew it?
+
+You can use following PowerShell commands to renew your Management Certificates:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+The **Get-AzurePublishSettingsFile** will create a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
+
+## How can I configure Auto-Scale based on Memory metrics?
+
+Auto-scale based on Memory metrics for a Cloud Services is not currently supported. 
+
+To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
+
+For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
+
+You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
+
+For more information, see the following articles:
+- [How to configure and run startup tasks for a cloud service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Common Cloud Service startup tasks](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
