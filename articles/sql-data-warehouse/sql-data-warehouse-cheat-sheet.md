@@ -137,7 +137,7 @@ Deploy in a click your spokes in SQL DB databases from SQL DW:
 
 
 <!--Image references-->
-[Sketch]:/media/sql-data-warehouse-cheat-sheet/picture_flow.png
+[Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
 [data loading]:./design-elt-data-loading.md
