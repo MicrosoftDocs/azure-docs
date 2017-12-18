@@ -21,13 +21,13 @@ This article describes how to assess large numbers of on-premises machines with 
 
 ## Plan Azure Migrate projects
 
-You need to plan your Azure Migrate projects based on the limits listed below:
+You need to plan your discoveries and assessments based on the limits listed below:
 
-**Entity** | **Machine limit**
-    --- | ---
-    Project | 1500 
-    Discovery | 1000
-    Assessment | 400
+| **Entity** | **Machine limit** |
+| ---------- | ----------------- |
+| Project    | 1500              | 
+| Discovery  | 1000              |
+| Assessment | 400               |
 
 - If you have less than 400 machines to discover and asess, you will need a single project, single discovery and single assessment.
 - If you have less than 1000 machines to discover, you need a single project with a single discovery. But, you may need multiple assessments to assess these machines as a single assessment can hold up to 400 machines.
