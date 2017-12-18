@@ -1,6 +1,6 @@
 ---
 
-title: Financial Services Blueprint for Regulated Workloads
+title: Azure Blueprint Automation - Financial Services for Regulated Workloads
 description: Financial Services Blueprint for Regulated Workloads
 services: security
 documentationcenter: na
@@ -387,9 +387,3 @@ Customers are responsible for retaining a copy of the [Responsibility Summary Ma
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving compliance requires that customers consult with their auditor to validate the final customer solution.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
-
-### Document authors
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
