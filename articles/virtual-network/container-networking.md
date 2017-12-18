@@ -38,7 +38,6 @@ You can deploy up to 4,000 nodes in a Kubernetes cluster, and up to 250 pods per
 
 ## Constraints
 - The plugin is not enabled when deploying a Kubernetes cluster with the [Azure Container Service (AKS)](../aks/intro-kubernetes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [ACS](../container-service/kubernetes/container-service-intro-kubernetes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) cluster with Kubernetes.
-- The plugin is not available for the Azure Managed Kubernetes service (AKS)
 - There is no native support for Kubernetes network policies, including DNS or access policies
 - The plugin doesn't support per-pod network policies
 
