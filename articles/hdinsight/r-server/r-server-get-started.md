@@ -414,7 +414,7 @@ A compute context allows you to control whether computation is performed locally
         dir.create(source)
 
         # Download data to the tmp folder
-        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+        remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
         download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
         download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
         download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))

@@ -93,3 +93,6 @@ The tool parses only public URLs and does not support authenticated data sources
 ### How can I integrate LUIS with QnA Maker?
 There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. 
 [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/blob/master/Node/samples/QnAWithLUIS/).
+
+### How can I report issues or contact support for QnAMaker?
+QnAMaker is currently in free Preview and does not have support SLAs. If you want to report an issue or provide feedback, you do so on UserVoice through the "Feedback" button in the top navigation bar.

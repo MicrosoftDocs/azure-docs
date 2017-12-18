@@ -4,6 +4,7 @@ description: A conceptual overview of the preview features of Azure Machine Lear
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
