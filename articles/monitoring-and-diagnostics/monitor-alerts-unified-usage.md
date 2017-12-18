@@ -50,19 +50,17 @@ As Azure Alerts (Preview) allows for creation of various types of alerts from a 
     - For **Log Alerts**, jump to step 8 onwards
 
 5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
- ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
+    ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
-> [!NOTE]
-> New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
+    > [!NOTE]
+    > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
   
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
-
-   ![Configure signal logic for metric](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
+    ![Configure signal logic for metric](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
 7. *Metric Alerts*: If Signal is a metric, then alert window can be filtered using multiple data points or dimensions for the said Azure resource. Similar to metric alerts, visualization of the signal history can be chosen by stating duration from **Show History** dropdown. Additionally, dimensions for the chosen metric can be selected to filter for required time series; choosing dimensions is optional and up-to five dimensions can be used. **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have been triggered in the past. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
-
-   ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
+    ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
 8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics*, then once appropriate **resource** is chosen click *Done* button. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option.
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
@@ -70,8 +68,8 @@ As Azure Alerts (Preview) allows for creation of various types of alerts from a 
 9.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week. 
    ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
-> [!NOTE]
-> Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot 
+    > [!NOTE]
+    > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot 
 
 10.  *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
 For **Log Alerts** alerts can be based on:
@@ -80,25 +78,24 @@ For **Log Alerts** alerts can be based on:
 
    Learn more about [Log Alerts and their types](monitor-alerts-unified-log.md)
 
-> [!TIP]
-> Currently in Alerts (Preview) - log search alerts can take custom *period* and *frequency* value in minute(s). Values can vary from 5 minutes to 1440 minutes (that is) 24 hours. So if you want alert period to be say three hours, convert it into minutes - 180 minutes, before use
+    > [!TIP]
+    > Currently in Alerts (Preview) - log search alerts can take custom *period* and *frequency* value in minute(s). Values can vary from 5 minutes to 1440 minutes (that is) 24 hours. So if you want alert period to be say three hours, convert it into minutes - 180 minutes, before use
 
 11. As the second step, define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or push done by Azure Monitor. Additionally, user can choose to immediately activate the alert rule on creation by appropriately toggling **Enable rule upon creation** option.
 
 For **Log Alerts** only, some additional functionality is available in Alert details:
 - *Suppress Alerts*: When you turn on suppression for the alert rule, actions for the rule are disabled for a defined length of time after creating a new alert. The rule is still running and creates alert records provided the criteria is met. Allowing you time to correct the problem without running duplicate actions.
-   ![Suppress Alerts for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+    ![Suppress Alerts for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
 12. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, etc. Learn more about [Action Groups](monitoring-action-groups.md).
 
 For **Log Alerts** some additional functionality is available to override the default Actions:
 - *Email Notification*: Overrides subject in the email, sent via Action Group. You cannot modify the body of the mail.
 - *Include custom Json payload*: Overrides the webhook Json used by Action Groups and instead replace the default payload with a custom payload
-
-   ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+    ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
 13. If all fields are valid and with green tick the **create alert rule** button can be clicked and Alert is created in Azure Monitor - Alerts (Preview). All Alerts can be viewed from the Alerts (Preview) Dashboard.
-   ![Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
 Within a few minutes, the alert is active and triggers as previously described.
 
