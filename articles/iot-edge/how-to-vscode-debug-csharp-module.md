@@ -47,4 +47,4 @@ After finish the preceding tutorial, you should have the following items ready,
 In this tutorial, you created an IoT Edge module and deployed it for debugging purpose, and started debugging it in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Function as a module in VS Code](how-to-vscode-develop-csharp-function.md)
+> [Develop and deploy C# module in VS Code](how-to-vscode-develop-csharp-module.md)
