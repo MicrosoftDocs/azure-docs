@@ -38,13 +38,13 @@ sections:
     - html: <a href="/azure/location-based-services/tutorial-search-location">Search for points of interest</a>
     - html: <a href="/azure/location-based-services/tutorial-route-location">Route to a point of interest</a>
     - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Routes by mode of travel</a>
-+- title: Reference
- +  items:
- +  - type: list
- +    style: cards
- +    className: cardsW
- +    items:
- +    - title: Languages
- +      html: <p><a href="https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/">Map Control API - Javascript</a></p>
- +    - title: REST
- +      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services-management/">Management API - REST</a></p>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Languages
+      html: <p><a href="https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/">Map Control API - Javascript</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services-management/">Management API - REST</a></p>
