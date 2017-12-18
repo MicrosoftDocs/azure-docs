@@ -64,7 +64,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 
 ## Create a new User-Assigned MSI
 
-1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to create the new MSI:
 
    ```azurecli
    az login
@@ -117,7 +117,7 @@ Before your code can access the API though, you need to grant the MSI's identity
 5. In the next dropdown, **Assign access to** the resource **Azure AD user, group, or application**.
 6. Finally, in **Select** search for the name of your user-assigned MSI and click **Save**. 
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux-ua.png)
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
