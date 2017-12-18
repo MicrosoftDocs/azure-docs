@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 keywords: sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
+ms.author: laviswa
 
 ---
 # SQL queries for Azure Cosmos DB
