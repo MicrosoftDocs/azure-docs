@@ -218,6 +218,18 @@ If you are executing in a local Docker container on Windows, setting `sharedVolu
 
 You can also avoid the sharing problem, at a small performance cost, by setting `sharedVolumne` to `false` in the `docker.compute` file.
 
+## Wipe clean Workbench installation
+You generally don't need to do this. But in case you must wipe clean an installation, here are the steps:
+
+- On Windows:
+  - First make sure you use _Add or Remove Programs_ applet in the _Control Panel_ to remove the _Azure Machine Learning Workbench_ application entry.  
+  - Then you can download and run either one of the following scripts:
+    - [Windows command line script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (You may need to run `Set-ExecutionPolicy Unrestricted` in a privilege-elevated PowerShell window before you can run the script.)
+- On macOS:
+  - Just download and run the [macOS bash shell script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
+
 ## Some useful Docker commands
 
 Here are some useful Docker commands:
