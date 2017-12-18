@@ -17,8 +17,10 @@ ms.custom: mvc
 
 # Create and provision an X.509 simulated device using IoT Hub Device Provisioning Service (Java)
 > [!div class="op_single_selector"]
-> * [TPM](quick-create-simulated-device.md)
-> * [X.509](java-quick-create-simulated-device-x509.md)
+> * [C](quick-create-simulated-device-x509.md)
+> * [Java](quick-create-simulated-device-x509-java.md)
+> * [C#](quick-create-simulated-device-x509-csharp.md)
+> * [Python](quick-create-simulated-device-x509-python.md)
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
@@ -55,21 +57,25 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Create the enrollment information in either of the following ways, as per your setup:
 
-    - For **Individual Enrollment**:
-        - Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Client Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+    - **Individual enrollment**:
+
+        1. Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Client Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
 
             ![Individual certificate generator](./media/java-quick-create-simulated-device-x509/individual.png)
 
-        - Create a file named **_X509individual.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-        - Enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the Quickstart. Note the _Client Cert_ and _Client Cert Private Key_ values.
+        1. Create a file named **_X509individual.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
+
+        1. Enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the Quickstart. Note the _Client Cert_ and _Client Cert Private Key_ values.
     
-    - For **Group Enrollment**:
-        - Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Root Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+    - **Enrollment groups**:
+
+        1. Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Root Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
 
             ![Group certificate generator](./media/java-quick-create-simulated-device-x509/group.png)
 
-        - Create a file named **_X509group.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-        - Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the Quickstart. Note the _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ values.
+        1. Create a file named **_X509group.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
+
+        1. Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the Quickstart. Note the _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ values.
 
 
 ## Create a device enrollment entry in the Device Provisioning Service
@@ -78,7 +84,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Enter the enrollment information in either of the following ways, as per your setup:
 
-    - **Individual Enrollment**: On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+    - **Individual enrollment**: 
+
+        1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
         1. Under the **Add enrollment list entry**, enter the following information:
             - Select **X.509** as the identity attestation *Mechanism*.
@@ -93,7 +101,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
        On successful enrollment, your X.509 device appears as **microsoftriotcore** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-    - **Enrollment groups**: On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
+    - **Enrollment groups**: 
+
+        1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
 
         1. Under the **Add Certificate**, enter the following information:
             - Enter a unique certificate name.
@@ -137,7 +147,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Enter the enrollment information in either of the following ways, as per your setup:
 
-    - **Individual Enrollment**: 
+    - **Individual enrollment**: 
 
         1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_ and _Client Cert Private Key_ as noted before.
 
@@ -149,7 +159,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String leafPrivateKey = "<Your Private PEM Key here>";
             ```
 
-    - **Group Enrollment**: 
+    - **Enrollment groups**: 
 
         1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ as noted before.
 
