@@ -20,7 +20,7 @@ ms.author: markgal;arunak;trinadhk;sogup;
 
 ---
 # Questions about the Azure Backup service
-This article has answers to common questions to help you quickly understand the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
@@ -28,7 +28,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Recovery services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of September 2016, you can create 25 Recovery Services or backup vaults per subscription. You can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
+Yes. As of September 2016, you can create 25 Recovery Services vaults per subscription. You can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault? <br/>
 Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, the limit is 200 VMs per vault. If you need to register more machines, create another vault.
@@ -39,19 +39,11 @@ All servers that are registered to the same vault can recover the data backed up
 ### Can I “migrate” my backup data or vault between subscriptions? <br/>
 No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
-### Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
-All existing Backup vaults in the [classic portal](https://manage.windowsazure.com) continue to be supported. However, you can no longer use the classic portal to deploy new Backup vaults. Microsoft recommends using Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only. If you attempt to create a Backup vault in the classic portal, you will be redirected to the [Azure portal](https://portal.azure.com).
+### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
+Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
 
 ### Can I migrate a Backup vault to a Recovery Services vault? <br/>
-Yes, you can now upgrade your Backup vault to a Recovery Services vault. For details, refer the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### I backed up my classic VMs in a Backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
-Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
-
-1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
-2. Delete the backup/snapshot extension from the VM.
-3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
-4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+All Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you.
 
 ## Azure Backup agent
 Detailed list of questions are present in [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md)
@@ -90,7 +82,7 @@ If you cancel a backup job for an Azure VM, any transferred data is ignored. The
 Yes. You can run backup jobs on Windows Server or Windows workstations up to three times/day. You can run backup jobs on System Center DPM up to twice a day. You can run a backup job for IaaS VMs once a day. You can use the scheduling policy for Windows Server or Windows workstation to specify daily or weekly schedules. Using System Center DPM, you can specify daily, weekly, monthly, and yearly schedules.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data I backed up?<br/>
- All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
+ All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the Recovery Services vault is 30-40% smaller.
 
 ## What can I back up
 ### Which operating systems do Azure Backup support? <br/>
