@@ -24,11 +24,7 @@ These steps show how to create a simulated device on your development machine ru
 
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
-> [!NOTE]
-> Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
->     ![DPS information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-<a id="setupdevbox"></a>
 ## Prepare the development environment 
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
@@ -43,7 +39,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this Quickstart guide. 
+1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow access** to allow changes to _Windows Firewall_ settings. It listens over a socket on ports 2321 and 2322. Do not close this window; you need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -51,12 +47,10 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
     ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
 
-1. In a separate command prompt, navigate to the root and build the project. Then navigate to the sample folder.
+1. In a separate command prompt, navigate to the sample folder.
 
     ```cmd/sh
-    cd azure-iot-sdk-java
-    mvn install -DskipTests=true
-    cd provisioning/provisioning-samples/provisioning-tpm-sample
+    cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
 1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
@@ -68,9 +62,6 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     ```
 
     ![DPS information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
-
-    > [!NOTE]
-    > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
 
 1. Build the project. Navigate to the target folder and execute the created jar file.
 
@@ -103,10 +94,10 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
    On successful enrollment, the *Registration ID* of your device appears in the list under the *Individual Enrollments* tab. 
 
-<a id="firstbootsequence"></a>
+
 ## Simulate first boot sequence for the device
 
-4. Click enter to continue running your Java application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+4. On the command window running the Java sample code on your machine, click enter to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
 
     ![Java TPM device program final](./media/java-quick-create-simulated-device/program-final.png)
 
