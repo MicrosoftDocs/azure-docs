@@ -1,0 +1,22 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Ansible on Azure Documentation
+metadata:
+  title: Ansible on Azure Documentation - Tutorials and reference
+  meta.description: Learn how to use Ansible to automates cloud provisioning, configuration management, and application deployments.
+  services: terraform
+  author: tomarcher
+  manager: routlaw
+  ms.service: ansible
+  ms.tgt_pltfrm: na
+  ms.devlang: devops
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: tarcher
+abstract:
+  description: Use Ansible to automates cloud provisioning, configuration management and application deployments.
+sections:
+- title: Quickstarts
+- title: Step-by-Step Tutorials
+- title: Samples
+- title: Reference
