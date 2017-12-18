@@ -153,11 +153,10 @@ az container logs --name myContainerGroup --container-name aci-tutorial-app --re
 Output:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 To see the logs for the side-car container, run the same command specifying the second container name.
@@ -169,24 +168,28 @@ az container logs --name myContainerGroup --container-name aci-tutorial-sidecar 
 Output:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
 As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running.
 
 ## Next steps
 
-This document covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, see the Azure Container Instances tutorial.
+This article covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, see the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial]: container-instances-tutorial-prepare-app.md
