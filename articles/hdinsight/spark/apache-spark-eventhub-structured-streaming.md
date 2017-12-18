@@ -132,10 +132,10 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
 10. Next, you begin to author a Spark Structured Streaming query be specifying the source. Paste the following into Spark Shell and press return.
 
-         val inputStream = spark.readStream.
-         format("eventhubs").
-         options(eventhubParameters).
-         load()
+        val inputStream = spark.readStream.
+        format("eventhubs").
+        options(eventhubParameters).
+        load()
 
 11. You should see output similar to:
 
