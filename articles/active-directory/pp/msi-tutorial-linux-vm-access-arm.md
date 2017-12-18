@@ -56,7 +56,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Create Linux VM](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
@@ -165,7 +165,7 @@ Now you use the access token to access Azure Resource Manager, and read the prop
     {"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
      
-## Related content
+## Next steps
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 
