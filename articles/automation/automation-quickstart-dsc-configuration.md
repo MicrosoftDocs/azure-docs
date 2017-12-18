@@ -11,9 +11,9 @@ ms.custom: mvc
 manager: carmonm
 ---
 
-# Configure a Linux Virtual Machine with Desired State Configuration
+# Configure a Linux virtual machine with Desired State Configuration
 
-By enabling Desired State Configuration, you can manage and monitor the configurations of your Windows and Linux servers. Configurations that drift from the desired configuration can be identified or auto-corrected. This quickstart steps through onboarding a Linux VM and deploying a LAMP stack with DSC.
+By enabling Desired State Configuration (DSC), you can manage and monitor the configurations of your Windows and Linux servers. Configurations that drift from the desired configuration can be identified or auto-corrected. This quickstart steps through onboarding a Linux VM and deploying a LAMP stack with DSC.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To complete this quickstart, you need:
 ## Log in to Azure
 Log in to Azure at https://portal.azure.com
 
-## Onboard a Virtual Machine
+## Onboard a virtual machine
 There are a variety of different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) article.
 
 1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search for it in the resulting view.
@@ -43,7 +43,7 @@ There are a variety of different methods to onboard a machine and enable Desired
 
 While the Desired State Configuration extension is deployed to the virtual machine, it shows *Connecting.*
 
-## Import Modules
+## Import modules
 
 Modules contain DSC Resources and many can be found on the [PowerShell Gallery](https://www.powershellgallery.com). Any resources that are used in your configurations must be imported to the Automation Account before compiling. For this tutorial, the module named **nx** is required.
 
@@ -54,7 +54,7 @@ Modules contain DSC Resources and many can be found on the [PowerShell Gallery](
 
 ![Importing a DSC Module](./media/automation-quickstart-dsc-configuration/dsc-import-module-nx.png)
 
-## Import the Configuration
+## Import the configuration
 
 This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine.
 
@@ -100,7 +100,7 @@ To import the configuration:
 1. Select the *Configuration file* that you saved in the prior step
 1. Click **OK**
 
-## Compile a Configuration
+## Compile a configuration
 
 DSC Configurations must be compiled to a Node Configuration (MOF document) before being assigned to a node. Compilation validates the configuration and allows for the input of parameter values. To learn more about compiling a configuration, see: [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)
 
@@ -113,7 +113,7 @@ To compile the configuration:
 
 ![Compilation Job Status](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
-## Assign a Node Configuration
+## Assign a node configuration
 
 A compiled *Node Configuration* can be assigned to DSC Nodes. Assignment applies the configuration to the machine and monitors (or auto-corrects) for any drift from that configuration.
 
@@ -126,7 +126,7 @@ A compiled *Node Configuration* can be assigned to DSC Nodes. Assignment applies
 
 ![Assigning a Node Configuration](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
 
-## Viewing Node Status
+## Viewing node status
 
 The status of all managed nodes can be found in the **DSC Nodes** view of the Automation Account. You can filter the display by status, node configuration, or name search. 
 

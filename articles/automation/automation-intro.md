@@ -20,21 +20,21 @@ ms.author: eamono
 Azure Automation delivers a cloud-based automation and configuration service that provides consistent management across your Azure and non-Azure environments. It consists of process automation, update management, and configuration features. Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.
 This article provides a brief overview of Azure Automation and answers some common questions. For more information about the different capabilities, visit the links throughout this overview.
 
-## Azure Automation Capabilities
+## Azure Automation capabilities
 
 ![Automation overview capabilities](media/automation-overview/automation-overview.png)
 
-### Process Automation
+### Process automation
 
 Azure Automation provides you the ability to automate frequent, time-consuming, and error-prone cloud management tasks. This automation helps you focus on work that adds business value. By reducing errors and boosting efficiency, it also helps to lower your operational costs. You can integrate Azure services and other public systems required in deploying, configuring, and managing your end to end processes. The service allows you to [author runbooks](automation-runbook-types.md) graphically, in PowerShell, or Python. By using a hybrid Runbook worker, you can unify management by orchestrating across on-premises environments. [Webhooks](automation-webhooks.md) provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
 
-### Configuration Management
+### Configuration management
 
 Azure Automation [desired state configuration](automation-dsc-overview.md) is a cloud-based solution for PowerShell DSC that provides services required for enterprise environments. Manage your DSC resources in Azure Automation and apply configurations to virtual or physical machines from a DSC Pull Server in the Azure cloud. It provides rich reports that inform you of important events such as when nodes have deviated from their assigned configuration. You can monitor and automatically update machine configuration across physical and virtual machines, Windows or Linux, in the cloud or on-premises.
 
 You can get inventory about in-guest resources for visibility into installed applications and other configuration items. A rich reporting and search capabilities are available to quickly find detailed information to help understand what is configured within the operating system. You can track changes across services, daemons, software, registry, and files to quickly identify what might be causing issues. Additionaly, DSC can help you diagnose and alert when unwanted changes occur in your environment.
 
-### Update Management
+### Update management
 
 Update Windows and Linux systems across hybrid environments with Azure Automation. You get visibility of update compliance across Azure, on-premises, and other clouds. You can create schedule deployments to orchestrate the installation of updates within a defined maintenance window. If an update should  should not be installed on a machine, you can exclude those updates from a deployment.
 
@@ -51,7 +51,7 @@ Azure Automation consists of a set of shared resources that make it easier to au
 * **[Integration with source control](automation-source-control-integration.md)** - Promotes configuration as code where runbooks or configurations can be checked into a source control system.
 * **[PowerShell modules](automation-integration-modules.md)** -  Modules are used to manage Azure and other systems. Import into the Automation account for Microsoft, third party, community, or custom defined cmdlets and DSC resources.
 
-### Windows & Linux
+### Windows and Linux
 
 Azure Automation is designed to work across your hybrid cloud environment and also for Windows & Linux. It delivers a consistent way to automate and configure workloads deployed and the operating system they are running on.
 
@@ -71,9 +71,9 @@ Azure Automation manages across the lifecycle of your infrastructure and applica
 
 ## Pricing for Automation
 
-You can review the price for Azure Automation on the [pricing](https://azure.microsoft.com/en-us/pricing/details/automation/) page.
+You can review the price for Azure Automation on the [pricing](https://azure.microsoft.com/pricing/details/automation/) page.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Create an automation account](automation-quickstart-create-account.md)

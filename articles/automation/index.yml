@@ -26,11 +26,11 @@ sections:
     items: 
     - image: 
         src: /azure/automation/media/index/automation.svg
-      text: Create Account
+      text: Create an Automation ccount
       href: "/azure/automation/automation-quickstart-create-account"
     - image: 
         src: /azure/automation/media/index/runbook.svg
-      text: Create a Runbook
+      text: Create a runbook
       href: "/azure/automation/automation-quickstart-create-runbook"
     - image: 
         src: /azure/automation/media/index/dscconfig.svg
