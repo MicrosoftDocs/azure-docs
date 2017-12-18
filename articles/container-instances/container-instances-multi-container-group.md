@@ -1,20 +1,12 @@
 ---
-title: Azure Container Instances - multi-container group | Azure Docs
-description: Azure Container Instances - multi-container group
+title: Deploy multi-container groups in Azure Container Instances
+description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
 services: container-instances
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: 
-keywords: 
 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
@@ -22,17 +14,17 @@ ms.custom: mvc
 
 # Deploy a container group
 
-Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process. 
+Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*. This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
 This document walks through running a simple multi-container sidecar configuration using an Azure Resource Manager template.
 
 ## Configure the template
 
-Create a file named `azuredeploy.json` and copy the following json into it. 
+Create a file named `azuredeploy.json` and copy the following json into it.
 
-In this sample, a container group with two containers and a public IP address is defined. The first container of the group runs an internet facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network. 
+In this sample, a container group with two containers and a public IP address is defined. The first container of the group runs an internet facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
-This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK. 
+This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
 
 ```json
 {
@@ -43,7 +35,7 @@ This sidecar example could be expanded to trigger an alert if it received an HTT
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -132,7 +124,7 @@ Deploy the template with the [az group deployment create](/cli/azure/group/deplo
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Within a few seconds, you will receive an initial response from Azure. 
+Within a few seconds, you will receive an initial response from Azure.
 
 ## View deployment state
 
@@ -150,9 +142,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## View logs   
+## View logs
 
-View the log output of a container using the `az container logs` command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified. 
+View the log output of a container using the `az container logs` command. The `--container-name` argument specifies the container from which to pull logs. In this example, the first container is specified.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

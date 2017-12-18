@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
 
 ---
@@ -154,7 +154,7 @@ The service data encryption key is generated on only the first device registered
 > 
 > If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the StorSimple Device Manager service dashboard](storsimple-8000-service-dashboard.md).
+To change the service data encryption key and the corresponding data encryption certificate, follow the steps in [Change the service data encryption key for your StorSimple Device Manager service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated.
 
 The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key annually to help prevent key compromise.
 
@@ -209,7 +209,7 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data. For instructions, go to:
 
-* [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Change the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Key rotation of storage accounts](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **Q:** I have a new StorSimple device that is asking for the service registration key. How do I retrieve it?
@@ -222,7 +222,7 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** Contact Microsoft Support. They can log on to a support session on your device and help you retrieve the key (provided at least one device is online). Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you. For instructions, go to:
 
-* [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Change the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **Q:**  I authorized a device for a service data encryption key change, but did not start the key change process. What should I do?
 
@@ -237,7 +237,7 @@ The following are some questions and answers about security and Microsoft Azure 
 **A:** Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel. For instructions, go to:
 
 * [Use the StorSimple Device Manager service to change your storsimple passwords](storsimple-8000-change-passwords.md)
-* [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Change the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configure CHAP for your StorSimple device](storsimple-8000-configure-chap.md)
 
 **Q:** I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available. What can I do?

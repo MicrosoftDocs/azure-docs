@@ -14,7 +14,8 @@
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web apps
 ### [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
+### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
+### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -62,6 +63,7 @@
 ### [What happened to my web API project](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS Migration](active-directory-acs-migration.md)
+## [Error handling best practices for ADAL](active-directory-devhowto-adal-error-handling.md)
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)

@@ -6,7 +6,7 @@ description: Building web applications using Azure AD's implementation of the OA
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d

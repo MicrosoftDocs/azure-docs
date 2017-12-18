@@ -155,7 +155,7 @@ Customers build an end-to-end network in Azure by orchestrating and composing va
 Monitor and diagnose networking issues without logging in to your virtual machines (VMs) using Network Watcher. Trigger [packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) by setting alerts and gain access to real-time performance information at the packet level. When you see an issue, you can investigate in detail for better diagnoses.
 
 ### Gain insight into your network traffic using flow logs
-Build a deeper understanding of your network traffic pattern using [Network Security Group flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information provided by flow logs helps you gather data for compliance, auditing and monitoring your network security profile.
+Build a deeper understanding of your network traffic pattern using [Network Security Group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information provided by flow logs helps you gather data for compliance, auditing and monitoring your network security profile.
 
 ### Diagnose VPN connectivity issues
 Network Watcher provides you the ability to [diagnose your most common VPN Gateway and Connections issues](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Allowing you not only to identify the issue but also to use the detailed logs created to help further investigate.

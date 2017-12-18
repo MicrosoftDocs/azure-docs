@@ -41,7 +41,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
-3. Search for the string **<insert-key>**, and replace it with the **Primary Key** value obtained in the preceding section. 
+3. Search for the string **&#60;insert-key&#62;**, and replace it with the **Primary Key** value obtained in the preceding section. 
 
 
 ## Launch the demo application for Azure Maps
@@ -56,15 +56,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-The tutorials go in details about how to use and configure the Azure Location Based Services for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart in the Azure portal.
+The tutorials go in details about how to use and configure the Azure Location Based Services for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the browser running the **AzureMapDemo.html** web application.
-2. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. At the top of the **All resources** blade, click **Delete**.  
-2. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. At the top of the **All resources** blade, click **Delete**.  
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your LBS account. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
 
-In this Quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this set up to provision a simulated device, continue to the Quickstart for creating simulated device.
+In this Quickstart, you’ve created your Azure LBS account, and launched a demo app using your account. To learn how to create your own application using the Azure Location Based Services APIs, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial to user Azure Map and Search](./tutorial-search-location.md)

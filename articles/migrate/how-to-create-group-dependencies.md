@@ -1,21 +1,13 @@
 ---
 title: Refine an assessment group with group dependency mapping in Azure Migrate | Microsoft Docs
 description: Describes how to refine an assessment using group dependency mapping in the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 0527e34e-a078-405e-aeb9-c91a5808112a
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
 ---
+
 
 # Refine a group using group dependency mapping
 

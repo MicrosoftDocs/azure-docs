@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a storage account using PowerShell | Microsoft 
 description: Quickly learn to create a new storage account with PowerShell
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.author: robinsh
+ms.author: tamram
 ---
 
 # Create a storage account using PowerShell
