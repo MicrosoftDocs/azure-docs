@@ -117,7 +117,7 @@ Before your code can access the API though, you need to grant the MSI's identity
 5. In the next dropdown, **Assign access to** the resource **Azure AD user, group, or application**.
 6. Finally, in **Select** search for the name of your user-assigned MSI and click **Save**. 
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux-ua.png)
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
