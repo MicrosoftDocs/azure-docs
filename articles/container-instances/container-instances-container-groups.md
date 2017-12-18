@@ -29,7 +29,7 @@ This example container group:
 * Is scheduled on a single host machine.
 * Exposes a single public IP address, with one exposed port.
 * Consists of two containers. One container listens on port 80, while the other listens on port 5000.
-* The group includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
+* Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
 
 ### Networking
 

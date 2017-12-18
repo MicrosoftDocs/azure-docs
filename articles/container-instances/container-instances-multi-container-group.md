@@ -24,8 +24,6 @@ Create a file named `azuredeploy.json` and copy the following JSON into it.
 
 In this sample, a container group with two containers and a public IP address is defined. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
 
-This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -185,7 +183,7 @@ Date: Mon, 18 Dec 2017 23:19:34 GMT
 Connection: keep-alive
 ```
 
-As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running.
+As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running. This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.
 
 ## Next steps
 
