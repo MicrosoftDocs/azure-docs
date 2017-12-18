@@ -26,7 +26,7 @@ Build a chat bot with integrated language understanding.
 | Intent | Example utterance | Bot functionality |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Turn on the lights. | When the LUIS intent `HomeAutomation.TurnOn` is detected, the bot invokes the `OnIntent` dialog handler. This dialog is where you'd call an IoT service to turn on a device and tell the user that the device has been turned on. |
-| HomeAutomation.TurnOff | Turn off the bedroom lights. | When the LUIS intent `HomeAutomation.TurnOff` is detected, the bot invokes the`OffIntent` dialog handler. This dialog is where you'd call an IoT service to turn off a device and tell the user that the device has been turned off. |
+| HomeAutomation.TurnOff | Turn off the bedroom lights. | When the LUIS intent `HomeAutomation.TurnOff` is detected, the bot invokes the `OffIntent` dialog handler. This dialog is where you'd call an IoT service to turn off a device and tell the user that the device has been turned off. |
 
 ## Create a Language Understanding bot with Bot Service
 
@@ -49,7 +49,7 @@ Build a chat bot with integrated language understanding.
 
     * Check the box to confirm to the notice. The terms of the notice are below the checkbox.
 
-4. Confirm that the bot service has been deployed.
+5. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification changes from **Deployment started** to **Deployment succeeded**.
     * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
 
@@ -80,7 +80,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
 ## Modify the bot code
 
-1 Click **Build** and then click **Open online code editor**.
+1. Click **Build** and then click **Open online code editor**.
 
    ![Open online code editor](./media/luis-tutorial-cscharp-web-bot/bot-service-build.png)
 
@@ -151,23 +151,23 @@ namespace Microsoft.Bot.Sample.LuisBot
 ## Change code to HomeAutomation intents
 Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
 
-Add dependencies:
+1. Add dependencies:
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-Add constants to manage strings:
+2. Add constants to manage strings:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff`:
+3. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff`:
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=59-69&dedent=8 "Add Intents")]
 
-Add the code to get any entities found by LUIS:
+4. Add the code to get any entities found by LUIS:
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-51&dedent=8 "Collect entities")]
 
-Change **ShowLuisResult** method to round the score, collect the entities, and display the response message in the chat bot:
+5. Change **ShowLuisResult** method to round the score, collect the entities, and display the response message in the chat bot:
 
    [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=71-81&dedent=8 "Display message in chat bot")]
 
@@ -181,10 +181,12 @@ The code view is replaced with a terminal window showing the progress and result
 ![Build Web bot success](./media/luis-tutorial-cscharp-web-bot/bot-service-build-success.png)
 
 > [!TIP]
-> An alternative method to build the bot is to select the bot name in the top blue bar, and select **Open Kudu Console**. The console opens to **D:\home**. Change the directory to **D:\home\site\wwwroot** by typing:
-> ```cd site\wwwroot` 
+> An alternative method to build the bot is to select the bot name in the top blue bar, and select **Open Kudu Console**. The console opens to **D:\home**. 
+> Change the directory to **D:\home\site\wwwroot** by typing:
+> `cd site\wwwroot`
+>
 > Run the build script by typing:
-> ```build.cmd``` 
+> `build.cmd`
 
 ## Test the bot
 
