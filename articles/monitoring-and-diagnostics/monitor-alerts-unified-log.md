@@ -45,7 +45,7 @@ The differences between alert rule types are as follows.
 - **Number of results** alert rule always creates a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
 - **Number of results** alert rules create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
-1. ## Number of results alert rules
+## Number of results alert rules
 **Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold.
 
 **Threshold**: The threshold for a **Number of results** alert rule is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
@@ -61,7 +61,7 @@ Some applications may log an occasional error that shouldn't necessarily raise a
 
 In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
 
-2. ## Metric measurement alert rules
+## Metric measurement alert rules
 
 **Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
 
