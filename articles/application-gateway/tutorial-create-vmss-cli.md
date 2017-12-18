@@ -20,6 +20,7 @@ You can use the Azure CLI to create an [application gateway](application-gateway
 In this article, you learn how to
 
 > [!div class="checklist"]
+> * Set up the network
 > * Create an application gateway
 > * Create a virtual machine scale set with the default backend pool
 
@@ -31,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-Create a resource group using [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create). 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -41,7 +42,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create a virtual network, subnets, and public IP address 
 
-You can create the virtual network and the backend subnet by using [az network vnet create](/cli/azure/network/vnet#az_net). You can add the subnet named *myAGSubnet* that's needed by the application gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* by using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -136,13 +137,13 @@ az vmss extension set \
 
 You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
 
-    ```azurepowershell-interactive
-    az network public-ip show \
-    --resource-group myResourceGroupAG \
-    --name myAGPublicIPAddress \
-    --query [ipAddress] \
-    --output tsv
-    ```
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
 
 ![Test base URL in application gateway](./media/tutorial-create-vmss-cli/tutorial-nginxtest.png)
 
@@ -151,6 +152,7 @@ You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
+> * Set up the network
 > * Create an application gateway
 > * Create a virtual machine scale set with the default backend pool
 
