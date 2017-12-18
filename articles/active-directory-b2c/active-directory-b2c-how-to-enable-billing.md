@@ -66,7 +66,7 @@ Select a Resource Group and Resource Group location. The selection here has no i
 
 ![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## Manage your Azure AD B2C tenent resources
+## Manage your Azure AD B2C tenant resources
 
 Once an Azure AD B2C resource is successfully created within the Azure subscription, you should see a new resource of type "B2C tenent" added alongside your other Azure resources.
 
