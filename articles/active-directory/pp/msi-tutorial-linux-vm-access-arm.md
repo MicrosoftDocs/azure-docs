@@ -64,7 +64,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 
 ## Create a new User-Assigned MSI
 
-1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to create the new MSI:
 
    ```azurecli
    az login
