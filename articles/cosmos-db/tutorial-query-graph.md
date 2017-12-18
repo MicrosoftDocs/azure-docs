@@ -3,7 +3,7 @@ title: How to query graph data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: ''
 tags: ''
@@ -11,11 +11,12 @@ tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
+ms.custom: mvc
 
 ---
 
@@ -82,4 +83,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [Distribute your data globally](tutorial-global-distribution-sql-api.md)

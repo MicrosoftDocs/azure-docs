@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
 
 ---
@@ -31,7 +31,7 @@ When upgrading a Backup vault to a Recovery Services vault, there is no impact t
 ## Changes to your automation and tool after upgrading
 
 While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
-Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 
 ## Before you upgrade
@@ -117,7 +117,7 @@ Once you upgrade to a Recovery Services vault, configure reports for Azure Backu
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. By November 30, 2017, Microsoft will complete the upgrade process. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
 Update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 

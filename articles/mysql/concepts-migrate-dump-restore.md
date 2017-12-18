@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 11/27/2017
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -76,7 +76,7 @@ To back up more than one database at once, use the --database switch and list th
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
 To back up all the databases in the server at one time, you should use the --all-databases option.
-```
+```bash
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 

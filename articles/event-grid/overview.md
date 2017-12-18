@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/14/2017
 ms.author: babanisa
 ---
 
@@ -17,11 +17,45 @@ Azure Event Grid allows you to easily build applications with event-based archit
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered. Event Grid also has built in support for custom and third-party events.
 
-For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Other regions will be added.
+Currently, Event Grid supports the following regions:
 
-This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+* Central US
+*	East US
+*	East US 2
+*	West Central US
+*	West US
+*	West US 2
+
+Other regions will be added.
+
+This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
+
+## Event publishers
+
+Currently, the following Azure services have built-in publisher support for event grid:
+
+* Azure Subscriptions (management operations)
+* Custom Topics
+* Event Hubs
+* Resource Groups (management operations)
+* Storage Blob
+
+Other Azure services will be added this year.
+
+## Event handlers
+
+Currently, the following Azure services have built-in handler support for Event Grid: 
+
+* Azure Automation
+* Azure Functions
+* Event Hubs
+* Logic Apps
+* Microsoft Flow
+* WebHooks
+
+Other Azure services will be added this year.
 
 ## Concepts
 
@@ -49,34 +83,6 @@ Here are some of the key features of Azure Event Grid:
 * **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
 
 For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
-
-## Built-in publisher and handler integration
-
-Azure offers built-in event support using numerous services, including both publishers and handlers.
-
-### Publishers
-
-Currently, the following Azure services have built-in publisher support for event grid:
-
-* Resource Groups (management operations)
-* Azure Subscriptions (management operations)
-* Event Hubs
-* Storage Blob
-* Custom Topics
-
-Other Azure services will be added this year.
-
-### Handlers
-
-Currently, the following Azure services have built-in handler support for Event Grid: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-Other Azure services will be added this year.
 
 ## What can I do with Event Grid?
 

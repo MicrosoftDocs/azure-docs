@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
 
 ---
@@ -57,7 +57,7 @@ Property | Description | Allowed values | Required
 name | Name of the `Until` activity. | String | Yes
 type | Must be set to **Until**. | String | Yes
 expression | Expression that must evaluate to true or false | Expression.  | Yes
-timeout | The do-until loop times out after the specified time here. | String. `d.hh:mm:ss` (or) `hh:mm:ss`. The default value is 7 days. | No
+timeout | The do-until loop times out after the specified time here. | String. `d.hh:mm:ss` (or) `hh:mm:ss`. The default value is 7 days. Maximum value is: 90 days. | No
 Activities | Set of activities that are executed until expression evaluates to `true`. | Array of activities. |  Yes
 
 ## Example 1

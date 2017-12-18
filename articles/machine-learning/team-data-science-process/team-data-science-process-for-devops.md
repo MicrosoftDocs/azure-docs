@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
 
 ---
 
 # Team Data Science Process for Developer Operations
 
-This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation. It references topics that cover understanding the Data Science Process and Platform, the DevOps processes, and the DevOps Toolchain that is specific to Data Science and AI projects and solutions.
+This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation. These training materials are related to the Team Data Science Process (TDSP) and Microsoft and open-source software and toolkits, which are helpful for envisioning, executing and delivering data science solutions. It references topics that cover the DevOps Toolchain that is specific to Data Science and AI projects and solutions.
 
 ## Lesson Path
 The following table provides guidance at specified levels to help complete the DevOps objectives that are needed to implement data science solutions with Azure technologies.

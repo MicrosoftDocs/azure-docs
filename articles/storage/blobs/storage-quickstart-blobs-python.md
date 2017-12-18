@@ -69,7 +69,11 @@ You can also use a tool such as the [Azure Storage Explorer](http://storageexplo
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.py file to look at the code. 
 
-## Get references to the storage objects
+## Understand the sample code
+
+Next, we walk through the sample code so that you can understand how it works.
+
+### Get references to the storage objects
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
 
 * Instantiate the **BlockBlobService** object, which points to the Blob service in your storage account. 
@@ -94,7 +98,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## Upload blobs to the container
+### Upload blobs to the container
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that is what is used in this quickstart.  
 
@@ -124,7 +128,7 @@ There are several upload methods that you can use with Blob storage. For example
 
 Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
-## List the blobs in a container
+### List the blobs in a container
 
 Get a list of files in the container using the **list_blobs** method. This method returns a generator. The following code retrieves the list of blobs, then loops through them, showing the names of the blobs found in a container.  
 
@@ -136,7 +140,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## Download the blobs
+### Download the blobs
 
 Download blobs to your local disk using the **get\_blob\_to\_path** method. 
 The following code downloads the blob uploaded in a previous section. "_DOWNLOADED" is added as a suffix to the blob name so you can see both files on local disk. 
@@ -149,7 +153,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## Clean up resources
+### Clean up resources
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the **delete\_container**. If the files created are no longer needed, you use the **delete\_blob** method to delete the files.
 
 ```python

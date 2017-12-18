@@ -52,3 +52,5 @@ a **General-purpose storage account** or a **Blob storage account** that is spec
 
 * [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Azure Storage samples using .NET](../common/storage-samples-dotnet.md)
+* [Azure Storage samples using Java](../common/storage-samples-java.md)

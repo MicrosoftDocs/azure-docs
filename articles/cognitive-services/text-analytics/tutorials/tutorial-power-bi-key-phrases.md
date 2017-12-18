@@ -95,6 +95,9 @@ A new query, initially named Query1, appears in the Queries list. Double-click t
 
 Now open the Advanced Editor window by clicking **Advanced Editor** in the Query group of the Home ribbon. Delete the code that's already in that window and paste in the following code. 
 
+> [!NOTE]
+> In the examples below we assume the endpoint is at https://westus.api.cognitive.microsoft.com.  Text Analytics supports creation of a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. It should be shown in the Overview blade in the Azure Portal whe you select your Text Analytics subscription.
+
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
 (text) => let
