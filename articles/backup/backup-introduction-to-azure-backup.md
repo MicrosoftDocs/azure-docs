@@ -251,7 +251,7 @@ For details about protecting other workloads, try one of these articles:
 
 * [Back up your Windows Server](backup-configure-vault.md)
 * [Back up application workloads](backup-azure-microsoft-azure-backup.md)
-* [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
+* [Backup Azure IaaS VMs](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
