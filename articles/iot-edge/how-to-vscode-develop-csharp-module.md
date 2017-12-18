@@ -281,3 +281,12 @@ The following steps show you how to create an IoT Edge module based on .NET core
 6. Start your Edge runtime in Command Palette. **Edge: Start Edge**
 7. You can see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter module.
 8. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
+
+
+## Next steps
+
+In this tutorial, you created an IoT Edge module and deployed it to IoT Edge device in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
+
+> [!div class="nextstepaction"]
+> [Debug C# module in VS Code](how-to-vscode-debug-csharp-function.md)
+> [Deploy Azure Function as a module in VS Code](how-to-vscode-develop-csharp-function.md)
