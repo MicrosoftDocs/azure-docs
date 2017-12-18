@@ -35,7 +35,7 @@
       href: monitoring-overview-alerts.md
     - name: Alerts (Preview)  
       href: monitoring-overview-unified-alerts.md
-    - name: Log Alerts
+    - name: Log alerts
       href: monitor-alerts-unified-log.md
     - name: Autoscale
       href: monitoring-overview-autoscale.md
