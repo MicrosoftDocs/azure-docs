@@ -44,7 +44,7 @@ There are two ways to list your IoT hub devices in your VS Code. You can choose 
 
 #### Sign in your Azure account in VSCode and choose your IoT hub
 1. In Command Palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then click **Copy* & Open** in the pop-up. Paste (Ctrl + V) the code in your browser and click Continue button. Then log in with your Azure account. You can see your account info in VS Code status bar.
-2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub which contains the IoT Edge device.
+2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub that contains the IoT Edge device.
 
 
 #### Set IoT hub connection string
@@ -54,11 +54,11 @@ There are two ways to list your IoT hub devices in your VS Code. You can choose 
 You can see the device list in IoT Hub Devices Explorer in left Side Bar.
 
 ### Start your IoT Edge runtime and deploy a module
-Install and start the Azure IoT Edge runtime on your device. And deploy a simulated sensor module which will send telemetry data to IoT Hub.
+Install and start the Azure IoT Edge runtime on your device. And deploy a simulated sensor module that will send telemetry data to IoT Hub.
 1. In Command Palette, select **Edge: Setup Edge** and choose your IoT Edge device ID. Or right-click the Edge device ID in Device List and select **Setup Edge**.
 2. In Command Palette, select **Edge: Start Edge** to start your Edge runtime. You can see corresponding outputs in integrated terminal.
 3. Check the Edge runtime status in the Docker explorer. Green means it's running. Your IoT Edge runtime is started successfully.
-4. Now your Edge runtime is running, which means your PC now simulates an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file, please replace the line "<registry>/<image>:<tag>" with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+4. Now your Edge runtime is running, which means your PC now simulates an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file, replace the line "<registry>/<image>:<tag>" with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
 5. Select **Edge: Create deployment for Edge device** and choose the Edge device ID to create a new deployment. Or you can right-click the Edge device ID in the device list and select **Create deployment for Edge device**. 
 6. You should see your IoT Edge start running in the Docker explorer with the simulated sensor. Right-click the container in Docker explorer. You can watch docker logs for each module.
 7. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
@@ -273,7 +273,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
    > [!NOTE]
-   > Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter module to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
+   > Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter module to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
 
 3. Save this file.
 4. In Command Palette, select **Edge: Create deployment for Edge device**. Then select your IoT Edge device ID to create a deployment. Or right-click the device ID in the device list and select **Create deployment for Edge device**.
