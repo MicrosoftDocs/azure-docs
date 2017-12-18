@@ -5,6 +5,7 @@
 ## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
+## [Container networking](container-networking.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
