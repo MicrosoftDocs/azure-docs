@@ -59,9 +59,6 @@ Azure has different availability SLAs for different components like networking, 
 
 Measure your requirement of availability against the SLAs Azure components can provide and then decide on the different scenarios you need to implement with SAP HANA to achieve the availability you require to provide.
 
-##Availability in Azure in general
-
-
 
 ## Next Steps
 * [SAP HANA availability within one Azure Region](sap-hana-availability-one-region)
