@@ -182,6 +182,7 @@ The code view is replaced with a terminal window showing the progress and result
 
 > [!TIP]
 > An alternative method to build the bot is to select the bot name in the top blue bar, and select **Open Kudu Console**. The console opens to **D:\home**. 
+> 
 > Change the directory to **D:\home\site\wwwroot** by typing:
 > `cd site\wwwroot`
 >
