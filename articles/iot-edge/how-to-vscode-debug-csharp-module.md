@@ -43,7 +43,7 @@ After finish the preceding tutorial, you should have the following items ready,
 5. In VS Code Debug window, you can see the variables in left panel. 
 
 > [!NOTE]
-> Above example shows how to debugging .Net Core IoT Edge modules on containers. It's based on the debug version of the `Dockerfile.debug`, which includes VSDBG(the .NET Core command line debugger) in your container image while building it. We recommend you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge modules after you finish debugging your C# modules.
+> Above example shows how to debugging .Net Core IoT Edge modules on containers. It's based on the debug version of the `Dockerfile.debug`, which includes VSDBG(the .NET Core command-line debugger) in your container image while building it. We recommend you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge modules after you finish debugging your C# modules.
 
 ## Next steps
 
