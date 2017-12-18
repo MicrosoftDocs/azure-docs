@@ -33,7 +33,7 @@ This article provides resolutions for common issues when [configuring secure LDA
 
 When secure LDAP is enabled, we recommend creating additional rules to allow inbound LDAPS access only from certain IP addresses. These rules protect your domain from brute force attacks that could pose a security threat. Port 636 allows access to your managed domain. Here is how to update your NSG to allow access for Secure LDAP:
 
-1. Navigate to the the [Network Security Groups tab](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) in the Azure portal
+1. Navigate to the [Network Security Groups tab](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) in the Azure portal
 2. Choose the NSG associated with your domain from the table.
 3. Click on **Inbound security rules**
 4. Create the port 636 rule
@@ -42,7 +42,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
    3. Specify the Source port ranges for this rule.
    4. Input "636" for Destination port ranges.
    5. Protocol is **TCP**.
-   6. Give the rule an appropriate name, description, and priority. Your priority should be higher than your "Deny all" rule's priority, if you have one.
+   6. Give the rule an appropriate name, description, and priority. This rule's priority should be higher than your "Deny all" rule's priority, if you have one.
    7. Click **OK**.
 5. Verify that your rule has been created.
 

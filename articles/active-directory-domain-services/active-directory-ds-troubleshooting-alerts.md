@@ -28,8 +28,8 @@ Pick the troubleshooting steps that correspond to the error message or alert ID 
 | AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Secure LDAP configuration](#aadds001-secure-ldap-configuration) |
 | AADDS002 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available](#aadds002-insufficient-amount-of-ip-addresses-available) |
 | AADDS100 | *Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original tenant this subscription was associated with.* | [Missing tenant](#aadds100-missing-tenant) |
-| AADDS101 | *Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and reenable Azure AD DS.* | [Azure B2C is enabled on the tenant](#aadds101-azure-b2c-enabled-on-the-tenant) |
-| AADDS102 | *The Service Principal %SERVICE_PRINCIPAL% required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.* | [Missing Service Principal](aadds102-missing-service-principal) |
+| AADDS101 | *Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.* | [Azure B2C is enabled on the tenant](#aadds101-azure-b2c-enabled-on-the-tenant) |
+| AADDS102 | *The Service Principal %SERVICE_PRINCIPAL% required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Missing Service Principal](#aadds102-missing-service-principal) |
 | AADDS103 | *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This error is usually caused by an incorrect NSG configuration.* | [Network Error](#aadds104-network-error) |
 
@@ -100,7 +100,7 @@ To restore your service, follow these steps:
 ### AADDS102: Missing Service Principal
 **Error message:**
 
-*The Service Principal %SERVICE_PRINCIPAL% required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.*
+*The Service Principal %SERVICE_PRINCIPAL% required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
 **Remediation:**
 
