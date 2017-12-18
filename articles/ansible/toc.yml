@@ -1,3 +1,5 @@
+- name: Ansible on Azure
+  href: ./index.yml
 - name: Overview
   items:
   - name: About Ansible on Azure
