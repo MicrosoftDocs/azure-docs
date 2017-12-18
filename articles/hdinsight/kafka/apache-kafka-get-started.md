@@ -164,7 +164,7 @@ The output of this command lists Kafka topics, which contains the **test** topic
 
 ## Produce and consume records
 
-Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers retrieve records from Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
+Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers produce records to Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
 
 Use the following steps to store records into the test topic you created earlier, and then read them using a consumer:
 
