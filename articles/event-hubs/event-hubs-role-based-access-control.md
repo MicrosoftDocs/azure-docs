@@ -42,7 +42,7 @@ This introduction describes a simple console application, the [code for which is
 
 This first step is optional. Every Azure subscription is automatically paired with an Azure Active Directory tenant and if you have access to an Azure subscription, your user account is already registered. That means you can just use your account. 
 
-If you still want to create a specific account for this scenario, [follow these steps](../automation/automation-create-aduser-account). You must have permission to create accounts in the Azure Active Directory tenant, which may not be the case for larger enterprise scenarios.
+If you still want to create a specific account for this scenario, [follow these steps](../automation/automation-create-aduser-account.md). You must have permission to create accounts in the Azure Active Directory tenant, which may not be the case for larger enterprise scenarios.
 
 ### Create an Event Hubs namespace
 
