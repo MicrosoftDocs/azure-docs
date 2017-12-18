@@ -1,22 +1,13 @@
 ---
 title: Dependency visualization in Azure Migrate | Microsoft Docs
 description: Provides an overview of assessment calculations in the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 78e52157-edfd-4b09-923f-f0df0880e0e0
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Dependency visualization
 
 The [Azure Migrate](migrate-overview.md) services assesses groups of on-premises machines for migration to Azure. To group machines together, you can use dependency visualization. This article provides information about this feature.
@@ -40,7 +31,7 @@ To use dependency visualization, you need to download and install agents on each
 
 ## Do I need to pay for it?
 
-Yes. The Log Analytics workspace is created by default, but it isn't used unless you use dependency visualization in Azure Migrate. If you do use dependency visualization (or use the workspace outside Azure Migrate), you are charged for workspace usage.  [Learn more](https://www.microsoft.com/cloud-platform/operations-management-suite) about Service Map solution pricing. 
+Yes. The Log Analytics workspace is created by default, but it isn't used unless you use dependency visualization in Azure Migrate. If you do use dependency visualization (or use the workspace outside Azure Migrate), you are charged for workspace usage.  [Learn more](https://azure.microsoft.com/pricing/details/insight-analytics/) about Service Map solution pricing. 
 
 ## How do I manage the workspace?
 

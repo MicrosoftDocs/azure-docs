@@ -1,19 +1,10 @@
 ---
 title: Scale discovery and assessment with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of on-premises machines with the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/18/2017
 ms.author: raynew
 ---
 
@@ -23,16 +14,23 @@ This article describes how to assess large numbers of on-premises machines with 
 
 ## Prerequisites
 
-- **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
-- **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
+- **VMware**: The VMs that you plan to migrate must be managed by a vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM.
+- **vCenter account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format.
-- **Statistics settings**: The statistics settings for the vCenter server should be set to level 2 or higher, before you start deployment.
+- **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters.
 
 ## Plan Azure Migrate projects
 
-An Azure Migrate project can assess up to 1500 machines. A single discovery in a project can discover up to 1000 machines.
+You need to plan your discoveries and assessments based on the limits listed below:
 
-- If you have less than 1000 machines to discover, you need a single project with a single discovery.
+| **Entity** | **Machine limit** |
+| ---------- | ----------------- |
+| Project    | 1500              | 
+| Discovery  | 1000              |
+| Assessment | 400               |
+
+- If you have less than 400 machines to discover and asess, you will need a single project, single discovery and single assessment.
+- If you have less than 1000 machines to discover, you need a single project with a single discovery. But, you may need multiple assessments to assess these machines as a single assessment can hold up to 400 machines.
 - If you have between 1000 and 1500 machines, you need a single project with two discoveries in it.
 - If you have more than 1500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3000 machines,  you could set up two projects with two discoveries, or three projects with a single discovery.

@@ -4,11 +4,21 @@
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
+  - name: Release notes
+    items:
+    - name: Development kit release notes
+      href: azure-stack-asdk-release-notes.md
+    - name: Integrated systems release notes
+      items:
+      - name: 1711 update
+        href: azure-stack-update-1711.md
+      - name: 1710 update
+        href: azure-stack-update-1710.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Deploy Azure Stack
-    href: azure-stack-deploy-overview.md  
+    href: azure-stack-deploy-overview.md
 - name: Tutorials
   items:
   - name: Offer Virtual Machines
@@ -23,14 +33,6 @@
     href: azure-stack-planning-considerations.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
-  - name: Release notes
-    items:
-    - name: Development kit release notes
-      href: azure-stack-asdk-release-notes.md
-    - name: Integrated systems release notes
-      items:  
-      - name: 1710 update
-        href: azure-stack-update-1710.md  
   - name: Key features and concepts
     href: azure-stack-key-features.md
   - name: Development kit architecture
@@ -43,6 +45,8 @@
     items:
     - name: Prerequisites
       href: azure-stack-deploy.md
+    - name: Telemetry
+      href: azure-stack-telemetry.md
     - name: Deploy
       href: azure-stack-run-powershell-script.md
     - name: Install PowerShell
@@ -64,7 +68,7 @@
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
     - name: External monitoring
-      href: azure-stack-integrate-monitor.md  
+      href: azure-stack-integrate-monitor.md
     - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
@@ -88,7 +92,7 @@
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
     - name: Access privileged endpoint
-      href: azure-stack-privileged-endpoint.md    
+      href: azure-stack-privileged-endpoint.md
     - name: Manage updates
       items:
       - name: Manage updates overview
@@ -96,13 +100,15 @@
       - name: Apply updates
         href: azure-stack-apply-updates.md
       - name: Monitor update status
-        href: azure-stack-monitor-update.md      
+        href: azure-stack-monitor-update.md
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
     - name: Manage storage resources
       href: azure-stack-manage-storage-accounts.md
+    - name: Manage storage capacity
+      href: azure-stack-manage-storage-shares.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
     - name: Replace hardware
@@ -114,11 +120,11 @@
       - name: Replace disk
         href: azure-stack-replace-disk.md
       - name: Replace component
-        href: azure-stack-replace-component.md    
+        href: azure-stack-replace-component.md
   - name: Security, compliance & identity
     items:
     - name: Security overview
-      href: azure-stack-security-foundations.md 
+      href: azure-stack-security-foundations.md
     - name: Identity
       items:
       - name: Manage RBAC
@@ -189,6 +195,8 @@
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
+      - name: Supported guest operating systems for Azure Stack 
+        href: azure-stack-supported-os.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
       - name: Add virtual machine scale sets
@@ -211,6 +219,10 @@
       items:
       - name: Connect using VPN
         href: azure-stack-connect-vpn.md
+      - name: About VPN gateway
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway settings
+        href: azure-stack-vpn-gateway-settings.md
       - name: Connect using ExpressRoute
         href: azure-stack-connect-expressroute.md
   - name: Troubleshoot
@@ -225,6 +237,10 @@
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Related
+  items:
+  - name: Azure Stack User Documentation
+    href: /azure/azure-stack/user/
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -237,4 +253,3 @@
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
     href: azure-stack-train-and-cert.md
-

@@ -3,7 +3,7 @@ title: Reprotect from Azure to an on-premises site | Microsoft Docs
 description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn how to reprotect before a failback.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
+ms.date: 06/05/2017
+ms.author: rajanaki
 
 ---
 # Reprotect from Azure to an on-premises site
@@ -59,16 +59,20 @@ When you prepare to reprotect virtual machines, take or consider the following p
   * **Master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
     * [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
     * A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
+    * The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > All virtual machines of a replication group should be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems is currently not supported for reprotect and failback to on-premises. This is because the master target should be of the same operating system as the virtual machine and all the virtual machines of a replication group should have the same master target. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. 
 
 > [!IMPORTANT]
 > Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
+
+> [!WARNING]
+> A Replication Group should only have either Windows VMs or Linux VMs, and not  a mix of both because all VMs in a replictaion group uses the same Master Target server, and Linux VM requires a Linux Master Target server and like wise for Windows VM.
 
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 

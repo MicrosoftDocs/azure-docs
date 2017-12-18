@@ -37,7 +37,7 @@ You need the following prerequisites to complete this tutorial:
 
 * Finish the steps up to "Create a Stream Analytics job" in the tutorial [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Install Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. 
-* Follow the [installation instructions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
+* Follow the [installation instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
 
 ## Create a Stream Analytics project
 In Visual Studio, select **File** > **New Project**. In the templates list on the left, select **Stream Analytics**, and then select **Azure Stream Analytics Application**.

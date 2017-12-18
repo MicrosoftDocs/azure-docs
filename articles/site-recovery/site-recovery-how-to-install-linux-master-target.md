@@ -3,7 +3,7 @@ title: How to install a Linux master target server for failover from Azure to on
 description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:
-ms.date: 11/28/2017
-ms.author: ruturajd
+ms.date: 11/22/2017
+ms.author: rajanaki
 
 ---
 # Install a Linux master target server
@@ -205,7 +205,7 @@ To enable this parameter, take the following steps:
 
 #### Disable kernel upgrades
 
-Azure Site Recovery master target server requires a very specific version of the Ubuntu, ensure that the kernel upgrades are disabled for the virtual machine.
+Azure Site Recovery master target server requires a specific version of the Ubuntu, ensure that the kernel upgrades are disabled for the virtual machine.
 
 If kernel upgrades are enabled, then any regular upgrades cause the master target server to malfunction.
 
@@ -368,12 +368,12 @@ After the installation has finished, register the configuration server by using 
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 	```
 
-   Wait until the script finishes. If the master target is registered succesfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
+   Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
 
 ### Upgrade the master target
 
-Run the installer. It automatically detects that the agent is installed on the master target. To upgrade, select **Y**.  After the setup has been completed, check the version of the master target installed by using the following command.
+Run the installer. It automatically detects that the agent is installed on the master target. To upgrade, select **Y**.  After the setup has been completed, check the version of the master target installed by using the following command:
 
 	```
 	cat /usr/local/.vx_version
@@ -386,7 +386,7 @@ You can see that the **Version** field gives the version number of the master ta
 You need to install VMware tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
 
 ## Next steps
-After the installation and registration of the master target has finsihed, you can see the master target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
+After the installation and registration of the master target has finished, you can see the master target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
 
 You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
 

@@ -4,7 +4,7 @@ description: Build a Java web app that signs users in with a work or school acco
 services: active-directory
 documentationcenter: java
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119

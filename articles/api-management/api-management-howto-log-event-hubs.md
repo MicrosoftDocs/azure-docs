@@ -65,7 +65,7 @@ Specify the request body using the following template.
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -74,7 +74,7 @@ Specify the request body using the following template.
 }
 ```
 
-* `type` must be set to `AzureEventHub`.
+* `loggertype` must be set to `AzureEventHub`.
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 

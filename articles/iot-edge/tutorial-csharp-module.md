@@ -4,7 +4,7 @@ title: Azure IoT Edge C# module | Microsoft Docs
 description: Create an IoT Edge module with C# code and deploy it to an edge device
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
@@ -224,7 +224,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
         
    Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
-3. Push the image to your Docker repository. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 1.d.
+3. Push the image to your Docker repository. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
 
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
@@ -273,8 +273,8 @@ Add the credentials for your registry to the Edge runtime on the computer where 
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
+          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
        }
     }
     ```

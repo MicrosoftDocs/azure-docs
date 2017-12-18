@@ -68,8 +68,8 @@ Before you prepare your environment, please understand the limitations.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
 * You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-* Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md).
+* Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md).
   * Virtual machines under load balancer configuration (internal and external)
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
@@ -231,8 +231,6 @@ The example image below shows the three configuration steps necessary to use an 
 * Proxy VM allows incoming traffic from VMs in the virtual network.
 * The Network Security Group (NSG) named NSF-lockdown needs a security rule allowing outbound Internet traffic from Proxy VM.
 
-![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
 #### Step 1. Configure outgoing network connections
@@ -284,16 +282,10 @@ HttpProxy.Port=<proxy port>
 
 #### Step 2. Allow incoming connections on the proxy server:
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
-
-    ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 2. In the Windows Firewall dialog, right-click **Inbound Rules** and click **New Rule...**.
-
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
 4. On the page to select the **Program**, choose **All Programs** and click **Next**.
 5. On the **Protocol and Ports** page, enter the following information and click **Next**:
-
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * for *Protocol type* choose *TCP*
    * for *Local port* choose *Specific Ports*, in the field below specify the ```<Proxy Port>``` that has been configured.
