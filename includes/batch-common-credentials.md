@@ -1,6 +1,6 @@
 ## Get account credentials
 
-To run the sample, you need to provide credentials for your Batch and Storage accounts. A straightforward way to get the necessary credentials is in the [Azure portal](https://portal.azure.com).
+To run the sample, you need to provide credentials for your Batch and Storage accounts. A straightforward way to get the necessary credentials is in the [Azure portal](https://portal.azure.com). (You can also get these credentials using the Azure APIs or command-line tools.)
 
 1. Log in to the Azure portal at https://portal.azure.com.
 2. Click **All services** > **Batch accounts**, and then click the name of your Batch account.

@@ -1,6 +1,6 @@
 ---
 title: Parallel R simulation with Azure Batch | Microsoft Docs
-description: Tutorial - Step by step instructions to run a Monte Carlo simulation in Azure Batch using the R doAzureParallel package and RStudio
+description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package and RStudio
 services: batch
 documentationcenter: 
 author: jiata
@@ -14,22 +14,22 @@ ms.devlang: r
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 12/07/2017
-ms.author: danlep
-ms.custom: jiata
+ms.date: 12/18/2017
+ms.author: jiata
+ms.custom: 
 ---
 
 # Run a parallel R simulation with Azure Batch 
 
-Run your parallel R workloads at scale using `doAzureParallel`, a lightweight R package that allows you to use Azure Batch directly from your R session. `doAzureParallel` is built on top of the popular `foreach` R package. `doAzureParallel` takes each iteration of the `foreach` loop and submits it as an Azure Batch task.
+Run your parallel R workloads at scale using [doAzureParallel](http://www.github.com/Azure/doAzureParallel), a lightweight R package that allows you to use Azure Batch directly from your R session. The doAzureParallel package is built on top of the popular [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R package. doAzureParallel takes each iteration of the foreach loop and submits it as an Azure Batch task.
 
 This tutorial details how you can deploy a Batch pool and run a parallel R job in Azure Batch directly within RStudio. You learn how to:
  
 
 > [!div class="checklist"]
-> * Install `doAzureParallel` and configure it to access your Batch and storage accounts
-> * Create a Batch pool as a parallel backend
-> * Run a parallel R simulation on the pool
+> * Install doAzureParallel and configure it to access your Batch and storage accounts
+> * Create a Batch pool as a parallel backend for your R session
+> * Run a sample parallel simulation on the pool
 
 
 ## Prerequisites
@@ -42,7 +42,7 @@ This tutorial details how you can deploy a Batch pool and run a parallel R job i
 
 ## Install doAzureParallel
 
-Install the `doAzureParallel` [Github package](http://www.github.com/Azure/doAzureParallel) directly from the RStudio console. The following commands download and install the package and its dependencies in your current R session: 
+Install the [doAzureParallel Github package](http://www.github.com/Azure/doAzureParallel) directly from the RStudio console. The following commands download and install the package and its dependencies in your current R session: 
 
 ```R
 # Install the devtools package  
@@ -56,19 +56,15 @@ library(doAzureParallel)
 ```
 Installation can take several minutes.
 
+[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-
-## Provide access to Batch and storage accounts
-
-The `doAzureParallel` package needs to access your Azure Batch and storage accounts. 
-
-Start by generating a credentials file called `credentials.json` in your working directory: 
+To configure doAzureParallel with the credentials, generate a configuration file called *credentials.json* in your working directory: 
 
 ```R
 generateCredentialsConfig("credentials.json") 
 ``` 
 
-You populate this file with your Batch and storage account names and keys. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands. Leave the `githubAuthenticationToken` setting unchanged.
+Populate this file with your Batch and storage account names and keys. Leave the `githubAuthenticationToken` setting unchanged.
 
 When complete, the credentials file looks similar to the following: 
 
@@ -95,21 +91,26 @@ setCredentials("credentials.json")
 
 ## Set up your Azure Batch pool 
 
-`doAzureParallel` has a function to generate an Azure Batch pool (cluster) to run parallel R jobs. The nodes run an Ubuntu-based [Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md), which has Microsoft R Open and popular R packages pre-installed. You can view or customize certain cluster settings, such as the number and size of the nodes. To generate a cluster configuration JSON file in your working directory: 
+doAzureParallel includes a function to generate an Azure Batch pool (cluster) to run parallel R jobs. The nodes run an Ubuntu-based [Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md), which has Microsoft R Open and popular R packages pre-installed. You can view or customize certain cluster settings, such as the number and size of the nodes. To generate a cluster configuration JSON file in your working directory: 
  
 ```R
 generateClusterConfig("cluster.json")
 ``` 
  
-Open the file to view the default configuration, which includes 3 dedicated nodes and 3 [low priority](batch-low-pri-vms.md) nodes. 
+Open the file to view the default configuration, which includes 3 dedicated nodes and 3 [low-priority](batch-low-pri-vms.md) nodes. These settings are just examples that you can experiment with or modify. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. 
 
-For this tutorial, increase the `maxTasksPerNode` to 2, and set `dedicatedNodes` to 0. Set the `min` of `lowPriorityNodes` to 2. and the `max` to 10, or a smaller number if desired. Leave defaults for the remaining settings, and save the file. It should look similar to the following:
+For this tutorial, change the configuration as follows:
+
+* Increase the `maxTasksPerNode` to *2*, to take advantage of both cores on each node
+* Set `dedicatedNodes` to *0*, so you can try the low-priority VMs available for Batch. Set the `min` of `lowPriorityNodes` to *5*. and the `max` to *10*, or choose smaller numbers if desired. 
+
+Leave defaults for the remaining settings, and save the file. It should look similar to the following:
 
 ```json
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 2,
+  "maxTasksPerNode": 4,
   "poolSize": {
     "dedicatedNodes": {
       "min": 0,
@@ -144,22 +145,13 @@ registerDoAzureParallel(cluster)
 getDoParWorkers() 
 ```
 
-Output shows the number of vCPUs (cores) that are available to run jobs.
+Output shows the number of "execution workers" for doAzureParallel. This number is the number of nodes multiplied by the value of `maxTasksPerNode`. If you modified the cluster configuration as described previously, the number is *10*. 
  
-## Foreach loop with the %dopar% keyword 
-Now that your cluster is created, you are ready to run your `foreach` loop with your registered parallel backend (Azure Batch pool). To automatically use your parallel backend, substitute the `%dopar%` keyword for `%do%` when running your `foreach` loop. 
 
-The following example shows how to run the loop with a fictitious function called *myParallelAlgorithm*:
-
-```R 
-results <- foreach(i = 1:100) %dopar% { 
-myParallelAlgorithm(i) 
-} 
-```
 
 ## Example: Monte Carlo simulation
 
-As an example, run a Monte Carlo financial simulation using `doAzureParallel`. This example is a simplified version of predicting a stock price after 5 years by simulating a large number of different outcomes of a single stock.
+Now that your cluster is created, you are ready to run your foreach loop with your registered parallel backend (Azure Batch pool). As an example, run a Monte Carlo financial simulation, first locally using a standard foreach loop, and then with foreach and Batch. This example is a simplified version of predicting a stock price by simulating a large number of different outcomes after 5 years.
 
 Suppose that the stock of Contoso Corporation gains on average 1.001 times its opening price each day, but has a volatility (standard deviation) of 0.01. Given a starting price of $100, use a Monte Carlo pricing simulation to figure out Contoso's stock price after 5 years.
 
@@ -183,7 +175,7 @@ getClosingPrice <- function() {
 } 
 ```
 
-First run 10,000 simulations locally using a standard `foreach` loop:
+First run 10,000 simulations locally using a standard foreach loop with the `%do` keyword:
 
 ```R
 start_s <- Sys.time() 
@@ -205,20 +197,20 @@ Output is similar to the following:
 
 ![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
-How long did the local simulation take? 
+A local simulation completes in a few seconds or less:
 
 ```R
 difftime(end_s, start_s) 
 ```
 
-Estimated runtime for 10 million outcomes locally, using a linear approximation:
+Estimated runtime for 10 million outcomes locally, using a linear approximation, is around 30 minutes:
 
 ```R 
 1000 * difftime(end_s, start_s, unit = "min") 
 ```
 
 
-Now run the code using `doAzureParallel` to compare how long it takes to run 10,000,000 simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
+Now run the code using `foreach` with the `%dopar%` keysord to compare how long it takes to run 10 million simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
 
 ```R
 # Optimize runtime. Chunking allows running multiple iterations on a single R instance.
@@ -253,11 +245,11 @@ How long did the parallel simulation take?
 difftime(end_p, start_p, unit = "min")  
 ```
 
-You should see that running the same simulation on `doAzureParallel` gives you a significant increase in performance. 
+You should see that running the simulation on the Batch pool gives you a significant increase in performance over the expected time to run the simulation locally. 
 
 ## Clean up resources
 
-When the cluster is longer needed, you can use the `stopCluster` function in the `doAzureParallel` package to delete it:
+The job is deleted automatically after it completes. When the cluster is longer needed, call the `stopCluster` function in the doAzureParallel package to delete it:
 
 ```R
 stopCluster(cluster)
@@ -267,14 +259,15 @@ stopCluster(cluster)
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-> * Install `doAzureParallel` and configure it to access your Batch and storage accounts
-> * Create a Batch pool as a parallel backend
-> * Run a parallel R simulation on the pool
+Install doAzureParallel and configure it to access your Batch and storage accounts
+> * Create a Batch pool as a parallel backend for your R session
+> * Run a sample parallel simulation on the pool
 
 
 ## Next steps
 
-For more information about `doAzureParallel`, see the [documentation](https://github.com/Azure/doAzureParallel/tree/master/docs) and [samples](https://github.com/Azure/doAzureParallel/tree/master/samples) on GitHub.
+* For more information about doAzureParallel, see the [documentation](https://github.com/Azure/doAzureParallel/tree/master/docs) and [samples](https://github.com/Azure/doAzureParallel/tree/master/samples) on GitHub.
+* Learn about [Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/index) for deploying and developing R and Python-based solutions on a range of platforms.
 
 
 
