@@ -1,5 +1,5 @@
 ---
-title: High Availability of SAP HANA on Azure Virtual Machines (VMs) | Microsoft Docs
+title: Setup SAP HANA System Replication on Azure Virtual Machines (VMs) | Microsoft Docs
 description: Establish High Availability of SAP HANA on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 12/12/2017
 ms.author: sedusch
 
 ---
