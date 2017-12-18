@@ -159,20 +159,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String leafPrivateKey = "<Your Private PEM Key here>";
             ```
 
-    - **Enrollment groups**: 
-
-        1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ as noted before.
-
-            ```java
-            private static final String idScope = "[Your ID scope here]";
-            private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-            private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-            private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-            private static final String leafPrivateKey = "<Your Private PEM Key here>";
-            private static final Collection<String> signerCertificates = new LinkedList<>();
-            ```
-
-            - Use the format for including your certificate and key:
+            - Use the following format for including your certificate and key:
             
                 ```java
                 private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -188,6 +175,10 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
                     "XXXXXXXXXX\n" +
                     "-----END PRIVATE KEY-----\n";
                 ```
+
+    - **Enrollment groups**: 
+
+        1. Follow the instructions for **Individual enrollment** above.
 
         1. Add the following lines of code to the beginning of the `main` function.
         
