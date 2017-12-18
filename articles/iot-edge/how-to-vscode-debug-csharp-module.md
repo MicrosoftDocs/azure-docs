@@ -29,11 +29,11 @@ After finish the preceding tutorial, you should have the following items ready,
 - An Edge runtime running on your development machine.
 
 ## Build your IoT Edge module for debugging purpose
-1. To start debugging, you need to use the **dockerfile.debug** to rebuild your docker image and deploy your Edge solution again. In VS Code explorer, click the Docker folder to open it. Then click the `linux-x64` folder, right-click the **Dockerfile.debug** and click **Build IoT Edge module Docker image**.
+1. To start debugging, you need to use the **dockerfile.debug** to rebuild your docker image and deploy your Edge solution again. In VS Code explorer, click the Docker folder to open it. Then click the `linux-x64` folder, right-click the **Dockerfile.debug**, and click **Build IoT Edge module Docker image**.
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. If you are deploying to local registry, it should be `localhost:5000/filtermodule:latest`.
 5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in above step.
-6. You can reuse the `deployment.json` to re-deploy. In command Palette, type and select **Edge: Restart Edge** to get your filter module running with the debug version.
+6. You can reuse the `deployment.json` to redeploy. In command Palette, type and select **Edge: Restart Edge** to get your filter module running with the debug version.
 
 ## Start debugging in VS Code
 1. Go to VS Code debug window. Press **F5** and select **IoT Edge(.Net Core)**
@@ -41,3 +41,10 @@ After finish the preceding tutorial, you should have the following items ready,
 3. Navigate to Program.cs. Add a breakpoint in the `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Press **F5** again. And select the process to attach to. In this tutorial, the process name should be `FilterModule.dll`
 5. In VS Code Debug window, you can see the variables in left panel. 
+
+## Next steps
+
+In this tutorial, you created an IoT Edge module and deployed it for debugging purpose, and started debugging it in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
+
+> [!div class="nextstepaction"]
+> [Deploy Azure Function as a module in VS Code](how-to-vscode-develop-csharp-function.md)
