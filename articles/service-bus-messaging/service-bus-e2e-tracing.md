@@ -154,27 +154,27 @@ Here is the full list of instrumented operations:
 
 | Operation Name | Tracked API | Specific Payload Properties|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | ISenderClient.SendAsync | `IList<Message> Messages` - List of messages being sent |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | ISenderClient.ScheduleMessageAsync | `Message Message` - Message being processed<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - Scheduled message offset<br/>`long SequenceNumber` - Sequence number of scheduled message ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Cancel | ISenderClient.CancelScheduledMessageAsync | `long SequenceNumber` - Sequence number of te message to be canceled | 
-| Microsoft.Azure.ServiceBus.Receive | MessageReceiver.ReceiveAsync |`int RequestedMessageCount` - The maximum number of messages that could be received.<br/>`IList<Message> Messages` -List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Peek | MessageReceiver.PeekAsync | `int FromSequenceNumber` - The starting point from which to browse a batch of messages.<br/>`int RequestedMessageCount` - The number of messages to retrieve.<br/>`IList<Message> Messages` - List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | MessageReceiver.ReceiveDeferredAsync | `IEnumerable<long> SequenceNumbers` - The list containing the sequence numbers to receive.<br/>`IList<Message> Messages` - List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Complete | MessageReceiver.CompleteAsync | `IList<string> LockTokens` - The list containing the lock tokens of the corresponding messages to complete.|
-| Microsoft.Azure.ServiceBus.Abandon | MessageReceiver.AbandonAsync | `string LockToken` - The lock token of the corresponding message to abandon. |
-| Microsoft.Azure.ServiceBus.Defer | MessageReceiver.DeferAsync | `string LockToken` - The lock token of the corresponding message to defer. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | MessageReceiver.DeadLetterAsync | `string LockToken` - The lock token of the corresponding message to dead letter. | 
-| Microsoft.Azure.ServiceBus.RenewLock | MessageReceiver.RenewLockAsync | `string LockToken` - The lock token of the corresponding message to renew lock on.<br/>`DateTime LockedUntilUtc` - New lock token expiry date and time in UTC format. ('Stop' event payload)|
-| Microsoft.Azure.ServiceBus.Process | Message Handler lambda | `Message Message` - Message being processed. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Message Session Handler lambda | `Message Message` - Message being processed.<br/>`IMessageSession Session` - Session being processed |
-| Microsoft.Azure.ServiceBus.AddRule | SubscriptionClient.AddRuleAsync | `RuleDescription Rule` - The rule description that provides the rule to add. |
-| Microsoft.Azure.ServiceBus.RemoveRule | SubscriptionClient.RemoveRuleAsync | `string RuleName` - Name of the rule to remove. |
-| Microsoft.Azure.ServiceBus.GetRules | SubscriptionClient.GetRulesAsync | `IEnumerable<RuleDescription> Rules`- All rules associated with the subscription. ('Stop payload only') |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | SessionClient.AcceptMessageSessionAsync | `string SessionId` - The sessionId present in the messages. |
-| Microsoft.Azure.ServiceBus.GetSessionState | MessageSession.GetSessionStateAsync | `string SessionId` - The sessionId present in the messages.<br/>`byte [] State` - Session state ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.SetSessionState | MessageSession.SetSessionStateAsync | `string SessionId` - The sessionId present in the messages.<br/>`byte [] State` - Session state |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | MessageSession.RenewSessionLockAsync| `string SessionId` - The sessionId present in the messages. |
-| Microsoft.Azure.ServiceBus.Exception | any instrumented API| `Exception Exception` - Exception instance |
+| Microsoft.Azure.ServiceBus.Send | ISenderClient.SendAsync | IList<Message> Messages - List of messages being sent |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | ISenderClient.ScheduleMessageAsync | Message Message - Message being processed<br/>DateTimeOffset ScheduleEnqueueTimeUtc - Scheduled message offset<br/>long SequenceNumber - Sequence number of scheduled message ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Cancel | ISenderClient.CancelScheduledMessageAsync | long SequenceNumber - Sequence number of te message to be canceled | 
+| Microsoft.Azure.ServiceBus.Receive | MessageReceiver.ReceiveAsync |int RequestedMessageCount - The maximum number of messages that could be received.<br/>IList<Message> Messages -List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Peek | MessageReceiver.PeekAsync | int FromSequenceNumber - The starting point from which to browse a batch of messages.<br/>int RequestedMessageCount - The number of messages to retrieve.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | MessageReceiver.ReceiveDeferredAsync | IEnumerable<long> SequenceNumbers - The list containing the sequence numbers to receive.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Complete | MessageReceiver.CompleteAsync | IList<string> LockTokens - The list containing the lock tokens of the corresponding messages to complete.|
+| Microsoft.Azure.ServiceBus.Abandon | MessageReceiver.AbandonAsync | string LockToken - The lock token of the corresponding message to abandon. |
+| Microsoft.Azure.ServiceBus.Defer | MessageReceiver.DeferAsync | string LockToken - The lock token of the corresponding message to defer. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | MessageReceiver.DeadLetterAsync | string LockToken - The lock token of the corresponding message to dead letter. | 
+| Microsoft.Azure.ServiceBus.RenewLock | MessageReceiver.RenewLockAsync | string LockToken - The lock token of the corresponding message to renew lock on.<br/>DateTime LockedUntilUtc - New lock token expiry date and time in UTC format. ('Stop' event payload)|
+| Microsoft.Azure.ServiceBus.Process | Message Handler lambda | Message Message - Message being processed. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Message Session Handler lambda | Message Message - Message being processed.<br/>IMessageSession Session - Session being processed |
+| Microsoft.Azure.ServiceBus.AddRule | SubscriptionClient.AddRuleAsync | RuleDescription Rule - The rule description that provides the rule to add. |
+| Microsoft.Azure.ServiceBus.RemoveRule | SubscriptionClient.RemoveRuleAsync | string RuleName - Name of the rule to remove. |
+| Microsoft.Azure.ServiceBus.GetRules | SubscriptionClient.GetRulesAsync | IEnumerable<RuleDescription> Rules- All rules associated with the subscription. ('Stop' payload only) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | SessionClient.AcceptMessageSessionAsync | string SessionId - The sessionId present in the messages. |
+| Microsoft.Azure.ServiceBus.GetSessionState | MessageSession.GetSessionStateAsync | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.SetSessionState | MessageSession.SetSessionStateAsync | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | MessageSession.RenewSessionLockAsync| string SessionId - The sessionId present in the messages. |
+| Microsoft.Azure.ServiceBus.Exception | any instrumented API| Exception Exception - Exception instance |
 
 In every event, you can access `Activity.Current` that holds current operation context.
 
