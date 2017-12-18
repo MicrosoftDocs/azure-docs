@@ -3,10 +3,12 @@ title: Aerial Image Classification  | Microsoft Docs
 description: Provides instructions for real world scenario on aerial image classification
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
 ---
 
