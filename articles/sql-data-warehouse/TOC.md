@@ -31,8 +31,8 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 
 ## Load & move data
-### [Overview](design-elt-data-loading.md)
-### [Guidance](guidance-for-loading-data.md)
+### [Design ELT](design-elt-data-loading.md)
+### [Best practices](guidance-for-loading-data.md)
 
 
 ## Integrate
