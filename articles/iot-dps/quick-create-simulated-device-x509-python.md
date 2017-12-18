@@ -17,17 +17,15 @@ ms.custom: mvc
 
 # Create and provision an X.509 simulated device using IoT Hub Device Provisioning Service (Python)
 > [!div class="op_single_selector"]
-> * [TPM](quick-create-simulated-device.md)
-> * [X.509](python-quick-create-simulated-device-x509.md)
+> * [C](quick-create-simulated-device.md)
+> * [Java](quick-create-simulated-device-x509-java.md)
+> * [C#](quick-create-simulated-device-x509-csharp.md)
+> * [Python](quick-create-simulated-device-x509-python.md)
+
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-
-> [!NOTE]
-    > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
-    >
-    > ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 
 ## Prepare the development environment 
@@ -112,8 +110,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     PROTOCOL = ProvisioningTransportProvider.HTTP
     ```
 
-    > [!NOTE]
-        > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
+    ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 1. Run the sample. 
 
