@@ -17,17 +17,14 @@ ms.custom: mvc
 
 # Create and provision a simulated device using IoT Hub Device Provisioning Services (Python)
 > [!div class="op_single_selector"]
-> * [TPM](python-quick-create-simulated-device.md)
-> * [X.509](quick-create-simulated-device-x509.md)
+> * [C](quick-create-simulated-device.md)
+> * [Java](quick-create-simulated-device-tpm-java.md)
+> * [C#](quick-create-simulated-device-tpm-csharp.md)
+> * [Python](quick-create-simulated-device-tpm-python.md)
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-
-> [!NOTE]
-    > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
-    >
-    > ![Service information](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
 
 
 ## Prepare the development environment 
@@ -120,8 +117,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     PROTOCOL = ProvisioningTransportProvider.HTTP
     ```
 
-    > [!NOTE]
-        > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
+    ![Service information](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
 
 1. Run the sample. 
 
