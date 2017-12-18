@@ -97,7 +97,7 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#network-connectivity).
 
 In case you are using Managed Disks, you may need an additional port (8443) opening up on the firewalls.
 
