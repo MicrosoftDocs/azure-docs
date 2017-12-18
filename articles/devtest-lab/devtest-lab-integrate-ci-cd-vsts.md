@@ -33,7 +33,6 @@ Before you can integrate your CI/CD pipeline with Azure DevTest Labs, you must f
 This section describes how to create the Azure Resource Manager template that you use to create an Azure Virtual Machine on demand.
 
 1. Follow the steps at [Use a Resource Manager template](devtest-lab-use-resource-manager-template.md) to create a Resource Manager template in your subscription.
-1. Save the template as a file on your computer. Name the file **CreateVMTemplate.json**.
 1. Add the [WinRM artifact](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-winrm) as part of creating the VM (before generating the Resource Manager template).
 
    WinRM access is required to use deploy tasks such as **Azure File Copy** and **PowerShell on Target Machines**.
@@ -43,7 +42,7 @@ This section describes how to create the Azure Resource Manager template that yo
    >
    >
 
-
+1. Save the template as a file on your computer. Name the file **CreateVMTemplate.json**.
 1. Check the template into your source control system.
 1. Open a text editor and copy the following script into it.
 
