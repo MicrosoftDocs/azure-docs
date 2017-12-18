@@ -18,7 +18,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 ## Prerequisites
 > [!div class="checklist"]
-> * Your LUIS [**programmatic key**](programmatic-key). 
+> * Your LUIS [**programmatic key**](Manage-Keys.md#programmatic-key). 
 > * Your existing LUIS [**application ID**](./luis-get-started-create-app.md) and **version ID**. 
 > * A new file named `add-utterances.html` project in VSCode.
 
@@ -31,7 +31,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 Create `add-utterances.html` and add the following code:
 
-   [!code-java[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
+   [!code-javascript[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
 
 ## Setting your LUIS values
 
@@ -70,5 +70,3 @@ var utteranceJSON = [
 ## Next steps
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
-
-[programmatic-key]:Manage-Keys.md#programmatic-key
