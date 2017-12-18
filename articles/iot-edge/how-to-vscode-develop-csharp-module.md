@@ -17,13 +17,13 @@ ms.service: iot-edge
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy your IoT Edge modules. 
 
 ## Prerequisites
-This tutorial assumes that your're using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
+This tutorial assumes that your are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
-Make sure you have completed below tutorials before you start this guidence.
+Make sure you have completed following tutorials before you start this guidance.
 - Deploy Azure IoT Edge on a simulated device in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) or [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
 - [Develop and deploy a C# IoT Edge module to your simulated device](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module)
 
-Here is a checklist which shows the items you should have after you finish above tutorials.
+Here is a checklist that shows the items you should have after you finish preceding tutorials.
 
 - [Visual Studio Code](https://code.visualstudio.com/). 
 - [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -42,34 +42,34 @@ It is also suggested to install [Docker support for VS Code](https://marketplace
 ### List your IoT hub devices
 There are two ways to list your IoT hub devices in your VS Code. You can choose either way to continue.
 
-#### Sign-in your Azure account in VSCode and choose your IoT hub
-1. In Command Palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then click **Copy* & Open** in the pop-up. Paste (Ctrl + V) the code in your broswer and click Continue button. Then login with your Azure account. You can see your account info in VS Code status bar.
-2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You will first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub which contains the IoT Edge device.
+#### Sign in your Azure account in VSCode and choose your IoT hub
+1. In Command Palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then click **Copy* & Open** in the pop-up. Paste (Ctrl + V) the code in your browser and click Continue button. Then log in with your Azure account. You can see your account info in VS Code status bar.
+2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub which contains the IoT Edge device.
 
 
 #### Set IoT hub connection string
-1. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (You can find it in Shared access policies of your IoT hub in Azure Portal).
+1. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (You can find it in Shared access policies of your IoT hub in Azure portal).
  
 
 You can see the device list in IoT Hub Devices Explorer in left Side Bar.
 
 ### Start your IoT Edge runtime and deploy a module
-Install and start the Azure IoT Edge runtime on your device. And deploy an simulated sensor module which will send telemetry data to IoT Hub.
-1. In Command Palette, select **Edge: Setup Edge** and and choose your IoT Edge device ID. Or right-click the Edge device ID in Device List and select **Setup Edge**.
-2. In Command Palette, select **Edge: Start Edge** to start your Edge runtime. You will see below outputs in integrated terminal.
-3. Check the Edge runtime status in the Docker explorer. Green means it's running. Your IoT Edge runtime is successfuly started.
-4. Now your Edge runtime is running, which means your PC now simulate an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file please replace the line "<registry>/<image>:<tag>" with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+Install and start the Azure IoT Edge runtime on your device. And deploy a simulated sensor module which will send telemetry data to IoT Hub.
+1. In Command Palette, select **Edge: Setup Edge** and choose your IoT Edge device ID. Or right-click the Edge device ID in Device List and select **Setup Edge**.
+2. In Command Palette, select **Edge: Start Edge** to start your Edge runtime. You can see corresponding outputs in integrated terminal.
+3. Check the Edge runtime status in the Docker explorer. Green means it's running. Your IoT Edge runtime is started successfully.
+4. Now your Edge runtime is running, which means your PC now simulates an Edge device. Next step is to simulate a sensorthing that keeps sending messages to your Edge device. In Command Palette, Type and select **Edge: Generate Edge configuration file**. And select a folder to create this file. In the generated deployment.json file, please replace the line "<registry>/<image>:<tag>" with `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
 5. Select **Edge: Create deployment for Edge device** and choose the Edge device ID to create a new deployment. Or you can right-click the Edge device ID in the device list and select **Create deployment for Edge device**. 
-6. You will see your IoT Edge start running in the Docker explorer with the simulated sensor. Right-click the container in Docker explorer. You can watch docker logs for each module.
-7. Right click your Edge device ID, and you can monitor D2C messages in VS Code.
+6. You should see your IoT Edge start running in the Docker explorer with the simulated sensor. Right-click the container in Docker explorer. You can watch docker logs for each module.
+7. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
 8. To stop your IoT Edge runtime and the sensor module, you can type and select **Edge: Stop Edge** in Command Palette.
 
 ## Develop and deploy a C# module
-In tutorial [Develop a C# module](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), you update, build and publish your module image in VS Code and then visit Azure Portal to deploy your C# module. This section will introduce how to use VS Code to deploy and monitor your C# module.
+In tutorial [Develop a C# module](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), you update, build, and publish your module image in VS Code and then visit Azure portal to deploy your C# module. This section introduces how to use VS Code to deploy and monitor your C# module.
 
 ### Start a local docker registry
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses an [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
-In VS Code **integrated terminal**(Ctrl + `), Run below commands to start a local registry.  
+You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses a [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
+In VS Code **integrated terminal**(Ctrl + `), Run following commands to start a local registry.  
 
 ```cmd/sh
 docker run -d -p 5000:5000 --name registry registry:2 
@@ -277,7 +277,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
 3. Save this file.
 4. In Command Palette, select **Edge: Create deployment for Edge device**. Then select your IoT Edge device ID to create a deployment. Or right-click the device ID in the device list and select **Create deployment for Edge device**.
-5. Select the `deployment.json` you just updated. In the output window, you can see corresponding outputs for your deployment.
+5. Select the `deployment.json` you updated. In the output window, you can see corresponding outputs for your deployment.
 6. Start your Edge runtime in Command Palette. **Edge: Start Edge**
-7. You will see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter module.
-8. Right click your Edge device ID, and you can monitor D2C messages in VS Code.
+7. You can see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter module.
+8. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
