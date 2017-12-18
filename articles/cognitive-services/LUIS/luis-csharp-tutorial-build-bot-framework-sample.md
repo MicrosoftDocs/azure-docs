@@ -42,7 +42,7 @@ Build a chat bot with integrated language understanding.
 
 4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Select the subscription, [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
+    * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
     * Select the **Language understanding (C#)** template for the **Bot template** field.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -86,9 +86,9 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
 2. Right click `build.cmd` and choose **Run from Console** to build the app. There are several build steps the service completes automatically for you. The build is complete when it finished with:
 
-```
-Finished successfully.
-```
+    ```
+    Finished successfully.
+    ```
 
 3. In the code editor, open `/Dialogs/BasicLuisDialog.cs`. It contains the following code:
 
@@ -102,48 +102,49 @@ using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 
 namespace Microsoft.Bot.Sample.LuisBot
-{
-    // For more information about this template visit http://aka.ms/azurebots-csharp-luis
-    [Serializable]
-    public class BasicLuisDialog : LuisDialog<object>
     {
-        public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
-            ConfigurationManager.AppSettings["LuisAppId"], 
-            ConfigurationManager.AppSettings["LuisAPIKey"], 
-            domain: ConfigurationManager.AppSettings["LuisAPIHostName"])))
+        // For more information about this template visit http://aka.ms/azurebots-csharp-luis
+        [Serializable]
+        public class BasicLuisDialog : LuisDialog<object>
         {
-        }
-
-        [LuisIntent("None")]
-        public async Task NoneIntent(IDialogContext context, LuisResult result)
-        {
-            await this.ShowLuisResult(context, result);
-        }
-
-        // Go to https://luis.ai and create a new intent, then train/publish your luis app.
-        // Finally replace "Gretting" with the name of your newly created intent in the following handler
-        [LuisIntent("Greeting")]
-        public async Task GreetingIntent(IDialogContext context, LuisResult result)
-        {
-            await this.ShowLuisResult(context, result);
-        }
-
-        [LuisIntent("Cancel")]
-        public async Task CancelIntent(IDialogContext context, LuisResult result)
-        {
-            await this.ShowLuisResult(context, result);
-        }
-
-        [LuisIntent("Help")]
-        public async Task HelpIntent(IDialogContext context, LuisResult result)
-        {
-            await this.ShowLuisResult(context, result);
-        }
-
-        private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
-        {
-            await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
-            context.Wait(MessageReceived);
+            public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
+                ConfigurationManager.AppSettings["LuisAppId"], 
+                ConfigurationManager.AppSettings["LuisAPIKey"], 
+                domain: ConfigurationManager.AppSettings["LuisAPIHostName"])))
+            {
+            }
+    
+            [LuisIntent("None")]
+            public async Task NoneIntent(IDialogContext context, LuisResult result)
+            {
+                await this.ShowLuisResult(context, result);
+            }
+    
+            // Go to https://luis.ai and create a new intent, then train/publish your luis app.
+            // Finally replace "Gretting" with the name of your newly created intent in the following handler
+            [LuisIntent("Greeting")]
+            public async Task GreetingIntent(IDialogContext context, LuisResult result)
+            {
+                await this.ShowLuisResult(context, result);
+            }
+    
+            [LuisIntent("Cancel")]
+            public async Task CancelIntent(IDialogContext context, LuisResult result)
+            {
+                await this.ShowLuisResult(context, result);
+            }
+    
+            [LuisIntent("Help")]
+            public async Task HelpIntent(IDialogContext context, LuisResult result)
+            {
+                await this.ShowLuisResult(context, result);
+            }
+    
+            private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
+            {
+                await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
+                context.Wait(MessageReceived);
+            }
         }
     }
 ```
