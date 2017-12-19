@@ -50,7 +50,7 @@ A template defines the configuration for each resource type. A virtual machine s
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   "name": "myScaleSet",
   "location": "East US",
-  "apiVersion": "2016-04-30-preview",
+  "apiVersion": "2017-12-01",
   "sku": {
     "name": "Standard_A1",
     "capacity": "2"
@@ -141,7 +141,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 New-AzureRmResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
     -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+
+# Update the scale set and apply the extension
+Update-AzureRmVmss `
+    -ResourceGroupName myResourceGroup `
+    -VmScaleSetName myVMSS `
+    -VirtualMachineScaleSet $vmssConfig
 ```
+
+Answer the prompts to provide a scale set name and admin credentials for the VM instances. It can take 10-15 minutes for the scale set to be created and apply the extension to configure the app.
 
 
 ## Test your sample application
@@ -151,7 +159,7 @@ To see your app in action, obtain the public IP address of your load balancer wi
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://<publicIpAddress>/MyApp*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress/MyApp*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

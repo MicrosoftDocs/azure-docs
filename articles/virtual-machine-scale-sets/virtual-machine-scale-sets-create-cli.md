@@ -60,7 +60,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroup \
   --vmss-name myScaleSet \
-  --settings '{"fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],"commandToExecute":"./automate_nginx.sh"}'
+  --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate_nginx.sh"],"commandToExecute":"./automate_nginx.sh"}'
 ```
 
 

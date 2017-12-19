@@ -50,7 +50,7 @@ To create a scale with a template, you define the appropriate resources. The cor
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   "name": "myScaleSet",
   "location": "East US",
-  "apiVersion": "2016-04-30-preview",
+  "apiVersion": "2017-12-01",
   "sku": {
     "name": "Standard_A1",
     "capacity": "2"
@@ -139,7 +139,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting to be created.
+Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting resources to be created.
 
 
 ## Test your sample application
@@ -151,7 +151,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://<publicIpAddress>:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
