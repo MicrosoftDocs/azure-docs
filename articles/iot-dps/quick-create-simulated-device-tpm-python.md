@@ -100,7 +100,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
         > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
 
     > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
+        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator make sure to compile from the source.
 
 1. Navigate to the samples folder.
 
