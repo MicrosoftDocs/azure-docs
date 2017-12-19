@@ -150,9 +150,11 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed.  
+Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed. [Fuzzy search](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#fuzzy-search) is on by default. 
 
 ![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
+
+
 
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [add features](Add-Features.md) to improve the app.
