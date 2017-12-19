@@ -51,7 +51,7 @@ This option is the most secure and customizable, and requires Azure CDN Premium 
  
    Here is a sample Blob service SAS URL:   
    ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
-
+   
    Parameter options for CDN token authentication are different than the parameter options for SAS. If you choose to use an expiration time when you create a CDN token, set it to the same value as the expiration time for the SAS. Doing so ensures that the expiration time is predictable. 
  
 2. Use the [rules engine](https://docs.microsoft.com/azure/cdn/cdn-rules-engine) to create a rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
@@ -79,7 +79,7 @@ This option is the simplest and uses only a single SAS token, which is passed fr
 
    For example:   
    ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
- 
+    
    Note that the CDN does not honor SAS parameters (such as expires time). If the file is cached for a long duration, it may be accessible from CDN after the expiration time that is set on SAS has passed. To indicate that you no longer want the file to be accessible, perform a purge operation on the file after the expiration has passed.
 
 ### Option 3: Hidden CDN token using rewrite
