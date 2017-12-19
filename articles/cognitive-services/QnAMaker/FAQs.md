@@ -37,11 +37,17 @@ No, you don’t. However, QnA Maker is offered as one of several templates in [A
 
 Bots scale based on demand. You pay for only the resources that you consume.
 
+### How can I create a bot with QnAMaker?
+QnAMaker provides a REST endpoint that you can call from any bot code. However, if you'd like a quick way to set up a QnAMaker bot, you can use the [Azure Bot Service](https://docs.microsoft.com/en-us/bot-framework/bot-service-overview-introduction). Follow the instructions [here](https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart) and choose the "Question and Answer" bot template. Once the bot is created, you will need to do the following steps to complete setup.
+1. In Azure portal, open the newly created Web App Bot resource.
+2. Click on "Application Settings" and in the App Settings list, add QnASubscriptionKey and QnAKnowledgebaseId. The corresponding values can be obtained from the KB Settings page in http://qnamaker.ai.
+3. The QnAMaker-enabled Azure bot service app is now ready to use. To try it out click on "Test in Web Chat" to chat with your QnA bot.
+
 ### How do I embed the QnA Maker service in my website?
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 1. Create your knowledge base from the [QnA Maker webpage](https://qnamaker.ai).
 2. Create your bot as shown in [Create a bot with the Azure Bot Service](https://docs.botframework.com/en-us/azure-bots/build/first-bot/#navtitle). 
-3. Look for the Question and Answer bot template. Select the knowledge base ID that you created in step 1.
+3. Look for the Question and Answer bot template.
 4. Enable the bot on the Web Chat channel. Get the embed keys.
 5. Embed the web chat as shown in [Connect a bot to Web Chat](https://docs.botframework.com/en-us/support/embed-chat-control2/#navtitle).
 
