@@ -184,8 +184,8 @@ Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists(throughput: 400);
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 There is an important difference in how tables are created. Azure Cosmos DB reserves throughput, unlike Azure storage's consumption-based model for transactions. Your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput.

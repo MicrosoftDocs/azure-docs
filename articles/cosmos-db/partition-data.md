@@ -125,13 +125,13 @@ Results:
 
 ### Table API
 
-To create a a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
+To create a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists(throughput: 400);
+table.CreateIfNotExists(throughput: 800);
 ```
 
 Throughput is set as an argument of CreateIfNotExists.
