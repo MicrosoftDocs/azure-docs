@@ -18,7 +18,7 @@ This article describes how to create a group of machines for assessment by [Azur
 
 ## Create a group
 
-1. In the **Dashboard** of the Azure Migrate project, click **Groups** > **+Group**, and specify a group name.
+1. In the **Overview** of the Azure Migrate project, under Manage, click **Groups** > **+Group**, and specify a group name.
 2. Add one or more machines to the group, and click **Create**. 
 3. You can optionally select to run a new assessment for the group. 
 
@@ -28,5 +28,5 @@ After the group is created, you can modify it by selecting the group on the **Gr
 
 ## Next steps
 
-- Learn how to use [machine dependency mapping](how-to-create-group-machine-dependencies.md) to create more detailed groups.
+- Learn how to use [machine dependency mapping](how-to-create-group-machine-dependencies.md) to create high confidence groups.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

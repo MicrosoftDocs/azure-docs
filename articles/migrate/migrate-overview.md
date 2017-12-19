@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/18/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -35,8 +35,7 @@ Azure Migrate helps you to:
 - You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
 - You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
-- The Azure Migrate portal is currently available in English only. 
-- Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
+- Azure Migrate only supports managed disks for migration assessments.
 
 ## What do I need to pay for?
 
