@@ -115,8 +115,8 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
 - Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
-- Select **Manage Jenkins**, then **Managed plugins**
-- Choose **Available**, then search for *GitHub* in the text box across the top. Select the *GitHub plugin*, then select **Download now and install after restart**
+- Select **Manage Jenkins**, then **Manage plugins**.
+- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
 - Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
 
 
