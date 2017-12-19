@@ -28,7 +28,7 @@ By default, an Azure Cosmos DB database account is accessible from public intern
 ![Diagram showing the connection process for IP-based access control](./media/firewall-support/firewall-support-flow.png)
 
 ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
-The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the `ipRangeFilter` property. 
+The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the **ipRangeFilter** property. 
 
 To set the IP access control policy in the Azure portal, navigate to the Azure Cosmos DB account blade, click **Firewall** in the navigation menu, then change the **Enable IP Access Control** value to **ON**. 
 
@@ -43,7 +43,7 @@ Once IP access control is on, the portal provides switches to enable access to t
 
 ## Connections from the Azure portal 
 
-When you enable an IP access control policy programatically, you need to add the IP address for the Azure portal to the `ipRangeFilter` property to maintain access. The portal IP addresses are:
+When you enable an IP access control policy programatically, you need to add the IP address for the Azure portal to the **ipRangeFilter** property to maintain access. The portal IP addresses are:
 
 |Region|IP address|
 |------|----------|
