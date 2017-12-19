@@ -42,7 +42,6 @@ Please revisit this page regularly as we are updating it on a monthly basis.
 
 ## December 2017
  
-[58048](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=58048&triage=true&fullScreen=false&_a=edit)
 
 ### Terms of use in the access panel for end users
 
@@ -66,7 +65,6 @@ For more information, see [Azure Active Directory Terms of Use feature (Preview)
  
 ---
  
-[59365](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=59365&triage=true&fullScreen=false&_a=edit)
 
 ### New Azure AD sign-in experience
 
@@ -80,7 +78,6 @@ For more information, see [The new Azure AD Signin Experience is now in Public P
  
 ---
  
-[194080](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=194080&triage=true&fullScreen=false&_a=edit)
 
 ### Fewer login prompts: A new “Keep me signed in” experience for Azure AD login
 
@@ -96,7 +93,6 @@ For more information, see [Fewer login prompts: The new “Keep me signed in” 
 
 ---
  
-[309261](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=309261&triage=true&fullScreen=false&_a=edit)
 
 ### Add configuration to require the TOU to be expanded prior to accepting.
 
@@ -112,7 +108,6 @@ For more information, see [Azure Active Directory Terms of Use feature (Preview)
  
 ---
  
-[316768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316768&triage=true&fullScreen=false&_a=edit)
 
 ### Scoped activation for eligible role assignments
 
@@ -126,7 +121,6 @@ For more information, see [What is Azure AD Privileged Identity Management?](act
  
 ---
  
-[322784](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=322784&triage=true&fullScreen=false&_a=edit)
 
 ### New federated apps in Azure AD app gallery
 
@@ -157,7 +151,6 @@ In December 2017 we have added following new apps in our App gallery with Federa
  
 ---
  
-[316772](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316772&triage=true&fullScreen=false&_a=edit)
 
 ### Approval workflows for Azure AD directory roles
 
@@ -173,7 +166,6 @@ Eligible role members receive notifications when the approval is complete and th
 
 ---
  
-[281430](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=281430&triage=true&fullScreen=false&_a=edit)
 
 ### Pass-through Authentication - Skype for Business support
 
@@ -188,7 +180,6 @@ For more information, see [Skype for Business topologies supported with Modern A
  
 ---
  
-[302622](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=302622&triage=true&fullScreen=false&_a=edit)
 
 ### Updates to Azure Active Directory Privileged Identity Management (PIM) for Azure RBAC (preview)
 
