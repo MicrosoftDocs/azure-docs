@@ -170,9 +170,6 @@ Open HelloWorldStateful.java in **HelloWorldStateful -> src**, which contains th
 ```java
 @Override
 protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
-// TODO: Replace the following sample code with your own logic 
-// or remove this runAsync override if it's not needed in your service.
-
     Transaction tx = stateManager.createTransaction();
     return this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap").thenCompose((map) -> {
         return map.computeAsync(tx, "counter", (k, v) -> {
@@ -180,18 +177,14 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
                 return 1L;
             else
                 return ++v;
-        }, Duration.ofSeconds(4), cancellationToken).thenApply((l) -> {
-            return tx.commitAsync().handle((r, x) -> {
-                if (x != null) {
-                    logger.log(Level.SEVERE, x.getMessage());
-                }
-                try {
-                    tx.close();
-                } catch (Exception e) {
-                    logger.log(Level.SEVERE, e.getMessage());
-                }
-                return null;
-            });
+            }, Duration.ofSeconds(4), cancellationToken)
+                .thenCompose((r) -> tx.commitAsync())
+                .whenComplete((r, e) -> {
+            try {
+                tx.close();
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
         });
     });
 }
@@ -205,16 +198,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Hashmaps, you can store data directly in your service without the need for an external persistent store. Reliable Hashmaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any Java type, including your custom types, with a couple of caveats:
 
-* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. 
-* Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
+* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Hashmap stores your data to local disk on each replica. This means that everything that is stored in Reliable Hashmaps must be *serializable*. 
+* Objects are replicated for high availability when you commit transactions on Reliable Hashmaps. Objects stored in Reliable Hashmaps are kept in local memory in your service. This means that you have a local reference to the object.
   
    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
+The Reliable State Manager manages Reliable Hashmaps for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
 
 ### Transactional and asynchronous operations
@@ -224,24 +217,20 @@ return map.computeAsync(tx, "counter", (k, v) -> {
         return 1L;
     else
         return ++v;
-}, Duration.ofSeconds(4), cancellationToken).thenApply((l) -> {
-    return tx.commitAsync().handle((r, x) -> {
-        if (x != null) {
-            logger.log(Level.SEVERE, x.getMessage());
-        }
-        try {
-            tx.close();
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, e.getMessage());
-        }
-        return null;
-    });
+    }, Duration.ofSeconds(4), cancellationToken)
+        .thenCompose((r) -> tx.commitAsync())
+        .whenComplete((r, e) -> {
+    try {
+        tx.close();
+    } catch (Exception e) {
+        logger.log(Level.SEVERE, e.getMessage());
+    }
 });
 ```
 
-Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
+Operations on Reliable Hashmaps are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may get a work item from one Reliable Dictionary, perform an operation on it, and save the result in anoter Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+Reliable Hashmap operations are *transactional*, so that you can keep state consistent across multiple Reliable Hashmaps and operations. For example, you may get a work item from one Reliable Dictionary, perform an operation on it, and save the result in anoter Reliable Hashmap, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 
 ## Run the application
