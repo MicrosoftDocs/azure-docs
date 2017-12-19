@@ -26,8 +26,8 @@ Emergency access accounts can help organizations restrict privileged access with
 An organization might need to use an emergency access account in the following situations:
 
  - The user accounts are federated, and federation is currently unavailable because of a cell-network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Azure AD redirects to their identity provider. 
- - The administrators are registered through Azure Multi-Factor Authentication, and all their individual devices are unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, and those are the only two mechanisms that they registered for their device. 
- - The person who had the most recent global administrative access has left the organization. Azure AD prevents the last *global administrator* account from being deleted, but it does not prevent the account from being deleted or disabled on-premises, a situation where the organization is unable to recover that account.
+ - The administrators are registered through Azure Multi-Factor Authentication, and all their individual devices are unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, the only two authentication mechanisms that they registered for their device. 
+ - The person with the most recent global administrative access has left the organization. Azure AD prevents the last *global administrator* account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 
 ## Initial configuration
 
