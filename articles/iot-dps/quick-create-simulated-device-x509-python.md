@@ -1,12 +1,12 @@
 ---
-title: Provision an X.509 simulated device to Azure IoT Hub (Python) | Microsoft Docs
-description: Azure Quickstart - Create and provision an X.509 simulated device using Azure IoT Hub Device Provisioning Service (Python)
+title: Provision an X.509 simulated device to Azure IoT Hub using Python | Microsoft Docs
+description: Azure Quickstart - Create and provision an X.509 simulated device to Azure IoT Hub Device Provisioning Service using Python
 services: iot-dps 
 keywords: 
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/11/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
 
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: python
 ms.custom: mvc
 ---
 
-# Create and provision an X.509 simulated device using IoT Hub Device Provisioning Service (Python)
+# Create and provision an X.509 simulated device to IoT Hub Device Provisioning Service using Python
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device.md)
 > * [Java](quick-create-simulated-device-x509-java.md)
@@ -28,7 +28,7 @@ These steps show how to simulate an X.509 device on your development machine run
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the development environment 
+## Prepare the environment 
 
 1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
@@ -57,7 +57,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ```
 
 
-## Create a device enrollment entry in the Device Provisioning Service
+## Create a device enrollment entry
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
@@ -85,10 +85,14 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
    On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 
-## Simulate first boot sequence for the device
+## Simulate the device
 
-1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
-    - If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
+1. On the Device Provisioning Service summary blade, select **Overview**. Note your _Id Scope_ and _Global Service Endpoint_.
+
+    ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
+
+1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/).
+    - If you are using Windows OS, then [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
 
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
@@ -110,15 +114,15 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     PROTOCOL = ProvisioningTransportProvider.HTTP
     ```
 
-    ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
-
 1. Run the sample. 
 
     ```cmd/sh
     python provisioning_device_client_sample.py
     ```
 
-![successful enrollment](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
+1. The application will connect, enroll the device, and display a successful enrollment message.
+
+    ![successful enrollment](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
 1. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
