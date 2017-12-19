@@ -19,19 +19,19 @@ ms.reviewer: markwahl-msft
 
 For most day-to-day activities, *global administrator* rights are not needed by your users. Users should not be permanently assigned to the role, because they might inadvertently perform a task that requires higher permissions than they should have. When users don't need to act as a global administrator, they should activate the role assignment by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), on either their own account or an alternate administrative account.
 
-In addition to users' taking on administrative access rights for themselves, you need to prevent being locked out of the administration of your Azure AD tenant because you can neither sign in nor activate an existing individual user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by storing two or more *emergency access accounts* in your tenant.
+In addition to users' taking on administrative access rights for themselves, you need to prevent being inadvertently locked out of the administration of your Azure AD tenant because you can neither sign in nor activate an existing individual user's account as an administrator. You can mitigate the impact of inadvertent lack of administrative access by storing two or more *emergency access accounts* in your tenant.
 
-Emergency access accounts help organizations restrict privileged access within an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to emergency or 'break glass' scenarios, situations where normal administrative accounts cannot be used. Organizations must ensure the aim of restricting the emergency account's usage to only that time during which it is necessary.
+Emergency access accounts can help organizations restrict privileged access within an existing Azure Active Directory environment. Such accounts are highly privileged, and they are not assigned to specific individuals. Emergency access accounts are limited to emergency or 'break glass' scenarios, situations where normal administrative accounts cannot be used. Organizations must maintain a goal of restricting the emergency account's usage to only that time during which it is necessary.
 
 An organization might need to use an emergency access account in the following situations:
 
- - The user accounts are federated, and federation is currently unavailable because of a cell network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Azure AD redirects to their identity provider. 
- - The administrators are registered through Azure Multi-Factor Authentication, and all their individual devices are unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage might prevent them from answering phone calls or receiving text messages, and those are the only mechanisms that they registered for their device. 
+ - The user accounts are federated, and federation is currently unavailable because of a cell-network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Azure AD redirects to their identity provider. 
+ - The administrators are registered through Azure Multi-Factor Authentication, and all their individual devices are unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, and those are the only two mechanisms that they registered for their device. 
  - The person who had the most recent global administrative access has left the organization. Azure AD prevents the last *global administrator* account from being deleted, but it does not prevent the account from being deleted or disabled on-premises, a situation where the organization is unable to recover that account.
 
 ## Initial configuration
 
-Create two or more emergency access accounts. These should be cloud-only accounts that use the *.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment. 
+Create two or more emergency access accounts. These should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment. 
 
 The accounts should not be associated with any individual user in the organization. Organizations need to ensure that the credentials for these accounts are kept secure and known only to individuals who are authorized to use them. 
 
@@ -42,7 +42,7 @@ The accounts should not be associated with any individual user in the organizati
 
 ### Initial configuration with permanent assignments
 
-An option is to make users permanent members of the *global administrator* role. This option would be appropriate for organizations that do not have Azure AD Premium P2 subscriptions.
+One option is to make users permanent members of the *global administrator* role. This option would be appropriate for organizations that do not have Azure AD Premium P2 subscriptions.
 
 To reduce the risk of an attack resulting from a compromised password, Azure AD recommends that you require Multi-Factor Authentication for all individual users. This group should include administrators and all others (for example, financial officers) whose compromised account would have a significant impact. 
 
@@ -52,9 +52,9 @@ However, if your organization does not have shared devices, Multi-Factor Authent
 
 Another option is to configure your users as eligible and approvers to activate the *global administrator* role. This option would require your organization to have Azure AD Premium P2 subscriptions. It would also require a Multi-Factor Authentication option that's suitable for shared use among multiple individuals and the network environment. These requirements are because activation of the *global administrator* role requires users to have previously performed Multi-Factor Authentication. For more information, see [How to require Multi-Factor Authentication in Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
-We do not recommend using Multi-Factor Authentication that's associated with personal devices for emergency access accounts. In an actual emergency, the person who needs access to a Multi-Factor Authentication-registered device might not be the one who is holding the personal device. 
+We do not recommend using Multi-Factor Authentication that's associated with personal devices for emergency access accounts. In an actual emergency, the person who needs access to a Multi-Factor Authentication-registered device might not be the one who has the personal device. 
 
-Also consider the threat landscape--for example, an unforeseen circumstance such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
+Also consider the threat landscape. For example, an unforeseen circumstance such as a natural disaster emergency might arise, during which a mobile phone or other networks might be unavailable. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
 
 ## Ongoing monitoring
 
@@ -62,18 +62,18 @@ Monitor the [Azure AD sign-in and audit logs](https://docs.microsoft.com/en-us/a
 
 ## Account-check validation must occur at regular intervals
 
-Perform the following steps at minimum:
+To validate the account, perform the following steps at minimum:
 - Every 90 days.
 - When there has been a recent change in IT staff, such as a job change, a departure, or a new hire.
 - When the Azure AD subscriptions in the organization have changed.
 
 To train staff members to use emergency access accounts, do the following:
 
-1. Ensure that security-monitoring staff are aware that the account-check activity is ongoing.
-2. Validate that the cloud user accounts can sign in and activate their roles, and that users who might need to perform these steps during an emergency are trained on the process.
-3. Ensure that they have not registered Multi-Factor Authentication or self-service password reset (SSPR) to any individual user’s device or personal details. 
-4. If the accounts are registered for Multi-Factor Authentication to a device, for use during role activation, ensure that the device is accessible to all administrators who might need to use it during an emergency. Also verify that the device is registered through at least two mechanisms that do not share a common failure mode. For example, the device can communicate to the internet through both a facility's wireless network and a cell provider network.
-5. Update the account credentials.
+* Ensure that security-monitoring staff are aware that the account-check activity is ongoing.
+* Validate that the cloud user accounts can sign in and activate their roles, and that users who might need to perform these steps during an emergency are trained on the process.
+* Ensure that they have not registered Multi-Factor Authentication or self-service password reset (SSPR) to any individual user’s device or personal details. 
+* If the accounts are registered for Multi-Factor Authentication to a device, for use during role activation, ensure that the device is accessible to all administrators who might need to use it during an emergency. Also verify that the device is registered through at least two mechanisms that do not share a common failure mode. For example, the device can communicate to the internet through both a facility's wireless network and a cell provider network.
+* Update the account credentials.
 
 ## Next steps
 - [Add a cloud-based user](add-users-azure-active-directory.md) and [assign the new user to the global administrator role](active-directory-users-assign-role-azure-portal.md).
