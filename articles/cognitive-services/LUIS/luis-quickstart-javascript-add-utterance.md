@@ -58,6 +58,7 @@ Create `add-utterances.html` and add the following code:
         }
     ];
     ```
+
 4. Click the `Upload utterance` button. The LUIS results are displayed below the buttons.
 5. Click the `Train model` button to train your application with these new utterances.
 6. Click the `Train Status` button to see the training status. 
