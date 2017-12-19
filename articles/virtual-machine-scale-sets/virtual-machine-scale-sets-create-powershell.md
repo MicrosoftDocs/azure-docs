@@ -14,13 +14,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/19/2017
 ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set with Azure PowerShell
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with Azure PowerShell. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
+## Launch Azure Cloud Shell
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 4.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.

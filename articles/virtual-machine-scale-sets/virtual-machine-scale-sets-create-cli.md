@@ -14,13 +14,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/19/2017
 ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set with the Azure CLI 2.0
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with the Azure CLI 2.0. You can also create a scale set with [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
+## Launch Azure Cloud Shell
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
