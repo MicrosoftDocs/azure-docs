@@ -15,7 +15,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with a web application firewall using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protectection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to
 
@@ -165,7 +165,7 @@ az monitor diagnostic-settings create --resource-id '/subscriptions/<subscriptio
 
 ## Test the application gateway
 
-Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
