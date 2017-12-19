@@ -251,7 +251,7 @@ First, register the model. Then generate the manifest, build the Docker image, a
 
 3. Create a Docker image.
 
-   To create a Docker image, use the following command and provide the manifest ID value output from the previous step:
+   To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You can also optionally include the conda dependencies using the `-c` switch.
 
    ```azurecli
    az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
