@@ -126,8 +126,8 @@ There are three types of Autoscale profiles:
 
 2. **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
 
-``` JSON
-"profiles": [{
+    ``` JSON
+    "profiles": [{
 	"name": " regularProfile",
 	"capacity": {
 	...
@@ -152,10 +152,10 @@ There are three types of Autoscale profiles:
 	"fixedDate": {
 		"timeZone": "Pacific Standard Time",
 	           "start": "2017-12-26T00:00:00",
-      		 "end": "2017-12-26T23:59:00"
+      		   "end": "2017-12-26T23:59:00"
 	}}
-]
-```
+    ]
+    ```
 	
 3. **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
 
