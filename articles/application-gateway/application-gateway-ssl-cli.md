@@ -9,13 +9,13 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 12/18/2017
 ms.author: davidmu
 
 ---
 # Create an application gateway with a certificate using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with an SSL certificate that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to
 
@@ -57,7 +57,7 @@ The following example creates a resource group named *myResourceGroupAG* in the 
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources
 
 Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -169,7 +169,7 @@ az network public-ip show \
 
 ![Secure warning](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Your secured IIS website is then displayed as in the following example:
+To accept the security warning if you used a self-signed certificate, select **Details** and then **Go on to the webpage**. Your secured NGINX site is then displayed as in the following example:
 
 ![Test base URL in application gateway](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 

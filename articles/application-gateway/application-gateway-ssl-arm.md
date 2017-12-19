@@ -10,13 +10,13 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 12/18/2017
 ms.author: davidmu
 
 ---
 # Create an application gateway with a certificate using Azure PowerShell
 
-You can use the Azure PowerShell to to create an [application gateway](application-gateway-introduction.md) with an SSL certificate that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+You can use the Azure PowerShell to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
 In this article, you learn how to
 
@@ -40,7 +40,7 @@ New-SelfSignedCertificate `
   -dnsname www.contoso.com
 ```
 
-You should see something like this:
+You should see something like this result:
 
 PS C:\WINDOWS\system32> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname www.contoso.com
 
@@ -68,7 +68,7 @@ A resource group is a logical container into which Azure resources are deployed 
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources
 
 Create the subnet configurations using [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Create the virtual network using [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) with the subnet configurations. And finally, create the public IP address using [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). These resources are used to provide network connectivity to the application gateway and its associated resources.
 
@@ -255,7 +255,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Secure warning](./media/application-gateway-ssl-arm/application-gateway-secure.png)
 
-Your secured IIS website is then displayed as in the following example:
+To accept the security warning if you used a self-signed certificate, select **Details** and then **Go on to the webpage**. Your secured IIS website is then displayed as in the following example:
 
 ![Test base URL in application gateway](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 
