@@ -3,8 +3,8 @@ title: Azure Virtual Machine Scale Sets Attached Data Disks | Microsoft Docs
 description: Learn how to use attached data disks with virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Azure VM scale sets and attached data disks

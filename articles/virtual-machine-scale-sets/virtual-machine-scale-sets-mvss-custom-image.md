@@ -4,7 +4,7 @@ description: Learn how to add a custom image to an existing Azure Virtual Machin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

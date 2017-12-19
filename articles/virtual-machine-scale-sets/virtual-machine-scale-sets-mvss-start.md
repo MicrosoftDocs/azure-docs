@@ -4,7 +4,7 @@ description: Learn to create a minimum viable scale set template for virtual mac
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e

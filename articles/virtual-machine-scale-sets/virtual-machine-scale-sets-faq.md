@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about virtual machine sca
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

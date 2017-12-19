@@ -5,7 +5,7 @@ keywords: linux virtual machine,virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

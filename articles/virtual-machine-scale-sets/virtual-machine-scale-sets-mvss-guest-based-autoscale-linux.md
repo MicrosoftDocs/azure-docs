@@ -4,7 +4,7 @@ description: Learn how to autoscale using guest metrics in a Linux Virtual Machi
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
