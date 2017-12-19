@@ -39,7 +39,7 @@ For example, consider a model named AdventureWorks, on a server named myserver, 
 asazure://westus.asazure.windows.net/myserver 
 ```
 
-The base URL for this server name is,
+The base URL for this server name is:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
@@ -109,7 +109,7 @@ CommitMode is equal to partialBatch. It's used when doing an initial load of lar
 > [!NOTE]
 > At time of writing, the batch size is the MaxParallelism value, but this value could change.
 
-## GET /refreshes/<refreshId>
+## GET /refreshes/\<refreshId>
 
 To check the status of a refresh operation, use the GET verb on the refresh ID. Here's an example of the response body. If the operation is in progress, **inProgress** is returned in status.
 
@@ -167,7 +167,7 @@ To cancel an in-progress refresh operation, use the DELETE verb on the refresh I
 
 Having performed refresh operations, it may be necessary to synchronize the new data with replicas for query scale-out. To perform a synchronize operation for a model, use the POST verb on the /sync function. The Location header in the response includes the sync operation ID.
 
-## GET /sync?operationId=<operationId>
+## GET /sync status
 
 To check the status of a sync operation, use the GET verb passing the operation ID as a parameter. Here's an example of the response body:
 
@@ -182,7 +182,7 @@ To check the status of a sync operation, use the GET verb passing the operation 
 }
 ```
 
-Values for ```syncstate```:
+Values for syncstate:
 
 - 0: Replicating. Database files are being replicated to a target folder.
 - 1: Rehydrating. The database is being rehydrated on read-only server instance(s).
