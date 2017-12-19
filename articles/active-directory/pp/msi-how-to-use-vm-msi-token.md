@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/19/2017
+ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# How to use a user-assigned Managed Service Identity (MSI) for token acquisition on a VM
+# How to acquire an access token for a VM user-assigned Managed Service Identity (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
