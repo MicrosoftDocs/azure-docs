@@ -29,6 +29,30 @@ Infrastructure Backup is designed to internalize the complexity of backing up an
 
 Exporting the backup data to an external share is required to avoid storing backups on the same system. Requiring an external share gives the administrator the flexibility to determine where to store the data based on existing company BC/DR policies. 
 
+### Infrastructure Backup components
+
+Infrastructure Backup includes the following components:
+
+ - **Infrastructure Backup Controller**  
+ The Infrastructure Backup Controller is instantiated with and resides in every Azure Stack Cloud.
+ - **Backup Resource Provider**  
+ The Backup Resource Provider (Backup RP) is composed of the user interface and application program interfaces (API)s exposing basic backup functionality for Azure Stack infrastructure.
+
+#### Infrastructure Backup Controller
+
+The Infrastructure Backup Controller is a Service Fabric service gets instantiated for an Azure Stack Cloud. Backup resources are created at a regional level and capture region-specific service data from AD, CA, Azure Resource Manager, CRP, SRP, NRP, KeyVault, RBAC. 
+
+### Backup Resource Provider
+
+The Backup Resource Provider presents user interface in the Azure Stack portal for basic configuration and listing of backup resources. Operator can perform the following operations in the user interface:
+
+ - Enable backup for the first time by providing external storage location, credentials, and encryption key
+ - View completed created backup resources and status resources under creation
+ - Modify the storage location where Backup Controller places backup data
+ - Modify the credentials that Backup Controller uses to access external storage location
+ - Modify the encryption key that Backup Controller uses to encrypt backups 
+
+
 ## Backup Controller requirements
 
 This section describes the important requirements for Infrastructure Backup. We recommend that you review the information carefully before you enable backup for your Azure Stack instance, and then refer back to it as necessary during deployment and subsequent operation.

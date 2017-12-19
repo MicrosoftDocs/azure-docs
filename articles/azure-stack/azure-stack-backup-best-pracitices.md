@@ -78,17 +78,6 @@ OEMs are encouraged to store backup data for their components under the region f
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
 
-### Restore
-
-If there is catastrophic data loss but the hardware is still usable, redeployment of Azure Stack is required. During redeployment, you can specify the storage location and credentials required to access backups. In this mode, there is no need to specify the services that need to be restored. Infrastructure Backup Controller injects control plane state as part of the deployment workflow.
-
-If there is a disaster that renders the hardware unusable, redeployment is only possible on new hardware. Redeployment can take several weeks while replacement hardware is ordered and arrives in the datacenter. Restore of control plane data is possible at any time. However, restore is not supported if the version of the redeployed instance is more than one version greater than the version used in the last backup. 
-
-| Deployment mode | Starting point | End point                                                                                                                                                                                                     |
-|-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Clean install   | Baseline build | OEM deploys Azure Stack and updates to the latest supported version.                                                                                                                                          |
-| Recovery mode   | Baseline build | OEM deploys Azure Stack in recovery mode and handles the version matching requirements based on the latest backup available. The OEM completes the deployment by updating to latest supported version. |
-
 ### Monitoring
 
 The following alerts are supported by the system:

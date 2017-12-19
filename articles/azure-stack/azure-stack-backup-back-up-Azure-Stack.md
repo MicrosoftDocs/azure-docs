@@ -40,8 +40,6 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
 You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
 
-`if it hasn't not succeeded what are the steps to take?`
-
 ## Next steps
 
 - Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).

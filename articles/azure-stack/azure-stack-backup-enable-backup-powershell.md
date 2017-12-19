@@ -112,7 +112,7 @@ Set-AzSBackupShare -Location $location -Path $path -UserName $credential.UserNam
 In the same PowerShell session, run the following commands:
 
    ```powershell
-   Get-AzsBackupLocation | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
    ```
 
 The result should look like the following JSON output:
@@ -122,18 +122,12 @@ The result should look like the following JSON output:
     "ExternalStoreDefault":  {
         "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
         "UserName":  "domain\backupoadmin",
-        "Password":  null,
-        "EncryptionKeyBase64":  null,
-        "BackupFrequencyInMinutes":  "",
-        "AvailableCapacity":  "10 GB",
-        "IsBackupSchedulerEnabled":  false,
-        "NextBackupTime":  null,
-        "LastBackupTime":  null
+        "Password":  null
        }
    } 
    ```
 
 ## Next steps
 
- - Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md).
+ - Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md).  
 - Learn to verify that your backup ran, see [Confirm backup completed in administration portal](azure-stack-backup-back-up-Azure-Stack.md).
