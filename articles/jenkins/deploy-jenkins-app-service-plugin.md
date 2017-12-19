@@ -62,7 +62,7 @@ You need an Azure service principal to deploy to Azure.
 3. To add a Microsoft Azure service principal, select **Add Credentials**. Supply values for the **Subscription ID**, **Client ID**, **Client Secret**, and **OAuth 2.0 Token Endpoint** fields. Set the **ID** field to **mySp**. We use this ID in subsequent steps in this article.
 
 
-## Configure Jenkins to deploy Web Apps through Git and FTP
+## Configure Jenkins to deploy Web Apps by uploading files
 
 To deploy your project to Web Apps, you can upload your build artifacts (for example, a WAR file in Java) by using Git or FTP.
 
@@ -102,7 +102,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 8. If you want to deploy to a slot other than production, you can also set the **Slot** name.
 9. Save the project and build it. Your web app is deployed to Azure when the build is complete.
 
-### Deploy Web Apps through FTP by using Jenkins Pipeline
+### Deploy Web Apps by uploading files using Jenkins Pipeline
 
 The Azure App Service Jenkins plugin is pipeline-ready. You can refer to the following sample in the GitHub repo.
 
