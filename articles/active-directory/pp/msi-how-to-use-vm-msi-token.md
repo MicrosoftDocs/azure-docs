@@ -1,5 +1,5 @@
 ---
-title: How to use a user-assigned Managed Service Identity to acquire an access token
+title: How to use a user-assigned Managed Service Identity to acquire an access token on a VM.
 description: Step by step instructions and examples for using a user-assigned MSI from an Azure VM to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
@@ -17,7 +17,7 @@ ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# How to use a user-assigned Managed Service Identity (MSI) for token acquisition 
+# How to use a user-assigned Managed Service Identity (MSI) for token acquisition on a VM
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
@@ -63,7 +63,7 @@ Metadata: true
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
-| `client_id` | A query string parameter, indicating the clientID (also known as App ID) of the service principal representing the user-assigned MSI. This is the value returned in the `clientId` property during creation of a user-assigned MSI. |
+| `client_id` | A query string parameter, indicating the client ID (also known as App ID) of the service principal representing the user-assigned MSI. This value is returned in the `clientId` property during creation of a user-assigned MSI. |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
