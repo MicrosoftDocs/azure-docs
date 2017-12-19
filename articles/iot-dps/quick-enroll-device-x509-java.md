@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service | Microsoft Docs
+title: Enroll X.509 devices to Azure Device Provisioning Service using Java | Microsoft Docs
 description: Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service using Java service SDK
 services: iot-dps 
 keywords: 
