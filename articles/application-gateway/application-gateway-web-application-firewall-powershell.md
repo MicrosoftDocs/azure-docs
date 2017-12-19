@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 12/18/2017
 ms.author: davidmu
 
 ---
 # Create an application gateway with a web application firewall using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application, which protect against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can use Azure PowerShell to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to
 
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set with the default backend pool
+> * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
@@ -42,7 +42,7 @@ A resource group is a logical container into which Azure resources are deployed 
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources 
 
 Create the subnet configurations using [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Create the virtual network using [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) with the subnet configurations. And finally, create the public IP address using [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). These resources are used to provide network connectivity to the application gateway and its associated resources.
 
@@ -258,5 +258,5 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set with the default backend pool
+> * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics

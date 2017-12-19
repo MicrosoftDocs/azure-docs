@@ -15,14 +15,14 @@ ms.author: davidmu
 ---
 # Create an application gateway with a web application firewall using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application, which protect against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protectection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to
 
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set with the default backend pool
+> * Create a virtual machine scale
 > * Create a storage account and configure diagnostics
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
@@ -41,7 +41,7 @@ A resource group is a logical container into which Azure resources are deployed 
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address
+## Create network resources
 
 The virtual network and subnets are used to provide network connectivity to the application gateway and its associated resources. Create the virtual network named *myVNet* and subnet named *myAGSubnet* with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) and [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create a public IP address named *myAGPublicIPAddress* with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
@@ -63,7 +63,7 @@ az network public-ip create
   --name myAGPublicIPAddress
 ```
 
-## Create an application gateway with a web application firewall
+## Create an application gateway with a WAF
 
 You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
 
@@ -95,9 +95,9 @@ It may take several minutes for the application gateway to be created. After the
 - *appGatewayFrontendIP* - Assigns *myAGPublicIPAddress* to *appGatewayHttpListener*.
 - *rule1* - The default routing rule that is associated with *appGatewayHttpListener*.
 
-## Create a virtual machine scale set with the default backend pool
+## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set that provides two servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with the *myBackendSubnet* subnet. You can use [az vmss create](/cli/azure/vmss#az_vmss_create) to create the scale set.
+In this example, you create a virtual machine scale set that provides two servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with the *myBackendSubnet* subnet. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 
 ### Install NGINX
 
-In your current shell, create a file named customConfig.json and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` to create the file and see a list of available editors.
+For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` to create the file and see a list of available editors. In your current shell, create a file named customConfig.json and paste the following configuration:
 
 ```json
 {
@@ -184,6 +184,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Set up the network
 > * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set with the default backend pool
+> * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 
