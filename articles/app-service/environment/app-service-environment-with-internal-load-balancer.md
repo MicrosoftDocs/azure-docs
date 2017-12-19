@@ -48,7 +48,7 @@ There are some things that you cannot do when using an ILB ASE. Those things inc
 ## Creating an ILB ASE
 Creating an ILB ASE is not much different from creating an ASE normally. For a deeper discussion on creating an ASE read [How to Create an App Service Environment][HowtoCreateASE]. The process to create an ILB ASE is the same between creating a VNet during ASE creation or selecting a pre-existing VNet. To create an ILB ASE: 
 
-1. In the Azure portal select **New -> Web + Mobile -> App Service Environment**
+1. In the Azure portal select **Create a resource -> Web + Mobile -> App Service Environment**
 2. Select your subscription
 3. Select or create a resource group
 4. Select or create a VNet
@@ -68,7 +68,7 @@ If you set the VIP Type to Internal, your ASE name is not used in the subdomain 
 ## Apps in an ILB ASE
 Creating an app in an ILB ASE is the same as creating an app in an ASE normally. 
 
-1. In the Azure portal select **New -> Web + Mobile -> Web** or **Mobile** or **API App**
+1. In the Azure portal select **Create a resource -> Web + Mobile -> Web** or **Mobile** or **API App**
 2. Enter name of app
 3. Select subscription
 4. Select or create resource group

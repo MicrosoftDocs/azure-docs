@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create Azure Machine Learning accounts
 Use the Azure portal to provision Azure Machine Learning accounts: 
-1. Select the **New** button (+) in the upper-left corner of the portal.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
 2. Enter **Machine Learning** in the search bar. Select the search result named **Machine Learning Experimentation (preview)**.  Click the star icon to make this selection a favorite in the Azure portal.
 
