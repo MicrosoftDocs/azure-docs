@@ -25,9 +25,17 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/automation/media/index/automation.svg
-      text: Create Account
+        src: /azure/automation/media/index/automation.svg
+      text: Create an Automation account
       href: "/azure/automation/automation-quickstart-create-account"
+    - image: 
+        src: /azure/automation/media/index/runbook.svg
+      text: Create a runbook
+      href: "/azure/automation/automation-quickstart-create-runbook"
+    - image: 
+        src: /azure/automation/media/index/dscconfig.svg
+      text: Create a DSC configuration
+      href: "/azure/automation/automation-quickstart-dsc-config"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

@@ -9,6 +9,10 @@
   items:
   - name: Create an Automation account
     href: automation-quickstart-create-account.md
+  - name: Create a runbook
+    href: automation-quickstart-create-runbook.md
+  - name: Create a DSC configuration
+    href: automation-quickstart-dsc-configuration.md
 - name: Tutorials
   items:
   - name: Track updated files with watcher tasks
