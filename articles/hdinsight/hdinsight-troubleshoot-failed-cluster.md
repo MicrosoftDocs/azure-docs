@@ -20,7 +20,7 @@ ms.author: ashishth
 ---
 # Troubleshoot a slow or failing HDInsight cluster
 
-If an HDInsight cluster  is either running slowly or failing with an  error code, you have several troubleshooting options. If your jobs are taking longer to run than expected, or you are seeing slow response times in general, there may be failures upstream from your cluster, such as the services on which the cluster runs. However, the most common cause of these slowdowns is insufficient scaling. When you create a new HDInsight cluster, select the appropriate [virtual machine sizes](hdinsight-using-external-metadata-stores.md).
+If an HDInsight cluster  is either running slowly or failing with an  error code, you have several troubleshooting options. If your jobs are taking longer to run than expected, or you are seeing slow response times in general, there may be failures upstream from your cluster, such as the services on which the cluster runs. However, the most common cause of these slowdowns is insufficient scaling. When you create a new HDInsight cluster, select the appropriate [virtual machine sizes](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
 To diagnose a slow or failing cluster, gather information about all aspects of the environment, such as  associated Azure Services, cluster configuration, and job execution information. A helpful diagnostic is to try to reproduce the  error state on another cluster.
 
@@ -108,7 +108,11 @@ If you are experiencing slowdowns in your cluster, consider restarting your serv
 
 ## Step 3: View your cluster's health
 
-HDInsight clusters are composed of different types of nodes running on virtual machine instances. Each node can be monitored for resource starvation, network connectivity issues, and other problems that can slow down the cluster. Every cluster contains two head nodes, and most cluster types contain a combination of worker and edge nodes. For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). The following sections describe how to  check the health of each node and of the overall cluster.
+HDInsight clusters are composed of different types of nodes running on virtual machine instances. Each node can be monitored for resource starvation, network connectivity issues, and other problems that can slow down the cluster. Every cluster contains two head nodes, and most cluster types contain a combination of worker and edge nodes. 
+
+<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+
+The following sections describe how to  check the health of each node and of the overall cluster.
 
 ### Get a snapshot of the cluster health using the Ambari UI dashboard
 
@@ -249,7 +253,7 @@ Heap dumps contain a snapshot of the application's memory, including the values 
 
 HDInsight clusters are pre-configured with default settings for related services, such as Hadoop, Hive, HBase, and so on. Depending on the type of cluster, its hardware configuration, its number of nodes, the types of jobs you are running, and the data you are working with (and how that data is being processed), you may need to optimize your configuration.
 
-For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).
+<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
 
 ## Step 7: Reproduce the failure on a different cluster
 
