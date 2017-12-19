@@ -21,7 +21,7 @@ ms.author: adegeo
 # Create and deploy a virtual machine scale set
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual machine scale sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal. For information about how to use the Azure portal, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
+This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal. For information about how to use the Azure portal, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 >[!NOTE]
 >For more information about Azure Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -197,7 +197,7 @@ With Visual Studio, you can create an Azure resource group project and add a vir
 
 ## Create from the Azure portal
 
-The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-portal-create.md).
+The Azure portal provides a convenient way to quickly create a scale set. For more information, see [How to create a virtual machine scale set with the Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 ## Next steps
 
