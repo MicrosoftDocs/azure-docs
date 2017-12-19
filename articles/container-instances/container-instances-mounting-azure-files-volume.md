@@ -38,7 +38,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
-## Acquire storage account access details
+## Get storage credentials
 
 To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key.
 
@@ -56,7 +56,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## Deploy the container and mount the volume
+## Deploy container and mount volume
 
 To mount an Azure file share as a volume in a container, specify the share and volume mount point when you create the container with [az container create][az-container-create]. If you've followed the previous steps, you can mount the share you created earlier by using the following command to create a container:
 
