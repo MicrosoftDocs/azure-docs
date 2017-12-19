@@ -26,15 +26,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
       text: Azure Portal
-      href: /azure/azure-policy/assign-policy-definition.md
+      href: /azure/azure-policy/assign-policy-definition
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: /azure/azure-policy/assign-policy-definition-ps.md
+      href: /azure/azure-policy/assign-policy-definition-ps
     - image: 
         src: https://docs.microsoft.com/en-us/media/common/cli.svg
       text: Azure CLI
-      href: /azure/azure-policy/assign-policy-definition-cli.md
+      href: /azure/azure-policy/assign-policy-definition-cli
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -42,7 +42,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-policy/create-manage-policy.md">Create and manage Azure Policy</a>
+    - html: <a href="/azure/azure-policy/create-manage-policy">Create and manage Azure Policy</a>
 - title: Samples
   items:
   - type: paragraph
@@ -51,7 +51,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/azure-policy/json-samples.md">Azure PowerShell</a>
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
 - title: Reference
   items:
   - type: list

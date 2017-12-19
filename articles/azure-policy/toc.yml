@@ -1,11 +1,11 @@
+- name: Azure Policy Documentation
+  href: index.yml
 - name: Overview
-  expanded: true
   items:
-  - name: Azure Policy Documentation
-    href: index.yml
   - name: Overview of Azure Policy
     href: azure-policy-introduction.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Assign a policy - Portal
     href: assign-policy-definition.md
