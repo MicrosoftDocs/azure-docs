@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -13,8 +13,10 @@ ms.author: raynew
 
 This article describes how to refine a group by visualizing dependencies of all machines in the group. You typically use this method when you want to refine membership for an existing group, by cross-checking group dependencies, before you run an assessment. Refining a group using dependency visualization can help you effectively plan your migration to Azure.You can discover all interdependent systems that need to migrate together. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. 
 
+
 > [!NOTE]
 > Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines in the group, we recommend you to split it into smaller groups to leverage the dependency visualization functionality.
+
 
 # Prepare the group for dependency visualization
 To view dependencies of a group, you need to download and install agents on each on-premises machine that is part of the group. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
