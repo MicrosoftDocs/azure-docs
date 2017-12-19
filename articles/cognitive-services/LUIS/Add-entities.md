@@ -97,7 +97,7 @@ A list entity is an entity that is defined by a list of all its values.
 
 5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
 
-![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
+    ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
  
 ## Import list entity values
 
@@ -113,26 +113,26 @@ A list entity is an entity that is defined by a list of all its values.
 
  4. Click **Done**.
 
-An example of valid json for an entity list is shown in the following JSON-formatted code:
+    An example of valid json for an entity list is shown in the following JSON-formatted code:
 
-```
-[
-    {
-        "canonicalForm": "Egypt",
-        "list": [
-            "Cairo",
-            "Alexandria"
-        ]
-    },
-    {
-        "canonicalForm": "USA",
-        "list": [
-            "California",
-            "Texas"
-        ]
-    }
-]  
-```
+    ```
+    [
+        {
+            "canonicalForm": "Egypt",
+            "list": [
+                "Cairo",
+                "Alexandria"
+            ]
+        },
+        {
+            "canonicalForm": "USA",
+            "list": [
+                "California",
+                "Texas"
+            ]
+        }
+    ]  
+    ```
 
 ## Edit entity name
 On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
