@@ -86,9 +86,6 @@ The terminology used in these steps includes:
 1. Open the **Microsoft Azure Backup** snap-in on the *Target machine*.
 2. Ensure that the *Target machine* and the *Source machine* are registered to the same Recovery Services vault.
 3. Click **Recover Data** to initiate the workflow.
-
-    ![Recover Data](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Select **Another server**
 
     ![Another Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -96,9 +93,6 @@ The terminology used in these steps includes:
 5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired), download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault associated with the vault credential file appears.
 
 6. On the Select Backup Server pane, select the *Source machine* from the list of displayed machines.
-
-    ![List of machines](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. On the Select Recovery Mode pane, choose **System State** and click **Next**. 
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
