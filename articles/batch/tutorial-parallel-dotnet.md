@@ -34,13 +34,9 @@ Azure Batch enables you to run large-scale parallel and high-performance computi
 
 ## Prerequisites
 
-To complete this tutorial:
-
-* [Install Git](https://git-scm.com/).
-* [Install Visual Studio](https://www.visualstudio.com/) 2015 or a more recent version. 
-* Create an Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
-* Download the [Windows 64-bit version of ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) to your local computer. The download is a zipfile. You do not need to unzip the file or install it locally.
-
+* [Visual Studio 2015](https://www.visualstudio.com/) or a more recent version. 
+* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* [Windows 64-bit version of ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Download the zipfile to your local computer. You do not need to unzip the file or install it locally.
 
 ## Add the ffmpeg application package
 
@@ -56,18 +52,14 @@ The ffmpeg application is added to your Batch account.
 ![Add application package](./media/tutorial-parallel-dotnet/add-application.png)
 
 
-## Download the sample app
+### Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. 
 
-```bash
-git clone <whatever>
-```
-
-Change to the directory that contains the sample code
+Change to the directory that contains the sample code:
 
 ```bash
-cd <wherever>
+cd tutorial_dotnet
 ```
 
 ## Build the sample project
