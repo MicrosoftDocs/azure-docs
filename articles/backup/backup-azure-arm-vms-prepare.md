@@ -25,7 +25,7 @@ This article provides the steps for preparing your environment to back up an Azu
 The Azure Backup service has two types of vaults for protecting your VMs: backup vaults and Recovery Services vaults. A backup vault helps protect VMs deployed through the classic deployment model. A Recovery Services vault helps protect *both classic-deployed and Resource Manager-deployed VMs*. You must use a Recovery Services vault if you want to protect a Resource Manager-deployed VM.
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). >
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Before you can protect or back up a Resource Manager-deployed virtual machine, make sure these prerequisites exist:
 
