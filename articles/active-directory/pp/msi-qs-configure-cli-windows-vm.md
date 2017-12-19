@@ -52,7 +52,7 @@ TBD - pull up from below and delete
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-3. Create a user-assigned MSI using [az identity create]((/cli/azure/identity#az_identity_create)). You can skip this step if you already have a user-assigned MSI you would like to use instead. The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+3. Create a user-assigned MSI using [az identity create](/cli/azure/identity#az_identity_create). You can skip this step if you already have a user-assigned MSI you would like to use instead. The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -88,7 +88,7 @@ The response contains details for the user-assigned MSI created, similar to the 
    az login
    ```
 
-2. Create a user-assigned MSI using [az identity create]((/cli/azure/identity#az_identity_create)). You can skip this step if you already have a user-assigned MSI you would like to use instead. The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+2. Create a user-assigned MSI using [az identity create](/cli/azure/identity#az_identity_create). You can skip this step if you already have a user-assigned MSI you would like to use instead. The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
