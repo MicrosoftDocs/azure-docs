@@ -83,9 +83,9 @@ namespace SmokeTester
         private static void LoadImagesFromDisk()
         {
             // this loads the images to be uploaded from disk into memory
-            hemlockImages = Directory.GetFiles(@"..\..\..\..\..\SampleData\Hemlock").ToList();
-            japaneseCherryImages = Directory.GetFiles(@"..\..\..\..\..\SampleData\Japanese Cherry").ToList();
-            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\..\..\SampleData\Test\test_image.jpg"));
+            hemlockImages = Directory.GetFiles(@"..\..\..\Images\Hemlock").ToList();
+            japaneseCherryImages = Directory.GetFiles(@"..\..\..\Images\Japanese Cherry").ToList();
+            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\Images\SampleData\Test\test_image.jpg"));
         }
     }
 }
