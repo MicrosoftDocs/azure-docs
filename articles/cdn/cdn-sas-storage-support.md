@@ -50,7 +50,10 @@ This option is the most secure and customizable, and requires **Azure CDN Premiu
    `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
  
    Here is a sample Blob service SAS URL:   
-   ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
+
+   ```
+   https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   ```
        
 
    Note that parameter options for CDN token authentication are different than the parameter options for SAS. If you choose to use an expiration time when you create a CDN token, set it to the same value as the expiration time for the SAS. Doing so ensures that the expiration time is predictable. 
@@ -79,7 +82,10 @@ This option is the simplest and uses only a single SAS token, which is passed fr
    `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
 
    For example:   
-   ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
+
+   ```
+   https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   ```
        
 
    Note that the CDN does not honor SAS parameters (such as expires time). If the file is cached for a long duration, it may be accessible from CDN after the expiration time that is set on SAS has passed. To indicate that you no longer want the file to be accessible, perform a purge operation on the file after the expiration has passed.
@@ -93,8 +99,8 @@ With this option, you can secure the origin blob storage without requiring a tok
 2. Access the file on your CDN without the token, in the following format:
    `https://<endpoint>.azureedge.net/<folder>/<file>`
  
-   For example:   
-    ```https://demostorage.blob.core.windows.net/```
+   For example:
+   `https://demostorage.blob.core.windows.net/`
        
 
    Note that the CDN endpoint is not secured. In addition, long caching durations can make the file available after the expiration time of the SAS. If you want to make your cached file inaccessible after the expiration time or after you revoke a SAS, you must purge it.
