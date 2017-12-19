@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ---
 
@@ -102,7 +102,7 @@ A virtual network interface card (NIC) connects your VM to a given virtual netwo
 
 
 ## Create virtual machine
-The final step is to create a VM and use all the resources created. The following section in an Ansible playbook creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. Enter your own public key data in the *key_data* pair as follows:
+The final step is to create a VM and use all the resources created. The following section in an Ansible playbook creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. Enter your own complete public key data in the *key_data* pair as follows:
 
 ```yaml
 - name: Create VM
@@ -124,7 +124,7 @@ The final step is to create a VM and use all the resources created. The followin
 ```
 
 ## Complete Ansible playbook
-To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents:
+To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents. Enter your own complete public key data in the *key_data* pair:
 
 ```yaml
 - name: Create Azure VM
