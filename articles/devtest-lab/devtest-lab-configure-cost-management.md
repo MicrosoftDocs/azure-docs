@@ -26,11 +26,12 @@ to view the current calendar month's estimated cost-to-date and the projected en
 To view the Monthly Estimated Cost Trend chart, follow these steps: 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.   
-4. On the lab's blade, select **Cost settings**.
-5. On the lab's **Cost settings** blade, select **Lab cost trend**.
-6. The following screen shot shows an example of a cost chart. 
+1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
+1. From the list of labs, select the desired lab.  
+1. On the lab's **Overview** area, select **Configuration and policies**.   
+1. On the left under **COST TRACKING**, select **Cost trend**.
+
+   The following screen shot shows an example of a cost chart. 
    
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
@@ -50,6 +51,10 @@ Additionally, the following are *not* included in the cost calculation:
 * Your taxes
 * Your discounts
 * Your billing currency. Currently, the lab cost is displayed only in USD currency.
+
+## Managing cost targets for your lab
+DevTest Labs lets you manage the costs in  your lab to better 
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
