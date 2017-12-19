@@ -38,7 +38,7 @@ Ansible enables you to automate cloud-native applications in Azure using Azure m
 Via its [Dynamic Inventory](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) feature, Ansible provides the ability to pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
 
 ## Additional Ansible options in the Azure Marketplace
-The [Ansible Tower](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.ansible-tower) Azure Marketplace image by Red Hat helps organizations scale IT automation and manage complex deployments across physical, virtual, and cloud infrastructures. Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys so that you can delegate jobs to junior or temp employees without risking exposing your credentials.
+The [Ansible Tower](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.ansible-tower) Azure Marketplace image by Red Hat helps organizations scale IT automation and manage complex deployments across physical, virtual, and cloud infrastructures. Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys so that you can delegate jobs to junior or temp employees without the risk of exposing your credentials.
 
 ## Next steps
 Now that you have an overview of Ansible and its benefits, here are suggested next steps:
