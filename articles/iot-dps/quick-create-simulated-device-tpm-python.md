@@ -1,12 +1,12 @@
 ---
-title: Provision a simulated device to Azure IoT Hub (Python) | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated device using Azure IoT Hub Device Provisioning Service (Python)
+title: Provision a simulated device to Azure IoT Hub using Python | Microsoft Docs
+description: Azure Quickstart - Create and provision a simulated device to Azure IoT Hub Device Provisioning Service using Python
 services: iot-dps 
 keywords: 
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/12/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
 
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: python
 ms.custom: mvc
 ---
 
-# Create and provision a simulated device using IoT Hub Device Provisioning Services (Python)
+# Create and provision a simulated device to IoT Hub Device Provisioning Service using Python
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device.md)
 > * [Java](quick-create-simulated-device-tpm-java.md)
@@ -27,7 +27,7 @@ These steps show how to create a simulated device on your development machine ru
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the development environment 
+## Prepare the environment 
 
 1. Make sure you have either [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have 'Desktop development with C++' workload enabled for your Visual Studio installation.
 
@@ -55,7 +55,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-1. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. In a separate command prompt, navigate to the TPM simulator folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
@@ -64,7 +64,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ![TPM Simulator](./media/python-quick-create-simulated-device/tpm-simulator.png)
 
 
-## Create a device enrollment entry in the Device Provisioning Service
+## Create a device enrollment entry
 
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
@@ -89,9 +89,9 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 
-## Simulate first boot sequence for the device
+## Simulate the device
 
-1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
+1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables.
     - If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
 
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
@@ -100,7 +100,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
         > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
 
     > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator make sure to compile from the source.
+        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
 
 1. Navigate to the samples folder.
 
@@ -125,9 +125,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     python provisioning_device_client_sample.py
     ```
 
+1. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. 
+
     ![Successful registration](./media/python-quick-create-simulated-device/registration-success.png)
 
-1. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
 
     ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device/hub-registration.png) 
 
