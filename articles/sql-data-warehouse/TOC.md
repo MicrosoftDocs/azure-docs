@@ -26,14 +26,13 @@
 
 ## Migrate to SQL Data Warehouse
 ### [Overview](sql-data-warehouse-overview-migrate.md)
-### [Migration Utility](sql-data-warehouse-migrate-migration-utility.md)
 ### [Migrate schema](sql-data-warehouse-migrate-schema.md)
 ### [Migrate code](sql-data-warehouse-migrate-code.md)
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 
 ## Load & move data
 ### [Overview](design-elt-data-loading.md)
-### [Guidance](guidance-for-loading-data.md)
+### [Best practices](guidance-for-loading-data.md)
 
 
 ## Integrate
