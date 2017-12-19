@@ -245,7 +245,7 @@ See the [Automation of Azure Analysis Services with Service Principals and Power
 
 ## See also
 
-[Azure Analysis Services samples](analysis-services-samples.md)   
+[Samples](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 
