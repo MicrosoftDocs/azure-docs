@@ -52,8 +52,6 @@
 ### [Deploy device simulation](iot-suite-device-simulation-deploy.md)
 ### [Explore device simulation](iot-suite-device-simulation-explore.md)
 
-# How To
-=======
 # How-to guides
 ## Remote monitoring
 ### [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
