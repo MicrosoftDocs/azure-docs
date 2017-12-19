@@ -19,12 +19,16 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: How to
+- name: How To Guides
   items:
   - name: Use and display requirements
     href: use-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorial-bing-entities-search-single-page-app.md
 - name: Reference
   items:
   - name: REST v7
