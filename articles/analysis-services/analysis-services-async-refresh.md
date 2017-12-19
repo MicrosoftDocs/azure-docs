@@ -192,8 +192,7 @@ Values for ```syncstate```:
 
 ## Code sample
 
-Here's a C# code sample to get you started, [RestApiSample on GitHub](
-https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
+Here's a C# code sample to get you started, [RestApiSample on GitHub](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
 
 ### To use the code sample
 
@@ -239,14 +238,14 @@ This form of authentication requires an Azure application be created with the ne
 
 See the [Automation of Azure Analysis Services with Service Principals and PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blog post for how to set up a service principal and assign the necessary permissions in Azure Analysis Services. Once you've completed the steps detailed in the blog post, complete the following additional steps:
 
-1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID. See code comments for more information.
+1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
 2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
 3.	Run the sample.
 
 
 ## See also
 
-[Azure Analysis Services samples](analysis-services-samples)   
+[Azure Analysis Services samples](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 
