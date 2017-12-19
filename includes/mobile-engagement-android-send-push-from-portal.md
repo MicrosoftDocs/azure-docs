@@ -1,4 +1,5 @@
 ### Grant Mobile Engagement access to your GCM API Key
+
 To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
 
 1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
@@ -18,9 +19,11 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
 ## <a id="send"></a>Send a notification to your app
+
 We will now create a simple push notification campaign that sends a push notification to our app.
 
 1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+
 2. Click **New announcement** to create your push notification campaign.
 
     ![](./media/mobile-engagement-android-send-push/new-announcement.png)
