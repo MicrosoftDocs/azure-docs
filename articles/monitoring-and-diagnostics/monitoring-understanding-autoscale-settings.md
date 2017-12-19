@@ -159,13 +159,13 @@ There are three types of Autoscale profiles:
 	
 3. **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
 
-**Example 1 - Weekday vs. Weekends**
-Let’s say that on weekends you want your max capacity to be 4 but on weekdays, since you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
-The setting would look like this:
+    **Example 1 - Weekday vs. Weekends**
+    Let’s say that on weekends you want your max capacity to be 4 but on weekdays, since you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
+    The setting would look like this:
 
-``` JSON
-"profiles": [
-{
+    ``` JSON
+    "profiles": [
+    {
 	"name": "weekdayProfile",
 	"capacity": {
 		...
@@ -188,8 +188,8 @@ The setting would look like this:
 			]
 		}
 	}}
-},
-{
+    },
+    {
 	"name": "weekendProfile",
 	"capacity": {
 		...
@@ -212,20 +212,20 @@ The setting would look like this:
 			]
 		}
 	}
-}]
-```
+    }]
+    ```
 
-By looking at the preceding setting, you’ll notice that each recurrence profile has a schedule, this schedule determines when the profile starts executing. The profile stops executing when it’s time to execute another profile.
+    By looking at the preceding setting, you’ll notice that each recurrence profile has a schedule, this schedule determines when the profile starts executing. The profile stops executing when it’s time to execute another profile.
 
-For example, in the preceding setting, “weekdayProfile” is set to start on Monday at 12 a.m., that means this profile starts executing on Monday at 12.am. It continues executing until Saturday at 12a.m., when “weekendProfile”  is scheduled to start executing.
+    For example, in the preceding setting, “weekdayProfile” is set to start on Monday at 12 a.m., that means this profile starts executing on Monday at 12.am. It continues executing until Saturday at 12a.m., when “weekendProfile”  is scheduled to start executing.
 
-**Example 2 - Business hours**
-Let’s take another example, maybe you want to have metric threshold = ‘x’ during business hours, 9 a.m. to 5 p.m., and then from 5 p.m. to 9 a.m. the next day, you want the metric threshold to be ‘y’.
-The setting would look like this:
+    **Example 2 - Business hours**
+    Let’s take another example, maybe you want to have metric threshold = ‘x’ during business hours, 9 a.m. to 5 p.m., and then from 5 p.m. to 9 a.m. the next day, you want the metric threshold to be ‘y’.
+    The setting would look like this:
 	
-``` JSON
-"profiles": [
-{
+    ``` JSON
+    "profiles": [
+    {
 	"name": "businessHoursProfile",
 	"capacity": {
 		...
@@ -248,8 +248,8 @@ The setting would look like this:
 			]
 		}
 	}
-},
-{
+    },
+    {
 	"name": "nonBusinessHoursProfile",
 	"capacity": {
 		...
@@ -272,10 +272,10 @@ The setting would look like this:
 			]
 		}
 	}
-}]
-```
+    }]
+    ```
 	
-By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
+    By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
 	
 > [!Note]
 > The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default > profile in between recurrence profiles.
