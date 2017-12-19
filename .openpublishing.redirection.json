@@ -13940,11 +13940,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-policy/index.yml",
-            "redirect_url": "/azure/azure-policy/index.yml",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
             "redirect_document_id": false
