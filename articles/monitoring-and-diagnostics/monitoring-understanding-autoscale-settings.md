@@ -1,7 +1,7 @@
 ---
 title: Understanding Autoscale Settings | Microsoft Docs
 description: A detailed breakdown of autoscale settings and how they work.
-author: ancav
+author: anirudhcavale
 manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
@@ -278,7 +278,7 @@ There are three types of Autoscale profiles:
     By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
 	
 > [!Note]
-> The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default > profile in between recurrence profiles.
+> The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default profile in between recurrence profiles.
 	
 ## Autoscale Evaluation
 Given that autoscale settings can have multiple autoscale profiles, and each profile can have multiple metric rules it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs it begins by choosing the profile that is applicable, after choosing the profile autoscale evaluates the min, max values and any metric rules in the profile and decides if a scale action is necessary.
