@@ -40,7 +40,7 @@ A hierarchy tree can be created to support any number of scenarios an organizati
     - If there is no Root Management Group showing, it will be created automaticly when the first management group is created in the directory.  
 - To remove a management group, no children can be linked to the management group
 
-# API commands 
+# PowerShell commands 
 Management group command functions are only available through an API, but management groups are visible through the [Azure Portal](https://portal.azure.com).  Users can create, search, update, delete, and link other groups/ subscriptions to a management group through the API.  
 
 
