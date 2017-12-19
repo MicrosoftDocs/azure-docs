@@ -20,13 +20,21 @@ ms.author: genli
 ---
 # Add or change Azure subscription administrators
 
-Use Azure Role-Based Access Control (RBAC) and classic subscription administrator roles to manage access to your Azure subscription. To view Azure billing information and manage subscriptions, you must sign in to the Account Center as the Account Administrator. 
+Azure classic subscription admins and Azure [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md) (RBAC) are two systems for managing access to Azure resources:
+
+    - Classic subscription admin roles offer basic access management and include Account Administrator, Service Administrator, and Co-Administrators.
+        - When you sign up for a new Azure subscription, your account is set as both the Account Administrator and Service Administrator by default.
+        - Co-Administrators can be added after sign up.
+    - RBAC is a newer system that offers fine-grained access management with many built-in roles, flexibility of scope, and custom roles.
+        - However, users with only RBAC roles and no classic subscription admin roles cannot manage Azure classic deployments.
+
+To ensure better control and to simplify access management, we recommend that you use RBAC for all access management needs. If possible, we recommend that you reconfigure existing access policies using RBAC. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
 ## Add an RBAC Owner admin for a subscription in Azure portal 
 
-To add someone as an admin for Azure subscription service administration, we recommend giving them an [RBAC](../active-directory/role-based-access-control-what-is.md) Owner role. The Owner role can manage the resources in the subscription that you assigned and doesn't have access privilege to other subscriptions.
+To add someone as an admin for Azure subscription service administration, give them an RBAC Owner role to the subscription. The Owner role can manage the resources in the subscription that you assigned and doesn't have access privilege to other subscriptions.
 
 1. Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription that you want the admin to access.
@@ -92,18 +100,18 @@ The Account Admin is the user that initially signed up for the Azure subscriptio
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
-## Types of subscription admins vs. RBAC
+## Types of classic subscription admins
 
- Account Administrator, Service Administrator, and Co-administrator are the three kinds of classic subscription administrator roles in Azure. The following table describes the difference between these three administrative roles. 
+ Account Administrator, Service Administrator, and Co-administrator are the three kinds of classic subscription administrator roles in Azure. The account that is used to sign up for Azure is automatically set as the Account Administrator, Service Administrator. Then, additional Co-Administrators can be added. The following table describes exact differences between these three administrative roles. 
+
+> [!TIP]
+> For better control and fine-grained access management, we recommend using Azure Role-based Access Control (RBAC), which allows users to be added to multiple roles. To learn more, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 | Classic subscription administrator | Limit | Description |
 | --- | --- | --- |
 | Account Administrator (AA) |1 per Azure account |This is the user who signed up for the Azure subscription, and is authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks. These include being able to create new subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator. Conceptually, the Account Admin is the billing owner of the subscription. In RBAC, the Account Administrator isn't assigned a role.|
 | Service Administrator (SA) |1 per Azure subscription |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator. In RBAC, the Owner role is given to the Service Administrator at the subscription scope.|
 | Co-administrator (CA) |200 per subscription |This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. In RBAC, the Owner role is given to the Co-Administrator at the subscription scope.|
-
-If possible, we recommend using Azure Role-based Access Control (RBAC), which allows users to be added to multiple roles. To learn more, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-what-is.md).
-
 
 ## Learn more about resource access control and Active Directory
 
