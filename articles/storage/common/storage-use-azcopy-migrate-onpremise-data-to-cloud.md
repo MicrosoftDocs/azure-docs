@@ -15,7 +15,7 @@ ms.author: v-ruogun
 
 #  Migrate on-premises data to cloud storage with AzCopy
 
-AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.   
+AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.   
 
 There are two versions of AzCopy that you can download:
 
@@ -52,13 +52,13 @@ Blobs are always uploaded into a container. Containers allows you to organize gr
 Follow these steps to create a container:
 
 1. Select the **Storage accounts** button from the main page, and select the storage account you created.
-2. Select **Blobs** under **Services**, then select **Container**  
+2. Select **Blobs** under **Services**, then select **Container**. 
 
 ![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Container names must start with a letter or number, and can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-## Upload all your data
+## Upload all files in a folder to Blob storage
 
 There are several ways to upload data to Azure Blob Storage using AzCopy on [Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) or [Linux](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux#blob-download). To upload all blobs in a folder, enter the following AzCopy command:
 
