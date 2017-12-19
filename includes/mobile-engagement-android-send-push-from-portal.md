@@ -3,8 +3,7 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 
 1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
    
-    ![](./media/mobile-engagement-android-send-push/engage-button.png)
-2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
+![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
    
     ![](./media/mobile-engagement-android-send-push/engagement-portal.png)
 3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
