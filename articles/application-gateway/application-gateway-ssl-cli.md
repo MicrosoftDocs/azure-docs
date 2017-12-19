@@ -79,7 +79,7 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-### Create the application gateway
+## Create the application gateway
 
 You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
