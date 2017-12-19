@@ -36,13 +36,13 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
 5. Create a folder in your local copy of this GitHub repo for CMake build process. 
 
-    ```cmd/sh
+    ```cmd
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
@@ -50,7 +50,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 6. Run the following command to create the Visual Studio solution for the provisioning client.
 
-    ```cmd/sh
+    ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
     ```
     

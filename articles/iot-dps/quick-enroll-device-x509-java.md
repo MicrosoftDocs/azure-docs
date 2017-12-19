@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 12/16/2017
+ms.date: 12/20/2017
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -20,7 +20,7 @@ ms.custom: mvc
 > * [TPM](quick-enroll-device-tpm-java.md)
 > * [X.509](quick-enroll-device-x509-java.md)
 
-These steps show how to enroll X.509 simulated devices programmatically to the Azure IoT Hub Device Provisioning Services, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although these steps will work on both Windows as well as Linux machines, we will use a Windows development machine for the purpose of this article.
+These steps show how to enroll X.509 simulated devices programmatically to the Azure IoT Hub Device Provisioning Services, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
 
 Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
@@ -59,14 +59,16 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. Compile the source code using *Maven*. 
+2.  Get the Maven package `com.microsoft.azure.sdk.iot.provisioning.service` on your machine by:
+    - compiling the source code using *Maven* to create the package:
 
-    ```cmd/sh
-    cd azure-iot-sdk-java
-    mvn install -DskipTests=true
-    ```
-   
-   This step creates the Maven package `com.microsoft.azure.sdk.iot.provisioning.service` on your machine.
+        ```cmd/sh
+        cd azure-iot-sdk-java
+        mvn install -DskipTests=true
+        ```
+
+    - OR, by downloading the [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) package to your machine. 
+
 
 <a id="javasample"></a>
 
@@ -74,14 +76,14 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 This section shows how to add the provisioning details of your TPM device to the sample code. In the Java source code, navigate to the sample folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Open the file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** in an editor of your choice, and add the following details:
 
-1. Add the *Provisioning Connection String* for your provisioning service:
+1. Add the `[Provisioning Connection String]` for your provisioning service, from the portal as following:
     1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
     2. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
     3. Copy the **Primary key connection string**. 
 
         ![Get the provisioning connection string from portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
 
-    4. In the sample code file **_ServiceEnrollmentGroupSample.java_**, replace the *[Provisioning Connection String]* with the **Primary key connection string**.
+    4. In the sample code file **_ServiceEnrollmentGroupSample.java_**, replace the `[Provisioning Connection String]` with the **Primary key connection string**.
 
         ```Java
         private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -118,7 +120,7 @@ This section shows how to add the provisioning details of your TPM device to the
                 "-----END CERTIFICATE-----\n";
         ```
  
-3. Optionally, you may choose to configure your provisioning service through the sample code:
+3. Optionally, you may configure your provisioning service through the sample code:
     - To add this configuration to the sample, follow these steps:
         1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
             ```Java
@@ -176,7 +178,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 ## Next steps
-In this Quickstart, you’ve enrolled a simulated group of X.509 devices to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this Quickstart, you enrolled a simulated group of X.509 devices to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
