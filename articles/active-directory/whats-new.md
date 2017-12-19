@@ -62,7 +62,7 @@ Users can review and see the terms of use that they have accepted. This can be d
 
 4. From there you can review the terms of use you have accepted. 
 
-For more information, see [Azure Active Directory Terms of Use feature (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou)
+For more information, see [Azure Active Directory Terms of Use feature (Preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
  
 ---
  
@@ -203,7 +203,7 @@ Require approval to activate resource roles
 Schedule a future activation of a role that requires approval for both AAD and Azure RBAC Roles
 
  
-For more information, see [PIM for Azure resources (Preview)](azure-pim-resource-rbac.md)
+For more information, see [PIM for Azure resources (Preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
 
  
 ---
@@ -681,6 +681,6 @@ A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017
 - Is a cumulative update that replaces all MIM 2016 SP1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. 
 - Requires you to have **Microsoft Identity Manager 2016 build 4.4.1302.0.** 
 
-For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---
