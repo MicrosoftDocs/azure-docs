@@ -35,7 +35,7 @@ Log in to the Azure portal at http://portal.azure.com.
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
-2. Search for **scale set**, choose **Virtual machine scale set**, then select **Create**.
+2. Search for *scale set*, choose **Virtual machine scale set**, then select **Create**.
 3. Enter a name for the scale set, such as *myScaleSet*.
 4. Select your desired OS type, such as *Windows Server 2016 Datacenter*.
 5. Enter your desired resource group name, such as *myResourceGroup*, and location, such as *East US*.
@@ -51,12 +51,12 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 
 
 ## Connect to a VM in the scale set
-When you create a scale set in the portal, a load balancer is created. The load balancer distributes traffic from the single public IP address that you created to the scale set instances. Network Address Translation (NAT) rules are used to distribute traffic to the scale set instances for remote connectivity such as RDP or SSH.
+When you create a scale set in the portal, a load balancer is created. Network Address Translation (NAT) rules are used to distribute traffic to the scale set instances for remote connectivity such as RDP or SSH.
 
 To view these NAT rules and connection information for your scale set instances:
 
-1. Select the resource group you created in the previous step.
-2. From the list of resources, select the **Load balancer**, such as *myScaleSetLb*.
+1. Select the resource group you created in the previous step, such as *myResourceGroup*.
+2. From the list of resources, select your **Load balancer**, such as *myScaleSetLb*.
 3. Choose **Inbound NAT rules** from the menu on the left-hand side of the window.
 
     ![Inbound NAT rules allow you to connect to virtual machine scale set instances](./media/virtual-machine-scale-sets-create-portal/inbound-nat-rules.png)
@@ -65,6 +65,8 @@ You can connect to each VM in the scale set using these NAT rules. Each VM insta
 
 - For a Windows scale set, you connect to the VM instance via RDP on `104.42.1.19:50001`.
 - For a Linux scale set, you would connect using the command `ssh azureuser@104.42.1.19 -p 50001`.
+
+When prompted, enter the credentials you specified from the previous step when you created the scale set. The scale set instances are regular VMs that you can interact as normal. For more information on how to deploy and run applications on your scale set instances, see [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 
 
 ## Clean up resources
