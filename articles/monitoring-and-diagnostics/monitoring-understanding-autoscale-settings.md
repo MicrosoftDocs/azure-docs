@@ -28,8 +28,8 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 - The scale-in rule is triggered when the virtual machine scale set's average is less than 60% for the past minute.
 
 > [!NOTE]
-> A setting can have multiple profiles, jump to the [profiles](#Autoscale-profiles) section to learn more.
-> A profile can also have multiple scale-out rules and scale-in rules defined, jump to the [evaluation section](#Autoscale-Evaluation) to see how they are evaluated
+> A setting can have multiple profiles, jump to the [profiles](#autoscale-profiles) section to learn more.
+> A profile can also have multiple scale-out rules and scale-in rules defined, jump to the [evaluation section](#autoscale-evaluation) to see how they are evaluated
 
 ```JSON
 {
