@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Active Directory Role Based Access Control with Azure Event Hubs (preview)
+# Active Directory Role Based Access Control (preview)
 
 Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (AAD). With AAD, you can either manage user accounts and applications specifically for your Azure based applications, or you can federate your existing Active Directory infrastructure with AAD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those AAD user and application identities to global and service-specific roles in order to grant access to Azure resources.
 
