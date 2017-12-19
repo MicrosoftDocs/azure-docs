@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
 
 ---
@@ -46,7 +46,11 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     a. On Azure Stack Development Kit (ASDK) installations, sign in to the physical host.
 
-    b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
+    b. On multi-node systems, the host must be a system that can access the Privileged Endpoint. 
+    
+    >[!NOTE]
+    > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation will fail otherwise. The ASDK host meets this criteria.
+
 
 3. Download the SQL resource provider binary and execute the self-extractor to extract the contents to a temporary directory.
 
@@ -55,16 +59,19 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     | Azure Stack Build | SQL RP installer |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP version 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
-    If you need to provide your own certificate, you need the following certificate:
+    If you need to provide your own certificate, you will need a PFX file placed in the **DependencyFilesLocalPath** (see below) as follows:
 
-    A wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates. A single site certificate can be used with the explicit VM name [sqladapter] used during install.
+    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of sqladapter.dbadapter.\<region\>.\<external fqdn\>
+    - This certificate must be trusted, such as would be issued by a certificate authority. That is, the chain of trust must exist without requiring intermediate certificates.
+    - Only a single certificate file exists in the DependencyFilesLocalPath.
+    - The file name must not contain any special characters.
 
 
 5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
@@ -157,6 +164,73 @@ You can specify these parameters in the command line. If you do not, or any para
 2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.\<location\>.sqladapter** resource group and verify that all four deployments succeeded.
 
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## Update the SQL Resource Provider Adapter (multi-node only, builds 1710 and later)
+Whenever the Azure Stack build is updated, a new SQL Resource Provider Adapter will be released. While the existing adapter might continue to work, it is advisable to update to the latest build as soon as possible after the Azure Stack is updated. The update process is very similar to the installation process described above. A new VM will be created with the latest RP code, and settings will be migrated to this new instance including database and hosting server information, as well as the necessary DNS record.
+
+Use the UpdateSQLProvider.ps1 script with the same arguments as above. You must provide the certificate here as well.
+
+> [!NOTE]
+> Update is only supported on multi-node systems.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### UpdateSQLProvider.ps1 parameters
+You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
+
+| Parameter Name | Description | Comment or Default Value |
+| --- | --- | --- |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
+| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
+| **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
+| **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
+| **DependencyFilesLocalPath** | Your certificate PFX file must be placed in this directory as well. | _optional_ (_mandatory_ for multi-node) |
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
+| **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
+| **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
+| **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
+| **DebugMode** | Prevents automatic cleanup on failure | No |
+
 
 
 ## Remove the SQL Resource Provider Adapter
