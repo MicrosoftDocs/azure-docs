@@ -27,36 +27,27 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. 
+1. Make sure you have the [.NET core SDK](https://www.microsoft.com/net/download/windows) installed on your machine. 
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the Azure IoT SDK for C# GitHub repo:
+4. Open a command prompt or Git Bash. Clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repo:
     
-    ```cmd/sh
+    ```cmd
     git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
-    ```
-
-6. Open a developer command prompt. To build the SDK, type the following command in the SDK root directory (azure-iot-sdk-csharp): 
-
-   > [!NOTE]
-   > This step is temporary and will be removed at a future date.
-
-    ```cmd/sh
-    build -clean -nolegacy
     ```
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
 
-1. In the developer command prompt, change directories from the SDK root directory to the project directory for the X.509 device provisioning sample.
+1. In a command prompt, change directories to the project directory for the X.509 device provisioning sample.
 
-    ```cmd/sh
-    cd .\provisioning\device\samples\ProvisioningDeviceClientX509
+    ```cmd
+    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
     ```
 
-1. The sample code is set up to use X.509 certificates stored within a password-protected PKCS12 formatted file (certificate.pfx). Additionally, you need a public key certificate file (certificate.cer) to create an individual enrollment later in this quickstart. To generate a self-signed certificate and its associated .cer and .pfx files, run the following command:
+1. The sample code is set up to use X.509 certificates stored within a password-protected PKCS12 formatted file (certificate.pfx). Additionally, you need a public key certificate file (certificate.cer) to create an individual enrollment later in this Quickstart. To generate a self-signed certificate and its associated .cer and .pfx files, run the following command:
 
-    ```cmd/sh
+    ```cmd
     powershell .\GenerateTestCertificate.ps1
     ```
 
@@ -72,7 +63,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 5. Under the **Add enrollment list entry**, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
     - Under the *Certificate .pem or .cer file*, select the certificate file **certificate.cer** created in the previous steps using the *File Explorer* widget.
-    - For **Device ID** enter: `iothubx509device1`. This matches the common name in the X.509 certificate. 
+    - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This will also be the name used for the registration ID for the individual enrollment entry. 
     - Optionally, you may provide the following information:
         - Select an IoT hub linked with your provisioning service.
         - Update the **Initial device twin state** with the desired initial configuration for the device.
@@ -80,7 +71,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509-csharp/enter-device-enrollment.png)  
 
-   On successful enrollment, your X.509 device appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab. 
+   On successful enrollment, your X.509 enrollment entry appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 ## Provision the simulated device
 
@@ -91,7 +82,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. Type the following command to build and run the X.509 device provisioning sample. Replace the `<IDScope>` value with the ID Scope for your provisioning service. 
 
-    ```cmd/sh
+    ```cmd
     dotnet run <IDScope>
     ```
 
@@ -99,7 +90,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Sample device output](./media/quick-create-simulated-device-x509-csharp/sample-output.png) 
 
-1. Verify that the device has been provisioned. On successful provisioning of the simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade. 
+1. Verify that the device has been provisioned. On successful provisioning of the simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Iot Devices** blade. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-csharp/hub-registration.png) 
 
