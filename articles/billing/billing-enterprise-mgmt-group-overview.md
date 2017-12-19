@@ -26,7 +26,7 @@ Management groups, along with your subscriptions, can be organized into a hierar
 
 ![hierarchy tree](media/billing-enterprise-mgmt-groups/mg-hierarchy.png)
 
-A hierarchy tree can be created to support any number of scenarios that you might need answers to. An example scenario that is common for users with multiple subscriptions is the assignment of user accesses.  Linking subscriptions together under a management group and assigning access to the management group makes those accesses inherit to all the child resources (Subscriptions, Resource Groups, Resources). 
+A hierarchy tree can be created to support any number of scenarios an organizations might need support. An example scenario that is common for users with multiple subscriptions is the assignment of user accesses.  Linking subscriptions together under a management group and assigning access to the management group makes those accesses inherit to all the child resources (Subscriptions, Resource Groups, Resources). 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a single directory 
@@ -37,12 +37,14 @@ A hierarchy tree can be created to support any number of scenarios that you migh
     - This root management group can allow for policy to be applied at the global level
     - All resources fold up to the root management group.  If no separate parent group is defined, the subscription or management group's parent is the root management group. 
     - This root management group is special in that it cannot be moved or deleted
+    - If there is no Root Management Group showing, it will be created automaticly when the first management group is created in the directory.  
 - To remove a management group, no children can be linked to the management group
 
 # API commands 
 Management group command functions are only available through an API, but management groups are visible through the [Azure Portal](https://portal.azure.com).  Users can create, search, update, delete, and link other groups/ subscriptions to a management group through the API.  
 
-If you are looking for the Rest API, see the [Management Group Swagger](http://www.example.com). 
+### Rest API Swagger
+If you are looking to use the Rest API, see the [Management Group Swagger](http://www.example.com). 
 
 
 ## Create a management group
@@ -56,12 +58,12 @@ Add-AzureRmManagementGroup
     [-Defaultprofile]<IAzureContextContainer>
     [<CommonParameters>]
 ```
-- [-GroupName]: Defines the name of the group and also the ID of the group being created. 
-- [-DisplayName]: The name that is displayed within the UI for this group. 
+- [-GroupName]: Defines the ID of the group being created. This ID will be used by other commands to reference this group and it can not be edited later.
+- [-DisplayName]: The name that is displayed within the UI for this group. This can be changed at anytime.
 - [-ParentId]: This parameter is used while creating the group to link it as a child to another group.  The group listed here is the parent of the new group. 
 
 ### Example 1: Add new group
-This example is to create a new management group with the name of "Contoso." 
+This example is to create a new management group with the ID of "Contoso." 
 
 ```powershell
 C:\> Add-AzureRmManagementGroup -GroupName Contoso  
@@ -89,7 +91,7 @@ Update-AzureRmManagementGroup
 ```
 - [-GroupName]: The ID of the management group to be updated. 
 - [-DisplayName]: The name that is displayed within the UI.  This property can be updated. 
-- [-ParentId]: This parameter can be updated to link this group to a new parent group.  The group listed here is the parent of the updated management group.   
+- [-ParentId]: This parameter can be updated to link this group to a new parent group.  The group listed here is the new parent of the updated management group.   
  
 ### Example 3: Update a management group with a new display name
 This example shows how to update an existing management group with the "GroupName" of "Contoso" to have a display name of "Contoso Group." After this update, the group shows the new display name in the Azure portal.  
@@ -117,7 +119,7 @@ Remove-AzureRmManagementGroup
 - [-GroupName]: Parameter required to identify what group to remove from the hierarchy. 
  
 ### Example 5: Delete a management group
-Sometimes there is the need to remove the management group "ContosoMarketing" from the hierarchy.  This management group does not have any children in the hierarchy so it can be deleted. 
+This example shows how to remove the management group "ContosoMarketing" from the hierarchy.  This management group does not have any children in the hierarchy so it can be deleted. 
 
 ```powershell
 Remove-AzureRmManagementGroup -GroupName ContosoMarketing
