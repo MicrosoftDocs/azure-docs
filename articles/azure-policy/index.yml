@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to create, assign and, manage policy definitions in Azure.
+    text: Learn how to create, assign, and manage policy definitions in Azure.
   - type: list
     style: icon48
     items: 
@@ -38,7 +38,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create, assign and, manage policy definitions in Azure.
+    text: Learn how to create, assign, and manage policy definitions in Azure.
   - type: list
     style: unordered
     items:
