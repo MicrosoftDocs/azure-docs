@@ -19,7 +19,7 @@ ms.author: jdial
 ---
 # Container networking
 
-Azure provides a Container Networking Interface (CNI) plugin that allows you to deploy and manage your own Kubernetes cluster, with native Azure networking capability. The plugin is enabled, by default, when deploying Kubernetes clusters with the [Azure Container Service Engine](https://github.com/Azure/acs-engine) (or ACS engine).
+Azure provides a [Container Networking Interface (CNI) plugin](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) that allows you to deploy and manage your own Kubernetes cluster, with native Azure networking capability. The plugin is enabled, by default, when deploying Kubernetes clusters with the [Azure Container Service Engine](https://github.com/Azure/acs-engine) (or ACS engine).
 
 ## Networking capabilities
 
@@ -38,8 +38,8 @@ You can deploy up to 4,000 nodes in a Kubernetes cluster, and up to 250 pods per
 
 ## Constraints
 - The plugin is not enabled when deploying a Kubernetes cluster with the [Azure Container Service (AKS)](../aks/intro-kubernetes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [ACS](../container-service/kubernetes/container-service-intro-kubernetes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) cluster with Kubernetes.
-- There is no native support for Kubernetes network policies, including DNS or access policies
-- The plugin doesn't support per-pod network policies
+- There is no native support for Kubernetes network policies, including DNS or access policies.
+- The plugin doesn't support per-pod network policies.
 
 ## Pricing
 There is no charge for using the CNI plugin.
