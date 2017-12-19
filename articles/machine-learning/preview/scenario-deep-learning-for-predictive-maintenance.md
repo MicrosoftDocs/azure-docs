@@ -105,13 +105,13 @@ The Model Building Jupyter Notebook in Code/2_model_building_and_evaluation.ipny
 
 ### Task 3: Operationalization
 
-The operationalization Jupyter Notebook in Code/3_operationalization.ipnyb uses the stored model to build functions and schema that are required for calling the model on an Azure-hosted web service. The notebook tests the functions, and then zips (compresses) the operationalization assets into a .zip file that is also stored in your Blob storage container.
+The operationalization Jupyter Notebook in Code/3_operationalization.ipnyb uses the stored model to build functions and schema that are required for calling the model on an Azure-hosted web service. The notebook tests the functions, and then zips (compresses) the operationalization assets into a .zip file.
 
 The zipped file contains these files:
 
-- **service_schema.json**: The schema definition file for deployment. 
+- **modellstm.json**: The schema definition file for deployment. 
 - **lstmscore.py**: The **init()** and **run()** functions, which are required by the Azure web service.
-- **lstmfull.model**: The model definition directory.
+- **lstm.model**: The model definition directory.
 
 The notebook tests the functions by using the model definition before it packages the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
 
