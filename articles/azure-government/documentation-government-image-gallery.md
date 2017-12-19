@@ -42,7 +42,7 @@ Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of Dcember 18, 2017.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of December 18, 2017.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |

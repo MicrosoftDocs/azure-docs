@@ -67,40 +67,7 @@ To restore files or folders from the restore point, go to the virtual machine an
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.  
          
-   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
-
-### Compatible OS
-
-#### For Windows
-
-The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
-
-|Server OS | Compatible client OS  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### For Linux
-
-In Linux, the OS of the computer used to restore files must support the file system of the protected virtual machine. When selecting a computer to run the script, ensure the computer has a compatible OS, and uses one of the versions identified in the following table:
-
-|Linux OS | Versions  |
-| --------------- | ---- |
-| Ubuntu | 12.04 and above |
-| CentOS | 6.5 and above  |
-| RHEL | 6.7 and above |
-| Debian | 7 and above |
-| Oracle Linux | 6.4 and above |
-
-The script also requires Python and bash components to execute and connect securely to the recovery point.
-
-|Component | Version  |
-| --------------- | ---- |
-| bash | 4 and above |
-| python | 2.6.6 and above  |
-
+   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
 
 ### Identifying Volumes
 
@@ -189,6 +156,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name
+
+## System requirements
+
+### For Windows
+
+The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
+
+|Server OS | Compatible client OS  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### For Linux
+
+In Linux, the OS of the computer used to restore files must support the file system of the protected virtual machine. When selecting a computer to run the script, ensure the computer has a compatible OS, and uses one of the versions identified in the following table:
+
+|Linux OS | Versions  |
+| --------------- | ---- |
+| Ubuntu | 12.04 and above |
+| CentOS | 6.5 and above  |
+| RHEL | 6.7 and above |
+| Debian | 7 and above |
+| Oracle Linux | 6.4 and above |
+| SLES | 12 and above |
+| openSUSE | 42.2 and above |
+
+The script also requires Python and bash components to execute and connect securely to the recovery point.
+
+|Component | Version  |
+| --------------- | ---- |
+| bash | 4 and above |
+| python | 2.6.6 and above  |
+| TLS | 1.2 should be supported  |
 
 ## Troubleshooting
 
