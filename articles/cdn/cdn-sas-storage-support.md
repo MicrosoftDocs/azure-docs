@@ -46,10 +46,13 @@ This option is the most secure and customizable, and requires Azure CDN Premium 
 
 1. [Create a token](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) and activate it by using the rules engine for the CDN endpoint and path where your users can access the file.
 
-   For example:   
+   A SAS URL has the following format:   
    `https://<endpoint>.azureedge.net/<folder>/<file>?<CDN_SECURITY_TOKEN>`
  
-   Note that the parameter options for CDN token authentication are different than the parameter options for SAS. If you choose to use an expiration time, when you create a CDN token, set it to the same value as the expiration time for the SAS. Doing so ensures that the expiration time is predictable. 
+   Here is a sample Blob service SAS URL:   
+   `https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+
+   Parameter options for CDN token authentication are different than the parameter options for SAS. If you choose to use an expiration time when you create a CDN token, set it to the same value as the expiration time for the SAS. Doing so ensures that the expiration time is predictable. 
  
 2. Use the [rules engine](https://docs.microsoft.com/azure/cdn/cdn-rules-engine) to create a rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
 
