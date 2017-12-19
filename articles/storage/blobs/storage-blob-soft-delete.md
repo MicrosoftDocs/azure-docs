@@ -121,7 +121,7 @@ deleted snapshots does not return an error. You can still delete a blob and all
 its snapshots in single operation when soft delete is turned on. Doing so marks
 the base blob and snapshots as soft deleted.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete.png)
+![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
 *Soft deleted data is grey, while active data is blue. More recently
 written data appears beneath older data. Here, a “Delete Blob” call is made to
