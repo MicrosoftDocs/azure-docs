@@ -33,6 +33,8 @@
       href: luis-quickstart-cs-add-utterance.md
     - name: Java
       href: luis-quickstart-java-add-utterance.md
+    - name: JavaScript
+      href: luis-quickstart-javascript-add-utterance.md
     - name: Node.js
       href: luis-quickstart-node-add-utterance.md
     - name: Python
