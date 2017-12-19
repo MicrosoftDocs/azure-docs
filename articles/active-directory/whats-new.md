@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -38,6 +38,197 @@ We are improving Azure Active Directory on an ongoing basis. To enable you to st
 -	Plans for changes 
 
 Please revisit this page regularly as we are updating it on a monthly basis.
+
+
+## December 2017
+ 
+[58048](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=58048&triage=true&fullScreen=false&_a=edit)
+
+### End users can now review their previously accepted terms of use in the access panel.
+
+**Type:** New feature  
+**Service Category:** Terms of Use  
+**Product Capability:** Governance/Compliance
+ 
+End users now have the ability to go to access panel and view the terms of use that they have previously accepted.
+
+Documentation: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou
+
+Screenshots below:
+Users can review and see the terms of use that they have accepted. This can be done using the following procedure:
+
+Navigate and sign-in to https://myapps.microsoft.com.
+In upper right corner, click your name and select Profile from the drop-down. 
+On your Profile, click Review terms of use. 
+From there you can review the terms of use you have accepted. 
+
+ 
+---
+ 
+[59365](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=59365&triage=true&fullScreen=false&_a=edit)
+
+### New Azure AD sign-in experience
+
+**Type:** New feature  
+**Service Category:** Azure AD  
+**Product Capability:** User Authentication
+ 
+As part of the journey to converge the Azure AD and Microsoft account identity systems, we have redesigned the UI on both systems so that they have a consistent look and feel. In addition, we have paginated the Azure AD sign-in page so that we collect the username first, followed by the credential on a second screen.
+
+More information about this change can by found on the following blog post: https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/
+
+ 
+---
+ 
+[194080](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=194080&triage=true&fullScreen=false&_a=edit)
+
+### Fewer login prompts: A new “Keep me signed in” experience for Azure AD login
+
+**Type:** New feature  
+**Service Category:** Azure AD  
+**Product Capability:** User Authentication
+ 
+We have replaced the "Keep me signed in" checkbox on the Azure AD login page with a new prompt that shows up after the user successfully authenticates. 
+
+If a user responds "Yes" to this prompt, the service gives them a persistent refresh token, the same behavior as when the user checks the "Keep me signed in" checkbox in the old experience. For federated tenants, this prompt will show after the user successfully authenticates with the federated service.
+
+You can find more information in the following blog post: https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/
+
+ 
+---
+ 
+[309261](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=309261&triage=true&fullScreen=false&_a=edit)
+
+### Add configuration to require the TOU to be expanded prior to accepting.
+
+**Type:** New feature  
+**Service Category:** Terms of Use  
+**Product Capability:** Governance
+ 
+We have now added an option for admins to require their end users to expand the terms of use prior to accepting the terms.
+
+Documentation can be found here: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-tou
+
+Screenshot below: 
+
+Select either on or off for Require users to expand the terms of use. If this is set to on, end users will be required to view the terms of use prior to accepting them.
+
+
+
+ 
+---
+ 
+[316768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316768&triage=true&fullScreen=false&_a=edit)
+
+### Scoped activation for eligible role assignments
+
+**Type:** New feature  
+**Service Category:** Privileged Identity Management  
+**Product Capability:** Privileged Identity Management
+ 
+Scoped activation allows you to activate eligible Azure resource role assignments with less autonomy than the original assignment defaults. For example, you are assigned Owner of a subscription in your tenant. With scoped activation, you can activate Owner for up to five resources contained within the subscription (think Resource Groups, Virtual Machines, etc...). Scoping your activation may reduce the possibility of executing unwanted changes to critical Azure resources.
+
+ 
+---
+ 
+[322784](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=322784&triage=true&fullScreen=false&_a=edit)
+
+### New federated apps in Azure AD app gallery
+
+**Type:** New feature  
+**Service Category:** Enterprise Apps  
+**Product Capability:** 3rd Party Integration
+ 
+In December 2017 we have added following new apps in our App gallery with Federation support:
+
+|Name|Integration Type|Description|
+|:-- |----------------|:----------|
+|EFI Digital StoreFront|SAML 2.0|[Web 2 Print application](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Use Azure AD to manage user access and enable single sign-on with Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Requires an existing Vodeclic account.|
+|Accredible|SAML 2.0|[Create, manage and deliver certificates, badges and blockchain credentials](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Single Sign-on to FactSet's FDSWeb application](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD Integration|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) mission is to enable modern enterprises to secure and manage information as it moves to mobile and to the cloud, while preserving end-user privacy and trust.|
+|IMAGE WORKS|SAML 2.0|Use Azure AD to manage user access, provision user accounts, and enable single sign-on with [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Requires an existing IMAGE WORKS subscription.|
+|SAML SSO for Bitbucket by resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegates authentication to Azure AD, users already logged-in to Azure AD can access Bitbucket directly. Users can be created and updated on-the-fly with data from SAML attributes.|
+|SAML SSO for Bamboo by resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) delegates authentication to Azure AD, users already logged-in to Azure AD can access Bamboo directly.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is your modern, fully featured social intranet software that supports your employees and your business.|
+|MOBI|SAML 2.0|[Centralize, comprehend, and control your entire device ecosystem](Documentation: https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for Performance Management, Real-Time Feedback, and Goal Setting. We empower employees to drive their own development, so you can be more strategic.|
+|CybSafe|OpenID Connect & OAuth|CybSafe is a GCHQ-certified cyber awareness platform. It uses advanced technology and data analytics to demonstrably reduce the human aspect of cyber security and data protection risk.|
+|WebHR|OpenID Connect & OAuth|Everyone's Favorite All-in-One Social HR Software. Trusted by over 20,000 companies in 197 countries|
+ |Zenegy Azure AD Integration|OpenID Connect & OAuth|With this App you can use your company’s Azure Active Directory credentials to log into Zenegy.|
+|Adobe Experience Manager|SAML 2.0|Adobe Experience Manager (AEM), is a comprehensive content management platform solution for building websites, mobile apps and forms - making it easy to manage your marketing content and assets.|
+
+ 
+---
+ 
+[316772](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316772&triage=true&fullScreen=false&_a=edit)
+
+### Approval workflows for Azure AD directory roles
+
+**Type:** Changed feature  
+**Service Category:** Privileged Identity Management  
+**Product Capability:** Privileged Identity Management
+ 
+Approval workflow for Azure AD directory roles is generally available.
+
+With approval workflow, privileged role administrators can require eligible role members request role activation before they can use the privileged role.
+Multiple users and groups may be delegated approval responsibilities
+Eligible role members receive notifications when the approval is complete and their role is active
+
+ 
+---
+ 
+[316084](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=316084&triage=true&fullScreen=false&_a=edit)
+
+### Applications supporting Intune App Protection policies added for use with Azure AD application-based conditional access
+
+**Type:** Changed feature  
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection
+ 
+We have added two more applications that support application-based conditional access. Now, get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps. 
+Microsoft Kaizala
+Microsoft StaffHub 
+Learn more on how to configure application-based conditional access here.
+
+ 
+---
+ 
+[281430](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=281430&triage=true&fullScreen=false&_a=edit)
+
+### Pass-through Authentication - Skype for Business support
+
+**Type:** Changed feature  
+**Service Category:** Authentications (Logins)  
+**Product Capability:** User Authentication
+ 
+ 
+---
+ 
+[302622](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=302622&triage=true&fullScreen=false&_a=edit)
+
+### Updates to Azure Active Directory Privileged Identity Management (PIM) for Azure RBAC (preview)
+
+**Type:** Changed feature  
+**Service Category:** PIM  
+**Product Capability:** Privileged Identity Management
+ 
+With our Public Preview Refresh of Azure Active Directory Privileged Identity Management (PIM) for Azure RBAC, you can now:
+
+Use Just Enough Administration
+Require approval to activate resource roles
+Schedule a future activation of a role that requires approval for both AAD and Azure RBAC Roles
+
+ 
+Read more at https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac
+
+ 
+---
+ 
+
+
+
 
 ## November 2017
  
