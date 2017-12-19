@@ -16,7 +16,7 @@ ms.author: davidmu
 ---
 # Create an application gateway with a certificate for SSL termination using the Azure portal
 
-You can use the Azure portal to create an [application gateway](application-gateway-introduction.md). This tutorial shows you how to create an application gateway with two backend servers in a new resource group and virtual network.
+You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses virtual machines for backend servers.
 
 In this article, you learn how to
 
@@ -82,14 +82,15 @@ A virtual network is needed for communication between the resources that you cre
 
     ![Create virtual network](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-6. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
-7. Click **HTTPS** for the protocol of the listener and make sure that the port is defined as **443**.
-8. Click the folder icon and browse to the *appgwcert.pfx* certificate that you previously created to upload it.
-9. Enter *mycert1* for the name of the certificate and *Azure123456!* for the password, and then click **OK**.
+6. Click **OK** to create the virtual network and subnet.
+7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+8. Click **HTTPS** for the protocol of the listener and make sure that the port is defined as **443**.
+9. Click the folder icon and browse to the *appgwcert.pfx* certificate that you previously created to upload it.
+10. Enter *mycert1* for the name of the certificate and *Azure123456!* for the password, and then click **OK**.
 
     ![Create new application gateway](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-10. Review the settings on the summary page, and then click **OK** to create the virtual network, the public IP address and the application gateway. It may take several minutes for the application gateway to be created, wait until
+11. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
 the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet

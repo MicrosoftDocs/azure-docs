@@ -17,7 +17,7 @@ ms.author: davidmu
 
 # Create an application gateway with a web application firewall using the Azure portal
 
-You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application, which protect against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. This tutorial shows you how to create an application gateway with WAF enabled using two backend servers in a new resource group and virtual network.
+You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
 
 In this article, you learn how to
 
@@ -56,9 +56,10 @@ A virtual network is needed for communication between the resources that you cre
 
     ![Create virtual network](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-6. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+6. Click **OK** to create the virtual network and subnet.
+7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
 8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
-9. Review the settings on the summary page, and then click **OK** to create the virtual network, the public IP address and the application gateway. It may take several minutes for the application gateway to be created, wait until
+9. Review the settings on the summary page, and then click **OK** to create network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
 the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
