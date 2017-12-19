@@ -420,10 +420,10 @@ regardless of whether you are using this feature.
 API](/rest/api/storageservices/fileservices/blob-service-rest-api)
 
 [Azure Storage
-Replication](../common/storage-redundancy)
+Replication](../common/storage-redundancy.md)
 
 [Designing Highly Available Applications using
-RA-GRS](../common/storage-designing-ha-apps-with-ragrs)
+RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [What to do if an Azure Storage outage
-occurs](../common/storage-disaster-recovery-guidance)
+occurs](../common/storage-disaster-recovery-guidance.md)
