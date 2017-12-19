@@ -1,19 +1,19 @@
 ---
 title: Azure Service Bus role based access control (RBAC) | Microsoft Docs
 description: Azure Service Bus role based access control
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid:
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 12/19/2017
 ms.author: sethm
 
 ---
@@ -46,7 +46,7 @@ If you still want to create a specific account for this scenario, [follow these 
 
 ### Create a Service Bus namespace
 
-Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) in one of the Azure regions that have Event Hubs preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
+Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) in one of the Azure regions that have preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
 
 Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add** to add the AAD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
