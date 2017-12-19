@@ -69,7 +69,7 @@ Understanding how consistently each tenant is using the service provides an oppo
 To complete this tutorial, make sure the following prerequisites are met:
 
 - The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
-- The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
+- The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
 - A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -111,7 +111,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
-## Data Extraction 
+## Data extraction 
 
 ### Create target groups 
 
@@ -143,7 +143,7 @@ Repeat the preceding steps, except this time replace **\ExtractTickets.sql** wit
 
 Successfully running the job populates the EventsRawData table in the analytics store with new events and venues information from all tenants. 
 
-## Data Reorganization
+## Data reorganization
 
 ### Shred extracted data to populate star-schema tables
 
@@ -159,7 +159,7 @@ In this section of the tutorial, you define and run a job that merges the extrac
 
 ![shredding](media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 
-## Data Exploration
+## Data exploration
 
 ### Visualize tenant data
 

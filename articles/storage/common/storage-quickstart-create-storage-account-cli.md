@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a storage account using the Azure CLI | Microso
 description: Quickly learn to create a new storage account using the Azure CLI.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
-ms.author: marsma
+ms.author: tamram
 ---
 
 # Create a storage account using the Azure CLI
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## Create resource group
+## Create a resource group
 
 Create an Azure resource group with the [az group create](/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed. This example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -46,7 +46,7 @@ az account list-locations \
     --out table
 ```
 
-## Create a general-purpose standard storage account
+## Create a general-purpose storage account
 
 There are several types of storage accounts appropriate for different usage scenarios, each of which supports one or more of the storage services (blobs, files, tables, or queues). The following table details the available storage account types.
 
@@ -55,12 +55,13 @@ There are several types of storage accounts appropriate for different usage scen
 |**Services supported**| Blob, File, Table, Queue services | Blob service | Blob service|
 |**Types of blobs supported**|Block blobs, page blobs, append blobs | Page blobs | Block blobs and append blobs|
 
-Create a general-purpose standard storage account with the [az storage account create](/cli/azure/storage/account#create) command.
+Create a general-purpose storage account with the [az storage account create](/cli/azure/storage/account#create) command.
 
 ```azurecli-interactive
 az storage account create \
     --name mystorageaccount \
     --resource-group myResourceGroup \
+    --kind Storage \
     --location eastus \
     --sku Standard_LRS \
     --encryption blob

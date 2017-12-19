@@ -38,6 +38,7 @@ Sometimes, you want to configure the configuration files, which include:
 * tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
+* server.properties (kafka-broker configuration)
 
 There are three methods to use bootstrap:
 

@@ -24,6 +24,8 @@
   items:
   - name: Plan and design
     items:
+    - name: Storage account options
+      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Planning for an Azure Files deployment
       href: storage-files-planning.md
     - name: How to deploy Azure Files
@@ -64,6 +66,8 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Using the Azure Storage REST API
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Files

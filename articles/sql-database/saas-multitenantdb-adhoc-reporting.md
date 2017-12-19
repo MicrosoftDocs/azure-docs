@@ -49,12 +49,11 @@ Accessing this data in a single multi-tenant database is easy, but not so easy w
 
 By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries do not perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database. And assess how much data is being returned. Queries that require complex analytical processing might be better served by saving the extracted tenant data into a database that is optimized for analytics queries. SQL Database and SQL Data Warehouse could host such the analytics database.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
 
-## Get the Wingtip Tickets SaaS Multi-tenant Database application scripts
+## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB github repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Make sure to follow the unblock steps outlined in the readme.
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Create ticket sales data
 
@@ -93,7 +92,7 @@ This exercise adds schema (the external data source and external table definitio
 
     ![create credential](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   The external data source, that is defined to use the tenant shard map in the catalog database. By using this as the external data source, queries are distributed to all databases registered in the catalog when the query is run. Because server names are different for each deployment, this initialization script gets the location of the catalog database by retrieving the current server (@@servername) where the script is executed.
+   By using the catalog database as the external data source, queries are distributed to all databases registered in the catalog when the query is run. Because server names are different for each deployment, this initialization script gets the location of the catalog database by retrieving the current server (@@servername) where the script is executed.
 
     ![create external data source](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -117,7 +116,7 @@ Now that the *adhocreporting* database is set up, go ahead and run some distribu
 
 When inspecting the execution plan, hover over the plan icons for details. 
 
-1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SSMS.
+1. In *SSMS*, open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Ensure you are connected to the **adhocreporting** database.
 3. Select the **Query** menu and click **Include Actual Execution Plan**
 4. Highlight the *Which venues are currently registered?* query, and press **F5**.
@@ -152,9 +151,7 @@ In this tutorial you learned how to:
 > * Run distributed queries across all tenant databases
 > * Deploy an ad hoc reporting database and add schema to it to run distributed queries.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing.
 
 ## Additional resources
 

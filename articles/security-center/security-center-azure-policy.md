@@ -27,7 +27,7 @@ Security Center automatically creates a default security policy for each of your
 * Monitor policy compliance.
 
 > [!NOTE]
-> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Azure Policy is in limited preview. To join, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information about Azure Policy, see [Create and manage policies to enforce compliance](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## Edit security policies
 You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group. To view your security polices in Security Center, do the following:
@@ -36,14 +36,14 @@ You can edit the default security policy for each of your Azure subscriptions in
 
 2. On the **Security Center** dashboard, under **General**, select **Security policy**.
 
-	![The Policy Management pane](./media/security-center-policies/security-center-policies-fig10.png)
+	![The Policy Management pane](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Select the subscription that you want to enable a security policy for.  
 
 4. In the **Policy Components** section, select **Security policy**.  
     The **Basics** window opens.
 
-	![Policy components](./media/security-center-policies/security-center-policies-fig12.png)
+	![Policy components](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. To delete a policy definition, under **Policies and Parameters**, next to the definition you want to delete, select **Delete**.
 
@@ -54,12 +54,12 @@ You can edit the default security policy for each of your Azure subscriptions in
 
     * To add a policy definition, select the plus sign (+) next to the definition.
 
-	![Available policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
+	![Available policy definitions](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * For a detailed explanation of a policy, select it.  
     A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](../azure-policy/policy-definition.md) structure.
 
-	![The definition Preview window](./media/security-center-policies/security-center-policies-fig14.png)
+	![The definition Preview window](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. When you finish editing, select **Save**.
 

@@ -132,7 +132,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-With the connection string, you can use the following command to mount the Azure File share.
+With the connection string, you can use the following command to mount the Azure Files share.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -140,9 +140,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-For details, see [Mount an Azure File share and access the share in Windows][azmount].
+For details, see [Mount an Azure Files share and access the share in Windows][azmount].
 
-You can also navigate the directories under the Azure File share as follows:
+You can also navigate the directories under the Azure Files share as follows:
 
             
 ``` PowerShell
@@ -285,7 +285,7 @@ For a specific command, you can still do Get-Help followed by a cmdlet.
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## Use Azure File Storage to store your data
+## Use Azure Files to store your data
 
 You can create a script, say `helloworld.ps1`, and save it to your `CloudDrive` to use it across shell sessions.
 
@@ -297,7 +297,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` folder that mounts your Azure File share.
+Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` folder that mounts your Azure Files share.
 
 ## Use custom profile
 

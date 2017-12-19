@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
 ms.service: active-directory
@@ -50,7 +50,7 @@ This section guides you through connecting your Azure AD to Salesforce Sandbox's
 >[!Tip]
 >You may also choose to enabled SAML-based Single Sign-On for Salesforce Sandbox, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
-### configure automatic user account provisioning
+### Configure automatic user account provisioning
 
 The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Salesforce Sandbox.
 

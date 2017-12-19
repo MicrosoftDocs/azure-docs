@@ -1,20 +1,12 @@
 ---
-title: Azure Container Service tutorial - Monitor Kubernetes | Microsoft Docs
+title: Azure Container Service tutorial - Monitor Kubernetes
 description: Azure Container Service tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
 services: container-service
-documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc

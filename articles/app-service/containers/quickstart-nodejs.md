@@ -19,6 +19,10 @@ ms.custom: mvc
 ---
 # Create a Node.js web app in Azure App Service on Linux
 
+> [!NOTE]
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a Node.js web app in Azure](../app-service-web-get-started-nodejs.md).
+>
+
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
@@ -29,8 +33,8 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install Node.js and NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://nodejs.org/" target="_blank">Install Node.js and NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

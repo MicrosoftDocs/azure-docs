@@ -15,6 +15,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB
@@ -35,6 +36,10 @@ In addition:
 * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
 
 ## Create a database account
+
+> [!IMPORTANT] 
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
