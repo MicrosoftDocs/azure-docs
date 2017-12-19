@@ -2,29 +2,35 @@
 title: Using Ansible with Azure
 description: Introduction to using Ansible to automates cloud provisioning, configuration management, and application deployments.
 ms.service: ansible
-keywords: ansible, devops, overview, cloud provision, configuration management, application deployment
+keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 12/18/2017
+ms.date: 12/19/2017
 ms.topic: article
 ---
 
 # Ansible with Azure
 
-[Ansible](http://www.ansible.com) is an open source automation engine that automates cloud provisioning (including VM, container, network and complete cloud infrastructures), configuration management, and application deployments.  
+[Ansible](http://www.ansible.com) is an open source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. In addition, Ansible allows you to automate the deployment and configuration of resources in your environment.
 
-This article describes the benefits of using Ansible with Azure.
+This article gives a basic overview of some of the benefits of using Ansible with Azure.
 
-## Automate and configure Azure resources
+## Ansible playbooks
 
-Ansible includes a suite of [Ansible cloud modules](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) for interacting with Azure services. The cloud modules give you the tools to easily create and orchestrate infrastructure on Microsoft Azure. 
+[Ansible playbooks](http://docs.ansible.com/ansible/latest/playbooks.html) are Ansible’s configuration, deployment, and orchestration language. They can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process. When you create a playbook you do so using YAML, which defines a model of a configuration or a process.
 
-### Migrate existing workload to Azure
+## Ansible modules
 
-Once you have defined your Azure environments with Ansible, you can apply your application's playbook letting Azure automatically scale your environment as needed. 
+Ansible includes a suite of [Ansible modules](http://docs.ansible.com/ansible/latest/modules_by_category.html) that can be executed directly on remote hosts or via [playbooks](http://docs.ansible.com/ansible/latest/playbooks.html). Users can also create their own modules. Modules can be used to control system resources - such as services, packages, or files - or execute system commands.
 
-### Automate cloud-native application in Azure
+For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](http://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) that provides the tools to easily create and orchestrate your infrastructure on Azure. 
+
+## Migrate existing workload to Azure
+
+Once you have used Ansible to define your infrastructure, you can apply your application's playbook letting Azure automatically scale your environment as needed. 
+
+## Automate cloud-native application in Azure
 
 Ansible enables you to automate cloud-native applications in Azure using Azure microservices such as [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) and [Kubernetes on Azure](https://azure.microsoft.com/en-us/services/container-service/kubernetes/)).  
 
