@@ -54,10 +54,7 @@ To restore your service, follow the steps provided in the [Troubleshooting NSG C
 > To address this issue, you must delete your existing managed domain and re-create it in a subnet with a sufficient number of IP addresses. This process is disruptive.
 
 
-1. Delete your managed domain from your tenant.
-  1. Navigate to [Azure AD Domain Services on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices).
-  2. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
-  3. Select **Delete** and follow the remaining steps.
+1. [Delete your managed domain](#active-directory-ds-disable-aadds.md) from your tenant.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Select the virtual network you plan to use for Azure AD Domain Services.
@@ -119,10 +116,7 @@ To restore your service, follow the steps provided in the [Troubleshooting Servi
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-1. Delete your managed domain from your tenant.
-  1. Navigate to [Azure AD Domain Services on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices).
-  2. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
-  3. Select **Delete** and follow the remaining steps.
+1. [Delete your managed domain](#active-directory-ds-disable-aadds.md) from your tenant.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Select the virtual network you plan to use for Azure AD Domain Services.
@@ -131,8 +125,8 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   5. Click on **Subnets** in the left-hand navigation.
   6. Click on the subnet you wish to edit in the table.
   7. Update the address range and save your changes.
-3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
-4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+3. Follow [the Getting Started Using Azure AD Domain Services guide](#active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
+4. To domain-join your virtual machines to your new domain, follow [this guide](#active-directory-ds-admin-guide-join-windows-vm-portal).
 
 
 ### AADDS104: Network Error
@@ -144,10 +138,10 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 
 To restore your service, follow these steps:
 
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. C
-3. S
-4. C
+>[!NOTE]
+> If you do make a change in any of these steps, wait until your alerts page updates (could take up to two hours) to see if that step corrected your problem. 
+
+1. Check to make sure you have the right NSG configuration using the [Troubleshooting NSG Configuration](#active-directory-ds-troubleshoot-nsg.md)
 
 
 ## Contact Us

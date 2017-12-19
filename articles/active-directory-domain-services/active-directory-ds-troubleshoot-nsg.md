@@ -4,7 +4,7 @@ description: Troubleshooting NSG Configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mahesh-unnikrishnan
+manager:
 editor:
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 12/19/2017
 ms.author: ergreenl
 
 ---
@@ -22,43 +22,21 @@ ms.author: ergreenl
 
 
 ## Creating the right Network Security Group
-To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to specific ports inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
+To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
 
-| Port number | Purpose|
-|:----------|:------------|
-| 443 | Synchronization with your Azure AD tenant |
-| 3389 | Management of your domain |
-| 5986 | Management of your domain |
-| 636 | Secure LDAP (LDAPS) access to your managed domain |
+### Creating a "default" NSG
 
-Lastly, you should create a rule with the lowest priority to deny any other access. This rule is a fail-safe and secures your domain and applies to all other inbound traffic from the internet.
+Below are steps you can use to create an NSG from scratch that will keep all of the ports needed to run Azure AD Domain Services open while denying any other access.
 
-### Adding rules to your Network Security groups
+1. ghfghf
+
+### Adding a rule to a Network Security group
 Follow these steps to create rules in your Network security group
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. Click on **More Services** and search for **Network security groups**.
-3. Choose the NSG associated with your domain from the table.
-4. Under Settings in the left-hand navigation, click either **Inbound security rules** or **Outbound security rules**.
-5. Create the rule by clicking **Add** and filling in the Information
-6. Verify your rule has been created by locating it in the rules table.
-
-### Secure LDAP Port
-
-When secure LDAP is enabled, we recommend creating additional rules to allow inbound LDAPS access only from certain IP addresses. These rules protect your domain from brute force attacks that could pose a security threat. Port 636 allows access to your managed domain. Here is how to update your NSG to allow access for Secure LDAP:
-
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. Click on **More Services** and search for **Network security groups**.
-3. Choose the NSG associated with your domain from the table.
-4. Click on **Inbound security rules**
-5. Create the port 636 rule
-   1. Click **Add** on the navigation bar.
-   2. Choose **IP Addresses** for the resources
-   3. Specify the Source port ranges for this rule.
-   4. Input "636" for Destination port ranges.
-   5. Protocol is **TCP**.
-   6. Give the rule an appropriate name, description, and priority.
-   7. Click **OK**.
-6. Verify that your rule has been created.
+1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
+2. Choose the NSG associated with your domain from the table.
+3. Under Settings in the left-hand navigation, click either **Inbound security rules** or **Outbound security rules**.
+4. Create the rule by clicking **Add** and filling in the information. Click **OK**.
+5. Verify your rule has been created by locating it in the rules table.
 
 ### Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
