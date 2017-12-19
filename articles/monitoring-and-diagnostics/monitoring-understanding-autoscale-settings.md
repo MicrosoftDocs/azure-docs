@@ -17,7 +17,7 @@ ms.date: 12/18/2017
 ms.author: ancav
 
 ---
-# Understandng Autoscale Settings
+# Understand Autoscale Settings
 Autoscale settings enable you to ensure you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or trigger at a scheduled date and time. This article takes a detailed look at the anatomy of an autoscale setting. The article starts by understanding the schema and properties of a setting, then walks through the different profile types that can be configured, and finally discusses how autoscale evaluates which profile to execute at any given time.
 
 ## Autoscale setting schema
@@ -26,6 +26,7 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 - It has two metric rules in this profile; one for scale-out and one for scale-in.
 - The scale-out rule is triggered when the virtual machine scale set's average Percentage CPU metric is greater than 85% for the past 10 min.
 - The scale-in rule is triggered when the virtual machine scale set's average is less than 60% for the past minute.
+
 > [!NOTE]
 > A setting can have multiple profiles, jump to the [profiles](#Autoscale-profiles) section to learn more.
 > A profile can also have multiple scale-out rules and scale-in rules defined, jump to the [evaluation section](#Autoscale-Evaluation) to see how they are evaluated
@@ -121,7 +122,7 @@ There are three types of Autoscale profiles:
 
 1. **Regular profile:** Most common profile. If you don’t need to scale your resource differently based on the day of the week, or on a particular day, then you only need to set up a regular profile in your Autoscale setting. This profile can then be configured with metric rules that dictate when to scale-out and when to scale-in. You should only have one regular profile defined.
 
-The example profile used earlier in this article is an example of a regular profile. Do not it is also possible to set a profile to scale to a static instance count for your resource.
+	The example profile used earlier in this article is an example of a regular profile. Do not it is also possible to set a profile to scale to a static instance count for your resource.
 
 2. **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
 
@@ -154,9 +155,8 @@ The example profile used earlier in this article is an example of a regular prof
       		 "end": "2017-12-26T23:59:00"
 	}}
 ]
-
 ```
-
+	
 3. **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
 
 **Example 1 - Weekday vs. Weekends**
@@ -216,12 +216,13 @@ The setting would look like this:
 ```
 
 By looking at the preceding setting, you’ll notice that each recurrence profile has a schedule, this schedule determines when the profile starts executing. The profile stops executing when it’s time to execute another profile.
+
 For example, in the preceding setting, “weekdayProfile” is set to start on Monday at 12 a.m., that means this profile starts executing on Monday at 12.am. It continues executing until Saturday at 12a.m., when “weekendProfile”  is scheduled to start executing.
 
 **Example 2 - Business hours**
 Let’s take another example, maybe you want to have metric threshold = ‘x’ during business hours, 9 a.m. to 5 p.m., and then from 5 p.m. to 9 a.m. the next day, you want the metric threshold to be ‘y’.
 The setting would look like this:
-
+	
 ``` JSON
 "profiles": [
 {
@@ -273,12 +274,12 @@ The setting would look like this:
 	}
 }]
 ```
-
+	
 By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
-
+	
 > [!Note]
 > The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default > profile in between recurrence profiles.
-
+	
 ## Autoscale Evaluation
 Given that autoscale settings can have multiple autoscale profiles, and each profile can have multiple metric rules it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs it begins by choosing the profile that is applicable, after choosing the profile autoscale evaluates the min, max values and any metric rules in the profile and decides if a scale action is necessary.
 
@@ -297,7 +298,7 @@ If no scale-out rules are triggered, Autoscale  evaluates all the scale-in rules
 - Autoscale calculates the new capacity determined by the scaleAction of each of those rules. Then it chooses the scale action that results in the maximum of those capacities to ensure service availability.
 - For example: If there is a virtual machine scale set with a current capacity of 10 and there are two scale-in rules; one that decreases capacity by 50%, and one that decreases capacity by 3. The first rule would result in a new capacity of 5, and the second rule would result in a capacity of 7. To ensure service availability autoscale chooses the action that results in the max capacity, so the second rule is chosen.
 
-# Next Steps
+## Next Steps
 To learn more about Autoscale refer to the following resources:
 
 * [Overview of autoscale](monitoring-overview-autoscale.md)
