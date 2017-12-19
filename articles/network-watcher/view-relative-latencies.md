@@ -65,7 +65,14 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 View the relative Internet service provider latencies from a specific location to Azure regions. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location "West US 2" -Country "United States" -State "washington" -StartTime "2017-12-13" -EndTime "2017-12-15"
+Get-AzureRmNetworkWatcherReachabilityReport `
+  -NetworkWatcherName NetworkWatcher_eastus `
+  -ResourceGroupName NetworkWatcherRG `
+  -Location "West US 2" `
+  -Country "United States" `
+  -State "washington" `
+  -StartTime "2017-12-13" `
+  -EndTime "2017-12-15"
 ```
 
 > [!NOTE]
@@ -76,7 +83,7 @@ Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcherName NetworkWatcher_e
 
 The output from the previous command follows:
 
-```json
+```powershell
 AggregationLevel   : State
 ProviderLocation   : {
                        "Country": "United States",
@@ -121,7 +128,14 @@ In the returned output, the value for **Score** is the relative latency across r
 If, instead of specifying the relative latencies between a specific location and a specific Azure region using `-Location`, you wanted to determine the relative latencies to all Azure regions from a specific physical location, you can do that too. For example, the following command returns the relative network latencies to all Azure regions between December 13-15, 2017 for the Comcast Internet service provider:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Provider "Comcast Cable Communications, LLC - ASN 7922"  -Country "United States" -State "washington" -StartTime "2017-12-13" -EndTime "2017-12-15"
+Get-AzureRmNetworkWatcherReachabilityReport `
+  -NetworkWatcherName NetworkWatcher_eastus `
+  -ResourceGroupName NetworkWatcherRG `
+  -Provider "Comcast Cable Communications, LLC - ASN 7922" `
+  -Country "United States" `
+  -State "washington" `
+  -StartTime "2017-12-13" `
+  -EndTime "2017-12-15"
 ```
 
 >[!NOTE]
