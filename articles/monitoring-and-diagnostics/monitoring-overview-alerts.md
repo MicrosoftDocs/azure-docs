@@ -21,6 +21,7 @@ ms.custom: H1Hack27Feb2017
 # What are alerts in Microsoft Azure?
 This article describes the various sources of alerts in Microsoft Azure, what are the purposes for those alerts, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services with alerts as well. Alerts offer a method of monitoring in Azure that allows you to configure conditions over data and become notified when the conditions match the latest monitoring data.
 
+
 ## Taxonomy of Azure Alerts
 Azure uses the following terms to describe alerts and their functions:
 * **Alert** - a definition of criteria (one or more rules or conditions) that becomes activated when met.
@@ -29,8 +30,13 @@ Azure uses the following terms to describe alerts and their functions:
 * **Notification** - the action taken based off of an alert becoming active.
 * **Action** - a specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
 
+    > [!NOTE]
+    > As part of the evolution of Alerts in Azure, a new unified experience is available in preview. The new Alerts (Preview) experience uses a different taxonomy. Learn more about [Alerts (Preview)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## Alerts in different Azure services
 Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md). Here is a breakdown of the alert types available across Azure:
+
 
 | Service | Alert type | Supported services | Description |
 |---|---|---|---|
@@ -47,10 +53,10 @@ There are three types of alerts off of data available from Azure Monitor -- metr
 * **Metric alerts** - This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). For a growing list of available metrics supported by Azure monitor, see [List of metrics supported on Azure Monitor](monitoring-supported-metrics.md).
 * **Near real-time metric alerts (preview)**  - These alerts are similar to metric alerts but differ in a few ways. Firstly, as the name suggests these alerts can trigger in near real-time (as fast as 1 min). They also support monitoring multiple(currently two) metrics.  The alert generates a notification when the alert is "Activated" (when the thresholds for each metric are crossed at the same time and the alert condition is met) as well as when it is "Resolved" (when at least one metric crosses the threshold again and the condition is no longer met).
 
-> [!NOTE]
-> Near real-time metric alerts are currently in public preview. The functionality and user experience is subject to change.
->
->
+    > [!NOTE]
+    > Near real-time metric alerts are currently in public preview. The functionality and user experience is subject to change.
+    >
+    >
 
 * **Activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
 
@@ -88,3 +94,4 @@ Get information about alert rules and configuring them by using:
 * Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
 * Learn more about [Service Notifications](monitoring-service-notifications.md)
 * Learn more about [Action Groups](monitoring-action-groups.md)
+* Configure [Alerts via Alerts (Preview)](monitor-alerts-unified-usage.md)

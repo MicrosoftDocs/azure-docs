@@ -1,21 +1,11 @@
 ---
-title: Review the architecture for replication of Azure VMs between Azure regions  | Microsoft Docs
+title: Azure to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating Azure VMs between Azure regions using the Azure Site Recovery service.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid:
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/19/2017
 ms.author: raynew
-
 ---
 
 # Azure to Azure replication architecture
@@ -80,6 +70,4 @@ When you initiate a failover, the VMs are created in the target resource group, 
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable Azure VM replication to a secondary region.
-Run a failover and failback.
+[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region. 
