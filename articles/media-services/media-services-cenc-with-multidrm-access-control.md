@@ -70,7 +70,7 @@ To make your selection, keep in mind:
 * Widevine is natively implemented in every Android device, in Chrome, and in some other devices.
 * FairPlay is available only on iOS and Mac OS clients or through iTunes.
 
- There are two options for a typical multi-DRM:
+There are two options for a typical multi-DRM:
 
 * PlayReady and Widevine
 * PlayReady, Widevine, and FairPlay
@@ -98,7 +98,7 @@ The design has three basic layers:
 * A DMZ layer (dark blue) contains all the endpoints that face the public.
 * A public internet layer (light blue) contains the CDN and players with traffic across the public internet.
 
-There also should be a content management tool to control DRM protection, regardless of whether it's static or dynamic encryption. The inputs for DRM encryption should include:
+There also should be a content management tool to control DRM protection, regardless of whether it's static or dynamic encryption. The inputs for DRM encryption include:
 
 * MBR video content
 * Content key
@@ -344,7 +344,7 @@ You can use exactly the same design and implementation to protect live streaming
 Specifically, to do live streaming in Media Services, you need to create a channel and then create a program under the channel. To create the program, you need to create an asset that contains the live archive for the program. To provide CENC with multi-DRM protection of the live content, apply the same setup/processing to the asset as if it were a VOD asset before you start the program.
 
 ### What about license servers outside of Media Services?
-Often, customers might have invested in a license server farm either in their own data center or one hosted by DRM service providers. With Media Services Content Protection, you can operate in hybrid mode. Contents can be hosted and dynamically protected in Media Services, while DRM licenses are delivered by servers outside Media Services. In this case, consider the following changes:
+Often, customers invested in a license server farm either in their own data center or one hosted by DRM service providers. With Media Services Content Protection, you can operate in hybrid mode. Contents can be hosted and dynamically protected in Media Services, while DRM licenses are delivered by servers outside Media Services. In this case, consider the following changes:
 
 * STS needs to issue tokens that are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom require a specific JWT token that contains an entitlement message. Therefore, you need to have an STS to issue such a JWT token. For information on this type of implementation, go to the [Azure Documentation Center](https://azure.microsoft.com/documentation/) and see [Use Axinom to deliver Widevine licenses to Azure Media Services](media-services-axinom-integration.md).
 * You no longer need to configure license delivery service (ContentKeyAuthorizationPolicy) in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure AssetDeliveryPolicy to set up CENC with multi-DRM.
@@ -357,7 +357,7 @@ A customer might choose to use a custom STS to provide JWT tokens. Some of them 
 
 When you use a custom STS, two changes must be made:
 
-* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS (more details follow) instead of the current key from Azure AD.
+* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS instead of the current key from Azure AD. (More details follow.) 
 * When a JTW token is generated, a security key is specified instead of the private key of the current X509 certificate in Azure AD.
 
 There are two types of security keys:
@@ -371,17 +371,17 @@ There are two types of security keys:
 > IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
 
 ## The completed system and test
-This section walks you through a few scenarios in the completed end-to-end system so that you can have a basic picture of the behavior before you get a sign-in account.
-
-For the player web application and its sign-in, see [this website](https://openidconnectweb.azurewebsites.net/).
+This section walks you through the following scenarios in the completed end-to-end system so that you can have a basic picture of the behavior before you get a sign-in account:
 
 * If you need a non-integrated scenario:
 
-    * For video assets hosted in Media Services that are either unprotected or DRM protected but without token authentication (issuing a license to whomever requested it), you can test it without signing in. Switch to HTTP if your video streaming is over HTTP.
+    * For video assets hosted in Media Services that are either unprotected or DRM protected but without token authentication (issuing a license to whoever requested it), you can test it without signing in. Switch to HTTP if your video streaming is over HTTP.
 
 * If you need an end-to-end integrated scenario:
 
     * For video assets under dynamic DRM protection in Media Services, with the token authentication and JWT token generated by Azure AD, you need to sign in.
+
+For the player web application and its sign-in, see [this website](https://openidconnectweb.azurewebsites.net/).
 
 ### User sign-in
 To test the end-to-end integrated DRM system, you need to have an account created or added.
@@ -430,7 +430,7 @@ EME in Microsoft Edge and Internet Explorer 11 on Windows 10 allows [PlayReady S
 To focus on the Windows devices, PlayReady is the only DRM in the hardware available on Windows devices (PlayReady SL3000). A streaming service can use PlayReady through EME or through a Universal Windows Platform application and offer a higher video quality by using PlayReady SL3000 than another DRM. Typically, content up to 2K flows through Chrome or Firefox, and content up to 4K flows through Microsoft Edge/Internet Explorer 11 or a Universal Windows Platform application on the same device. The amount depends on service settings and implementation.
 
 #### Use EME for Widevine
-On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
+On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
 
 ![Use EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine1.png)
 
