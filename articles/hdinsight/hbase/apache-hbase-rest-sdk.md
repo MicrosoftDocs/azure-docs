@@ -190,5 +190,5 @@ finally
 
 ## See also
 
-* [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Get started with an Apache HBase example in HDInsight](apache-hbase-tutorial-get-started-linux.md)
 * Build an end-to-end application with [Analyze real-time Twitter sentiment with HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

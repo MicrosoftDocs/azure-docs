@@ -52,7 +52,7 @@ You can get most of this top-level information using the Azure portal.  Alternat
     azure hdinsight cluster show <ClusterName>
 ```
 
-You can also use PowerShell to view this information.  For more information, see [Manage Hadoop clusters in HDInsight by using Azure PowerShell](../hdinsight-administer-use-powershell.md).
+You can also use PowerShell to view this information.  For more information, see [Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ### Understand the workloads running on your clusters
 
@@ -189,5 +189,5 @@ To collect the logs from all the nodes to one central location, you can create a
 ## See also
 
 * [Monitoring and Logging Practice for HDInsight](https://msdn.microsoft.com/en-us/library/dn749790.aspx)
-* [Access YARN application log on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Access YARN application log on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
