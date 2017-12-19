@@ -60,4 +60,5 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">Azure CLI</a></p>
+    - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
