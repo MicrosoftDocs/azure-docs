@@ -22,12 +22,12 @@ ms.custom: Jenkins
 
 To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
-* Git and FTP.
+* Git or FTP.
 * Docker for Web Apps on Linux.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Configure Jenkins to deploy Web Apps through Git and FTP.
+> * Configure Jenkins to deploy Web Apps through Git or FTP.
 > * Configure Jenkins to deploy Web App for Containers.
 
 ## Create and configure a Jenkins instance
