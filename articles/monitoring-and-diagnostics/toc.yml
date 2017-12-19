@@ -90,7 +90,7 @@
       href: monitoring-enable-alerts-using-template.md
   - name: Use autoscale
     items:
-    - name: Understanding autoscale AutoscaleSettings
+    - name: Understand autoscale AutoscaleSettings
       href: monitoring-understanding-autoscale-settings.md
     - name: Best practices
       href: insights-autoscale-best-practices.md
