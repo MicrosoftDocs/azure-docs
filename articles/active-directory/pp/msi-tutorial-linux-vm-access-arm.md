@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/19/2017
+ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Use a Linux VM User-Assigned Managed Service Identity (MSI) to access Azure Resource Manager
+# Use a user-assigned Managed Service Identity (MSI) from a Linux VM, to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
