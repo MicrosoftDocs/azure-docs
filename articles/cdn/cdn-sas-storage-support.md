@@ -57,6 +57,8 @@ This option is the most secure and customizable, and requires Azure CDN Premium 
 
    ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
+   ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+
 3. When you renew the SAS, update the rewrite rule to the new token. 
 
 ### Option 2: Using SAS with pass-through to blob storage from the CDN
