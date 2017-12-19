@@ -26,11 +26,11 @@ Recommendations and performance optimizations for loading data into Azure SQL Da
 
 
 ## Preparing data in Azure Storage
-Co-locate your storage layer and your data warehouse to minimize latency.
+To minimize latency, co-locate your storage layer and your data warehouse.
 
-When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
+When exporting data into an ORC File Format, text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this limitation, export only a subset of the columns.
 
-PolyBase cannot load rows that have more than one million bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than one million bytes of data. This is true regardless of the table schema defined.
+PolyBase cannot load rows that have more than 1,000,000 bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than 1,000,000 bytes of data. This byte limitation is true regardless of the table schema.
 
 All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
 
@@ -38,7 +38,7 @@ Split large compressed files into smaller compressed files.
 
 ## Running loads with enough compute
 
-For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. You could also scale up your data warehouse if you expect a large loading job.
+For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your data warehouse before the load.
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, log in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
@@ -55,9 +55,9 @@ Run loads under static rather than dynamic resource classes. Using the static re
 
 ## Allowing multiple users to load
 
-There is often a need to have multiple users that can load data into a SQL DW. Because the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database, you will end up with multiple users with control access over all schemas. To limit this, you can use the DENY CONTROL statement.
+There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
-For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
+For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lockdown their schemas using DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -71,24 +71,24 @@ User_A and user_B are now locked out from the other dept’s schema.
 
 To achieve the fastest loading speed for moving data into a data warehouse table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option. 
 
-Consider that loading is a two step process in which you first load to a staging table and then insert the data into a production data warehouse table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. By doing this, the first step of loading will take longer, but the second step of inserting the rows to the production table will not incur data movement across the distributions.
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production data warehouse table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
 ## Loading to a columnstore index
 
-Columnstore indexes require a lot of memory to compress data into high quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress 1,048,576 rows into each rowgroup. This is the maximum number of rows per rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
-- Load enough rows to completely fill new rowgroups. During a bulk load, each 1,048,576 rows goes directly to the columnstore. Loads with fewer than 102,400 rows send the rows to the deltastore, which holds rows in a clustered index until there are enough for compression. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
+- Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 
 ## Handling loading failures
 
-A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. 
+A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format. 
 
-To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
+To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
 
 ## Inserting data into a production table
-A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql.md) or even a periodic reload of a look-up might perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Single ton inserts are not as efficient as performing a bulk load. 
+A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql.md), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
@@ -105,7 +105,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## Rotate storage keys
-It is good security practice to change the access key to your blob storage on a regular basis. You have two storage keys for your blob storage account. This is so that you can transition the keys.
+It is good security practice to change the access key to your blob storage on a regular basis. You have two storage keys for your blob storage account, which enables you to transition the keys.
 
 To rotate Azure Storage account keys:
 
@@ -113,7 +113,7 @@ To rotate Azure Storage account keys:
 2. Create a second external data source based off this new credential.
 3. Drop and create the external table(s) so they point to the new external data sources. 
 
-After migrating your external tables to the new data source, perform these clean up tasks:
+After migrating your external tables to the new data source, perform the following clean-up tasks:
 
 1. Drop the first external data source.
 2. Drop the first database scoped credential based on the primary storage access key.
