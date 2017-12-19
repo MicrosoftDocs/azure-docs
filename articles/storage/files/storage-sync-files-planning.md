@@ -155,6 +155,7 @@ Azure File Sync is available only in the following regions in preview:
 
 | Region | Datacenter location |
 |--------|---------------------|
+| East US | Virginia, USA |
 | West US | California, USA |
 | West Europe | Netherlands |
 | South East Asia | Singapore |

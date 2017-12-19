@@ -21,20 +21,13 @@ ms.author: markgal;trinadhk;
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
-> [!div class="op_single_selector"]
-> * [Resource Manager model](backup-azure-arm-vms-prepare.md)
-> * [Classic model](backup-azure-vms-prepare.md)
->
->
 
 This article provides the steps for preparing your environment to back up a Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
 The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects **both Classic-deployed or Resource Manager-deployed VMs**. You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
->
->
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Before you can protect or back up a Resource Manager-deployed virtual machine (VM), make sure these prerequisites exist:
 
@@ -44,7 +37,7 @@ Before you can protect or back up a Resource Manager-deployed virtual machine (V
 * Check network connectivity
 * For Linux VMs, in case you want to customize your backup environment for application consistent backups please follow the [steps to configure pre-snapshot and post-snapshot scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
+If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-arm-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 
 ##Supported operating system for backup
  * **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
@@ -68,8 +61,9 @@ Before you prepare your environment, please understand the limitations.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
 * You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-* Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Virtual machines under load balancer configuration (internal and external)
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
@@ -231,8 +225,6 @@ The example image below shows the three configuration steps necessary to use an 
 * Proxy VM allows incoming traffic from VMs in the virtual network.
 * The Network Security Group (NSG) named NSF-lockdown needs a security rule allowing outbound Internet traffic from Proxy VM.
 
-![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
 #### Step 1. Configure outgoing network connections
@@ -284,16 +276,10 @@ HttpProxy.Port=<proxy port>
 
 #### Step 2. Allow incoming connections on the proxy server:
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
-
-    ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 2. In the Windows Firewall dialog, right-click **Inbound Rules** and click **New Rule...**.
-
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
 4. On the page to select the **Program**, choose **All Programs** and click **Next**.
 5. On the **Protocol and Ports** page, enter the following information and click **Next**:
-
-    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * for *Protocol type* choose *TCP*
    * for *Local port* choose *Specific Ports*, in the field below specify the ```<Proxy Port>``` that has been configured.
@@ -322,6 +308,6 @@ If you have questions, or if there is any feature that you would like to see inc
 ## Next steps
 Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup. The planning article provides more detailed information about backing up VMs.
 
-* [Back up virtual machines](backup-azure-vms.md)
+* [Back up virtual machines](backup-azure-arm-vms.md)
 * [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 * [Manage virtual machine backups](backup-azure-manage-vms.md)

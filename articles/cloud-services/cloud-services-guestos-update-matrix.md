@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 12/14/2017
 ms.author: raiye
 
 ---
@@ -39,6 +39,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **December 14, 2017**
+November Guest OS has released.
 
 ###### **November 8, 2017**
 October Guest OS has released.
@@ -85,16 +87,16 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.13_201711-01 |December 14, 2017 |Post 5.15 |TBD |
 | WA-GUEST-OS-5.12_201710-02 |November 8, 2017 |Post 5.14 |TBD |
-| WA-GUEST-OS-5.11_201709-01 |October 6, 2017 |Post 5.13 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |August 24, 2017 |Post 5.12 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |January 10, 2017 |June 5, 2017|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -108,16 +110,16 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.48_201711-01 |December 14, 2017 |Post 4.50 |TBD |
 | WA-GUEST-OS-4.47_201710-02 |November 8, 2017 |Post 4.49 |TBD |
-| WA-GUEST-OS-4.46_201709-01 |October 6, 2017 |Post 4.48 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |August 24, 2017 |Post 4.47 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -131,16 +133,16 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.55_201711-01 |December 14, 2017 |Post 3.57 |TBD |
 | WA-GUEST-OS-3.54_201710-02 |November 8, 2017 |Post 3.56 |TBD |
-| WA-GUEST-OS-3.53_201709-01 |October 6, 2017 |Post 3.55 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |August 24, 2017 |Post 3.54 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
@@ -154,9 +156,10 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.68_201710-01 |December 14, 2017 |Post 2.70 |TBD |
 | WA-GUEST-OS-2.67_201710-02 |November 8, 2017 |Post 2.69 |TBD |
-| WA-GUEST-OS-2.66_201709-01 |October 6, 2017 |Post 2.68 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |August 24, 2017 |Post 2.67 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
@@ -164,7 +167,6 @@ Due to a security bug, we are disabling the following December 2016 and January 
 |~~WA-GUEST-OS-2.60_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |January 10, 2017 |June 5, 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |January 10, 2017 |May 9, 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |December 14, 2016 |April 10, 2017 |TBD |
 
 
 ## MSRC patch updates

@@ -57,4 +57,4 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 ##Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](devtest-lab-add-vm.md)
