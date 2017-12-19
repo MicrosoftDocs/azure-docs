@@ -101,7 +101,7 @@ Each item in the modules dictionary contains specific information about a module
    * Always - If the module crashes, is deemed unhealthy, or shuts down in any way, the Edge agent restarts it. 
 
 IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
-  * 200	- Deployment was successful
+  * 200	- OK
   * 400	- The deployment configuration is malformed or invalid.
   * 417	- The device does not have a deployment configuration set.
   * 412	- The schema version in the deployment configuration is invalid.
