@@ -17,15 +17,18 @@ ms.date: 12/18/2017
 ms.author: ancav
 
 ---
-# Understanding Autoscale Settings
+# Understandng Autoscale Settings
 Autoscale settings enable you to ensure you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale settings to be triggered based on metrics that indicate load or performance, or trigger at a scheduled date and time. This article takes a detailed look at the anatomy of an autoscale setting. The article starts by understanding the schema and properties of a setting, then walks through the different profile types that can be configured, and finally discusses how autoscale evaluates which profile to execute at any given time.
 
-## Autoscale Setting Schema
+## Autoscale setting schema
 To illustrate the autoscale setting schema, the following autoscale setting is used. It is important to note that this autoscale setting has:
-- One profile (**Note**: a setting can have multiple profiles, jump to the [profiles](#Autoscale-profiles) section to learn more)
-- It has two metric rules in this profile; one for scale-out and one for scale-in. (**Note**: you can create multiple scale-out rules and scale-in rules in a profile, jump to the [evaluation section](#Autoscale-Evaluation) to see how they are evaluated)
+- One profile 
+- It has two metric rules in this profile; one for scale-out and one for scale-in.
 - The scale-out rule is triggered when the virtual machine scale set's average Percentage CPU metric is greater than 85% for the past 10 min.
 - The scale-in rule is triggered when the virtual machine scale set's average is less than 60% for the past minute.
+> [!NOTE]
+> A setting can have multiple profiles, jump to the [profiles](#Autoscale-profiles) section to learn more.
+> A profile can also have multiple scale-out rules and scale-in rules defined, jump to the [evaluation section](#Autoscale-Evaluation) to see how they are evaluated
 
 ```JSON
 {
@@ -90,7 +93,7 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 
 | Section | Element name | Description |
 | --- | --- | --- |
-| Setting | ID | The Autoscale setting's ARM resource ID. Autoscale settings are an Azure Resource Manager resource. |
+| Setting | ID | The Autoscale setting's resource ID. Autoscale settings are an Azure Resource Manager resource. |
 | Setting | name | The Autoscale setting name. |
 | Setting | location | The location of the Autoscale setting. This location can be different from the location of the resource being scaled. |
 | properties | targetResourceUri | The resource ID of the resource being scaled. You can only have one Autoscale setting per resource. |
@@ -112,17 +115,15 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 | scaleAction | value | How much to increase or decrease the capacity of the resource |
 | scaleAction | cooldown | The amount of time to wait after a scale operation before scaling again. For example, if cooldown = “PT10M” then after a scale operation occurs, Autoscale will not attempt to scale again for another 10 minutes. The cooldown is to allow the metrics to stabilize after the addition or removal of instances. |
 
-# Autoscale profiles
+## Autoscale profiles
 
 There are three types of Autoscale profiles:
 
-1) **Regular profile:** Most common profile. If you don’t need to scale your resource differently based on the day of the week, or on a particular day, then you only need to set up a regular profile in your Autoscale setting. This profile can then be configured with metric rules that dictate when to scale-out and when to scale-in. You should only have one regular profile defined.
+1. **Regular profile:** Most common profile. If you don’t need to scale your resource differently based on the day of the week, or on a particular day, then you only need to set up a regular profile in your Autoscale setting. This profile can then be configured with metric rules that dictate when to scale-out and when to scale-in. You should only have one regular profile defined.
 
-The example profile used earlier in this article is an example of a regular profile.
+The example profile used earlier in this article is an example of a regular profile. Do not it is also possible to set a profile to scale to a static instance count for your resource.
 
-**Note**: You can also set this profile to scale to a static instance count for your resource.
-
-2) **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
+2. **Fixed date profile:** With the regular profile defined, let’s say you have an important event coming up on December 26, 2017 (PST) and you want the minimum/maximum capacities of your resource to be different on that day, but still scale on the same metrics. In this case, you should add a fixed date profile to your setting’s profiles list. The profile is configured to run only on the event’s day. For any other day, the regular profile is executed.
 
 ``` JSON
 "profiles": [{
@@ -156,7 +157,7 @@ The example profile used earlier in this article is an example of a regular prof
 
 ```
 
-3) **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
+3. **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time, as a result they run until the next recurrence profile or fixed date profile is set to start. An autoscale setting with only one recurrence profile, executes that profile even if there is a regular profile defined in the same setting. The two examples below illustrate the usage of this profile:
 
 **Example 1 - Weekday vs. Weekends**
 Let’s say that on weekends you want your max capacity to be 4 but on weekdays, since you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
@@ -275,17 +276,18 @@ The setting would look like this:
 
 By looking at the preceding setting , “businessHoursProfile” begins executing on Monday at 9 a.m. and keeps executing until 5 p.m. because that’s when “nonBusinessHoursProfile” starts executing. The “nonBusinessHoursProfile” executes until 9 a.m. Tuesday and then the “businessHoursProfile” takes over. This repeats till Friday 5 p.m., at that point “nonBusinessHoursProfile” executes all the way to Monday 9 a.m. since the “businessHoursProfile” does not start executing till Monday 9 a.m.
 
-**Note**: The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default profile in between recurrence profiles.
+> [!Note]
+> The autoscale UX in the Azure portal enforces end times for recurrence profiles, and begins executing the autoscale setting's default > profile in between recurrence profiles.
 
-# Autoscale Evaluation
+## Autoscale Evaluation
 Given that autoscale settings can have multiple autoscale profiles, and each profile can have multiple metric rules it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs it begins by choosing the profile that is applicable, after choosing the profile autoscale evaluates the min, max values and any metric rules in the profile and decides if a scale action is necessary.
 
-## Which profile will Autoscale pick?
+### Which profile will Autoscale pick?
 - Autoscale first looks for any fixed date profile that is configured to run now, if there is, Autoscale executes it. If there are multiple fixed date profiles that are supposed to run, Autoscale will select the first one.
 - If there are no fixed date profiles, Autoscale looks at recurrence profiles, if found, then it executes it.
 - If there are no fixed or recurrence profiles, then Autoscale execute the regular profile.
 
-## How does Autoscale evaluate multiple rules?
+### How does Autoscale evaluate multiple rules?
 
 Once Autoscale determines which profile is supposed to execute, it starts by evaluating all the scale-out rule in the profile (rules with direction = “Increase”).
 - If one or more scale-out rules are triggered, Autoscale  calculates the new capacity determined by the scaleAction of each of those rules. Then it scales-out to the maximum of those capacities to ensure service availability.
