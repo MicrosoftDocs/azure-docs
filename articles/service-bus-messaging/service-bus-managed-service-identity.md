@@ -46,7 +46,7 @@ The first step is to create an App Service ASP.NET application. If you're not fa
 
 Once you create the application, navigate to the newly created web app in the Azure portal (also shown in the how-to), then navigate to the **Managed Service Identity** page, and enable the feature: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![](./media/service-bus-managed-service-identity/msi1.png)
 
 Once you've enabled the feature, a new service identity is created in your Azure Active Directory, and configured into the App Service host.
 
@@ -56,7 +56,7 @@ Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-po
 
 Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed service identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
-![](./media/event-hubs-managed-service-identity/msi2.png)
+![](./media/service-bus-managed-service-identity/msi2.png)
  
 The web application's managed service identity now has access to the Service Bus namespace, and to the queue you previously created. 
 
@@ -70,7 +70,7 @@ Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messa
 
 Once you have made these changes, publish and run the application. An easy way to obtain the correct publishing data is to download and then import a publishing profile in Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![](./media/service-bus-managed-service-identity/msi3.png)
  
 To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**. 
  
