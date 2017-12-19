@@ -59,8 +59,8 @@ TBD - pull up from below and delete
     ```
 The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the next step.
 
-    ```json
-    {
+   ```json
+   {
         "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
         "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
         "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
@@ -71,8 +71,8 @@ The response contains details for the user-assigned MSI created, similar to the 
         "tags": {},
         "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
         "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-    }
-    ```
+   }
+   ```
 
 4. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with the new user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the <RESOURCE GROUP>, <VM NAME>, <USER NAME>, <PASSWORD>, and <MSI ID> parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property, as created in step #3 : 
 
