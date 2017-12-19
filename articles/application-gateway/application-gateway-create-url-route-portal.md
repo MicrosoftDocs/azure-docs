@@ -18,7 +18,7 @@ ms.author: davidmu
 
 You can use the Azure portal to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using virtual machines. You then create URL routing rules that make sure web traffic gets to the appropriate servers in the pools.
 
-In this article, you learn how to
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway
@@ -154,15 +154,15 @@ In this example, you create three virtual machines to be used as backend servers
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http://http://40.121.222.19.
 
-    ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-.png)
+    ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example:
+3. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm to the end of the base URL and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example:
+4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm and you should see something like the following example:
 
-    ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-vmss-iistest-video.png)
+    ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## Next steps
 
