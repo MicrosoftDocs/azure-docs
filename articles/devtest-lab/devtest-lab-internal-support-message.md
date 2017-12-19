@@ -65,5 +65,5 @@ When you no longer want to show this support message to lab users, return to the
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
-* Internal support statements are typically used to provide support information that doesn't change that frequently. You can also learn how to [post an announcement to a lab](devtest-lab-announcements.md) that informs users of more temporary changes or updates to the lab.
+* Internal support statements are typically used to provide support information that doesn't change that frequently. You can also learn how to [post an announcement to a lab](devtest-lab-announcements.md) to inform users of temporary changes or updates to the lab.
 * [Set policies and schedules](devtest-lab-set-lab-policy.md) provides information about how you can apply other restrictions and conventions across your subscription by using customized policies.
