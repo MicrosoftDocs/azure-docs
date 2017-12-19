@@ -78,21 +78,20 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 
 The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
 
-    ```json
-    {
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "9012",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-
-    ```
+   ```json
+   {
+   "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+   "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+   "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+   "location": "westcentralus",
+   "name": "<MSI NAME>",
+   "principalId": "9012",
+   "resourceGroup": "<RESOURCE GROUP>",
+   "tags": {},
+   "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+   }
+   ```
 
 ## Assign your user-assigned MSI to your Linux VM
 

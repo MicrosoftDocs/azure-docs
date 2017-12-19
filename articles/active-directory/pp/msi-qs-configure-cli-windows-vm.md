@@ -36,7 +36,7 @@ To run the CLI script examples in this tutorial, you have two options:
 
 ## Enable MSI during creation of an Azure VM
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM and user-assigned MSI:
 
    ```azurecli
    az login
@@ -53,14 +53,24 @@ To run the CLI script examples in this tutorial, you have two options:
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
+The response contains details for the user-assigned MSI created, similar to the following. The resource `id` value assigned to the MSI is used in the next step.
 
     ```json
     {
+        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+        "location": "westcentralus",
+        "name": "<MSI NAME>",
+        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+        "resourceGroup": "<RESOURCE GROUP>",
+        "tags": {},
+        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
     }
     ```
 
-4. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with a user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the <RESOURCE GROUP>, <VM NAME>, <USER NAME>, <PASSWORD>, and <MSI ID> parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property : 
+4. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with the new user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the <RESOURCE GROUP>, <VM NAME>, <USER NAME>, <PASSWORD>, and <MSI ID> parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property, as created in step #3 : 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image win2016datacenter --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -68,15 +78,15 @@ The response contains details for the user-assigned MSI created. Please note the
 
 ## Enable MSI on an existing Azure VM
 
-If you need to enable MSI on an existing Virtual Machine:
-
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM and user-assigned MSI. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Use [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
+2. Create a user-assigned MSI using [az identity create](/cli/azure). The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
+
+3. Use [az vm assign-identity](/cli/azure/vm/#az_vm_assign_identity) with the `--assign-identity` parameter to add an MSI to an existing VM:
 
    ```azurecli-interactive
    az vm assign-identity -g myResourceGroup -n myVm
