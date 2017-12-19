@@ -43,8 +43,6 @@ A hierarchy tree can be created to support any number of scenarios an organizati
 # API commands 
 Management group command functions are only available through an API, but management groups are visible through the [Azure Portal](https://portal.azure.com).  Users can create, search, update, delete, and link other groups/ subscriptions to a management group through the API.  
 
-### Rest API Swagger
-If you are looking to use the Rest API, see the [Management Group Swagger](http://www.example.com). 
 
 
 ## Create a management group
