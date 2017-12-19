@@ -1,6 +1,6 @@
 ---
 title: 'CENC with multi-DRM and access control: A reference design and implementation on Azure and Azure Media Services | Microsoft Docs'
-description: Learn about how to license the Microsoft® Smooth Streaming Client Porting Kit.
+description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -175,7 +175,6 @@ Here's the flow during runtime:
 * Upon user authentication, a JWT token is generated.
 * One of the claims contained in the JWT token is a groups claim that contains the group object ID EntitledUserGroup. This claim is used to pass the entitlement check.
 * The player downloads the client manifest of CENC-protected content and identifies the following:
-
    * Key ID.
    * The content is CENC protected.
    * License acquisition URLs.
@@ -227,9 +226,7 @@ For information on Azure AD:
 ### Some issues in implementation
 Use the following troubleshooting information for help with implementation issues.
 
-* The issuer URL must end with "/".  
-
-    The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
+* The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
 
         <add key="ida:audience" value="[Application Client ID GUID]" />
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
@@ -326,7 +323,7 @@ The access token is obtained from Azure AD. After successful user authentication
 
 To register and configure the pointer app in Azure AD, take the following steps:
 
-1. In the Azure AD tenant: 
+1. In the Azure AD tenant:
 
    * Add an application (resource) with the sign-on URL https://[resource_name].azurewebsites.net/. 
    * Add an app ID with the URL https://[aad_tenant_name].onmicrosoft.com/[resource_name].
