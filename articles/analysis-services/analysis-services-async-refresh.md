@@ -1,6 +1,6 @@
 ---
 title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
-description: Learn how to setup asynchronous refresh.
+description: Learn how to code asynchronous refresh by using REST API.
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
@@ -159,7 +159,7 @@ To get a list of historical refresh operations for a model, use the GET verb on 
 ]
 ```
 
-## DELETE /refreshes/<refreshId>
+## DELETE /refreshes/\<refreshId>
 
 To cancel an in-progress refresh operation, use the DELETE verb on the refresh ID.
 
