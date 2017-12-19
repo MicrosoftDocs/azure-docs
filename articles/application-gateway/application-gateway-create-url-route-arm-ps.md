@@ -344,7 +344,7 @@ You can use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Test base URL in application gateway](./media/application-gateway-url-route-arm-ps/application-gateway-iistest.png)
+![Test base URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
 Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example:
 
@@ -352,7 +352,7 @@ Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base
 
 Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example:
 
-![Test video URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-vmss-iistest-video.png)
+![Test video URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
 ## Next steps
 
