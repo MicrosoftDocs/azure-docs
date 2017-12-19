@@ -28,20 +28,22 @@ To build this example, you need the Custom Vision API, which you can find at [SD
 Start Visual Studio 2015, Community Edition, create a new Console Application, and replace the contents of Program.cs with the following code. This code defines and calls two helper methods. The method called **GetTrainingKey** prepares the training key. The one called **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint.
 
 ```
+using Microsoft.Cognitive.CustomVision.Prediction;
+using Microsoft.Cognitive.CustomVision.Training;
+using Microsoft.Cognitive.CustomVision.Training.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using Microsoft.Cognitive.CustomVision;
 
 namespace SmokeTester
 {
     class Program
     {
-        private static List<MemoryStream> hemlockImages;
+        private static List<string> hemlockImages;
 
-        private static List<MemoryStream> japaneseCherryImages;
+        private static List<string> japaneseCherryImages;
 
         private static MemoryStream testImage;
 
@@ -50,9 +52,8 @@ namespace SmokeTester
             // You can either add your training key here, pass it on the command line, or type it in when the program runs
             string trainingKey = GetTrainingKey("<your key here>", args);
 
-            // Create the Api, passing in a credentials object that contains the training key
-            TrainingApiCredentials trainingCredentials = new TrainingApiCredentials(trainingKey);
-            TrainingApi trainingApi = new TrainingApi(trainingCredentials);
+            // Create the Api, passing in the training key
+            TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
 
             // Upload the images we need for training and the test image
             Console.WriteLine("\tUploading images");
@@ -82,10 +83,9 @@ namespace SmokeTester
         private static void LoadImagesFromDisk()
         {
             // this loads the images to be uploaded from disk into memory
-            hemlockImages = Directory.GetFiles(@"..\..\..\..\..\SampleImages\Hemlock").Select(f => new MemoryStream(File.ReadAllBytes(f))).ToList();
-            japaneseCherryImages = Directory.GetFiles(@"..\..\..\..\..\SampleImages\Japanese Cherry").Select(f => new MemoryStream(File.ReadAllBytes(f))).ToList();
-            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\..\..\SampleImages\Test\test_image.jpg"));
-
+            hemlockImages = Directory.GetFiles(@"..\..\..\..\..\SampleData\Hemlock").ToList();
+            japaneseCherryImages = Directory.GetFiles(@"..\..\..\..\..\SampleData\Japanese Cherry").ToList();
+            testImage = new MemoryStream(File.ReadAllBytes(@"..\..\..\..\..\SampleData\Test\test_image.jpg"));
         }
     }
 }
@@ -119,11 +119,15 @@ namespace SmokeTester
             // Images can be uploaded one at a time
             foreach (var image in hemlockImages)
             {
-                trainingApi.CreateImagesFromData(project.Id, image, new List<string>() { hemlockTag.Id.ToString() });
+                using (var stream = new MemoryStream(File.ReadAllBytes(image)))
+                {
+                    trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
+                }
             }
 
             // Or uploaded in a single batch 
-            trainingApi.CreateImagesFromData(project.Id, japaneseCherryImages, new List<Guid>() { japaneseCherryTag.Id });
+            var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
+            trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
 ```
 
 ## Step 5: Train the project
@@ -161,9 +165,8 @@ namespace SmokeTester
             var account = trainingApi.GetAccountInfo();
             var predictionKey = account.Keys.PredictionKeys.PrimaryKey;
 
-            // Create a prediction endpoint, passing in a prediction credentials object that contains the obtained prediction key
-            PredictionEndpointCredentials predictionEndpointCredentials = new PredictionEndpointCredentials(predictionKey);
-            PredictionEndpoint endpoint = new PredictionEndpoint(predictionEndpointCredentials);
+            // Create a prediction endpoint, passing in the obtained prediction key
+            PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
 
             // Make a prediction against the new project
             Console.WriteLine("Making a prediction:");
