@@ -38,7 +38,8 @@ Azure Security Center can use behavioral analytics to identify compromised resou
 
 > [!NOTE]
 > For more information on how Security Center detection capabilities work, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
->
+
+
 ### Event analysis
 Security Center uses advanced analytics to identify compromised resources based on analysis of virtual machine event logs. For example, Process Creation Events and Login Events. In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
 
