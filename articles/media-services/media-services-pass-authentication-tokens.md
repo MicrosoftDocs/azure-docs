@@ -53,6 +53,5 @@ This option is used for PlayReady license acquisition only, through the CustomDa
 If you need to configure token authentication for AES + HLS playback on iOS/Safari, there isn't a way you can directly send in the token. For more information on how to alternate the playlist to enable this scenario, see this [blog post](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## Next steps
-Review the following Media Services learning paths:
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
