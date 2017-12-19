@@ -36,13 +36,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download the sample
 
-[Download or clone the sample solution](https://github.com/dlepow/batchmvc) from GitHub. (*Link to be updated*)
-
+[Download or clone the sample solution](https://github.com/dlepow/batchmvc) from GitHub.
 
 Change to the directory that contains the Visual Studio solution:
 
 ```
-cd <TBD>
+cd quickstart_dotnet
 ```
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]

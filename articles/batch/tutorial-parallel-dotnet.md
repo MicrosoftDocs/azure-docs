@@ -54,12 +54,12 @@ The ffmpeg application is added to your Batch account.
 
 ### Download the sample
 
-[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. (*Link to be updated*)
+[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. 
 
 Change to the directory that contains the sample code:
 
 ```bash
-cd <TBD>
+cd tutorial_dotnet
 ```
 
 ## Build the sample project

@@ -172,7 +172,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the XXX tutorial.
+In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran a sample task and created output on a compute node. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 
 > [!div class="nextstepaction"]

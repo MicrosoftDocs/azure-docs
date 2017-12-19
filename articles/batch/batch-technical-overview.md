@@ -22,7 +22,7 @@ ms.custom:
 
 Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a collection of virtual machines, installs the applications you want to run, and schedules jobs to run on the virtual machines.
 
-Azure Batch builds on top of the Azure compute infrastructure to provide a platform service. There is no cluster or job scheduler software to install, manage, or scale. Instead, You use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. There is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
+Azure Batch builds on top of the Azure compute infrastructure to provide a platform service. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. There is no additional charge for using Batch; you only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
 
 For a comparison between Batch and other HPC solution options in Azure, see [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md).
 

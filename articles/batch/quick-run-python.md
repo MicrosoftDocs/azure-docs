@@ -36,12 +36,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. (*Link to be updated*)
+[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. 
 
 Change to the directory that contains the sample code:
 
 ```bash
-cd <TBD>
+cd quickstart_python
 ```
 
 Install the required packages using `pip`.
