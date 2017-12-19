@@ -52,12 +52,15 @@ We will create a basic app with XCode to demonstrate the integration.
 3. Right-click the project, and then select **Add files to**.
 
     ![][1]
+
 4. Navigate to the folder where you extracted the SDK, select the `EngagementSDK` folder, click **Options** on the bottom left corner and make sure that the checkbox **Copy items if needed** and the checkbox for your target are checked then press **OK**.
 
     ![][2]
+
 5. Open the **Build Phases** tab, and in the **Link Binary With Libraries** menu, add the frameworks as shown below:
 
     ![][3]
+
 6. Go back to the Azure portal in your app's **Connection Info** page and copy the connection string.
 
     ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
