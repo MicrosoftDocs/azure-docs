@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 12/19/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ---
