@@ -13,12 +13,12 @@ ms.author: v-jerkin
 ---
 # Tutorial: Single-page Web app
 
-The Bing Entity Search API lets you search the Web for results about named entities and places relevant to a search query. 
+The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
 |||
 |-|-|
-|Entities|People, places, and things that you find by name (Jimi Hendrix, the Space Needle, Microsoft Surface)|
-|Places|Restaurants and local businesses that you find by name *or* by type (Italian restaurants)|
+|Entities|Well-known people, places, and things that you find by name (Jimi Hendrix, the Space Needle, Microsoft Surface)|
+|Places|Restaurants, hotels, and other local businesses that you find by name *or* by type (Italian restaurants)|
 
 In this tutorial, we build a single-page Web application that uses the Bing Entity Search API to display search results right in the page. The application includes HTML, CSS, and JavaScript components.
 
