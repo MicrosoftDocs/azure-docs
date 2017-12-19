@@ -21,7 +21,7 @@ ms.author: juliako;mingfeiy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
- You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with the Advanced Encryption Standard (AES) by using 128-bit encryption keys or [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). With Media Services you also can deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification.
+ You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with the Advanced Encryption Standard (AES) by using 128-bit encryption keys or [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). With Media Services, you also can deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification.
 
 Media Services also provides a key/license delivery service from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content.
 
@@ -46,7 +46,7 @@ For more information, see the following articles:
 * The key delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes. You can create ContentKeyAuthorizationPolicy and specify to use a token restriction, test it, and then update the policy to the open restriction. This process takes roughly 15 minutes before the policy switches to the open version of the policy.
 * If you add or update your asset's delivery policy, you must delete any existing locator and create a new locator.
 * Currently, you can't encrypt progressive downloads.
-* A Media Services streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '\*'. This works well with most players, including Azure Media Player, Roku and JWPlayer, and others. However, some players that use dashjs don't work because, with the credentials mode set to "include", XMLHttpRequest in their dashjs doesn't allow the wildcard "\*" as the value of 'Access-Control-Allow-Origin'. As a workaround to this limitation in dashjs, if you host your client from a single domain, Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through the Azure portal.
+* A Media Services streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '\*'. This value works well with most players, including Azure Media Player, Roku and JWPlayer, and others. However, some players that use dashjs don't work because, with the credentials mode set to "include", XMLHttpRequest in their dashjs doesn't allow the wildcard "\*" as the value of 'Access-Control-Allow-Origin'. As a workaround to this limitation in dashjs, if you host your client from a single domain, Media Services can specify that domain in the preflight response header. For assistance, open a support ticket through the Azure portal.
 
 ## AES-128 dynamic encryption
 ### Open restriction
