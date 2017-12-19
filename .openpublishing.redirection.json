@@ -13940,8 +13940,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-policy/index.md",
-            "redirect_url": "/azure/azure-policy/azure-policy-introduction",
+            "source_path": "articles/azure-policy/index.yml",
+            "redirect_url": "/azure/azure-policy/index.yml",
             "redirect_document_id": false
         },
         {
