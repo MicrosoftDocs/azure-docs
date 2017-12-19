@@ -9,22 +9,22 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/14/2017
+ms.date: 12/19/2017
 ms.author: davidmu
 
 ---
 # Create an application gateway with path-based routing rules using Azure PowerShell
 
-You can use the Azure PowerShell to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and then define URL routing rules that make sure web traffic arrives at the appropriate servers in the pools.
+You can use the Azure PowerShell to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
-> * Create an application gateway with default, images, and video backend pools
+> * Create an application gateway with URL map
 > * Create virtual machine scale sets with the backend pools
 
-![URL routing example](./media/application-gateway-create-url-route-powershell/scenario.png)
+![URL routing example](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,7 +40,7 @@ A resource group is a logical container into which Azure resources are deployed 
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources
 
 Create the subnet configurations using [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Create the virtual network using [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) with the subnet configurations. And finally, create the public IP address using [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). These resources are used to provide network connectivity to the application gateway and its associated resources.
 
@@ -249,10 +249,9 @@ Add-AzureRmApplicationGatewayRequestRoutingRule `
 Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
+## Create virtual machine scale sets
 
-## Create the virtual machine scale sets
-
-In this example, you create three virtual machine scale sets that are used in the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS. You assign the scale set to the backend pool when you configure the IP settings.
+In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS. You assign the scale set to the backend pool when you configure the IP settings.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -345,15 +344,15 @@ You can use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Test base URL in application gateway](./media/application-gateway-create-gateway-arm/application-gateway-iistest.png)
+![Test base URL in application gateway](./media/application-gateway-url-route-arm-ps/application-gateway-iistest.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example.
+Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example:
 
-![Test images URL in application gateway](./media/application-gateway-create-gateway-arm/application-gateway-iistest-images.png)
+![Test images URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example.
+Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example:
 
-![Test video URL in application gateway](./media/application-gateway-create-gateway-arm/application-gateway-vmss-iistest-video.png)
+![Test video URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-vmss-iistest-video.png)
 
 ## Next steps
 
@@ -361,7 +360,7 @@ In this article, you learned how to:
 
 > [!div class="checklist"]
 > * Set up the network
-> * Create an application gateway with default, images, and video backend pools
+> * Create an application gateway with URL map
 > * Create virtual machine scale sets with the backend pools
 
 

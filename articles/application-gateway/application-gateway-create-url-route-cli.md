@@ -9,19 +9,19 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 12/19/2017
 ms.author: davidmu
 
 ---
 # Create an application gateway with path-based routing rules using the Azure CLI
 
-You can use the Azure CLI to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and then define URL routing rules that make sure web traffic arrives at the appropriate servers in the pools.
+You can use the Azure CLI to [configure routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you define backend address pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
 In this article, you learn how to
 
 > [!div class="checklist"]
 > * Set up the network
-> * Create an application gateway with default, images, and video backend pools
+> * Create an application gateway with URL map
 > * Create virtual machine scale sets with the backend pools
 
 ![URL routing example](./media/application-gateway-create-url-route-cli/scenario.png)
@@ -42,7 +42,7 @@ The following example creates a resource group named *myResourceGroupAG* in the 
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create a virtual network, subnets, and public IP address 
+## Create network resources 
 
 Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az_net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -64,7 +64,7 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-### Create the application gateway
+## Create the application gateway with URL map
 
 You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created. 
 
@@ -166,9 +166,9 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## Create a virtual machine scale sets
+## Create virtual machine scale sets
 
-In this tutorial, three virtual machine scale sets are used in the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -227,7 +227,7 @@ done
 
 ## Test the application gateway
 
-You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -239,7 +239,7 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html to the end of the base URL and you should see something like the following example.
+Change the URL to http://<ip-address>:8080/video/test.html to the end of the base URL and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
@@ -252,9 +252,8 @@ Change the URL to http://<ip-address>:8080/video/test.html and you should see so
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
+> * Set up the network
+> * Create an application gateway with URL map
+> * Create virtual machine scale sets with the backend pools
 
 
