@@ -28,7 +28,7 @@ You can enable backup when you are ready to put your cloud into production. Do n
 Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> The Infrastructure Backup Service does not include user data and applications. For information on backing up and restore App Services, Functions, SQL, and MySQL resource providers and associated user data see `suggestion? https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms?` .
+> The Infrastructure Backup Service does not include user data and applications. See the following articles for instructions on backing up and restore [App Services](https://aka.ms/Rjlaqh), [SQL](https://aka.ms/Hghsgu), and [MySQL](https://aka.ms/Cahx8n) resource providers and associated user data..
 
 ## The Infrastructure Backup Service
 
@@ -49,7 +49,7 @@ The services contains the following features.
 - **Credentials**  
   You need a domain user account and credentials, for example, you may use the Azure Stack administrator credentials.
 - **Encryption key**  
-  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key,follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
 
 ## Next steps
 

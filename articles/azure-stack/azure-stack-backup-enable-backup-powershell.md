@@ -42,7 +42,7 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
 ##  Setup Rm environment and log into the operator management endpoint
 
-Open Windows PowerShell with an elevated prompt. Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
+In the same PowerShell session, Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
 
 | Variable    | Description |
 |---          |---          |
@@ -81,7 +81,7 @@ Open Windows PowerShell with an elevated prompt. Edit the following PowerShell s
    ```
 ## Generate a new encryption key
 
-Open Windows PowerShell with an elevated prompt, and run the following commands:
+In the same PowerShell session, run the following commands:
 
    ```powershell
    $encryptionkey = New-EncryptionKeyBase64
@@ -89,7 +89,7 @@ Open Windows PowerShell with an elevated prompt, and run the following commands:
 
 ## Provide the backup share, credentials, and encryption key to enable backup
 
-Open Windows PowerShell with an elevated prompt. Edit the following PowerShell script by adding the variables for your environment. Run the updated script to provide the backup share, credentials, and encryption key to the Infrastructure Backup Service.
+In the same PowerShell session, edit the following PowerShell script by adding the variables for your environment. Run the updated script to provide the backup share, credentials, and encryption key to the Infrastructure Backup Service.
 
 | Variable        | Description   |
 |---              |---                                        |
@@ -109,7 +109,7 @@ Set-AzSBackupShare -Location $location -Path $path -UserName $credential.UserNam
    ```
 ##  Confirm backup settings
 
-Open Windows PowerShell with an elevated prompt, and run the following commands:
+In the same PowerShell session, run the following commands:
 
    ```powershell
    Get-AzsBackupLocation | ConvertTo-Json 

@@ -19,9 +19,9 @@ ms.author: mabrigg
 ---
 # Recover from catastrophic data loss
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Applies to: Azure Stack integrated systems.*
 
-Azure Stack runs Azure services in your datacenter. Azure Stack can run on environments as small as four nodes installed in a single rack. In contrast, Azure runs in more than 40 regions in multiple datacenters and multiple zones in each region. User resources can span multiple servers, racks, datacenters, and regions. With Azure Stack, you only have the choice to deploy your entire cloud to a single rack. This exposes your cloud to the risk of catastrophic events at your datacenter or failures due to major product bugs. When a disaster strikes, the Azure Stack instance goes offline. All of the data is potentially unrecoverable.
+Azure Stack runs Azure services in your datacenter. Azure Stack can run on environments as small as four nodes installed in a single rack. In contrast, Azure runs in more than 40 regions in multiple datacenters and multiple zones in each region. User resources can span multiple servers, racks, datacenters, and regions. With Azure Stack, you currently  only have the choice to deploy your entire cloud to a single rack. This exposes your cloud to the risk of catastrophic events at your datacenter or failures due to major product bugs. When a disaster strikes, the Azure Stack instance goes offline. All of the data is potentially unrecoverable.
 
 Depending on the root cause of the data loss, you may need to repair a single infrastructure service or restore the entire Azure Stack instance. You may even need to restore to different hardware in the same location or in a different location.
 
@@ -51,7 +51,7 @@ Azure Stack supports a type of deployment called cloud recovery mode. This mode 
  - KeyVault secrets and vaults
  - RBAC policy assignments and role assignments 
 
-None of the user Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) resources are recovered. That is IaaS VMs, storage accounts, blobs, tables, network configuration, and so on, are lost. The purpose of cloud recovery is to ensure your operators and users can log back into the portal after deployment is complete. Users logging back in will not see any of their resources. Users have their subscriptions restored and along with that the original plans and offers policies defined by the administrator. Users logging back into the system operates under the same constraints imposed by the original solution before the disaster. After cloud recovery completes, the operator can manually restore value-add and third-party RPs and associated data.
+None of the user Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) resources are recovered during deployment. That is IaaS VMs, storage accounts, blobs, tables, network configuration, and so on, are lost. The purpose of cloud recovery is to ensure your operators and users can log back into the portal after deployment is complete. Users logging back in will not see any of their resources. Users have their subscriptions restored and along with that the original plans and offers policies defined by the administrator. Users logging back into the system operates under the same constraints imposed by the original solution before the disaster. After cloud recovery completes, the operator can manually restore value-add and third-party RPs and associated data.
 
 ## Infrastructure Backup components
 

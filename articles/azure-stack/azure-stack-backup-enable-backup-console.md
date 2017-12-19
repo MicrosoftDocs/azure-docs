@@ -28,9 +28,11 @@ Enable the Infrastructure Back Service through the administration portal so that
 
     ![Azure Stack - Backup controller settings](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data in the event of a disaster, the  device should be in a separate location.
-3. Type the **Username** using the domain and username. For example, `Contoso\administrator`.
-4. Type the **Password** for the user.
+3. Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data in the event of a disaster, the  device should be in a separate location.
+    > ![note]  
+    > You can use an FQDN rather than the IP if your environment supports name resolution from the Azure Stack infrastructure network to your enterprise environment.
+4. Type the **Username** using the domain and username. For example, `Contoso\administrator`.
+5. Type the **Password** for the user.
 5. Type the password again to **Confirm Password**.
 6. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
 7. Select **OK** to save your backup controller settings.

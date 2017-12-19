@@ -41,7 +41,7 @@ The encryption key is used to encrypt backup data that gets exported to external
 
 ![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
 
-The key must be stored in a secure location (for example, Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
+The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 
 ![Stored the key a secure location.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
 
@@ -51,12 +51,12 @@ The key must be stored in a secure location (for example, Azure Key Vault secret
 
  - Infrastructure Backup Controller needs to be triggered on demand. Recommendation is to backup at least two times per day.
  - Backup jobs execute while the system is running so there is no downtime to the management experiences or user applications. Expect the backup jobs to take 20-40 minutes for a solution that is under reasonable load.
- - Manual backup of network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
+ - Using OEM provided instruction, manually backup network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
 
 ### Folder Names
 
  - Infrastructure creates MASBACKUP folder automatically. This is a Microsoft-managed share. You can create shares at the same level as MASBACKUP. It is not recommended creating folders or storage data inside of MASBACKUP that Azure Stack does not create. 
- -  User FQDN and region in your folder name to differentiate backup data from different clouds.  
+ -  User FQDN and region in your folder name to differentiate backup data from different clouds. The fully qualified domain name (FQDN) of your Azure Stack deployment and endpoints is the combination of the Region parameter and the External Domain Name parameter. For  more information, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 For example, the backup share is AzSBackups hosted on fileserver01.contoso.com. In that file share there may be a folder per Azure Stack deployment using the external domain name and a subfolder that uses the region name. 
 
@@ -71,8 +71,7 @@ Region: nyc
 
 MASBackup folder is where Azure Stack stores its backup data. You should not use this folder to store your own data. OEM should not use this folder to store any backup data either. 
 
-OEMs are encouraged to store backup data for their components under the region folder. For example:
-
+OEMs are encouraged to store backup data for their components under the region folder. Each network switches, hardware lifecycle host (HLH), and so on may be stored in its own subfolder. For example:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
