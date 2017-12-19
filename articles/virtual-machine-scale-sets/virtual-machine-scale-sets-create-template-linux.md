@@ -24,11 +24,11 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 
 ## Define a scale set in a template
-Azure Resource Manager templates let you deploy groups of related resources. Templates are written in JavaScript Object Notation (JSON) and define the entire Azure infrastructure environment for your application. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be re-used to update existing, or create additional, scale sets. You can deploy templates through the Azure Portal, Azure CLI 2.0, or Azure PowerShell, as well as call them from continuous integration / continuous delivery (CI/CD) pipelines.
+Azure Resource Manager templates let you deploy groups of related resources. Templates are written in JavaScript Object Notation (JSON) and define the entire Azure infrastructure environment for your application. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI 2.0, or Azure PowerShell, as well as call them from continuous integration / continuous delivery (CI/CD) pipelines.
 
 For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
-To create a scale with with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -94,7 +94,7 @@ When you deploy a scale set, VM extensions can provide post-deployment configura
 - Location of configuration or install scripts
 - Commands to execute on the VM instances
 
-The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) uses the Custom Script Extenstion to install [Bottle](http://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
+The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) uses the Custom Script Extension to install [Bottle](http://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
 
 Two scripts are defined in *fileUris* - *installserver.sh*, and *workserver.py*. These files are downloaded from GitHub, then *commandToExecute* defines `bash installserver.sh` for the app to be installed and configured:
 
