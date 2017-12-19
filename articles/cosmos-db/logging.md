@@ -35,7 +35,7 @@ Use this tutorial to get started with Azure Cosmos DB logging via the Azure port
 ## Prerequisites
 To complete this tutorial, you must have the following resources:
 
-* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
+* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## Turn on logging in the Azure portal

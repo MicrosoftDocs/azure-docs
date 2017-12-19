@@ -22,6 +22,8 @@
     href: storage-quickstart-blobs-java.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Ruby 
+    href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
   - name: Work with blobs - Storage Explorer
@@ -70,10 +72,10 @@
   items:
   - name: Plan and design
     items:
+    - name: Storage account options
+      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Replication
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage account options
-      href: storage-account-options.md
     - name: Hot, cool, and archive tiers
       href: storage-blob-storage-tiers.md
     - name: Reacting to events
