@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
 
 ---
@@ -209,16 +209,6 @@ We hope to continue this topic in the future, especially related to big data ana
 ## Conclusion
 This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
 
-**For more information:**  
-
-Did this paper help you? Please give us your feedback. Tell us on a scale of 1 (poor) to 5 (excellent), how would you rate this paper and why have you given it this rating? For example:  
-
-* Are you rating it high due to having good examples, excellent screen shots, clear writing, or another reason?
-* Are you rating it low due to poor examples, fuzzy screen shots, or unclear writing?  
-
-This feedback will help us improve the quality of white papers we release.   
-
-[Send feedback](mailto:sqlfback@microsoft.com).
  
 
 ## References
