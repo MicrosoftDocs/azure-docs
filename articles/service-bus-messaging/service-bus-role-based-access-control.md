@@ -58,13 +58,13 @@ The user account now has access to the Service Bus namespace, and to the queue y
 
 Before you can run the sample application, register it in AAD and approve the consent prompt that permits the application to access Azure Service Bus on its behalf. 
 
-Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the "required permissions" set. Native applications also need a **redirect-URI** in AAD which serves as an identifier; the URI does not need to be a network destination. Use **http://servicebus.microsoft.com** for this example, because the sample code already uses that URI.
+Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the "required permissions" set. Native applications also need a **redirect-URI** in AAD which serves as an identifier; the URI does not need to be a network destination. Use `http://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
 The detailed registration steps are explained in [this tutorial](../active-directory/develop/active-directory-integrating-applications.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.ServiceBus** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 
 ### Run the app
 
-Before you can run the sample, edit the App.config file and, depending on your scenario, edit the following settings:
+Before you can run the sample, edit the App.config file and, depending on your scenario, set the following values:
 
 - `tenantId`: Set to **TenantId** value.
 - `clientId`: Set to **ApplicationId** value. 
