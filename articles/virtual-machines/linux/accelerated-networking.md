@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking - Linux | Microsoft Docs
+title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
 documentationcenter: na
@@ -166,16 +166,16 @@ Use the following command to create an SSH session with the VM. Replace *40.68.2
 ssh azureuser@40.68.254.142
 ```
 
-## Configure the operating system - recent versions
+## Configure the operating system
 
-From the Bash shell, enter `uname -r` and and confirm that the operating system version is one of the following:
+From the Bash shell, enter `uname -r` and and confirm that the kernel version is one of the following:
 
     * **Ubuntu**: 4.4.0-77-generic, or greater
     * **SLES**: 4.4.59-92.20-default, or greater
     * **RHEL**: 7.3, or greater
     * **CentOS**: XXX, or greater
 
-If the version of your distribution is less than the versions listed, complete the steps in [Configure the operating system - earlier versions](#configure-the-operating-system---earlier-versions), instead of the steps in this section.
+@@@ Can we add the earliest Azure OS image version numbers that have the previous kernel numbers too? Please add/correct the version numbers in the list above. @@@ 
 
 Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
   		  
@@ -185,144 +185,14 @@ chmod +x ./configure_hv_sriov.sh
 sudo ./configure_hv_sriov.sh
 ```
 
+@@@ It appears this script is only determing which distro is installed, not the version. Shouldn't it also be checking for the version to make sure a supported version is installed? @@@
+
 The VM restarts after a 60 second pause. Once the VM restarts, SSH into the VM again. Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
  
 >[!NOTE]
 >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
-## Configure the operating system - earlier versions
-
-If your distribution is the same, or a later version than the distribution versions listed in [Configure the operating system - recent versions](#configure-the-operating-system---recent-versions), skip this step. Creating VMs with earlier distribution versions requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
-
-### Phase 1: Prepare a base image 
-
-Provision a VM with an earlier distribution by completing the steps in the [Configure the operating system](configure-the-operating-system) section.
-
-Install LIS 4.2.2:
-    
-    ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-    tar -xvf lis-rpms-4.2.2-2.tar.gz
-    cd LISISO && sudo ./install.sh
-    ```
-
-Download config files:
-    
-    ```bash
-    cd /etc/udev/rules.d/  
-    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
-    cd /usr/sbin/
-    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
-    sudo chmod +x hv_vf_name
-    cd /etc/sysconfig/network-scripts/
-    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
-    ```
-
-Deprovision the VM
-
-    ```bash
-    sudo waagent -deprovision+user 
-    ```
-
-From the Azure portal, stop the VM, go to the VM’s "Disks", and capture the OSDisk’s VHD URI. This URI contains the base image’s VHD name and its storage account. 
- 
-### Phase 2: Provision a new VM on Azure
-
-Provision new VMs based with New-AzureRMVMConfig using the base image VHD captured in phase 1, with AcceleratedNetworking enabled on the vNIC:
-
-```azurecli
-$RgName="myResourceGroup2"
-$Location="westus2"
-    
-# Create a resource group
-New-AzureRmResourceGroup `
-     -Name $RgName `
-     -Location $Location
-
-    # Create a subnet
-    $Subnet = New-AzureRmVirtualNetworkSubnetConfig `
-     -Name MySubnet `
-     -AddressPrefix 10.0.0.0/24
-
-    # Create a virtual network
-    $Vnet=New-AzureRmVirtualNetwork `
-     -ResourceGroupName $RgName `
-     -Location $Location `
-     -Name MyVnet `
-     -AddressPrefix 10.0.0.0/16 `
-     -Subnet $Subnet
-    
-    # Create a public IP address
-    $Pip = New-AzureRmPublicIpAddress `
-     -Name MyPublicIp `
-     -ResourceGroupName $RgName `
-     -Location $Location `
-     -AllocationMethod Static
-    
-    # Create a virtual network interface and associate the public IP address to it
-    $Nic = New-AzureRmNetworkInterface `
-     -Name MyNic `
-     -ResourceGroupName $RgName `
-     -Location $Location `
-     -SubnetId $Vnet.Subnets[0].Id `
-     -PublicIpAddressId $Pip.Id `
-     -EnableAcceleratedNetworking
-    
-    # Specify the base image's VHD URI (from phase 1, step 5). 
-    # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
-    # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
-    # This is just an example URI, you will need to replace this when running this script
-    $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
-
-    # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
-    # Must end with ".vhd" extension
-    $OsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
-    
-    # Define a credential object for the VM. PowerShell prompts you for a username and password.
-    $Cred = Get-Credential
-    
-    # Create a custom virtual machine configuration
-    $VmConfig = New-AzureRmVMConfig `
-     -VMName MyVM -VMSize Standard_DS4_v2 | `
-    Set-AzureRmVMOperatingSystem `
-     -Linux `
-     -ComputerName myVM `
-     -Credential $Cred | `
-    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
-    Set-AzureRmVMOSDisk `
-     -Name $OsDiskName `
-     -SourceImageUri $sourceUri `
-     -VhdUri $destOsDiskUri `
-     -CreateOption FromImage `
-     -Linux
-    
-    # Create the virtual machine.    
-    New-AzureRmVM `
-     -ResourceGroupName $RgName `
-     -Location $Location `
-     -VM $VmConfig
-    ```
-
-After the VMs boots, check the VF device by "lspci" and check the Mellanox entry. For example, you should see the following text in the lspci output:
-    
-```bash
-0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
-```
-    
-Run the bonding script:
-
-```bash
-sudo bondvf.sh
-```
-
-Reboot the VM:
-
-```bash
-sudo reboot
-```
-
-The VM should start with bond0 configured and the Accelerated Networking path enabled.  Run `ifconfig` to confirm.
+@@@ It seems that the instructions for what to do with distro versions earlier than what's above are different for Ubuntu/SLES than they are for RHEL/CentOS. The "Phase 1/Phase 2 instructions in the previous version of this article were only for RHEL/CentOS.  Are those instructions still accurate for RHEL/CentOS?  Are any additional/different instructions required for earlier distro versions of Ubuntu/SLES?@@@
 
 ## Bring up the DPDK
 
