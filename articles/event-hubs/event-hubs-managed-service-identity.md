@@ -30,8 +30,6 @@ Once it is associated with a managed service identity, an Event Hubs client can 
 
 For the initial public preview release, you can only add a managed service identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager and not through the native Event Hubs REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed service identity. 
  
-In an upcoming update, Azure Event Hubs will add explicit roles for "Sender" and "Receiver" that enable you to grant only send or receive permissions. The receive permission also provides read-only access to obtain information about the entity, and permission to control the message disposition, including moving it to the dead-letter queue. In subsequent updates during the preview, it will also be possible to associate MSI with roles at the level of individual entities, enabling fine grained access control. In addition to the predefined roles, you will be able to compose custom roles from the underlying Event Hubs permission set. 
-
 ## Use Event Hubs with a Managed Service Identity
 
 The following section describes the steps required to create and deploy a sample application that runs under a managed service identity, how to grant that identity access to an Event Hubs namespace, and how the application interacts with event hubs using that identity.
