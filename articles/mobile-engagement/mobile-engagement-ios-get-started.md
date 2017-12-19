@@ -92,7 +92,6 @@ In order to start sending data and ensuring that the users are active, you must 
     ```
 
 2. Now replace the super class of the **ViewController** interface by `EngagementViewController`:
-
  
     ```obj-c
    @interface ViewController : EngagementViewController
@@ -138,7 +137,6 @@ The following sections set up your app to receive them.
 ### Enable your app to receive APNS Push Notifications
 1. Add the following line to the `application:didFinishLaunchingWithOptions` method:
 
-
     ```obj-c
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
     {
@@ -158,7 +156,6 @@ The following sections set up your app to receive them.
     ```
 2. Add the `application:didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
-
     ```obj-c
     - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     {
@@ -169,7 +166,6 @@ The following sections set up your app to receive them.
 
 3. Add the `didFailToRegisterForRemoteNotificationsWithError` method as follows:
 
-
     ```obj-c
     - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
     {
@@ -178,7 +174,6 @@ The following sections set up your app to receive them.
     ```
 
 4. Add the `didReceiveRemoteNotification:fetchCompletionHandler` method as follows:
-
 
     ```obj-c
     - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
