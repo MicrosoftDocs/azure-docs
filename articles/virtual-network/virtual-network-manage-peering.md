@@ -61,8 +61,10 @@ Complete the following tasks before completing steps in any section of this arti
     	You cannot enable this option if you're peering a virtual network (Resource Manager) with a virtual network (classic). Though the traffic flows between the two virtual networks, the virtual network (classic) traffic cannot flow through a network gateway attached to the virtual network (Resource Manager).
 
 	- **Use remote gateways:** Check this box to allow traffic from this virtual network to flow through a virtual network gateway attached to the virtual network you're peering with. For example, the virtual network you're peering with has a VPN gateway attached that enables communication to an on-premises network.  Checking this box allows traffic from this virtual network to flow through the VPN gateway attached to the peered virtual network. If you check this box, the peered virtual network must have a virtual network gateway attached to it and must have the **Allow gateway transit** checkbox checked. If you leave this box unchecked (default), traffic from the peered virtual network can still flow to this virtual network, but cannot flow through a virtual network gateway attached to this virtual network. 
-	
+Only one peering for this virtual network can have this setting enabled.
+You cannot use this setting if you already have a gateway configured in your virtual network.
     	You cannot enable this option if you're peering a virtual network (Resource Manager) with a virtual network (classic). Though the traffic flows between the two virtual networks, the virtual network (Resource Manager) traffic cannot flow through a network gateway attached to the virtual network (classic).
+
 7. Click the **OK** button to add the subnet to the virtual network you selected.
 
 ### Commands
