@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 # Content protection overview
- Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
+ You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
 The following image illustrates the Media Services content protection workflow: 
 
@@ -27,7 +27,7 @@ The following image illustrates the Media Services content protection workflow:
 This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also provides links to articles that discuss how to protect content. 
 
 ## Dynamic encryption
- Media Services enables you to deliver your content encrypted dynamically with AES clear key or DRM encryption: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Currently, you can encrypt the following streaming formats: HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming. Encryption on progressive downloads is not supported. Each encryption method supports the following streaming protocols:
+ You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Encryption on progressive downloads is not supported. Each encryption method supports the following streaming protocols:
 
 - AES: MPEG-DASH, Smooth Streaming, and HLS
 - PlayReady: MPEG-DASH, Smooth Streaming, and HLS
@@ -41,7 +41,7 @@ You also need to configure the asset's delivery policy. If you want to stream a 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 ## AES-128 clear key vs. DRM
-Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between using AES encryption and the DRM systems is that with AES encryption the content key is transmitted to the client in an unencrypted format ("in the clear"). As a result, the key used to encrypt the content can be viewed in a network trace on the client in plain text. AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
+Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption the content key is transmitted to the client in an unencrypted format ("in the clear"). As a result, the key used to encrypt the content can be viewed in a network trace on the client in plain text. AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
 
 PlayReady, Widevine, and FairPlay all provide a higher level of encryption compared to AES-128 clear key encryption. The content key is transmitted in an encrypted format. Additionally, decryption is handled in a secure environment at the operating system level, where it's significantly more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
@@ -76,7 +76,6 @@ The following considerations apply:
 * Encryption type doesn't have to be specified in the URL if only one encryption was applied to the asset.
 * Encryption type is case insensitive.
 * The following encryption types can be specified:
-
   * **cenc**: For PlayReady or Widevine (common encryption)
   * **cbcs-aapl**: For FairPlay (AES CBC encryption)
   * **cbc**: For AES envelope encryption
@@ -90,12 +89,10 @@ The following articles describe next steps to help you get started with content 
 * [Protect with FairPlay](media-services-protect-hls-with-FairPlay.md)
 
 ## Related links
-[Azure Media Services PlayReady license delivery pricing explained](http://mingfeiy.com/playready-pricing-explained-in-azure-media-services)
 
-[Debug for AES encrypted stream in Azure Media Services](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
-
-[JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrate Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+* [Azure Media Services PlayReady license delivery pricing explained](http://mingfeiy.com/playready-pricing-explained-in-azure-media-services)
+* [Debug for AES encrypted stream in Azure Media Services](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
+* [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+* [Integrate Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png

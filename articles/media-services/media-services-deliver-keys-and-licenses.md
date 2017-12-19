@@ -1,6 +1,6 @@
 ---
 title: Use Azure Media Services to deliver DRM licenses or AES keys | Microsoft Docs 
-description: This article describes how you can use Azure Media Services to deliver PlayReady and/or Widevine licenses and AES keys but do the rest (encoding, encrypting, streaming) by using your on-premises servers.
+description: This article describes how you can use Azure Media Services to deliver PlayReady and/or Widevine licenses and AES keys but do the rest (encode, encrypt, stream) by using your on-premises servers.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -18,12 +18,12 @@ ms.author: juliako
 
 ---
 # Use Azure Media Services to deliver DRM licenses or AES keys
-Azure Media Services enables you to ingest, encode, add content protection, and stream your content. For more information, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). However, there are customers who want to use Media Services only to deliver licenses and/or keys and do encoding, encrypting, and streaming by using their on-premises servers. This article describes how you can use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
+Azure Media Services enables you to ingest, encode, add content protection, and stream your content. For more information, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Some customers want to use Media Services only to deliver licenses and/or keys and encode, encrypt, and stream by using their on-premises servers. This article describes how you can use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
 
 ## Overview
-Media Services provides a service for delivering PlayReady and Widevine DRM licenses and AES-128 keys. Media Services also provides APIs that let you configure the rights and restrictions that you want for the DRM runtime to enforce when a user plays back the DRM-protected content. When a user requests the protected content, the player application requests a license from the Media Services license service. If the license is authorized, the Media Services license service issues the license to the player. The PlayReady and Widevine licenses contain the decryption key that can be used by the client player to decrypt and stream the content.
+Media Services provides a service for delivering PlayReady and Widevine digital rights management (DRM) licenses and AES-128 keys. Media Services also provides APIs that let you configure the rights and restrictions that you want for the DRM runtime to enforce when a user plays back the DRM-protected content. When a user requests the protected content, the player application requests a license from the Media Services license service. If the license is authorized, the Media Services license service issues the license to the player. The PlayReady and Widevine licenses contain the decryption key that can be used by the client player to decrypt and stream the content.
 
-Media Services supports multiple ways of authorizing users who make license or key requests. You configure the content key's authorization policy. The policy can have one or more restrictions, open or token restriction. The token restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token (SWT) format and JSON Web Token (JWT) format.
+Media Services supports multiple ways of authorizing users who make license or key requests. You configure the content key's authorization policy. The policy can have one or more restrictions. The options are open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token (SWT) format and the JSON Web Token (JWT) format.
 
 The following diagram shows the main steps you need to take to use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers:
 
@@ -341,6 +341,5 @@ namespace DeliverDRMLicenses
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
-[Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md)
-
-[Use AES-128 dynamic encryption and key delivery service](media-services-protect-with-aes128.md)
+* [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md)
+* [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md)
