@@ -50,7 +50,7 @@ This option is the most secure and customizable, and requires Azure CDN Premium 
    `https://<endpoint>.azureedge.net/<folder>/<file>?<CDN_SECURITY_TOKEN>`
  
    Here is a sample Blob service SAS URL:   
-   `https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+   ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
 
    Parameter options for CDN token authentication are different than the parameter options for SAS. If you choose to use an expiration time when you create a CDN token, set it to the same value as the expiration time for the SAS. Doing so ensures that the expiration time is predictable. 
  
@@ -70,12 +70,15 @@ This option is the simplest and uses only a single SAS token, which is passed fr
  
 1. Select an endpoint, click **Caching rules**, then select **Cache every unique URL** from the **Query string caching** list.
 
-   ![CDN caching rules](./media/cdn-sas-storage-support/cdn-caching rules.png)
+    ![CDN caching rules](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
 2. After you set up SAS on your storage account, use the SAS token with the CDN URL to access the file. 
    
-   For example:
+   The resulting URL has the following format:
    `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
+
+   For example:   
+   ```https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D```
  
    Note that the CDN does not honor SAS parameters (such as expires time). If the file is cached for a long duration, it may be accessible from CDN after the expiration time that is set on SAS has passed. To indicate that you no longer want the file to be accessible, perform a purge operation on the file after the expiration has passed.
 
