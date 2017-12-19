@@ -39,7 +39,7 @@ For production use, you should import a valid certificate signed by trusted prov
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-Enter values that make sense for youe certificate. You can accept the default values.
+Enter values that make sense for your certificate. You can accept the default values.
 
 ```azurecli-interactive
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
@@ -112,9 +112,9 @@ az network application-gateway create \
 - *appGatewayFrontendIP* - Assigns *myAGPublicIPAddress* to *appGatewayHttpListener*.
 - *rule1* - The default routing rule that is associated with *appGatewayHttpListener*.
 
-## Create a virtual machine scale set with the default backend pool
+## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. You can use [az vmss create](/cli/azure/vmss#az_vmss_create) to create the scale set.
+In this example, you create a virtual machine scale set that provides servers for the default backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -134,7 +134,7 @@ az vmss create \
 
 ### Install NGINX
 
-In your current shell, create a file named customConfig.json and paste the following configuration. You can use any editor you wish to create the file in the Cloud Shell.  Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file.
+You can use any editor you wish to create the file in the Cloud Shell. Enter `sensible-editor cloudConfig.json` to see a list of available editors to create the file. In your current shell, create a file named customConfig.json and paste the following configuration:
 
 ```json
 {
@@ -157,7 +157,7 @@ az vmss extension set \
 
 ## Test the application gateway
 
-You can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
