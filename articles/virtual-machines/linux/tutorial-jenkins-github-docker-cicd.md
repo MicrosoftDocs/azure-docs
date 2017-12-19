@@ -4,7 +4,7 @@ description: Learn how to create a Jenkins virtual machine in Azure that pulls f
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -33,12 +33,12 @@ To automate the build and test phase of application development, you can use a c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
-In your current shell, create a file named *cloud-init.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init-jenkins.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -114,11 +114,10 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Enter the *initialAdminPassword* obtained from the VM in the previous step.
-- Choose **Select plugins to install**
-- Search for *GitHub* in the text box across the top, select the *GitHub plugin*, then select **Install**
-- To create a Jenkins user account, fill out the form as desired. From a security perspective, you should create this first Jenkins user rather than continuing as the default admin account.
-- When finished, select **Start using Jenkins**
+- Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
+- Select **Manage Jenkins**, then **Manage plugins**.
+- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
+- Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
 
 
 ## Create GitHub webhook
@@ -165,7 +164,7 @@ In Jenkins, a new build starts under the **Build history** section of the bottom
 ## Define Docker build image
 To see the Node.js app running based on your GitHub commits, lets build a Docker image to run the app. The image is built from a Dockerfile that defines how to configure the container that runs the app. 
 
-From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In our example, that was named *HelloWorld*.
+From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In this example, that was named *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
