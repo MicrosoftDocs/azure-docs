@@ -110,12 +110,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Identifier** textbox, type the URL: `www.pluralsight.com`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.pluralsight.com/sp/ACS.saml2`
+	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Pluralsight Client support team](mailto:support@pluralsight.com) to get these values. 
 
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
 
