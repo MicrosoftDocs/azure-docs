@@ -1,12 +1,12 @@
 ---
-title: Provision an X.509 simulated device to Azure IoT Hub (Java) | Microsoft Docs
-description: Azure Quickstart - Create and provision an X.509 simulated device using Azure IoT Hub Device Provisioning Service (Java)
+title: Provision an X.509 simulated device to Azure IoT Hub using Java | Microsoft Docs
+description: Azure Quickstart - Create and provision an X.509 simulated device to Azure IoT Hub Device Provisioning Service using Java
 services: iot-dps 
 keywords: 
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/05/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
 
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: java
 ms.custom: mvc
 ---
 
-# Create and provision an X.509 simulated device using IoT Hub Device Provisioning Service (Java)
+# Create and provision an X.509 simulated device to IoT Hub Device Provisioning Service using Java
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device-x509.md)
 > * [Java](quick-create-simulated-device-x509-java.md)
@@ -27,7 +27,7 @@ These steps show how to simulate an X.509 device on your development machine run
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the development environment 
+## Prepare the environment 
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
 
@@ -78,7 +78,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         1. Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the Quickstart. Note the _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ values.
 
 
-## Create a device enrollment entry in the Device Provisioning Service
+## Create a device enrollment entry
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -115,13 +115,14 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
             - Enter the _verification code_ or right-click to paste in your running _provisioning-x509-cert-generator_ window.  Press **Enter**.
-            - Copy to the clipboard the output of `Validation Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+            - Copy to the clipboard the output of `Verification Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+            
+                ![Validation generator](./media/java-quick-create-simulated-device-x509/validation-generator.png)
+
             - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
             - Select the **_X509validation.pem_** file in the Azure portal. Click **Verfiy**.
 
             ![Validate certificate](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
-
-            ![Validation generator](./media/java-quick-create-simulated-device-x509/validation-generator.png)
 
         1. Select **Manage enrollments**. Select **Enrollment Groups** tab and click the **Add** button at the top.
             - Enter a unique group name.
@@ -135,15 +136,17 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         On successful enrollment, your X.509 device group appears under the *Group Name* column in the *Enrollment Groups* tab.
 
 
-## Simulate first boot sequence for the device
+## Simulate the device
 
-1. Open a command prompt. Navigate to the sample project folder. Have your _Id Scope_ and _Provisioning Service Global Endpoint_ ready.
+1. On the Device Provisioning Service summary blade, select **Overview** and note your _Id Scope_ and _Provisioning Service Global Endpoint_.
+
+    ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
+
+1. Open a command prompt. Navigate to the sample project folder.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
-
-    ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 1. Enter the enrollment information in either of the following ways, as per your setup:
 
