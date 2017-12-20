@@ -1,7 +1,7 @@
 ---
 title: Deploy the Device Simulation solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to provision the Device Simulation solution from azureiotsuite.com.
-services: ''
+services: iot device simulation
 suite: iot-suite
 author: troyhopwood
 manager: timlt
