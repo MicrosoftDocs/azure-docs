@@ -6,7 +6,6 @@ documentationcenter: ''
 author: bryanLa
 manager: mtillman
 editor: bryanla
-
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -42,7 +41,7 @@ You learn how to:
 To run the CLI script examples in this tutorial, you have two options:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the "Try It" button, located in the top right corner of each code block (see next section).
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console.
 
 ## Sign in to Azure
 
@@ -76,7 +75,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
+    The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
 
     ```json
     {
