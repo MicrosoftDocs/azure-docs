@@ -8,7 +8,6 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
-ms-author: acomet
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -16,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 12/14/2017
-ms.author: 
+ms.author: acomet
 
 ---
 # Cheat sheet for Azure SQL Data Warehouse
