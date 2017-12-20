@@ -66,9 +66,9 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 
 1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to create the new MSI:
 
-   ```azurecli
-   az login
-   ```
+    ```azurecli
+    az login
+    ```
 
 2. Create a User-Assigned MSI using [az identity create](/cli/azure/identity#az_identity_create). The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
 
