@@ -181,7 +181,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 Once you create the VM in Azure, connect to the VM and confirm that the driver is installed in Windows. 
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure account.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *myVm*. When **myVm** appears in the search results, click it. If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** in the top left corner of the overview only after you no longer see **Creating** under the **Connect** button.
 3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](quick-create-portal.md#connect-to-virtual-machine).
 4. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
