@@ -33,7 +33,7 @@ In order to use the Azure CLI examples in this article, be sure to install the l
 
 ## Overview
 
-An MSI provides a [service principal](~/articles/active-directory/develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
+An MSI provides a [service principal](~/articles/active-directory/develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign-in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)
@@ -45,39 +45,37 @@ With MSI, your script client no longer needs to do either, as it can sign in und
 The following script demonstrates how to:
 
 1. Sign in to Azure AD under the user-assigned MSI's service principal.  
-2. Call Azure Resource Manager and get the Azure region location for the VM. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your user-assigned MSI resource id for `<MSI ID>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
+2. Call Azure Resource Manager and get the Azure region location for a VM. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your VM name for `<VM NAME>`, and user-assigned MSI resource id for `<MSI ID>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
 
-   ```azurecli
-   az login -–msi –u <MSI ID>
+    ```azurecli
+    az login -–msi –u <MSI ID>
    
-   vmLocation=$(az resource list -n vmLinux --query [*].location --out tsv)
-   echo The VM region location is $vmLocation
-   ```
+    vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
+    echo The VM region location is $vmLocation
+    ```
 
-   Example responses:
+    Example responses:
    
-   ```bash
-   user@vmLinux4:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName
-   [
-     {
-       "environmentName": "AzureCloud",
-       "id": "90c696ff-5efa-4909-a64d-z1b616f423bl",
-       "isDefault": true,
-       "name": "MSIResource-/subscriptions/90c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName@50342",
-       "state": "Enabled",
-       "tenantId": "933a8f0e-ec41-4e69-8ad8-971zc4b533ll",
-       "user": {
-         "name": "userAssignedIdentity",
-         "type": "servicePrincipal"
-       }
-     }
-   ]  
-
-   user@vmLinux:~$ vmLocation=$(az resource list -n vmLinux --query [*].location --out tsv)
-   user@vmLinux:~$ echo The VM region location is $vmLocation
-   The VM region location is westcentralus
-   ```
-
+    ```bash
+    user@vmLinux:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName
+    [
+      {
+        "environmentName": "AzureCloud",
+        "id": "90c696ff-5efa-4909-a64d-z1b616f423bl",
+        "isDefault": true,
+        "name": "MSIResource-/subscriptions/90c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName@50342",
+        "state": "Enabled",
+        "tenantId": "933a8f0e-ec41-4e69-8ad8-971zc4b533ll",
+        "user": {
+          "name": "userAssignedIdentity",
+          "type": "servicePrincipal"
+        }
+      }
+    ]  
+    user@vmLinux:~$ vmLocation=$(az resource list -n vmLinux --query [*].location --out tsv)
+    user@vmLinux:~$ echo The VM region location is $vmLocation
+    The VM region location is westcentralus
+    ```
 
 ## Resource IDs for Azure services
 
@@ -85,7 +83,7 @@ See [Azure services that support Azure AD authentication](msi-overview.md#azure-
 
 ## Error handling guidance 
 
-Responses such as the following may indicate that the MSI has not been correctly configured:
+The following responses may indicate that the MSI has not been correctly configured:
 
 - CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
