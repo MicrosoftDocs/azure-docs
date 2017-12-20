@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Enroll TPM device to IoT Hub Device Provisioning Services using Java service SDK
+# Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
 <!-- 
