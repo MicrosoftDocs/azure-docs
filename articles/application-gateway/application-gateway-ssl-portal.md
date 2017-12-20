@@ -18,7 +18,7 @@ ms.author: davidmu
 
 You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a certificate for SSL termination that uses virtual machines for backend servers.
 
-In this article, you learn how to
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a self-signed certificate
@@ -35,25 +35,24 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 In this section, you use [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) to create a self-signed certificate that you upload to the Azure portal when you create the listener for the application gateway.
 
-1. On your local computer, open a Windows PowerShell window as an administrator.
-2. Run the following command to create the certificate:
+On your local computer, open a Windows PowerShell window as an administrator. Run the following command to create the certificate:
 
-    ```powershell
-    New-SelfSignedCertificate \
-      -certstorelocation cert:\localmachine\my \
-      -dnsname www.contoso.com
-    ```
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-    You should see something like this:
+You should see something like this response:
 
     
-    PS C:\WINDOWS\system32> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname www.contoso.com
+PS C:\WINDOWS\system32> New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname www.contoso.com
 
-       PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-    Thumbprint                                Subject
-    ----------                                -------
-    E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
 3. Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
 

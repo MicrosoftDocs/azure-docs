@@ -19,7 +19,7 @@ ms.author: davidmu
 
 You can use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
 
-In this article, you learn how to
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway with WAF enabled
