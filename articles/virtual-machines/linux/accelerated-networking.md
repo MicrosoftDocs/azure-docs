@@ -1,7 +1,7 @@
 ---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
-services: virtual-network
+services: virtual-machines-linux
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
@@ -9,21 +9,21 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-network
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 12/20/2017
 ms.author: jdial
 ms.custom: 
 
 ---
 # Create a Linux virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create an Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
+In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
-![Comparison](./media/accelerated-networking/image1.png)
+![Comparison](./media/accelerated-networking/accelerated-networking.png)
 
 Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
 
@@ -41,7 +41,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 * **Reduced jitter:** Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
 * **Decreased CPU utilization:** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
 
-## <a name="Limitations"></a>Limitations
+## Limitations
 The following limitations exist when using this capability:
 
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
@@ -51,27 +51,24 @@ The following limitations exist when using this capability:
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](sizes.md). The set of supported VM instance sizes continues to expand.
 * **Deployment through Azure Resource Manager (ARM) only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
-You can use the [Azure portal](#portal) or Azure [PowerShell](#powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS instructions, see [RHEL and CentOS](#rhel-and-centos).
-
-
-## Create a network interface
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
-
-In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup2*, *mysNic*, and *myVM*.
-
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup2* in the *centralus* location:
-
-```azurecli
-az group create --name myResourceGroup2 --location centralus
-```
-While this feature is in preview, you must select a supported Linux region listed in [Linux accelerated networking preview](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 ## Create a virtual network
+
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+
+Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+
+```azurecli
+az group create --name myResourceGroup --location centralus
+```
+
+While Accelerated Networking for Linux is in preview, you must select a supported Linux region listed in [Linux accelerated networking preview](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+
 Create a virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with one subnet:
 
 ```azurecli
 az network vnet create \
-    --resource-group myResourceGroup2 \
+    --resource-group myResourceGroup \
     --name myVnet \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnet \
@@ -83,15 +80,15 @@ Create a network security group with [az network nsg create](/cli/azure/network/
 
 ```azurecli
 az network nsg create \
-    --resource-group myResourceGroup2 \
+    --resource-group myResourceGroup \
     --name myNetworkSecurityGroup
 ```
 
-The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine:
+The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
 ```azurecli
 az network nsg rule create \
-  --resource-group myResourceGroup2 \
+  --resource-group myResourceGroup \
   --nsg-name myNetworkSecurityGroup \
   --name Allow-SSH-Internet \
   --access Allow \
@@ -106,19 +103,19 @@ az network nsg rule create \
 
 ## Create a network interface with accelerated networking
 
-Create a public IP address with az network public-ip create.  The public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
 
 ```azurecli
 az network public-ip create \
     --name myPublicIp \
-    --resource-group myResourceGroup2
+    --resource-group myResourceGroup
 ```
 
 Create a network interface with [az network nic create](/cli/azure/network/nic#create) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
 
 ```azurecli
 az network nic create \
-    --resource-group myResourceGroup2 \
+    --resource-group myResourceGroup \
     --name myNic \
     --vnet-name myVnet \
     --subnet mySubnet \
@@ -130,40 +127,42 @@ az network nic create \
 ## Create a VM and attach the NIC
 When you create the VM, specify the NIC you created with `--nics`. While this feature is in preview, you can only select a VM size and Linux distribution listed in [Linux accelerated networking preview](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with the UbuntuLTS image:
+Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroup2 \
+    --resource-group myResourceGroup \
     --name myVM \
     --image UbuntuLTS \
-    --size Standard_DS3_v2 \
+    --size Standard_DS4_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --nics myNic
 ```
+
+For a list of all VM sizes and characteristics, see [Linux VM sizes](sizes.md).
 
 Once the VM is created, output similar to the following example output is returned. Take note of the **publicIpAddress**. This address is used to access the VM in subsequent steps.
 
 ```azurecli
 {
   "fqdns": "",
-  "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "centralus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "192.168.0.4",
   "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myResourceGroup2"
+  "resourceGroup": "myResourceGroup"
 }
 ```
 
 ## SSH to the VM
 
-Use the following command to create an SSH session with the VM. Replace *40.68.254.142* with the public IP address assigned to the virtual machine you created and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
+Use the following command to create an SSH session with the VM. Replace `<your-public-ip-address> with the public IP address assigned to the virtual machine you created, and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
 
 ```bash
-ssh azureuser@40.68.254.142
+ssh azureuser@<your-public-ip-address>
 ```
 
 ## Configure the operating system
@@ -277,3 +276,5 @@ Run testpmd with a specific VF:
 ```bash
 ./x86_64-native-linuxapp-gcc/build/app/test-pmd/testpmd -n 1 $(/root/failsafe.sh 00:15:5d:44:4b:0d)  -- -i
 ```
+
+Accelerated Networking with DPDK is now enabled for your VM.
