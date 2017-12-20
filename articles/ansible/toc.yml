@@ -17,6 +17,7 @@
   items:
   - name: Create complete Linux VM
     href: /azure/virtual-machines/linux/ansible-create-complete-vm
+    maintainContext: true
 - name: Samples
 - name: Reference 
   items:
