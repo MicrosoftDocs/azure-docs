@@ -57,4 +57,4 @@ You can use Python to access the same results you saw in the browser window in t
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Add utterances](luis-quickstart-python-add-utterance.md)
