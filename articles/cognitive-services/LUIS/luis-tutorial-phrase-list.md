@@ -1,5 +1,5 @@
 ---
-title: Add a phrase list to improve accuracy | Microsoft Docs 
+title: Improve accuracy with an interchangeable phrase list| Microsoft Docs 
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
@@ -12,49 +12,183 @@ ms.date: 12/20/2017
 ms.author: v-geberr
 ---
 
-## Phrase List:
+# Improve accuracy with an interchangeable phrase list 
+The **[Phrase list feature][PhraseListFeatures]** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
 
-The __[Phrase list feature][PhraseListFeatures]__ can help your model by providing semantically related words to the values provided. After selecting the related words and setting the list to active, it will help your model in its predicting of intents and entities. Marking the values of an Phrase list as exchangable will tell LUIS to treat the words as synonyms.
+Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
+With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
 
-### Example Use Case: Using Phrase Lists for Synonyms
+## Prerequisite
 
-A user tells the chatbot, `"I require a computer replacement"`. The `"Hardware"` intent has been trained with the labeled utterance `"I want a computer replacement"`. The difference between the two utterances is only one word, `"require"`, which is a synonym of the original word `"want"`. What is the scoring of user's utterance?
+> [!div class="checklist"]
+> * [Hardware requisition app](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/phrase_list/luis-app-for-phrase-list.json). Import this app. Its name in the app list is **Phrase Lists**. Train and publish the app.  
 
-!["I require a computer replacement" before Phrase list][BeforePhraseList]
+## Score trained utterance
+Use the published endpoint to query with an utterance the app knows about:
 
-It's score was __0.840912044__, which is low when considering that `"require"` and `"want"` are synonyms. For `"I want a computer replacement"`, the `"Hardware"` intent score was __0.98__. Additionally, there are no predicted entities for the user's utterance, though `"computer"` was labeled as a `"Hardware"` entity in `"I want a computer replacement"`.
+`I want a computer replacement`
 
- Why is `"I require a computer replacement"` score lower than the labeled utterance that uses the word `"want"`? The answer for this is that LUIS provides syntactic analysis which analyzes utterances based on its __*grammatical structure*__. Since the word `"require"` wasn't used in any labeled utterances for the `"Hardware"` intent, the score was lower than 0.98. Syntactic analysis is often compared with semantic analysis, which includes an analysis of the word's __*definitions*__ or __*meanings*__ (e.g. perspiration == sweat).
+```JSON
+{
+  "query": "I want a computer replacement",
+  "topScoringIntent": {
+    "intent": "GetHardware",
+    "score": 0.9735458
+  },
+  "intents": [
+    {
+      "intent": "GetHardware",
+      "score": 0.9735458
+    },
+    {
+      "intent": "None",
+      "score": 0.07053033
+    },
+    {
+      "intent": "Whois",
+      "score": 0.03760778
+    },
+    {
+      "intent": "CheckCalendar",
+      "score": 0.02285902
+    },
+    {
+      "intent": "CheckInventory",
+      "score": 0.0110072717
+    }
+  ],
+  "entities": [
+    {
+      "entity": "computer",
+      "type": "Hardware",
+      "startIndex": 9,
+      "endIndex": 16,
+      "score": 0.8465915
+    }
+  ]
+}
+```
 
-Creating a Phrase list feature can add some semantic anaylsis to the LUIS model. Phrase lists are found under __`Features`__. After selecting __`Features`__, select __`Add Phrase list`__, then provide a name and a starting value.
+|| intent score | entity score |
+|--|--|--|
+|trained | 0.973 | 0.846 |
 
-![Initializing the "Want" Phrase list][PhraseListStart]
+You expect the intent score of 0.973 and the entity detection of 0.846 to be high because the app was trained with this utterance. You can see this utterance in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
 
-After you provide a starting value, LUIS will provide a series of __`Related Values`__ which feature words similar to the values already existing in your Phrase list.
+## Score an untrained utterance
+Use the published endpoint to query with an utterance that the app doesn't know about:
 
-![Related values to the initial value "Want"][PhraseList_RelatedValues]
+`I require a computer replacement`
 
-Adding the words `"Require"`, `"Requires"` and some of the recommended related values will have the Phrase list ready to be incorporated into your model. As mentioned earlier, we've set `"isExchangable"` and `"isActive"` to __true__. The first property will treat the contents of the list as synonyms and the second property will tell LUIS to use the Feature when recognizing utterances.
+This utterance uses a synonym of the previous utterance:
 
-![Addings values to the "Want" Phrase list][AddValues]
+| trained word | untrained synonym |
+|--|--|
+| want | require |
 
-In the example LUIS Application we have trained our model with no utterances that include the word `"require"`. What we have done is create a Phrase List that has the word `"want"` along with `"require"` and other synonyms.
 
-After saving the Phrase list, training and republishing the model we then test the utterance `"I require a computer replacement"`.
+The endpoint response is:
 
-!["I require a computer replacement" after Phrase list][AfterPhraseList]
+```JSON
+{
+  "query": "I require a computer replacement",
+  "topScoringIntent": {
+    "intent": "GetHardware",
+    "score": 0.840912163
+  },
+  "intents": [
+    {
+      "intent": "GetHardware",
+      "score": 0.840912163
+    },
+    {
+      "intent": "None",
+      "score": 0.0972757638
+    },
+    {
+      "intent": "Whois",
+      "score": 0.0448251367
+    },
+    {
+      "intent": "CheckCalendar",
+      "score": 0.0291390456
+    },
+    {
+      "intent": "CheckInventory",
+      "score": 0.0137837809
+    }
+  ],
+  "entities": []
+}
+```
 
-After activating the Phrase list the score respectably increased to __0.8994222__ from __0.840912044__. Additionally, the word `"computer"` was correctly recognized as a `"Hardware"` entity. 
+|| intent score | entity score |
+|--|--|--|
+| trained | 0.973 | 0.846 |
+| untrained | 0.840 | - |
 
-___
+ Why is the untrained utterance score lower than the labeled utterance? The answer is LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__. Since the word `"require"` wasn't used in any labeled utterances for the `"Hardware"` intent, the score was lower than 0.973. 
 
-The model used in this example can be found __[here][PhraseListModel]__. Additional reading on __[LUIS Features][LuisFeatures]__ can be found here.
+## Add phrase list 
+Add a [phrase list](PhraseListFeatures) named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
 
-  [PhraseListFeatures]: https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-features#phrase-list-features
-  [AddValues]: ./screenshots/AddingValuestoWantPhraseList.PNG
-  [BeforePhraseList]: ./screenshots/IRequireAComputerReplacement_BeforePhraseList.PNG
-  [AfterPhraseList]: ./screenshots/IRequireAComputerReplacement_AfterPhraseList.PNG
-  [PhraseListStart]: ./screenshots/PhraseListStart.PNG
-  [PhraseList_RelatedValues]: ./screenshots/PhraseList_RelatedValues.PNG
-  [PhraseListModel]: ./Phrase_List.json
-  [LuisFeatures]: https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-feature
+![Phrase list values](./media/list-tutorial-phrase-list/phrase-list-values.png)
+
+Train the app but don't publish it. 
+
+In this app, the published model is not trained with the synonyms. Only the currently editing model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
+
+![Inspect Published versus current](./media/list-tutorial-phrase-list/inspect.png)
+
+After the phrase list, the accuracy increased for the utterance `I require a computer replacement`.
+
+|| intent score | entity score |
+|--|--|--|
+| published - no phrase list| 0.84 | - |
+| unpublished - phrase list | 0.92 | Hardware entity identified |
+
+If you want to see the entity score, [publish](PublishApp.md) the model and query from the endpoint. 
+
+```JSON
+{
+  "query": "I require a computer replacement",
+  "topScoringIntent": {
+    "intent": "GetHardware",
+    "score": 0.916503668
+  },
+  "intents": [
+    {
+      "intent": "GetHardware",
+      "score": 0.916503668
+    },
+    {
+      "intent": "None",
+      "score": 0.136505231
+    },
+    {
+      "intent": "Whois",
+      "score": 0.02778677
+    },
+    {
+      "intent": "CheckInventory",
+      "score": 0.0144592477
+    },
+    {
+      "intent": "CheckCalendar",
+      "score": 0.01401332
+    }
+  ],
+  "entities": [
+    {
+      "entity": "computer",
+      "type": "Hardware",
+      "startIndex": 12,
+      "endIndex": 19,
+      "score": 0.5959917
+    }
+  ]
+}
+```
+
+  [PhraseListFeatures]: Add-Features.md
+  [LuisFeatures]: luis-concept-feature.md
