@@ -29,7 +29,7 @@ This article provides various code and script examples for token acquisition, as
 If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a user-assigned Managed Service Identity (MSI) for a VM using Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using the Portal, PowerShell, a template, or an Azure SDK). 
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using the Portal, PowerShell, a template, or an Azure SDK). 
 
 ## Overview
 
@@ -145,7 +145,7 @@ See [Azure services that support Azure AD authentication](msi-overview.md#azure-
 
 ## Next steps
 
-- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
+- To enable MSI on an Azure VM, see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
