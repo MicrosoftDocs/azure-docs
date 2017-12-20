@@ -19,7 +19,7 @@ ms.author: rli
 ---
 
 # Match conditions for the Content Delivery Network rules engine
-This topic lists detailed descriptions of the available match conditions for the Azure Content Delivery Network [rules engine](cdn-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network [rules engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
@@ -318,7 +318,7 @@ Only assets that are requested through the selected request method will satisfy 
 - CONNECT 
 
 Key information:
-- By default, only the GET request method can generate cached content on the network. All other request methods are simply proxied through the network.
+- By default, only the GET request method can generate cached content on the network. All other request methods are proxied through the network.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
   - Complete Cache Fill
   - Default Internal Max-Age
