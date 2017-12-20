@@ -1,13 +1,14 @@
 ---
-title: Provision and catalog new tenants in a SaaS application using a multi-tenant Azure SQL Database SQL database | Microsoft Docs
+title: Provision in SaaS multi-tenant Azure | Microsoft Docs
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: MightyPen
 manager: craigg
-editor: ''
+editor: MightyPen
 
+ms.reviewer: billgib;andrela;genemi
 ms.assetid:
 ms.service: sql-database
 ms.custom: saas apps
@@ -15,43 +16,99 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/19/2017
 ms.author: billgib
-
 ---
-# Provision and catalog new tenants in a SaaS application using a sharded multi-tenant SQL database
+# Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database
 
-In this tutorial, you learn about patterns for provisioning and cataloging tenants when working with a sharded multi-tenant database model. 
+In this tutorial, you learn about patterns for the provisioning and cataloging of tenants when working with a sharded multi-tenant database model. We call this the *multi-tenant sharded database* pattern or model.
 
-A multi-tenant schema, which includes a tenant Id in the primary key of tables holding tenant data, allows multiple tenants to be stored in a single database. To support large numbers of tenants, tenant data is distributed across multiple shards, or databases. The data for any one tenant is always fully contained in a single database.  A catalog is used to hold the mapping of tenants to databases.   
+In this multi-tenant sharded model, the table schemas inside each database include a tenant key in the primary key of tables that store tenant data. The tenant key enables each individual database to store 0, 1, or many tenants. The use of sharded databases makes it easy for the application system to support a very large number of tenants. All the data for any one tenant is stored in one database. The large number of tenants are distributed across the many sharded databases. A catalog database stores the mapping of each tenant to its database.
 
-You can also choose to populate some databases with only a single tenant. Databases that hold multiple tenants favor a lower cost per tenant at the expense of tenant isolation.  Databases that hold only a single tenant favor isolation over low cost.  Databases with multiple tenants and single tenants can be mixed in the same SaaS application to optimize cost or isolation for each tenant. Tenants can be given their own database when provisioned or can be moved to their own database later.
+#### Isolation versus lower cost
+
+A tenant that has a database all to itself enjoys the benefits of isolation. The tenant can have the database restored to an earlier date without being restricted by the impact on other tenants. Database performance can be tuned to optimize for the one tenant, again without having to compromise with other tenants. The problem is that isolation costs more than it costs to share a database with other tenants.
+
+When a new tenant is provisioned, it can share a database with other tenants, or it can be placed into its own new database. Later you can change your mind and move the database to the other situation.
+
+Databases with multiple tenants and single tenants are mixed in the same SaaS application, to optimize cost or isolation for each tenant.
 
    ![Sharded multi-tenant database app with tenant catalog](media/saas-multitenantdb-provision-and-catalog/MultiTenantCatalog.png)
 
-
 ## Tenant catalog pattern
 
-If tenant data is distributed across multiple databases, it's important to know where each tenant's data is stored. A catalog database holds the mapping between a tenant and the database that stores its data.
+When you have two or more databases that each contain at least one tenant, parts of the application must have a way to discover which database stores the tenant of current interest. A catalog database stores this mapping.
 
-Each tenant is identified by a key in the catalog. In the Wingtip Tickets SaaS apps, the tenant key is formed from a hash of the tenant’s name. This allows the application to extract the tenant name from a web page URL and use this to connect to the appropriate database. Other tenant key schemes can also be used.
+For each tenant, the Wingtip application can derive a unique key, which is the tendant key. The app extracts the tenant name from the webpage URL. The app hashes the name to obtain the key. The app uses the key to access the catalog. The catalog cross-references information about the database in which the tenant is stored. The app uses the database info to connect. Other tenant key schemes can also be used.
 
-Using a catalog allows the name or location of a tenant database to be changed after provisioning without disrupting the application.  In a multi-tenant database model, this accommodates moving a tenant between databases.  The catalog can also be used to indicate to an application whether a tenant is offline for maintenance or other actions.
+Using a catalog allows the name or location of a tenant database to be changed after provisioning without disrupting the application. In a multi-tenant database model, this accommodates moving a tenant between databases.
 
-The catalog can be extended to store additional tenant or database metadata, such as the tier or edition of a database, database schema version, tenant name and service plan or SLA, and other information to enable application management, customer support, or devops processes.  
+The catalog can also indicate whether a tenant is offline for maintenance or other actions. And the catalog can be extended to store additional tenant or database metadata, such as the following:
+- The service tier or edition of a database.
+- The version of the database schema.
+- The tenant name and its SLA (service level agreement).
+- Information to enable application management, customer support, or devops processes.  
 
 The catalog can also be used to enable cross-tenant reporting, schema management, and data extract for analytics purposes. 
 
+
+
+
+???3-OLD- If tenant data is distributed across multiple databases, it's important to know where each tenant's data is stored. A catalog database holds the mapping between a tenant and the database that stores its data.
+
+???3-OLD- Each tenant is identified by a key in the catalog. In the Wingtip Tickets SaaS apps, the tenant key is formed from a hash of the tenant’s name. This allows the application to extract the tenant name from a web page URL and use this to connect to the appropriate database. Other tenant key schemes can also be used.
+
+???3-OLD- Using a catalog allows the name or location of a tenant database to be changed after provisioning without disrupting the application.  In a multi-tenant database model, this accommodates moving a tenant between databases.  The catalog can also be used to indicate to an application whether a tenant is offline for maintenance or other actions.
+
+???3-OLD- The catalog can be extended to store additional tenant or database metadata, such as the tier or edition of a database, database schema version, tenant name and service plan or SLA, and other information to enable application management, customer support, or devops processes.  
+
+
+
 ### Elastic Database Client Library 
-In the Wingtip Tickets SaaS apps, the catalog is implemented in the *tenantcatalog* database using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a database-backed 'shard map'. A shard map contains a list of shards (databases) and the mapping between keys (tenant Ids) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and later, to connect to the correct database. The library caches connection information to minimize the traffic on the catalog database and speed up connection. 
+
+In Wingtip, the catalog is implemented in the *tenantcatalog* database. The *tenantcatalog* is created using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a *shard map* that is stored in a database. A shard map cross-references the tenant key with its shard, meaning its sharded database.
+
+During tenant provisioning, EDCL functions can be used from applications or PowerShell scripts to create the entries in the shard map. Later the EDCL functions can be used to connect to the correct database. The EDCL caches connection information to minimize the traffic on the catalog database and speed up the process of connecting.
 
 > [!IMPORTANT]
+> Do *not* edit the data in the catalog database through direct access! Direct updates are not supported due to the high risk of data corruption. Instead, edit the mapping data by using EDCL APIs only.
+
+
+
+
+
+???3-OLD- In the Wingtip Tickets SaaS apps, the catalog is implemented in the *tenantcatalog* database using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a database-backed 'shard map'. A shard map contains a list of shards (databases) and the mapping between keys (tenant Ids) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and later, to connect to the correct database. The library caches connection information to minimize the traffic on the catalog database and speed up connection. 
+
+???3-OLD- > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it!* Edit mapping data using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and is not supported.
+
+
+
+
 
 
 ## Tenant provisioning pattern
 
-When provisioning a new tenant in the sharded multi-tenant database model, it must first be determined if the tenant is to be provisioned into a shared database or given its own database. If a shared database, it must be determined if there is space in an existing database or a new database is needed. If a new database is needed, it must be provisioned in the appropriate location and service tier, initialized with appropriate schema and reference data, and then registered in the catalog. Finally, the tenant mapping can be added to reference the appropriate shard.
+#### Checklist
+
+When you want to provision a new tenant into an existing shared database, of the shared database you must ask the following:
+- Does it have enough space left for the new tenant?
+- Does it have tables with the necessary reference data for the new tenant, or can the data be added?
+- Does it have the appropriate variation of the base schema for the new tenant?
+- Is it in the appropriate geographic location close to the new tenant?
+- Is it at the right service tier for the new tenant?
+
+When you want the new tenant to be isolated in its own database, you can create it to meet the specifications for the tenant.
+
+After the provisioning is complete, you must register the tenant in the catalog. Finally, the tenant mapping can be added to reference the appropriate shard.
+
+
+
+???3-OLD- When provisioning a new tenant in the sharded multi-tenant database model, it must first be determined if the tenant is to be provisioned into a shared database or given its own database. If a shared database, it must be determined if there is space in an existing database or a new database is needed. If a new database is needed, it must be provisioned in the appropriate location and service tier, initialized with appropriate schema and reference data, and then registered in the catalog. Finally, the tenant mapping can be added to reference the appropriate shard.
+
+
+#### Scripts
+
 
 Provision the database by executing SQL scripts, deploying a bacpac, or copying a template database. The Wingtip Tickets SaaS applications copy a template database to create new tenant databases.
 
@@ -64,7 +121,6 @@ The tenant provisioning scripts in this tutorial include both provisioning a ten
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > * Provision a tenant into a multi-tenant database
 > * Provision a tenant into a single-tenant database
 > * Provision a batch of tenants into both multi-tenant and single-tenant databases
@@ -72,8 +128,8 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip Tickets SaaS Multi-tenant Database app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- The Wingtip Tickets SaaS Multi-tenant Database app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-get-started-deploy.md)
+- Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
@@ -84,9 +140,9 @@ The Wingtip Tickets SaaS Multi-tenant Database scripts and application source co
 To understand how the Wingtip Tickets application implements new tenant provisioning in a shared database, add a breakpoint and step through the workflow:
 
 1. In the _PowerShell ISE_, open ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ and set the following parameters:
-   * **$TenantName** = **Bushwillow Blues**, the name of a new venue.
-   * **$VenueType** = **blues**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
-   * **$DemoScenario** = **1**, to *Provision a tenant in a shared database with other tenants*.
+   - **$TenantName** = **Bushwillow Blues**, the name of a new venue.
+   - **$VenueType** = **blues**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
+   - **$DemoScenario** = **1**, to *Provision a tenant in a shared database with other tenants*.
 
 1. Add a breakpoint by putting your cursor anywhere on line 38, the line that says: *New-Tenant `*, and press **F9**.
 
@@ -103,12 +159,12 @@ Trace the script's execution using the **Debug** menu options, **F10** and **F11
 
 The following are key elements of the provisioning workflow you step through:
 
-* **Calculate the new tenant key**. A hash function is used to create the tenant key from the tenant name.
-* **Check if the tenant key already exists**. The catalog is checked to ensure the key has not already been registered.
-* **Initialize tenant in the default tenant database**. The tenant database is updated to add the new tenant information.  
-* **Register tenant in the catalog** The mapping between the new tenant key and the existing tenants1 database is added to the catalog. 
-* **Add the tenant's name to a catalog extension table**. The venue name is added to the Tenants table in the catalog.  This shows how the Catalog database can be extended to support additional application-specific data.
-* **Open Events page for the new tenant**. The *Bushwillow Blues* events page is opened in the browser:
+- **Calculate the new tenant key**. A hash function is used to create the tenant key from the tenant name.
+- **Check if the tenant key already exists**. The catalog is checked to ensure the key has not already been registered.
+- **Initialize tenant in the default tenant database**. The tenant database is updated to add the new tenant information.  
+- **Register tenant in the catalog** The mapping between the new tenant key and the existing tenants1 database is added to the catalog. 
+- **Add the tenant's name to a catalog extension table**. The venue name is added to the Tenants table in the catalog.  This shows how the Catalog database can be extended to support additional application-specific data.
+- **Open Events page for the new tenant**. The *Bushwillow Blues* events page is opened in the browser:
 
    ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -118,9 +174,9 @@ The following are key elements of the provisioning workflow you step through:
 Now walkthrough the process when creating a tenant in its own database:
 
 1. Still in ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ set the following parameters:
-   * **$TenantName** = **Sequoia Soccer**, the name of a new venue.
-   * **$VenueType** = **soccer**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
-   * **$DemoScenario** = **2**, to *Provision a tenant into its own database*.
+   - **$TenantName** = **Sequoia Soccer**, the name of a new venue.
+   - **$VenueType** = **soccer**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
+   - **$DemoScenario** = **2**, to *Provision a tenant into its own database*.
 
 1. Add a new breakpoint by putting your cursor anywhere on line 57, the line that says: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*, and press **F9**.
 
@@ -132,14 +188,14 @@ Now walkthrough the process when creating a tenant in its own database:
 
 The following are key elements of the workflow you step through while tracing the script:
 
-* **Calculate the new tenant key**. A hash function is used to create the tenant key from the tenant name.
-* **Check if the tenant key already exists**. The catalog is checked to ensure the key has not already been registered.
-* **Create a new tenant database**. The database is created by copying the *basetenantdb* database using a Resource Manager template.  The new database name is based on the tenant's name.
-* **Add database to catalog**. The new tenant database is registered as a shard in the catalog.
-* **Initialize tenant in the default tenant database**. The tenant database is updated to add the new tenant information.  
-* **Register tenant in the catalog** The mapping between the new tenant key and the *sequoiasoccer* database is added to the catalog.
-* **Tenant name is added to the catalog**. The venue name is added to the Tenants extension table in the catalog.
-* **Open Events page for the new tenant**. The *Sequoia Soccer* Events page is opened in the browser:
+- **Calculate the new tenant key**. A hash function is used to create the tenant key from the tenant name.
+- **Check if the tenant key already exists**. The catalog is checked to ensure the key has not already been registered.
+- **Create a new tenant database**. The database is created by copying the *basetenantdb* database using a Resource Manager template.  The new database name is based on the tenant's name.
+- **Add database to catalog**. The new tenant database is registered as a shard in the catalog.
+- **Initialize tenant in the default tenant database**. The tenant database is updated to add the new tenant information.  
+- **Register tenant in the catalog** The mapping between the new tenant key and the *sequoiasoccer* database is added to the catalog.
+- **Tenant name is added to the catalog**. The venue name is added to the Tenants extension table in the catalog.
+- **Open Events page for the new tenant**. The *Sequoia Soccer* Events page is opened in the browser:
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -150,7 +206,7 @@ This exercise provisions a batch of 17 tenants. It’s recommended you provision
 
 
 1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*  and change the *$DemoScenario* parameter to 4:
-   * **$DemoScenario** = **4**, to *Provision a batch of tenants into a shared database*.
+   - **$DemoScenario** = **4**, to *Provision a batch of tenants into a shared database*.
 1. Press **F5** and run the script.
 
 
@@ -185,21 +241,21 @@ Other interesting provisioning patterns include:
 **Auto-provisioning.** In the auto-provisioning pattern, a dedicated provisioning service is used to provision servers, pools, and databases automatically as needed – including pre-provisioning databases in elastic pools. And if databases are de-commissioned and deleted, the gaps this creates in elastic pools can be filled by the provisioning service as desired. Such a service could be simple or complex – for example, handling provisioning across multiple geographies, and could set up geo-replication for disaster recovery. With the auto-provisioning pattern, a client application or script would submit a provisioning request to a queue to be processed by a provisioning service, and would then poll to determine completion. If pre-provisioning is used, requests would be handled quickly, while another service would manage provisioning of replacement database in the background.
 
 
+## Additional resources
+
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+- [Elastic database client library](sql-database-elastic-database-client-library.md)
+- [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+
 
 ## Next steps
 
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
 > * Provision a single new tenant into a shared multi-tenant database and its own database
 > * Provision a batch of additional tenants
 > * Step through the details of provisioning tenants, and registering them into the catalog
 
 Try the [Performance monitoring tutorial](saas-multitenantdb-performance-monitoring.md).
 
-## Additional resources
-
-<!--* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-* [Elastic database client library](sql-database-elastic-database-client-library.md)
-* [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
