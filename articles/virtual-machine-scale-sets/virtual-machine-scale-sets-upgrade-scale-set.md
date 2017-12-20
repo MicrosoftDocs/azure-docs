@@ -3,8 +3,8 @@ title: Upgrade an Azure virtual machine scale set| Microsoft Docs
 description: Upgrade an Azure virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
+ms.author: gunegatybo
 
 ---
 # Upgrade a virtual machine scale set

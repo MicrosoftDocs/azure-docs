@@ -3,8 +3,8 @@ title: Working with large Azure Virtual Machine Scale Sets | Microsoft Docs
 description: What you need to know to use large Azure virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: guybo
+ms.author: negat
 
 ---
 # Working with large virtual machine scale sets

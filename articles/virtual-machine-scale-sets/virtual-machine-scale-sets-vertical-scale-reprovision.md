@@ -3,8 +3,8 @@ title: Vertically scale Azure virtual machine scale sets | Microsoft Docs
 description: How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: madhana
+author: gatneil
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: guybo
+ms.author: negat
 
 ---
 # Vertical autoscale with Virtual Machine Scale sets
