@@ -54,8 +54,9 @@ This section lists some recommendations when using Video Indexer API.
 
 ## Code sample
 
-The following C# code snippet demonstrates the usage of all the Video Indexer APIs together. 
+The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
+```csharp
     var apiUrl = "https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns";
     var client = new HttpClient();
     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "...");
@@ -114,7 +115,7 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
     Console.WriteLine();
     Console.WriteLine("Player token:");
     Console.WriteLine(json);
-
+```
 ## Next steps
 
 Examine details of the output JSON, see [this](video-indexer-output-json.md) topic.

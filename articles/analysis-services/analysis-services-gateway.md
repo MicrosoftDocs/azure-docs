@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

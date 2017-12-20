@@ -30,6 +30,13 @@
   - name: API Management
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
+    items:
+    - name: Policies
+      tocHref: /azure/api-management/policies/
+      topicHref: /azure/api-management/policy-samples/
+    - name: Azure PowerShell
+      tocHref: /azure/api-management/scripts/
+      topicHref: /azure/api-management/powershell-samples/
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
@@ -58,6 +65,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Databricks
+    tocHref: /azure/azure-databricks/
+    topicHref: /azure/azure-databricks/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -67,12 +77,15 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
-  - name: Government
+  - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: Germany
+  - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
+  - name: Azure China 21Vianet
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -137,7 +150,7 @@
     - name: Face
       tocHref: /azure/cognitive-services/face/
       topicHref: /azure/cognitive-services/face/
-    - name: Language Understanding Intelligent Service (LUIS)
+    - name: Language Understanding (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
     - name: Text Analytics
@@ -201,6 +214,32 @@
   - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
+    items:
+      - name: Hadoop
+        tocHref: /azure/hdinsight/hadoop
+        topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+      - name: HBase
+        tocHref: /azure/hdinsight/hbase
+        topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+      - name: Interactive Query
+        tocHref: /azure/hdinsight/interactive-query
+        topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+      - name: Kafka
+        tocHref: /azure/hdinsight/kafka
+        topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+      - name: Enterprise Security
+        tocHref: /azure/hdinsight/domain-joined
+        topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+      - name: R Server
+        tocHref: /azure/hdinsight/r-server
+        topicHref: /azure/hdinsight/r-server-overview
+      - name: Spark
+        tocHref: /azure/hdinsight/spark
+        topicHref: /azure/hdinsight/spark/apache-spark-overview
+      - name: Storm
+        tocHref: /azure/hdinsight/storm
+        topicHref: /azure/hdinsight/storm/apache-storm-overview
+      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
@@ -275,6 +314,31 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
+  - name: Policy documentation
+    tocHref: /azure/azure-policy/
+    topicHref: /azure/azure-policy/
+    items:
+      - name: Overview of Azure Policy
+        tocHref: /azure/azure-policy/azure-policy-introduction/
+        topicHref: /azureazure-policy/azure-policy-introduction/
+      - name: Assign a policy - Portal
+        tocHref: /azure/azure-policy/assign-policy-definition/
+        topicHref: /azureazure-policy/assign-policy-definition/
+      - name: Assign a policy - PowerShell
+        tocHref: /azure/azure-policy/assign-policy-definition-ps/
+        topicHref: /azureazure-policy/assign-policy-definition-ps/
+      - name: Assign a policy - Azure CLI
+        tocHref: /azure/azure-policy/assign-policy-definition-cli/
+        topicHref: /azureazure-policy/assign-policy-definition-cli/
+      - name: Create and manage Azure Policy
+        tocHref: /azure/azure-policy/create-manage-polic/
+        topicHref: /azureazure-policy/create-manage-polic/
+      - name: Policy templates
+        tocHref: /azure/azure-policy/json-samples/
+        topicHref: /azureazure-policy/json-samples/
+      - name: Azure Policy definition structure
+        tocHref: /azure/azure-policy/policy-definition/
+        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
@@ -351,6 +415,9 @@
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
+  - name: Time Series Insights
+    tocHref: /azure/time-series-insights/
+    topicHref: /azure/time-series-insights/
   - name: Traffic Manager
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/

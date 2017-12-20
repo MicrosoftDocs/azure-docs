@@ -17,6 +17,7 @@
 #### [Azure AD with Batch service](batch-aad-auth.md)
 #### [Azure AD with Batch Management](batch-aad-auth-management.md)
 ### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
+### [Container workloads](batch-docker-container-workloads.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Count tasks by state](batch-get-task-counts.md)
 ### [Create a pool with a custom image](batch-custom-images.md)

@@ -36,7 +36,7 @@ When you start modeling data in a document store, such as Azure Cosmos DB, try t
 
 Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
 
-![Relational database model](./media/documentdb-modeling-data/relational-data-model.png)
+![Relational database model](./media/sql-api-modeling-data/relational-data-model.png)
 
 When working with relational databases, we've been taught for years to normalize, normalize, normalize.
 
@@ -68,7 +68,7 @@ Now let's take a look at how we would model the same data as a self-contained en
             }
         ],
         "contactDetails": [
-            {"email: "thomas@andersen.com"},
+            {"email": "thomas@andersen.com"},
             {"phone": "+1 555 555-5555", "extension": 5555}
         ] 
     }
@@ -287,7 +287,7 @@ In the above example, we have dropped the unbounded collection on the publisher 
 ### How do I model many:many relationships?
 In a relational database *many:many* relationships are often modeled with join tables, which just join records from other tables together. 
 
-![Join tables](./media/documentdb-modeling-data/join-table.png)
+![Join tables](./media/sql-api-modeling-data/join-table.png)
 
 You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
 
@@ -392,4 +392,4 @@ Just as there is no single way to represent a piece of data on a screen, there i
 
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page. 
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](documentdb-partition-data.md). 
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md). 

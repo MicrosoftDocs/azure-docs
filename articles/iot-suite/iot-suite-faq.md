@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 
 ---
@@ -27,7 +27,7 @@ See also, the connected factory-specific [FAQ](iot-suite-faq-cf.md).
 The source code is stored in the following GitHub repositories:
 
 * [Remote monitoring preconfigured solution (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Remote monitoring preconfigured solution (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Remote monitoring preconfigured solution (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Predictive maintenance preconfigured solution](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory)
 

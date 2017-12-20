@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage pricing and data volume for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
@@ -37,7 +37,7 @@ The Basic plan is the default when a new Application Insights resource is create
 
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
-For [tabular data imported into Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
+For [tabular data imported into Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
 * [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan.
@@ -108,7 +108,7 @@ Application Insights charges are added to your Azure bill. You can see details o
 There are three ways in which the volume you send data is limited:
 
 * **Sampling:** This mechanism can be used reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics. This is the primary tool you have to tune the amount of data. Learn more about [sampling features](app-insights-sampling.md). 
-* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 500 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
+* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 100 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 1000 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
 * **Throttling:** This limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 

@@ -13,16 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
 
 ---
 # Azure SQL Data Warehouse performance tiers (Preview)
 SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. This article explains the concepts of performance tiers to help you choose the most suitable performance tier for your workload. 
 
-
 ## What is a performance tier?
 A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
@@ -67,9 +68,9 @@ The service levels for the Optimized for Elasticity performance tier range from 
 | DW1000        | 32                     | 10            | 6                              | 4,000                            | 240                                |
 | DW1200        | 32                     | 12            | 5                              | 4,800                            | 288                                |
 | DW1500        | 32                     | 15            | 4                              | 6,000                            | 360                                |
-| DW2000        | 48                     | 20            | 3                              | 8,000                            | 480                                |
-| DW3000        | 64                     | 30            | 2                              | 12,000                           | 720                                |
-| DW6000        | 128                    | 60            | 1                              | 24,000                           | 1440                               |
+| DW2000        | 32                     | 20            | 3                              | 8,000                            | 480                                |
+| DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
+| DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
 ### Optimized for Compute
 

@@ -105,7 +105,7 @@ The grammar specifies the set of natural language queries that the service can i
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">
@@ -227,7 +227,7 @@ The second method is to perform a remote Azure build using [`kes.exe build_index
 
 In this example, we assume that the blob storage container http://&lt;*account*&gt;.blob.core.windows.net/&lt;*container*&gt;/ has already been created, containing the schema *Academic.schema*, referenced synonym file *Keywords.syn*, and full-scale data file *Academic.full.data*.  We can build the full index remotely using the following command:
 
-`kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote Large`
+`kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
 Note that it may take 5-10 minutes to provision a temporay VM to build the index.  Thus, for rapid prototyping, we recommend one of two options:
   1. Develop with a smaller data set locally on any machine.
@@ -239,11 +239,11 @@ To avoid paging which slows down the build process, we recommend using a VM with
 ## Deploying service
 Once we have a grammar and index, we are ready to deploy the service to an Azure cloud service.  To create a new Azure cloud service, see [How to Create and Deploy a Cloud Service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md).  Do not specify a deployment package at this point.  
 
-Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale.md).
+Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-In this example, we will deploy the Academic index to the staging slot of an existing cloud service with *large* VMs using the following command:
+In this example, we will deploy the Academic index to the staging slot of an existing cloud service with *<vm_size>* VMs using the following command:
 
-`kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> large --slot Staging`
+`kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 
 For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).  Once the service has been deployed, we can call the various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  
 

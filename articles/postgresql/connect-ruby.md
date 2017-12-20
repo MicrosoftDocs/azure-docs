@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/30/2017
+ms.date: 11/03/2017
 ---
 
 # Azure Database for PostgreSQL: Use Ruby to connect and query data
@@ -49,7 +49,7 @@ Install Ruby on your own machine.
 - Build the Ruby pg module using Gem by running the command `sudo gem install pg`.
 
 ## Run Ruby code 
-- Save the code into a text file, and save the file into a project folder with file extension .rb, such as `C:\rubypostgres\read.rb` or `/home/username/rubypostgres/read.rb`
+- Save the code into a text file with file extension .rb, and save the file into a project folder, such as `C:\rubypostgres\read.rb` or `/home/username/rubypostgres/read.rb`
 - To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd rubypostgres`, then type the command `ruby read.rb` to run the application.
 
 ## Get connection information

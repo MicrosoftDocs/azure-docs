@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
 
 ---
@@ -24,7 +24,7 @@ ms.author: jingwang
 The copy activity in Azure Data Factory offers you two ways to handle incompatible rows when copying data between source and sink data stores:
 
 - You can abort and fail the copy activity when incompatible data is encountered (default behavior).
-- You can continue to copy all of the data by adding fault tolerance and skipping incompatible data rows. In addition, you can log the incompatible rows in Azure Blob storage. You can then examine the log to learn the cause for the failure, fix the data on the data source, and retry the copy activity.
+- You can continue to copy all of the data by adding fault tolerance and skipping incompatible data rows. In addition, you can log the incompatible rows in Azure Blob storage or Azure Data Lake Store. You can then examine the log to learn the cause for the failure, fix the data on the data source, and retry the copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity fault tolerance in V1](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -47,23 +47,24 @@ The following example provides a JSON definition to configure skipping the incom
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifies whether to skip incompatible rows during copy or not. | True<br/>False (default) | No
 redirectIncompatibleRowSettings | A group of properties that can be specified when you want to log the incompatible rows. | &nbsp; | No
-linkedServiceName | The linked service of Azure Storage to store the log that contains the skipped rows. | The name of an AzureStorage or AzureStorageSas linked service, which refers to the storage instance that you want to use to store the log file. | No
-path | The path of the log file that contains the skipped rows. | Specify the Blob storage path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
+linkedServiceName | The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) to store the log that contains the skipped rows. | The name of an `AzureStorage` or `AzureDataLakeStore` type linked service, which refers to the instance that you want to use to store the log file. | No
+path | The path of the log file that contains the skipped rows. | Specify the path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
 
 ## Monitor skipped rows
 After the copy activity run completes, you can see the number of skipped rows in the output of the copy activity:

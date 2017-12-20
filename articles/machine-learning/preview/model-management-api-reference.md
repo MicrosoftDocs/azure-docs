@@ -6,6 +6,7 @@ author: chhavib
 ms.author: chhavib
 manager: neerajkh
 editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
@@ -14,7 +15,7 @@ ms.date: 09/20/2017
 ---
 # Azure Machine Learning Model Management Account API reference
 
-For information about setting up the deployment environment, see [Model Management account setup](model-management-configuration.md).
+For information about setting up the deployment environment, see [Model Management account setup](deployment-setup-configuration.md).
 
 The Azure Machine Learning Model Management Account API implements the following operations:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale virtual machine scale sets in the Azure portal | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
 services: virtual-machine-scale-sets
@@ -31,7 +31,7 @@ To create autoscale rules, you need an existing virtual machine scale set. You c
 ## Create a rule to automatically scale out
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-1. Open the Azure portal and select **Resource groups** from the menu on the left-hand size of the dashboard.
+1. Open the Azure portal and select **Resource groups** from the menu on the left-hand side of the dashboard.
 2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
 3. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Enable autoscale**:
 
@@ -119,7 +119,7 @@ The previous examples automatically scaled a scale set in or out with basic host
 
     ![Create autoscale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale increases or decreases.
+To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale set increases or decreases.
 
 
 ## Next steps

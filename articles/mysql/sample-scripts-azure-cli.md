@@ -10,7 +10,7 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 05/10/2017
+ms.date: 11/02/2017
 ---
 # Azure CLI samples for Azure Database for MySQL 
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.

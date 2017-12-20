@@ -1,6 +1,7 @@
 ﻿---
 title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
+keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -266,6 +267,27 @@ Browse to the DNS name(s) that you configured earlier (for example, `contoso.com
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
+## Resolve 404 error “Web Site not found”
+
+If you receive an HTTP 404 (Not Found) error when browsing to the URL of your custom domain, verify that your domain resolves to your app's IP address using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it may be due to one of the following reasons:
+
+- The custom domain configured is missing an A record and/or a CNAME record.
+- The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## Direct default URL to a custom directory
+
+By default, App Service directs web requests to the root directory of your app code. However, certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app would be accessible at `http://contoso.com/public`, but you would really want to direct `http://contoso.com` to the `public` directory instead. This step doesn't involve DNS resolution, but customizing the virtual directory.
+
+To do this, select **Application settings** in the left-hand navigation of your web app page. 
+
+At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes. 
+
+![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+Once the operation completes, you app should return the right page at the root path (for example, http://contoso.com).
+
 ## Automate with scripts
 
 You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview). 
@@ -275,10 +297,10 @@ You can automate management of custom domains with scripts, using the [Azure CLI
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md). 

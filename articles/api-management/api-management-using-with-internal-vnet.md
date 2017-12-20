@@ -48,7 +48,7 @@ The API Management service in an internal virtual network is hosted behind an in
 ### Enable a virtual network connection using the Azure portal
 
 1. Browse to your Azure API Management instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Custom domains and SSL**.
+2. Select **Virtual network**.
 3. Configure the API Management instance to be deployed inside the virtual network.
 
     ![Menu for setting up an Azure API Management in an internal virtual network][api-management-using-internal-vnet-menu]
@@ -120,7 +120,6 @@ To learn more, see the following articles:
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-
-[Create API Management service]: api-management-get-started.md#create-service-instance
+[Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

@@ -8,9 +8,9 @@ manager: Vaman.Bedekar
 editor: tysonn
 
 ms.assetid:
-ms.custom: 
+ms.custom:
 ms.service: batch-ai
-ms.workload: 
+ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
@@ -22,11 +22,19 @@ ms.author: Alexander.Yukhanov
 
 This quickstart details using the Azure command-line interface (CLI) to run a Microsoft Cognitive Toolkit (CNTK) training job using the Batch AI service. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster managed by Batch AI.  
+In this example, you use the MNIST database of handwritten images to train a convolutional neural network (CNN) on a single-node GPU cluster managed by Batch AI. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This quickstart requires that you are running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+The Batch AI resource providers also need to be registered once for your subscription using the Azure Cloud Shell or Azure CLI. A provider registration can take up to 15 minutes.
+
+```azurecli
+az provider register -n Microsoft.BatchAI
+az provider register -n Microsoft.Batch
+```
+
 
 ## Create a resource group
 
@@ -39,58 +47,40 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```azurecli
 az group create --name myResourceGroup --location eastus
 
-az configure --defaults group=myResourceGroup 
+az configure --defaults group=myResourceGroup
 
-az configure --defaults location=eastus 
+az configure --defaults location=eastus
 ```
+
+>[!NOTE]
+>Setting the default values for the `az` command is an optional step. You can choose to not set the default values. If you do choose to set the defaults, you should remove the default settings after you finish the tutorial. Remove the default settings by using the following commands:
+>
+>```azurecli
+>az configure --defaults group=''
+>
+>az configure --defaults location=''
+>```
+>
 
 ## Create a storage account
 
 This quickstart uses an Azure storage account to host data and scripts for the training job. Create a storage account with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli
-az storage account create --name mystorageaccount --sku Standard_LRS 
+az storage account create --name mystorageaccount --sku Standard_LRS
 ```
 
-For later commands, set default storage account environment variables:
-
-* **Linux**
-
-  ```azurecli
-  export AZURE_STORAGE_ACCOUNT=mystorageaccount
-
-  export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
-
-  export AZURE_BATCHAI_STORAGE_ACCOUNT=mystorageaccount
-
-  export AZURE_BATCHAI_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount -o tsv --query [0].value)
-
-  ```
-
-* **Windows**
-
-  ```azurecli
-  set AZURE_STORAGE_ACCOUNT=mystorageaccount
-
-  az storage account keys list --account-name mystorageaccount -o tsv --query [0].value > temp.txt
-
-  set /p AZURE_STORAGE_KEY=< temp.txt
-
-  set AZURE_BATCHAI_STORAGE_ACCOUNT=mystorageaccount
-
-  set /p AZURE_BATCHAI_STORAGE_KEY=< temp.txt
-
-  del temp.txt
-  ```
+>[!NOTE]
+>Each storage account must have a unique name. In the previous `az` command and other similar commands in this tutorial, replace the value for the `mystorageaccount` setting with your storage account name.
 
 ## Prepare Azure file share
 
-For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job. 
+For illustration purposes, this quickstart uses an Azure file share to host the training data and scripts for the learning job.
 
 1. Create a file share named *batchaiquickstart* using the [az storage share create](/cli/azure/storage/share#az_storage_share_create) command.
 
   ```azurecli
-  az storage share create --name batchaiquickstart
+  az storage share create --account-name mystorageaccount --name batchaiquickstart
   ```
 2. Create a directory in the share named *mnistcntksample* using the [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) command.
 
@@ -101,7 +91,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory using the [az storage file upload](/cli/azure/storage/file#az_storage_file_upload) command:
 
   ```azurecli
-  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample 
+  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample
 
   az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
 
@@ -110,11 +100,11 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
 
 
 ## Create GPU cluster
-Use the [az batchai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare. 
+Use the [az batchai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) command to create a Batch AI cluster consisting of a single GPU VM node. In this example, the VM runs the default Ubuntu LTS image. Specify `image UbuntuDSVM` instead to run the Microsoft Deep Learning Virtual Machine, which supports additional training frameworks. The NC6 size has one NVIDIA K80 GPU. Mount the file share at a folder named *azurefileshare*. The full path of this folder on the GPU compute node is $AZ_BATCHAI_MOUNT_ROOT/azurefileshare.
 
 
 ```azurecli
-az batchai cluster create --name mycluster --vm-size STANDARD_NC6 --image UbuntuLTS --min 1 --max 1 --afs-name batchaiquickstart --afs-mount-path azurefileshare --user-name <admin_username> --password <admin_password> 
+az batchai cluster create --name mycluster --vm-size STANDARD_NC6 --image UbuntuLTS --min 1 --max 1 --storage-account-name mystorageaccount --afs-name batchaiquickstart --afs-mount-path azurefileshare --user-name <admin_username> --password <admin_password>
 ```
 
 
@@ -200,10 +190,10 @@ az batchai cluster list -o table
 Output is similar to the following:
 
 ```azurecli
-Name      Resource Group    VM Size       State      Idle    Running    Preparing    Unusable    Leaving
--------   ----------------  --------      -------    ------  ---------  -----------  ----------  ----------
-mycluster myresourcegroup   STANDARD_NC6  steady     1       0          0            0            0
-``` 
+Name        Resource Group    VM Size        State     Idle    Running    Preparing    Unusable    Leaving
+---------   ----------------  -------------  -------   ------  ---------  -----------  ----------  --------
+mycluster   myresourcegroup   STANDARD_NC6   steady    1       0          0            0            0
+```
 
 For more detail, run the [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show) command. It returns all the cluster properties shown after cluster creation.
 
@@ -211,7 +201,7 @@ The cluster is ready when the nodes are allocated and finished preparation (see 
 
 ## Create training job
 
-After the cluster is ready, configure and submit the learning job. 
+After the cluster is ready, configure and submit the learning job.
 
 1. Create a JSON template file for job creation named job.json:
 
@@ -336,11 +326,11 @@ Output is similar to the following:
 ```azurecli
 Name        Resource Group    Cluster    Cluster RG      Nodes  State    Exit code
 ----------  ----------------  ---------  --------------- -----  -------  -----------
-myjob       myresourcegroup   mycluster  myresourcegroup 1      running            
+myjob       myresourcegroup   mycluster  myresourcegroup 1      running
 
 ```
 
-For more detail, run the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command. 
+For more detail, run the [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show) command.
 
 The `executionState` contains the current execution state of the job:
 
@@ -408,8 +398,24 @@ Use the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluste
 az batchai cluster delete --name mycluster
 ```
 
+Use the `az group delete` command to delete the resource group that you created for this quickstart:
+
+```azurecli
+az group delete --name myResourceGroup
+```
+
+## Restore Azure CLI 2.0 default settings
+
+Remove the previously configured default settings for the location and resource group:
+
+```azurecli
+az configure --defaults group=''
+
+az configure --defaults location=''
+```
+
 ## Next steps
 
 In this quickstart, you learned how to run a CNTK training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different toolkits, see the [training recipes](https://github.com/Azure/BatchAI).
 
-
+To learn more about using Azure CLI 2.0 for managing Batch AI, see the [github documentation](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).

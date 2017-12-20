@@ -3,7 +3,7 @@ title: Create self-hosted integration runtime in Azure Data Factory | Microsoft 
 description: Learn how to create self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
+ms.author: abnarain
 
 ---
 # How to create and configure Self-hosted Integration Runtime
@@ -100,14 +100,27 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 
 
 ## High Availability and Scalability
-A Self-hosted Integration Runtime can be associateed to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
+A Self-hosted Integration Runtime can be associated to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
 1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtainined from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
+You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> You do not need to create new Self-hosted Integration Runtime for associating each node.
+> You do not need to create new Self-hosted Integration Runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it using the same Authentication Key. 
+
+> [!NOTE]
+> Before adding another node for **High Availability and Scalability**, please ensure **'Remote access to intranet'** option is **enabled** on the 1st node (Microsoft Integration Runtime Configuration Manager -> Settings -> Remote access to intranet). 
+
+### TLS/SSL certificate requirements
+Here are the requirements for the TLS/SSL certificate that is used for securing communications between integration runtime nodes:
+
+- The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
+- Each integration runtime node must trust this certificate.
+- Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
+- SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
+- Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
+- Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
 
 ## System tray icons/ notifications
 If you move cursor over the system tray icon/notification message, you can find details about the state of the self-hosted integration runtime.
@@ -222,14 +235,21 @@ If you encounter errors similar to the following ones, it is likely due to impro
 	A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
 	```
 
-### Open port 8060 for credential encryption
-The **Setting Credentials** application (currently not supported) uses the inbound port 8060 to relay credentials to the self-hosted integration runtime when you set up an on-premises linked service in the Azure portal. During self-hosted integration runtime setup, by default, the self-hosted integration runtime installation opens it on the self-hosted integration runtime machine.
+### Enable Remote Access from Intranet  
+In case if you use **PowerShell** or **Credential Manager application**  to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, then you would require the **'Remote Access from Intranet'** option to be enabled. 
+If you run the **PowerShell** or **Credential Manager application**  to encrypt credential on the same machine where the self-hosted integration runtime is installed, then **'Remote Access from Intranet'** may not be enabled.
 
-If you are using a third-party firewall, you can manually open the port 8050. If you run into firewall issue during self-hosted integration runtime setup, you can try using the following command to install the self-hosted integration runtime without configuring the firewall.
+Remote Access from Intranet should be **enabled** before adding another node for **High Availablity and Scalability**.  
+
+During self-hosted integration runtime setup (v 3.3.xxxx.x onwards), by default, the self-hosted integration runtime installation disables the **'Remote Access from Intranet'** on the self-hosted integration runtime machine.
+
+If you are using a third-party firewall, you can manually open the port 8060 (or the user configured port). If you run into firewall issue during self-hosted integration runtime setup, you can try using the following command to install the self-hosted integration runtime without configuring the firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Credential Manager Application** is not yet available for encrypting credentials in ADFv2. We will add this support later.  
 
 If you choose not to open the port 8060 on the self-hosted integration runtime machine, use mechanisms other than using the **Setting Credentials **application to configure data store credentials. For example, you could use New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 
