@@ -4,7 +4,7 @@ description: Understand concurrency and workload management in Azure SQL Data Wa
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
-manager: jhubbard
+manager: johnmac
 editor: ''
 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d4
