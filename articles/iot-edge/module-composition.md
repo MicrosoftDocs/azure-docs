@@ -104,7 +104,7 @@ The sink can be one of the following:
 | Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Send the message to IoT Hub |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Send the message to input `{input}` of module `{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Send the message to input `{input}` of module `{moduleId}` |
 
 It is important to note that Edge hub provides at-least-once guarantees, which means that messages will be stored locally in case a route cannot deliver the message to its sink, e.g. the Edge hub cannot connect to IoT Hub, or the target module is not connected.
 
