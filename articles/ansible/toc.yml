@@ -17,9 +17,12 @@
 - name: Concepts
 - name: Samples
 - name: Reference 
+  items:
+  - name: Ansible modules for Azure
+    href: http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure
+  - name: Ansible reference
+    href: http://docs.ansible.com/ansible/latest/dev_guide/index.html
 - name: Resources
   items:
   - name: Tools
     href: ./ansible-tools.md
-  - name: Ansible home
-    href: https://ansible.com
