@@ -10,3 +10,9 @@
 - name: Concepts
 - name: Samples
 - name: Reference 
+- name: Resources
+  items:
+  - name: Tools
+    href: ./ansible-tools.md
+  - name: Ansible home
+    href: https://ansible.com
