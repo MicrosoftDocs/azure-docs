@@ -3,13 +3,13 @@ title: Run a parallel workload - Azure Batch .NET
 description: Tutorial - Step by step instructions to convert media files with ffmpeg in Azure Batch using the Batch .NET client
 services: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/19/2017
+ms.date: 12/20/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -232,27 +232,9 @@ When tasks are added to a job, Batch automatically queues and schedules them for
 There are many approaches to monitoring task execution. This sample uses a `MonitorTasks`method to report only on completion and task failure or success states. Within `MonitorTasks`, the app specifies an [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) to efficiently select only minimal information about the tasks. Then, it creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), which provides helper utilities for monitoring task states. In `MonitorTasks`, the sample waits for all tasks to reach `TaskState.Completed` within a time limit. Then it checks for any failed tasks and terminates the job.
 
 
-## Download sample output
-Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to the `DownloadBlobsFromContainer` method. `DownloadBlobsFromContainer` specifies that the files should be downloaded using the [DownloadToFile](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofile) method from the output file container to your %TEMP% folder. Feel free to modify this output location.
-
-```csharp
-// Retrieve a reference to a previously created container
-CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-
-// Get a flat listing of all the block blobs in the specified container
-foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
-{
-// Retrieve reference to the current blob
-loudBlob blob = (CloudBlob)item;
-
-// Save blob contents to a file in the specified folder
-string localOutputFile = Path.Combine(directoryPath, blob.Name);
-blob.DownloadToFile(localOutputFile, FileMode.Create);
-}
-```
 ## Clean up Batch resources
 
-In the final step, you're prompted to delete the job and the pool that were created by the application. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process. Note that deleting a pool deletes all files associated with the compute nodes, and that data on the nodes cannot be recovered after the pool is deleted.
+In the final step, the app gives you the option to delete the Batch pool and job. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
 
 The BatchClient's [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) and [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) both have corresponding deletion methods, which are called if the user confirms deletion:
 
@@ -276,7 +258,7 @@ if (response != "n" && response != "no")
 
 ## Run the app
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks.
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. 
 
 ```
 Sample start: 12/12/2017 3:20:21 PM
@@ -299,11 +281,25 @@ All files downloaded to C:\Users\danlep\AppData\Local\Temp
 Sample end: 12/12/2017 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-Typical execution time is approximately **10 minutes** when you run the application in its default configuration. Pool creation takes the most time. 
+Typical execution time is approximately **10 minutes** when you run the application in its default configuration. Pool creation takes the most time. Go to your Batch account in the Azure portal to monitor the pool, compute nodes, job, and tasks. For example, to see a heat map of the compute nodes in your pool:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Click **All services** > **Batch accounts** and then click the name of your Batch account.
+3. Click **Pools** > *WinFFmpegPool*.
+
+When tasks are running the heatmap is similar to the following:
+
+![Pool heat map](./media/tutorial-parallel-dotnet/pool.png)
+
+You can also use the Azure portal to download the output files generated by ffmpeg. (Although not shown in this sample, you can download the files programmatically from the compute nodes or from the storage container.)
+
+1. Click **All services** > **Storage accounts** and then click the name of your storage account.
+2. Click **Blobs** > *output*.
+3. Click one of the output MP3 files and then click **Download**. Follow the prompts in your browser to open or save the file.
+
+
 
 ## Clean up resources
-
-The app gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted. The input and output files remain in the storage account.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
 
