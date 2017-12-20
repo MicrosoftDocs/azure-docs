@@ -16,7 +16,22 @@ metadata:
 abstract:
   description: Use Ansible to automates cloud provisioning, configuration management and application deployments.
 sections:
+sections:
 - title: Quickstarts
+  items: 
+  - type: paragraph
+    text: Configure Ansible and use it to create a Linux VM in Azure.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+      text: Install Ansible
+      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-install-configure
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+      text: Create a Linux VM
+      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-create-vm
 - title: Step-by-Step Tutorials
 - title: Samples
 - title: Reference
