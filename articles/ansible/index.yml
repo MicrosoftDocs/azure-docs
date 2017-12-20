@@ -3,7 +3,7 @@ documentType: LandingData
 title: Ansible on Azure Documentation
 metadata:
   title: Ansible on Azure Documentation - Tutorials and reference
-  meta.description: Learn how to use Ansible to automates cloud provisioning, configuration management, and application deployments.
+  meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
   services: terraform
   author: tomarcher
   manager: routlaw
@@ -14,7 +14,7 @@ metadata:
   ms.date: 12/18/2017
   ms.author: tarcher
 abstract:
-  description: Use Ansible to automates cloud provisioning, configuration management and application deployments.
+  description: Use Ansible to automate cloud provisioning, configuration management and application deployments.
 sections:
 sections:
 - title: Quickstarts
@@ -35,7 +35,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create and manage Azure compute and networking infrastructure from code with Ansible.
+    text: Learn how to use Ansible to create and manage Azure compute and networking infrastructure.
   - type: list
     style: unordered
     items:
