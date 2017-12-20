@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk;pvrk
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
 
 ---
