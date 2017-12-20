@@ -19,7 +19,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 # Sign in using a VM user-assigned Managed Service Identity (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
-This article provides PowerShell and CLI script examples for sign-in using an MSI service principal, and guidance on important topics such as error handling.
+This article provides CLI script examples for sign-in using a user-assigned MSI service principal, and guidance on important topics such as error handling.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In order to use the Azure CLI examples in this article, be sure to install the l
 
 > [!IMPORTANT]
 > - All sample script in this article assumes the command-line client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using PowerShell, Portal, a template, or an Azure SDK). 
-> - To prevent errors during resource access, the MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using Azure CLI](msi-howto-assign-access-cli.md) for details.
+> - To prevent errors during sign-in and resource access, the MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using Azure CLI](msi-howto-assign-access-cli.md) for details.
 
 ## Overview
 
@@ -45,16 +45,35 @@ With MSI, your script client no longer needs to do either, as it can sign in und
 The following script demonstrates how to:
 
 1. Sign in to Azure AD under the user-assigned MSI's service principal  
-2. Call Azure Resource Manager and get the MSI's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your virtual machine name for `<VM-NAME>`.  
+2. Call Azure Resource Manager and get the MSI's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your user-assigned MSI resource id for `<MSI ID>`, and your virtual machine name for `<VM-NAME>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
 
    ```azurecli
-   az login --msi
+   az login -–msi –u <MSI ID>
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
-   echo The MSI service principal ID is $spID
+   echo The user-assigned MSI service principal ID is $spID
    ```
 
-az login –msi –u –identity /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourcegroups/yugangw/providers/Microsoft.ManagedIdentity/userAssignedIdentities/yugangw-id2
+   Example responses:
+   
+   ```bash
+   bryanla@vmLinux4:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/rgPrivate/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiSaasAppIdentity
+   [
+     {
+       "environmentName": "AzureCloud",
+       "id": "80c696ff-5efa-4909-a64d-f1b616f423ca",
+       "isDefault": true,
+       "name": "MSIResource-/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/rgPrivate/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiSaasAppIdentity@50342",
+       "state": "Enabled",
+       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
+       "user": {
+         "name": "userAssignedIdentity",
+         "type": "servicePrincipal"
+       }
+     }
+   ]   
+   ```
+
 
 ## Resource IDs for Azure services
 
