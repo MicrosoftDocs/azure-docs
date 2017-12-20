@@ -241,7 +241,7 @@ Open the file on your computer. The rendered image looks similar to the followin
 
 ## Scale the pool
 
-Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling,nd) to add or remove nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of nodes in the pool to *6*:
+Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling.md) to add or remove nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of nodes in the pool to *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 6
