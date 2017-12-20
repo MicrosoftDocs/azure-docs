@@ -44,14 +44,14 @@ With MSI, your script client no longer needs to do either, as it can sign in und
 
 The following script demonstrates how to:
 
-1. Sign in to Azure AD under the user-assigned MSI's service principal  
-2. Call Azure Resource Manager and get the MSI's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your user-assigned MSI resource id for `<MSI ID>`, and your virtual machine name for `<VM-NAME>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
+1. Sign in to Azure AD under the user-assigned MSI's service principal.  
+2. Call Azure Resource Manager and get the Azure region location for the VM. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your user-assigned MSI resource id for `<MSI ID>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
 
    ```azurecli
    az login -–msi –u <MSI ID>
    
-   vmName=$(az resource list -n vmLinux --query [*].name --out tsv)
-   echo The VM name is $vmName
+   vmLocation=$(az resource list -n vmLinux --query [*].location --out tsv)
+   echo The VM region location is $vmLocation
    ```
 
    Example responses:
@@ -73,9 +73,9 @@ The following script demonstrates how to:
      }
    ]  
 
-   user@vmLinux:~$ vmName=$(az resource list -n vmLinux --query [*].name --out tsv)
-   user@vmLinux:~$ echo The VM name is $vmName
-   The VM name is vmLinux
+   user@vmLinux:~$ vmLocation=$(az resource list -n vmLinux --query [*].location --out tsv)
+   user@vmLinux:~$ echo The VM region location is $vmLocation
+   The VM region location is westcentralus
    ```
 
 
