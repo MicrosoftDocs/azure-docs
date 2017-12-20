@@ -12,7 +12,7 @@ ms.topic: article
 ms.service: iot-edge
 
 ---
-# Use Visual Studio Code to develop and deploy Azure Function to Azure IoT Edge
+# Use Visual Studio Code to develop and deploy Azure Functions to Azure IoT Edge
 
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy Azure Functions on IoT Edge. 
 
