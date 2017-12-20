@@ -55,7 +55,7 @@ To configure the integration of Central Desktop into Azure AD, you need to add C
 
 **To add Central Desktop from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left pane, select the **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
@@ -73,7 +73,7 @@ To configure the integration of Central Desktop into Azure AD, you need to add C
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Central Desktop based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Central Desktop based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Central Desktop is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and a related user in Central Desktop.
 
@@ -162,7 +162,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	e. Select **Update**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory > Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -207,7 +207,7 @@ For Azure AD users to be able to sign in, they must be provisioned in the Centra
 
 1. Sign in to your Central Desktop tenant.
 
-2. Go to **People > Internal Members**.
+2. Go to **People** > **Internal Members**.
 
 3. Select **Add Internal Members**.
 
