@@ -78,26 +78,26 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 
 The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
 
-   ```json
-   {
-   "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-   "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-   "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-   "location": "westcentralus",
-   "name": "<MSI NAME>",
-   "principalId": "9012",
-   "resourceGroup": "<RESOURCE GROUP>",
-   "tags": {},
-   "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-   }
-   ```
+    ```json
+    {
+    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+    "location": "westcentralus",
+    "name": "<MSI NAME>",
+    "principalId": "9012",
+    "resourceGroup": "<RESOURCE GROUP>",
+    "tags": {},
+    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    }
+    ```
 
 ## Assign your user-assigned MSI to your Linux VM
 
 Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, you assign it to a single VM. You can also assign it to more than one VM.
 
-1. Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
+Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
     ```azurecli-interactive
     az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
@@ -107,16 +107,11 @@ Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on mult
 
 MSI provides your code with an access token to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code accesses the Azure Resource Manager API. 
 
-Before your code can access the API though, you need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained.  
+Before your code can access the API though, you need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Be sure to replace the `<CLIENT ID>`, `<SUBSCRIPTION ID>`, and `<RESOURCE GROUP>` parameter values with your own values. Replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a new User-Assigned MSI](#create-a-new-user-assigned-msi): 
 
-1. Navigate to the tab for **Resource Groups**.
-2. Select the specific **Resource Group** you created earlier.
-3. Go to **Access control(IAM)** in the left panel.
-4. Click to **Add** a new role assignment for your VM. Choose **Role** as **Reader**.
-5. In the next dropdown, **Assign access to** the resource **Azure AD user, group, or application**.
-6. Finally, in **Select** search for the name of your user-assigned MSI and click **Save**. 
-
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-permission-linux-ua.png)
+    ```azurecli-interactive
+    az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+    ```
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
@@ -126,44 +121,51 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
  
-    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command: 
+    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a new User-Assigned MSI](#create-a-new-user-assigned-msi): 
     
     ```bash
     curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
     ```
     
     > [!NOTE]
-    > The value of the “resource” parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
+    > The value of the `"`resource`"` parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
     The response includes the access token you need to access Azure Resource Manager. 
     
     Response:  
 
     ```bash
-    {"access_token":"eyJ0eXAiOi...",
+    {
+    "access_token":"eyJ0eXAiOi...",
     "refresh_token":"",
     "expires_in":"3599",
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"
+    } 
     ```
-    
+
 Now you use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
-    
+
     > [!NOTE]
-    > The URL is case-sensitive, so be sure to use the exact same case you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+    > The URL is case-sensitive, so be sure to use the exact same case you used earlier when you named the Resource Group, and the uppercase "G" in `resourceGroups`.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     The response contains the specific Resource Group information: 
-     
+
     ```bash
-    {"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    {
+    "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/DevTest",
+    "name":"DevTest",
+    "location":"westus",
+    "properties":{"provisioningState":"Succeeded"}
+    } 
     ```
-     
+    
 ## Next steps
 
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
