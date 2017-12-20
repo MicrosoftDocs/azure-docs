@@ -15923,6 +15923,16 @@
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
       "redirect_document_id": false
-     }
+     },
+      {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
+      "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/storage/blobs/storage-account-options.md",
+      "redirect_url": "/azure/storage/common/storage-account-options",
+      "redirect_document_id": false
+      }
     ]
 }

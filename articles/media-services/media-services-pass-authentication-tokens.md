@@ -1,6 +1,6 @@
 ---
-title: Pass authentication token to Azure Media Services | Microsoft Docs 
-description: Learn how to send authentication tokens from the client to Azure Media Services key delivery service
+title: Pass authentication tokens to Azure Media Services | Microsoft Docs 
+description: Learn how to send authentication tokens from the client to the Azure Media Services key delivery service
 services: media-services
 keywords: content protection, DRM, token authentication
 documentationcenter: ''
@@ -19,40 +19,39 @@ ms.author: dwgeo
 
 ---
 
-# How clients pass tokens to Azure Media Services key delivery service
-We constantly get questions around how a player could pass token to our key delivery services, which will get verified and the player obtains the key. We support Simple Web Token (SWT) and JSON Web Token (JWT) these two token formats. Token authentication could be applied to any type of key – regardless you are doing Common Encryption or AES envelope encryption in the system.
+# Learn how clients pass tokens to the Azure Media Services key delivery service
+Customers often ask how a player can pass tokens to the Azure Media Services key delivery service for verification so the player can obtain the key. Media Services supports the simple web token (SWT) and JSON Web Token (JWT) formats. Token authentication is applied to any type of key, regardless of whether you use common encryption or Advanced Encryption Standard (AES) envelope encryption in the system.
 
-These are the following ways you could pass the token with your player, depends on the player and platform you are targeting:
+ Depending on the player and platform you target, you can pass the token with your player in the following ways:
+
 - Through the HTTP Authorization header.
-> [!NOTE]
-> Note that the "Bearer" prefix is expected per the OAuth 2.0 specs. 
-> There is a sample player with Token configuration hosted at Azure Media Player [demo page](http://ampdemo.azureedge.net/). Please choose AES (JWT Token) or AES (SWT Token) to set video source. Token is passed via Authorization header.
+    > [!NOTE]
+    > The "Bearer" prefix is expected per the OAuth 2.0 specs. A sample player with the token configuration is hosted on the Azure Media Player [demo page](http://ampdemo.azureedge.net/). To set the video source, choose **AES (JWT Token)** or **AES (SWT Token)**. The token is passed via the Authorization header.
 
-- Via adding a Url Query parameter with “token=tokenvalue”.  
-> [!NOTE]
-> Note that no "Bearer" prefix is expected. Since token is sent through a URL, you will need to armor the token string. Here is a C# sample code on how to do it:
+- Via the addition of a URL query parameter with "token=tokenvalue."  
+    > [!NOTE]
+    > The "Bearer" prefix isn't expected. Because the token is sent through a URL, you need to armor the token string. Here is a C# sample code that shows how to do it:
 
-```csharp
+    ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
     string uriWithTokenParameter = string.Format("{0}&token={1}", keyDeliveryServiceUri.AbsoluteUri, armoredAuthToken);
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
-```
+    ```
 
-- Through CustomData Field.
-For PlayReady license acquisition only, through the CustomData field of the PlayReady License Acquisition Challenge. In this case, the token must be inside the xml document described below.
+- Through the CustomData field.
+This option is used for PlayReady license acquisition only, through the CustomData field of the PlayReady License Acquisition Challenge. In this case, the token must be inside the XML document as described here:
 
-```xml
+    ```xml
     <?xml version="1.0"?>
     <CustomData xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyCustomData/v1"> 
         <Token></Token> 
     </CustomData>
-```
-Put your authentication token in the <Token> element.
+    ```
+    Put your authentication token in the Token element.
 
-- Through an alternate HLS playlist. 
-If you need to configure Token Authentication for AES + HLS playback on iOS/Safari, there isn’t a way you could directly send in the token. Please see this [blog post](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) on how to alternate the playlist to enable this scenario.
+- Through an alternate HTTP Live Streaming (HLS) playlist. 
+If you need to configure token authentication for AES + HLS playback on iOS/Safari, there isn't a way you can directly send in the token. For more information on how to alternate the playlist to enable this scenario, see this [blog post](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## Next steps
-Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
