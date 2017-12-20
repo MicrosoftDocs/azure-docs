@@ -16,21 +16,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
  
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
 
-Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azure HDInsight, as well as the Standard and Premium service levels. Also, learn how to check Hadoop component versions in HDInsight. 
+Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azure HDInsight, as well as the Enterprise Security Package. Also, learn how to check Hadoop component versions in HDInsight. 
 
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP).
 
 ## Hadoop components available with different HDInsight versions
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of February 17, 2017, the default cluster version used by Azure HDInsight is 3.5 and is based on HDP 2.5.
 
-The component versions associated with HDInsight cluster versions are listed in the following table. 
+The component versions associated with HDInsight cluster versions are listed in the following table: 
 
 > [!NOTE]
 > The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure CLI.
@@ -91,6 +91,48 @@ The following table lists the versions of HDInsight that are currently available
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Yes |October 28, 2013 |No |May 12, 2014 |May 31, 2015 |
 | HDInsight 1.6 |HDP 1.1 | |No |October 28, 2013 |No |April 26, 2014 |May 31, 2015 |
+
+
+## Enterprise Security Package for HDInsight
+
+Azure HDInsight is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+
+- Integration with Active Directory for authentication.
+
+    In the past, you can only create HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable role-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. Domain administrator on the cluster can grant users to use their own corporate (domain) user-name and password to access the cluster. 
+
+    For more information, see:
+
+    - [An introduction to Hadoop security with domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md)
+    - [Plan Azure domain-joined Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
+    - [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Authorization for data
+
+    - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
+    - You can set access control on files and folders.
+
+    For more information, see:
+
+    - [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+
+- View the audit logs to monitor accesses and the configured policies. 
+
+### Supported cluster types
+
+Currently, only the following cluster types support the Enterprise Security Package:
+
+- Hadoop (HDInsight 3.6 only)
+- Spark
+- Interactive Query
+
+### Support for Azure Data Lake Store
+
+The Enterprise Security Package supports using Azure Data Lake Store as both the primary storage and the add-on storage.
+
+### Pricing and SLA
+For information on pricing and SLA for the Enterprise Security Package, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## HDInsight Windows retirement
 Microsoft Azure HDInsight version 3.3 was the last version of HDInsight on Windows. The retirement date for HDInsight on Windows is July 31, 2018. If you have any HDInsight clusters on Windows 3.3 or earlier, you must migrate to HDInsight on Linux (HDInsight version 3.5 or later) before July 31, 2018. Migrating to the Linux OS enables you to retain the ability to create or resize your HDInsight clusters. Support for HDInsight version 3.3 on Windows expired on June 27, 2016.
@@ -163,36 +205,10 @@ The section provides links to release notes for the Hortonworks Data Platform di
 * HDInsight cluster version 2.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * HDInsight cluster version 1.6 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
-## HDInsight Standard and HDInsight Premium
 
-Azure HDInsight provides the big data cloud offerings in two categories: _Standard_ and _Premium_. The following table lists features that are available _only_ in HDInsight Premium. Features that are not explicitly described in the table are available in both HDInsight Standard and Premium.
 
-> [!NOTE]
-> The HDInsight Premium offering is currently in preview and available only for Linux clusters.
 
-| HDInsight Premium feature | Description |
-| --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (Azure AD) domains for enterprise-level security. In HDInsight Premium, you can configure a list of employees from your enterprise who can authenticate through Azure AD to log on to an HDInsight cluster. The enterprise admin can configure role-based access control for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/) and restrict data access to use only as much as needed. Finally, the admin can audit data accessed by employees and changes to access control policies, thereby achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-configure.md). |
 
-### Cluster types supported in HDInsight Premium
-The following table lists the cluster types that are supported in HDInsight Premium.
-
-| Cluster type | Standard | Premium (Preview) |
-| --- | --- | --- |
-| Hadoop |Yes |Yes (HDInsight 3.6 only) |
-| Spark |Yes |No |
-| HBase |Yes |No |
-| Storm |Yes |No |
-| R Server |Yes |No |
-| Interactive Query |Yes |No |
-| Kafka (Preview) |Yes |No | 
-
-### Support for Azure Data Lake Store in HDInsight Premium
-
-HDInsight Premium clusters do not support using Azure Data Lake Store as primary storage. However, you can use Azure Data Lake Store as add-on storage with HDInsight Premium clusters.
-
-### Pricing and SLA
-For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Default node configuration and virtual machine sizes for clusters
 The following tables list the default virtual machine (VM) sizes for HDInsight clusters.

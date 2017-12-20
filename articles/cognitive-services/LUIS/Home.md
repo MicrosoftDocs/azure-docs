@@ -23,11 +23,11 @@ Several Microsoft technologies work with LUIS:
 
 ## What is a LUIS app?
 
-A LUIS app is a domain-specific language model designed by you and tailored to your needs. You can start with a pre-built domain model, build your own, or blend pieces of a pre-built domain with your own custom information.
+A LUIS app is a domain-specific language model designed by you and tailored to your needs. You can start with a prebuilt domain model, build your own, or blend pieces of a prebuilt domain with your own custom information.
 
 A model starts with a list of general user intentions such as "Book Flight" or "Contact Help Desk." Once the intentions are identified, you supply example phrases called utterances for the intents. Then you label the utterances with any specific details you want LUIS to pull out of the utterance.
 
-[Pre-built domain models][pre-built-domains] include all these pieces for you and are a great way to start using LUIS quickly.
+[Prebuilt domain models][prebuilt-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
 After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your client app can then take appropriate action.
 
@@ -67,7 +67,7 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 ### Identify Entities  
 [Entity][luis-concept-entity-types] identification determines how successfully the end user gets the correct answer. LUIS provides several ways to identify and categorize entities.
 
-* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][pre-built-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
+* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
 * **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, and hierarchical entities.
 
@@ -88,8 +88,8 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [publish-app]:PublishApp.md#test-your-published-endpoint-in-a-browser
 [luis-concept-entity-types]:luis-concept-entity-types.md
 [add-example-utterances]: add-example-utterances.md
-[pre-built-entities]: pre-builtentities.md
-[pre-built-domains]: luis-how-to-use-prebuilt-domains.md
+[prebuilt-entities]: pre-builtentities.md
+[prebuilt-domains]: luis-how-to-use-prebuilt-domains.md
 [label-suggested-utterances]: label-suggested-utterances.md
 [intro-video]:https://aka.ms/LUIS-Intro-Video
 [bot-framework]:https://docs.microsoft.com/bot-framework/
