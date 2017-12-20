@@ -1,6 +1,6 @@
 ---
 title: Use Azure Files with Linux | Microsoft Docs
-description: Learn how to mount an Azure File share over SMB on Linux.
+description: Learn how to mount an Azure file share over SMB on Linux.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -13,17 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/20/2017
 ms.author: renash
 ---
+
 # Use Azure Files with Linux
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
+[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure file share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 > [!NOTE]  
-> In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0. Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu from 16.04 and above.
+> In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0. SMB 3.0 encryption support was introduced in Linux kernel version 4.11. At the time of publishing, this functionality has been backported to Ubuntu from 16.04 and above.
 
-## Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
-* **Pick a Linux distribution that can have the cifs-utils package installed**: Microsoft recommends the following Linux distributions in the Azure image gallery:
+## Prerequisities for mounting an Azure file share with Linux and the cifs-utils package
+* **Pick a Linux distribution that can have the cifs-utils package installed.**  
+    The following Linux distributions are available for use in the Azure image gallery:
 
     * Ubuntu Server 14.04+
     * RHEL 7+
@@ -32,7 +34,8 @@ ms.author: renash
     * openSUSE 13.2+
     * SUSE Linux Enterprise Server 12
 
-* <a id="install-cifs-utils"></a>**The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice. 
+* <a id="install-cifs-utils"></a>**The cifs-utils package is installed.**  
+    The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
 
     On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package manager:
 
@@ -57,13 +60,13 @@ ms.author: renash
 
 * **Decide on the directory/file permissions of the mounted share**: In the examples below, we use 0777, to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired. 
 
-* **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
+* **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
-* **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
+* **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
-## Mount the Azure File share on-demand with `mount`
+## Mount the Azure file share on-demand with `mount`
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
 2. **Create a folder for the mount point**: This can be done anywhere on the file system.
@@ -72,16 +75,16 @@ ms.author: renash
     mkdir mymountpoint
     ```
 
-3. **Use the mount command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
+3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> When you are done using the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.
+> When you are done using the Azure file share, you may use `sudo umount ./mymountpoint` to unmount the share.
 
-## Create a persistent mount point for the Azure File share with `/etc/fstab`
+## Create a persistent mount point for the Azure file share with `/etc/fstab`
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
 2. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.
@@ -97,7 +100,7 @@ ms.author: renash
     ```
 
 > [!Note]  
-> You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.
+> You can use `sudo mount -a` to mount the Azure file share after editing `/etc/fstab` instead of rebooting.
 
 ## Feedback
 Linux users, we want to hear from you!
