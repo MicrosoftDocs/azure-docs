@@ -21,11 +21,11 @@ ms.author: sngun
 # Run Azure Functions with Azure Stream Analytics jobs 
  
 > [!IMPORTANT]
-> This functionality is in preview, we do not recommend using it in production environments.
+> This functionality is in preview.
 
 You can run Azure Functions with Azure Stream Analytics by configuring Azure Functions as one of the output sinks to the Stream Analytics job. Azure Functions is an event driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Azure Function to respond to triggers makes it a natural output to Azure Stream Analytics job.
 
-Azure Stream Analytics invokes Azure Functions through HTTP triggers. The Azure Function output adapter allows users to connect Azure Functions to Stream Analytics such that events can be triggered based on the Stream Analytics queries. 
+Azure Stream Analytics invokes Azure Functions through HTTP triggers. The Azure Function output adapter allows users to connect Azure Functions to Stream Analytics such that the events can be triggered based on the Stream Analytics queries. 
 
 This tutorial demonstrates how to connect Azure Stream Analytics to [Azure Redis Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [Azure Functions](../azure-functions/functions-overview.md). 
 
@@ -44,11 +44,11 @@ The following steps are required to achieve this task:
 
 ## Create Stream Analytics job with Event Hub as input
 
-Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application and create an Azure Stream Analytics (skip through the steps to create the query and the output, we will instead walk you through setting up an Azure Functions output in the next section.)
+Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create an Azure Stream Analytics (skip through the steps to create the query and the output, you will instead  setup an Azure Functions output in the next section.)
 
 ## Create an Azure Redis Cache
 
-1. Create an Azure Redis Cache by using the steps described in [create a cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) section of the Redis Cache topic.  
+1. Create an Azure Redis Cache by using the steps described in [create a cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) section of the Redis Cache article.  
 
 2. After the Redis Cache is created, navigate to the created cache > **Access Keys** > and make a note of the **Primary connection string**.
 
@@ -90,7 +90,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
     
       log.Info($"Message Count {dataArray.Count}");
 
-      // Perform cache operations using the cache object. In this example, we put few integral data types into the cache
+      // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
       for (var i = 0; i < dataArray.Count; i++)
       {
         string time = dataArray[i].time;
@@ -158,9 +158,9 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    |Function| Name of the function in your Function App (name of your run.csx function).|
    |Max Batch Size|This property is used to set the maximum size for each output batch, which is sent to your Azure Function. By default, this value is set to 256 KB.|
    |Max Batch Count|This property allows you to specify the maximum number of events in each batch that is sent to the Azure Function. The default max batch count value is 100. This property is optional.|
-   |Key|This property allows you to use an Azure Function from another subscription. you need to provide the key to access your function. This property is optional.|
+   |Key|This property allows you to use an Azure Function from another subscription. Provide the key value to access your function. This property is optional.|
 
-3. Provide a name for the output alias. In this tutorial, we are naming it **saop1** (you can use any other name of your choice) and fill in other details.  
+3. Provide a name for the output alias. In this tutorial, we name it **saop1** (you can use any other name of your choice) and fill in other details.  
 
 4. Open your Stream Analytics job, and update the query to the following (Make sure to replace the “saop1” text if you have named the output sink differently):  
 
@@ -190,11 +190,11 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    **Get "12/19/2017 21:32:24 - 123414732"**
 
  
-Above command should print out the value for the above key:
+This command should print the value for the specified key:
 
    ![Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## Known Issues
 
-* In the portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty(default), it changes back to the previously entered value upon save. Please deliberately enter the default values for these fields in this case.
+* In the portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty(default), it changes back to the previously entered value upon save. Deliberately enter the default values for these fields in this case.
 
