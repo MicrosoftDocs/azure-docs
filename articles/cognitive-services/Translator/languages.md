@@ -3,7 +3,7 @@ title: Supported languages in the Microsoft Translator API | Microsoft Docs
 description: View languages supported by the Microsoft Translator Text API.
 services: cognitive-services
 author: jann-skotdal
-manager: arulm
+manager: chriswendt1
 
 ms.service: cognitive-services
 ms.technology: translator
@@ -129,3 +129,76 @@ Note that this method uses the Microsoft Translator Speech API to return the lis
 For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists available in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
 
 [See the list of languages on our website](https://www.microsoft.com/translator/languages.aspx)
+
+## Languages detected by the Detect() method
+
+The following languages can be detected by the Detect() method. Note that Detect () may detect languages that Microsoft Translator cannot translate. 
+
+| Language    | 
+|:----------- |
+| Afrikaans |
+| Albanian | 
+| Arabic |
+| Basque |
+| Belarusian |
+| Bulgarian |
+| Catalan |
+| Chinese |
+| Chinese_Simplified |
+| Chinese_Traditional |
+| Croatian |
+| Czech |
+| Danish |
+| Dutch |
+| English |
+| Esperanto |
+| Estonian |
+| Finnish |
+| French |
+| Galician |
+| German |
+| Greek |
+| Haitian_Creole |
+| Hebrew |
+| Hindi |
+| Hungarian |
+| Icelandic |
+| Indonesian |
+| Irish |
+| Italian |
+| Japanese |
+| Korean |
+| Kurdish_Arabic |
+| Kurdish_Latin |
+| Latin |
+| Latvian |
+| Lithuanian |
+| Macedonian |
+| Malay |
+| Maltese |
+| Norwegian |
+| Norwegian_Nynorsk |
+| Pashto |
+| Persian |
+| Polish |
+| Portuguese |
+| Romanian |
+| Russian |
+| Serbian_Cyrillic |
+| Serbian_Latin |
+| Slovak |
+| Slovenian |
+| Somali |
+| Spanish |
+| Swahili |
+| Swedish |
+| Tagalog |
+| Thai |
+| Turkish |
+| Ukrainian |
+| Urdu |
+| Uzbek_Cyrillic |
+| Uzbek_Latin |
+| Vietnamese |
+| Welsh |
+| Yiddish |
