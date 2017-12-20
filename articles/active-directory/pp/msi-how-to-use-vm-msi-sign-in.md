@@ -50,28 +50,32 @@ The following script demonstrates how to:
    ```azurecli
    az login -–msi –u <MSI ID>
    
-   spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
-   echo The user-assigned MSI service principal ID is $spID
+   vmName=$(az resource list -n vmLinux --query [*].name --out tsv)
+   echo The VM name is $vmName
    ```
 
    Example responses:
    
    ```bash
-   bryanla@vmLinux4:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/rgPrivate/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiSaasAppIdentity
+   user@vmLinux4:~$ az login --msi -u /subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName
    [
      {
        "environmentName": "AzureCloud",
-       "id": "80c696ff-5efa-4909-a64d-f1b616f423ca",
+       "id": "90c696ff-5efa-4909-a64d-z1b616f423bl",
        "isDefault": true,
-       "name": "MSIResource-/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/rgPrivate/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiSaasAppIdentity@50342",
+       "name": "MSIResource-/subscriptions/90c696ff-5efa-4909-a64d-z1b616f423bl/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/msiName@50342",
        "state": "Enabled",
-       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
+       "tenantId": "933a8f0e-ec41-4e69-8ad8-971zc4b533ll",
        "user": {
          "name": "userAssignedIdentity",
          "type": "servicePrincipal"
        }
      }
-   ]   
+   ]  
+
+   user@vmLinux:~$ vmName=$(az resource list -n vmLinux --query [*].name --out tsv)
+   user@vmLinux:~$ echo The VM name is $vmName
+   The VM name is vmLinux
    ```
 
 
