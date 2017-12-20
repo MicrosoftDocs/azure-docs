@@ -71,10 +71,7 @@ The following Azure services support Managed Service Identity.
 
 | Service | Status | Date | Configure | Get a token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | [C#](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[HTTP/REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go) |
-| Azure App Service | Preview | September 2017 | [Azure portal](~/articles/app-service/app-service-managed-service-identity.md#using-the-azure-portal)<br>[Azure Resource Manager template](~/articles/app-service/app-service-managed-service-identity.md#using-an-azure-resource-manager-template) | [.NET](~/articles/app-service/app-service-managed-service-identity.md#asal)<br>[HTTP/REST](~/articles/app-service/app-service-managed-service-identity.md#using-the-rest-protocol) |
-| Azure Functions | Preview | September 2017 | [Azure portal](~/articles/app-service/app-service-managed-service-identity.md#using-the-azure-portal)<br>[Azure Resource Manager template](~/articles/app-service/app-service-managed-service-identity.md#using-an-azure-resource-manager-template) | [.NET](~/articles/app-service/app-service-managed-service-identity.md#asal)<br>[HTTP/REST](~/articles/app-service/app-service-managed-service-identity.md#using-the-rest-protocol) |
-| Azure Data Factory V2 | Preview | November 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+| Azure Virtual Machines | Preview | September 2017 | [Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](msi-qs-configure-template-windows-vm.md) | [Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[HTTP/REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http) |
 
 ### Azure services that support Azure AD authentication
 
@@ -82,7 +79,7 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://management.azure.com/ | Available | September 2017 | [Azure CLI](msi-howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net/ | Available | September 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Available | September 2017 | |
 | Azure SQL | https://database.windows.net/ | Available | October 2017 | |
