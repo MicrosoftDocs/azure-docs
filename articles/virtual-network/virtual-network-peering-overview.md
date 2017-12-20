@@ -32,7 +32,7 @@ The benefits of using virtual network peering include:
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
 
-* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, and US West 2. Before peering virtual networks in different regions, you must first  [register your subscription](virtual-network-create-peering.md#register) for the preview. Attempting to create a peering between virtual networks in different regions will fail if you haven't completed registration for the preview.
+* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, and US West 2. Before peering virtual networks in different regions, you must first  [register your subscription](virtual-network-create-peering.md#register) for the preview. Attempting to create a peering between virtual networks in different regions fails if you haven't completed registration for the preview.
     > [!WARNING]
     > Virtual network peerings created cross-region may not have the same level of availability and reliability as peerings in a general availability release. Virtual network peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -66,7 +66,6 @@ You can deploy hub-and-spoke networks, where the hub virtual network can host in
 
 Virtual network peering enables the next hop in a user-defined route to be the IP address of a virtual machine in the peered virtual network, or a VPN gateway. You cannot however, route between virtual networks with a user-defined route specifying an ExpressRoute gateway as the next hop type. To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined). To learn how to create a hub and spoke network topology, see [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
-
 ## Gateways and on-premises connectivity
 
 Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to an on-premises network. You can also configure [virtual network-to-virtual network connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) by using gateways, even though the virtual networks are peered.
@@ -77,7 +76,7 @@ When virtual networks are peered in the same region, you can also configure the 
 
 ![virtual network peering transit](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway transit is not supported in the peering relationship between virtual networks created through different deployment models or different regions. Both virtual networks in the peering relationship must have been created through Resource Manager and must be in the same region for gateway transit to work. Globally-peered virtual networks do not currently support gateway transit.
+Gateway transit is not supported in the peering relationship between virtual networks created through different deployment models or different regions. Both virtual networks in the peering relationship must have been created through Resource Manager and must be in the same region for gateway transit to work. Globally peered virtual networks do not currently support gateway transit.
 
 When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). You can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, you can use a shared gateway and configure transit for on-premises connectivity.
 
