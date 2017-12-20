@@ -47,7 +47,7 @@ sections:
     style: ordered
     items:
     - html: <a href="tutorial-parallel-dotnet">Parallel file processing with .NET SDK</a>
-    - html: <a href="tutorial-parallel-python">Parallel file processing with Python SDK</a>
+    - html: <a href="tutorial-parallel-python">Basic file processing with Python SDK</a>
     - html: <a href="tutorial-rendering-cli">Scene rendering with Arnold</a>
     - html: <a href="tutorial-r-doazureparallel">Parallel R simulation</a>
 - title: Reference
