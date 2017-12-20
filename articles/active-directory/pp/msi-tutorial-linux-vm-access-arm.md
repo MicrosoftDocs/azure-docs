@@ -75,7 +75,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    The response contains details for the user-assigned MSI created. Please note the `id` value for your MSI, as it will be used in the next step.
+    The response contains details for the user-assigned MSI created. Note the `id` value for your MSI, as it will be used in the next step.
 
     ```json
     {
@@ -116,18 +116,18 @@ Before your code can access the API though, you need to grant the MSI's identity
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
-2. **Connect** to the VM with the SSH client of your choice. 
+1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
+2. **Connect** to the VM with the SSH client of your choice.  
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.  
- 
-    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a new User-Assigned MSI](#create-a-new-user-assigned-msi): 
+
+   The CURL request to acquire an access token is shown in the following example: Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a new User-Assigned MSI](#create-a-new-user-assigned-msi): 
     
-    ```bash
-    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
-    ```
+   ```bash
+   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
+   ```
     
     > [!NOTE]
-    > The value of the `"`resource`"` parameter must be an exact match for what is expected by Azure AD.  In the case of the Resource Manager resource ID, you must include the trailing slash on the URI. 
+    > The value of the `resource` parameter must be an exact match for what is expected by Azure AD. When using the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
     The response includes the access token you need to access Azure Resource Manager. 
     
@@ -145,15 +145,15 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     } 
     ```
 
-Now you use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
+    Now you use the access token to access Azure Resource Manager, and read the properties of the Resource Group to which you previously granted your user-assigned MSI access. Be sure to replace `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` with the values you specified earlier. 
 
     > [!NOTE]
     > The URL is case-sensitive, so be sure to use the exact same case you used earlier when you named the Resource Group, and the uppercase "G" in `resourceGroups`.  
-    
+
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
-    
+
     The response contains the specific Resource Group information: 
 
     ```bash
@@ -170,4 +170,3 @@ Now you use the access token to access Azure Resource Manager, and read the prop
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
-
