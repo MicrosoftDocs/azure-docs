@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio Code to develop and deploy Azure Function to Azure IoT Edge | Microsoft Docs
-description: Develop and deploy a C# Azure Function with Azure IoT Edge in VS Code without context switching
+title: Use Visual Studio Code to develop and deploy Azure Functions to Azure IoT Edge | Microsoft Docs
+description: Develop and deploy a C# Azure Functions with Azure IoT Edge in VS Code without context switching
 services: iot-edge
 keywords: 
 author: shizn
@@ -14,14 +14,14 @@ ms.service: iot-edge
 ---
 # Use Visual Studio Code to develop and deploy Azure Function to Azure IoT Edge
 
-This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy Azure Function on IoT Edge. 
+This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy Azure Functions on IoT Edge. 
 
 ## Prerequisites
 This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
 Make sure you have completed following tutorials before you start this guidance.
 - Deploy Azure IoT Edge on a simulated device in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) or [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
-- [Deploy Azure Function as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+- [Deploy Azure Functions](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
 
 Here is a checklist that shows the items you should have after you finish preceding tutorials.
 
@@ -38,10 +38,10 @@ Here is a checklist that shows the items you should have after you finish preced
 It is also suggested to install [Docker support for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) to better manage your module images and containers.
 
 > [!NOTE]
-> Currently, Azure Function on IoT Edge only supports C# function.
+> Currently, Azure Functions on IoT Edge only supports C#.
 
-## Deploy Azure IoT Function in VS Code
-In tutorial [Deploy Azure Function](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your function module image in VS Code and then visit Azure portal to deploy Azure Function. This section introduces how to use VS Code to deploy and monitor your Azure Function.
+## Deploy Azure IoT Functions in VS Code
+In tutorial [Deploy Azure Functions](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your function module images in VS Code and then visit Azure portal to deploy Azure Functions. This section introduces how to use VS Code to deploy and monitor your Azure Functions.
 
 ### Start a local docker registry
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses a [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
@@ -192,4 +192,4 @@ The following steps show you how to create an IoT Edge module based on .NET core
 In this tutorial, you created an Azure Function on IoT Edge and deployed it to IoT Edge device in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
 
 > [!div class="nextstepaction"]
-> [Debug Azure Function in VS Code](how-to-vscode-debug-azure-function.md)
+> [Debug Azure Functions in VS Code](how-to-vscode-debug-azure-function.md)
