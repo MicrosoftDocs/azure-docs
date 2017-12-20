@@ -41,7 +41,7 @@ Run one of the tutorial runbooks.
 
     ![Automation account runbooks list](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
-1. Select the **AzureAutomationTutorialScript** runbook. This opens the runbook overview page.
+1. Select the **AzureAutomationTutorialScript** runbook. This action opens the runbook overview page.
 
     ![Runbook overview](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 

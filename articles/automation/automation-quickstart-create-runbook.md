@@ -59,7 +59,7 @@ Once the runbook is created, you test the runbook to validate that it works.
 
 1. Click **Test pane** to open the **Test** page.
 
-1. Enter a value for **Name**, and click **Start**.  The test job starts and the job status and output display.
+1. Enter a value for **Name**, and click **Start**. The test job starts and the job status and output display.
 
     ![Runbook test job](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
 
@@ -77,7 +77,7 @@ Once the runbook is published, the overview page is shown.
 
    ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
 
-1. Leave **Name** blank, so that the default value will be used, and click **OK**.  The runbook job is submitted, and the job page appears.
+1. Leave **Name** blank, so that the default value is used, and click **OK**. The runbook job is submitted, and the job page appears.
 
    ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
