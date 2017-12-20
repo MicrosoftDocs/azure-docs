@@ -32,6 +32,7 @@
 ### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
 ### [Add tags to a lab](devtest-lab-add-tag.md)
 ### [Post announcement in a lab](devtest-lab-announcements.md)
+### [Add support info to a lab](devtest-lab-internal-support-message.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
