@@ -61,7 +61,7 @@ A virtual network rule tells your SQL Database server to accept communications f
 
 ## Benefits of a virtual network rule
 
-Until you take action, the VMs on your subnets cannot communicate with your SQL Database. The rationale for choosing the virtual network rule approach to allowing the communication requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
+Until you take action, the VMs on your subnets cannot communicate with your SQL Database. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
 
 #### A. Allow access to Azure services
 
@@ -77,7 +77,7 @@ However, the static IP approach can become difficult to manage, and it is costly
 
 #### C. Cannot yet have SQL Database on a subnet
 
-If your Azure SQL Database server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your SQL Database. In this case your VMs could communicate with SQL Database without needing any virtual network rules or IP rules.
+If your Azure SQL Database server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your SQL Database. In this case, your VMs could communicate with SQL Database without needing any virtual network rules or IP rules.
 
 However as of September 2017, the Azure SQL Database service is not yet among the services that can be assigned to a subnet.
 
@@ -117,11 +117,10 @@ The roles of Network Admin and Database Admin have more capabilities than are ne
 
 You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
-> [!IMPORTANT]
-> If the Azure SQLDB Server and the VNET/Subnet are in different Subscriptions then you must ensure that both the Subscriptions are in the same
-Azure Active Directory tenant and that the user has required permissions to initiate operations like enabling service endpoints and adding a
-VNET/Subnet to the given Server.
-
+> [!NOTE]
+> In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Both subscriptions must be in the same Azure Active Directory tenant.
+> - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
 
 ## Limitations
 
@@ -157,36 +156,31 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Impact of removing 'Allow all Azure Services'
 
-Many users want to remove 'Allow all Azure Services' from their Azure SQL Servers and replace it with a VNET Firewall Rule. However removing
-this will have an impact on the following Azure SQLDB features:
+Many users want to remove **Allow all Azure Services** from their Azure SQL Servers and replace it with a VNet Firewall Rule.
+However removing this affects the following Azure SQLDB features:
 
 #### Import Export Service
-Azure SQLDB Import Export Service runs on VMs in Azure, these VMs are not in your VNET and hence get an Azure IP when connecting to your
-database. On removing 'Allow all Azure Services' these VMs will not be able to access your databases. To work around this problem, run the
-BACPAC import or export directly in your code by using the DACFx API, please ensure that this is deployed in a VM that is in the VNET/Subnet
-that you have set the firewall rule for.
+Azure SQLDB Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
+database. On removing **Allow all Azure Services** these VMs will not be able to access your databases.
+You can work around the problem. Run the BACPAC import or export directly in your code by using the DACFx API. Ensure that this is deployed in a VM that is in the VNet-subnet for which you have set the firewall rule.
 
 #### SQL Database Query Editor
-The Azure SQL Database Query Editor is deployed on VMs in Azure, these VMs are not in your VNET and hence get an Azure IP when connecting to
-your database. On removing 'Allow all Azure Services' these VMs will not be able to access your databases.
+The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow all Azure Services**, these VMs will not be able to access your databases.
 
 #### Table Auditing
-At present there are two ways to enable auditing on your Azure SQLDB Table Auditing fails once you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
+At present there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
 
 
-## Impact of using VNET Service Endpoints with Azure storage
+## Impact of using VNet Service Endpoints with Azure storage
 
-As many of you might be aware Azure Storage has come out with the same feature that allows you to limit connectivity to your Storage account.
-If you choose to use this feature with a Storage account that is being used by an Azure SQL Server then you can run into issues. Below is a list
-of Azure SQLDB features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Storage account.
+If you choose to use this feature with a Storage account that is being used by an Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQLDB features that are impacted by this.
 
 #### Azure SQLDW PolyBase
-PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits
-access only to a set of VNET/Subnet(s) then connectivity from PolyBase to that Account will break.
+PolyBase is commonly used to load data into Azure SQLDW from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break.
 
 #### Azure SQLDB Blob Auditing
-Blob auditing pushes audit logs to your own storage account, if this storage account uses the VENT Service endpoints feature then connectivity
-from Azure SQLDB to the storage account will break.
+Blob auditing pushes audit logs to your own storage account. If this storage account uses the VENT Service endpoints feature then connectivity from Azure SQLDB to the storage account will break.
 
 
 ## Errors 40914 and 40615
@@ -244,7 +238,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 3. Set the **Allow access to Azure services** control to OFF.
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, then your Azure SQL Database server accepts communication from any subnet, which might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
+    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
 
 4. Click the **+ Add existing** control, in the **Virtual networks** section.
 
@@ -253,7 +247,8 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 5. In the new **Create/Update** pane, fill in the controls with the names of your Azure resources.
 
     > [!TIP]
-    > You must include the correct **Address prefix** for your subnet. You can find the value in the portal. Navigate **All resources** &gt; **All types** &gt; **Virtual networks**. The filter displays your virtual networks. Click your virtual network, and then click **Subnets**. The **ADDRESS RANGE** column has the Address prefix you need.
+    > You must include the correct **Address prefix** for your subnet. You can find the value in the portal.
+    > Navigate **All resources** &gt; **All types** &gt; **Virtual networks**. The filter displays your virtual networks. Click your virtual network, and then click **Subnets**. The **ADDRESS RANGE** column has the Address prefix you need.
 
     ![Fill in fields for new rule.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -264,26 +259,26 @@ You must already have a subnet that is tagged with the particular Virtual Networ
     ![See the new rule, on the firewall pane.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-> [!IMPORTANT]
-> The following states apply to the rules:
-      Ready: indicates that the operation that you had initiated has Succeeded
-      Failed: indicates that the operation that you had initiated has Failed
-      Deleted: only applies to the Delete operation indicating that the rule has been deleted and no longer applies
-      InProgress: indicates that the operation is in progress, for Update the old rule applies while the operation is in this state
+> [!NOTE]
+> The following statuses or states apply to the rules:
+> - **Ready:** Indicates that the operation that you initiated has Succeeded.
+> - **Failed:** Indicates that the operation that you initiated has Failed.
+> - **Deleted:** Only applies to the Delete operation, and indicates that the rule has been deleted and no longer applies.
+> - **InProgress:** Indicates that the operation is in progress. The old rule applies while the operation is in this state.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## Related articles
 
-- [Use PowerShell to create a Virtual Network service endpoint, and then a virtual network rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
 
-The Microsoft Azure Virtual Network service endpoints feature, and the virtual network rule feature for Azure SQL Database, both became available in late September 2017.
+The virtual network rule feature for Azure SQL Database became available in late September 2017.
 
+## Next steps
 
-
+- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
