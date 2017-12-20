@@ -3,7 +3,7 @@ title: Configure Always On availability group in Azure Virtual Machines (classic
 description: Create an Always On availability group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: cwatson-cat
 manager: jhubbard
 editor: ''
 tags: azure-service-management
