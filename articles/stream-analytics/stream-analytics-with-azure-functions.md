@@ -1,7 +1,7 @@
 ---
 title: Run Azure Functions with Azure Stream Analytics jobs  | Microsoft Docs
-description: Learn how to configure Azure Functions as output sink to the Stream Analytic jobs.
-keywords: data output, streaming data, Azure Functions
+description: Learn how to configure Azure Function as an output sink to the Stream Analytic jobs.
+keywords: data output, streaming data, Azure Function
 documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
@@ -23,9 +23,9 @@ ms.author: sngun
 > [!IMPORTANT]
 > This functionality is in preview.
 
-You can run Azure Functions with Azure Stream Analytics by configuring Azure Functions as one of the output sinks to the Stream Analytics job. Azure Functions is an event driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Azure Function to respond to triggers makes it a natural output to Azure Stream Analytics job.
+You can run Azure Functions with Azure Stream Analytics by configuring Azure Functions as one of the output sinks to the Stream Analytics job. Azure Function is an event driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Azure Function to respond to triggers makes it a natural output to Azure Stream Analytics job.
 
-Azure Stream Analytics invokes Azure Functions through HTTP triggers. The Azure Function output adapter allows users to connect Azure Functions to Stream Analytics such that the events can be triggered based on the Stream Analytics queries. 
+Azure Stream Analytics invokes Azure Function through HTTP triggers. The Azure Function output adapter allows users to connect Azure Functions to Stream Analytics such that the events can be triggered based on the Stream Analytics queries. 
 
 This tutorial demonstrates how to connect Azure Stream Analytics to [Azure Redis Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [Azure Functions](../azure-functions/functions-overview.md). 
 
@@ -36,11 +36,11 @@ This section demonstrates how to configure a Stream Analytics job to run an Azur
 ![Graphic to illustrate the tutorial](./media/stream-analytics-with-azure-functions/image1.png)
 
 The following steps are required to achieve this task:
-* [Create Stream Analytics job with Event Hub as input](#create-stream-analytics-job-with-event-hub-as-input)  
+* [Create Stream Analytics job with Event Hub as input.](#create-stream-analytics-job-with-event-hub-as-input)  
 * [Create an Azure Redis Cache.](#create-an-azure-redis-cache)  
-* [Create an Azure Function that can write data to the Redis Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Update the Stream Analytic job with Azure Function as output](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Check Redis Cache for results](#check-redis-cache-for-results)  
+* [Create an Azure Function that can write data to the Redis Cache.](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Update the Stream Analytic job with Azure Function as output.](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Check Redis Cache for results.](#check-redis-cache-for-results)  
 
 ## Create Stream Analytics job with Event Hub as input
 
@@ -150,7 +150,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 2. Navigate to your Azure function > **Overview** > **Outputs** > **Add** a new output > select **Azure Function** for the Sink option. The new Azure Function output adapter is available with the following properties:  
 
-   |**Property Name**|**Description**|
+   |**Property name**|**Description**|
    |---|---|
    |Output alias| A user-friendly name that you use in the job's query to reference the output. |
    |Import option| You can use azure function from the current subscription or provide the settings manually if the function is located in other subscription. |
@@ -179,22 +179,22 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    
    **telcodatagen.exe 1000 .2 2**
     
-6.	Start the Stream Analytics Job
+6.	Start the Stream Analytics Job.
 
 ## Check Redis Cache for results
 
-1. Navigate to the Azure Portal and find your Redis Cache > select **Console**.  
+1. Navigate to the Azure portal and find your Redis Cache > select **Console**.  
 
 2. Use [Redis cache commands](https://redis.io/commands) to verify that your data is in Redis cache. (The command takes the format- Get {key}). For example:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
- 
-This command should print the value for the specified key:
+   This command should print the value for the specified key:
 
    ![Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
 
-## Known Issues
+## Known issues
 
-* In the portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty(default), it changes back to the previously entered value upon save. Deliberately enter the default values for these fields in this case.
+* In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty(default), it changes back to the previously entered value upon save. Deliberately enter the default values for these fields in this case.
 
+## Next steps
