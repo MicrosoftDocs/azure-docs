@@ -132,13 +132,13 @@ The endpoint response is:
 ## Add phrase list 
 Add a [phrase list](PhraseListFeatures) named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
 
-![Phrase list values](./media/list-tutorial-phrase-list/phrase-list-values.png)
+![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
 Train the app but don't publish it. 
 
 In this app, the published model is not trained with the synonyms. Only the currently editing model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
 
-![Inspect Published versus current](./media/list-tutorial-phrase-list/inspect.png)
+![Inspect Published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
 After the phrase list, the accuracy increased for the utterance `I require a computer replacement`.
 

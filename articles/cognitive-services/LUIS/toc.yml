@@ -51,6 +51,8 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Increase accuracy with interchangeable phrase list
+    href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
