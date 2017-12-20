@@ -25,14 +25,21 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+        src: /azure/media/index/azure_dev-9.svg
       text: Install Ansible
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-install-configure
+      href: azure/virtual-machines/linux/ansible-install-configure
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+        src: /azure/media/index/VirtualMachine.svg
       text: Create a Linux VM
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-create-vm
+      href: /azure/virtual-machines/linux/ansible-create-vm
 - title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create and manage Azure compute and networking infrastructure from code with Ansible.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm">Create a complete Linux VM with Ansible</a>.
 - title: Samples
 - title: Reference
   items:

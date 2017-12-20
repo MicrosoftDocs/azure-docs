@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Ansible on Azure
-    href: ansible-overview.md
+    href: ./ansible-overview
 - name: Quickstarts
   expanded: true
   items:
@@ -14,6 +14,9 @@
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
 - name: Tutorials 
+  items:
+  - name: Create complete Linux VM
+    href: /azure/virtual-machines/linux/ansible-create-complete-vm
 - name: Samples
 - name: Reference 
   items:
@@ -24,4 +27,4 @@
 - name: Resources
   items:
   - name: Tools
-    href: ./ansible-tools.md
+    href: ./ansible-tools
