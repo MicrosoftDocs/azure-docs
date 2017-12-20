@@ -141,7 +141,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filterfunction:latest`. If you are deploying to local registry, it should be `localhost:5000/filterfunction:latest`.
 5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in above step.
 
-### Deploy your funtion to IoT Edge
+### Deploy your function to IoT Edge
 
 1. Open the `deployment.json` file, replace **modules** section with below content:
    ```json
