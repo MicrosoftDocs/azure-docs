@@ -308,7 +308,3 @@ Make sure that RADIUS server is configured correctly. For More information, see 
 ### Cause
 
 Root certificate had not been installed. The root certificate is installed in the client's **Trusted certificates** store.
-
-### Solution
-
-To resolve this problem, install the root certificate as the trusted certificate in the client.
