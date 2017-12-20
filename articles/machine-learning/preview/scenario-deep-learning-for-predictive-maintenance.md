@@ -83,7 +83,7 @@ The template uses three data sets as inputs, in the files PM_train.txt, PM_test.
 
     When a predefined threshold is reached, the engine is considered unsafe for further operation. The last cycle in each time series can be considered the failure point of the corresponding engine.
 
--   **Test data** The aircraft engine operating data, without failure events recorded. The test data (PM_test.txt) has the same data schema as the training data. The only difference is that the data does not indicate when the failure occurs (the last time period does *not* represent the failure point). It is not known how many more cycles this engine can last before it fails.
+-   **Test data**: The aircraft engine operating data, without failure events recorded. The test data (PM_test.txt) has the same data schema as the training data. The only difference is that the data does not indicate when the failure occurs (the last time period does *not* represent the failure point). It is not known how many more cycles this engine can last before it fails.
 
 - **Truth data**: The information of true remaining cycles for each engine in the testing data. The ground truth data provides the number of remaining working cycles for the engines in the testing data.
 
