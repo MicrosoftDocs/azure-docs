@@ -105,19 +105,23 @@ will be hosted.
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
-4. In the Azure Migrate Collector, open **Set Up Prerequisites**.
+4. In the Azure Migrate Collector, open **Set up prerequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
-    - The collector checks that the Windows profiler service is running. The service is installed by default on the collector VM.
+
+    > [!NOTE]
+    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported.
+
+    - The collector checks that the collectorservice is running. The service is installed by default on the collector VM.
     - Download and install the VMware PowerCLI.
-. In **Discover Machines**, do the following:
+. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
     - In **Tag category for grouping**, select **None**.
-1. In **Select Project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
-2. In **Complete Discovery**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
+1. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
+2. In **View collection progress**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
 > [!NOTE]
 > The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.

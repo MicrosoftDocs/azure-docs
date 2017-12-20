@@ -78,11 +78,22 @@ Check that the .OVA file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
 
+    
+    For the OVA version 1.0.8.38
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | c283f00f46484bf673dc8383b01d0741 
-    SHA1 | 8f49b47f53d051af1780bbc725659ce64e717ed4
-    SHA256 | 7aecdbdb2aea712efe99d0c1444503f52d16de5768e783465e226fbbca71501d
+    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
+    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
+    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    For the OVA version 1.0.8.40
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
+
+
 
 ## Create the collector VM
 
@@ -133,13 +144,14 @@ For each discovery you need to perform, you run the collector to discovery VMs i
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
-4. In the Azure Migrate Collector, open **Set Up Prerequisites**.
+4. In the Azure Migrate Collector, open **Set up prerequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
-    - The collector checks that the Windows profiler service is running. The service is installed by default on the collector VM.
+    - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install the VMware PowerCLI.
-5. In **Discover Machines**, do the following:
+
+5. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
@@ -147,8 +159,8 @@ For each discovery you need to perform, you run the collector to discovery VMs i
 
         ![Select scope](./media/how-to-scale-assessment/select-scope.png)
 
-6. In **Select Project**, specify the ID and key for the project. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
-7. In **Complete Discovery**, monitor the discovery process, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
+6. In **Specify migration project**, specify the ID and key for the project. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
+7. In **View collection progress**, monitor the discovery process, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
 
 ### Verify VMs in the portal
