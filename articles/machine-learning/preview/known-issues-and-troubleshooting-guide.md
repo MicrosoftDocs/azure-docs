@@ -198,18 +198,14 @@ You can also add a data disk and configure Docker engine to use the data disk fo
 Or, you can expand the OS disk, and you don't have to touch Docker engine configuration. Here are details for [how you can expand the OS disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-az vm deallocate \
-    --resource-group myResourceGroup  \
-    --name myVM
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-az disk update \
-    --resource-group myResourceGroup  \
-    --name myVM \
-    --size-gb 250
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
     
-az vm start \
-    --resource-group myResourceGroup  \
-    --name myVM
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
 ```
 
 ## Sharing C drive on Windows
