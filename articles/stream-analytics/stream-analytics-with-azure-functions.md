@@ -27,7 +27,7 @@ You can run Azure Functions with Azure Stream Analytics by configuring Azure Fun
 
 Azure Stream Analytics invokes Azure Functions through HTTP triggers. The Azure Function output adapter allows users to connect Azure Functions to Stream Analytics such that events can be triggered based on the Stream Analytics queries. 
 
-This tutorial demonstrates how to connect Azure Stream Analytics to [Azure Redis Cache]() using [Azure Functions](). 
+This tutorial demonstrates how to connect Azure Stream Analytics to [Azure Redis Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [Azure Functions](../azure-functions/functions-overview.md). 
 
 ## Configure Stream Analytics job to run an Azure Function 
 
@@ -42,23 +42,23 @@ The following steps are required to achieve this task:
 * [Update the Stream Analytic job with Azure Function as output](#update-the-stream-analytic-job-with-azure-function-as-output)  
 * [Check Redis Cache for results](#check-redis-cache-for-results)  
 
-### Create Stream Analytics job with Event Hub as input
+## Create Stream Analytics job with Event Hub as input
 
 Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application and create an Azure Stream Analytics (skip through the steps to create the query and the output, we will instead walk you through setting up an Azure Functions output in the next section.)
 
-### Create an Azure Redis Cache
+## Create an Azure Redis Cache
 
-1. Create an Azure Redis Cache by using the steps described in [create a cache]() section of the Redis Cache topic.  
+1. Create an Azure Redis Cache by using the steps described in [create a cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) section of the Redis Cache topic.  
 
 2. After the Redis Cache is created, navigate to the created cache > **Access Keys** > and make a note of the **Primary connection string**.
 
    ![Redis Cache connection string](./media/stream-analytics-with-azure-functions/image2.png)
 
-### Create an Azure Function that can write data to the Redis Cache
+## Create an Azure Function that can write data to the Redis Cache
 
-1. Use the [Create a function app]() section of the Azure Functions documentation to create an Azure Function App and a [HTTP-triggered Azure Function]() (aka Webhook) by using **CSharp** language.  
+1. Use the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Azure Functions documentation to create an Azure Function App and a [HTTP-triggered Azure Function](../azure-functions/functions-create-first-azure-function.md#create-function) (aka Webhook) by using **CSharp** language.  
 
-2. Navigate to the **run.csx** function and update it with the following code (make sure to replace the “<your redis cache connection string goes here>” text with the Redis Cache’s primary connection string that you retrieved in the previous section):  
+2. Navigate to the **run.csx** function and update it with the following code (make sure to replace the “\<your redis cache connection string goes here\>” text with the Redis Cache’s primary connection string that you retrieved in the previous section):  
 
    ```c#
    using System;
@@ -69,35 +69,44 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    using System.Configuration;
 
    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-    {
+   {
       log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
     
       // Get the request body
       dynamic dataArray = await req.Content.ReadAsAsync<object>();
 
-     // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
+      // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
 
       if (dataArray.ToString().Length > 262144)
-       {        
+      {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-       }
-        var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
-        log.Info($"Connection string.. {connection}");
+      }
+      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      log.Info($"Connection string.. {connection}");
     
-        // Connection refers to a property that returns a ConnectionMultiplexer
-        IDatabase db = connection.GetDatabase();
-        log.Info($"Created database {db}");
+      // Connection refers to a property that returns a ConnectionMultiplexer
+      IDatabase db = connection.GetDatabase();
+      log.Info($"Created database {db}");
     
-        log.Info($"Message Count {dataArray.Count}");
+      log.Info($"Message Count {dataArray.Count}");
 
-        // Perform cache operations using the cache object. In this example, we put few integral data types into the cache
-        for (var i = 0; i < dataArray.Count; i++)
-        {
-            string time = dataArray[i].time;
-            string callingnum1 = dataArray[i].callingnum1;
-            string key = time + " - " + callingnum1;
-            db.StringSet(key, dataArray[i].ToString());
-            log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
+      // Perform cache operations using the cache object. In this example, we put few integral data types into the cache
+      for (var i = 0; i < dataArray.Count; i++)
+      {
+        string time = dataArray[i].time;
+        string callingnum1 = dataArray[i].callingnum1;
+        string key = time + " - " + callingnum1;
+        db.StringSet(key, dataArray[i].ToString());
+        log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
+       
+      // Simple get of data types from the cache
+      string value = db.StringGet(key);
+      log.Info($"Database got: {value}");
+      }
+
+      return req.CreateResponse(HttpStatusCode.OK, "Got");
+}    
+
    ```
 
    When Azure Stream Analytics receives 413 (Http Request Entity Too Large) exception from the Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function, use the following code to check that the Azure Stream Analytics doesn’t send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
@@ -135,14 +144,14 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
  
 
-### Update the Stream Analytic job with Azure Function as output
+## Update the Stream Analytic job with Azure Function as output
 
 1. Open your Azure Stream Analytics job on the Azure portal.  
 
 2. Navigate to your Azure function > **Overview** > **Outputs** > **Add** a new output > select **Azure Function** for the Sink option. The new Azure Function output adapter is available with the following properties:  
 
-   | Property Name  | Description  |
-   |---------|---------|
+   |**Property Name**|**Description**|
+   |---|---|
    |Output alias| A user-friendly name that you use in the job's query to reference the output. |
    |Import option| You can use azure function from the current subscription or provide the settings manually if the function is located in other subscription. |
    |Function App| Name of your Azure Function App. |
@@ -172,11 +181,11 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
     
 6.	Start the Stream Analytics Job
 
-### Check Redis Cache for results
+## Check Redis Cache for results
 
 1. Navigate to the Azure Portal and find your Redis Cache > select **Console**.  
 
-2. Use [Redis cache commands]() to verify that your data is in Redis cache. (The command takes the format- Get {key}). For example:
+2. Use [Redis cache commands](https://redis.io/commands) to verify that your data is in Redis cache. (The command takes the format- Get {key}). For example:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
