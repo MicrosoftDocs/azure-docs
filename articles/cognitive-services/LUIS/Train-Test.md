@@ -53,7 +53,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 1. Access your app  by clicking its name on **My Apps** page, 
 2. Click **Test** in your application's top panel to access the **Test** slide-out page.
 
-![Train & Test App page](./media/luis-how-to-train-test/test.png)
+    ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 
 ## Interactive Testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
