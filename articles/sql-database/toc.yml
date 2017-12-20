@@ -25,12 +25,14 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
-    - name: PHP
-      href: sql-database-connect-query-php.md
-    - name: Node.js
-      href: sql-database-connect-query-nodejs.md
+    - name: Go
+      href: sql-database-connect-query-go.md
     - name: Java
       href: sql-database-connect-query-java.md
+    - name: Node.js
+      href: sql-database-connect-query-nodejs.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
     - name: Python
       href: sql-database-connect-query-python.md
     - name: Ruby
@@ -58,9 +60,8 @@
 - name: Concepts
   items:
   - name: Service features
+    href: sql-database-servers-databases.md
     items:
-    - name: Overview
-      href: sql-database-servers-databases.md
     - name: Service tiers
       href: sql-database-service-tiers.md
     - name: Resource limits
@@ -104,9 +105,8 @@
     - name: SQL Server common features
       href: sql-database-features.md
   - name: Security
+    href: sql-database-security-overview.md
     items:
-    - name: Overview
-      href: sql-database-security-overview.md
     - name: Access control
       href: sql-database-control-access.md
     - name: Azure AD
@@ -119,10 +119,11 @@
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Data masking
       href: sql-database-dynamic-data-masking-get-started.md
+  - name: High availability
+    href: sql-database-high-availability.md  
   - name: Business continuity
+    href: sql-database-business-continuity.md
     items:
-    - name: Overview
-      href: sql-database-business-continuity.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
     - name: Configure security
@@ -138,9 +139,8 @@
     - name: Perform recovery drill
       href: sql-database-disaster-recovery-drills.md
   - name: Migrate to SQL Database
+    href: sql-database-cloud-migrate.md
     items:
-    - name: Migrate SQL Server DB
-      href: sql-database-cloud-migrate.md
     - name: T-SQL changes
       href: sql-database-transact-sql-information.md
     - name: Manage database after migration
@@ -156,9 +156,8 @@
     - name: Sync data
       href: sql-database-sync-data.md
   - name: Monitor & tune
+    href: sql-database-troubleshoot-performance.md
     items:
-    - name: Overview
-      href: sql-database-troubleshoot-performance.md
     - name: Perf monitoring 
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
@@ -178,9 +177,8 @@
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
   - name: Scale out
+    href: sql-database-elastic-scale-introduction.md
     items:
-    - name: Overview
-      href: sql-database-elastic-scale-introduction.md
     - name: Shard maps
       href: sql-database-elastic-scale-shard-map-management.md
     - name: Query routing
@@ -201,6 +199,8 @@
     items:
     - name: SaaS design patterns
       href: saas-tenancy-app-design-patterns.md
+    - name: SaaS video indexer
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
     - name: SaaS app security
       href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
@@ -216,9 +216,8 @@
     - name: Configure In-Memory
       href: sql-database-in-memory-oltp-migration.md
   - name: Develop apps
+    href: sql-database-develop-overview.md
     items:
-    - name: Overview
-      href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
     - name: Authenticate app 
@@ -337,8 +336,10 @@
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Multi-tenant SaaS
     items:
-    - name: Welcome to Wingtips
+    - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: General guidance
+      href: saas-tenancy-wingtip-app-guidance-tips.md
     - name: Standalone application
       items:
       - name: Deploy example app
@@ -348,8 +349,6 @@
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
-      - name: App guidance
-        href: saas-dbpertenant-wingtip-app-guidance-tips.md
       - name: Deploy example app
         href: saas-dbpertenant-get-started-deploy.md
       - name: Provision tenants

@@ -25,7 +25,7 @@ However, you can also expose your application on your own domain name, such as *
 Do you already understand what CNAME and A records are? [Jump past the explanation](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service/app-service-web-tutorial-custom-domain.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md). For storage accounts, see [Configure a custom domain name for your Azure Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

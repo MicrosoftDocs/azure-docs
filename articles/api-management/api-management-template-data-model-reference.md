@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
 ---
 # Azure API Management template data model reference
@@ -328,7 +328,7 @@ This topic describes the entity and type representations for common items used i
 |DelegationEnabled|boolean|Whether delegated sign in is enabled.|  
 |DelegationUrl|string|The delegated sign in url, if enabled.|  
 |SsoSignUpUrl|string|The single sign on URL for the user, if present.|  
-|AuxServiceUrl|string|If the current user is an administrator, this is a link to the service instance in the Azure Classic Portal.|  
+|AuxServiceUrl|string|If the current user is an administrator, this is a link to the service instance in the Azure portal.|  
 |Providers|Collection of [Provider](#Provider) entities|The authentication providers for this user.|  
 |UserRegistrationTerms|string|Terms that a user must agree to before signing in.|  
 |UserRegistrationTermsEnabled|boolean|Whether terms are enabled.|  

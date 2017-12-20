@@ -27,17 +27,23 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from Dynamics 365/Dynamics CRM to any supported sink data store, or copy data from any supported source data store to Dynamics 365/Dynamics CRM. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Dynamics connector supports below Dynamics versions and authentication types:
+This Dynamics connector supports below Dynamics versions and authentication types (*IFD is short for Internet Facing Deployment*):
 
 | Dynamics Versions | Authentication Types | Linked service samples |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with IFD <br> Dynamics CRM 2016 on-premises with IFD <br> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics On-premises with IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD is short for Internet Facing Deployment.*
+For Dynamics 365 specifically, the following application types are supported:
+
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
+- Dynamics 365 for Field Service
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 > [!NOTE]
-> To use Dynamics connector, store your password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
+> To use Dynamics connector, store your password in Azure Key Vault and let the copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
 
 ## Getting started
 
@@ -313,7 +319,7 @@ To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSi
 
 When copying data from Dynamics, the following mappings are used from Dynamics data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-Configure the corresponding ADF data type in dataset structure based on your source Dynamics data type using below mapping table:
+Configure the corresponding Data Factory data type in dataset structure based on your source Dynamics data type using below mapping table:
 
 | Dynamics data type | Data factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |

@@ -63,7 +63,7 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Hosting plans comparison
+  - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md
@@ -135,6 +135,8 @@
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
+    - name: Zip push deployment
+      href: deployment-zip-push.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions

@@ -4,7 +4,7 @@ description: How to choose the optimal parameter set for an algorithm using and 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
+ms.date: 11/29/2017
+ms.author: bradsev;garye
 
 ---
 # Interpret model results in Azure Machine Learning

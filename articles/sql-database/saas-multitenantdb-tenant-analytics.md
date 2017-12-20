@@ -69,7 +69,7 @@ Understanding how consistently each tenant is using the service provides an oppo
 To complete this tutorial, make sure the following prerequisites are met:
 
 - The Wingtip Tickets SaaS Multi-tenant Database application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-get-started-deploy.md)
-- The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) are downloaded from GitHub. Be sure to *unblock the zip file* before extracting its contents.
+- The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) are downloaded from GitHub. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-multitenantdb-provision-and-catalog.md).
 - A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -208,7 +208,7 @@ The preceding plot for Contoso Concert Hall shows that the mad rush does not hap
 
 The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different performance levels. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
 
-Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
+Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for under performing venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

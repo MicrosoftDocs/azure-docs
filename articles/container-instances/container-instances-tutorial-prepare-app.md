@@ -2,19 +2,11 @@
 title: Azure Container Instances tutorial - Prepare your app
 description: Prepare an app for deployment to Azure Container Instances
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: mmacy
-tags:
-keywords: ''
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc
@@ -58,7 +50,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
 
 ```Dockerfile
-FROM node:8.2.0-alpine
+FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
 COPY ./app/* /usr/src/app/
 WORKDIR /usr/src/app
@@ -76,13 +68,13 @@ Output from the `docker build` command is similar to the following (truncated fo
 
 ```bash
 Sending build context to Docker daemon  119.3kB
-Step 1/6 : FROM node:8.2.0-alpine
-8.2.0-alpine: Pulling from library/node
+Step 1/6 : FROM node:8.9.3-alpine
+8.9.3-alpine: Pulling from library/node
 88286f41530e: Pull complete
 84f3a4bf8410: Pull complete
 d0d9b2214720: Pull complete
 Digest: sha256:c73277ccc763752b42bb2400d1aaecb4e3d32e3a9dbedd0e49885c71bea07354
-Status: Downloaded newer image for node:8.2.0-alpine
+Status: Downloaded newer image for node:8.9.3-alpine
  ---> 90f5ee24bee2
 ...
 Step 6/6 : CMD node /usr/src/app/index.js

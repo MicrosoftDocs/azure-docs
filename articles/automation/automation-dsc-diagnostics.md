@@ -3,7 +3,7 @@ title: Forward Azure Automation DSC reporting data to OMS Log Analytics | Micros
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
+ms.author: gwallace
 
 ---
 # Forward Azure Automation DSC reporting data to OMS Log Analytics
@@ -41,7 +41,7 @@ To start sending your Automation DSC reports to Log Analytics, you need:
 
 To begin importing data from Azure Automation DSC into Log Analytics, complete the following steps:
 
-1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
   (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
 

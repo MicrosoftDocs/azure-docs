@@ -63,7 +63,7 @@ To complete this tutorial, the following are required.
 ## Create a watcher task that selects the watcher runbook and action runbook
 1.	Open the Watcher tasks page and click on “Add a watcher task” button.
 ![Watcher list from UI](media/automation-watchers-tutorial/WatchersList.png)
-2.	Enter “Watch new files” as the name.
+2.	Enter “WatchMyFolder” as the name.
 3.	Select “Configure watcher” and select the “Watch-NewFile” runbook.
 ![Configure watcher from UI](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.	Enter the following values for parameters:
@@ -85,7 +85,7 @@ To complete this tutorial, the following are required.
 2.	Add a new text file to the folder that is being monitored by the watcher task.
 
 ## Inspect the output from the action runbook that shows information on the new file
-1.	Click on the watcher task for “Watch new files”
+1.	Click on the watcher task for “WatchMyFolder”
 2.	Click on the “View watcher streams” to see that the watcher found the new file and started the action runbook.
 3.	Click on the “View watcher action jobs” to see the action runbook job.
 ![Watcher action jobs from UI](media/automation-watchers-tutorial/WatcherActionJobs.png)
