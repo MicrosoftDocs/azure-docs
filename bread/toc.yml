@@ -314,7 +314,7 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Policy Documentation
+  - name: Policy documentation
     tocHref: /azure/azure-policy/
     topicHref: /azure/azure-policy/
     items:
