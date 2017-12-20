@@ -17,9 +17,12 @@ ms.custom: mvc
 
 # Create and provision an X.509 simulated device using IoT Hub Device Provisioning Service using C device SDK
 > [!div class="op_single_selector"]
-> * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
-
+<!-- 
+> * [Java](quick-create-simulated-device-x509-java.md)
+> * [C#](quick-create-simulated-device-x509-csharp.md)
+> * [Python](quick-create-simulated-device-x509-python.md)
+-->
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
@@ -30,7 +33,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-2. Download and install the [CMake build system](https://cmake.org/download/).
+2. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation. 
 
 3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
