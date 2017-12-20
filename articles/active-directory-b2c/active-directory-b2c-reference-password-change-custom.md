@@ -4,7 +4,7 @@ description: A topic demonstrating how to set up self-service password change fo
 services: active-directory-b2c
 documentationcenter: ''
 author: vigunase
-manager: ajalexander
+manager: mtillman
 
 ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c

@@ -29,7 +29,7 @@ This article describes basic security infrastructure that data movement services
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is available in only **East US** and **East US 2** region (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
+Even though Data Factory is available in only **East US**, **East US 2**, and **West Europe** regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
 
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using SDKs and Azure Monitor.
 
@@ -171,7 +171,7 @@ Some data stores in the cloud also require whitelisting of IP address of the mac
 The following cloud data stores require whitelisting of IP address of the self-hosted integration runtime machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
-- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
+- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 

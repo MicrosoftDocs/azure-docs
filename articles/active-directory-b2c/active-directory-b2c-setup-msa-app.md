@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Microsoft accounts in
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853

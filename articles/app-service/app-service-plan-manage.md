@@ -53,7 +53,16 @@ In the **Menu**, look for the **App Service Plan** section.
 
 Select **Change App Service plan** to start the process.
 
-**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. Only plans in the same resource group and region are displayed. If you just created an App Service plan in the same resource group and region, but it is not displayed in the list, try refreshing your browser page.
+**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. 
+
+> [!IMPORTANT]
+> The **Select App Service plan** page is filtered by the following criteria: 
+> - Exists in the same resource group 
+> - Exists in the same geographical region 
+> - Exists in the same webspace  
+> 
+> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers using App Service. Currently, App Service resources aren’t able to be moved between webspaces. 
+> 
 
 ![App Service plan selector.][change]
 
@@ -70,7 +79,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 ## Scale an App Service plan
 
-To scale up ah App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
+To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
 
 To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

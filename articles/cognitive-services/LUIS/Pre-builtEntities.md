@@ -1,6 +1,6 @@
----
-title: Pre-built entities in LUIS | Microsoft Docs
-description: This article contains lists of the pre-built entities that are included in Language Understanding Intelligent Services (LUIS).
+﻿---
+title: Prebuilt entities in LUIS | Microsoft Docs
+description: This article contains lists of the prebuilt entities that are included in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 12/13/2017
 ms.author: cahann
 ---
 
@@ -17,14 +17,14 @@ ms.author: cahann
 LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
+> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](luis-reference-prebuilt-entities.md#builtindatetimev2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 ## Add a prebuilt entity
 
-1. Open your app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
-2. On the **Entities** page, click **Add prebuilt entity**.
+1. Open your app by clicking its name on **My Apps** page, and then click **Entities** in the left side. 
+2. On the **Entities** page, click **Manage prebuilt entities**.
 
-    ![Entities Page - Add first entity](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
+    ![Entities Page - Manage prebuilt entities](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. In **Add prebuilt entities** dialog box, click the prebuilt entity you want to add (for example, "datetimeV2"). Then click **Save**.
 
     ![Add prebuilt entity dialog box](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
@@ -102,7 +102,7 @@ The following example shows what the JSON response from LUIS might look like if 
 ## Next Steps
 Learn more about prebuilt entities in the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 <!-- 
-Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
+Prebuilt entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
 ------|------|------|------|------|------|------|------|------|------|
 DatetimeV2   |    ✔   |   -   |   -   |   -   |    ✔   |   -   |   -   |   -   |   -   |
  Datetime   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
@@ -122,7 +122,7 @@ Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   - 
 ## Examples of prebuilt entities
 The following table lists prebuilt entities with example utterances and their return values.
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
  ```builtin.number```     |  ```ten```   |``` { "type": "builtin.number", "entity": "ten" } ```|
  ```builtin.number```     |   ```3.1415```   |```  { "type": "builtin.number", "entity": "3 . 1415" }``` |
@@ -349,9 +349,9 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
    <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
-   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
+   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
-   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
+   <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr></table>
   </td></tr>
 </table>
@@ -535,7 +535,7 @@ The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examp
 * builtin.datetimeV2.set
 
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.datetimeV2.date```    |   ```tomorrow```   |```{ "type": "builtin.datetimeV2.date", "entity": "tomorrow", "resolution": {"values": [{"timex": "2017-06-21","type": "date", "value": "2017-06-21"}]} }``` |
 ```builtin.datetimeV2.date```    |   ```january 10 2009```   |```{ "type": "builtin.datetimeV2.date", "entity": "january 10 2009", "resolution": { "values": [ {"timex": "2009-01-10", "type": "date", "value": "2009-01-10" }] } }```|
@@ -569,7 +569,7 @@ To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, do
 
 The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.datetime.date```      |   ```tomorrow```   |```{ "type": "builtin.datetime.date", "entity": "tomorrow", "resolution": {"date": "2017-06-21"} }``` |
 ```builtin.datetimeV2.date```    |   ```tomorrow```   |```{ "type": "builtin.datetimeV2.date", "entity": "tomorrow", "resolution": {"values": [{"timex": "2017-06-21","type": "date", "value": "2017-06-21"}]} }``` |
@@ -617,7 +617,7 @@ builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "septe
 
 #### The builtin.geography built-in entity type has 3 sub-types:
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -652,7 +652,7 @@ Pre-built entity   |   Example utterance   |   JSON
  ```
 
 
-Pre-built entity   |   Pre-built entity (sub-types)   |   Example utterance
+Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |
@@ -750,3 +750,6 @@ Pre-built entity   |   Pre-built entity (sub-types)   |   Example utterance
 
 -->
 
+## Next steps
+> [!div class="nextstepaction"]
+> [Prebuilt entity reference](./luis-reference-prebuilt-entities.md)
