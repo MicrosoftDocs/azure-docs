@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio Code to develop and deploy Azure Function with Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to debug Azure Function with Azure IoT Edge
+title: Use Visual Studio Code to develop and deploy Azure Function to Azure IoT Edge | Microsoft Docs
+description: Develop and deploy a C# Azure Funtion with Azure IoT Edge in VS Code without context switching
 services: iot-edge
 keywords: 
 author: shizn
@@ -41,7 +41,7 @@ It is also suggested to install [Docker support for VS Code](https://marketplace
 > Currently, Azure Function on IoT Edge only supports C# function.
 
 ## Deploy Azure IoT Function in VS Code
-In tutorial [Deploy Azure Function](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your module image in VS Code and then visit Azure portal to deploy Azure Function. This section introduces how to use VS Code to deploy and monitor your Azure Function.
+In tutorial [Deploy Azure Function](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your function module image in VS Code and then visit Azure portal to deploy Azure Function. This section introduces how to use VS Code to deploy and monitor your Azure Function.
 
 ### Start a local docker registry
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses a [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
@@ -60,17 +60,17 @@ The following steps show you how to create an IoT Edge module based on .NET core
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
 2. To install (or update) the **AzureIoTEdgeFunction** template in dotnet, run the following command in the integrated terminal:
 
-    ```cmd/sh
-    dotnet new -i Microsoft.Azure.IoT.Edge.Function
-    ```
+   ```cmd/sh
+   dotnet new -i Microsoft.Azure.IoT.Edge.Function
+   ```
 3. Create a project for the new module. The following command creates the project folder, **FilterFunction**, in the current working folder:
 
-    ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
-    ```
+   ```cmd/sh
+   dotnet new aziotedgefunction -n FilterFunction
+   ```
  
 4. Select **File > Open Folder**, then browse to the **FilterFunction** folder and open the project in VS Code.
-5. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
+5. Browse to the **FilterFunction**  folder and click **Select Folder** to open the project in VS Code.
 6. In VS Code explorer, expand the **EdgeHubTrigger-Csharp** folder, then open the **run.csx** file.
 7. Replace the contents of the file with the following code:
 
@@ -141,49 +141,49 @@ The following steps show you how to create an IoT Edge module based on .NET core
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filterfunction:latest`. If you are deploying to local registry, it should be `localhost:5000/filterfunction:latest`.
 5. Push the image to your Docker repository. Use the **Edge: Push IoT Edge module Docker image** command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in above step.
 
-### Deploy your IoT Edge modules
+### Deploy your funtion to IoT Edge
 
 1. Open the `deployment.json` file, replace **modules** section with below content:
-    ```json
-    "tempSensor": {
-        "version": "1.0",
-        "type": "docker",
-        "status": "running",
-        "restartPolicy": "always",
-        "settings": {
-            "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-            "createOptions": ""
-        }
-    },
-    "filterfunction": {
-        "version": "1.0",
-        "type": "docker",
-        "status": "running",
-        "restartPolicy": "always",
-        "settings": {
-            "image": "localhost:5000/filterfunction:latest",
-            "createOptions": ""
-        }
-    }
-    ```
+   ```json
+   "tempSensor": {
+      "version": "1.0",
+      "type": "docker",
+      "status": "running",
+      "restartPolicy": "always",
+      "settings": {
+         "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+         "createOptions": ""
+      }
+   },
+   "filterfunction": {
+      "version": "1.0",
+      "type": "docker",
+      "status": "running",
+      "restartPolicy": "always",
+      "settings": {
+         "image": "localhost:5000/filterfunction:latest",
+         "createOptions": ""
+      }
+   }
+   ```
 
 2. Replace the **routes** section with below content:
-    ```json
-    {
-        "routes":{
-            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
-            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
-        }
-    }
-    ```
+   ```json
+   {
+       "routes":{
+           "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
+           "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
+       }
+   }
+   ```
    > [!NOTE]
-   > Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter function to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
+   > Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter function via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter function to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
 
 3. Save this file.
 4. In Command Palette, select **Edge: Create deployment for Edge device**. Then select your IoT Edge device ID to create a deployment. Or right-click the device ID in the device list and select **Create deployment for Edge device**.
 5. Select the `deployment.json` you updated. In the output window, you can see corresponding outputs for your deployment.
 6. Start your Edge runtime in Command Palette. **Edge: Start Edge**
-7. You can see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter module.
+7. You can see your IoT Edge runtime start running in the Docker explorer with the simulated sensor and filter function.
 8. Right-click your Edge device ID, and you can monitor D2C messages in VS Code.
 
 
