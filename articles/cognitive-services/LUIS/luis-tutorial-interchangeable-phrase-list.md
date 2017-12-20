@@ -21,7 +21,7 @@ With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*m
 ## Prerequisite
 
 > [!div class="checklist"]
-> * [Hardware requisition app](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/phrase_list/luis-app-for-phrase-list.json). Import this app. Its name in the app list is **Phrase Lists**. Train and publish the app.  
+> * [Hardware requisition app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json). Import this app. Its name in the app list is **Phrase Lists**. Train and publish the app.  
 
 ## Score trained utterance
 Use the published endpoint to query with an utterance the app knows about:
@@ -130,7 +130,7 @@ The endpoint response is:
  Why is the untrained utterance score lower than the labeled utterance? The answer is LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__. Since the word `"require"` wasn't used in any labeled utterances for the `"Hardware"` intent, the score was lower than 0.973. 
 
 ## Add phrase list 
-Add a [phrase list](PhraseListFeatures) named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
+Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
 
 ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
