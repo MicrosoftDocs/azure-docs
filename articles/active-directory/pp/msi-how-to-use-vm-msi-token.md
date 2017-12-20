@@ -1,10 +1,10 @@
 ---
-title: How to use an Azure VM Managed Service Identity to acquire an access token
-description: Step by step instructions and examples for using an Azure VM MSI to acquire an OAuth access token.
+title: How to use a user-assigned Managed Service Identity to acquire an access token on a VM.
+description: Step by step instructions and examples for using a user-assigned MSI from an Azure VM to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
+# Acquire an access token for a VM user-assigned Managed Service Identity (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
@@ -28,9 +28,8 @@ This article provides various code and script examples for token acquisition, as
 
 If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
-
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md), or one of the variant articles (using the Portal, PowerShell, a template, or an Azure SDK). 
 
 ## Overview
 
@@ -39,9 +38,6 @@ A client application can request an MSI [app-only access token](~/articles/activ
 |  |  |
 | -------------- | -------------------- |
 | [Get a token using HTTP](#get-a-token-using-http) | Protocol details for the MSI token endpoint |
-| [Get a token using C#](#get-a-token-using-c) | Example of using the MSI REST endpoint from a C# client |
-| [Get a token using Go](#get-a-token-using-go) | Example of using the MSI REST endpoint from a Go client |
-| [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
 | [Get a token using CURL](#get-a-token-using-curl) | Example of using the MSI REST endpoint from a Bash/CURL client |
 | [Handling token expiration](#handling-token-expiration) | Guidance for handling expired access tokens |
 | [Error handling](#error-handling) | Guidance for handling HTTP errors returned from the MSI token endpoint |
@@ -54,7 +50,7 @@ The fundamental interface for acquiring an access token is based on REST, making
 Sample request:
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
 Metadata: true
 ```
 
@@ -63,6 +59,7 @@ Metadata: true
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `client_id` | A query string parameter, indicating the client ID (also known as App ID) of the service principal representing the user-assigned MSI. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
@@ -72,162 +69,31 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 {
   "access_token": "eyJ0eXAi...",
-  "refresh_token": "",
   "expires_in": "3599",
   "expires_on": "1506484173",
   "not_before": "1506480273",
   "resource": "https://management.azure.com/",
   "token_type": "Bearer"
+  "client_id":"712eac09-e943-418c-9be6-9fd5c91078bl"
 }
 ```
 
 | Element | Description |
 | ------- | ----------- |
 | `access_token` | The requested access token. When calling a secured REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
-| `refresh_token` | Not used by MSI. |
 | `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
 | `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
 | `not_before` | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim). |
 | `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
-
-## Get a token using C#
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Web.Script.Serialization; 
-
-// Build request to acquire MSI token
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://management.azure.com/");
-request.Headers["Metadata"] = "true";
-request.Method = "GET";
-
-try
-{
-    // Call /token endpoint
-    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-    // Pipe response Stream to a StreamReader, and extract access token
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream()); 
-    string stringResponse = streamResponse.ReadToEnd();
-    JavaScriptSerializer j = new JavaScriptSerializer();
-    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
-    string accessToken = list["access_token"];
-}
-catch (Exception e)
-{
-    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
-}
-
-```
-
-## Get a token using Go
-
-```go
-package main
-
-import (
-  "fmt"
-  "io/ioutil"
-  "net/http"
-  "net/url"
-  "encoding/json"
-)
-
-type responseJson struct {
-  AccessToken string `json:"access_token"`
-  RefreshToken string `json:"refresh_token"`
-  ExpiresIn string `json:"expires_in"`
-  ExpiresOn string `json:"expires_on"`
-  NotBefore string `json:"not_before"`
-  Resource string `json:"resource"`
-  TokenType string `json:"token_type"`
-}
-
-func main() {
-    
-    // Create HTTP request for MSI token to access Azure Resource Manager
-    var msi_endpoint *url.URL
-    msi_endpoint, err := url.Parse("http://localhost:50342/oauth2/token")
-    if err != nil {
-      fmt.Println("Error creating URL: ", err)
-      return 
-    }
-    msi_parameters := url.Values{}
-    msi_parameters.Add("resource", "https://management.azure.com/")
-    msi_endpoint.RawQuery = msi_parameters.Encode()
-    req, err := http.NewRequest("GET", msi_endpoint.String(), nil)
-    if err != nil {
-      fmt.Println("Error creating HTTP request: ", err)
-      return 
-    }
-    req.Header.Add("Metadata", "true")
-
-    // Call MSI /token endpoint
-    client := &http.Client{}
-    resp, err := client.Do(req) 
-    if err != nil{
-      fmt.Println("Error calling token endpoint: ", err)
-      return
-    }
-
-    // Pull out response body
-    responseBytes,err := ioutil.ReadAll(resp.Body)
-    defer resp.Body.Close()
-    if err != nil {
-      fmt.Println("Error reading response body : ", err)
-      return
-    }
-
-    // Unmarshall response body into struct
-    var r responseJson
-    err = json.Unmarshal(responseBytes, &r)
-    if err != nil {
-      fmt.Println("Error unmarshalling the response:", err)
-      return
-    }
-
-    // Print HTTP response and marshalled response body elements to console
-    fmt.Println("Response status:", resp.Status)
-    fmt.Println("access_token: ", r.AccessToken)
-    fmt.Println("refresh_token: ", r.RefreshToken)
-    fmt.Println("expires_in: ", r.ExpiresIn)
-    fmt.Println("expires_on: ", r.ExpiresOn)
-    fmt.Println("not_before: ", r.NotBefore)
-    fmt.Println("resource: ", r.Resource)
-    fmt.Println("token_type: ", r.TokenType)
-}
-```
-
-## Get a token using Azure PowerShell
-
-The following example demonstrates how to use the MSI REST endpoint from a PowerShell client to:
-
-1. Acquire an access token.
-2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
-
-```azurepowershell
-# Get an access token for the MSI
-$response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                              -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-$content =$response.Content | ConvertFrom-Json
-$access_token = $content.access_token
-echo "The MSI access token is $access_token"
-
-# Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
-echo "JSON returned from call to get VM info:"
-echo $vmInfoRest
-
-```
+| `client_id` | The client ID (also known as App ID) of the service principal representing the user-assigned MSI, for which the token was requested. |
 
 ## Get a token using CURL
 
+Be sure to substitute the client ID (also known as App ID) of your user-assigned MSI's service principal, for the <MSI CLIENT ID> value of the `client_id` parameter. This value is returned in the `clientId` property during creation of a user-assigned MSI.
+
 ```bash
-response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
+response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
@@ -277,9 +143,9 @@ This section documents the possible error responses. A "200 OK" status is a succ
 See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
 
-## Related content
+## Next steps
 
-- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
+- To enable MSI on an Azure VM, see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
