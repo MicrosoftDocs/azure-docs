@@ -43,7 +43,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Singapore|English|en-SG|
 |United States|English|en-US|
 |English|general|en-WW|
-|English|genearl|en-XA|
+|English|general|en-XA|
 |South Africa|English|en-ZA|
 |Argentina|Spanish|es-AR|
 |Chile|Spanish|es-CL|
@@ -71,7 +71,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Turkey|Turkish|tr-TR|  
 
 ## <a id="news-markets"></a>Supported Markets of `/news` Endpoint
-For the `/news` endpointhe following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
+For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
 For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
   
@@ -94,7 +94,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |People's republic of China|Chinese|zh-CN|
 
 ## <a id="news-trending-markets"></a>Supported Markets of `/news/trending` Endpoint
-For the `/news/trendingtopics` endpointhe following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
+For the `/news/trendingtopics` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
 For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
   

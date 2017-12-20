@@ -16,17 +16,17 @@ The **News Search API** returns news articles, Web pages, images, videos, and [e
 ##Endpoints
 To get News search results using the Bing API, send a `GET` request to one of the following endpoints. The headers and URL parameters define further specifications.
 
-**Endpoint 1:** Returns news items based on the user's search query. If the search query is empty, the call returns the top news articles. The query `?q=""` option can also be used with the `/news` URL. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-search-markets.
+**Endpoint 1:** Returns news items based on the user's search query. If the search query is empty, the call returns the top news articles. The query `?q=""` option can also be used with the `/news` URL. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-search-markets).
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search 
 ``` 
 
-**Endpoint 2:** Returns the top news items by category. You can specifically request the top business, sports, or entertainment articles using `category=business`, `category=sports`, or `category=entertainment`.  The `category` parameter can only be used with the `/news` URL. There are some formal requirements for specifying categories; refer to `category` in the [query parameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentation. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-markets. 
+**Endpoint 2:** Returns the top news items by category. You can specifically request the top business, sports, or entertainment articles using `category=business`, `category=sports`, or `category=entertainment`.  The `category` parameter can only be used with the `/news` URL. There are some formal requirements for specifying categories; refer to `category` in the [query parameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentation. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-markets). 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-**Endpoint 3:** Returns news topics that are currently trending on social networks. When the `/trendingtopics` option is included, Bing search ignores several other parameters, such as `freshness` and `?q=""`. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-trending-markets.
+**Endpoint 3:** Returns news topics that are currently trending on social networks. When the `/trendingtopics` option is included, Bing search ignores several other parameters, such as `freshness` and `?q=""`. For availability, see [Supported countries and markets](supported-countries-markets.md#id=news-trending-markets).
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics 
 ``` 
