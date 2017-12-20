@@ -42,7 +42,7 @@ The following limitations exist when using this capability:
 * **Regions:** Available in most Azure regions. 
 * **Supported operating systems:** Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Windows VM sizes](sizes.md).
-* **Deployment through Azure Resource Manager (ARM) only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
+* **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 ## Create a virtual network
 

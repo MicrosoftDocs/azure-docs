@@ -49,7 +49,7 @@ The following limitations exist when using this capability:
 * **Regions:** The capability is available in many Azure regions, and continues to expand. For a full list, see [Azure Virtual Networking Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
 * **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3, and CentOS 7.3 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](sizes.md). The set of supported VM instance sizes continues to expand.
-* **Deployment through Azure Resource Manager (ARM) only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
+* **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 
 ## Create a virtual network
@@ -167,12 +167,12 @@ ssh azureuser@<your-public-ip-address>
 
 ## Configure the operating system
 
-From the Bash shell, enter `uname -r` and and confirm that the kernel version is one of the following:
+From the Bash shell, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
-    * **Ubuntu**: 4.4.0-77-generic, or greater
-    * **SLES**: 4.4.59-92.20-default, or greater
-    * **RHEL**: 7.3, or greater
-    * **CentOS**: XXX, or greater
+    * **Ubuntu**: 4.4.0-77-generic
+    * **SLES**: 4.4.59-92.20-default
+    * **RHEL**: 7.3
+    * **CentOS**: XXX
 
 @@@ Can we add the earliest Azure OS image version numbers that have the previous kernel numbers too? Please add/correct the version numbers in the list above. @@@ 
 
@@ -184,9 +184,9 @@ chmod +x ./configure_hv_sriov.sh
 sudo ./configure_hv_sriov.sh
 ```
 
-@@@ It appears this script is only determing which distro is installed, not the version. Shouldn't it also be checking for the version to make sure a supported version is installed? @@@
+@@@ It appears this script is only determining which distro is installed, not the version. Shouldn't it also be checking for the version to make sure a supported version is installed? @@@
 
-The VM restarts after a 60 second pause. Once the VM restarts, SSH into the VM again. Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
+The VM restarts after a 60-second pause. Once the VM restarts, SSH into the VM again. Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
  
 >[!NOTE]
 >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
@@ -250,13 +250,13 @@ bash: syntax error near unexpected token `('
 
 @@@
 
-When more than one VF is assigned to the VM, and the failsafe.sh script is run without any parameters, the command’s output, will generate a command line for all VFs that are presented on the VM. @@@ I'm not clear what to tell people to replace the MACs below with @@@  
+When more than one VF is assigned to the VM, and the failsafe.sh script is run without any parameters, the command’s output, generates a command line for all VFs that are presented on the VM. @@@ I'm not clear what to tell people to replace the MACs below with @@@  
 
 ```bash 
 /root/failsafe.sh 00:15:5d:44:4b:0d 00:15:5d:44:4b:13 --vdev=net_failsafe0,mac=00:15:5d:44:4b:0d,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:0d),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:0d,0) -vdev=net_failsafe1,mac=00:15:5d:44:4b:13,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:13),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:13,1) -w 0000:00.0   
 ``` 
 
-If only a specific VF is needed, the following can be run: 
+If only a specific VF is needed, run the following command: 
 
 ```bash
 sudo ./failsafe.sh preferred 
