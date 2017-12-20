@@ -105,7 +105,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
       > [!NOTE] 
           > + Copy-Paste across storage type **is not** supported. You can copy ADLS folders or files and paste to another ADLS account. But you **cannot** copy ADLS folders or files and paste to blob storage or the other way around. 
-          > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** perform the action in the backend. Copy-Paste on large files is slow. The optimization of high performance file copy-move is under going.
+          > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** perform the action in the backend. Copy-Paste on large files is slow. The optimization of high-performance file copy-move is undergoing.
    * **Delete folders or files**
 
      1. Select the folders or files you wish to delete.
