@@ -142,7 +142,7 @@ In December 2017 we have added following new apps in our App gallery with Federa
 |SAML SSO for Bamboo by resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) delegates authentication to Azure AD, users already logged-in to Azure AD can access Bamboo directly.|
 |Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is your modern, fully featured social intranet software that supports your employees and your business.|
 |MOBI|SAML 2.0|[Centralize, comprehend, and control your entire device ecosystem](https://go.microsoft.com/fwlink/?linkid=863521).|
-|Reflektive|2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for Performance Management, Real-Time Feedback, and Goal Setting. We empower employees to drive their own development, so you can be more strategic.|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for Performance Management, Real-Time Feedback, and Goal Setting. We empower employees to drive their own development, so you can be more strategic.|
 |CybSafe|OpenID Connect & OAuth|CybSafe is a GCHQ-certified cyber awareness platform. It uses advanced technology and data analytics to demonstrably reduce the human aspect of cyber security and data protection risk.|
 |WebHR|OpenID Connect & OAuth|Everyone's Favorite All-in-One Social HR Software. Trusted by over 20,000 companies in 197 countries|
  |Zenegy Azure AD Integration|OpenID Connect & OAuth|With this App you can use your company’s Azure Active Directory credentials to log into Zenegy.|
