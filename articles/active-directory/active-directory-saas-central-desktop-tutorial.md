@@ -42,7 +42,7 @@ To configure Azure AD integration with Central Desktop, you need the following i
 To test the steps in this tutorial, follow these recommendations:
 
 - Don't use your production environment unless it's necessary.
-- If you don't have already have an Azure AD trial environment, [get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't already have an Azure AD trial environment, [get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. The scenario that's outlined in this tutorial consists of two main building blocks:
