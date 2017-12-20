@@ -44,7 +44,7 @@ This article includes frequently asked questions about configuration and managem
 - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [How to enable HTTP/2 on Cloud Services VM?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Permissions**
+**Permission**
 
 - [Can Microsoft internal engineers remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -193,7 +193,7 @@ Once this has been done, you can verify whether the HTTP/2 has been enabled or n
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
-## Permissions
+## Permission
 
 ### How can I implement Role-Based Access for Cloud Services?
 Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
