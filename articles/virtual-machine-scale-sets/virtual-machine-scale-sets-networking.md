@@ -135,7 +135,7 @@ To list scale set public IP addresses using PowerShell, use the _Get-AzureRmPubl
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-You can also query the public IP addresses by referencing the resource id of the public IP address configuration directly. For example:
+You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -304,4 +304,4 @@ For example:
 ```
 
 ## Next steps
-For more information about Azure virtual networks, refer to [this documentation](../virtual-network/virtual-networks-overview.md).
+For more information about Azure virtual networks, see [Azure virtual networks overview](../virtual-network/virtual-networks-overview.md).
