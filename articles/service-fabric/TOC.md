@@ -90,8 +90,6 @@
 #### [Reverse proxy diagnostics](service-fabric-reverse-proxy-diagnostics.md)
 #### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-### [Plan application capacity](service-fabric-capacity-planning.md)
-
 ### [Application lifecycle](service-fabric-application-lifecycle.md)
 #### [Application upgrade](service-fabric-application-upgrade.md)
 ##### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
@@ -103,10 +101,7 @@
 
 ### [Service resources](service-fabric-service-manifest-resources.md)
 
-## [Create and manage clusters](service-fabric-deploy-anywhere.md)
-### Plan and prepare
-#### [Capacity planning](service-fabric-cluster-capacity.md)
-#### [Disaster recovery](service-fabric-disaster-recovery.md)
+## [Clusters](service-fabric-deploy-anywhere.md)
 ### [Describing a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 ### [Cluster security](service-fabric-cluster-security.md)
 ### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
@@ -162,15 +157,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Set up the Service Fabric CLI](service-fabric-cli.md)
 
+### Plan and prepare
+### [Plan cluster capacity](service-fabric-cluster-capacity.md)
+### [Plan for standalone cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Prepare for disaster recovery](service-fabric-disaster-recovery.md)
+### [Plan application capacity](service-fabric-capacity-planning.md)
+
+### Create your first...
+### [C# application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Windows container application](service-fabric-get-started-containers.md)
+### [Linux container application](service-fabric-get-started-containers-linux.md)
+### [C# Reliable Services application on Windows](service-fabric-reliable-services-quick-start.md)
+### [Java Reliable Services application on Linux](service-fabric-reliable-services-quick-start-java.md)
+### [C# Reliable Services application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [C# Reliable Actors application on Windows](service-fabric-reliable-actors-get-started.md)
+### [Java Reliable Actors application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [Guest executable application on Windows](quickstart-guest-app.md)
+### [Standalone cluster](service-fabric-get-started-standalone-cluster.md)
+
 ## Build an application
-### [Create your first C# app in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Build a guest executable service
-#### [Host a Node.js application on Windows](quickstart-guest-app.md)
 #### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 #### [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 ### Build a container service
-#### [Create a Windows container application](service-fabric-get-started-containers.md)
-#### [Create a Linux container application](service-fabric-get-started-containers-linux.md)
 #### [Container security](service-fabric-securing-containers.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
 #### [Resource governance for containers and services](service-fabric-resource-governance.md)
@@ -184,10 +194,6 @@
 ##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Get started
-##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-##### [Create C# application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 
@@ -202,9 +208,6 @@
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 
 ### Build a Reliable Actors service
-#### Get started
-##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java Actor on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Send notifications](service-fabric-reliable-actors-events.md)
 #### [Set timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configure KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -284,9 +287,7 @@
 #### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
-#### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
-##### [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
