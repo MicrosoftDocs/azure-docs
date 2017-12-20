@@ -1,5 +1,5 @@
 ---
-title: Managed Service Identities with Azure Event Hubs preview | Microsoft Docs
+title: Managed Service Identity with Azure Event Hubs preview | Microsoft Docs
 description: Use Managed Service Identities with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Managed Service Identities (preview)
+# Managed Service Identity (preview)
 
 A Managed Service Identity (MSI) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs. 
 
