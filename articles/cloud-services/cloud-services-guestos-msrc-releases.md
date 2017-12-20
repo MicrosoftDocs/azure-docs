@@ -25,7 +25,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4048953] |Windows 10 updates |5.13 |November 14, 2017 |
 | Rel 17-10 | [4048960], [4048962], [4048961] |Windows Security only |2.68, 3.55, 4.48 |November 14, 2017 |
-| Rel 17-10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |November 14, 2017 |
+| Rel 17-10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |November 14, 2017 |
 | Rel 17-10 | [4048951] |Flash |3.55, 4.48, 5.13 |November 14, 2017 |
 | N/A | [4041681] |October non-security rollup |2.67 |October 10, 2017 |
 | N/A | [4041690] |October non-security rollup |3.55 |October 10, 2017 |
