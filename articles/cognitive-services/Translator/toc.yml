@@ -8,6 +8,8 @@
     href: languages.md
   - name: Customize and improve text translation
     href: customization.md
+  - name: How the API counts characters
+    href: character-counts.md
 - name: Quickstarts
   items: 
   - name: C#
@@ -34,6 +36,18 @@
   items:
   - name: Sign-up for Translator Text API
     href: translator-text-how-to-signup.md
+  - name: Add profanity filtering
+    href: profanity-filtering.md
+  - name: Transform text
+    href: transform-text.md
+  - name: Receive word alignment information
+    href: word-alignment.md
+  - name: Use the dynamic dictionary feature
+    href: dynamic-dictionary.md
+  - name: How to use Collaborative Translation Framework (CTF) reporting
+    href: ctf-reporting.md
+  - name: Return N-Best translations
+    href: return-n-best-translations.md
 - name: Reference
   items: 
   - name: Translator Text API reference
