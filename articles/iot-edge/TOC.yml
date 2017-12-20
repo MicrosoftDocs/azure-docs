@@ -40,7 +40,7 @@
         href: how-to-vscode-debug-csharp-module.md
       - name: Develop and deploy Azure Functions
         href: how-to-vscode-develop-azure-function.md
-      - name: Debug Azure Function
+      - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
   - name: Troubleshoot
     href: troubleshoot.md
