@@ -24,146 +24,145 @@ In this tutorial, you learn how to integrate Central Desktop with Azure Active D
 Integrating Central Desktop with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Central Desktop.
-- You can enable your users to automatically get signed-on to Central Desktop (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+- You can enable your users to automatically get signed in to Central Desktop with their Azure AD accounts.
+- You can manage your accounts in one central location--the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+For more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
 To configure Azure AD integration with Central Desktop, you need the following items:
 
 - An Azure AD subscription
-- A Central Desktop single-sign on enabled subscription
+- A Central Desktop single sign-on-enabled subscription
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> We don't recommend using a production environment to test the steps in this tutorial.
 
-To test the steps in this tutorial, you should follow these recommendations:
+To test the steps in this tutorial, follow these recommendations:
 
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- Don't use your production environment unless it's necessary.
+- If you don't already have an Azure AD trial environment, [get a one-month free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you test Azure AD single sign-on in a test environment. The scenario that's outlined in this tutorial consists of two main building blocks:
 
 1. Adding Central Desktop from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Central Desktop from the gallery
+## Add Central Desktop from the gallery
 To configure the integration of Central Desktop into Azure AD, you need to add Central Desktop from the gallery to your list of managed SaaS apps.
 
-**To add Central Desktop from the gallery, perform the following steps:**
+**To add Central Desktop from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Go to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+3. To add new applications, select the **New application** button on the top of the dialog box.
 
 	![The New application button][3]
 
-4. In the search box, type **Central Desktop**, select **Central Desktop** from result panel then click **Add** button to add the application.
+4. In the search box, type **Central Desktop**. Select **Central Desktop** from the results panel, and then select the **Add** button to add the application.
 
 	![Central Desktop in the results list](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Central Desktop based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with Central Desktop based on a test user called "Britta Simon."
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Central Desktop is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Central Desktop needs to be established.
+For single sign-on to work, Azure AD needs to know who the counterpart user in Central Desktop is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and a related user in Central Desktop.
 
-In Central Desktop, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In Central Desktop, give **Username** the same value as **user name** in Azure AD. Now you have established the link between the two users.
 
 To configure and test Azure AD single sign-on with Central Desktop, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Central Desktop test user](#create-a-central-desktop-test-user)** - to have a counterpart of Britta Simon in Central Desktop that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create a Central Desktop test user](#create-a-central-desktop-test-user) to have a counterpart of Britta Simon in Central Desktop that is linked to the Azure AD representation of user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Central Desktop application.
 
-**To configure Azure AD single sign-on with Central Desktop, perform the following steps:**
+**To configure Azure AD single sign-on with Central Desktop, take the following steps:**
 
-1. In the Azure portal, on the **Central Desktop** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **Central Desktop** application integration page, select **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. To enable single sign-on, in the **Single sign-on** dialog box, in the **Mode** drop-down list, select **SAML-based Sign-on**.
  
 	![Single sign-on dialog box](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
 
-3. On the **Central Desktop Domain and URLs** section, perform the following steps:
+3. In the **Central Desktop Domain and URLs** section, take the following steps:
 
-	![Central Desktop Domain and URLs single sign-on information](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
+	![Central Desktop domain and URLs single sign-on information](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.centraldesktop.com`
+	a. In the **Sign-on URL** box, type a URL with the following pattern: `https://<companyname>.centraldesktop.com`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern:
+    b. In the **Identifier** box, type a URL with the following pattern:
 	| |
 	|--|
 	| `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
 	| `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+	c. In the **Reply URL** box, type a URL with the following pattern: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Central Desktop Client support team](https://imeetcentral.com/contact-us) to get these values. 
+	> These values are not real. Update these values with the actual identifier, reply URL, and sign-on URL. Contact the [Central Desktop client support team](https://imeetcentral.com/contact-us) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
+4. In the **SAML Signing Certificate** section, select **Certificate**. Then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
-5. Click **Save** button.
+5. Select the **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-central-desktop-tutorial/tutorial_general_400.png)
+	![Configure the single sign-on Save button](./media/active-directory-saas-central-desktop-tutorial/tutorial_general_400.png)
 	
-6. On the **Central Desktop Configuration** section, click **Configure Central Desktop** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. In the **Central Desktop Configuration** section, select **Configure Central Desktop** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference** section.
 
-	![Central Desktop Configuration](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
+	![Central Desktop configuration](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
-7. Log in to your **Central Desktop** tenant.
+7. Sign in to your **Central Desktop** tenant.
 
-8. Go to **Settings**, click **Advanced**, and then click **Single Sign On**.
+8. Go to **Settings**. Select **Advanced**, and then select **Single Sign On**.
 
 	![Setup - Advanced](./media/active-directory-saas-central-desktop-tutorial/ic769563.png "Setup - Advanced")
 
-9. On the **Single Sign On Settings** page, perform the following steps:
+9. On the **Single Sign On Settings** page, take the following steps:
 
-	![Single Sign On Settings](./media/active-directory-saas-central-desktop-tutorial/ic769564.png "Single Sign On Settings")
+	![Single sign-on settings](./media/active-directory-saas-central-desktop-tutorial/ic769564.png "Single Sign On Settings")
 	
 	a. Select **Enable SAML v2 Single Sign On**.
 	
-	b. In the **SSO URL** textbox, paste the **SAML Entity ID** value which you have copied from the Azure portal.
+	b. In the **SSO URL** box, paste the **SAML Entity ID** value that you copied from the Azure portal.
 	
-	c. In the **SSO Login URL** textbox, paste the **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
+	c. In the **SSO Login URL** box, paste the **SAML Single Sign-On Service URL** value that you copied from the Azure portal.
 	
-	d. In the **SSO Logout URL** textbox, paste the **Sign-Out URL** value which you have copied from the Azure portal.
+	d. In the **SSO Logout URL** box, paste the **Sign-Out URL** value that you copied from the Azure portal.
 
-10. In the **Message Signature Verification Method** section, perform the following steps:
+10. In the **Message Signature Verification Method** section, take the following steps:
 
-	![Message Signature Verification Method](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+	![Message signature verification method](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
 	a. Select **Certificate**.
 	
-	b. From the **SSO Certificate** list, select **RSH SHA256**.
+	b. In the **SSO Certificate** list, select **RSH SHA256**.
 	
-	c. Open your downloaded certificate in notepad, copy the content of certificate, and then paste it into the **SSO Certificate** field.
+	c. Open your downloaded certificate in Notepad. Then copy the content of certificate and paste it into the **SSO Certificate** field.
 		
 	d. Select **Display a link to your SAMLv2 login page**.
 	
-	e. Click **Update**.
+	e. Select **Update**.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### Create an Azure AD test user
 
@@ -171,21 +170,21 @@ The objective of this section is to create a test user in the Azure portal calle
 
    ![Create an Azure AD test user][100]
 
-**To create a test user in Azure AD, perform the following steps:**
+**To create a test user in Azure AD, take the following steps:**
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+1. In the Azure portal, in the left pane, select the **Azure Active Directory** button.
 
     ![The Azure Active Directory button](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+2. To display the list of users, go to **Users and groups**. Then select **All users**.
 
     ![The "Users and groups" and "All users" links](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+3. To open the **User** dialog box, select **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+4. In the **User** dialog box, take the following steps:
 
     ![The User dialog box](./media/active-directory-saas-central-desktop-tutorial/create_aaduser_04.png)
 
@@ -195,76 +194,78 @@ The objective of this section is to create a test user in the Azure portal calle
 
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
-    d. Click **Create**.
+    d. Select **Create**.
  
 ### Create a Central Desktop test user
 
-For Azure AD users to be able to sign in, they must be provisioned to the Central Desktop application. This section describes how to create Azure AD user accounts in Central Desktop.
+For Azure AD users to be able to sign in, they must be provisioned in the Central Desktop application. This section describes how to create Azure AD user accounts in Central Desktop.
 
 > [!NOTE]
-> You can use any other Central Desktop user account creation tools or APIs provided by Central Desktop to provision Azure AD user accounts
+> To provision Azure AD user accounts, you can use any other Central Desktop user account creation tools or APIs that are provided by Central Desktop.
 
 **To provision user accounts to Central Desktop:**
 
-1. Log in to your Central Desktop tenant.
+1. Sign in to your Central Desktop tenant.
 
-2. Go to **People \> Internal Members**.
+2. Go to **People** > **Internal Members**.
 
-3. Click **Add Internal Members**.
+3. Select **Add Internal Members**.
 
 	![People](./media/active-directory-saas-central-desktop-tutorial/ic781051.png "People")
 	
-4. In the **Email Address of New Members** textbox, type an Azure AD account you want to provision, and then click **Next**.
+4. In the **Email Address of New Members** box, type an Azure AD account that you want to provision, and then select **Next**.
 
-	![Email Addresses of New Members](./media/active-directory-saas-central-desktop-tutorial/ic781052.png "Email Addresses of New Members")
+	![Email addresses of new members](./media/active-directory-saas-central-desktop-tutorial/ic781052.png "Email addresses of new members")
 
-5. Click **Add Internal member(s)**.
+5. Select **Add Internal member(s)**.
 
-	![Add Internal Member](./media/active-directory-saas-central-desktop-tutorial/ic781053.png "Add Internal Member")
+	![Add internal member](./media/active-directory-saas-central-desktop-tutorial/ic781053.png "Add internal member")
    
    >[!NOTE]
-   >The users you have added will receive an email that includes a confirmation link they need to click to activate the account.
+   >The users that you add receive an email that includes a confirmation link for activating their accounts.
    
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Central Desktop.
+In this section, you enable user Britta Simon to use Azure single sign-on by granting them access to Central Desktop.
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to Central Desktop, perform the following steps:**
+**To assign Britta Simon to Central Desktop, take the following steps:**
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view. Go to the directory view, and then go to **Enterprise applications**.
 
-	![Assign User][201] 
+2. Select **All applications**.
+
+	![Assign user][201] 
 
 2. In the applications list, select **Central Desktop**.
 
-	![The Central Desktop link in the Applications list](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_app.png)  
+	![The Central Desktop link in the applications list](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Select the **Add** button. Then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. In the **Users and groups** dialog box, click the **Select** button.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. In the  **Add Assignment** dialog box, select the **Assign** button.
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, test your Azure AD single sign-on configuration by using the access panel.
 
-When you click the Central Desktop tile in the Access Panel, you should get automatically signed-on to your Central Desktop application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+When you select the Central Desktop tile in the access panel, you automatically get signed in to your Central Desktop application.
+For more information about the access panel, see [Introduction to the access panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
