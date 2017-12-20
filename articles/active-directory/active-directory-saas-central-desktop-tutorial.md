@@ -55,7 +55,7 @@ To configure the integration of Central Desktop into Azure AD, you need to add C
 
 **To add Central Desktop from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select the **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, in the left pane, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure the single sign-on Save button](./media/active-directory-saas-central-desktop-tutorial/tutorial_general_400.png)
 	
-6. In the **Central Desktop Configuration** section, select **Configure Central Desktop** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. In the **Central Desktop Configuration** section, select **Configure Central Desktop** to open the **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference** section.
 
 	![Central Desktop configuration](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
@@ -222,7 +222,7 @@ For Azure AD users to be able to sign in, they must be provisioned in the Centra
 	![Add internal member](./media/active-directory-saas-central-desktop-tutorial/ic781053.png "Add internal member")
    
    >[!NOTE]
-   >The users that you added receive an email that includes a confirmation link for activating their accounts.
+   >The users that you add receive an email that includes a confirmation link for activating their accounts.
    
 ### Assign the Azure AD test user
 
@@ -250,7 +250,7 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 
 	![The Add Assignment pane][203]
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list.
 
 6. In the **Users and groups** dialog box, click the **Select** button.
 
