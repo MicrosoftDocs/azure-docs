@@ -15,9 +15,9 @@ ms.author: cahann
 # Create an app
 You create a new app in different ways: 
 
-* [start](#create-new-app) with an empty app and create intents, utterances, and entities
-* [start](#create-new-app) with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md)
-* [import a LUIS app](#import-new-app) from a JSON file that already contains intents, utterances, and entities
+* [Start](#create-new-app) with an empty app and create intents, utterances, and entities.
+* [Start](#create-new-app) with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
+* [Import a LUIS app](#import-new-app) from a JSON file that already contains intents, utterances, and entities.
 
 ## What is an app
 The app contains [versions](luis-how-to-manage-versions.md) of your model as well as any [collaborators](luis-how-to-collaborate.md) for the app. When you create the app, you select the culture ([language](luis-supported-languages.md)) which **cannot be changed later**. 
