@@ -64,7 +64,7 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.   
 
-2. In your project, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
+2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
 
@@ -102,7 +102,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     } 
     ````
  
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters.  
+A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
 
 ## Testing functions
 
