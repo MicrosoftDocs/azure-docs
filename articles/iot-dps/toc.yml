@@ -37,9 +37,9 @@
   items:
   - name: Manage device enrollments
     items:
-    - name: Manage device enrollments with Azure Portal
+    - name: Manage device enrollments with Azure portal
       href: how-to-manage-enrollments.md
-    - name: Manage device enrollments with service SDKs
+    - name: Manage device enrollments with Service SDKs
       href: how-to-manage-enrollments-sdks.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
