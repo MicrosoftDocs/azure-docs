@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 12/20/2017
 ms.author: kgremban
 ms.custom: 
 ---
@@ -53,7 +53,7 @@ If you want to create your own module and customize it for your environment, the
    2. In the **Name** field, enter "modbus".
    3. In the **Image** field, enter the image URI of the sample container: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Check the **Enable** box to update the module twin's desired properties.
-   5. Copy the following JSON into the text box. Change the value of **SlaveConnection** to the ipv4 address of your Modbus device.
+   5. Copy the following JSON into the text box. Change the value of **SlaveConnection** to the IPv4 address of your Modbus device.
 
       ```JSON
       {  
@@ -61,10 +61,11 @@ If you want to create your own module and customize it for your environment, the
           "Interval":"2000",
           "SlaveConfigs":{  
             "Slave01":{  
-              "SlaveConnection":"192.168.0.1",
+              "SlaveConnection":"<IPV4 address>",
               "HwId":"PowerMeter-0a:01:01:01:01:01",
               "Operations":{  
                 "Op01":{  
+                  "PollingInterval": "1000",
                   "UnitId":"1",
                   "StartAddress":"400001",
                   "Count":"2",
