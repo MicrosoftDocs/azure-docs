@@ -32,7 +32,7 @@
 
 ## Load & move data
 ### [Overview](design-elt-data-loading.md)
-### [Guidance](guidance-for-loading-data.md)
+### [Best practices](guidance-for-loading-data.md)
 
 
 ## Integrate
