@@ -15920,8 +15920,13 @@
         "redirect_document_id": false
       },
       {
-      "source_path": "articles/backup/backup-dpm-automation-classic.md",
-      "redirect_url": "/azure/backup/backup-dpm-automation",
+        "source_path": "articles/backup/backup-dpm-automation-classic.md",
+        "redirect_url": "/azure/backup/backup-dpm-automation",
+        "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
       "redirect_document_id": false
      }
     ]
