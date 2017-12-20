@@ -18,10 +18,10 @@ The following tools make working with Ansible and Azure easier and more efficien
 
 The [Visual Studio Code for Ansible extension](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible) provides several features for using Ansible from Visual Studio Code:
 
-    - Auto completion of Ansible directives, modules, and plugins from the Ansible documentation as you type.
-    - Example code snippets display when clicking &lt;Ctrl>&lt;Space> while authoring your Ansible playbooks.
-    - Syntax highlighting displays your Ansible playbook code in different colors and fonts in accordance with YAML syntax.
-    - Ansible playbooks can be run from the Visual Studio Code Terminal window.
-    - Ansible playbooks can be run from Azure Cloud Shell.
-    - (Windows only) Ansible can be run from a Docker container.
-    - (Linux and macOS) Ansible can be run from a Docker container or from a local Ansible installation.   
+- Auto completion of Ansible directives, modules, and plugins from the Ansible documentation as you type.
+- Example code snippets display when clicking &lt;Ctrl>&lt;Space> while authoring your Ansible playbooks.
+- Syntax highlighting displays your Ansible playbook code in different colors and fonts in accordance with YAML syntax.
+- Ansible playbooks can be run from the Visual Studio Code Terminal window.
+- Ansible playbooks can be run from Azure Cloud Shell.
+- (Windows only) Ansible can be run from a Docker container.
+- (Linux and macOS) Ansible can be run from a Docker container or from a local Ansible installation.   
