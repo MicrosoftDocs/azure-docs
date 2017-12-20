@@ -89,30 +89,30 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
-3. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent. Go to the **Intents** page, click the **BookFlight** intent, type "buy a plane ticket to bangor me" into the text box, and press Enter. 
+4. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent. Go to the **Intents** page, click the **BookFlight** intent, type "buy a plane ticket to bangor me" into the text box, and press Enter. 
 
-4. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
+5. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
 
-5. Go back to the **Test** panel and type `book a flight to bangor` in the text box and click enter. 
+6. Go back to the **Test** panel and type `book a flight to bangor` in the text box and click enter. 
 
     ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
 
    > [!NOTE]
    > In this step you choose an utterance that's similar to the one you labeled, but **not** exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
-6. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
+7. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
 
-7. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select **Location::ToLocation** hierarchical entity from the drop-down list.
+8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select **Location::ToLocation** hierarchical entity from the drop-down list.
  
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
 
-8. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
+9. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
 
-9. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
+10. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
 
-![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
+    ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
 
 > [!NOTE]
 > In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This similarity helps to test your LUIS app's ability to generalize.
