@@ -1,6 +1,6 @@
 ---
-title: FAQs for Content Moderator | Microsoft Docs
-description: Get answers to frequently asked questions about the Content Moderator.
+title: FAQs for Azure Content Moderator | Microsoft Docs
+description: Get answers to frequently asked questions about Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca

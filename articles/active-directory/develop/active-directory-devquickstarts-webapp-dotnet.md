@@ -1,10 +1,10 @@
 ---
-title: Azure AD .NET web app Getting Started | Microsoft Docs
+title: Azure AD .NET web app getting started | Microsoft Docs
 description: Build a .NET MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e15a41a4-dc5d-4c90-b3fe-5dc33b9a1e96
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: dastrock
 ms.custom: aaddev
-
 ---
-# ASP.NET web app sign-in and sign-out with Azure AD
+
+# Azure AD .NET web app getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (Azure AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of ASP.NET web apps by using the Microsoft implementation of Open Web Interface for .NET (OWIN) middleware. Community-driven OWIN middleware is included in .NET Framework 4.5. This article shows how to use OWIN to:

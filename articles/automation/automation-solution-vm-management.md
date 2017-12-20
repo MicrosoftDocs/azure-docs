@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/18/2017
 ms.author: magoedte
 ---
 
@@ -38,7 +38,7 @@ This solution provides a decentralized automation capability for customers who w
     > [!NOTE]
     > The runbooks managing the VM schedule can target VMs in any region.  
 
-- To send email notifications when the start and stop VM runbooks complete, while onboarding from Azure Marketplace, you must select select **Yes** to deploy SendGrid. 
+- To send email notifications when the start and stop VM runbooks complete, while onboarding from Azure Marketplace, select **Yes** to deploy SendGrid. 
 
     > [!IMPORTANT]
     > SendGrid is a third party service, for support with SendGrid please contact [SendGrid](https://sendgrid.com/contact/).  
@@ -92,7 +92,7 @@ The following table list the variables created in your Automation account.  It i
 |External_EmailSubject | Specifies the text for the subject line of the email.|  
 |External_EmailToAddress | Specifies the recipient(s) of the email. Separate names using a comma.|  
 |External_ExcludeVMNames | Enter VM names to be excluded, separating names using a comma with no spaces.|  
-|External_IsSendEmail | Specifies option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not create SendGrid during the initial deployment.|  
+|External_IsSendEmail | Specifies option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not enable email notifications during the initial deployment.|  
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values using a comma, targeted for Start actions.|  
 |External_Stop_ResourceGroupNames | Specifies one ore more resource groups, separating values with comma, targeted for Stop actions.|  
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|  
@@ -127,7 +127,7 @@ It is not recommended to enable all schedules, as this could create an overlap a
 Perform the following steps to add the Start/Stop VMs during off-hours [Preview] solution to your Automation account and then configure the variables to customize the solution.
 
 1. In the Azure portal, click **New**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
-2. In the Marketplace pane, type **Start VM**. As you begin typing, the list filters based on your input. Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
+2. In the Marketplace pane, type a key word such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one ore more key words from the full name of the solution and then press **Enter**.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
 3. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information and then click **Create**.  
 4. The **Add Solution** pane appears where you are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
 5.  On the **Add Solution** blade, select **Workspace** and here you select an OMS workspace that is linked to the same Azure subscription that the Automation account is in or create a new workspace.  If you do not have a workspace, you can select **Create New Workspace** and on the **OMS Workspace** pane perform the following: 
@@ -152,7 +152,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours [Preview]
    - Specify the **Target ResourceGroup Names**, which is a resource group name that contains VMs to be managed by this solution.  You can enter more than one name and separate each using a comma (values are not case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
    - Specity the **VM Exclude List (string)**, which is the name of on or more virtual machines from the target resource group.  You can enter more than one name and separate each using a comma (values are not case-sensitive).  Using a wildcard is supported.
    - Select a **Schedule** which is a recurring date and time for starting and stopping the VM's in the target resource group(s).  By default, the schedule is configured to the UTC time zone and selecting a different region is not available.  If you wish to configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modifying-the-startup-and-shutdown-schedule) below.
-   - To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address.  If you select **No** and later you decide you want to receive email notifications, you will need to re-deploy the solution again from Azure marketplace.  
+   - To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address.  If you select **No** and you later decide to enable email notifications, you can update the **External_EmailToAddress** variable with a valid email addresses separated by a comma and modify the variable **External_IsSendEmail** with the value **Yes** .   
 
 10. Once you have completed configuring the initial settings required for the solution, select **Create**.  All settings will be validated and then it will attempt to deploy the solution in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu. 
 

@@ -73,4 +73,4 @@ The following steps walk you through creating a custom image from a VHD file usi
 
 ##Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](./devtest-lab-add-vm.md)
