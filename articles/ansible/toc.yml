@@ -14,7 +14,6 @@
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
 - name: Tutorials 
-- name: Concepts
 - name: Samples
 - name: Reference 
   items:
