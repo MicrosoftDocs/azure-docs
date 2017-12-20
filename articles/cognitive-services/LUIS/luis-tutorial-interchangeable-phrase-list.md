@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Improve accuracy with an interchangeable phrase list 
-The **[Phrase list feature][PhraseListFeatures]** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
+The **[Phrase list feature][luis-concept-feature.md]** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
 
 Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
 With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
@@ -190,5 +190,5 @@ If you want to see the entity score, [publish](PublishApp.md) the model and quer
 }
 ```
 
-  [PhraseListFeatures]: Add-Features.md
+
   [LuisFeatures]: luis-concept-feature.md
