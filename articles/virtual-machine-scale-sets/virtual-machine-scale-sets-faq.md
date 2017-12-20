@@ -370,28 +370,28 @@ To learn about extension sequencing in virtual machine scale sets, see [Extensio
 
 There are two main ways to change the password for VMs in scale sets.
 
-1. Change the virtual machine scale set model directly. Available with Compute API 2017-12-01 and later.
+- Change the virtual machine scale set model directly. Available with Compute API 2017-12-01 and later.
 
-Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged. 
+    Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged. 
 
-2. Reset the password using the VM access extensions.
+- Reset the password using the VM access extensions.
 
-Use the following PowerShell example:
+    Use the following PowerShell example:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### How do I add an extension to all VMs in my virtual machine scale set?
 
 If update policy is set to **automatic**, redeploying the template with the new extension properties updates all VMs.
