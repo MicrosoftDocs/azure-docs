@@ -26,8 +26,8 @@
 
 # How To
 ## Plan and design
-### [Managed Service Identities (preview)](service-bus-managed-service-identity.md)
-### [Role Based Access Control (preview)](service-bus-role-based-access-control.md)
+### [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
+### [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
