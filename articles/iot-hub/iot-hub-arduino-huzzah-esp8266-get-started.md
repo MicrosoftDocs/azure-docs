@@ -4,7 +4,7 @@ description: Learn how to setup and connect Adafruit Feather HUZZAH ESP8266 to A
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 

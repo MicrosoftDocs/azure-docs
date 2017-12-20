@@ -4,7 +4,7 @@ description: New behavior of how to handle objects with UPN or ProxyAddress conf
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 10/17/2017
 ms.author: markvi
 
 ---

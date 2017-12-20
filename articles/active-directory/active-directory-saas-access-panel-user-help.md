@@ -4,7 +4,7 @@ description: Get instructions to perform common tasks when working with the acce
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/17
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
 
@@ -32,7 +32,7 @@ General issues to check:
 
 - Make sure your password is not expired or forgotten. Check [here](active-directory-passwords-update-your-own-password.md) for more details on how to update your password.
 
-- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
+- Check to see if your authentication contact info is up to date and not blocking your access. Check [here](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) for more details on setting up your authentication info.
 
 - Try clearing your browser’s cookies, and then try to sign in again.
 

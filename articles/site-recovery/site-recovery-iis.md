@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 08/11/2017
 ms.author: nisoneji
 
 ---
@@ -70,6 +70,7 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | No | Yes
+**Azure**|NA|Yes
 
 ## Replicate virtual machines
 

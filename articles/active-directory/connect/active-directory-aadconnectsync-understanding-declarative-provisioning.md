@@ -4,7 +4,7 @@ description: Explains the declarative provisioning configuration model in Azure 
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---

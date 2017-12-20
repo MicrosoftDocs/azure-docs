@@ -14,17 +14,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/23/2017
+ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-configure-vault.md)
-> * [Classic portal](backup-configure-vault-classic.md)
->
->
-
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
@@ -99,7 +93,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 
   ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/storage-redundancy.md).
+  By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, prepare your infrastructure to back up files and folders by downloading and installing the Microsoft Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
 
@@ -183,7 +177,7 @@ If your machine/proxy has limited internet access, ensure that firewall settings
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 
 ## Create the backup policy

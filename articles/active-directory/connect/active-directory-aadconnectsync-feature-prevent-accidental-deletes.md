@@ -4,7 +4,7 @@ description: This topic describes the prevent accidental deletes (preventing acc
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---
@@ -29,7 +29,7 @@ Common scenarios when you see many deletes include:
 * All objects in an OU are deleted.
 * An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
-The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
+The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`, which is part of the AD Sync module installed with Azure Active Directory Connect. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
 
 If there are too many deletes staged to be exported to Azure AD, then the export stops and you receive an email like this:
 

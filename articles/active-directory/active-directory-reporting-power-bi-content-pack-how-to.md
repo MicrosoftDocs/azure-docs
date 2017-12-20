@@ -4,16 +4,17 @@ title: How to use the Azure Active Directory Power BI Content Pack | Microsoft D
 description: Learn how to use the Azure Active Directory Power BI Content Pack
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang:
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 12/06/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # How to use the Azure Active Directory Power BI Content Pack
@@ -43,7 +44,7 @@ This topic provides you with step-by-step instructions on how to install and use
 5.	When prompted, type your Azure AD Tenant ID, and then click **Next**.
 
     > [!TIP] 
-    > A quick way to get the Tenant Id for your Office 365 / Azure AD tenant is to login to the Azure AD Portal, drill down to the directory and copy the ID from the following URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > A quick way to get the Tenant ID for your Office 365 / Azure AD tenant is to sign in to the Azure AD portal, drill down to the directory, and copy the **Directory ID** from the [**Properties** page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 
@@ -143,4 +144,6 @@ As soon as the new version of the content pack is working, you can remove the ol
 Check out our [troubleshooting guide](active-directory-reporting-troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
+## Next steps
 
+For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).

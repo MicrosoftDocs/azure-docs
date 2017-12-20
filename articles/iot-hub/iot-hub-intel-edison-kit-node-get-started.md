@@ -4,7 +4,7 @@ description: Learn how to setup and connect Intel Edison to Azure IoT Hub for In
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud'
 

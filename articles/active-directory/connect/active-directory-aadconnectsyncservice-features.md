@@ -4,7 +4,7 @@ description: Describes service side features for Azure AD Connect sync service.
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---

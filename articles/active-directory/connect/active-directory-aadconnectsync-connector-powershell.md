@@ -4,7 +4,7 @@ description: This article describes how to configure Microsoft's Windows PowerSh
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---

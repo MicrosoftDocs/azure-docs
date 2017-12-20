@@ -22,10 +22,19 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
-[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+
+[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
+[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
+
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
@@ -40,13 +49,26 @@ In the example configurations, installation commands etc. instance number 03 and
 
 Read the following SAP Notes and papers first
 
-* SAP Note [2205917]
-  Recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799]
-  SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1928533], which has:
+  * List of Azure VM sizes that are supported for the deployment of SAP software
+  * Important capacity information for Azure VM sizes
+  * Supported SAP software, and operating system (OS) and database combinations
+  * Required SAP kernel version for Windows and Linux on Microsoft Azure
+* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]
   The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
-  
+
 ## Deploying Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
@@ -62,11 +84,13 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 1. Create a Load Balancer (internal)  
    Select VNET of step above
 1. Create Virtual Machine 1  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 1  
    Select Availability Set  
 1. Create Virtual Machine 2  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Select Storage Account 2   
@@ -76,7 +100,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
     1. Create a frontend IP pool
         1. Open the load balancer, select frontend IP pool and click Add
         1. Enter the name of the new frontend IP pool (for example hana-frontend)
-       1. Click OK
+        1. Click OK
         1. After the new frontend IP pool is created, write down its IP address
     1. Create a backend pool
         1. Open the load balancer, select backend pools and click Add
@@ -86,7 +110,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the virtual machines of the SAP HANA cluster
         1. Click OK
     1. Create a health probe
-       1. Open the load balancer, select health probes and click Add
+        1. Open the load balancer, select health probes and click Add
         1. Enter the name of the new health probe (for example hana-hp)
         1. Select TCP as protocol, port 625**03**, keep Interval 5 and Unhealthy threshold 2
         1. Click OK
@@ -96,19 +120,19 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Select the frontend IP address, backend pool and health probe you created earlier (for example hana-frontend)
         1. Keep protocol TCP, enter port 3**03**15
         1. Increase idle timeout to 30 minutes
-       1. **Make sure to enable Floating IP**
+        1. **Make sure to enable Floating IP**
         1. Click OK
         1. Repeat the steps above for port 3**03**17
 
 ### Deploy with template
-You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
-1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure Portal
+1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal
    The database template only creates the load-balancing rules for a database whereas the converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver based system and you also want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 1. Enter the following parameters
-    1. Sap System Id  
-       Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+    1. Sap System ID  
+       Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
     1. Stack Type (only applicable if you use the converged template)  
        Select the SAP NetWeaver stack type
     1. Os Type  
@@ -123,8 +147,8 @@ Follow these steps to deploy the template:
        A new user is created that can be used to log on to the machine.
     1. New Or Existing Subnet  
        Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-    1. Subnet Id  
-    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+    1. Subnet ID  
+    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 ## Setting up Linux HA
 
@@ -180,7 +204,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Setup disk layout
     1. LVM  
-    We generally recommend to use LVM for volumes that store data and log files. The example below assume that the virtual machines have four data disks attached that should be used to create two volumes.
+    We generally recommend using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
         * Create physical volumes for all disks that you want to use.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -208,7 +232,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Create fstab entries for the three logical volumes
@@ -231,7 +255,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
+    # write down the ID of /dev/sdc1
     sudo /sbin/blkid
     sudo vi /etc/fstab
     ```
@@ -307,10 +331,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     } 
     <b>nodelist {
       node {
-        ring0_addr:     < ip address of note 1 >
+        ring0_addr:     < ip address of node 1 >
       }
       node {
-        ring0_addr:     < ip address of note 2 > 
+        ring0_addr:     < ip address of node 2 > 
       } 
     }</b>
     logging {
@@ -406,7 +430,7 @@ Change the default settings
 
 <pre>
 sudo vi crm-defaults.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \
@@ -430,7 +454,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
-   Go to Properties and write down the Directory Id. This is the **tenant id**.
+   Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
 1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
@@ -438,7 +462,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
+1. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
 
@@ -456,13 +480,13 @@ After you edited the permissions for the virtual machines, you can configure the
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -476,7 +500,7 @@ sudo crm configure load update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -496,7 +520,7 @@ sudo crm configure load update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -602,16 +626,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-The migration creates location contraints that need to be deleted again.
+The migration creates location constraints that need to be deleted again.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-You also need to cleanup the state of the secondary node resource
+You also need to clean up the state of the secondary node resource
 
 <pre><code>
 # switch back to root and cleanup the failed state

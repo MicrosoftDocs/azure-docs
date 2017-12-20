@@ -4,7 +4,7 @@ description: Identify the company’s business needs that will lead you to defin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+ms.date: 07/18/2017
 ms.author: billmath
 
 ---

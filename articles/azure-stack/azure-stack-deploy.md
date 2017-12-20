@@ -3,8 +3,8 @@ title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
 description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
@@ -13,13 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 12/08/2017
+ms.author: jeffgilb
 
 ---
 # Azure Stack deployment prerequisites
-Before you deploy Azure Stack [Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements.
-You can use the same hardware that you used for the previous single-box preview.
+
+*Applies to: Azure Stack Development Kit*
+
+Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+
 
 ## Hardware
 | Component | Minimum | Recommended |
@@ -34,7 +37,7 @@ You can use the same hardware that you used for the previous single-box preview.
 
 \*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Data disk drive configuration:** All data drives must be of the same type (all SAS, all SATA, or all NVMe) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
 **HBA configuration options**
 
@@ -50,6 +53,7 @@ You can use the same hardware that you used for the previous single-box preview.
 * RAID SSD (If the media type is unspecified/unknown\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
 
@@ -76,9 +80,9 @@ If you deploy by using the AD FS option, you must redeploy Azure Stack to switch
 ### Azure Active Directory accounts
 To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
+1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
+    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
    
    | **Azure Active Directory account** | **Supported?** |
@@ -115,8 +119,6 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 ### Internet access
 Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
 
-### Telemetry
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 ## Next steps
 [Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)

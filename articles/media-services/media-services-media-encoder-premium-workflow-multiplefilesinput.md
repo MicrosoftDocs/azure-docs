@@ -4,7 +4,7 @@ description: This topic explains how to use setRuntimeProperties to use multiple
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
 
 ---
@@ -466,7 +466,7 @@ To encode, please follow these steps:
 * [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
-* [Sample workflow files](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+* [Sample workflow files](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services Explorer tool](http://aka.ms/amse)
 
 ## Media Services learning paths

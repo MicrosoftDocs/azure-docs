@@ -3,8 +3,8 @@ title: Azure Active Directory reporting audit API samples | Microsoft Docs
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
-manager: femila
+author: MarkusVi
+manager: mtillman
 editor: ''
 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
+ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory reporting audit API samples
@@ -24,7 +25,7 @@ The scope of this topic is to provide you with sample code for the **audit API**
 
 See:
 
-* [Audit logs](active-directory-reporting-azure-portal.md#audit-logs) for more conceptual information
+* [Audit logs](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
@@ -56,7 +57,7 @@ App Auth will not work if your tenant is in the EU region. Please use User Auth 
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -147,7 +148,7 @@ The script returns output from the audit report in JSON format. It also creates 
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + '/activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:

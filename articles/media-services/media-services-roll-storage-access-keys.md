@@ -4,7 +4,7 @@ description: This articles give you guidance on how to update Media Services aft
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 08/09/2017
 ms.author: milanga;cenkdin;juliako
 
 ---

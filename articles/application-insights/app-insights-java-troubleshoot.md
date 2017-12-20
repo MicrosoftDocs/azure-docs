@@ -3,7 +3,7 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 services: application-insights
 documentationcenter: java
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java
@@ -121,6 +121,13 @@ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traff
 **How long is data retained in the portal? Is it secure?**
 
 See [Data retention and privacy][data].
+
+## Debug logging
+Application Insights uses `org.apache.http`. This is relocated within Application Insights core jars under the namespace `com.microsoft.applicationinsights.core.dependencies.http`. This enables Application Insights to handle scenarios where different versions of the same `org.apache.http` exist in one code base. 
+
+>[!NOTE]
+>If you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including `org.apache.http` renamed as `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights will not be able to apply filtering for these calls because the log call is being made by the Apache library. DEBUG level logging produce a considerable amount of log data and is not recommended for live production instances.
+
 
 ## Next steps
 **I set up Application Insights for my Java server app. What else can I do?**

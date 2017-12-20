@@ -4,7 +4,7 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
@@ -83,7 +83,7 @@ In this case, start with the list of attributes in this topic and identify those
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
@@ -227,7 +227,7 @@ In this case, start with the list of attributes in this topic and identify those
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| postOfficeBox |X |X | | |
+| postOfficeBox |X |X | |This attribute is currently not consumed by SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation. |
@@ -249,7 +249,7 @@ In this case, start with the list of attributes in this topic and identify those
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
-## Lync Online
+## Lync Online (subsequently known as Skype for Business)
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |

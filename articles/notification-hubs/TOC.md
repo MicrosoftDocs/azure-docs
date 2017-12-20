@@ -27,7 +27,7 @@
 #### [Register the current user using ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Send cross-platform notifications](notification-hubs-aspnet-cross-platform-notification.md)
 ### Work with server SDKs
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -53,14 +53,15 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automate
-### [Deploy and Manage Notification Hubs using PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Deploy and Manage Notification Hubs using Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Send scheduled notifications](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Troubleshoot
 ### [Diagnosis guidelines](notification-hubs-push-notification-fixer.md)
 
 # Reference
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 
@@ -68,6 +69,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

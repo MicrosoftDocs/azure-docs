@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # Deploy and manage a StorSimple virtual device in Azure
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Deploy and manage a StorSimple virtual device in Azure](storsimple-8000-cloud-appliance-u2.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 The StorSimple 8000 series virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. This tutorial describes how to deploy and manage a virtual device in Azure and is applicable to all the virtual devices running software version Update 2 and lower.
 
@@ -30,7 +33,7 @@ The StorSimple virtual device is available in two models, a standard 8010 (forme
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory) |Standard_DS3 (4 cores, 14 GB memory) |
 | **Version compatibility** |Versions running pre-Update 2 or later |Versions running Update 2 or later |
 | **Region availability** |All Azure regions |All Azure regions that support Premium Storage and DS3 Azure VMs<br></br> Use [this list](https://azure.microsoft.com/en-us/regions/services) to see if both *Virtual Machines > DS-series* and *Storage > Disk storage* are available in your region. |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/common/storage-premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
@@ -60,7 +63,7 @@ The following table shows some key differences between the StorSimple virtual de
 | **Service data encryption key** |Regenerate on the physical device and then update the virtual device with the new key. |Cannot regenerate from the virtual device. |
 
 ## Prerequisites for the virtual device
-The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-security.md#storsimple-virtual-device-security).
+The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
@@ -79,7 +82,7 @@ Before you provision the virtual device, you need to make the following preparat
 Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 * Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
-* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account](../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md)
+* Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account](../storage/common/storage-create-storage-account.md) or a [Premium Storage account](../storage/common/storage-premium-storage.md)
 * Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:

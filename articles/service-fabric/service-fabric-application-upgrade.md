@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/9/2017
 ms.author: subramar
 
 ---
 # Service Fabric application upgrade
-An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
+An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-and-service-manifests.md) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
 
 ## Rolling upgrades overview
 In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
@@ -28,6 +28,8 @@ For that reason, the two versions must be forward and backward compatible. If th
 Update domains are specified in the cluster manifest when you configure the cluster. Update domains do not receive updates in a particular order. An update domain is a logical unit of deployment for an application. Update domains allow the services to remain at high availability during an upgrade.
 
 Non-rolling upgrades are possible if the upgrade is applied to all nodes in the cluster, which is the case when the application has only one update domain. This approach is not recommended, since the service goes down and isn't available at the time of upgrade. Additionally, Azure doesn't provide any guarantees when a cluster is set up with only one update domain.
+
+After the upgrade completes, all the services and replicas(instances) would stay in the same version-i.e., if the upgrade succeeds, they will be updated to the new version; if the upgrade fails and is rolled back, they would be rolled back to the old version.
 
 ## Health checks during upgrades
 For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
@@ -42,14 +44,14 @@ The mode that we recommend for application upgrade is the monitored mode, which 
 Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
 
 ## Upgrade default services
-Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-model.md#describe-an-application). The standard rules of upgrading default services are:
+Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-and-service-manifests.md). The standard rules of upgrading default services are:
 
-1. Default services in the new [application manifest](service-fabric-application-model.md#describe-an-application) that do not exist in the cluster are created.
+1. Default services in the new [application manifest](service-fabric-application-and-service-manifests.md) that do not exist in the cluster are created.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) needs to be set to true to enable the following rules. This feature is supported from v5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) needs to be set to true to enable the following rules. This feature is supported from v5.5.
 
-2. Default services existing in both previous [application manifest](service-fabric-application-model.md#describe-an-application) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
-3. Default services in the previous [application manifest](service-fabric-application-model.md#describe-an-application) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**
+2. Default services existing in both previous [application manifest](service-fabric-application-and-service-manifests.md) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
+3. Default services in the previous [application manifest](service-fabric-application-and-service-manifests.md) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**
 
 In case of an application upgrade is rolled back, default services are reverted to the status before upgrade started. But deleted services can never be created.
 

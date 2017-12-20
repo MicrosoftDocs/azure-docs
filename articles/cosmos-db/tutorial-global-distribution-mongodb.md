@@ -13,9 +13,10 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # How to setup Azure Cosmos DB global distribution using the MongoDB API
@@ -54,14 +55,14 @@ Example results:
             "region": "South India"
          },
          "hosts": [
-            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10250",
-            "vishi-api-for-mongodb-westeurope.documents.azure.com:10250",
-            "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+            "vishi-api-for-mongodb-southcentralus.documents.azure.com:10255",
+            "vishi-api-for-mongodb-westeurope.documents.azure.com:10255",
+            "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10250",
-         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10250"
+         "primary": "vishi-api-for-mongodb-southindia.documents.azure.com:10255",
+         "me": "vishi-api-for-mongodb-southindia.documents.azure.com:10255"
       }
    ```
 
@@ -97,7 +98,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

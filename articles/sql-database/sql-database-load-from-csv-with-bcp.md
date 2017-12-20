@@ -1,5 +1,5 @@
 ---
-title: Load data from CSV file into Azure SQL Databaase (bcp) | Microsoft Docs
+title: Load data from CSV file into Azure SQL Database (bcp) | Microsoft Docs
 description: For a small data size, uses bcp to import data into Azure SQL Database.
 services: sql-database
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: "On Demand"
 ms.date: 01/10/2017
 ms.author: carlrab
 

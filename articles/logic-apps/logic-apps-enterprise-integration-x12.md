@@ -70,11 +70,11 @@ If you don't see any integration accounts,
 4. Select **Overview**, then select the **Agreements** tile. 
 If you don't have an Agreements tile, add the tile first. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For the agreement type, select **X12**. 
@@ -310,6 +310,9 @@ If a character set isn't specified for a given message schema, then the default 
 | Replacement Character |Enter a replacement character used for replacing all separator characters in the payload data when generating the outbound X12 message. |
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+
+> [!TIP]
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 ### Validation
 

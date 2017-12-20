@@ -4,7 +4,7 @@ description: This topic provides the remediation steps for LargeObject errors ca
 services: active-directory
 documentationcenter: ''
 author: cychua
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 07/13/2017
 ms.author: billmath
 
 ---

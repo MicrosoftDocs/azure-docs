@@ -4,7 +4,7 @@ description: This article the benefits of integrating Azure Active Directory wit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.reviewer: asteen
 
 ---
 # Managing Applications with Azure Active Directory

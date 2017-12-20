@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
+ms.date: 07/12/2017
 ms.author: alkohli
 
 ---
@@ -49,6 +49,7 @@ For more information about each workflow, click the appropriate procedure in the
 | If you want to do this ... | Use this procedure. |
 | --- | --- |
 | Create a service</br>Delete a service</br>Get service registration key</br>Regenerate service registration key |[Deploy a StorSimple Device Manager service](storsimple-8000-manage-service.md) |
+| View the activity logs |[Use the StorSimple Device Manager service summary](storsimple-8000-service-dashboard.md) |
 | Change the service data encryption key</br>View the operation logs |[Use the StorSimple Device Manager service dashboard](storsimple-8000-service-dashboard.md) |
 | Deactivate a device</br>Delete a device |[Deactivate or delete a device](storsimple-8000-deactivate-and-delete-device.md) |
 | Learn about disaster recovery and device failover</br>Failover to a physical device</br>Failover to a virtual device</br>Business continuity disaster recovery (BCDR) |[Failover and disaster recovery for your StorSimple device](storsimple-8000-device-failover-disaster-recovery.md) |
@@ -60,7 +61,6 @@ For more information about each workflow, click the appropriate procedure in the
 | About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record |[Manage access control records](storsimple-8000-manage-acrs.md) |
 | View job details</br>Cancel a job |[Manage jobs](storsimple-8000-manage-jobs-u2.md) |
 | Receive alert notifications</br>Manage alerts</br>Review alerts |[View and manage StorSimple alerts](storsimple-8000-manage-alerts.md) |
-| View connected initiators</br>Find the device serial number</br>Find the target IQN |[Use the StorSimple device dashboard](storsimple-8000-device-dashboard.md) |
 | Create monitoring charts |[Monitor your StorSimple device](storsimple-monitor-device.md) |
 | Add a volume container</br>Modify a volume container</br>Delete a volume container |[Manage volume containers](storsimple-8000-manage-volume-containers.md) |
 | Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume |[Manage volumes](storsimple-8000-manage-volumes-u2.md) |

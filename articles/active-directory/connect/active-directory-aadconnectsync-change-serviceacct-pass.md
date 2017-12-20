@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD sync service account, password
 documentationcenter: ''
 author: cychua
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/12/2017
 ms.author: billmath
 
 ---

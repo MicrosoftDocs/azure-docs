@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, unblock user
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection - How to unblock users

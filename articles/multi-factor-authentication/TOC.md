@@ -15,11 +15,13 @@
 ### [Configure settings](multi-factor-authentication-whats-next.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
 ### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
+#### [Advanced configuration for NPS extension](nps-extension-advanced-configuration.md)
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
-### Azure MFA on-premises
-#### [Install the users portal](multi-factor-authentication-get-started-portal.md)
+### Deploy MFA on-premises
+#### [Install the user portal](multi-factor-authentication-get-started-portal.md)
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
+#### [Configure high availability](mfa-server-high-availability.md)
 #### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
 #### [Upgrade MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
@@ -30,23 +32,28 @@
 ### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrate
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Use AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Use AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Use Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Directories
-#### [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md)
-#### [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
-### [Remote Desktop Gateway](multi-factor-authentication-get-started-server-rdg.md)
+### [Remote Desktop Gateway](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### Integrate MFA on-premises
+#### [Federation Services](multi-factor-authentication-get-started-adfs.md)
+##### [Use AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Use AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Use Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Directories
+##### [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md)
+##### [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
+#### [Remote Desktop Gateway](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Develop
-### [Building into Custom Apps (SDK)](multi-factor-authentication-sdk.md)
+### [Building into custom apps (SDK)](multi-factor-authentication-sdk.md)
 
 ## Troubleshoot
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS extension errors](multi-factor-authentication-nps-errors.md)
+
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

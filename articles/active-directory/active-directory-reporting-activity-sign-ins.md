@@ -4,7 +4,7 @@ description: Introduction to sign-in activity reports in the Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 10/21/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Sign-in activity reports in the Azure Active Directory portal
@@ -48,7 +49,7 @@ This topic gives you an overview of the sign-in activities.
 With the information provided by the user sign-in report, you find answers to questions such as:
 
 * What is the sign-in pattern of a user?
-* How many users have users signed in over a week?
+* How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
 Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.
@@ -193,5 +194,6 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 
 ## Next steps
-See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+If you want to know more about sign-in activity error codes, see the [Sign-in activity report error codes in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins-errors.md).
 

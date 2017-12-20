@@ -3,9 +3,9 @@ title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: yossib
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
 
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 
 ms.custom: H1Hack27Feb2017
 ---
@@ -42,6 +42,22 @@ When authentication requests are sent to the cloud service, data is collected fo
 The optional fields can be configured in Multi-Factor Authentication Server.
 
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
+
+**Q: What SMS short codes are used for sending SMS messages to my users?**
+
+In the United States Microsoft uses the following SMS short codes:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+In Canada Microsoft uses the following SMS short codes:
+
+   * 759731 
+   * 673801
+
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
 
 ## Billing
 Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
@@ -92,7 +108,7 @@ If your directory has a *per-authentication* Azure Multi-Factor Authentication p
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
-If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
+If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server on-premises.
 
 Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 

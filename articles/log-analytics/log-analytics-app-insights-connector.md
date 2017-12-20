@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/18/2017
 ms.author: banders
 
 ---
@@ -36,7 +36,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | No | The solution does not collect information from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |
@@ -80,6 +80,8 @@ Click the **Application Insights** tile to open the **Application Insights** das
 ![Application Insights dashboard](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Column** | **Description** |
 | --- | --- |

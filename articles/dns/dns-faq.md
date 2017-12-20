@@ -3,8 +3,8 @@ title: Azure DNS FAQ | Microsoft Docs
 description: Frequently Asked Questions about Azure DNS
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.service: dns
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
-ms.author: jonatul
+ms.date: 11/06/2017
+ms.author: kumud
 ---
 
 # Azure DNS FAQ
@@ -71,12 +71,9 @@ No. Azure DNS does not currently support purchasing of domain names. If you want
 This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### Does Azure DNS support 'private' domains?
+Support for 'private' domains is implemented using private DNS zones.  This feature is currently available as a preview.  Private DNS zones are managed using the same tools as internet-facing Azure DNS zones but they are only resolvable from within your specified virtual networks.  See the [overview](private-dns-overview.md) for details.
 
-No. Azure DNS currently only supports Internet-facing domains.
-
-This is a feature we are tracking on our backlog. You can use our feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int).
-
-For information on internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+For information on other internal DNS options in Azure, see [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### Does Azure DNS support DNSSEC?
 
@@ -140,6 +137,10 @@ For more information, see [Protecting DNS Zones and Records](dns-protect-zones-r
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
+### Do Azure DNS Nameservers resolve over IPv6 ? 
+
+Yes. Azure DNS Nameservers are dual-stack (have both IPv4 and IPv6 addresses). To find the IPv6 address for the Azure DNS nameservers assigned to your DNS zone, you can use a tool such as nslookup (for example, `nslookup -q=aaaa <Azure DNS Nameserver>`).
+
 ### How do I set up an International Domain Name (IDN) in Azure DNS?
 
 International Domain Names (IDNs) work by encoding each DNS name using '[punycode](https://en.wikipedia.org/wiki/Punycode)'. DNS queries are made using these punycode-encoded names.
@@ -149,6 +150,8 @@ You can configure International Domain Names (IDNs) in Azure DNS by first conver
 ## Next steps
 
 [Learn more about Azure DNS](dns-overview.md)
+<br>
+[Learn more about using Azure DNS for private domains](private-dns-overview.md)
 <br>
 [Learn more about DNS zones and records](dns-zones-records.md)
 <br>

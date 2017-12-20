@@ -5,7 +5,7 @@ description: Lists the various available reports for Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 10/21/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 

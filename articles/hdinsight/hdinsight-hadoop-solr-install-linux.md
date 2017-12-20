@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 12/01/2017
 ms.author: larryfr
 
 ---
@@ -55,7 +55,7 @@ A sample script to install Solr on an HDInsight cluster is available at the foll
 
 To create a cluster that has Solr installed, use the steps in the [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md) document. During the creation process, use the following steps to install Solr:
 
-1. From the __Cluster summary__ blade, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
+1. From the __Cluster summary__ section, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -64,7 +64,7 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node
    * **PARAMETERS**: Leave this field blank
 
-2. At the bottom of the **Script actions** blade, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
+2. At the bottom of the **Script actions** section, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
 
 3. From the __Cluster summary__ page, select __Create__ to create the cluster.
 
@@ -316,7 +316,7 @@ Use the following steps to back up Solr data to the default storage for your clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+For more information on working with Solr backup and restores, see [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Microsoft accounts in
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 
 ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
@@ -49,7 +49,7 @@ To use Microsoft account as an identity provider in Azure Active Directory (Azur
     ![Microsoft account - Live SDK support](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 
 ## Configure Microsoft account as an identity provider in your tenant
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "MSA".

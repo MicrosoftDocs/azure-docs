@@ -4,7 +4,7 @@ description: Determine monitoring and reporting capabilities for the hybrid iden
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
 
 ---

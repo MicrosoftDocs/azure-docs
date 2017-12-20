@@ -30,8 +30,8 @@ This documentation requires XCode 8. If you really depend on XCode 7 then you ma
 
 > [!IMPORTANT]
 > **We do not recommend this workaround** as this behavior can change in any upcoming (even minor) iOS version upgrade because this iOS API is deprecated. You should switch to XCode 8 as soon as possible.
-> 
-> 
+>
+>
 
 ### Enable your app to receive Silent Push Notifications
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
@@ -42,33 +42,33 @@ This documentation requires XCode 8. If you really depend on XCode 7 then you ma
 
 ### Modify your Application Delegate
 * At the top of your implementation file, import the Engagement Reach module:
-  
+
       [...]
       #import "AEReachModule.h"
 * Inside method `applicationDidFinishLaunching:` or `application:didFinishLaunchingWithOptions:`, create a reach module and pass it to your existing Engagement initialization line:
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
         [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
         [...]
-  
+
         return YES;
       }
 * Modify **'icon.png'** string with the image name you want as your notification icon.
 * If you want to use the option *Update badge value* in Reach campaigns or if you want to use native push \</SaaS/Reach API/Campaign format/Native Push\> campaigns, you must let the Reach module manage the badge icon itself (it will automatically clear the application badge and also reset the value stored by Engagement every time the application is started or foregrounded). This is done by adding the following line after Reach module initialization:
-  
+
       [reach setAutoBadgeEnabled:YES];
 * If you want to handle Reach data push, you must let your Application delegate conform to the `AEReachDataPushDelegate` protocol. Add the following line after Reach module initialization:
-  
+
       [reach setDataPushDelegate:self];
 * Then you can implement the methods `onDataPushStringReceived:` and `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` in your application delegate:
-  
+
       -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
       {
          NSLog(@"String data push message with category <%@> received: %@", category, body);
          return YES;
       }
-  
+
       -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
       {
          NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
@@ -95,10 +95,10 @@ Please follow the guide : [How to Prepare your Application for Apple Push Notifi
 If it's not done already, you need to register your application to receive push notifications.
 
 * Import the `User Notification` framework:
-  
+
         #import <UserNotifications/UserNotifications.h>
 * Add the following line when your application starts (typically in `application:didFinishLaunchingWithOptions:`):
-  
+
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -129,21 +129,10 @@ Finally, you have to inform the Engagement SDK when your application receives a 
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [!NOTE]
-> The method above is introduced in iOS 7. If you are targeting iOS <7, make sure to implement method `application:didReceiveRemoteNotification:` in your application delegate and call `applicationDidReceiveRemoteNotification` on the EngagementAgent by passing nil instead of the `handler` argument:
-> 
-> 
-
-    - (void)application:(UIApplication*)application
-    didReceiveRemoteNotification:(NSDictionary*)userInfo
-    {
-        [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
-    }
-
 > [!IMPORTANT]
 > By default, Engagement Reach controls the completionHandler. If you want to manually respond to the `handler` block in your code, you can pass nil for the `handler` argument and control the completion block yourself. See the `UIBackgroundFetchResult` type for a list of possible values.
-> 
-> 
+>
+>
 
 ### Full example
 Here is a full example of integration:
@@ -248,7 +237,7 @@ For instance, if you implemented the above proposal 1:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 		// Any other code
-  
+
 		[UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
@@ -305,8 +294,8 @@ The provided nib file should respect the following rules:
 
 > [!TIP]
 > Just copy the provided nib file, named `AENotificationView.xib`, and start working from there. But be careful, the view inside this nib file is associated to the class `AENotificationView`. This class redefined the method `layoutSubViews` to move and resize its subviews according to context. You may want to replace it with an `UIView` or you custom view class.
-> 
-> 
+>
+>
 
 If you need deeper customization of your notifications(if you want for instance to load your view directly from the code), it is recommended to take a look at the provided source code and class documentation of `Protocol ReferencesDefaultNotifier` and `AENotifier`.
 
@@ -331,8 +320,8 @@ If your implementation of `AENotifier` bypasses the default behavior, you have t
 
 > [!WARNING]
 > If `handleNotification:` throws an exception, the content is deleted and `drop` is called, this is reported in statistics and next campaigns can now be processed.
-> 
-> 
+>
+>
 
 #### Include notification as part of an existing view
 Overlays are great for a fast integration but can be sometimes not convenient, or can have unwanted side effects.
@@ -342,12 +331,12 @@ If you're not satisfied with the overlay system in some of your views, you can c
 You can decide to include our notification layout in your existing views. To do so, there is two implementation styles:
 
 1. Add the notification view using interface builder
-   
+
    * Open *Interface Builder*
    * Place a 320x60 (or 768x60 if you are on iPad) `UIView` where you want the notification to appear
    * Set the Tag value for this view to : **36822491**
 2. Add the notification view programmatically. Just add the following code when your view has been initialized:
-   
+
        UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
@@ -356,8 +345,8 @@ You can decide to include our notification layout in your existing views. To do 
 
 > [!NOTE]
 > The default notifier automatically detects that the notification layout is included in this view and will not add an overlay for it.
-> 
-> 
+>
+>
 
 ### Announcements and polls
 #### Layouts
@@ -374,8 +363,8 @@ To create a category for an announcement, you must extend **AEAnnouncementViewCo
 
 > [!NOTE]
 > Each time a user will click on a notification for an announcement with the category "my\_category", your registered view controller (in that case `MyCustomAnnouncementViewController`) will be initialized by calling the method `initWithAnnouncement:` and the view will be added to the current application window.
-> 
-> 
+>
+>
 
 In your implementation of the `AEAnnouncementViewController` class you will have to read the property `announcement` to initialize your subviews. Consider the example below, where two labels are initialized using `title` and `body` properties of the `AEReachAnnouncement` class:
 
@@ -410,8 +399,8 @@ This time, the provided `MyCustomPollViewController` must extend `AEPollViewCont
 
 > [!IMPORTANT]
 > Don't forget to call either `action` (`submitAnswers:` for custom poll view controllers) or `exit` method before the view controller is dismissed. Otherwise, statistics won't be sent (i.e. no analytics on the campaign) and more importantly next campaigns will not be notified until the application process is restarted.
-> 
-> 
+>
+>
 
 ##### Implementation example
 In this implementation the custom announcement view is loaded from an external xib file.

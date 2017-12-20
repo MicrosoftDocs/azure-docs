@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Sign-in experiences with Azure AD Identity Protection

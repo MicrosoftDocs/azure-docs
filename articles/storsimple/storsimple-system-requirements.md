@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # StorSimple software, high availability, and networking requirements
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [StorSimple software, high availability, and networking requirements](storsimple-8000-system-requirements.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
@@ -88,7 +91,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 #### URL patterns for Azure portal
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple Manager service<br>Access Control Service<br>Azure Service Bus |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.com` |Device registration |DATA 0 only |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
@@ -99,7 +102,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 #### URL patterns for Azure Government portal
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |StorSimple Manager service<br>Access Control Service<br>Azure Service Bus |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.us` |Device registration |DATA 0 only |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |

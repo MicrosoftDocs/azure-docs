@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Python) | Microsoft Docs
-description: Learn how to send device-to-cloud messages to Azure IoT hub using IoT SDKs for Python. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for Python. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -11,7 +11,7 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
 
@@ -73,6 +73,8 @@ This section lists the steps to create a Python console app, that creates a devi
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Add the following function to print some of the device information.
 
     ```python
@@ -188,6 +190,7 @@ This section lists the steps to create a Python console app, that simulates a de
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. Add the following function to format and send a message from your simulated device to your IoT hub.
@@ -285,7 +288,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with Azure IoT Edge][lnk-iot-edge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -299,7 +302,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-azure-cli-hub]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-using-cli
+[lnk-azure-cli-hub]: https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-idle]: https://docs.python.org/3/library/idle.html
 [lnk-python-ide-list]: https://wiki.python.org/moin/IntegratedDevelopmentEnvironments
@@ -319,5 +322,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
