@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/20/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -22,17 +22,19 @@ ms.reviewer: nigu
 
 # Azure Active Directory conditional access what if tool - preview
 
-[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know whether the conditional access policies in your environment work as expected? To answer this question, you can use the **conditional access what if policy evaluation tool**.
+[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the conditional access policies in your environment? To answer this question, you can use the **conditional access what if tool**.
 
 This article explains how you can use this tool to test your conditional access policies.
 
 ## What it is
 
-The **conditional access what if policy evaluation tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation determines the impact this sign-in has on your policies and generates a simulation report. The report does not only list the affected conditional access policies but also [classic policies](active-directory-conditional-access-migration.md#classic-policies) if they exist.    
+The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](active-directory-conditional-access-migration.md#classic-policies) if they exist.    
+
+The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
 
 ## How it works
 
-In the **conditional access what if policy evaluation tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
+In the **conditional access what if tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
 
 - The user you want to test 
 
@@ -65,7 +67,7 @@ This section provides you with information about the settings of simulation run.
 
 ### User
 
-You can only select one user. This is the only field you must set.
+You can only select one user. This is the only required field.
 
 ### Cloud apps
 
@@ -78,8 +80,7 @@ The IP address is a single IPv4 address to mimic the [location condition](active
 
 ### Device platforms
 
-This setting mimics the [device platforms condition](active-directory-conditional-access-azure-portal.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. It is important to remember that browsers that were opened in private mode cannot satisfy [device-based](active-directory-conditional-access-policy-connected-applications.md) policy checks because the primary refresh token (PRT) is not forwarded in this mode.
-
+This setting mimics the [device platforms condition](active-directory-conditional-access-azure-portal.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
 ### Client apps
 
 This setting mimics the [client apps condition](active-directory-conditional-access-azure-portal.md#client-apps).
