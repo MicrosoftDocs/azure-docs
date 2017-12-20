@@ -152,7 +152,7 @@ Once you have [created an elastic pool](sql-database-elastic-pool-manage-portal.
 
 **Estimated time to complete:** 10 minutes.
 
-1. From the dashboard view of the elastic pool via the [Azure Portal](https://portal.azure.com/#) , click **Create job**.
+1. From the dashboard view of the elastic pool via the [Azure portal](https://portal.azure.com/#) , click **Create job**.
 2. If you are creating a job for the first time, you must install **Elastic Database jobs** by clicking **PREVIEW TERMS**.
 3. Accept the terms by clicking the checkbox.
 4. In the "Install services" view, click **JOB CREDENTIALS**.

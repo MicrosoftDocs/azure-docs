@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/12/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -32,11 +32,10 @@ Azure Migrate helps you to:
 > [!NOTE]
 > Support for Hyper-V is in the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
 
-- You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
+- You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
 - You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
-- The Azure Migrate portal is currently available in English only. 
-- Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
+- Azure Migrate only supports managed disks for migration assessment.
 
 ## What do I need to pay for?
 
@@ -80,7 +79,7 @@ The table summarizes the ports needed for Azure Migrate communications.
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
 |Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
-|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
+|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 
   

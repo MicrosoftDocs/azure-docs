@@ -12,13 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/16/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ---
 
 # Collect data from Windows computers hosted in your environment
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Windows computers and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps.  For Azure Windows VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
+
+To understand the network and system requirements to deploy the Windows agent, review [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

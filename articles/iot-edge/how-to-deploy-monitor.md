@@ -144,7 +144,7 @@ To modify a deployment, use the following steps:
 
 1. Select the deployment that you want to modify. 
 1. Make updates to the following fields: 
-   * Target Condition 
+   * Target condition 
    * Labels 
    * Priority 
 1. Select **Save**.

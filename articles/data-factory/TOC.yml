@@ -144,6 +144,8 @@
         href: connector-magento.md
       - name: MariaDB
         href: connector-mariadb.md
+      - name: Marketo
+        href: connector-marketo.md
       - name: Microsoft Access
         href: connector-odbc.md#microsoft-access-source
       - name: MongoDB
