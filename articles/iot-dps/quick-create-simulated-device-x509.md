@@ -120,7 +120,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 
 > [!IMPORTANT]
-> The steps in the Quickstart will also work for *Group Enrollment* of X.509 devices, by making the following modifications:
+> You can also do a *Group Enrollment* of X.509 devices, by making the following modifications to the steps in this Quickstart:
 >    1. Configure your Windows machine to use **OpenSSL** library instead of the default **SChannel** by following the section on **WebSockets** in the [
 Set up a Windows development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#windows) guide. Note that Linux machines use OpenSSL by default. 
 >    2. In step 2 of the [Create a device enrollment entry in the Device Provisioning Service](#portalenroll) section above, enter **g** for group enrollment.
