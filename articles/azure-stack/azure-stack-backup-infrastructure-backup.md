@@ -28,7 +28,7 @@ You can enable backup when you are ready to put your cloud into production. Do n
 Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> The Infrastructure Backup Service does not include user data and applications. See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL]https://aka.ms/azure-stack-mysql) resource providers and associated user data..
+> The Infrastructure Backup Service does not include user data and applications. See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data..
 
 ## The Infrastructure Backup Service
 
