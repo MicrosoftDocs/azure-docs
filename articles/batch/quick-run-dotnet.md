@@ -1,19 +1,13 @@
 ---
-title: Azure Quickstart - Run Batch job - .NET | Microsoft Docs
+title: Azure Quickstart - Run Batch job - .NET 
 description: Quickly run a Batch job and tasks with the Batch .NET client library.
 services: batch
-documentationcenter: 
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
 
-ms.assetid: 
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: 
-ms.workload: 
 ms.date: 12/15/2017
 ms.author: danlep
 ms.custom: mvc

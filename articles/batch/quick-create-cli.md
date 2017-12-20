@@ -1,19 +1,13 @@
 ---
-title: Azure Quickstart - Run Batch job - CLI | Microsoft Docs
+title: Azure Quickstart - Run Batch job - CLI 
 description: Quickly learn to run a Batch job with the Azure CLI.
 services: batch
-documentationcenter: 
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
 
-ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: 
-ms.workload: 
 ms.date: 12/15/2017
 ms.author: danlep
 ms.custom: mvc
@@ -21,7 +15,7 @@ ms.custom: mvc
 
 # Run your first Batch job with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a  *job* that runs *tasks* on the pool. The pool in this example contains Linux VMs, but Batch also supports Windows pools to run Windows jobs. Each sample task displays environment variables set by Batch on a compute node. This example is basic but introduces you to key concepts of the Batch service.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a *job* that runs *tasks* on the pool. The pool in this example contains Linux VMs, but Batch also supports Windows pools to run Windows jobs. Each sample task displays environment variables set by Batch on a compute node. This example is basic but introduces you to key concepts of the Batch service.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -58,7 +52,7 @@ The following example creates a Batch account named *mybatchaccount* in *myResou
 az batch account create --name mybatchaccount --storage-account mystorageaccount --resource-group myResourceGroup --location eastus
 ```
 
-Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key.  After you log in, you create and manage resources in that account.
+To create and manage compute pools and jobs, you need to authenticate with Batch. Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account name and key. After you log in, your `az batch` commands use this account context.
 
 ```azurecli-interactive 
 az batch account login --name mybatchaccount --resource-group myResourceGroup --shared-key-auth
