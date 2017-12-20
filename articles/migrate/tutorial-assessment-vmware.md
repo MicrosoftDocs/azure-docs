@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
 ---
 
@@ -40,10 +40,10 @@ Log in to the [Azure portal](https://portal.azure.com).
 ## Create a project
 
 1. In the Azure portal, click **Create a resource**.
-2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
+2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. 
+5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -111,13 +111,13 @@ will be hosted.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
     - The collector checks that the Windows profiler service is running. The service is installed by default on the collector VM.
     - Download and install the VMware PowerCLI.
-. In **Discover Machines**, do the following:
+5. In **Discover Machines**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
     - In **Tag category for grouping**, select **None**.
-1. In **Select Project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
-2. In **Complete Discovery**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
+6. In **Select Project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.
+7. In **Complete Discovery**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
 > [!NOTE]
 > The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
@@ -176,6 +176,6 @@ You can drill down to see details for a specific machine.
 
 ## Next steps
 
-- [Learn](how-to-scale-assessment.md) how to set up an assessment for a large number of on-premises machines.
-- Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
+- [Learn](how-to-scale-assessment.md) how to discover and assess a large VMware environment.
+- Learn how to create high-confidence assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
