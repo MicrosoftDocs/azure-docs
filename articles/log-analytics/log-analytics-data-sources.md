@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 12/19/2017
 ms.author: bwren
 
 ---
@@ -22,8 +22,8 @@ Log Analytics collects data from your Connected Sources and stores it in your Lo
 
 ![Log Analytics data collection](./media/log-analytics-data-sources/overview.png)
 
-Data Sources are different than [management solutions](log-analytics-add-solutions.md) which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
-collecting data, solutions will typically include log searches and views to help you analyze the operation of a particular application or service.
+Data Sources are different than [management solutions](log-analytics-add-solutions.md), which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
+collecting data, solutions typically include log searches and views to help you analyze the operation of a particular application or service.
 
 
 ## Summary of data sources
@@ -32,7 +32,7 @@ The data sources that are currently available in Log Analytics are listed in the
 | Data Source | Event Type | Description |
 |:--- |:--- |:--- |
 | [Custom logs](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Text files on Windows or Linux agents containing log information. |
-| [Windows Event logs](log-analytics-data-sources-windows-events.md) |Event |Events collected from the event log on Windows computers. |
+| [Windows Event logs](log-analytics-data-sources-windows-events.md) |Event |Events collected from the event logon Windows computers. |
 | [Windows Performance counters](log-analytics-data-sources-performance-counters.md) |Perf |Performance counters collected from Windows computers. |
 | [Linux Performance counters](log-analytics-data-sources-performance-counters.md) |Perf |Performance counters collected from Linux computers. |
 | [IIS logs](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services logs in W3C format. |
@@ -52,14 +52,14 @@ You configure data sources from the **Data** menu in Log Analytics **Advanced Se
 ## Data collection
 Data source configurations are delivered to agents that are directly connected to Log Analytics within a few minutes.  The specified data is collected from the agent and delivered directly to Log Analytics at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager (SCOM) agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source the data will be either sent to a management server which forwards the data to the Log Analytics, or the agent will send the data to Log Analytics without going through the management server. Refer to [data collection details](log-analytics-add-solutions.md#data-collection-details) for details.  You can read about details of connecting SCOM and Log Analytics and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
+For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Log Analytics, or the agent will send the data to Log Analytics without going through the management server. Refer to [data collection details](log-analytics-add-solutions.md#data-collection-details) for details.  You can read about details of connecting Operations Manager and Log Analytics and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
 
 If the agent is unable to connect to Log Analytics or Operations Manager, it will continue to collect data that it will deliver when it establishes a connection.  Data can be lost if the amount of data reaches the maximum cache size for the client, or if the agent is not able to establish a connection within 24 hours.
 
 ## Log Analytics records
 All data collected by Log Analytics is stored in the workspace as records.  Records collected by different data sources will have their own set of properties and be identified by their **Type** property.  See the documentation for each data source and solution for details on each record type.
 
-## Next Steps
+## Next steps
 * Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
 * Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.

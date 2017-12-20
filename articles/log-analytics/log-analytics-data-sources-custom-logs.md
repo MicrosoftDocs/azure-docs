@@ -18,7 +18,7 @@ ms.author: bwren
 
 ---
 # Custom logs in Log Analytics
-The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the log in to individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
+The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
 ![Custom log collection](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -51,7 +51,7 @@ You start by uploading a sample of the custom log.  The wizard will parse and di
 
 **New Line** is the default delimiter and is used for log files that have a single entry per line.  If the line starts with a date and time in one of the available formats, then you can specify a **Timestamp** delimiter which supports entries that span more than one line.
 
-If a timestamp delimiter is used, then the TimeGenerated property of each record stored in Log Analyticss will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
+If a timestamp delimiter is used, then the TimeGenerated property of each record stored in Log Analytics will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
 
 
 1. Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
@@ -168,5 +168,5 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ![Log query with custom fields](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## Next steps
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse the entries in the custom log in to individual fields.
+* Use [Custom Fields](log-analytics-custom-fields.md) to parse the entries in the custom login to individual fields.
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.
