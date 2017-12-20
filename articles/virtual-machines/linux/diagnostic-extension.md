@@ -131,6 +131,10 @@ storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
 
+
+> [!NOTE]
+> When deploying the extension with an Azure deployment template the storage account and SAS token must be created beforehand and then passed to the template. You cannot deploy a VM, Storage account and configure the extension in a single template as there, currently, isn't support for creating a SAS token within a template.
+
 You can easily construct the required SAS token through the Azure portal.
 
 1. Select the general-purpose storage account to which you want the extension to write
