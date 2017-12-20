@@ -70,7 +70,7 @@ The response contains details for the user-assigned MSI created, similar to the 
    }
    ```
 
-3. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with the new user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the <RESOURCE GROUP>, <VM NAME>, <USER NAME>, <PASSWORD>, and <MSI ID> parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property, as created in the previous step : 
+3. Create a VM using [az vm create](/cli/azure/vm/#create). The following example creates a VM associated with the new user-assigned MSI, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<`MSI ID>` parameter values with your own values. The `<MSI ID>` will be the user-assigned MSI's resource `id` property, as created in the previous step : 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -100,7 +100,7 @@ The response contains details for the user-assigned MSI created, similar to the 
    }
    ```
 
-2. Assign the user-assigned MSI to your VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The <MSI ID> will be the user-assigned MSI's resource `id` property, as created in the previous step:
+2. Assign the user-assigned MSI to your VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI ID>` will be the user-assigned MSI's resource `id` property, as created in the previous step:
 
     ```azurecli-interactive
     az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities <MSI ID>
