@@ -1,6 +1,6 @@
 ---
-title: Provision an X.509 simulated device to Azure IoT Hub using Java | Microsoft Docs
-description: Azure Quickstart - Create and provision an X.509 simulated device to Azure IoT Hub Device Provisioning Service using Java
+title: Provision a simulated X.509 device to Azure IoT Hub using Java | Microsoft Docs
+description: Azure Quickstart - Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
 author: msebolt
@@ -15,12 +15,10 @@ ms.devlang: java
 ms.custom: mvc
 ---
 
-# Create and provision an X.509 simulated device to IoT Hub Device Provisioning Service using Java
+# Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device-x509.md)
 > * [Java](quick-create-simulated-device-x509-java.md)
-> * [C#](quick-create-simulated-device-x509-csharp.md)
-> * [Python](quick-create-simulated-device-x509-python.md)
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
