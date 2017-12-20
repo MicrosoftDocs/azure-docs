@@ -102,7 +102,6 @@
 ### [Service resources](service-fabric-service-manifest-resources.md)
 
 ## [Clusters](service-fabric-deploy-anywhere.md)
-### [Describing a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 ### [Cluster security](service-fabric-cluster-security.md)
 ### [Feature differences between Linux and Windows](service-fabric-linux-windows-differences.md)
 ### Clusters on Azure
@@ -122,7 +121,7 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitor and diagnose
+## Monitoring and diagnostics
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
 #### [Generate platform level events](service-fabric-diagnostics-event-generation-infra.md)
@@ -148,7 +147,7 @@
 #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
-## [Integrate with API Management](service-fabric-api-management-overview.md)
+## [Integration with API Management](service-fabric-api-management-overview.md)
 
 # How-to guides
 ## Set up your development environment
