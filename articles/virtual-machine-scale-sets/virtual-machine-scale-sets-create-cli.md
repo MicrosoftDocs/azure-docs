@@ -51,7 +51,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Install NGINX webserver
-To test your scale set, use the Custom Script Extension to download and run a script that installs NGINX on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+To test your scale set, use the Custom Script Extension to download and run a script that installs NGINX on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
 Apply the Custom Script Extension that installs NGINX as follows:
 

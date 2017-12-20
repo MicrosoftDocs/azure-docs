@@ -56,17 +56,17 @@ When you create a scale set in the portal, a load balancer is created. Network A
 To view these NAT rules and connection information for your scale set instances:
 
 1. Select the resource group you created in the previous step, such as *myResourceGroup*.
-2. From the list of resources, select your **Load balancer**, such as *myScaleSetLb*.
+2. From the list of resources, select your **Load balancer**, such as *myScaleSetLab*.
 3. Choose **Inbound NAT rules** from the menu on the left-hand side of the window.
 
     ![Inbound NAT rules allow you to connect to virtual machine scale set instances](./media/virtual-machine-scale-sets-create-portal/inbound-nat-rules.png)
 
 You can connect to each VM in the scale set using these NAT rules. Each VM instance lists a destination IP address and TCP port value. For example, if the destination IP address is *104.42.1.19* and the TCP port is *50001*, you connect to the VM instance as follows:
 
-- For a Windows scale set, you connect to the VM instance via RDP on `104.42.1.19:50001`.
-- For a Linux scale set, you would connect using the command `ssh azureuser@104.42.1.19 -p 50001`.
+- For a Windows scale set, connect to the VM instance with RDP on `104.42.1.19:50001`
+- For a Linux scale set, connect to the VM instance with SSH on `ssh azureuser@104.42.1.19 -p 50001`
 
-When prompted, enter the credentials you specified from the previous step when you created the scale set. The scale set instances are regular VMs that you can interact as normal. For more information on how to deploy and run applications on your scale set instances, see [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
+When prompted, enter the credentials you specified from the previous step when you created the scale set. The scale set instances are regular VMs that you can interact with as normal. For more information on how to deploy and run applications on your scale set instances, see [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 
 
 ## Clean up resources

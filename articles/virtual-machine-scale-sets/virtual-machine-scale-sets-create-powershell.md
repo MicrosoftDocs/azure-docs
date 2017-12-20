@@ -32,7 +32,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *EastUS* location:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
 
@@ -57,20 +57,20 @@ $vnet = New-AzureRmVirtualNetwork `
 
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
   -AllocationMethod Static `
-  -Name myPublicIP
+  -Name "myPublicIP"
 
 # Create a frontend and backend IP pool
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name myFrontEndPool `
+  -Name "myFrontEndPool" `
   -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 
 # Create a Network Address Translation (NAT) pool
 $inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
-  -Name myRDPRule `
+  -Name "myRDPRule" `
   -FrontendIpConfigurationId $frontendIP.Id `
   -Protocol TCP `
   -FrontendPortRangeStart 50001 `
@@ -79,28 +79,28 @@ $inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
 
 # Create the load balancer
 $lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName myResourceGroup `
-  -Name myLoadBalancer `
-  -Location EastUS `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myLoadBalancer" `
+  -Location "EastUS" `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool `
   -InboundNatPool $inboundNATPool
 
 # Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
+Add-AzureRmLoadBalancerProbeConfig -Name "myHealthProbe" `
   -LoadBalancer $lb `
-  -Protocol tcp `
+  -Protocol TCP `
   -Port 80 `
   -IntervalInSeconds 15 `
   -ProbeCount 2
 
 # Create a load balancer rule to distribute traffic on port 80
 Add-AzureRmLoadBalancerRuleConfig `
-  -Name myLoadBalancerRule `
+  -Name "myLoadBalancerRule" `
   -LoadBalancer $lb `
   -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
   -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol Tcp `
+  -Protocol TCP `
   -FrontendPort 80 `
   -BackendPort 80
 
@@ -117,7 +117,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## Create a scale set
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in *adminUsername* and *securePassword*. Provide your own credentials as follows:
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances
@@ -126,23 +126,23 @@ $adminUsername = "azureuser"
 
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
-    -Location EastUS `
+    -Location "EastUS" `
     -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
+    -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic
 
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferencePublisher "MicrosoftWindowsServer" `
+  -ImageReferenceOffer "WindowsServer" `
+  -ImageReferenceSku "2016-Datacenter" `
+  -ImageReferenceVersion "latest"
 
 # Set up information for authenticating with the virtual machine
 Set-AzureRmVmssOsProfile $vmssConfig `
   -AdminUsername $adminUsername `
   -AdminPassword $securePassword `
-  -ComputerNamePrefix myVM
+  -ComputerNamePrefix "myVM"
 
 # Attach the virtual network to the config object
 Add-AzureRmVmssNetworkInterfaceConfiguration `
@@ -153,8 +153,8 @@ Add-AzureRmVmssNetworkInterfaceConfiguration `
 
 # Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss `
-  -ResourceGroupName myResourceGroup `
-  -Name myScaleSet `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmssConfig
 ```
 
@@ -173,13 +173,24 @@ $publicSettings = @{
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroup" `
+            -VMScaleSetName "myScaleSet"
+
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
     -TypeHandlerVersion 1.8 `
     -Setting $publicSettings
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
 
@@ -187,7 +198,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
 To see your web server in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Enter the public IP address of the load balancer in to a web browser. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
@@ -199,7 +210,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set, and all related resources as follows:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 
