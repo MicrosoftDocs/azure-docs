@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Ansible on Azure
-    href: ./ansible-overview
+    href: ./ansible-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -27,4 +27,4 @@
 - name: Resources
   items:
   - name: Tools
-    href: ./ansible-tools
+    href: ./ansible-tools.md
