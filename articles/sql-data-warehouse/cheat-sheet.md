@@ -8,6 +8,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+ms-author: acomet
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
