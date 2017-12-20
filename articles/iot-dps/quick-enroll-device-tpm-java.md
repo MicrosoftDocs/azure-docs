@@ -39,7 +39,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 3. Download and extract [Maven 3](https://maven.apache.org/download.cgi) on your machine. 
 
-4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is successfully installed by running this command your command window:
+4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is successfully installed by running this command on your command window:
 
     ```cmd\sh
     mvn --version
@@ -56,7 +56,7 @@ This section shows how to add the provisioning details of your TPM device to the
 
 1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
     
-    ```cmd/sh
+    ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
