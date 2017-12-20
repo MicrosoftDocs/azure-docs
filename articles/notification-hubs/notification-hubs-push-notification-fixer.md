@@ -3,8 +3,8 @@ title: Azure Notification Hubs - Diagnosis Guidelines
 description: Guidelines on how to diagnose common issues with Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: ysxu
-manager: erikre
+author: jwhitedev
+manager: kpiteira
 editor: ''
 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.date: 12/22/2017
+ms.author: jawh
 
 ---
 # Azure Notification Hubs - Diagnosis guidelines
@@ -96,9 +96,9 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 1. **PNS developer portal**
    
     Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].
-2. **Azure Classic portal**
+2. **Azure portal**
    
-    Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal. 
+    Go to the Access Policies tab to review and match the credentials with those obtained from the PNS developer portal. 
    
     ![][4]
 
@@ -122,11 +122,11 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
     Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
 
 ### Verify message notifications
-1. **Azure Classic Portal**
+1. **Azure Portal**
    
-    You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running. 
+    You can go to the "Test Send" tab under **Support + Troubleshooting** to send a test notification to your clients without needing any service backend up and running. 
    
-    ![][7]
+    ![Test Send functionality in Azure][7]
 2. **Visual Studio**
    
     You can also send test notifications from the comforts of Visual Studio:
@@ -184,13 +184,13 @@ This message indicates either invalid credentials are configured in the notifica
 > 
 
 ### Review telemetry
-1. **Use Azure Classic Portal**
+1. **Use Azure Portal**
    
     The portal enables you to get a quick overview of all the activity on your Notification Hub. 
    
-    a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform. 
+    a) From the "Overview" tab you can view an aggregated view of the registrations, notifications as well as errors per platform. 
    
-    ![][5]
+    ![Notification Hubs Overview dashboard][5]
    
     b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS. 
    
@@ -217,10 +217,10 @@ More details here -
 [1]: ./media/notification-hubs-diagnosing/GCMConfigure.png
 [2]: ./media/notification-hubs-diagnosing/GCMEnable.png
 [3]: ./media/notification-hubs-diagnosing/GCMServerKey.png
-[4]: ./media/notification-hubs-diagnosing/PortalConfigure.png
+[4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
 [5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalMonitoring.png
-[7]: ./media/notification-hubs-diagnosing/PortalTestNotification.png
+[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
 [9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
