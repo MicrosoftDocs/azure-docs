@@ -24,7 +24,7 @@ This article includes frequently asked questions about configuration and managem
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificate**
+## Certificate
 
 ## Why is the certificate chain of my cloud service SSL certificate incomplete?
     
@@ -62,7 +62,7 @@ For more information, see the following articles:
 - [How to configure and run startup tasks for a cloud service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Common Cloud Service startup tasks](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
 
-**Monitoring and Logging**
+## Monitoring and Logging
 
 ## What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?
 
@@ -87,7 +87,7 @@ For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS Logs stop writing in cloud service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-**Network Configuration**
+## Network Configuration
 
 ## How do I set the idle timeout for Azure load balancer?
 You can specify the timeout in your service definition (csdef) file like this:
@@ -150,7 +150,7 @@ Once this has been done, you can verify whether the HTTP/2 has been enabled or n
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
-**Permissions**
+## Permissions
 
 ## How can I implement Role-Based Access for Cloud Services?
 Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
@@ -169,7 +169,7 @@ This error may occur if you use the RDP file from a machine that is joined to Az
 1. Right-click the RDP file you downloaded and then select **Edit**.
 2. Add "&#92;" as prefix before the username. For example, use **.\username** instead of  **username**.
 
-**Scaling**
+## Scaling
 
 ## I cannot scale beyond X instances
 Your Azure Subscription has a limit on the number of cores you can use. Scaling will not work if you have used all the cores available. For example, if you have a limit of 100 cores, this means you could have 100 A1 sized virtual machine instances for your cloud service, or 50 A2 sized virtual machine instances.
