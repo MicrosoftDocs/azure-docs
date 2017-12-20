@@ -115,8 +115,7 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 
 ### Add a Windows file
 
-1. On the **Windows Files** tab, select **Add**.  
-    The **Add Windows File for Change Tracking** window opens.
+1. On the **Windows Files** tab, select **Add**. The **Add Windows File for Change Tracking** window opens.
 
    ![Change Tracking add Windows file](./media/automation-vm-change-tracking/change-add-win-file.png)
 
@@ -128,8 +127,7 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 
 ### Add a Linux file
 
-1. On the **Linux Files** tab, select **Add**.  
-    The **Add Linux File for Change Tracking** window opens.
+1. On the **Linux Files** tab, select **Add**. The **Add Linux File for Change Tracking** window opens.
 
    ![Change Tracking add Linux file](./media/automation-vm-change-tracking/change-add-linux-file.png)
 
@@ -144,11 +142,11 @@ In the **Workspace Configuration** window, add the Windows Registry keys, Window
 
 ## Enable Activity log connection
 
-From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page.  Select **Connect** to connect Change tracking to the Azure activity log for your VM.
+From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page. Select **Connect** to connect Change tracking to the Azure activity log for your VM.
 
 With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is deallocated, select **Start** to restart your VM.
 
-Stopping and starting a VM logs an event in it's activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Like in the preceding step, each event can be selected to view detailed information on the event.
+Stopping and starting a VM logs an event in its activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Like in the preceding step, each event can be selected to view detailed information on the event.
 
 ![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
@@ -169,7 +167,7 @@ The **Events** tab, the table displays the connected Activity Log events and the
 
 You can see in the results, that there were multiple changes to the system, including changes to services and software. You can use the filters at the top of the page to filter the results by **Change type** or by a time range.
 
-Select a **WindowsServices** change, this opens the **Change Details** window. The change details window shows details about the change and the values before and after the change. In this instance the Software Protection service was stopped.
+Select a **WindowsServices** change, this opens the **Change Details** window. The change details window shows details about the change and the values before and after the change. In this instance, the Software Protection service was stopped.
 
 ![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 

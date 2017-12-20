@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 Log in to Azure at https://portal.azure.com
 
 ## Onboard a virtual machine
-There are a variety of different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) article.
+There are many different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding) article.
 
 1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search for it in the resulting view.
 1. In the list, select an Automation account.

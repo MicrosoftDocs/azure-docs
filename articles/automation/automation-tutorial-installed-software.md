@@ -14,7 +14,7 @@ manager: carmonm
 
 # Discover what software is installed on your Azure and non-Azure machines
 
-In this tutorial, you learn how to discover what software is installed in your environment. With Inventory, you can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+In this tutorial, you learn how to discover what software is installed in your environment. You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
 In this tutorial you learn how to:
 
@@ -37,7 +37,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
-First you need to enable Change tracking and Inventory for your VM for this tutorial. If you have previously enabled another automation solution for a VM, this step is not necessary.
+First you need to enable Change tracking and Inventory for your VM for this tutorial. If you've previously enabled another automation solution for a VM, this step is not necessary.
 
 1. On the left menu, select **Virtual machines** and select a VM from the list
 2. On the left menu, under the **Operations** section, click **Inventory**. The **Enable Change tracking and Inventory** page opens.
