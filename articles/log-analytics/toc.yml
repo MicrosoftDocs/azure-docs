@@ -138,8 +138,12 @@
       href: log-analytics-add-solutions.md
     - name: Target solutions
       href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: Activity Log Analytics
-      href: log-analytics-activity.md
+    - name: Azure activity logs
+      items:
+      - name: Analytics
+        href: log-analytics-activity.md
+      - name: Collect across subscriptions
+        href: log-analytics-activity-logs-subscriptions.md
     - name: AD Assessment
       href: log-analytics-ad-assessment.md
     - name: AD Replication Status
