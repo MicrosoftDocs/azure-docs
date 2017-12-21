@@ -202,7 +202,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    This command generates a web service ID you can use later.
 
@@ -212,6 +212,7 @@ Now you're ready to create the real-time web service.
    * `--model-file`: The model file. In this case, it's the pickled model.pkl file.
    * `-r`: The type of model. In this case, it's a Python model.
    * `--collect-model-data true`: This enables data collection.
+   * `-c`: Path to the conda dependencies file where additional packages are specified.
 
    >[!IMPORTANT]
    >The service name, which is also the new Docker image name, must be all lowercase. Otherwise, you get an error. 
@@ -250,10 +251,10 @@ First, register the model. Then generate the manifest, build the Docker image, a
 
 3. Create a Docker image.
 
-   To create a Docker image, use the following command and provide the manifest ID value output from the previous step:
+   To create a Docker image, use the following command and provide the manifest ID value output from the previous step. You can also optionally include the conda dependencies using the `-c` switch.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    This command generates a Docker image ID.
    

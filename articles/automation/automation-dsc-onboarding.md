@@ -3,7 +3,7 @@ title: Onboarding machines for management by Azure Automation DSC | Microsoft Do
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 
 ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
-ms.author: eslesar
+ms.author: gwallace
 
 ---
 # Onboarding machines for management by Azure Automation DSC

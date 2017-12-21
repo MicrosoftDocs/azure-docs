@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/18/2017
 ms.author: magoedte
 ---
 
@@ -38,7 +38,7 @@ This solution provides a decentralized automation option for users who want to r
     > [!NOTE]
     > The runbooks managing the VM schedule can target VMs in any region.  
 
-- During deployment, make sure to select **Yes** to deploy SendGrid to send email notifications when the start and stop VM runbooks are finished. 
+- To send email notifications when the start and stop VM runbooks complete, while onboarding from Azure Marketplace, select **Yes** to deploy SendGrid. 
 
     > [!IMPORTANT]
     > SendGrid is a third-party service. For support, contact [SendGrid](https://sendgrid.com/contact/).  
@@ -90,9 +90,9 @@ The following table lists the variables created in your Automation account.  You
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|  
 |External_EmailFromAddress | Specifies the sender of the email.|  
 |External_EmailSubject | Specifies the text for the subject line of the email.|  
-|External_EmailToAddress | Specifies the recipients of the email, separating names by using a comma.|  
-|External_ExcludeVMNames | Enters VM names to be excluded, separating names by using a comma with no spaces.|  
-|External_IsSendEmail | Specifies the option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not create SendGrid during the initial deployment.|  
+|External_EmailToAddress | Specifies the recipients of the email. Separate names by using a comma.|  
+|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces.|  
+|External_IsSendEmail | Specifies the option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not enable email notifications during the initial deployment.|  
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|  
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|  
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|  
@@ -126,12 +126,11 @@ You should not enable all schedules, because this might create overlapping sched
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
 
-1. In the Azure portal, click **New**.
-<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>
-3. In the Marketplace pane, type **Start VM**. As you begin typing, the list filters based on your input. Select **Start/Stop VMs during off-hours [Preview]** from the search results.
-4. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information, and then click **Create**.
-5. The **Add Solution** pane appears. You're prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
-6. On the **Add Solution** pane, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in.  If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** pane, perform the following:
+1. In the Azure portal, click **New**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+2. In the Marketplace pane, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press **Enter**.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
+3. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information and then click **Create**.  
+4. The **Add Solution** pane appears. You are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
+5.  On the **Add Solution** pane, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** pane, perform the following: 
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.  
@@ -153,9 +152,9 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a comma (values are not case sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
    - Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group.  You can enter more than one name and separate each by using a comma (values are not case sensitive).  Using a wildcard is supported.
    - Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups.  By default, the schedule is configured to the UTC time zone. Selecting a different region is not available.  To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modifying-the-startup-and-shutdown-schedule).
-   - Accept the default value of **Yes** and provide a valid email address to receive **Email notifications** from SendGrid. If you select **No** but decide at a later date that you want to receive email notifications, you need to re-deploy the solution from Azure Marketplace.  
+   - To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.  
 
-10. After you have configured the initial settings required for the solution, select **Create**.  After all settings are validated, the solution deploys to your subscription.  This process can take several seconds to complete, and you can track its progress under **Notifications** from the menu. 
+9. After you have configured the initial settings required for the solution, select **Create**.  After all settings are validated, the solution deploys to your subscription.  This process can take several seconds to complete, and you can track its progress under **Notifications** from the menu. 
 
 ## Collection frequency
 
