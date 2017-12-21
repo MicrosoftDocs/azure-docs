@@ -40,7 +40,7 @@ For example, suppose we begin with the following setup and assumptions for an Ev
 1. 10 partitions.
 1. 1000 events distributed evenly across all partitions => 100 messages in each partition.
 
-When your function is first enabled, there is only 1 instance of the funciton. Let's call this function instance Function_0. Function_0 will have 1 EPH that manages to get a lease on all 10 partitions. It will start reading events from partitions 0-9. From this point forward, one of the following will happen:
+When your function is first enabled, there is only 1 instance of the function. Let's call this function instance Function_0. Function_0 will have 1 EPH that manages to get a lease on all 10 partitions. It will start reading events from partitions 0-9. From this point forward, one of the following will happen:
 
 * **Only 1 function instance is needed** - Function_0 is able to process all 1000 before the Azure Functions' scaling logic kicks in. Hence, all 1000 messages are processed by Function_0.
 
