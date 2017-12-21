@@ -15,8 +15,8 @@
       items:
         - name: C
           href: quick-create-simulated-device.md
-#        - name: Java
-#          href: quick-create-simulated-device-tpm-java.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
 #        - name: C#
 #          href: quick-create-simulated-device-tpm-csharp.md
 #        - name: Python
