@@ -28,7 +28,7 @@ Improve accuracy of intent score and identify entities for words that have the s
 > * [Interactive testing](Train-Test.md#interactive-testing) allows you to compare the published model to any trained changes made after you published. 
 > * [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser) allows you to see exactly what your user or bot sees. 
 
-## Endpoint test of trained utterance
+## Test a trained utterance
 Use the published endpoint to query an utterance the app already knows. Because LUIS already knows about the utterance, the score is high and the entity is detected.
 
 1. In [www.LUIS.ai][www.luis.ai], on the **Publish** page for the new app, click on the endpoint URL in the **Resources and Keys** section. 
@@ -89,7 +89,7 @@ Use the published endpoint to query an utterance the app already knows. Because 
     |trained| want | 0.973 | 0.846 |
     
     
-## Endpoint test of untrained utterance
+## Test an untrained utterance
 In the browser, use the same published endpoint to query with an utterance the app doesn't know about:
 
 `I require a computer replacement`
@@ -144,7 +144,7 @@ The untrained utterance intent score is lower than the labeled utterance because
 
 Since a word can have more than one meaning, you need to tell LUIS that want and require mean the same thing in this app domain. 
 
-## Improve untrained utterance score with phrase list 
+## Improve score of untrained utterance with phrase list 
 1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
 
 2. Click on **Recommend** to see what words LUIS recommends. 
@@ -157,7 +157,7 @@ Since a word can have more than one meaning, you need to tell LUIS that want and
 
 5. Train the app but don't publish it. 
 
-## Interactive test comparison with published model
+## Compare phrase list model to published model
 In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
 
 1. Open the test pane and enter the utterance:
@@ -166,19 +166,21 @@ In this app, the published model is not trained with the synonyms. Only the curr
 
 2. Click on **Inspect** to open the inspection panel. 
 
+    ![Click on inspect](./media/luis-tutorial-interchangeable-phrase-list/inspect-button.png)
+
 3. Click on **Compare with published** to compare the published model to the new phrase list model.
 
     ![Inspect Published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-After adding the phrase list, the accuracy increased for the utterance and the entity of hardware is found.
+After adding the phrase list, the accuracy increased for the utterance and the entity of hardware is found. 
 
 |status | phrase list| intent score | entity score |
 |--|--|--|--|
 | published | - | 0.84 | - |
 | currently editing |✔| 0.92 | Hardware entity identified |
 
-## Endpoint test of untrained utterance with phrase list
-To see the entity identification and score, [publish](PublishApp.md) the model and query the endpoint. 
+## Get entity score with endpoint test
+To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
 
 `I require a computer replacement`
 
