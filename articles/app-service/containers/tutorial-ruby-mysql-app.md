@@ -74,7 +74,7 @@ In the terminal window, `cd` to a working directory.
 Run the following command to clone the sample repository.
 
 ```bash
-git clone https://github.com/cephalin/testrepo.git
+git clone https://github.com/Azure-Samples/rubyrails-tasks.git
 ```
 
 `cd` to your cloned directory. Install the required packages.
@@ -228,7 +228,7 @@ Save the changes.
 
 ### Test the application locally
 
-In the local terminal, set the following envrinment variables:
+In the local terminal, set the following environment variables:
 
 ```bash
 export DB_HOST=<mysql_server_name>.mysql.database.azure.com
@@ -237,7 +237,7 @@ export DB_USERNAME=railsappuser@<mysql_server_name>
 export DB_PASSWORD=MySQLAzure2017
 ```
 
-Run Rails database migrations with the production values your just configured to create the tables in your MySQL database in Azure Database for MySQL (Preview). 
+Run Rails database migrations with the production values you just configured to create the tables in your MySQL database in Azure Database for MySQL (Preview). 
 
 ```bash
 rake db:migrate RAILS_ENV=production
