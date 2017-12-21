@@ -1,11 +1,11 @@
 ---
-title: iOS Push Notifications with Notification Hubs for Xamarin apps | Microsoft Docs
+title: Sending push notifications to Xamarin.iOS apps with Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application.
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
 documentationcenter: xamarin
-author: ysxu
-manager: erikre
+author: jwhiteDev
+manager: kpiteira
 editor: ''
 
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
@@ -14,30 +14,31 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 12/22/2017
+ms.author: jawh
 
 ---
-# iOS Push Notifications with Notification Hubs for Xamarin apps
+# Sending push notifications to Xamarin.iOS apps with Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
-> [!IMPORTANT]
+> [!NOTE]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application.
-You'll create a blank Xamarin.iOS app that receives push notifications by using the [Apple Push Notification Service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You'll create a blank Xamarin.iOS app that receives push notifications by using the [Apple Push Notification Service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). 
+
+When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 This tutorial demonstrates the simple push message broadcast scenario with Notification Hubs.
 
 ## Prerequisites
 This tutorial requires the following:
 
-* [Xcode 6.0][Install Xcode]
-* An iOS 7.0 (or later version) compatible device
-* iOS Developer Program membership
+* Latest version of [XCode][Install Xcode]
+* An iOS 10 (or later version) compatible device
+* [Apple Developer Program](https://developer.apple.com/programs/) membership.
 * [Xamarin Studio]
   
   > [!NOTE]
@@ -293,7 +294,7 @@ In this simple example, you broadcasted push notifications to all your iOS devic
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
+[GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure Portal]: https://portal.azure.com
