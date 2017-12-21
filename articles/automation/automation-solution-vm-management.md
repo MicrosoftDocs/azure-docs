@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # Start/Stop VMs during off-hours solution (preview) in Azure Automation
 
-The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Log Analytics, and sends optional emails by using [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). It supports both Azure Resource Manager and classic VMs for most scenarios. 
+The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Log Analytics, and sends optional emails by using [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). It supports both Azure Resource Manager and classic VMs for most scenarios. 
 
 This solution provides a decentralized automation option for users who want to reduce their costs by using serverless, low-cost resources. With this solution, you can:
 
@@ -31,14 +31,14 @@ This solution provides a decentralized automation option for users who want to r
 
 - The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods).  The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.  
 
-- This solution only manages VMs that are in the same subscription as your Azure Automation account.  
+- This solution manages only VMs that are in the same subscription as your Azure Automation account.  
 
-- This solution only deploys to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.  
+- This solution is deployed only to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.  
     
     > [!NOTE]
     > The runbooks managing the VM schedule can target VMs in any region.  
 
-- To send email notifications when the start and stop VM runbooks complete, while onboarding from Azure Marketplace, select **Yes** to deploy SendGrid. 
+- To send email notifications when the start and stop VM runbooks finish, while onboarding from Azure Marketplace, select **Yes** to deploy SendGrid. 
 
     > [!IMPORTANT]
     > SendGrid is a third-party service. For support, contact [SendGrid](https://sendgrid.com/contact/).  
@@ -127,7 +127,7 @@ You should not enable all schedules, because this might create overlapping sched
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
 
 1. In the Azure portal, click **New**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
-2. In the Marketplace pane, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press **Enter**.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
+2. In the Marketplace pane, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
 3. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information and then click **Create**.  
 4. The **Add Solution** pane appears. You are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
 5.  On the **Add Solution** pane, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** pane, perform the following: 
@@ -138,7 +138,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Select a **Pricing tier**.  The solution offers two tiers: free and OMS paid.  The free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.  
 
         > [!NOTE]
-        > While the Per GB (Standalone) paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it  fails.  This will be addressed when this solution is officially released.<br>This solution only uses automation job minutes and log ingestion.  It does not add additional OMS nodes to your environment.  
+        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it  fails.  This will be addressed when this solution is officially released.<br>This solution only uses automation job minutes and log ingestion.  It does not add additional OMS nodes to your environment.  
 
 6. After providing the required information on the **OMS workspace** pane, click **Create**.  You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** pane when done.  
 7. On the **Add Solution** pane, select **Automation account**.  If you're creating a new OMS workspace, you need to also create a new Automation account to be associated with it.  Select **Create an Automation account**, and on the **Add Automation account** pane, provide the following: 
@@ -149,12 +149,12 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
     Otherwise, you can select an existing Automation Run As account.  Note that the account you select cannot already be linked to another OMS workspace. If it is already linked, you receive a message and need to select a different Automation Run As account or create a new one.<br><br> ![Automation Account Already Linked to OMS Workspace](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
 
 8. Finally, on the **Add Solution** pane, select **Configuration**. The **Parameters** pane appears.<br><br> ![Parameters pane for solution](media/automation-solution-vm-management/azure-portal-add-solution-02.png)<br><br>  Here, you're prompted to:  
-   - Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a comma (values are not case sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
+   - Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution.  You can enter more than one name and separate each by using a comma (values are not case sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
    - Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group.  You can enter more than one name and separate each by using a comma (values are not case sensitive).  Using a wildcard is supported.
    - Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups.  By default, the schedule is configured to the UTC time zone. Selecting a different region is not available.  To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modifying-the-startup-and-shutdown-schedule).
    - To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.  
 
-9. After you have configured the initial settings required for the solution, select **Create**.  After all settings are validated, the solution deploys to your subscription.  This process can take several seconds to complete, and you can track its progress under **Notifications** from the menu. 
+9. After you have configured the initial settings required for the solution, select **Create**.  After all settings are validated, the solution is deployed to your subscription.  This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu. 
 
 ## Collection frequency
 
@@ -162,11 +162,11 @@ Automation job log and job stream data is ingested into the Log Analytics reposi
 
 ## Using the solution
 
-When you add the VM management solution, the **StartStopVMView** tile is added to your dashboard in your Log Analytics workspace from the Azure portal.  This tile displays a count and a graphical representation of the runbook jobs for the solution that have started and completed successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+When you add the VM management solution, the **StartStopVMView** tile is added to your dashboard in your Log Analytics workspace from the Azure portal.  This tile displays a count and a graphical representation of the runbook jobs for the solution that have started and finished successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 In your Automation account, you can access and manage the solution by selecting the **Workspace** option. On the Log Analytics page, select **Solutions** from the left pane.  On the **Solutions** page, select the solution **Start-Stop-VM[workspace]** from the list.<br><br> ![Solutions list in Log Analytics](media/automation-solution-vm-management/azure-portal-select-solution-01.png)  
 
-Selecting the solution displays the **Start-Stop-VM[workspace]** solution pane. Here you can review important details such as the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the solution that have started and have completed successfully.<br><br> ![Automation Update Management solution page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)  
+Selecting the solution displays the **Start-Stop-VM[workspace]** solution pane. Here you can review important details such as the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the solution that have started and have finished successfully.<br><br> ![Automation Update Management solution page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)  
 
 From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the Log Analytics Advanced portal to search based on your search queries.  
 
@@ -293,8 +293,8 @@ The following table provides sample log searches for job records collected by th
 
 Query | Description|
 ----------|----------|
-Find jobs for runbook ScheduledStartStop_Parent that have completed successfully | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
-Find jobs for runbook SequencedStartStop_Parent that have completed successfully | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
+Find jobs for runbook ScheduledStartStop_Parent that have finished successfully | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
+Find jobs for runbook SequencedStartStop_Parent that have finished successfully | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## Removing the solution
 
@@ -315,7 +315,7 @@ The Automation account and Log Analytics workspace are not deleted as part of th
       
 ## Next steps
 
-- To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
+- To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 - To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
 - To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
 
