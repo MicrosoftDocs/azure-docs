@@ -3,7 +3,7 @@ documentType: LandingData
 title: Translator Text API Documentation
 metadata:
   title: Translator Text Documentation - Tutorials, API Reference
-  description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how write code that use the Translator service.
+  description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how write code that makes use of the Translator service.
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
