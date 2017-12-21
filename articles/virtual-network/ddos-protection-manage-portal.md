@@ -31,19 +31,19 @@ Learn how to enable and disable distributed denial of service (DDoS) protection,
 1. Log in to the Azure portal at http://portal.azure.com. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 3. Select **Networking**, and then select **Virtual Network**.
-4. Create a virtual network with your chosen settings. For more information about creating virtual networks, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md). Under *DDoS protection*, click **Enabled**, and then click **Create**.
+4. Create a virtual network with your chosen settings. For more information about creating virtual networks, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md). Under **DDoS protection**, click **Enabled**, and then click **Create**. If you don't see **DDoS protection**, a likely cause is that your subscription is not registered for the feature. You must complete [registration](http://aka.ms/ddosprotection), and receive notification that your subscription has been enabled for the feature, before **DDoS protection** appears.
 
     ![Create virtual network](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > When selecting a region, choose a supported region from the list in [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
+    > When selecting a region, choose a supported region from the list in [Azure DDoS Protection Standard overview](ddos-protection-overview.md). If you do not select a supported region, creation of the virtual network fails.
 
     A warning states that enabling DDoS Protection incurs charges. No charges for DDoS Protection are incurred during preview. Charges will incur at general availability. You will receive 30 days notice, prior to the start of charges and general availability.
 
 ## Enable DDoS Protection Standard - Existing virtual network 
 
 1. Click **Virtual networks** in the Azure portal menu, and then select your virtual network.
-2. Click **DDoS Protection**, click **Enabled** on the *DDoS Protection* screen, and then click **Save**. 
+2. Click **DDoS Protection**, click **Enabled** on the *DDoS Protection* screen, and then click **Save**. If you don't see **DDoS protection**, a likely cause is that your subscription is not registered for the feature. You must complete [registration](http://aka.ms/ddosprotection), and receive notification that your subscription has been enabled for the feature, before **DDoS protection** appears. 
 
     > [!WARNING]
     > The virtual network must exist in a supported region. For a list of supported regions, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
