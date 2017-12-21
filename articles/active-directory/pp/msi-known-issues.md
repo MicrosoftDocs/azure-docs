@@ -99,14 +99,14 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ## Known issues with User Assigned MSI *(Private Preview Feature)*
 
 1. The only way to remove all user assigned MSIs, is by enabling the system assigned MSI. 
-2. Provisioning of the VM extension to a VM might fail due to DNS look up failures. Please restart the VM, and try again. 
+2. Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
 3. Azure CLI: `Az resource show` and `Az resource list` will fail on a VM with a user assigned MSI. As a workaround, please use `az vm/vmss show`
 4. Azure Storage tutorial is only available in Central US EUAP, at the moment. 
-5. When a User Assigned MSI is granted access to a resource, the IAM blade for that resource will show "Unable to access data." As a workaround, please use the CLI to view/edit role assignments for that resource.
+5. When a User Assigned MSI is granted access to a resource, the IAM blade for that resource shows "Unable to access data." As a workaround, use the CLI to view/edit role assignments for that resource.
 6. Creating a user assigned MSI with an underscore in the name, is not supported.
-7. When adding a second user assigned identity, the clientID might not be avaialble to requests tokens for it. As a mitigation, please restart the MSI VM extension, with the following two bash commands:
+7. When adding a second user assigned identity, the clientID might not be available to requests tokens for it. As a mitigation, restart the MSI VM extension, with the following two bash commands:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 8. The VMAgent on Windows does not currently support, User Assigned MSI. 
-9. Assigning a role to an MSI to access a resource, currenlty doesn't require special permissions. 
-10. When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSi as enabled. To enable the system assigned MSI, please use an ARM template, CLI or an SDK.
+9. Assigning a role to an MSI to access a resource, currently doesn't require special permissions. 
+10. When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSi as enabled. To enable the system assigned MSI, please use an Resource Manager template, CLI or an SDK.
