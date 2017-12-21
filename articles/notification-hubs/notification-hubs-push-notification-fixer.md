@@ -76,26 +76,26 @@ Assuming the Notification Hub was configured correctly and any tags/tag expressi
 > 
 > 
 
-Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case we remove the faulting registration from our database and then retry notification delivery for the rest of the devices in that batch.
+Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS, which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case the faulting registration is removed from the database and then retry notification delivery for the rest of the devices in that batch.
 
 You can get error information for the failed delivery attempt against a registration using the Azure Notification Hubs REST APIs: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx)
-and [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). See the [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) for example code.
+and [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). See the [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) for sample code.
 
 ## PNS issues
-Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are pretty robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
+Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling, then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
 
 If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
 Source - [APNS guidance] & [GCM guidance]
 
-With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers which are passed as is to the respective PNS. 
+With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (for example, for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers that are passed as is to the respective PNS. 
 
 ## Self-diagnose tips
-Here we will examine the various avenues to diagnose and determine the root cause of any Notification Hub issues:
+Here the various avenues to diagnose and determine the root cause of any Notification Hub issues are examined:
 
 ### Verify credentials
 1. **PNS developer portal**
    
-    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc.) using our [Getting Started Tutorials].
+    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc.) using the [Getting Started Tutorials].
 2. **Azure portal**
    
     Go to the Access Policies tab to review and match the credentials with those obtained from the PNS developer portal. 
@@ -105,11 +105,11 @@ Here we will examine the various avenues to diagnose and determine the root caus
 ### Verify registrations
 1. **Visual Studio**
    
-    If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer". This is primarily useful for your dev/test environment. 
+    If you use Visual Studio for development, then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer." This is primarily useful for your dev/test environment. 
    
     ![][9]
    
-    You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration ID and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
+    You can view and manage all the registrations in your hub, nicely categorized for platform, native or template registration, any tags, PNS identifier, registration ID, and the expiration date. You can also edit a registration on the fly - which is useful if you want to edit any tags. 
    
     ![][8]
    
@@ -142,8 +142,8 @@ Here we will examine the various avenues to diagnose and determine the root caus
 ### Debug failed notifications/ Review notification outcome
 **EnableTestSend property**
 
-When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS. This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub. It doesn’t give an insight into what happened when NH eventually got to send the message to PNS. If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error e.g. the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
-To get an insight into the PNS errors, we have introduced a property called [EnableTestSend feature]. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs taking the example of the .NET SDK where it is available now and will be added to all client SDKs eventually. To use this with the REST call, simply append a querystring parameter called "test" at the end of your send call e.g. 
+When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS. This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub. It doesn’t give an insight into what happened when NH eventually got to send the message to PNS. If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error, for example, the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
+To get an insight into the PNS errors, a property called [EnableTestSend feature] has been introduced. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs, taking the example of the .NET SDK, where it is available now and eventually added to all client SDKs. To use this with the REST call, append a querystring parameter called "test" at the end of your send call e.g. 
 
     https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 
