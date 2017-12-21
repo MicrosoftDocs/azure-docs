@@ -24,10 +24,10 @@
 ### [Open ports to your VM](setup-endpoints.md)
 
 ## Manage workloads
-#### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
-#### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
-#### [Using load-balanced sets to clusterize MySQL](mysql-cluster.md)
-#### [Optimizing MySQL performance](optimize-mysql.md)
+### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
+### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
+### [Using load-balanced sets to clusterize MySQL](mysql-cluster.md)
+### [Optimizing MySQL performance](optimize-mysql.md)
 
 ## Run applications
 ### [Ruby on Rails web application](ruby-rails-web-app.md)
