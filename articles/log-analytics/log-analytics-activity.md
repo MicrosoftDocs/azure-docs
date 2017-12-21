@@ -1,5 +1,5 @@
 ---
-title: View Azure activity logs with Log Analytics | Microsoft Docs
+title: Collect and analyze Azure activity logs in Log Analytics | Microsoft Docs
 description: You can use the Azure Activity Logs solution to analyze and search the Azure activity log across all your Azure subscriptions.
 services: log-analytics
 documentationcenter: ''
