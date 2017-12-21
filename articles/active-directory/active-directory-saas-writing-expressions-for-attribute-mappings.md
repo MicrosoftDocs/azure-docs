@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### Append
@@ -147,6 +147,20 @@ Replaces values within a string. It works differently depending on the parameter
 | **replacementValue** |Optional |String |New value to replace old one with. |
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value, when source has no value. |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
+
+- - -
+### SingleAppRoleAssignment
+**Function:**<br> 
+SingleAppRoleAssignment([appRoleAssignments])
+
+**Description:**<br> 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. Note that the best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
 - - -
 ### StripSpaces
