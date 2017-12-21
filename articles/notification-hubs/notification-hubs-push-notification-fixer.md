@@ -151,27 +151,27 @@ To get an insight into the PNS errors, a property called [EnableTestSend feature
 
 Suppose you are using .NET SDK to send a native toast notification:
 
-    ```csharp
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
-    var result = await hub.SendWindowsNativeNotificationAsync(toast);
-    Console.WriteLine(result.State);
-    ```
+```csharp
+NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
+var result = await hub.SendWindowsNativeNotificationAsync(toast);
+Console.WriteLine(result.State);
+```
 
 `result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. 
 Now you can use the `EnableTestSend` boolean property while initializing the `NotificationHubClient` and can get detailed status about the PNS errors encountered while sending the notification. The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome. 
 
-    ```csharp
-    bool enableTestSend = true;
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
+```csharp
+bool enableTestSend = true;
+NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
 
-    var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
-    Console.WriteLine(outcome.State);
+var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
+Console.WriteLine(outcome.State);
 
-    foreach (RegistrationResult result in outcome.Results)
-    {
-        Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
-    }
-    ```
+foreach (RegistrationResult result in outcome.Results)
+{
+    Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
+}
+```
 
 *Sample Output*
 
