@@ -7,6 +7,7 @@ author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: a5986eac-4cf3-40bd-9b79-7c811806b880
 ms.service: virtual-machines-windows
