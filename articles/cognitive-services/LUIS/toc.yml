@@ -51,7 +51,7 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
-  - name: Understand synonyms with a phrase list
+  - name: Learn synonyms with a phrase list
     href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
