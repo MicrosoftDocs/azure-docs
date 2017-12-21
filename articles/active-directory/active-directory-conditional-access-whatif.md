@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/20/2017
+ms.date: 12/21/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -42,7 +42,7 @@ In the **conditional access what if tool**, you first need to configure the sett
 
 - The conditions under which access to the configures cloud apps is performed
      
-As a next step, you can initiate a simulation run that evaluates the impact of your settings. The configured settings populate a [NuGet package](https://docs.microsoft.com/nuget/what-is-nuget) Azure AD uses to perform a policy evaluation. Only policies that are enabled are part of an evaluation run.
+As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 
 
 When the evaluation has finished, the tool generates a report of the affected policies.
