@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# # Create and provision a simulated X.509 device using C# device SDK for IoT Hub Device Provisioning Service
+# Create and provision a simulated X.509 device using C# device SDK for IoT Hub Device Provisioning Service
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device-x509.md)
 > * [Java](quick-create-simulated-device-x509-java.md)
