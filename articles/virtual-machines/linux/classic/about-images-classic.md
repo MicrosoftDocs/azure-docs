@@ -3,8 +3,8 @@ title: About Linux VM images in Azure | Microsoft Docs
 description: Learn about how Linux images are used with virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
-ms.author: cynthn
+ms.author: iainfou
 
 ---
 # About images for Linux virtual machines

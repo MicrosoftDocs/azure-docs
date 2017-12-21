@@ -3,8 +3,8 @@ title: Using the Docker VM Extension for Linux on Azure
 description: Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
-ms.author: rasquill
+ms.author: iainfou
 
 ---
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)

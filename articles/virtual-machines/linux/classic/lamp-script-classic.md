@@ -1,8 +1,8 @@
 ---
 title: Use the CustomScript Extension on a Linux VM | Microsoft Docs
 description: Learn how to use the CustomScript extension to deploy applications on Linux Virtual Machines in Azure created using the classic deployment model.
-editor: tysonn
-manager: timlt
+editor: iainfoulds
+manager: jeconnoc
 documentationcenter: ''
 services: virtual-machines-linux
 author: gbowerman
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: guybo
+ms.author: iainfou
 
 ---
 # Deploy a LAMP app using the Azure CustomScript Extension for Linux

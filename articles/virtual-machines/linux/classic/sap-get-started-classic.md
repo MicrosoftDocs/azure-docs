@@ -3,8 +3,8 @@ title: Using SAP on Linux virtual machines | Microsoft Docs
 description: Learn about using SAP on Linux virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
-author: MSSedusch
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: campaign-page
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
-ms.author: sedusch
+ms.author: iainfou
 
 ---
 # Using SAP on Linux virtual machines in Azure

@@ -3,8 +3,8 @@ title: List of Oracle VM images in Azure | Microsoft Docs
 description: Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
-manager: timlt
+author: iainfou
+manager: jeconnoc
 editor: ''
 tags: azure-service-management, azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
-ms.author: rclaus
+ms.author: iainfoulds
 ms.custom: H1Hack27Feb2017
 
 ---
