@@ -15,22 +15,22 @@
       items:
         - name: C
           href: quick-create-simulated-device.md
-#        - name: Java
-#          href: quick-create-simulated-device-tpm-java.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
 #        - name: C#
 #          href: quick-create-simulated-device-tpm-csharp.md
-#        - name: Python
-#          href: quick-create-simulated-device-tpm-python.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
     - name: X.509 
       items:
         - name: C
           href: quick-create-simulated-device-x509.md
-#        - name: Java
-#          href: quick-create-simulated-device-x509-java.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
 #        - name: C#
 #          href: quick-create-simulated-device-x509-csharp.md
-#        - name: Python
-#          href: quick-create-simulated-device-x509-python.md
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
   - name: Enroll device
     items:
     - name: TPM 
