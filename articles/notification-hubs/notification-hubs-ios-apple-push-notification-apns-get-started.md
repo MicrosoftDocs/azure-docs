@@ -109,20 +109,20 @@ You have now configured your notification hub with APNS, and you have the connec
 ```
 7. Open your **AppDelegate.h** file add the following import directives:
 
-```obj-c
-    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-    #import <UserNotifications/UserNotifications.h> 
-    #import "HubInfo.h"
-```
+    ```obj-c
+        #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+        #import <UserNotifications/UserNotifications.h> 
+        #import "HubInfo.h"
+    ```
 8. In your **AppDelegate.m file**, add the following code in the **didFinishLaunchingWithOptions** method based on your version of iOS. This code registers your device handle with APNs:
 
-```obj-c
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+    ```obj-c
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+            UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
    
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-```
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    ```
    
 9. In the same file, add the following methods:
 
