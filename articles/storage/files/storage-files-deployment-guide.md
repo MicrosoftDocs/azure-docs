@@ -32,7 +32,7 @@ This article assumes that you have already completed the following steps:
 You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure File share. This section will show you how to move data into an Azure File share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
 ### Azure File Sync (Preview)
-Azure File Sync (Preview) allows you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+Azure File Sync (Preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure File share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 Azure File Sync may be used to migrate data into an Azure File share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to transfer data into Azure File share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
