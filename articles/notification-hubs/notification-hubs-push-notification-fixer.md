@@ -24,12 +24,12 @@ One of the most common questions we hear from Azure Notification Hubs customers 
 First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
 ![][0]
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batch of registrations, to the device platform specific **Push Notification Service (PNS)** - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Classic Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - *client*, *application backend*, *Azure Notification Hubs (NH)* and *Push Notification Services (PNS)* and any of these may cause notifications getting dropped. More details on this architecture is available on [Notification Hubs Overview].
+In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Classic Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - *client*, *application backend*, *Azure Notification Hubs (NH)* and *Push Notification Services (PNS)* and any of these may cause notifications getting dropped. More details on this architecture are available on [Notification Hubs Overview].
 
 Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
 
 ## Azure Notifications Hub mis-configuration
-Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc) and then registering their application where they get credentials which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
+Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc.) and then registering their application where they get credentials which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
 
 1. **General**
    
@@ -95,7 +95,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 ### Verify credentials
 1. **PNS developer portal**
    
-    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].
+    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc.) using our [Getting Started Tutorials].
 2. **Azure portal**
    
     Go to the Access Policies tab to review and match the credentials with those obtained from the PNS developer portal. 
@@ -109,7 +109,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
    
     ![][9]
    
-    You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
+    You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration ID and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
    
     ![][8]
    
@@ -122,7 +122,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
     Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
 
 ### Verify message notifications
-1. **Azure Portal**
+1. **Azure portal**
    
     You can go to the "Test Send" tab under **Support + Troubleshooting** to send a test notification to your clients without needing any service backend up and running. 
    
@@ -184,7 +184,7 @@ This message indicates either invalid credentials are configured in the notifica
 > 
 
 ### Review telemetry
-1. **Use Azure Portal**
+1. **Use Azure portal**
    
     The portal enables you to get a quick overview of all the activity on your Notification Hub. 
    
@@ -208,7 +208,7 @@ More details here -
 * [Telemetry Access via APIs sample] 
 
 > [!NOTE]
-> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure Classic Portal.  
+> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc. are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure Classic Portal.  
 > 
 > 
 
