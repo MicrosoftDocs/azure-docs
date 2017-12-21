@@ -29,7 +29,7 @@ This document shows how you can easily and consistently test network latency and
 >
 
 ## Network Components
-Before digging into troubleshooting, let's discuss some common terms and components. This will ensure we're thinking about each component in the end-to-end chain that enables connectivity in Azure.
+Before digging into troubleshooting, let's discuss some common terms and components. This discussion ensures we're thinking about each component in the end-to-end chain that enables connectivity in Azure.
 [![1]][1]
 
 At the highest level, I describe three major network routing domains;
@@ -45,7 +45,7 @@ Looking at the diagram from right to left, let's discuss briefly each component:
  - **VNet Subnet** - The NIC is assigned to a specific subnet, ensure you know which one and the rules associated with that subnet.
  - **Subnet NSG** - Just like the NIC, NSGs can be applied at the subnet as well. Ensure the NSG rule-set is appropriate for the traffic you're trying to pass. (for traffic inbound to the NIC the subnet NSG applies first, then the NIC NSG, conversely for traffic outbound from the VM the NIC NSG applies first then the Subnet NSG comes into play).
  - **Subnet UDR** - User Defined Routes can direct traffic to an intermediate hop (like a firewall or load-balancer). Ensure you know if there is a UDR in place for your traffic and if so where it goes and what that next hop will do to your traffic. (for example, a firewall could pass some traffic and deny other traffic between the same two hosts).
- - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what effect they have on your traffic.
+ - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what effects they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
  - **Route Filter** (Not shown) - A route filter only applies to Microsoft Peering on ExpressRoute, but is critical to check if you're not seeing the routes you expect on Microsoft Peering. 
 
@@ -151,7 +151,7 @@ With Azure, once you isolate the issue in as much detail as you're able, it's ti
 ## References
 ### Latency/Bandwidth Expectations
 >[!TIP]
-> Geographic latency (miles or kilometers) between the end points you're testing is by far the largest component of latency. While there is equipment latency (physical and virtual components, number of hops, etc.) involved, geography has proven to be the largest component of overall latency when dealing with WAN connections. It's also important to note that the distance is the distance of the fiber run not the straight line or road map distance. This distance is incredibly hard to get with any accuracy. As a result, I generally use a city distance calculator on the internet and know that this method is a grossly inaccurate measure, but is enough to set a general expectation.
+> Geographic latency (miles or kilometers) between the end points you're testing is by far the largest component of latency. While there is equipment latency (physical and virtual components, number of hops, etc.) involved, geography has proven to be the largest component of overall latency when dealing with WAN connections. It's also important to note that the distance is the distance of the fiber run not the straight-line or road map distance. This distance is incredibly hard to get with any accuracy. As a result, I generally use a city distance calculator on the internet and know that this method is a grossly inaccurate measure, but is enough to set a general expectation.
 >
 >
 
@@ -197,7 +197,7 @@ Test setup:
 | Seattle | Brazil South     | 10,930 km | 189 ms |   8.2 Mbits/sec* |   699 Mbits/sec | 22
 | Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
 
-\* The latency to Brazil is a good example where the straight line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160ms, but is actually 189ms. This could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a generally straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
+\* The latency to Brazil is a good example where the straight line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160 ms, but is actually 189 ms. This difference against my expectation could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
 ## Next Steps
 1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
