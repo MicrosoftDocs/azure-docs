@@ -126,7 +126,7 @@ The endpoint response is:
 | trained| want | 0.973 | 0.846 |
 | untrained| require | 0.840 | - |
 
-The untrained utterance score is lower than the labeled utterance because LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__. The grammatical structure of the two utterances are not different. LUIS doesn't know the two words, in this situation, are the same so its score is lower. 
+The untrained utterance score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS does not know the utterances have the same thing. 
 
 Since a word can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
 
