@@ -107,7 +107,6 @@ You have now configured your notification hub with APNS, and you have the connec
    
     #endif /* HubInfo_h */
 ```
-
 7. Open your **AppDelegate.h** file add the following import directives:
 
 ```obj-c
@@ -115,7 +114,6 @@ You have now configured your notification hub with APNS, and you have the connec
     #import <UserNotifications/UserNotifications.h> 
     #import "HubInfo.h"
 ```
-
 8. In your **AppDelegate.m file**, add the following code in the **didFinishLaunchingWithOptions** method based on your version of iOS. This code registers your device handle with APNs:
 
 ```obj-c
