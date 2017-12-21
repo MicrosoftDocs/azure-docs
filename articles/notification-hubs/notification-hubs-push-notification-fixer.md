@@ -24,7 +24,7 @@ One of the most common questions heard from Azure Notification Hubs customers is
 First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
 ![][0]
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)* and any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
+In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)**. The notification hub does some processing on all the registrations, which takes into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)* and any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
 
 Failure to deliver notifications may happen during the initial test/staging phase, which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. The section below looks at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
 
@@ -151,13 +151,16 @@ To get an insight into the PNS errors, a property called [EnableTestSend feature
 
 Suppose you are using .NET SDK to send a native toast notification:
 
+    ///csharp
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
+    ///
 
 `result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. 
 Now you can use the `EnableTestSend` boolean property while initializing the `NotificationHubClient` and can get detailed status about the PNS errors encountered while sending the notification. The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome. 
 
+    ///csharp
     bool enableTestSend = true;
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
 
@@ -168,7 +171,8 @@ Now you can use the `EnableTestSend` boolean property while initializing the `No
     {
         Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
     }
-
+    ///
+    
 *Sample Output*
 
     DetailedStateAvailable
