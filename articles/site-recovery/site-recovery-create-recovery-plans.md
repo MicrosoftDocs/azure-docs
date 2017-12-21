@@ -36,17 +36,17 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 1. Click **Recovery Plans** > **Create Recovery Plan**.
    Specify a name for the recovery plan, and a source and target. The source location must have virtual machines that are enabled for failover and recovery. Choose a source and target based on the virtual machines that you want to be part of the recovery plan. 
 
-|Scenario                   |Source               |Target           |
-|---------------------------|---------------------|-----------------|
-|Azure to Azure             |Azure region         |Azure Region     |
-|Vmware to Azure            |Configuration server |Azure            |
-|VMM to Azure               |VMM friendly name    |Azure            |
-|Hyper-v Site to Azure      |Hyper-v site name    |Azure            |
-|Physical machines to Azure |Configuration server |Azure            |
-|VMM to VMM                 |VMM friendly name    |VMM friendly name|
+   |Scenario                   |Source               |Target           |
+   |---------------------------|---------------------|-----------------|
+   |Azure to Azure             |Azure region         |Azure Region     |
+   |Vmware to Azure            |Configuration server |Azure            |
+   |VMM to Azure               |VMM friendly name    |Azure            |
+   |Hyper-v Site to Azure      |Hyper-v site name    |Azure            |
+   |Physical machines to Azure |Configuration server |Azure            |
+   |VMM to VMM                 |VMM friendly name    |VMM friendly name|
 
-    > [!NOTE]
-    > A recovery plan can contain virtual machines that have the same source and target. Virtual machines of VMware and VMM cannot be part of the same recovery plan. VMware virtual machines and physical machines can however be added to the same plan as the source for both of them is a configuration server.
+   > [!NOTE]
+   > A recovery plan can contain virtual machines that have the same source and target. Virtual machines of VMware and VMM cannot be part of the same recovery plan. VMware virtual machines and physical machines can however be added to the same plan as the source for both of them is a configuration server.
 
 2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan. Only those virtual machines that were protected on Source (as selected in the recovery plan) and are protected to the Target (as selected in the recovery plan) will be allowed for selection.
 
