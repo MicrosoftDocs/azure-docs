@@ -7,6 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: 17d7ffee-a58e-4290-9de1-64c3cf1ddc05
 ms.service: virtual-machines-linux

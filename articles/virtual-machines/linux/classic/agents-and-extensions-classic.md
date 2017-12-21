@@ -8,6 +8,7 @@ author: squillace
 manager: timlt
 editor: ''
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: b41e3b21-9132-4d8d-804d-34920b2d0942
 ms.service: virtual-machines-linux
