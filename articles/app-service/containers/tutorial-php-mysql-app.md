@@ -159,7 +159,7 @@ Create a server in Azure Database for MySQL (Preview) with the [az mysql server 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password $tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -197,7 +197,7 @@ In the terminal window, connect to the MySQL server in Azure. Use the value you 
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database.
+When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database server.
 
 ### Create a production database
 
@@ -238,7 +238,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
