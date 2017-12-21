@@ -77,10 +77,10 @@ The endpoint responds with the following JSON:
 |--|--|--|
 |trained (want) | 0.973 | 0.846 |
 
-You expect the intent score of 0.973 and the entity detection of 0.846 to be high because the app was trained with this utterance. You can see this utterance in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
+The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. This utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
 
 ## Score an untrained utterance
-Use the published endpoint to query an utterance that the app doesn't know about:
+Use the published endpoint to query an utterance the app doesn't know about:
 
 `I require a computer replacement`
 
@@ -126,12 +126,14 @@ The endpoint response is:
 }
 ```
 
-|| intent score | entity score |
-|--|--|--|
-| trained (want) | 0.973 | 0.846 |
-| untrained (require) | 0.840 | - |
+|| word | intent score | entity score |
+|--|--|--|--|
+| trained| want | 0.973 | 0.846 |
+| untrained| require | 0.840 | - |
 
-The untrained utterance score is lower than the labeled utterance because LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__ but doesn't know about the semantic meaning of the word yet. Since words can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
+The untrained utterance score is lower than the labeled utterance because LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__. The grammatical structure of the two utterances are not different. LUIS doesn't know the two words, in this situation, are the same so its score is lower. 
+
+Since a word can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
 
 ## Add phrase list 
 1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
