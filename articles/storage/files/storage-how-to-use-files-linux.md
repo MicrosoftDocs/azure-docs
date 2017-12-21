@@ -21,7 +21,7 @@ ms.author: renash
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure file share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 > [!NOTE]  
-> In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0. SMB 3.0 encryption support was introduced in Linux kernel version 4.11.
+> In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0.
 
 ## Prerequisites for mounting an Azure file share with Linux and the cifs-utils package
 * **Pick a Linux distribution that can have the cifs-utils package installed.**  
@@ -58,13 +58,14 @@ ms.author: renash
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* <a id="check-kernel-version"></a>**Understand SMB client requirements.**  
+* <a id="smb-client-reqs"></a>**Understand SMB client requirements.**  
     Azure Files can be mounted either via SMB 2.1 and SMB 3.0. To protect your data, Azure Files requires clients mounting outside of the Azure region where the Azure file share is hosted to be using SMB 3.0 with encryption. Additionally, if *secure transfer required* is enabled for a storage account, all connections (even connections originating within the same Azure region as the Azure file share) will require SMB 3.0 with encryption. 
     
-    SMB 3.0 encryption support was introduced in Linux kernel version 4.11. At the time of this documents publication, the following distributions from the Azure gallery were using Linux kernel version 4.11 or later:
+    SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support this feature:
 
-    - Ubuntu Server 16.04
-    - Debian 8 and 9 (with backports kernel)
+    - Ubuntu Server 16.04+
+    - openSUSE 42.3+
+    - SUSE Linux Enterprise Server 12 SP3+
     
     If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 
@@ -89,7 +90,7 @@ ms.author: renash
     mkdir mymountpoint
     ```
 
-3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11 or higher, we recommend setting `<smb-version>` to `2.1`. 
+3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11+ or not listed explicitly in [Understand SMB client requirements](#smb-client-reqs) we recommend setting `<smb-version>` to `2.1`. 
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -107,7 +108,7 @@ ms.author: renash
     sudo mkdir /mymountpoint
     ```
 
-3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11 or higher, we recommend setting `<smb-version>` to `2.1`. 
+3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11+ or not listed explicitly in [Understand SMB client requirements](#smb-client-reqs) we recommend setting `<smb-version>` to `2.1`. 
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
