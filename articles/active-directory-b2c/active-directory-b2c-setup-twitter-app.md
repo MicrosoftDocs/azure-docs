@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with Twitter accounts in y
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 579a6841-9329-45b8-a351-da4315a6634e

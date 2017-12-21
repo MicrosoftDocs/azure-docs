@@ -24,13 +24,13 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## Create a container
 
-Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
 
 Set the container name, then create the container using [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), setting the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
 
@@ -45,7 +45,7 @@ Blob storage supports block blobs, append blobs, and page blobs. VHD files used 
 
 To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
-The following examples upload Image001.jpg and Image002.png from the D:\\_TestImages folder on the local disk to the container you just created.
+The following examples upload Image001.jpg and Image002.png from the D:\\_TestImages folder on the local disk to the container you created.
 
 ```powershell
 # upload a file
@@ -115,7 +115,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quick start, you learned how to transfer files between a local disk and Azure Blob storage. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage. To learn more about working with Blob storage, continue to the Blob storage How-to.
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-how-to-use-blobs-powershell.md)

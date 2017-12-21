@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Service principals with Azure Container Service (AKS)
 
-An AKS cluster requires an [Azure Active Directory service principal](../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage resources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+An AKS cluster requires an [Azure Active Directory service principal][aad-service-principal] to interact with Azure APIs. The service principal is needed to dynamically manage resources such as [user-defined routes][user-defined-routes] and the [Layer 4 Azure Load Balancer][azure-load-balancer-overview].
 
 This article shows different options for setting up a service principal for your Kubernetes cluster in AKS.
 
@@ -23,7 +23,7 @@ This article shows different options for setting up a service principal for your
 
 To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for the Kubernetes cluster.
 
-You also need the Azure CLI version 2.0.21 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+You also need the Azure CLI version 2.0.21 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create SP with AKS cluster
 
@@ -41,7 +41,7 @@ An existing Azure AD service principal can be used or pre-created for use with a
 
 ## Pre-create a new SP
 
-To create the service principal with the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command.
+To create the service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -80,12 +80,21 @@ When working with AKS and Azure AD service principals, keep the following in min
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
-* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
-* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not deleted. You can use `az ad sp delete --id $clientID` to delete it.
+* When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry][acr-intro] created in the same subscription.
+* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. You can use `az ad sp delete --id $clientID` to delete it.
 
 ## Next steps
 
 For more information about Azure Active Directory service principals, see the Azure AD applications documentation.
 
 > [!div class="nextstepaction"]
-> [Application and service principal objects](../active-directory/develop/active-directory-application-objects.md)
+> [Application and service principal objects][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

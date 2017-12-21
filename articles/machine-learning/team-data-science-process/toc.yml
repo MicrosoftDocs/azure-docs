@@ -47,6 +47,8 @@
   - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
+    - name: Sentiment classification
+      href: predict-twitter-sentiment.md
     - name: US income classification
       href: ../preview/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
