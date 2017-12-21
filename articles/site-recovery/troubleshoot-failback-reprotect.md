@@ -31,20 +31,20 @@ This happens when
 
 To resolve this issue
 1. You need to ensure that the network of the Azure virtual machine is configured such that the virtual machine can communicate with the on-premises configuration server. To do this, either set up a Site to Site VPN back to your on-premises datacenter or configure an ExpressRoute connection with private peering on the virtual network of the Azure virtual machine. 
-2. If you already have a network configured such that the Azure virtual machine can communicate with the on-premises configuration server, then log into the virtual machine and check the 'InMage Scout Application Service'. If you observe that the InMage Scout Application Service is not running then start the service manually and ensure that the service start type is set to Automatic.
+2. If you already have a network configured such that the Azure virtual machine can communicate with the on-premises configuration server, then log into the virtual machine and check the 'InMage Scout Application Service'. If you observe that the InMage Scout Application Service is not running, then start the service manually and ensure that the service start type is set to Automatic.
 
 ## Error code 78052
 Reprotect fails with the error message: *Protection couldn't be completed for the virtual machine.*
 
 This can happen due to two reasons
-1. The virtual machine you are reprotecting is a Windows Server 2016. Curently this operating system is not supported for failback, but will be supported very soon.
+1. The virtual machine you are reprotecting is a Windows Server 2016. Currently this operating system is not supported for failback, but will be supported soon.
 2. There already exists a virtual machine with the same name on the Master target server you are failing back to.
 
 To resolve this issue you can select a different master target server on a different host, so that the reprotect will create the machine on a different host, where the names do not collide. You can also vMotion the master target to a different host where the name collision will not happen. If the existing virtual machine is a stray machine, you can just rename it so that the new virtual machine can get created on the same ESXi host.
 
 ## Error code 78093
 
-*The VM is not running, in a hung state or not accessible.*
+*The VM is not running, in a hung state, or not accessible.*
 
 To reprotect a failed over virtual machine back to on-premises, you need the Azure virtual machine running. This is so that the mobility service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or in not running (hung state or shutdown), then the configuration server cannot reach the mobility service in the virtual machine to begin the reprotect. You can restart the virtual machine so that it can start communicating back on-premises. Restart the reprotect job after starting the Azure virtual machine
 

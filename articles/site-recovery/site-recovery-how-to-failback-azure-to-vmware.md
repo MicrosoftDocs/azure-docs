@@ -21,7 +21,7 @@ ms.author: ruturajd
 
 This article describes how to fail back virtual machines from Azure Virtual Machines to on-premises VMware environment. Follow the instructions in this article to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using the [Failover in Site Recovery](site-recovery-failover.md)tutorial.
 
-# Prerequsites
+# Prerequisites
 1. Ensure that you have read the details about the [different types of failback](concepts-types-of-failback.md) and corresponding caveats.
 
 > [!WARNING]
@@ -54,11 +54,11 @@ For a quick overview, watch the following video about how to fail back to an on-
 
 ## Prerequisites
 
-- Make sure that the vCenter is in a connected state before you do a failback. Otherwise, disconnecting disks and attaching them back to the virtual machine will fail.
+- Make sure that the vCenter is in a connected state before you do a failback. Otherwise, disconnecting disks and attaching them back to the virtual machine fails.
 
 - During failover to Azure, the on-premises site may not be accessible and hence the configuration server may be either unavailable or shutdown. During reprotect and failback, the on-premises configuration server should be running and in a connected OK state. 
 
-- During failback, the virtual machine must exist in the configuration server database, or failback won't succeed. Therefor, ensure that you take regularly scheduled backups of your server. If there was a disaster, you will need to restore the server with the original IP address, for failback to work.
+- During failback, the virtual machine must exist in the configuration server database, or failback won't succeed. Therefore, ensure that you take regularly scheduled backups of your server. If there was a disaster, you need to restore the server with the original IP address, for failback to work.
 
 - The master target server should not have any snapshots before triggering reprotect/failback.
 
@@ -77,19 +77,19 @@ For a quick overview, watch the following video about how to fail back to an on-
 
 During failback, you have two options to fail back the virtual machine/recovery plan.
 
-- If you select the latest processed point in time, all virtual machines will be failed over to their latest available point in time. In case there is a replication group within the recovery plan, then each virtual machine of the replication group will fail over to its independent latest point in time.
+- If you select the latest processed point in time, all virtual machines will be failed over to their latest available point in time. In case, there is a replication group within the recovery plan, then each virtual machine of the replication group will fail over to its independent latest point in time.
 
     You cannot fail back a virtual machine until it has at least one recovery point. You cannot fail back a recovery plan until all its virtual machines have at least one recovery point.
 
 > [!NOTE]
 > A latest recovery point is a crash-consistent recovery point.
 
-- If you select the application consistent recovery point, a single virtual machine failback will recover to its latest available application-consistent recovery point. In the case of a recovery plan with a replication group, each replication group will recover to its common available recovery point.
-Note that application-consistent recovery points can be behind in time, and there might be loss in data.
+- If you select the application consistent recovery point, a single virtual machine failback recovers to its latest available application-consistent recovery point. In the case of a recovery plan with a replication group, each replication group recovers to its common available recovery point.
+Application-consistent recovery points can be behind in time, and there might be loss in data.
 
 ## What happens to VMware tools post failback?
 
-In case of a Windows  virtual machines, ASR disables the VMware tools during failover. During failback of the Windows virtual machine, the VMware tools are re-enabled. 
+In case of a Windows  virtual machine, Azure Site Recovery disables the VMware tools during failover. During failback of the Windows virtual machine, the VMware tools are re-enabled. 
 
 
 ## Reprotect from on-premises to Azure
