@@ -3,8 +3,8 @@ title: Using SAP on Windows virtual machines | Microsoft Docs
 description: Lear about using SAP on Windows virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: MSSedusch
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: campaign-page
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/04/2016
-ms.author: sedusch
+ms.author: iainfou
 
 ---
 # Using SAP on Windows virtual machines in Azure

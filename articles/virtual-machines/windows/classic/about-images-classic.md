@@ -3,8 +3,8 @@ title: About images for Windows virtual machines | Microsoft Docs
 description: Learn about how images are used with Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cynthn
+ms.author: iainfou
 
 ---
 # About images for Windows virtual machines

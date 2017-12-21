@@ -3,8 +3,8 @@ title: Inject data into Windows VMs on Azure | Microsoft Docs
 description: This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux.
 services: virtual-machines-windows
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
-ms.author: rasquill
+ms.author: iainfou
 
 ---
 # Injecting custom data into an Azure virtual machine

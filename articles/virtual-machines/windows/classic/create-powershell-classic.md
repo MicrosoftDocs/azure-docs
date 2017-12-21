@@ -3,8 +3,8 @@ title: Create a Windows VM with PowerShell | Microsoft Docs
 description: Create Windows virtual machines using Azure PowerShell and the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: cynthn
+ms.author: iainfou
 
 ---
 # Create a Windows virtual machine with PowerShell and the classic deployment model

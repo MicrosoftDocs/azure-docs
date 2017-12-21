@@ -4,7 +4,7 @@ description: Learn how to install MongoDB on an Azure VM created with the classi
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

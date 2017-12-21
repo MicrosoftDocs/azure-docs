@@ -3,8 +3,8 @@ title: Create a Windows virtual machine for a web application| Microsoft Docs
 description: Creating a VM for a web project using Visual Studio and Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: kraigb
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
-ms.author: kraigb
+ms.author: iainfou
 
 ---
 # Creating a virtual machine for a web application with Visual Studio
