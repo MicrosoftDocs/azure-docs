@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances tutorial - Prepare Azure Container Registry
-description: Azure Container Instances tutorial - Prepare Azure Container Registry
+description: Azure Container Instances tutorial part 2 of 3 - Prepare Azure Container Registry
 services: container-instances
 author: neilpeterson
 manager: timlt

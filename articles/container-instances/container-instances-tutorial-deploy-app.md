@@ -1,13 +1,13 @@
 ---
 title: Azure Container Instances tutorial - Deploy app
-description: Azure Container Instances tutorial - Deploy app
+description: Azure Container Instances tutorial part 3 of 3 - Deploy application
 services: container-instances
 author: seanmck
 manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/22/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ This is the last of a three-part tutorial. In previous sections, [a container im
 
 This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
 Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
 
@@ -48,13 +48,13 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands.
 
 ```azurecli
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80 -g myResourceGroup
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
 ```
 
 Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
 Repeat the `az container show` command until the state changes from *Pending* to *Running*, which should take under a minute. When the container is *Running*, proceed to the next step.
@@ -64,7 +64,7 @@ Repeat the `az container show` command until the state changes from *Pending* to
 Once the deployment succeeds, display the container's public IP address with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```bash
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
 ```
 
 Example output: `"13.88.176.27"`
@@ -76,7 +76,7 @@ To see the running application, navigate to the public IP address in your favori
 You can also view the log output of the container:
 
 ```azurecli
-az container logs --name aci-tutorial-app -g myResourceGroup
+az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
 Output:
@@ -104,8 +104,18 @@ In this tutorial, you completed the process of deploying your containers to Azur
 > * Viewing the application in the browser
 > * Viewing the container logs
 
-<!-- LINKS -->
-[prepare-app]: ./container-instances-tutorial-prepare-app.md
-
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[prepare-app]: ./container-instances-tutorial-prepare-app.md
