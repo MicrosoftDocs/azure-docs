@@ -79,13 +79,6 @@ The following sample commands show how to create a new automation credential. A 
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
-### To create a new credential asset with the Azure classic portal
-1. From your automation account, click **Assets** at the top of the window.
-2. At the bottom of the window, click **Add Setting**.
-3. Click **Add Credential**.
-4. In the **Credential Type** dropdown, select **PowerShell Credential**.
-5. Complete the wizard and click the checkbox to save the new credential.
-
 ## Using a PowerShell credential
 You retrieve a credential asset in a runbook or DSC configuration with the **Get-AutomationPSCredential** activity. This returns a [PSCredential object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) that you can use with an activity or cmdlet that requires a PSCredential parameter. You can also retrieve the properties of the credential object to use individually. The object has a property for the username and the secure password, or you can use the **GetNetworkCredential** method to return a [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object that will provide an unsecured version of the password.
 

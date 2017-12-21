@@ -1,6 +1,6 @@
 ---
 title: Create Azure AD User Account | Microsoft Docs
-description: This article describes how to create an Azure AD User account credential for runbooks in Azure Automation to authenticate in Azure and classic Azure.
+description: This article describes how to create an Azure AD User account credential for runbooks in Azure Automation to authenticate in Azure.
 services: automation
 documentationcenter: ''
 author: georgewallace
@@ -19,49 +19,23 @@ ms.author: magoedte
 
 ---
 # Authenticate Runbooks with Azure classic deployment and Resource Manager
-This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure classic deployment model or Azure Resource Manager resources.  While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is using an Azure Run As account.       
+This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure classic deployment model or Azure Resource Manager resources.  While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is to use an Azure Run As account.       
 
 ## Create a new Azure Active Directory user
-1. Log in to the Azure classic portal as a service administrator for the Azure subscription you want to manage.
-2. Select **Active Directory**, and then select the name of your organization directory.
-3. Select the **Users** tab, and then, in the command area, select **Add User**.
-4. On the **Tell us about this user** page, under **Type of user**, select **New user in your organization**.
-5. Enter a user name.  
-6. Select the directory name that is associated with your Azure subscription on the Active Directory page.
-7. On the **user profile** page, provide a first and last name, a user-friendly name, and User from the **Roles** list.  Do not **Enable Multi-Factor Authentication**.
-8. Note the user’s full name and temporary password.
-9. Select **Settings > Administrators > Add**.
-10. Type the full user name of the user that you created.
-11. Select the subscription that you want the user to manage.
-12. Log out of Azure and then log back in with the account you just created. You are prompted to change the user’s password.
-
-## Create an Automation account in Azure classic portal
-In this section, you perform the following steps to create an Azure Automation account in the Azure portal for use with your runbooks managing resources in Azure classic deployment.  
-
-> [!NOTE]
-> Automation accounts created with the Azure classic portal can be managed by both the Azure Classic and Azure portal and either set of cmdlets. Once the account is created, it makes no difference how you create and manage resources within the account. If you are planning to continue to use the Azure classic portal, then you should use it instead of the Azure portal to create any Automation accounts.
-> 
-> 
-
-1. Log in to the Azure classic portal as a service administrator for the Azure subscription you want to manage.
-2. Select **Automation**.
-3. On the **Automation** page, select **Create an Automation Account**.
-4. In the **Create an Automation Account** box, type in a name for your new Automation account and select a **Region** from the drop-down list.  
-5. Click **OK** to accept your settings and create the account.
-6. After it is created it will be listed on the **Automation** page.
-7. Click on the account and it will bring you to the Dashboard page.  
-8. On the Automation Dashboard page, select **Assets**.
-9. On the **Assets** page, select **Add Settings** located at the bottom of the page.
-10. On the **Add Settings** page, select **Add Credential**.
-11. On the **Define Credential** page, select **Windows PowerShell Credential** from the **Credential Type** drop-down list and provide a name for the credential.
-12. On the following **Define Credential** page type in the username of the AD user account created earlier in the **User Name** field and the password in the **Password** and **Confirm Password** fields. Click **OK** to save your changes.
+1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
+2. Select **Azure Active Directory** > **Users and groups** > **All users** > **New user**.
+3. Enter details for the user, like **Name** and **User name**.  
+4. Note the user’s full name and temporary password.
+5. Select **Directory role**.
+6. Assign an admin role.
+7. Log out of Azure and then log back in with the account you just created. You are prompted to change the user’s password.
 
 ## Create an Automation account in the Azure portal
 In this section, perform the following steps to create an Azure Automation account in the Azure portal for use with your runbooks managing resources in Azure Resource Manager mode.  
 
 1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Automation Accounts**.
-3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](media/automation-create-aduser-account/add-automation-acct-properties.png)
+3. Select **Add**.<br><br>![Add Automation Account](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 6. Select the value **Yes** for the **Create Azure Run As account** option, and click the **Create** button.  
