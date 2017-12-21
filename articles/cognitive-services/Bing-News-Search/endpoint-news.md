@@ -1,5 +1,5 @@
 ---
-title: News search endpoints | Microsoft Docs
+title: Bing News search endpoints | Microsoft Docs
 description: Summary of the News search API endpoint.
 services: cognitive-services
 author: mikedodaro
