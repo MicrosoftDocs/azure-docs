@@ -1,5 +1,5 @@
 ---
-title: Create recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
+title: Create and customize recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
 description: Describes how to create and customize recovery plans in Azure Site Recovery, to fail over and recover VMs and physical servers
 services: site-recovery
 documentationcenter: ''
@@ -34,16 +34,25 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 ## Create a recovery plan
 
 1. Click **Recovery Plans** > **Create Recovery Plan**.
-   Specify a name for the recovery plan, and a source and target. The source location must have virtual machines that are enabled for failover and recovery.
+   Specify a name for the recovery plan, and a source and target. The source location must have virtual machines that are enabled for failover and recovery. Choose a source and target based on the virtual machines that you want to be part of the recovery plan. 
 
-    - For VMM to VMM replication, select **Source Type** > **VMM**, and the source and target VMM servers. Click **Hyper-V** to see clouds that are protected.
-    - For VMM to Azure, select **Source Type** > **VMM**.  Select the source VMM server, and **Azure** as the target.
-    - For Hyper-V replication to Azure (without VMM), select **Source Type** > **Hyper-V site**. Select the site as the source, and **Azure** as the target.
-    - For a VMware VM or a physical on-premises server to Azure, select a configuration server as the source, and **Azure** as the target.
-    - For a Azure to Azure recovery plan, select a Azure region as the source, and a secondary Azure region as the target. The secondary Azure regions are only those to which virtual machines are protected.
-2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
+|Scenario                   |Source               |Target           |
+|---------------------------|---------------------|-----------------|
+|Azure to Azure             |Azure region         |Azure Region     |
+|Vmware to Azure            |Configuration server |Azure            |
+|VMM to Azure               |VMM friendly name    |Azure            |
+|Hyper-v Site to Azure      |Hyper-v site name    |Azure            |
+|Physical machines to Azure |Configuration server |Azure            |
+|VMM to VMM                 |VMM friendly name    |VMM friendly name|
+
+    > [!NOTE]
+    > A recovery plan can contain virtual machines that have the same source and target. Virtual machines of VMware and VMM cannot be part of the same recovery plan. VMware virtual machines and physical machines can however be added to the same plan as the source for both of them is a configuration server.
+
+2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan. Only those virtual machines that were protected on Source (as selected in the recovery plan) and are protected to the Target (as selected in the recovery plan) will be allowed for selection.
 
 ## Customize and extend recovery plans
+
+You can customize and extend recovery plans by going to the Site Recovery recovery plan resource blade and clicking the Customize tab.
 
 You can customize and extend recovery plans:
 
@@ -80,6 +89,6 @@ The script or runbook options are available only in the below scenarios when doi
 
 [Learn more](site-recovery-failover.md) about running failovers.
 
-Watch a video to see the recovery plan in action.
+Watch this video to see the recovery plan in action.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
