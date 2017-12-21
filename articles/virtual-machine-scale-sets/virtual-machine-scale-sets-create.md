@@ -3,8 +3,8 @@ title: Create an Azure virtual machine scale set | Microsoft Docs
 description: Create and deploy a Linux or Windows Azure virtual machine scale set with Azure CLI, PowerShell, a template, or Visual Studio.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
-ms.author: adegeo
+ms.author: iainfou
 ---
 
 # Create and deploy a virtual machine scale set
