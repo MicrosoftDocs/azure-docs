@@ -186,9 +186,11 @@ These endpoint differences must be taken into account when you connect to storag
 	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
 	- QueueEndpoint= //ends with 'table.core.usgovcloudapi.net'
 	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-   **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-   
+
+>[!Note]
+> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
+>
+>
    	```php
 	<?php
 	require_once "vendor/autoload.php";
