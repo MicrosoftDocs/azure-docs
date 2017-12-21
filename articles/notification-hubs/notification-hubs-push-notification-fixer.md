@@ -19,17 +19,17 @@ ms.author: jawh
 ---
 # Azure Notification Hubs - Diagnosis guidelines
 ## Overview
-One of the most common questions heard from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this issue. This article will identify the various reasons why notifications may get dropped or do not end up on the devices. We will discuss ways in which you can analyze and determine the root cause. 
+One of the most common questions heard from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this issue. This article identifies the various reasons why notifications may get dropped or do not end up on the devices. We discuss ways in which you can analyze and determine the root cause. 
 
 First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
 ![][0]
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)**. The notification hub does some processing on all the registrations, which takes into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)* and any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
+In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)**. The notification hub does some processing on all the registrations, which takes into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. With the targets established NH then pushes out notifications, split across multiple batches of registrations, to the device platform-specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)*. Any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
 
-Failure to deliver notifications may happen during the initial test/staging phase, which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. The section below looks at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
+Failure to deliver notifications may happen during the initial test/staging phase, which may indicate a configuration issue, or it may happen in production where either some or all of the notifications may be dropped, indicating some deeper application or messaging pattern issue. The next section looks at various dropped notifications scenarios, ranging from common to the rarer kind. Some of these scenarios you may find obvious while others not so much.
 
 ## Azure Notifications Hub mis-configuration
-Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc.) and then registering their application where they get credentials, which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
+Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc.) and then registering their application where they get credentials, which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub, matching them with the application created under their platform-specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
 
 1. **General**
    
@@ -40,10 +40,10 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
    * Where you have configured the PNS credentials and 
    * Whose SAS credentials you have configured on the client and the backend. 
      
-     b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must be using the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
+     b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must use the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
 2. **Apple Push Notification Service (APNS) configuration**
    
-    You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at minimum you must delete all the existing registrations from the hub. 
+    You must maintain two different hubs - one for production and another for testing purposes. This means uploading the certificate you are going to use in a sandbox environment to a separate hub than the certificate and hub you are going to use in production. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificates to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at minimum you must delete all the existing registrations from the hub. 
 3. **Google Cloud Messaging (GCM) configuration** 
    
     a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
@@ -61,7 +61,7 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
 ## Application issues
 1) **Tags/ Tag expressions**
 
-If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags matching when you send a notification and then verify the notification receipt only from the clients with those registrations. For example, if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B." In the self-diagnose tips section following, there are ways in which you can review your registrations along with the tags they have. 
+If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification there is no target found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags matching when you send a notification, then verify the notification receipt only from the clients with those registrations. As an example, if all your registrations with NH were done with the tag "Politics" and you are sending a notification with the tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B." In the self-diagnose tips section following, there are ways in which you can review your registrations along with the tags they have. 
 
 2) **Template issues**
 
@@ -69,20 +69,20 @@ If you are using templates, then ensure that you are following the guidelines de
 
 3) **Invalid registrations**
 
-Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
+Assuming the Notification Hub was configured correctly, and any tags/tag expressions were used correctly, resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
 
 > [!NOTE]
 > Since processing is performed in parallel, the order in which the notifications will be delivered is not guaranteed. 
 > 
 > 
 
-Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS, which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case the faulting registration is removed from the database and then retry notification delivery for the rest of the devices in that batch.
+Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this, we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS, which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case the faulting registration is removed from the database and then retry notification delivery for the rest of the devices in that batch.
 
 You can get error information for the failed delivery attempt against a registration using the Azure Notification Hubs REST APIs: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx)
 and [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). See the [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) for sample code.
 
 ## PNS issues
-Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling, then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
+Once the notification message has been received by the respective PNS it is then its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling, then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
 
 If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
 Source - [APNS guidance] & [GCM guidance]
@@ -151,16 +151,16 @@ To get an insight into the PNS errors, a property called [EnableTestSend feature
 
 Suppose you are using .NET SDK to send a native toast notification:
 
-    ///csharp
+    ```csharp
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
-    ///
+    ```
 
 `result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. 
 Now you can use the `EnableTestSend` boolean property while initializing the `NotificationHubClient` and can get detailed status about the PNS errors encountered while sending the notification. The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome. 
 
-    ///csharp
+    ```csharp
     bool enableTestSend = true;
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
 
@@ -171,8 +171,8 @@ Now you can use the `EnableTestSend` boolean property while initializing the `No
     {
         Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
     }
-    ///
-    
+    ```
+
 *Sample Output*
 
     DetailedStateAvailable
@@ -196,11 +196,11 @@ This message indicates either invalid credentials are configured in the notifica
    
     ![Notification Hubs Overview dashboard][5]
    
-    b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS. 
+    b) You can also add many other platform-specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS-specific errors returned when NH tries to send the notification to the PNS. 
    
     ![][6]
    
-    c) You should start with reviewing the **Incoming Messages**, **Registration Operations**, **Successful Notifications** and then go to per platform tab to review the PNS specific errors. 
+    c) You should start with reviewing the **Incoming Messages**, **Registration Operations**, **Successful Notifications** and then go to per platform tab to review the PNS-specific errors. 
    
     d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error. This is a good indication to check the PNS credentials. 
 
