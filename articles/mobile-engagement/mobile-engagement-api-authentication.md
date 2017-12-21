@@ -76,15 +76,10 @@ You should follow the set of instructions below to perform the setup using a Pow
    > Your default security policy may block you from running a PowerShell scripts. If so, you temporarily configure your execution policy to allow script execution using the following command:
    > 
    > Set-ExecutionPolicy RemoteSigned
-   > 
-   > 
-8. Here is how the set of PS cmdlets would look like. 
-   
+8. Here is how the set of PS cmdlets would look like.
     ![][3]
-9. Check in the Azure Management portal that a new AD application was created with the name you provided to the script called **principalName** under **Show Applications my company owns**.
-   
+9. Check in the Azure portal go to Active Directory, click on **App registrations** and search for your app to make sure it exists
     ![][4]
-
 #### Steps to get a valid token
 1. Call the API with the following parameters and make sure to replace the TENANT\_ID, CLIENT\_ID and CLIENT\_SECRET:
    
@@ -136,8 +131,6 @@ Now that you have a valid token, you are ready to make the API calls.
    * **2** `{app-collection}`
    * **3** `{app-resource-name}`
    * **4** Your Resource Group name is going to be **MobileEngagement** unless you created a new one. 
-     
-     ![Mobile Engagement API URI parameters][2]
 
 > [!NOTE]
 > <br/>
@@ -151,7 +144,7 @@ Now that you have a valid token, you are ready to make the API calls.
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
 [2]: ./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
-[4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
+[4]: ./media/mobile-engagement-api-authentication/search-app.png
 
 
 
