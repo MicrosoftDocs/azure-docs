@@ -48,7 +48,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivers | N/A | 
+| [NC series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivers | N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
 
 *RDMA connectivity on NC24r VMs is supported on Ubuntu 16.04 LTS or CentOS-based 7.3 HPC (from Azure Marketplace) with Intel MPI.
@@ -120,7 +120,7 @@ To run Windows MPI applications on a pool of Azure A8 nodes, you need to install
 To run CUDA applications on a pool of Linux NC nodes, you need to install CUDA Toolkit 9.0 on the nodes. The Toolkit installs the necessary NVIDIA Tesla GPU drivers. Here are sample steps to deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
 1. Deploy an Azure NC6 VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. Make sure that you create the VM with a managed disk.
-2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. Follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. Deprovision the Linux agent, and then [capture the Linux VM image](../virtual-machines/linux/capture-image.md).
 4. Create a Batch account in a region that supports NC VMs.
 5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:

@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: v-demak
 ---
 
@@ -21,8 +21,8 @@ Training and testing is an iterative process. After you train your LUIS app, you
 Typically, before retraining, you should [relabel any utterances](#relabel-utterances-and-retrain) in which LUIS failed to identify the expected intents and entities. You can find the utterances to relabel using the following procedures:
  
   * **Interactive testing**: The [interactive testing pane](#interactive-testing) lets you type in an utterance and displays the intents and entities that your LUIS app detects.
-  * **Review user utterances in LUIS.ai**: Relabeling [utterances](./Label-Suggested-Utterances.md) that LUIS identifies for you.
-  * **Review user utterances from log**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
+  * **Review endpoint utterances in LUIS.ai**: Relabeling [utterances](./Label-Suggested-Utterances.md) that LUIS identifies for you.
+  * **Review endpoint utterances from log**: LUIS provides a [log of utterances](./luis-resources-faq.md#how-do-i-download-a-log-of-user-utterances) from users that have been passed to the LUIS app endpoint. This log includes the intents and entities you can review to see if they've been correctly identified.
   
 
 In addition to relabeling utterances, you may also add new utterances, edit the intent or entity types, and [add features](./Add-Features.md) to your LUIS app to improve performance. 
@@ -53,7 +53,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 1. Access your app  by clicking its name on **My Apps** page, 
 2. Click **Test** in your application's top panel to access the **Test** slide-out page.
 
-![Train & Test App page](./media/luis-how-to-train-test/test.png)
+    ![Train & Test App page](./media/luis-how-to-train-test/test.png)
 
 ## Interactive Testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
@@ -89,30 +89,30 @@ When you perform interactive testing, you may find that LUIS doesn't detect the 
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-train-test/test-weather-1.png)
 
-3. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent. Go to the **Intents** page, click the **BookFlight** intent, type "buy a plane ticket to bangor me" into the text box, and press Enter. 
+4. You need to teach LUIS that `buy a plane ticket to bangor me` should be mapped to the `BookFlight` intent. You teach LUIS about an utterance's intent by adding the utterance to the correct intent. Go to the **Intents** page, click the **BookFlight** intent, type "buy a plane ticket to bangor me" into the text box, and press Enter. 
 
-4. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
+5. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new utterance.
 
-5. Go back to the **Test** panel and type `book a flight to bangor` in the text box and click enter. 
+6. Go back to the **Test** panel and type `book a flight to bangor` in the text box and click enter. 
 
     ![Interactive testing identifies the expected intent](./media/luis-how-to-train-test/test-weather-2.png)
 
    > [!NOTE]
    > In this step you choose an utterance that's similar to the one you labeled, but **not** exactly the same. This similarity helps to test your LUIS app's ability to generalize.
 
-6. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
+7. Now the intent should be correctly detected as `BookFlight`. However, `bangor` isn't detected as a location yet.
 
     ![The intent is correctly identified but the location entity isn't detected](./media/luis-how-to-train-test/test-weather-2-no-entities.png)
 
-7. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select **Location::ToLocation** hierarchical entity from the drop-down list.
+8. You need to teach LUIS that `bangor me` in the utterance `buy a plane ticket to bangor me` should be mapped to the `Location` entity for Bangor, Maine. Go to the **Intents** page, click the **BookFlight** intent, and find `buy a plane ticket to bangor me` in the list of utterances. Click on the words `bangor me` and choose the **Location** entity from the entity list. Select **Location::ToLocation** hierarchical entity from the drop-down list.
  
     ![label the word `bangor me` as a Location entity](./media/luis-how-to-train-test/location-tolocation.png)
 
-8. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
+9. Click on the **Train** button in the top bar to train the new app to retry LUIS with this new entity for that utterance.
 
-9. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
+10. After training succeeds, click **Test**, type `buy a plane ticket to paris` in the text box and click enter. Now the location entity is correctly detected.
 
-![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
+    ![Testing identifies the location entity](./media/luis-how-to-train-test/test-weather-2-entity-detected.png)
 
 > [!NOTE]
 > In this step you choose an utterance that's similar to the one you labeled, but not exactly the same. This similarity helps to test your LUIS app's ability to generalize.
