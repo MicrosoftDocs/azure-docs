@@ -74,8 +74,6 @@ To install the agent on a Linux machine:
 
 Once the group is created, it is recommended to install agents on all the machines of the group and refine the group by visualizing the dependency of the entire group.
 
-    ![Create a group with machine dependencies](./media/how-to-create-group-machine-dependencies/create-group.png)
-
 ## Next steps
 
 - [Learn how](how-to-create-group-dependencies.md) to refine the group by visualizing group dependencies
