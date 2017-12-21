@@ -215,3 +215,25 @@ Run the **Remove-AzureRmNetworkSecurityGroup** shown below and be sure to includ
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
 ```
 
+## How to remove an NSG association
+Look at the PowerShell code sample below to remove an association between a NSG  and a NIC or SUBNET. In ASM there is a cmdlet called Remove-AzureNetworkSecurityGroupAssociation, but there is no equivalent in ARM. 
+This is a code sample to remove NSG association at the SUBNET level: 
+
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "Subnet1" -VirtualNetwork $vnet
+$subnet.NetworkSecurityGroup = $null
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+```
+Please remember to call Set-AzureRmVirtualNetwork after setting to NULL the NSG property value, otherwise Azure will not commit your modification in the control plane. 
+
+A similar approach can be used to perform the same action but at NIC level, all you need to do is change the NSG property value as shown below:
+
+```powershell
+$nic = Get-AzureRmNetworkInterface -Name "nic2" -ResourceGroupName $rgname
+$nic.NetworkSecurityGroupText
+$nic.NetworkSecurityGroup = $null
+Set-AzureRmNetworkInterface -NetworkInterface $nic
+```
+
+Similarly to the previous case, don’t forget to tell Azure to commit the NIC object configuration change you have just done, otherwise will have no effect. You can use the same technique to change the assigned NSG. This kind of changes should be effective in less than 30 seconds, consider this as a reference value, there is no official guaranteed SLA on this kind of operations.
