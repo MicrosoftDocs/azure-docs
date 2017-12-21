@@ -24,7 +24,7 @@ This article includes frequently asked questions about configuration and managem
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Certificate**
+**Certificates**
 
 - [Why is the certificate chain of my Cloud Service SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
@@ -44,7 +44,7 @@ This article includes frequently asked questions about configuration and managem
 - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [How to enable HTTP/2 on Cloud Services VM?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Permission**
+**Permissions**
 
 - [Can Microsoft internal engineers remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -105,7 +105,7 @@ For more information, see the following articles:
 - [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Common Cloud Service startup tasks](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
 
-## Monitoring and Logging
+## Monitoring and logging
 
 ### What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?
 
@@ -130,7 +130,7 @@ For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-## Network Configuration
+## Network configuration
 
 ### How do I set the idle timeout for Azure load balancer?
 You can specify the timeout in your service definition (csdef) file like this:
