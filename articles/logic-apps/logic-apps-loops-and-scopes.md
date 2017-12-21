@@ -23,9 +23,9 @@ Logic Apps provides a number of ways to work with arrays, collections, batches, 
   
 ## ForEach loop and arrays
   
-Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  You may add multiple actions per foreach loop.  Once within the loop you can begin to specify what should occur at each value of the array.
+Logic Apps allows you to loop over a set of data and perform an action for each item.  Looping over a collection is possible via the `foreach` action.  In the designer, you can add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  You may add multiple actions per foreach loop.  Once within the loop, you can begin to specify what should occur at each value of the array.
 
-If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
+  This example sends an email for each email address that contains 'microsoft.com'. If using code-view, you can specify a for each loop like the following example:
 
 ``` json
 {
@@ -63,7 +63,7 @@ If using code-view, you can specify a for each loop like below.  This is an exam
 }
 ```
   
-  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration will execute in parallel by default.  
+  A `foreach` action can iterate over arrays with thousands of entities.  Iterations execute in parallel by default.  See [Limits and configuration](logic-apps-limits-and-config.md) for details on array and concurrency limits.
 
 ### Sequential ForEach loops
 
@@ -80,13 +80,15 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## Until loop
   
-  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for using an until loop is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.
   
-  If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
+  This example calls an HTTP endpoint until the response body has the value 'Completed'.  It completes when either: 
   
   * HTTP Response has status of 'Completed'
-  * It has tried for 1 hour
+  * It has tried for one hour
   * It has looped 100 times
+  
+  If using code-view, you can specify an until loop like the following example:
   
   ``` json
   {
@@ -114,9 +116,9 @@ To enable a foreach loop to execute sequentially, the `Sequential` operation opt
   
 ## SplitOn and debatching
 
-Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asynchronously and send an immediate `202 Accepted` response.  
+Sometimes a trigger may receive an array of items that you want to debatch and start a workflow per item.  This debatching can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` is added. The `spliton` command starts a run per item in the array.  SplitOn can only be added to a trigger which can be manually configured or overridden. You cannot have a `spliton` and also implement the synchronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` runs asynchronously and sends an immediate `202 Accepted` response.  
 
-SplitOn can be specified in code-view as the following example.  This receives an array of items and debatches on each row.
+  This example receives an array of items and debatches on each row. SplitOn can be specified in code-view as the following example:
 
 ```
 {
@@ -136,7 +138,7 @@ SplitOn can be specified in code-view as the following example.  This receives a
 
 ## Scopes
 
-It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
+It is possible to group a series of actions together using a scope.  Scopes are useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following example:
 
 
 ```

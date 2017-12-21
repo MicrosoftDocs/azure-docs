@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/07/2017
+ms.date: 12/15/2017
 ms.author: sethm
 
 ---
@@ -33,7 +33,7 @@ Because Hybrid Connections requires both a client and a server component, the tu
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following prerequisites:
+To complete this tutorial, you need the following prerequisites:
 
 1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 2. An Azure subscription.
@@ -51,12 +51,12 @@ If you have already created a hybrid connection, jump to the [Create a server ap
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## 3. Create a server application (listener)
-To listen and receive messages from the Relay, we will write a C# console application using Visual Studio.
+To listen and receive messages from the Relay, write a C# console application using Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## 4. Create a client application (sender)
-To send messages to the Relay, we will write a C# console application using Visual Studio.
+To send messages to the Relay, write a C# console application using Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
@@ -67,9 +67,10 @@ To send messages to the Relay, we will write a C# console application using Visu
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Congratulations, you have created an end-to-end Hybrid Connections application.
+Congratulations, you have created an end-to-end Hybrid Connections application!
 
-## Next steps:
+## Next steps
+
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)
