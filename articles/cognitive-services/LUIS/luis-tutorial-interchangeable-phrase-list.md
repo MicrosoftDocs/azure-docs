@@ -68,9 +68,9 @@ The endpoint responds with the following JSON:
 }
 ```
 
-|| intent score | entity score |
-|--|--|--|
-|trained (want) | 0.973 | 0.846 |
+|status|word| intent score | entity score |
+|--|--|--|--|
+|trained| want | 0.973 | 0.846 |
 
 The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. This utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
 
@@ -121,7 +121,7 @@ The endpoint response is:
 }
 ```
 
-|| word | intent score | entity score |
+| status | word | intent score | entity score |
 |--|--|--|--|
 | trained| want | 0.973 | 0.846 |
 | untrained| require | 0.840 | - |
@@ -149,10 +149,10 @@ Use [interactive testing](Train-Test.md#interactive-testing) to compare the diff
 
 After adding the phrase list, the accuracy increased for the utterance.
 
-|| intent score | entity score |
-|--|--|--|
-| published - no phrase list| 0.84 | - |
-| currently editing - includes phrase list | 0.92 | Hardware entity identified |
+|status | phrase list| intent score | entity score |
+|--|--|--|--|
+| published | - | 0.84 | - |
+| currently editing |✔| 0.92 | Hardware entity identified |
 
 ## Endpoint testing
 To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
@@ -197,11 +197,13 @@ To see the entity score, [publish](PublishApp.md) the model and query the endpoi
   ]
 }
 ```
-|| intent score | entity score |
-|--|--|--|
-| published - no phrase list| 0.84 | - |
-| currently editing - includes phrase list | 0.92 | 0.595 |
 
+The entity **Hardware** shows a score of 0.595 with the phrase list. Before the phrase list, the entity was not detected. 
+
+|status | phrase list| intent score | entity score |
+|--|--|--|--|
+| published | - | 0.84 | - |
+| currently editing |✔| 0.92 | 0.595 |
 
   [LuisFeatures]: luis-concept-feature.md
   [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
