@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Network Performance | Microsoft Docs
-description: This page provides a standardized method of testing network link performance.
+title: Troubleshooting Azure Virtual Network Performance | Microsoft Docs
+description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
 documentationcenter: na
 author: tracsman
@@ -17,9 +17,9 @@ ms.date: 12/20/2017
 ms.author: jonor
 
 ---
-# Troubleshooting Network Performance
+# Troubleshooting network performance
 ## Overview
-Azure provides stable and fast ways to connect from your on-premise network to Azure. Methods like Site-to-Site VPN and ExpressRoute are successfully used by customers large and small to run their businesses in Azure. But what happens when performance doesn't meet your expectation or previous experience? This document can help standardize the way you test and baseline your specific environment.
+Azure provides stable and fast ways to connect from your on-premises network to Azure. Methods like Site-to-Site VPN and ExpressRoute are successfully used by customers large and small to run their businesses in Azure. But what happens when performance doesn't meet your expectation or previous experience? This document can help standardize the way you test and baseline your specific environment.
 
 This document shows how you can easily and consistently test network latency and bandwidth between two hosts. This document also provides some advice on ways to look at the Azure network and help to isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux. 
 
@@ -28,7 +28,7 @@ This document shows how you can easily and consistently test network latency and
 >
 >
 
-## Network Components
+## Network components
 Before digging into troubleshooting, let's discuss some common terms and components. This discussion ensures we're thinking about each component in the end-to-end chain that enables connectivity in Azure.
 [![1]][1]
 
@@ -60,7 +60,7 @@ Most network issues can be analyzed and isolated using basic tools like ping and
 
 I've wrapped all of these tools and methods into a PowerShell module (AzureCT) that you can install and use.
 
-### AzureCT - The Azure Connectivity Toolkit
+### AzureCT - the Azure Connectivity Toolkit
 The AzureCT PowerShell module has two components [Availability Testing][Availability Doc] and [Performance Testing][Performance Doc]. This document is only concerned with Performance testing, so lets focus on the two Link Performance commands in this PowerShell module.
 
 There are three basic steps to use this toolkit for Performance testing. 1) Install the PowerShell module, 2) Install the supporting applications iPerf and PSPing 3) Run the performance test.
@@ -117,7 +117,7 @@ Now that you have a diagram, start to divide the network into segments and narro
 
 Also, don't forget to look at other layers of the OSI model. It's easy to focus on the network and layers 1 - 3 (Physical, Data, and Network layers) but the problems can also be up at Layer 7 in the application layer. Keep an open mind and verify assumptions.
 
-## Advanced ExpressRoute Troubleshooting
+## Advanced ExpressRoute troubleshooting
 If you're not sure where the edge of the cloud actually is, isolating the Azure components can be a challenge. When ExpressRoute is used, the edge is a network component called the Microsoft Enterprise Edge (MSEE). **When using ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop leaving the Microsoft network. When you create a connection object between your VNet gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE as the first or last hop (depending on which direction you're going) is crucial to isolating Azure Network problems to either prove the issue is in Azure or further downstream in the WAN or the Corporate Network. 
 
 [![2]][2]
@@ -129,7 +129,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 
 If two VNets (VNets A and B in the diagram) are connected to the **same** ExpressRoute circuit, you can perform a series of tests to isolate the problem in Azure (or prove it's not in Azure)
  
-### Test Plan
+### Test plan
 1. Run the Get-LinkPerformance test between VM1 and VM2. This test provides insight to if the problem is local or not. If this test produces acceptable latency and bandwidth results, you can mark the local VNet network as good.
 2. Assuming the local VNet traffic is good, run the Get-LinkPerformance test between VM1 and VM3. This test exercises the connection through the Microsoft network down to the MSEE and back into Azure. If this test produces acceptable latency and bandwidth results, you can mark the Azure network as good.
 3. If Azure is ruled out, you can perform a similar sequence of tests on your Corporate Network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection. Example: Run this test between two branch offices, or between your desk and a data center server. Depending on what you're testing, find endpoints (servers, PCs, etc.) that can exercise that path.
@@ -139,7 +139,7 @@ If two VNets (VNets A and B in the diagram) are connected to the **same** Expres
 >
 >
 
-## The Problem is isolated, now what?
+## The problem is isolated, now what?
 The more you can isolate the problem the easier it is to fix, however often you reach the point where you can't go deeper or further with your troubleshooting. Example: you see the link across your service provider taking hops through Europe, but your expected path is all in Asia. This point is when you should reach out for help. Who you ask is dependent on the routing domain you isolated the issue to, or even better if you are able to narrow it down to a specific component.
 
 For corporate network issues, your internal IT department or service provider supporting your network (which may be the hardware manufacturer) may be able to help with device configuration or hardware repair.
@@ -149,7 +149,7 @@ For the WAN, sharing your testing results with your Service Provider or ISP may 
 With Azure, once you isolate the issue in as much detail as you're able, it's time to review the [Azure Network Documentation][Network Docs] and then if still needed [open a support ticket][Ticket Link].
 
 ## References
-### Latency/Bandwidth Expectations
+### Latency/bandwidth expectations
 >[!TIP]
 > Geographic latency (miles or kilometers) between the end points you're testing is by far the largest component of latency. While there is equipment latency (physical and virtual components, number of hops, etc.) involved, geography has proven to be the largest component of overall latency when dealing with WAN connections. It's also important to note that the distance is the distance of the fiber run not the straight-line or road map distance. This distance is incredibly hard to get with any accuracy. As a result, I generally use a city distance calculator on the internet and know that this method is a grossly inaccurate measure, but is enough to set a general expectation.
 >
@@ -173,7 +173,7 @@ Test setup:
 
 [![3]][3]
 
-### Latency/Bandwidth Results
+### Latency/bandwidth results
 >[!IMPORTANT]
 > These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally, the effects of these changes don't result in significant differences.
 >
@@ -199,7 +199,7 @@ Test setup:
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160 ms, but is actually 189 ms. This difference against my expectation could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
-## Next Steps
+## Next steps
 1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
 2. Follow the instructions for [link performance testing][Performance Doc]
 
