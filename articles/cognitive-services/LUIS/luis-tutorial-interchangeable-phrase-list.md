@@ -15,7 +15,7 @@ ms.author: v-geberr
 # Add an interchangeable phrase list 
 Add a phrase list to improve accuracy of intent and entity prediction of synonymous words.
 
-The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
+The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Words of an interchangeable list are not only related; they are synonyms.
 
 Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
 With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
@@ -26,7 +26,7 @@ With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*m
 > * [Hardware requisition app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json). Import this app. Its name in the app list is **Phrase Lists**. Train and publish the app.  
 
 ## Score trained utterance
-Use the published endpoint to query with an utterance the app knows about:
+Use the published endpoint to query an utterance the app knows about:
 
 `I want a computer replacement`
 
@@ -78,7 +78,7 @@ Use the published endpoint to query with an utterance the app knows about:
 You expect the intent score of 0.973 and the entity detection of 0.846 to be high because the app was trained with this utterance. You can see this utterance in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
 
 ## Score an untrained utterance
-Use the published endpoint to query with an utterance that the app doesn't know about:
+Use the published endpoint to query an utterance that the app doesn't know about:
 
 `I require a computer replacement`
 
