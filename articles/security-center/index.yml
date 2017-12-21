@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Security Center Documentation - Tutorials, API Reference | Microsoft Doc
+metadata:
+  title: Azure Security Center Documentation - Tutorials, API Reference | Microsoft Doc
+  meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
+  services: security-center
+  author: cmcclister
+  manager: carolz
+  ms.service: security-center
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/05/18
+  ms.author: cmcclister
+abstract:
+  description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: 'Learn how to onboard your VMs and computers to Security Center and connect your security solutions.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/security-center/media/index/security-center.svg
+      text: Learn about Azure Security Center
+      href: /azure/security-center/security-center-intro
+    - image: 
+        src: /azure/security-center/media/index/video-library.svg
+      text: Azure Security Center Video Library
+      href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
+    - image: 
+        src: /azure/security-center/media/index/get-started.svg
+      text: Get started with Azure Security Center
+      href: /azure/security-center/security-center-get-started
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a></p>
