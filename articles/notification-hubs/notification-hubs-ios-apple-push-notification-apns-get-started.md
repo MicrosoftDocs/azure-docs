@@ -98,15 +98,16 @@ You have now configured your notification hub with APNS, and you have the connec
 
 6. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
 
-```obj-c
-    #ifndef HubInfo_h
-    #define HubInfo_h
+    ```obj-c
+        #ifndef HubInfo_h
+        #define HubInfo_h
    
-        #define HUBNAME @"<Enter the name of your hub>"
-        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+            #define HUBNAME @"<Enter the name of your hub>"
+            #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
-    #endif /* HubInfo_h */
-```
+        #endif /* HubInfo_h */
+    ```
+    
 7. Open your **AppDelegate.h** file add the following import directives:
 
     ```obj-c
