@@ -10,14 +10,14 @@ ms.author: raynew
 
 # Discover and assess a large VMware environment
 
-This article describes how to assess large numbers of on-premises machines by using [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure. The service provides sizing and cost estimations for running the machines in Azure.
+This article describes how to assess large numbers of on-premises virtual machines (VMs) by using [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure. The service provides sizing and cost estimations for running the machines in Azure.
 
 ## Prerequisites
 
-- **VMware**: The virtual machines (VMs) that you plan to migrate must be managed by a computer running vCenter Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
+- **VMware**: The VMs that you plan to migrate must be managed by a computer running vCenter Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
 - **vCenter account**: You need a read-only account to access the computer running vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the computer running vCenter Server, you need permissions to create a VM by importing a file in OVA format.
-- **Statistics settings**: The statistics settings for the computer running vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory and configuration data for disk and network adapters.
+- **Statistics settings**: The statistics settings for the computer running vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory, and configuration data for disk and network adapters.
 
 ## Plan Azure Migrate projects
 
@@ -34,7 +34,7 @@ Plan your discoveries and assessments based on the following limits:
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you could set up four projects: two with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: two with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
 
 ## Plan multiple discoveries
 
@@ -47,7 +47,7 @@ You can use the same Azure Migrate collector to do multiple discoveries to one o
 
 ## Create a project
 
-Create an Azure Migrate project in accordance with your requirements.
+Create an Azure Migrate project in accordance with your requirements:
 
 1. In the Azure portal, select **Create a resource**.
 2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then select **Create**.
@@ -57,7 +57,7 @@ Create an Azure Migrate project in accordance with your requirements.
 
 ## Set up the collector appliance
 
-Azure Migrate creates an on-premises VM known as the collector appliance. This VM discovers on-premises VMware VMs, and it sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an OVA file and import it to the on-premises vCenter server.
+Azure Migrate creates an on-premises VM known as the collector appliance. This VM discovers on-premises VMware VMs, and it sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an OVA file and import it to the on-premises computer running vCenter Server.
 
 ### Download the collector appliance
 
@@ -70,7 +70,7 @@ If you have multiple projects, you need to download the collector appliance only
    
 ### Verify the collector appliance
 
-Check that the OVA file is secure before you deploy it.
+Check that the OVA file is secure before you deploy it:
 
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the OVA:
@@ -98,7 +98,7 @@ Check that the OVA file is secure before you deploy it.
 
 ## Create the collector VM
 
-Import the downloaded file to the computer running vCenter Server.
+Import the downloaded file to the computer running vCenter Server:
 
 1. In the vSphere Client console, select **File** > **Deploy OVF Template**.
 
@@ -124,7 +124,7 @@ If you have multiple projects, be sure to identify the ID and key for each one. 
 ## Set the vCenter statistics level
 Following is the list of performance counters that are collected during the discovery. The counters are by default available at various levels in the computer running vCenter Server. 
 
-For the statistics level, we recommend that you set the highest common level (level 3) so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data. 
+We recommend that you set the highest common level (3) for the statistics level so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data. 
 
 The following table also lists the assessment results that will be affected if a particular counter is not collected.
 
@@ -163,7 +163,7 @@ For each discovery that you need to perform, you run the collector to discover V
 
 5. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the computer running vCenter Server.
-    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
+    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the computer running vCenter Server.
     - In **Select scope**, select a scope for VM discovery. The collector can discover only VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1,000 VMs. 
     - In **vCenter tag category for grouping**, select **None**.
 
