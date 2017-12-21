@@ -115,9 +115,9 @@ The following section discusses the design of key management.
 
 | **ContentKey-to-asset** | **Scenario** |
 | --- | --- |
-| 1–to-1 |The simplest case. It provides the finest control. But this arrangement generally results in the highest license delivery cost. At minimum, one license request is required for each protected asset. |
-| 1–to-many |You could use the same content key for multiple assets. For example, for all the assets in a logical group, such as a genre or the subset of a genre (or movie gene), you can use a single content key. |
-| Many–to-1 |Multiple content keys are needed for each asset. <br/><br/>For example, if you need to apply dynamic CENC protection with multi-DRM for MPEG-DASH and dynamic AES-128 encryption for HLS, you need two separate content keys. Each content key needs its own ContentKeyType. (For the content key used for dynamic CENC protection, use ContentKeyType.CommonEncryption. For the content key used for dynamic AES-128 encryption, use ContentKeyType.EnvelopeEncryption.)<br/><br/>As another example, in CENC protection of DASH content, in theory, you can use one content key to protect the video stream and another content key to protect the audio stream. |
+| 1-to-1 |The simplest case. It provides the finest control. But this arrangement generally results in the highest license delivery cost. At minimum, one license request is required for each protected asset. |
+| 1-to-many |You could use the same content key for multiple assets. For example, for all the assets in a logical group, such as a genre or the subset of a genre (or movie gene), you can use a single content key. |
+| Many-to-1 |Multiple content keys are needed for each asset. <br/><br/>For example, if you need to apply dynamic CENC protection with multi-DRM for MPEG-DASH and dynamic AES-128 encryption for HLS, you need two separate content keys. Each content key needs its own ContentKeyType. (For the content key used for dynamic CENC protection, use ContentKeyType.CommonEncryption. For the content key used for dynamic AES-128 encryption, use ContentKeyType.EnvelopeEncryption.)<br/><br/>As another example, in CENC protection of DASH content, in theory, you can use one content key to protect the video stream and another content key to protect the audio stream. |
 | Many-to-many |Combination of the previous two scenarios. One set of content keys is used for each of the multiple assets in the same asset group. |
 
 Another important factor to consider is the use of persistent and nonpersistent licenses.
@@ -204,7 +204,7 @@ Implementation includes the following steps:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player's ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
+8. Create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
 9. The following table shows the test matrix.
 
@@ -280,7 +280,7 @@ In the reference implementation for DRM-protected contents, both the application
 ### Azure Active Directory signing key rollover
 Signing key rollover is an important point to take into consideration in your implementation. If you ignore it, the finished system eventually stops working completely, within six weeks at the most.
 
-Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
+Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
 
 For more information on Azure AD key rollover, see [Important information about signing key rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
@@ -350,7 +350,7 @@ Often, customers invested in a license server farm either in their own data cent
 * You no longer need to configure license delivery service (ContentKeyAuthorizationPolicy) in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure AssetDeliveryPolicy to set up CENC with multi-DRM.
 
 ### What if I want to use a custom STS?
-A customer might choose to use a custom STS to provide JWTs. Some of them are:
+A customer might choose to use a custom STS to provide JWTs. Reasons include:
 
 * The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
 * The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. For example, an MVPD operator might offer multiple OTT subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
