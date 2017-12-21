@@ -15,7 +15,7 @@ ms.author: v-ruogun
 
 #  Migrate on-premises data to cloud storage with AzCopy
 
-AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.   
+AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
 There are two versions of AzCopy that you can download:
 
@@ -34,14 +34,14 @@ In this tutorial, you learn how to:
 
 To complete this tutorial: 
 
-* Download the latest version of AzCopy on [Linux](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
+* Download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy). 
 
-## Log in to the [Azure Portal](https://portal.azure.com/).
+## Log in to the [Azure portal](https://portal.azure.com/).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 >[!NOTE]
->If you want to be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a [geo-redundant storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#geo-redundant-storage) account. 
+>If you want to be able to download blobs from a secondary region to your local storage and vice versa, set **Replication** to **Read-access-geo-redundant storage**. Selecting this option creates a [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) account. 
 >
 >
 
@@ -60,7 +60,7 @@ Container names must start with a letter or number, and can contain only letters
 
 ## Upload all files in a folder to Blob storage
 
-There are several ways to upload data to Azure Blob Storage using AzCopy on [Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) or [Linux](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux#blob-download). To upload all blobs in a folder, enter the following AzCopy command:
+You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). To upload all blobs in a folder, enter the following AzCopy command:
 
 # [Linux](#tab/linux)
     azcopy \
@@ -73,12 +73,14 @@ There are several ways to upload data to Azure Blob Storage using AzCopy on [Win
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
-Replace **\<key\>** with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under Settings in your storage account. Select a key, and paste in the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it.  Update the source path to your data directory, and replace **myaccount** in the destination URL to your storage account name.
+Replace **\<key\>** with your account key. In the Azure portal, you can retrieve your account key by selecting **Access keys** under Settings in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace **myaccount** in the destination URL to your storage account name.
 
-Specifying option `--recursive` and `/S` in the AzCopy on Linux and Windows respectively, uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files are uploaded as well.
+Specify the `--recursive` and `/S` options, on Linux and Windows respectively, to upload the contents of the specified directory to Blob storage recursively. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
-## Modify the data for testing purposes
-Modify or create new files in your source directory - `myfolder`for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively. If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer`/ `/XO` and `/XN` parameters in the AzCopy Linux and Windows command respectively. AzCopy uploads only the updated data based on their timestamp.
+## Upload Modified files to Blob storage
+You can use AzCopy to [upload files](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) based on their last-modified time. To try this, modify or create new files in your source directory for testing purpose. To upload only updated or new files, add `--exclude-older`or `/XO` parameter to the AzCopy Linux and Windows command respectively.
+
+If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` or `/XO` and `/XN` parameters in the AzCopy Linux and Windows command respectively. AzCopy uploads only the updated data based on their timestamp.
  
 # [Linux](#tab/linux)
     azcopy \
@@ -93,7 +95,7 @@ Modify or create new files in your source directory - `myfolder`for testing purp
 ---
 
 ## Create a scheduled task or cron job 
-You create a scheduled task/cron job that runs an AzCopy command script that identifies and uploads new on-premise data to the cloud storage at a specific time interval. 
+You can create a scheduled task/cron job that runs an AzCopy command script that identifies and uploads new on-premise data to cloud storage at a specific time interval. 
 
 Copy the AzCopy command to a text editor. Update the parameter values of AzCopy command to the appropriate values. Save the file as `script.sh` or `script.bat` for AzCopy on Linux and Windows respectively. 
 
@@ -107,9 +109,11 @@ Copy the AzCopy command to a text editor. Update the parameter values of AzCopy 
 
 AzCopy is run with verbose `--verbose` (Linux) and `/V` (Windows) option, and the output is redirected into a log file. 
 
-In this tutorial, [Schtasks](https://msdn.microsoft.com/en-us/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
- **Schtasks** enables administrator to create, delete, query, change, run, and end scheduled tasks on local or remote computer; and **Cron** allows Linux and Unix users to run commands or scripts at specified date and time using [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)
+In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows, and [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
+ **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on local or remote computer. **Cron** allows Linux and Unix users to run commands or scripts at specified date and time using [cron expression](https://en.wikipedia.org/wiki/Cron#CRON_expression)
 
+
+# [Linux](#tab/linux)
 **To create a cron job on Linux**, enter the following command on a terminal. 
 
 ```bash
@@ -117,22 +121,23 @@ crontab -e
 */5 * * * * sh /path/to/script.sh 
 ```
 
-Specifying the cron expression `*/5 * * * * ` in the command means that the shell script `script.sh` should execute every five minutes. The script can be scheduled to run at a specific time daily, monthly, or yearly. See [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for a job execution. 
+Specifying the cron expression `*/5 * * * * ` in the command indicates the shell script `script.sh` should execute every five minutes. The script can be scheduled to run at a specific time daily, monthly, or yearly. See [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression) to learn more about setting the date and time for job execution. 
 
-
+# [Windows](#tab/windows)
 **To create a scheduled task on Windows**, enter the following command on command prompt or PowerShell.
 
 ```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
 ```
 
-The command uses the `/SC` parameter to specify a minute schedule and the `/MO` parameter to specify an interval of five minutes. The `/TN` parameter is used to specify the task name, and `/TR` parameter to specify the path to `script.bat` file. Visit [schtasks](https://technet.microsoft.com/en-us/library/cc772785(v=ws.10).aspx#BKMK_minutes) to learn more about creating scheduled task on 
+The command uses the `/SC` parameter to specify a minute schedule and the `/MO` parameter to specify an interval of five minutes. The `/TN` parameter is used to specify the task name, and `/TR` parameter to specify the path to `script.bat` file. Visit [schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes) to learn more about creating scheduled task on 
 Windows.
 
+---
  
 To validate the scheduled task/cron job executes correctly, create new files in your directory `myfolder`. Wait for five minutes to confirm the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task/cron job. 
 
-Visit [move-on-premises-data](https://docs.microsoft.com/en-us/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) learn about varieties of ways to move on-premises data to Azure storage and vice versa.  
+Visit [move-on-premises-data](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) learn more about ways to move on-premises data to Azure storage and vice versa.  
 
 ## Next steps
 For more information about Azure Storage and AzCopy, see the following resources:
@@ -142,17 +147,7 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [Transfer data with AzCopy on Windows](storage-use-azcopy.md) 
 * [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) 
 * [Create a storage account](../storage-create-storage-account.md)
-* [Manage blobs with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)  
-
-### Azure Storage blog posts: 
-* [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transfer data with restartable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [Manage blobs with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)  
 
 
 

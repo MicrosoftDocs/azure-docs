@@ -46,7 +46,7 @@
         href: storage-create-geo-redundant-storage.md
       - name: Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
-  - name: Migrate on-premises data to cloud storage with AzCopy
+  - name: Migrate on-premises data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-onpremise-data-to-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
   - name: Search unstructured data in cloud storage
     href: storage-unstructured-search.md
