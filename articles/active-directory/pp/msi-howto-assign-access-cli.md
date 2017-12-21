@@ -40,9 +40,9 @@ To run the CLI script examples in this tutorial, you have two options:
 
 In order to use an MSI with a host resource (such as a VM), for sign-in or resource access, the MSI must first be granted resource access via role assignment. You can do this before associating the MSI with the host, or after. For the complete steps on creating and associating with a VM, see [Configure a user-assigned MSI for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md).
 
-In this example, a user-assigned MSI is given access to a storage account.  
+In the following example, a user-assigned MSI is given access to a storage account.  
 
-1. In order to give the MSI access, you will need the client ID (also known as app ID) of the MSI's service principal. This is provided by [az identity create](/cli/azure/identity#az_identity_create), upon provisioning of the MSI (shown here for reference):
+1. In order to give the MSI access, you need the client ID (also known as app ID) of the MSI's service principal. The client ID is provided by [az identity create](/cli/azure/identity#az_identity_create), upon provisioning of the MSI (shown here for reference):
 
    ```azurecli-interactive
    az identity create -g rgPrivate -n msiServiceApp
@@ -71,7 +71,7 @@ In this example, a user-assigned MSI is given access to a storage account.
    az role assignment create --assignee 9391e5b1-dada-4a8z-834a-43ad44f296bl --role Reader --scope /subscriptions/90z696ff-5efa-4909-a64d-f1b616f423ll/resourcegroups/rgPrivate/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-   A successful response looks similar to the following:
+   A successful response looks similar to the following output:
 
    ```json
    {
