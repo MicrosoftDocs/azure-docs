@@ -13,7 +13,7 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 06/21/2016
 ms.author: janeng
 
@@ -103,7 +103,7 @@ The table below shows the number of users actually sustained for each service ti
 | Standard (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
-| Premium (P6/P3) |800 |114 GB |
+| Premium (P6) |800 |114 GB |
 
 ## Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.

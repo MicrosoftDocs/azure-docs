@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Developer analytics: languages, platforms, and integrations
@@ -32,24 +32,23 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Anything else](#projects)
 
 ## Platforms and frameworks
-* [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center, HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - for apps that are already live](app-insights-java-live.md)
-* [Mac OS X app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
+* [macOS app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Universal Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
+* [Universal Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (App Center, HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows Phone 8 and 8.1 app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Windows Presentation Foundation app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)

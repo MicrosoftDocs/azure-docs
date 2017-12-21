@@ -1,8 +1,11 @@
 ---
 title: Azure Data Source Wizard for Azure Machine Learning | Microsoft Docs
 description: Explains the data source wizard of AML workbench
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -25,7 +28,7 @@ First, specify how your data is currently in. It could be stored in a flat file 
 ![step 1](media/data-source-wizard/step1.png)
 
 ## Step 3: Select data file ##
-For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path, Azure Blob Storage, or Azure Data Lake. 
+For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path or Azure Blob Storage. 
 
 Specify the path by typing it in or clicking on the **Browse…** button to browse for it. You can browse for a directory, or one or more files.
 

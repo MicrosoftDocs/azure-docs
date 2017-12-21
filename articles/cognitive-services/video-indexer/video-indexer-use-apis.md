@@ -29,7 +29,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
 	
 	1. 	Contact us to register your AAD organization’s domain (contoso.onmicrosoft.com).
-	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
+	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://login.microsoftonline.com/common/adminconsent?client_id=e97b04d3-3e10-41fb-926f-b3c868fef6df&redirect_uri=https://videobreakdown.portal.azure-api.net/signin-aad, sign in and give consent.
 	
 2. Subscribe.
 
@@ -54,8 +54,9 @@ This section lists some recommendations when using Video Indexer API.
 
 ## Code sample
 
-The following C# code snippet demonstrates the usage of all the Video Indexer APIs together. 
+The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
+```csharp
     var apiUrl = "https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns";
     var client = new HttpClient();
     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "...");
@@ -114,7 +115,7 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
     Console.WriteLine();
     Console.WriteLine("Player token:");
     Console.WriteLine(json);
-
+```
 ## Next steps
 
 Examine details of the output JSON, see [this](video-indexer-output-json.md) topic.

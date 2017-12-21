@@ -3,7 +3,7 @@ title: Build an Azure Cosmos DB Node.js application by using Graph API | Microso
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/29/2017
-ms.author: denlee
+ms.date: 12/15/2017
+ms.author: lbosq
 
 ---
 # Azure Cosmos DB: Build a Node.js application by using Graph API
@@ -72,9 +72,23 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
         });
     ```
 
-  The configurations are all in `config.js`, which we edit in the following section.
+  The configurations are all in `config.js`, which we edit in the [following section](#update-your-connection-string).
 
-* A series of Gremlin steps are executed with the `client.execute` method.
+* A series of functions are defined to execute different Gremlin operations. This is one of them:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Each function executes a `client.execute` method with a Gremlin query string parameter. Here is an example of how `g.V().count()` is executed:
 
     ```nodejs
     console.log('Running Count'); 
@@ -85,11 +99,28 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
     });
     ```
 
+* At the end of the file, all methods are then invoked using the `async.waterfall()` method. This will execute them one after the other:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## Update your connection string
 
 1. Open the config.js file. 
 
-2. In config.js, fill in the config.endpoint key with the **Gremlin URI** value from the **Overview** page of the Azure portal. 
+2. In config.js, fill in the `config.endpoint` key with the **Gremlin URI** value from the **Overview** page of the Azure portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

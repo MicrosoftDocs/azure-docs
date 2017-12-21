@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
-ms.author: trinadhk
+ms.author: trinadhk, sogup
 
 ---
-# Questions about Vault upgrade
-This article provides an overview of what Recovery Services vault provides, frequently asked questions about upgrading existing backup vault to Recovery Services vault, and post-upgrade steps. A Recovery Services vault is the Azure Resource Manager equivalent of a Backup vault that houses your backup data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations, whether on-premises or in Azure.
+# Backup vault upgraded to Recovery Services vault
+This article provides an overview of what Recovery Services vault provides, frequently asked questions about upgrading existing Backup vault to Recovery Services vault, and post-upgrade steps. A Recovery Services vault is the Azure Resource Manager equivalent of a Backup vault that houses your backup data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations, whether on-premises or in Azure.
 
 ## What is a Recovery Services vault?
 A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
@@ -70,7 +70,7 @@ Once you upgrade to a Recovery Services vault, configure reports for Azure Backu
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **What does this upgrade mean for my existing tooling?**</br>
-You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 **Can I roll back after upgrade?**</br>
 No. Rollback is not supported after the resources have been successfully upgraded.
@@ -87,7 +87,7 @@ To update the policy, go to MARS agent and update the configured backup policy.
 
 **Why can’t I update my Backup policy after the upgrade?**</br>
 This happens when you are on an old backup agent and select the minimum retention period to be less than the allowed minimum value. When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. To ensure that there are always a valid number of recovery points available, there is some minimum retention period that needs to be maintained as per the security feature. For more details, refer [here](backup-azure-security-feature.md).
-Also, you need to update your Backup agents to latest version to take the benefits of the latest features of Azure Backup.
+Also, you need to update your Azure Backup agents to latest version to take the benefits of the latest features of Azure Backup.
 
 **I have updated my agent, but I still can’t see any objects being synced even days after the upgrade**</br>
 Please check if you have registered the same machine to multiple vaults. Ensure that you are looking at the same vault to which the MARS Agent is registered. To find out which vault your MARS Agent is registered to, open the Windows Registry and check the value for ServiceResourceName key under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 
 ---
@@ -36,7 +36,7 @@ Copy Activity is executed on an [Integration Runtime](concepts-integration-runti
 * When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
-Integration Runtime need to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integration Runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
@@ -63,6 +63,10 @@ For example, you can do the following copy activities:
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
 
+## Supported regions
+
+The service that powers Copy Activity is available globally in the regions and geographies listed in [Azure Integration Runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
+
 ## Configuration
 
 To use copy activity in Azure Data Factory, you need to:
@@ -73,7 +77,7 @@ To use copy activity in Azure Data Factory, you need to:
 
 ### Syntax
 
-The following template of a copy activity lists exhausted supported properties. Specify the ones fits your scenario.
+The following template of a copy activity contains an exhaustive list of supported properties. Specify the ones that fit your scenario.
 
 ```json
 "activities":[
@@ -104,7 +108,7 @@ The following template of a copy activity lists exhausted supported properties. 
             "translator":
             {
                 "type": "TabularTranslator",
-                "ColumnMappings": "<column mapping>"
+                "columnMappings": "<column mapping>"
             },
             "cloudDataMovementUnits": <number>,
             "parallelCopies": <number>,
@@ -152,7 +156,7 @@ Copy activity execution details and performance characteristics are returned in 
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
 | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
-| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of "`<IR name> (<region if it's Azure IR>)`". | Text (string) |
+| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
 | billedDuration | The duration being billed for data movement. | Int32 value in seconds |
@@ -185,6 +189,12 @@ By default, copy activity stops copying data and returns failure when it encount
 ## Performance and tuning
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+
+## Incremental copy 
+Data Factory version 2 supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 
+
+## Read and write partitioned data
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

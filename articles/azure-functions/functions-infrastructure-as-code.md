@@ -3,7 +3,7 @@ title: Automate resource deployment for a function app in Azure Functions | Micr
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
 services: Functions
 documtationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''

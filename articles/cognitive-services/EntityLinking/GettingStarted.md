@@ -36,7 +36,7 @@ Let’s start by creating a new project in Visual Studio. First, launch Visual S
 
  ![Createa universal app](./Images/CreateUWP.png)
 
-### <a name+"step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Step 3: Add the Entity Linking NuGet Package to your project</a>
 
 Entity Linking of Cognitive Services is released as a NuGet.org package and needs to be installed before you can use it.
 To add it to your project, go to the **Solution Explorer** tab, right click your project, and select **Manage Nuget Packages**.

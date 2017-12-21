@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 
 ---
@@ -26,17 +26,17 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Oracle connector in V1](v1/data-factory-onprem-oracle-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from Oracle database to any supported sink data store, or copy data from any supported source data store to Oracle database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Oracle connector supports the following versions of Oracle database:
+Specifically, this Oracle connector supports the following versions of Oracle database, and it supports Basic or OID authentications.
 
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+- Oracle 12c R1 (12.1)
+- Oracle 11g R1, R2 (11.1, 11.2)
+- Oracle 10g R1, R2 (10.1, 10.2)
+- Oracle 9i R1, R2 (9.0.1, 9.2)
+- Oracle 8i R3 (8.1.7)
 
 ## Prerequisites
 
@@ -161,7 +161,7 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **OracleSink** | Yes |
+| type | The type property of the copy activity sink must be set to: **OracleSink** | Yes |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: Integer (number of rows). |No (default is 10000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: Timespan. Example: 00:30:00 (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to execute before writing data into Oracle in each run. You can use this property to clean up the pre-loaded data. | No |
@@ -204,7 +204,7 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 | Oracle data type | Data factory interim data type |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |

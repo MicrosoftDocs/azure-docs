@@ -1,20 +1,12 @@
 ---
-title: Deploy to Azure Container Instances from the Azure Container Registry | Azure Docs
-description: Deploy to Azure Container Instances from the Azure Container Registry
+title: Deploy to Azure Container Instances from the Azure Container Registry
+description: Deploy Azure Container Instances from the Azure Container Registry
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
-tags: 
-keywords: ''
 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc

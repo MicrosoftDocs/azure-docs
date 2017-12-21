@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.worksmobile.com/jp/myservice`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
 	b. In the **Identifier** textbox, type the value as `worksmobile.com`
 

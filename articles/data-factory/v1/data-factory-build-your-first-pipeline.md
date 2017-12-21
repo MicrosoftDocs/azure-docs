@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 
 robots: noindex
@@ -26,6 +26,10 @@ robots: noindex
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
 
 In this tutorial, you build your first Azure data factory with a data pipeline. The pipeline transforms input data by running Hive script on an Azure HDInsight (Hadoop) cluster to produce output data.  
 

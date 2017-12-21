@@ -1,6 +1,6 @@
 ---
-title: Create a Ruby App with Azure Web Apps on Linux | Microsoft Docs
-description: Learn to create Ruby apps with Azure web wpp on Linux.
+title: Create a Ruby App and deploy to App Service on Linux | Microsoft Docs
+description: Learn to create Ruby apps with App Service on Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: ''
@@ -14,21 +14,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Create a Ruby App with Web Apps on Linux
+# Create a Ruby App in App Service on Linux
 
-[Azure Web Apps](../app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic Ruby on Rails application you then deploy it to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## Prerequisites
 
-* [Ruby 2.4.1 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
-* [Git](https://git-scm.com/downloads).
-* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/).
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,7 +55,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 ## Modify app to display welcome message
 
 Modify the application so it displays a welcome message. First, you must setup a route by modifying the *~/workspace/ruby-docs-hello-world/config/routes.rb* file to include a route named `hello`.
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -93,13 +92,13 @@ A resource group is required to contain the assets needed for your web app. To c
 az group create --location westeurope --name myResourceGroup
 ```
 
-Use the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) command to create an app service plan for your web app.
+Use the [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command to create an app service plan for your web app.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Next, issue the [az webapp create](https://docs.microsoft.com/cli/azure/webapp) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
+Next, issue the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command to create the web app that uses the newly created service plan. Notice that the runtime is set to `ruby|2.3`. Don't forget to replace `<app name>` with a unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -144,7 +143,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) command, as shown here:
+Once the deployment has completed, restart your web app for the deployment to take effect by using the [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) command, as shown here:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
@@ -166,4 +165,4 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
+[Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)

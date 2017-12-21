@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/01/2017
 ms.author: tomfitz
 
 ---
@@ -146,7 +146,7 @@ When you download the usage CSV for services that support tags with billing, the
 
 ## Next steps
 
-* You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [Use policies to manage resources and control access](resource-manager-policy.md).
+* You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  

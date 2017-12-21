@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ How does partitioning work? Each item must have a partition key and a row key, w
 
 * You provision a Azure Cosmos DB container with `T` requests/s throughput.
 * Behind the scenes, Azure Cosmos DB provisions partitions needed to serve `T` requests/s. If `T` is higher than the maximum throughput per partition `t`, then Azure Cosmos DB provisions `N` = `T/t` partitions.
-* Azure Cosmos DB allocates the key space of partition key hashes evenly across the `N` partitions. So, each partition (physical partition) hosts 1-N partition key values (logical partitions).
+* Azure Cosmos DB allocates the key space of partition key hashes evenly across the `N` partitions. So, each partition (physical partition) hosts `1/N` partition key values (logical partitions).
 * When a physical partition `p` reaches its storage limit, Azure Cosmos DB seamlessly splits `p` into two new partitions, `p1` and `p2`. It distributes values corresponding to roughly half the keys to each of the partitions. This split operation is invisible to your application.
 * Similarly, when you provision throughput higher than `t*N`, Azure Cosmos DB splits one or more of your partitions to support the higher throughput.
 
@@ -58,7 +58,13 @@ Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosm
 > It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum).
 >
 
-Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
+Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
+
+It is a good idea to check how your data is distributed in partitions. To check this in portal, go to your Azure Cosmos DB account and click on **Metrics** in **Monitoring** section and then on right pane click on **storage** tab to see how your data is partitioned in different physical partition.
+
+![Resource partitioning](./media/partition-data/partitionkey-example.png)
+
+The left image shows the result of a bad partition key and the right image shows the result of a good partition key. In left image, you can see the data is not evenly distributed among partitions. You should strive to distribute your data so your graph looks similar to right image.
 
 ## Partitioning and provisioned throughput
 Azure Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of *[request units](request-units.md) (RU) per second*. Each request is assigned a RU charge that is proportionate to the amount of system resources like CPU, memory, and IO consumed by the operation. A read of a 1-KB document with session consistency consumes 1 RU. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher RUs depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
@@ -119,25 +125,18 @@ Results:
 
 ### Table API
 
-With the Table API, you specify the throughput for tables in the appSettings configuration for your application.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Then you create a table by using the Azure Table storage SDK. The partition key is implicitly created as the `PartitionKey` value. 
+To create a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Throughput is set as an argument of CreateIfNotExists.
+
+The partition key is implicitly created as the `PartitionKey` value. 
 
 You can retrieve a single entity by using the following snippet:
 

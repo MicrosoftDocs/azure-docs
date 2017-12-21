@@ -3,7 +3,7 @@ title: Azure Automation Windows Hybrid Runbook Worker | Microsoft Docs
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that allows you to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -93,7 +93,7 @@ Follow the instructions at [To add a solution using the Solutions Gallery](../lo
 
 The Microsoft Monitoring Agent connects computers to Operations Management Suite.  When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
-Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agents.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
+Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
 
 When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.   
 

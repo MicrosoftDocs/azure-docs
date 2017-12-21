@@ -19,6 +19,10 @@ ms.custom: mvc
 
 # Build a Java and MySQL web app in Azure
 
+> [!NOTE]
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Deploy a containerized Spring Boot app to Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
+
 This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](app-service-web-overview.md).
 
@@ -274,7 +278,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_u
 ```
 
 ```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_URL=Javaapp_password --resource-group myResourceGroup --name <app_name>
+az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
 ```
 
 ### Get FTP deployment credentials 
@@ -395,7 +399,7 @@ When you refresh the app, a **Time Created** column is now visible. When you add
 
 While your Java application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az webapp log tail](/cli/azure/appservice/web/log#tail) command in the Cloud Shell.
+To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

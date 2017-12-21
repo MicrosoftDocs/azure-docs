@@ -1,19 +1,10 @@
 ---
-title: Review the architecture for Hyper-V replication to Azure with Azure Site Recovery | Microsoft Docs
+title: Hyper-V to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -149,7 +140,7 @@ After your on-premises infrastructure is up and running again, you can fail back
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable Hyper-V to Azure replication.
-Run a failover and failback.
+
+Follow [this tutorial](tutorial-prepare-azure.md) to get started with Hyper-V to Azure replication.
+
 

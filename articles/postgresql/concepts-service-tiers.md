@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 11/03/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each pricing tier
 When you create an Azure Database for PostgreSQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
@@ -22,7 +22,7 @@ Each pricing tier has a range of performance levels (Compute Units) to choose fr
 > [!IMPORTANT]
 > While the service is in public preview, there is not a guaranteed Service Level Agreement (SLA).
 
-Within an Azure Database for PostgreSQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. 
+Within an Azure Database for PostgreSQL server, you can have one or multiple databases. You can opt to create a single database per server to have the database utilize all the server resources, or create multiple databases to share the server resources. 
 
 ## Choose a pricing tier
 While in preview, Azure Database for PostgreSQL offers two pricing tiers: Basic and Standard. Premium tier is not yet available, but is coming soon. 
@@ -48,12 +48,12 @@ To decide on a pricing tier, first start by determining if your workload needs a
 During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
 ## Understand the price
-When you create a new Azure Database for PostgreSQL inside the [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), click the **Pricing tier** blade, and the monthly cost will be shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for PostgreSQL** to customize the options.
+When you create a new Azure Database for PostgreSQL inside the [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), click the **Pricing tier** page, and the monthly cost is shown based on the options you have selected. If you do not have an Azure subscription, use the Azure pricing calculator to get an estimated price. Visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, then click **Add items**, expand the **Databases** category, and choose **Azure Database for PostgreSQL** to customize the options.
 
 ## Choose a performance level (Compute Units)
 Once you have determined the pricing tier for your Azure Database for PostgreSQL server, you are ready to determine the performance level by selecting the number of Compute Units needed. A good starting point is 200 or 400 Compute Units for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
 
-Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources.  For more information, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
+Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources.  For more information, see [Explaining Compute Units](concepts-compute-unit-and-storage.md).
 
 ### Basic pricing tier performance levels:
 
@@ -80,19 +80,19 @@ The storage configuration defines the amount of storage capacity available to an
 
 Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
-The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 3,000 provisioned IOPS.
+The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125-GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 3,000 provisioned IOPS.
 
-Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percentage.
 
 >[!IMPORTANT]
 > While in preview, choose the amount of storage at the time when the server is created. Changing the storage size on an existing server is not yet supported. 
 
 ## Scaling a server up or down
-You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
+You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier page, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
 Scaling the Compute Units is done independently of the maximum storage size you have chosen.
 
-Behind the scenes, changing the performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process. During the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
+Behind the scenes, changing the performance level of a database creates a copy of the original server at the new performance level, and then switches connections over to the copied server. No data is lost during this process. During the brief moment when the system switches over to the new copy of the server, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but on average is under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
 
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 

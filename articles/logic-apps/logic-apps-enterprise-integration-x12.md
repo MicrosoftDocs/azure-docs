@@ -70,11 +70,11 @@ If you don't see any integration accounts,
 4. Select **Overview**, then select the **Agreements** tile. 
 If you don't have an Agreements tile, add the tile first. 
 
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. In the Agreements blade that opens, choose **Add**.
 
-	![Choose "Add"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+	![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
 For the agreement type, select **X12**. 

@@ -4,7 +4,7 @@ description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
+ms.date: 11/24/2017
+ms.author: bradsev;weig
 
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse
@@ -839,7 +839,6 @@ In this exercise, we have already explored and engineered the data in SQL Data W
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Enter the **Database name** in the corresponding field.
 5. Enter the *SQL user name* in the **Server user account name**, and the *password* in the **Server user account password**.
-6. Check the **Accept any server certificate** option.
 7. In the **Database query** edit text area, paste the query which extracts the necessary database fields (including any computed fields such as the labels) and down samples the data to the desired sample size.
 
 An example of a binary classification experiment reading data directly from the SQL Data Warehouse database is in the figure below (remember to replace the table names nyctaxi_trip and nyctaxi_fare by the schema name and the table names you used in your walkthrough). Similar experiments can be constructed for multiclass classification and regression problems.
