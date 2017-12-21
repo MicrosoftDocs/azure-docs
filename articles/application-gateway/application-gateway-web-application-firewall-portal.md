@@ -47,7 +47,7 @@ This article presents two scenarios. In the first scenario, you learn how to [cr
 
 This example updates an existing application gateway to support a WAF in **Prevention** mode.
 
-1. In the Azure portal **Favorites** pane, select **All resources**. On the **All resources** blade, select the existing application gateway. If the subscription you selected already has several resources in it, enter the name in the **Filter by name** box to easily access the DNS zone.
+1. In the Azure portal **Favorites** pane, select **All resources**. On the **All resources** pane, select the existing application gateway. If the subscription you selected already has several resources in it, enter the name in the **Filter by name** box to easily access the DNS zone.
 
    ![Existing application gateway selection][1]
 
@@ -82,13 +82,13 @@ This scenario will:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free).
 
-2. In the **Favorites** pane on the portal, select **New**.
+2. Click **Create a resource**.
 
-3. On the **New** blade, select **Networking**. On the **Networking** blade, select **Application Gateway**, as shown in the following image:
+3. In the **New** pane, click **Networking** > **Application Gateway**, as shown in the following image::
 
     ![Application gateway creation][1]
 
-4. On the **Basics** blade that appears, enter the following values, and then select **OK**:
+4. On the **Basics** pane that appears, enter the following values, and then select **OK**:
 
    | **Setting** | **Value** | **Details**
    |---|---|---|
@@ -102,11 +102,11 @@ This scenario will:
 
    ![Basic settings configuration][2-2]
 
-5. On the **Settings** blade that appears under **Virtual network**, select **Choose a virtual network**. On the **Choose virtual network** blade, select **Create new**.
+5. On the **Settings** pane that appears under **Virtual network**, select **Choose a virtual network**. On the **Choose virtual network** pane, select **Create new**.
 
    ![Virtual network choice][2]
 
-6. On the **Create virtual network blade**, enter the following values, and then select **OK**. The **Subnet** field on the **Settings** blade is populated with the subnet you chose.
+6. On the **Create virtual network pane**, enter the following values, and then select **OK**. The **Subnet** field on the **Settings** pane is populated with the subnet you chose.
 
    |**Setting** | **Value** | **Details** |
    |---|---|---|
@@ -115,15 +115,15 @@ This scenario will:
    |**Subnet name**|AppGatewaySubnet|The name of the subnet for the application gateway.|
    |**Subnet address range**|10.0.0.0/28 | This subnet allows more additional subnets in the virtual network for back-end pool members.|
 
-7. On the **Settings** blade under **Frontend IP configuration**, select **Public** as the **IP address type**.
+7. On the **Settings** pane under **Frontend IP configuration**, select **Public** as the **IP address type**.
 
-8. On the **Settings** blade under **Public IP address**, select **Choose a public IP address**. On the **Choose public IP address** blade, select **Create new**.
+8. On the **Settings** pane under **Public IP address**, select **Choose a public IP address**. On the **Choose public IP address** pane, select **Create new**.
 
    ![Public IP address choice][3]
 
-9. On the **Create public IP address** blade, accept the default value, and select **OK**. The **Public IP address** field is populated with the public IP address you chose.
+9. On the **Create public IP address** pane, accept the default value, and select **OK**. The **Public IP address** field is populated with the public IP address you chose.
 
-10. On the **Settings** blade under **Listener configuration**, select **HTTP** under **Protocol**. A certificate is required to use **HTTPS**. The private key for the certificate is needed. Provide a .pfx export of the certificate, and enter the password for the file.
+10. On the **Settings** pane under **Listener configuration**, select **HTTP** under **Protocol**. A certificate is required to use **HTTPS**. The private key for the certificate is needed. Provide a .pfx export of the certificate, and enter the password for the file.
 
 11. Configure specific settings for the **WAF**.
 
