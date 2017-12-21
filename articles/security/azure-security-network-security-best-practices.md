@@ -232,3 +232,32 @@ However, there is a lot of planning and design issues that need to be addressed 
 Microsoft has created the [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) and supporting collateral to help you understand what such a datacenter extension would look like. This provides an example reference implementation that you can use to plan and design a secure enterprise datacenter extension to the cloud. We recommend that you review this document to get an idea of the key components of a secure solution.
 
 To learn more about how to securely extend your datacenter into Azure, please view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
+
+## NSG and Azure ASM Cloud Services
+
+If you are still using legacy  Azure Cloud Services Web and Worker Roles (Azure PaaS v1), it is possible to leverage Network Security Groups (NSG) for them, if joined to an Azure regional Virtual Network (VNET). Please remember that another feature exists called “PaaS Access Control List” (endpoints) but deprecated, see the link below for more details:
+
+[Windows Azure PaaS ACLs Are Here!](https://blogs.msdn.microsoft.com/walterm/2014/04/22/windows-azure-paas-acls-are-here) 
+
+You can consider this feature as NSG v1, then superseded by true Azure Network Security Group (NSG) as you know today in ARM. Please remember that there is no Cloud Service (web/worker roles) equivalent in ARM, this is a pure ASM concept only. 
+If you still have Cloud Services, you can leverage NSG changing the “NetworkConfiguration” section of CSCFG file as in the example below:
+
+```xml
+<NetworkConfiguration>
+    <VirtualNetworkSite name="VNet-BL"/>
+    <AddressAssignments>
+      <InstanceAddress roleName="WebRole">
+        <Subnets>
+          <Subnet name="TestSubnet-2"/>
+        </Subnets>
+      </InstanceAddress>
+    </AddressAssignments>
+    <NetworkSecurityGroupRefs>
+      <NetworkSecurityGroupRef roleName="WebRole">
+        <NetworkSecurityGroup name="BlockOutbound"/>
+      </NetworkSecurityGroupRef>
+    </NetworkSecurityGroupRefs>
+  </NetworkConfiguration>
+```
+
+In the “NetworkSecurityGroupRefs” section, you can reference already existing NSGs, you cannot define new ones here: you have to create outside and using ASM APIs, ARM will not work here. It is worth mentioning that NSG feature is not compatible with “PaaS Access Control List” (endpoints) and then cannot coexist.
