@@ -1,22 +1,13 @@
 ---
 title: Customize Azure Migrate assessment settings | Microsoft Docs
 description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Customize an assessment
 
 [Azure Migrate](migrate-overview.md) creates assessments with default settings. After creating an assessment, you can modify those default settings using the instructions in this article.

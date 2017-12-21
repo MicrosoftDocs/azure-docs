@@ -17,7 +17,7 @@ ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery deployment planner
+# Azure Site Recovery Deployment Planner for Hyper-V to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
 ## Overview
@@ -37,6 +37,9 @@ The tool provides the following details:
 
 * The estimated network bandwidth that's required for delta replication
 * The throughput that Azure Site Recovery can get from on-premises to Azure
+* RPO that can be achieved for a given bandwidth
+* Impact on the desired RPO if lower bandwidth is provisioned.
+
     
 **Azure infrastructure requirements**
 
@@ -49,6 +52,7 @@ The tool provides the following details:
 
 **On-premises infrastructure requirements**
 * The required free storage space on each volume of Hyper-V storage for successful initial replication and delta replication to ensure that VM replication will not cause any undesirable downtime for your production applications
+* Maximum copy frequency to be set for Hyper-V replication
 
 **Initial replication batching guidance** 
 * Number of VM batches to be used for protection
@@ -56,7 +60,7 @@ The tool provides the following details:
 * Order in which each batch is to be protected
 * Estimated time to complete initial replication of each batch
 
-**Cost** 
+**Estimated DR cost to Azure**
 * Estimated total DR cost to Azure: compute, storage, network, and Azure Site Recovery license cost
 * Detail cost analysis per VM
 

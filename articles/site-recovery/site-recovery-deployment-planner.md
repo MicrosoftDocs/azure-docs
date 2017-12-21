@@ -17,7 +17,7 @@ ms.date: 12/04/2017
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery deployment planner
+# Azure Site Recovery Deployment Planner for VMware to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Overview
@@ -39,6 +39,8 @@ The tool provides the following details:
 * The estimated network bandwidth that's required for delta replication
 * The throughput that Site Recovery can get from on-premises to Azure
 * The number of VMs to batch, based on the estimated bandwidth to complete initial replication in a given amount of time
+* RPO that can be achieved for a given bandwidth
+* Impact on the desired RPO if lower bandwidth is provisioned.
 
 **Azure infrastructure requirements**
 
@@ -52,7 +54,7 @@ The tool provides the following details:
 **On-premises infrastructure requirements**
 * The required number of configuration servers and process servers to be deployed on-premises
 
-**Cost** 
+**Estimated DR cost to Azure**
 * Estimated total DR cost to Azure: compute, storage, network, and Azure Site Recovery license cost
 * Detail cost analysis per VM
 
