@@ -3,10 +3,12 @@ title: Aerial Image Classification  | Microsoft Docs
 description: Provides instructions for real world scenario on aerial image classification
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
 ---
 
@@ -48,7 +50,7 @@ The [step-by-step instructions](https://github.com/MicrosoftDocs/azure-docs-pr/t
 The following instructions guide you through the process of setting up execution environment for this example.
 
 ### Prerequisites
-- An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available)
+- An [Azure account](https://azure.microsoft.com/free/) (free trials are available)
     - You will create an HDInsight Spark cluster with 40 worker nodes (168 cores total). Ensure that your account has enough available cores by reviewing the "Usage + quotas" tab for your subscription in Azure portal.
        - If you have fewer cores available, you may modify the HDInsight cluster template to decrease the number of workers provisioned. Instructions for this appear under the "Create the HDInsight Spark cluster" section.
     - This sample creates a Batch AI Training cluster with two NC6 (1 GPU, 6 vCPU) VMs. Ensure that your account has enough available cores in the East US region by reviewing the "Usage + quotas" tab for your subscription in Azure portal.
@@ -64,7 +66,7 @@ The following instructions guide you through the process of setting up execution
     - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
     - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
-    - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
 
 This example was tested on a Windows 10 PC; you should be able to run it from any Windows machine, including Azure Data Science Virtual Machines. The Azure CLI 2.0 was installed from an MSI according to [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Minor modifications may be required (for example, changes to filepaths) when running this example on macOS.

@@ -98,69 +98,68 @@ You have now configured your notification hub with APNS, and you have the connec
 
 6. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
 
-```obj-c
-    #ifndef HubInfo_h
-    #define HubInfo_h
+    ```obj-c
+        #ifndef HubInfo_h
+        #define HubInfo_h
    
-        #define HUBNAME @"<Enter the name of your hub>"
-        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+            #define HUBNAME @"<Enter the name of your hub>"
+            #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
-    #endif /* HubInfo_h */
-```
-
+        #endif /* HubInfo_h */
+    ```
+    
 7. Open your **AppDelegate.h** file add the following import directives:
 
-```obj-c
-    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-    #import <UserNotifications/UserNotifications.h> 
-    #import "HubInfo.h"
-```
-
+    ```obj-c
+        #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+        #import <UserNotifications/UserNotifications.h> 
+        #import "HubInfo.h"
+    ```
 8. In your **AppDelegate.m file**, add the following code in the **didFinishLaunchingWithOptions** method based on your version of iOS. This code registers your device handle with APNs:
 
-```obj-c
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+    ```obj-c
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+            UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
    
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-```
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    ```
    
 9. In the same file, add the following methods:
 
-```obj-c
-     - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-        SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                    notificationHubPath:HUBNAME];
+    ```obj-c
+         - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+           SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                        notificationHubPath:HUBNAME];
    
-        [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-            if (error != nil) {
-                NSLog(@"Error registering for notifications: %@", error);
-            }
-            else {
-                [self MessageBox:@"Registration Status" message:@"Registered"];
-            }
-        }];
+            [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
+               if (error != nil) {
+                   NSLog(@"Error registering for notifications: %@", error);
+                }
+                else {
+                   [self MessageBox:@"Registration Status" message:@"Registered"];
+              }
+          }];
+         }
+   
+        -(void)MessageBox:(NSString *) title message:(NSString *)messageText
+        {
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
+                cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         }
-   
-    -(void)MessageBox:(NSString *) title message:(NSString *)messageText
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
-            cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-```
+    ```
 
     This code connects to the notification hub using the connection information you specified in HubInfo.h. It then gives the device token to the notification hub so that the notification hub can send notifications.
 
 10. In the same file, add the following method to display a **UIAlert** if the notification is received while the app is active:
 
-```obj-c
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
-        }
-```
+    ```obj-c
+            - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
+               NSLog(@"%@", userInfo);
+               [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+           }
+    ```
 
 11. To verify there are no failures, build and run the app on your device.
 
