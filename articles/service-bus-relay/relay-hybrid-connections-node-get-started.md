@@ -73,7 +73,7 @@ To send messages to the Relay, we will write a Node.js console application.
 
 Congratulations, you have created an end-to-end Hybrid Connections application using Node.js!
 
-## Next steps:
+## Next steps
 
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)

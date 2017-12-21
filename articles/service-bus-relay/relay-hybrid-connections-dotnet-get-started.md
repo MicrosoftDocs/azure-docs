@@ -69,7 +69,8 @@ To send messages to the Relay, we will write a C# console application using Visu
 
 Congratulations, you have created an end-to-end Hybrid Connections application.
 
-## Next steps:
+## Next steps
+
 * [Relay FAQ](relay-faq.md)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)
