@@ -116,7 +116,12 @@ To enable the output of the job details, set **jobInformationOutputPath** in the
 **Set Git Ignore**
 
 1. Select Ctrl+Shift+P to open the command palette. 
-2. Enter **ADL:  Set Git Ignore**. Then a file name ".gitIgnore" is created in your folder. Four items are added into the file by default. You can delete or add ramdomly.
+2. Enter **ADL:  Set Git Ignore**. Then a file name **.gitIgnore** is created in your folder. Four items are added into the file by default. You can delete or add ramdomly.
+
+    - If you don’t have a **.gitIgnore** file in your VSCode working folder, a file named **.gitIgnor** is created in your folder. Four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) are added into the file by default. You can further make updates if needed.
+    - If you already have a **.gitIgnore** file in your VSCode working folder, the tool will add four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) into your **.gitIgnore** file if the four items were not included in the file.
+
+  ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## Use Python, R, and CSharp code-behind file
 Azure Data Lake Tool supports multiple custom code, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
@@ -328,21 +333,36 @@ The status displays on the bottom of the status bar when completed downloading a
    ![Data Lake Tools for Visual Studio Code Check Storage status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## VSCode Explorer integration with Azure Data Lake
-1. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **DATALAKE EXPLORER**. Expand one database, you can view the **Schemas**, **Credentials**, **Assemblies** and so on, under the node.
+
+**Azure Integration** 
+
+- Before login to Azure, you can always expand **DATALAKE EXPLORER**, then click **Sign in to Azur** to login to Azure. After login, you will see all the subscriptions under your Azure account are listed in the left panel of the **DATALAKE EXPLORER**. 
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. You can create a new database, schema, table, table types, index, statistics by right-clicking the **Script to Create** context menu under the corresponding node. In the opened script page, edit the script according to your requirement, then submit the job by right-clicking context menu **ADL: Submit Job**. After finishing creating it, click context menu **Refresh** to show the new created item. Definitely you can delete the item by right-clicking the context menu **Delete**.
+**ADLA Metadata Navigation** 
+
+- Expand your Azure subscription, you can navigate your U-SQL database, view the **Schemas**, **Credentials**, **Assemblies**, **Table**, **Index** and so on, under the U-SQL Databases node.
+
+**ADLA Metadata Entity Management**
+
+- Expand **U-SQL Databases**, you can create a new database, schema, table, table types, index, statistics by right-clicking the **Script to Create** context menu under the corresponding node. In the opened script page, edit the script according to your needs, then submit the job by right-clicking context menu **ADL: Submit Job**. After finishing creating it, click context menu **Refresh** to show the new created item. You can also delete the item by right-clicking the context menu **Delete**.
 
    ![DataLake explorer create new item menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
 
    ![DataLake explorer create new item script](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
 
-3. You can perform the command **Register assembly** by right-clicking on the **Assemblies** node.
+**ADLA Assembly Registration**
+
+ - You can **Register assembly** into the corresponding database by right-clicking on the **Assemblies** node.
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-4. Navigate to **Storage Account**, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload**, **Upload Folder**, **Delete** by right-clicking the context menu on the folder node.
+**ADLS Integration** 
+
+ - Navigate to **Storage Account**, you can **Preview**, **Download**, **Delete**, **Copy Relative Path**, **Copy Full Path** by the context menu on the file node. You can **Refresh**, **Upload**, **Upload Folder**, **Delete** by right-clicking the context menu on the folder node.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
