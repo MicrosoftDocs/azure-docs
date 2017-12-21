@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: devops
   ms.topic: landing-page
-  ms.date: 12/18/2017
+  ms.date: 12/20/2017
   ms.author: tarcher
 abstract:
   description: Use Ansible to automate cloud provisioning, configuration management and application deployments.

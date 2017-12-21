@@ -27,5 +27,5 @@
     href: http://docs.ansible.com/ansible/latest/dev_guide/index.html
 - name: Resources
   items:
-  - name: Tools
+  - name: Tools for using Ansible
     href: ./ansible-tools.md
