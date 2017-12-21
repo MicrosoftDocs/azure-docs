@@ -3,7 +3,7 @@ title: Failback in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
-author: rajan-janaki-ram
+author: rajani-janaki-ram
 manager: guaravd
 editor: ''
 
