@@ -1,5 +1,5 @@
 ---
-title: Enhance LUIS understanding of Synonyms with a phrase list | Microsoft Docs 
+title: Enhance LUIS understanding of synonyms with a phrase list  | Microsoft Docs 
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
@@ -8,11 +8,11 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 12/21/2017
 ms.author: v-geberr
 ---
 
-# Enhance LUIS understanding of Synonyms with a phrase list 
+# Enhance LUIS understanding of synonyms with a phrase list 
 Improve accuracy of intent score and identify entities for words that have the same meaning by adding an interchangeable **[phrase list feature](./luis-concept-feature.md)**.
 
 ## Import new app
@@ -25,8 +25,8 @@ Improve accuracy of intent score and identify entities for words that have the s
 4. [Publish](PublishApp.md) the app. Publishing the app allows you to test by using the published HTTPS endpoint. 
 
 > [!TIP]
-> [Interactive testing](Train-Test.md#interactive-testing) allows you to compare the published model to any trained changes made after you published. 
-> [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser) allows you to see exactly what your user or bot sees. 
+> * [Interactive testing](Train-Test.md#interactive-testing) allows you to compare the published model to any trained changes made after you published. 
+> * [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser) allows you to see exactly what your user or bot sees. 
 
 ## Endpoint test of trained utterance
 Use the published endpoint to query an utterance the app knows about:
@@ -171,8 +171,10 @@ After adding the phrase list, the accuracy increased for the utterance and the e
 | published | - | 0.84 | - |
 | currently editing |✔| 0.92 | Hardware entity identified |
 
-## Endpoint testing of untrained utterance with phrase list
-To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
+## Endpoint test of untrained utterance with phrase list
+To see the entity identification and score, [publish](PublishApp.md) the model and query the endpoint. 
+
+`I require a computer replacement`
 
 ```JSON
 {
