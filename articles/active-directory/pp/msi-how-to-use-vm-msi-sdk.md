@@ -17,7 +17,7 @@ ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# How to use user-assigned Managed Service Identity (MSI) with Azure SDKs 
+# Use Azure SDKs with a user-assigned Managed Service Identity (MSI)
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 This article provides a list of SDK samples, which demonstrate use of their respective Azure SDK's support for user-assigned MSI.

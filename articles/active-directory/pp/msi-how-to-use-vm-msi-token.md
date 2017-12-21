@@ -92,11 +92,20 @@ Content-Type: application/json
 
 Be sure to substitute the client ID (also known as App ID) of your user-assigned MSI's service principal, for the <MSI CLIENT ID> value of the `client_id` parameter. This value is returned in the `clientId` property during creation of a user-assigned MSI.
 
-```bash
-response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
-access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The MSI access token is $access_token
-```
+   ```bash
+   response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+
+   Example responses:
+
+   ```bash
+   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   user@vmLinux:~$ echo The MSI access token is $access_token
+   The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
+   ```
 
 ## Handling token expiration
 
