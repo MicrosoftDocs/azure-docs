@@ -24,7 +24,7 @@
 ## Configure
 ### [Install and configure Symantec Endpoint Protection](install-symantec.md)
 ### [Install and configure Trend Micro Deep Security as a Service](install-trend.md)
-### [Configure an availability set](configure-availability-claassic.md)
+### [Configure an availability set](configure-availability-classic.md)
 ### [Resize a Windows VM created in the classic deployment model](resize-vm-classic.md)
 ### [Maintenance](planned-maintenance-schedule-classic.md)
 
