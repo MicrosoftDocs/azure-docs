@@ -17,7 +17,7 @@ ms.author: banders
 
 ---
 
-# View Azure activity logs
+# Collect and analyze Azure activity logs in Log Analytics
 
 ![Azure Activity Logs symbol](./media/log-analytics-activity/activity-log-analytics.png)
 
