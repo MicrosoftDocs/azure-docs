@@ -3,10 +3,6 @@
   items:
     - name: Configure MSI for an Azure VM
       items:
-      - name: Using Azure Portal
-        href: msi-qs-configure-portal-windows-vm.md
-      - name: Using PowerShell
-        href: msi-qs-configure-powershell-windows-vm.md
       - name: Using Azure CLI
         href: msi-qs-configure-cli-windows-vm.md
       - name: Using Azure Resource Manager template
@@ -15,51 +11,23 @@
         href: msi-qs-configure-sdk-windows-vm.md          
     - name: Grant a VM MSI access to Resource Manager
       items:
-      - name: Using Azure portal
-        href: msi-howto-assign-access-portal.md
-      - name: Using PowerShell
-        href: msi-howto-assign-access-powershell.md
       - name: Using Azure CLI
         href: msi-howto-assign-access-cli.md 
     - name: How to use a VM MSI
       items:
       - name: Acquire an access token
         href: msi-how-to-use-vm-msi-token.md
-      - name: Sign-in to PowerShell, Azure CLI
+      - name: Sign-in to Azure CLI
         href: msi-how-to-use-vm-msi-sign-in.md
       - name: Use with Azure SDKs
         href: msi-how-to-use-vm-msi-sdk.md
-    - name: Use a VM MSI to access Azure Data Lake Store
-      items:
-      - name: From a Windows VM
-        href: msi-tutorial-windows-vm-access-datalake.md
-      - name: From a Linux VM
-        href: msi-tutorial-linux-vm-access-datalake.md
     - name: Use a VM MSI to access Azure Resource Manager
       items:
-      - name: From a Windows VM
-        href: msi-tutorial-windows-vm-access-arm.md
       - name: From a Linux VM
         href: msi-tutorial-linux-vm-access-arm.md
-    - name: Use a VM MSI to access Azure SQL
-      items:
-      - name: From a Windows VM
-        href: msi-tutorial-windows-vm-access-sql.md    
     - name: Use a VM MSI to access Azure storage
       items:
-      - name: From a Windows VM using access key
-        href: msi-tutorial-windows-vm-access-storage.md
-      - name: From a Windows VM using SAS
-        href: msi-tutorial-windows-vm-access-storage-sas.md        
       - name: From a Linux VM using access key
         href: msi-tutorial-linux-vm-access-storage.md
-      - name: From a Linux VM using SAS
-        href: msi-tutorial-linux-vm-access-storage-sas.md        
-    - name: Use a VM MSI to access Azure Key Vault
-      items:
-      - name: From a Windows VM
-        href: msi-tutorial-windows-vm-access-nonaad.md
-      - name: From a Linux VM
-        href: msi-tutorial-linux-vm-access-nonaad.md
     - name: FAQs and known issues
       href: msi-known-issues.md
