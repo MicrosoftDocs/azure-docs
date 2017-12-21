@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 12/21/2017
 ms.author: raynew
 ---
 
@@ -60,8 +60,10 @@ To install the agent on a Linux machine:
     - Processes running on the machine. 
     - The guest operating system running on the machine.
 
+ ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+
 4. For more granular dependencies, click the time range to modify it. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
-5. After you've identified dependent machines that you want to group together, select the machines on the map, and click **Group machines**.
+5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate. 
 
 > [!NOTE]
