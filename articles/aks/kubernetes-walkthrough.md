@@ -102,7 +102,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application.
 
-Create a file named `azure-vote.yml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
+Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -168,7 +168,7 @@ spec:
 Use the [kubectl create][kubectl-create] command to run the application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yml
+kubectl create -f azure-vote.yaml
 ```
 
 Output:

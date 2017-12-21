@@ -16,6 +16,21 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-attask-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-workfront-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
@@ -73,6 +88,21 @@
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-auto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
             "redirect_document_id": false
         },
         {
@@ -237,7 +267,7 @@
         },
         {
             "source_path": "articles/best-practices-resource-manager-state.md",
-            "redirect_url": "/azure/azure-resource-manager/best-practices-resource-manager-state",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -388,6 +418,21 @@
         {
             "source_path": "articles/java-download-azure-sdk.md",
             "redirect_url": "/java/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },            
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
+            "redirect_document_id": false
+        },           
+        {    
+            "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
         },
         {
@@ -602,7 +647,7 @@
         },
         {
             "source_path": "articles/resource-manager-template-best-practices.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-template-best-practices",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
             "redirect_document_id": false
         },
         {
@@ -618,6 +663,16 @@
         {
             "source_path": "articles/resource-manager-template-links.md",
             "redirect_url": "/rest/api/resources/resourcelinks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-template-best-practices.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/best-practices-resource-manager-state.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
             "redirect_document_id": false
         },
         {
@@ -4421,6 +4476,181 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/create-documentdb-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-java.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-nodejs.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-nodejs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-python.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/create-documentdb-xamarin-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/create-sql-api-xamarin-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-cpp-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-cpp-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnet-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnet-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-dotnetcore-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-dotnetcore-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-index.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-index",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-introduction.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/community.md",
+            "redirect_url": "/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-java-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-java-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-java-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-get-started.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-nodejs-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-nodejs-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-partition-data.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-partition-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-application.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-python-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-python-samples.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-python-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-resources.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-changefeed.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-changefeed",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet-core.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-core",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-node.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-node",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sdk-python.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sdk-python",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-metrics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/documentdb-sql-query.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-sql-query",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-documentdb-dotnet.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-develop-sql-api-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-global-distribution-documentdb.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-global-distribution-sql-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-query-documentdb.md",
+            "redirect_url": "/azure/cosmos-db/tutorial-query-sql-api",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/documentdb/index.md",
             "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
             "redirect_document_id": false
@@ -4442,6 +4672,11 @@
         },
 		{
             "source_path": "articles/log-analytics/log-analytics-windows-agent.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-windows-agents.md",
             "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
             "redirect_document_id": false
         },
@@ -13940,11 +14175,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-policy/index.md",
-            "redirect_url": "/azure/azure-policy/azure-policy-introduction",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/services.md",
             "redirect_url": "/azure/machine-learning/preview/index.yml",
             "redirect_document_id": false
@@ -15289,6 +15519,11 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
+        {
+          "source_path": "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md",
+          "redirect_url": "/azure/active-directory/active-directory-how-subscriptions-associated-directory",
+          "redirect_document_id": false
+        },
 	    {
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
@@ -15599,10 +15834,105 @@
         "redirect_url": "https://www.blitline.com",
         "redirect_document_id": false
       },
-       {
-             "source_path": "articles/xplat-cli-connect.md",
-             "redirect_url": "/cli/azure/authenticate-azure-cli",
-             "redirect_document_id": false
-        }
+      {
+        "source_path": "articles/xplat-cli-connect.md",
+        "redirect_url": "/cli/azure/authenticate-azure-cli",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-load.md",
+        "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": false
+      },
+	  {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-polybase-guide.md",
+        "redirect_url": "/azure/sql-data-warehouse/guidance-for-loading-data",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+        "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "articles/backup/backup-azure-dpm-introduction-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-dpm-introduction",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-manage-vms-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-manage-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-manage-windows-server-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-manage-windows-server",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-microsoft-azure-backup-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-restore-vms.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-restore-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-restore-windows-server-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-restore-windows-server",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-vms",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-classic-automation.md",
+        "redirect_url": "/azure/backup/backup-azure-vms-automation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-prepare.md",
+        "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-azure-vms-troubleshoot-classic.md",
+        "redirect_url": "/azure/backup/backup-azure-vms-troubleshoot",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-client-automation-classic.md",
+        "redirect_url": "/azure/backup/backup-client-automation",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-configure-vault-classic.md",
+        "redirect_url": "/azure/backup/backup-configure-vault",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/backup/backup-dpm-automation-classic.md",
+        "redirect_url": "/azure/backup/backup-dpm-automation",
+        "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
+      "redirect_document_id": false
+     },
+      {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
+      "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/storage/blobs/storage-account-options.md",
+      "redirect_url": "/azure/storage/common/storage-account-options",
+      "redirect_document_id": false
+      }
     ]
 }
