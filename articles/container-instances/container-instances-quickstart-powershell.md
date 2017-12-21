@@ -86,11 +86,11 @@ In this quickstart, you started a pre-built Windows container in Azure Container
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
 
+<!-- IMAGES -->
+[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
+
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
 [Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
-
-<!-- IMAGES -->
-[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png

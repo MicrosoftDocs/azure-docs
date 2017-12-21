@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 ## Log in to Azure
 
@@ -65,7 +65,7 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## Next steps
