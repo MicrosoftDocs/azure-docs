@@ -23,7 +23,7 @@ ms.author: renash
 > [!NOTE]  
 > In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0. SMB 3.0 encryption support was introduced in Linux kernel version 4.11.
 
-## Prerequisities for mounting an Azure file share with Linux and the cifs-utils package
+## Prerequisites for mounting an Azure file share with Linux and the cifs-utils package
 * **Pick a Linux distribution that can have the cifs-utils package installed.**  
     The following Linux distributions are available for use in the Azure gallery:
 
