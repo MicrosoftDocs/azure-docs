@@ -103,7 +103,7 @@ No. This feature is not supported currently.
 
 **Can I break a lease on my disk?**
 
-No. This feature is not supported currently as a lease is present to prevent accidental deletion when the disk is being used.
+No. This is not supported currently as a lease is present to prevent accidental deletion when the disk is being used.
 
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
 
