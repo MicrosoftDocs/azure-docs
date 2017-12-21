@@ -49,13 +49,13 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 2. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
-    ```cmd/sh
+    ```cmd
     cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientTpm
     ```
 
 2. Type the following command to build and run the TPM device provisioning sample. Replace the `<IDScope>` value with the ID Scope for your provisioning service. 
 
-    ```cmd/sh
+    ```cmd
     dotnet run <IDScope>
     ```
 
