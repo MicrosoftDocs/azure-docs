@@ -23,7 +23,7 @@ With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*m
 ## Prerequisite
 
 > [!div class="checklist"]
-> * [Hardware requisition app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json). Import this app. Its name in the app list is **Phrase Lists**. Train and publish the app.  
+> * [Hardware requisition app][LuisSampleApp] - The app name is **Phrase Lists**. Import, train and publish the app.
 
 ## Score trained utterance
 Use the published endpoint to query an utterance the app knows about:
@@ -203,3 +203,4 @@ To see the entity score, [publish](PublishApp.md) the model and query the endpoi
 
 
   [LuisFeatures]: luis-concept-feature.md
+  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
