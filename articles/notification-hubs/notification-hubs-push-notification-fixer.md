@@ -19,17 +19,17 @@ ms.author: jawh
 ---
 # Azure Notification Hubs - Diagnosis guidelines
 ## Overview
-One of the most common questions we hear from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this. In this article we will go through the various reasons why notifications may get dropped or do not end up on the devices. We will also look through ways in which you can analyze and figure out the root cause. 
+One of the most common questions heard from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this issue. This article will identify the various reasons why notifications may get dropped or do not end up on the devices. We will discuss ways in which you can analyze and determine the root cause. 
 
 First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
 ![][0]
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Classic Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - *client*, *application backend*, *Azure Notification Hubs (NH)* and *Push Notification Services (PNS)* and any of these may cause notifications getting dropped. More details on this architecture are available on [Notification Hubs Overview].
+In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batches of registrations, to the device platform specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)* and any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
 
-Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
+Failure to deliver notifications may happen during the initial test/staging phase, which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. The section below looks at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
 
 ## Azure Notifications Hub mis-configuration
-Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc.) and then registering their application where they get credentials which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
+Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc.) and then registering their application where they get credentials, which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
 
 1. **General**
    
@@ -43,36 +43,36 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
      b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must be using the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
 2. **Apple Push Notification Service (APNS) configuration**
    
-    You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub. 
+    You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at minimum you must delete all the existing registrations from the hub. 
 3. **Google Cloud Messaging (GCM) configuration** 
    
     a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
    
     ![][2]
    
-    b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM. 
+    b) Make sure that you create a "Server Key" while obtaining the credentials which NH uses to authenticate with GCM. 
    
     ![][3]
    
-    c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:
+    c) Make sure that you have configured "Project ID" on the client, which is an entirely numerical entity that you can obtain from the dashboard:
    
     ![][1]
 
 ## Application issues
 1) **Tags/ Tag expressions**
 
-If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. 
+If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags matching when you send a notification and then verify the notification receipt only from the clients with those registrations. For example, if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B." In the self-diagnose tips section following, there are ways in which you can review your registrations along with the tags they have. 
 
 2) **Template issues**
 
-If you are using templates then ensure that you are following the guidelines described at [Template guidance]. 
+If you are using templates, then ensure that you are following the guidelines described at [Template guidance]. 
 
 3) **Invalid registrations**
 
 Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
 
 > [!NOTE]
-> Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered. 
+> Since processing is performed in parallel, the order in which the notifications will be delivered is not guaranteed. 
 > 
 > 
 
@@ -90,7 +90,7 @@ Source - [APNS guidance] & [GCM guidance]
 With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers which are passed as is to the respective PNS. 
 
 ## Self-diagnose tips
-Here we will examine the various avenues to diagnose and root cause any Notification Hub issues:
+Here we will examine the various avenues to diagnose and determine the root cause of any Notification Hub issues:
 
 ### Verify credentials
 1. **PNS developer portal**
@@ -208,7 +208,7 @@ More details here -
 * [Telemetry Access via APIs sample] 
 
 > [!NOTE]
-> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc. are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure Classic Portal.  
+> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc. are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure portal.  
 > 
 > 
 
