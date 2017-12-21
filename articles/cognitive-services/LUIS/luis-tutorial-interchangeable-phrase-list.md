@@ -12,7 +12,9 @@ ms.date: 12/20/2017
 ms.author: v-geberr
 ---
 
-# Improve accuracy with an interchangeable phrase list 
+# Add an interchangeable phrase list 
+Add a phrase list to improve accuracy of intent and entity prediction of synonymous words.
+
 The **[Phrase list feature][luis-concept-feature.md]** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
 
 Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
@@ -127,7 +129,7 @@ The endpoint response is:
 | trained | 0.973 | 0.846 |
 | untrained | 0.840 | - |
 
- Why is the untrained utterance score lower than the labeled utterance? The answer is LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__. Since the word `"require"` wasn't used in any labeled utterances for the `"Hardware"` intent, the score was lower than 0.973. 
+The untrained utterance score is lower than the labeled utterance because LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__ but doesn't know about the semantic meaning of the word yet. Since words can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
 
 ## Add phrase list 
 Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
@@ -136,18 +138,18 @@ Add a [phrase list](Add-Features.md) feature named **want** with the value of `w
 
 Train the app but don't publish it. 
 
-In this app, the published model is not trained with the synonyms. Only the currently editing model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
+In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
 
 ![Inspect Published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
-After the phrase list, the accuracy increased for the utterance `I require a computer replacement`.
+After adding the phrase list, the accuracy increased for the utterance.
 
 || intent score | entity score |
 |--|--|--|
 | published - no phrase list| 0.84 | - |
-| unpublished - phrase list | 0.92 | Hardware entity identified |
+| currently editing - includes phrase list | 0.92 | Hardware entity identified |
 
-If you want to see the entity score, [publish](PublishApp.md) the model and query from the endpoint. 
+To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
 
 ```JSON
 {
