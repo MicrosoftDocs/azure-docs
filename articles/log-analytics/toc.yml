@@ -83,6 +83,8 @@
         href: log-analytics-data-sources-custom-logs.md
       - name: Custom fields
         href: log-analytics-custom-fields.md
+      - name: Data collector API
+        href: log-analytics-data-collector-api.md
   - name: Query data
     items:
     - name: Log searches overview
@@ -210,8 +212,6 @@
       href: log-analytics-wire-data.md
   - name: Develop
     items:
-    - name: Data collector API
-      href: log-analytics-data-collector-api.md
     - name: PowerShell cmdlets
       href: log-analytics-powershell-workspace-configuration.md
     - name: Resource Manager templates

@@ -1,5 +1,5 @@
 ---
-title: Send Azure Activity Logs to Log Analytics | Microsoft Docs 
+title: Collect Azure Activity Logs into Log Analytics across subscriptions | Microsoft Docs 
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
 services: log-analytics, logic-apps, event-hubs 
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/9/2017
+ms.date: 12/21/2017
 ms.author: richrundmsft; bwren
 
 ---
-# Send Azure Activity Logs to Log Analytics using Logic Apps
+# Collect Azure Activity Logs into Log Analytics across subscriptions
 
-This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace that in your own subscription.
+This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
 
 If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the [Azure activity log solution](../log-analytics/log-analytics-activity.md) to collect Azure activity logs.
 
@@ -119,6 +119,9 @@ To get the event Hub name and connection string, follow the steps in [Check Even
     ![Marketplace new logic app](media/log-analytics-logic-apps-activity-log/marketplace-new-logic-app.png)
 
 2. Enter the settings in the table below.
+
+    ![Create logic app](media/log-analytics-logic-apps-activity-log/create-logic-app.png)
+
    |Setting | Description  |
    |:---|:---|
    | Name           | Unique name for the logic app. |
@@ -127,8 +130,7 @@ To get the event Hub name and connection string, follow the steps in [Check Even
    | Location       | Select the datacenter region for deploying your logic app. |
    | Log Analytics  | Select if you want to log the status of each run of your logic app in Log Analytics.  |
 
-    ![Create logic app](media/log-analytics-logic-apps-activity-log/create-logic-app.png)
-
+    
 3. Select **Create**. When **Deployment Succeeded** notification displays, click on **Go to resource** to open your Logic App.
 
 4. Under **Templates**, choose **Blank Logic App**. 
@@ -293,6 +295,7 @@ The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/a
 
 4. After you create the connection, edit the settings in the table below. 
 
+    ![Configure send data action](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
 
    |Setting        | Value           | Description  |
    |---------------|---------------------------|--------------|
@@ -300,7 +303,6 @@ The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/a
    | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics to hold the imported data. |
    | Time-generated-field | time | Don't select the JSON field for **time** - just type the word time. If you select the JSON field the designer puts the **Send Data** action into a *For Each* loop, which is not what you want. |
 
-    ![Configure send data action](media/log-analytics-logic-apps-activity-log/logic-apps-send-data-to-log-analytics-configuration.png)
 
 
 
