@@ -15,7 +15,7 @@ ms.author: v-geberr
 # Add an interchangeable phrase list 
 Add a phrase list to improve accuracy of intent and entity prediction of synonymous words.
 
-The **[Phrase list feature][luis-concept-feature.md]** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
+The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Marking the values of a phrase list as interchangeable tells LUIS the extra information to treat the words as synonyms.
 
 Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
 With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
