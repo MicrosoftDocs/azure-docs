@@ -143,7 +143,7 @@ Here the various avenues to diagnose and determine the root cause of any Notific
 **EnableTestSend property**
 
 When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS. This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub. It doesn’t give an insight into what happened when NH eventually got to send the message to PNS. If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error, for example, the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
-To get an insight into the PNS errors, a property called [EnableTestSend feature] has been introduced. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs, taking the example of the .NET SDK, where it is available now and eventually added to all client SDKs. To use this with the REST call, append a querystring parameter called "test" at the end of your send call e.g. 
+To get an insight into the PNS errors, a property called [EnableTestSend feature] has been introduced. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs, taking the example of the .NET SDK, where it is available now and eventually added to all client SDKs. To use this with the REST call, append a querystring parameter called "test" at the end of your send call for example, 
 
     https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 
@@ -179,7 +179,7 @@ Now you can use the `EnableTestSend` boolean property while initializing the `No
 This message indicates either invalid credentials are configured in the notification hub or an issue with the registrations on the hub and the recommended course would be to delete this registration and let the client recreate it before sending the message. 
 
 > [!NOTE]
-> Note that the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations. We only send debug notifications to 10 devices. We also have a limit of processing debug sends to be 10 per minute. 
+> Note the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations. We only send debug notifications to 10 devices. We also have a limit of processing debug sends to be 10 per minute. 
 > 
 > 
 
@@ -208,7 +208,7 @@ More details here -
 * [Telemetry Access via APIs sample] 
 
 > [!NOTE]
-> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc. are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure portal.  
+> Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc. are only available in Standard tier. If you attempt to use these features and you are on the Free or Basic tier then you will receive an exception message to this effect while using the SDK, and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure portal.  
 > 
 > 
 
