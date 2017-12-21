@@ -27,7 +27,7 @@ Learn the Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test
 
 ## Prerequisites
 
-Azure Data Lake Tools for VSCode supports Windows, Linux and MacOS.  
+Azure Data Lake Tools for VSCode supports Windows, Linux, and MacOS.  
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
@@ -116,15 +116,15 @@ To enable the output of the job details, set **jobInformationOutputPath** in the
 **Set Git Ignore**
 
 1. Select Ctrl+Shift+P to open the command palette. 
-2. Enter **ADL:  Set Git Ignore**. Then a file name **.gitIgnore** is created in your folder. Four items are added into the file by default. You can delete or add ramdomly.
+2. Enter **ADL:  Set Git Ignore**.
 
     - If you don’t have a **.gitIgnore** file in your VSCode working folder, a file named **.gitIgnor** is created in your folder. Four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) are added into the file by default. You can further make updates if needed.
-    - If you already have a **.gitIgnore** file in your VSCode working folder, the tool will add four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) into your **.gitIgnore** file if the four items were not included in the file.
+    - If you already have a **.gitIgnore** file in your VSCode working folder, the tool adds four items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) into your **.gitIgnore** file if the four items were not included in the file.
 
   ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 ## Use Python, R, and CSharp code-behind file
-Azure Data Lake Tool supports multiple custom code, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
+Azure Data Lake Tool supports multiple custom codes, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## Use assemblies
 
@@ -156,7 +156,7 @@ Another convenient way to trigger the **ADL: Register Assembly** command is to r
 ![Data Lake Tools for Visual Studio Code code-behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
 >- Assembly dependencies: Azure Data Lake Tools autodetects whether the DLL has any dependencies. The dependencies are displayed in the JSON file after they are detected. 
->- Resources: You can upload your DLL resources ( For example, .txt, .png, and .csv ) as part of the assembly registration. 
+>- Resources: You can upload your DLL resources (For example, .txt, .png, and .csv ) as part of the assembly registration. 
 
 Another way to trigger the **ADL: Register Assembly through Configuration** command is to right-click the .dll file in File Explorer. 
 
@@ -344,15 +344,15 @@ The status displays on the bottom of the status bar when completed downloading a
 
 **ADLA Metadata Navigation** 
 
-- Expand your Azure subscription, you can navigate your U-SQL database, view the **Schemas**, **Credentials**, **Assemblies**, **Table**, **Index** and so on, under the U-SQL Databases node.
+- Expand your Azure subscription, you can navigate your U-SQL database, view the **Schemas**, **Credentials**, **Assemblies**, **Table**, **Index**, and so on, under the U-SQL Databases node.
 
 **ADLA Metadata Entity Management**
 
 - Expand **U-SQL Databases**, you can create a new database, schema, table, table types, index, statistics by right-clicking the **Script to Create** context menu under the corresponding node. In the opened script page, edit the script according to your needs, then submit the job by right-clicking context menu **ADL: Submit Job**. After finishing creating it, click context menu **Refresh** to show the new created item. You can also delete the item by right-clicking the context menu **Delete**.
 
-   ![DataLake explorer create new item menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+   ![DataLake explorer creates new item menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
 
-   ![DataLake explorer create new item script](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+   ![DataLake explorer creates new item script](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
 
 **ADLA Assembly Registration**
 
