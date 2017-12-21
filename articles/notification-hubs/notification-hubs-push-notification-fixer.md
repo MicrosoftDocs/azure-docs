@@ -152,9 +152,9 @@ To get an insight into the PNS errors, a property called [EnableTestSend feature
 Suppose you are using .NET SDK to send a native toast notification:
 
 ```csharp
-NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
-var result = await hub.SendWindowsNativeNotificationAsync(toast);
-Console.WriteLine(result.State);
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
+    var result = await hub.SendWindowsNativeNotificationAsync(toast);
+    Console.WriteLine(result.State);
 ```
 
 `result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. 
