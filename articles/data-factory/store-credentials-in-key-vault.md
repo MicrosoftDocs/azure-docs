@@ -11,13 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
 ---
 
 # Store credential in Azure Key Vault
 
-You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store. Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) and [Salesforce connector](connector-salesforce.md) support this feature.
+You can store credentials for data stores in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store.
+
+Currently, [Dynamics connector](connector-dynamics-crm-office-365.md), [Salesforce connector](connector-salesforce.md) and a few newly enable connectors support this feature. Expect more coming later. You can check each connector topic on details. For the secret fields which support this feature, you will see a note in the description saying "*You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy acitivty pull from there when performing data copy - learn more from Store credentials in Key Vault.*"
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version1](v1/data-factory-introduction.md).
