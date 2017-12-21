@@ -16,74 +16,81 @@ ms.author: v-geberr
 Improve accuracy of intent score and identify entities for words that have the same meaning by adding an interchangeable **[phrase list feature](./luis-concept-feature.md)**.
 
 ## Import new app
-1. Download [example LUIS app model file][LuisSampleApp] designed for this tutorial. 
+1. Download [example LUIS app model file][LuisSampleApp] designed for this tutorial. Remember where the file is. You will need it in the next step. 
 
-2. [Import new app](Create-new-app.md#import-new-app) in [www.LUIS.ai][www.luis.ai]. The app name is "My Phrase List tutorial". This app has intents, entities, and utterances.
+2. [Import](Create-new-app.md#import-new-app) the file you just downloaded into [www.LUIS.ai][www.luis.ai] as a new app. The app name is "My Phrase List tutorial". This app has intents, entities, and utterances.
 
 3. [Train]() your app. You cannot [interactively test](Train-Test.md#interactive-testing) your app in [www.LUIS.ai][www.luis.ai] until the app is trained. 
 
-4. [Publish](PublishApp.md) the app. Publishing the app allows you to test by using the published HTTPS endpoint. 
+4. [Publish](PublishApp.md) the app. Publishing the app allows you to test using the HTTPS endpoint. 
 
 > [!TIP]
 > * [Interactive testing](Train-Test.md#interactive-testing) allows you to compare the published model to any trained changes made after you published. 
 > * [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser) allows you to see exactly what your user or bot sees. 
 
 ## Endpoint test of trained utterance
-Use the published endpoint to query an utterance the app knows about:
+Use the published endpoint to query an utterance the app already knows. Because LUIS already knows about the utterance, the score is high and the entity is detected.
 
-`I want a computer replacement`
+1. In [www.LUIS.ai][www.luis.ai], on the **Publish** page for the new app, click on the endpoint URL in the **Resources and Keys** section. 
 
-The endpoint responds with the following JSON:
+    ![Publish endpoint url](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
-```JSON
-{
-  "query": "I want a computer replacement",
-  "topScoringIntent": {
-    "intent": "GetHardware",
-    "score": 0.9735458
-  },
-  "intents": [
+2. In the browser, add the following query after the `q=` at the end of the URL.
+
+    `I want a computer replacement`
+
+    The endpoint responds with the following JSON:
+    
+    ```JSON
     {
-      "intent": "GetHardware",
-      "score": 0.9735458
-    },
-    {
-      "intent": "None",
-      "score": 0.07053033
-    },
-    {
-      "intent": "Whois",
-      "score": 0.03760778
-    },
-    {
-      "intent": "CheckCalendar",
-      "score": 0.02285902
-    },
-    {
-      "intent": "CheckInventory",
-      "score": 0.0110072717
+      "query": "I want a computer replacement",
+      "topScoringIntent": {
+        "intent": "GetHardware",
+        "score": 0.9735458
+      },
+      "intents": [
+        {
+          "intent": "GetHardware",
+          "score": 0.9735458
+        },
+        {
+          "intent": "None",
+          "score": 0.07053033
+        },
+        {
+          "intent": "Whois",
+          "score": 0.03760778
+        },
+        {
+          "intent": "CheckCalendar",
+          "score": 0.02285902
+        },
+        {
+          "intent": "CheckInventory",
+          "score": 0.0110072717
+        }
+      ],
+      "entities": [
+        {
+          "entity": "computer",
+          "type": "Hardware",
+          "startIndex": 9,
+          "endIndex": 16,
+          "score": 0.8465915
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "computer",
-      "type": "Hardware",
-      "startIndex": 9,
-      "endIndex": 16,
-      "score": 0.8465915
-    }
-  ]
-}
-```
+    ```
 
-|status|word| intent score | entity score |
-|--|--|--|--|
-|trained| want | 0.973 | 0.846 |
-
-The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. This utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
-
+    The intent score of 0.973 and the entity detection of 0.846 is high because the app was trained with this utterance. This utterance is in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
+    
+    |status|word| intent score | entity score |
+    |--|--|--|--|
+    |trained| want | 0.973 | 0.846 |
+    
+    
 ## Endpoint test of untrained utterance
-Use the published endpoint to query an utterance the app doesn't know about:
+In the browser, use the same published endpoint to query with an utterance the app doesn't know about:
 
 `I require a computer replacement`
 
@@ -92,7 +99,6 @@ This utterance uses a synonym of the previous utterance:
 | trained word | untrained synonym |
 |--|--|
 | want | require |
-
 
 The endpoint response is:
 
@@ -134,9 +140,9 @@ The endpoint response is:
 | trained| want | 0.973 | 0.846 |
 | untrained| require | 0.840 | - |
 
-The untrained utterance intent score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS does not know the utterances have the same meaning. Without the phrase list, the entity of **hardware** is not found.
+The untrained utterance intent score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS doesn't know the utterances have the same meaning. Also, without the phrase list, the entity of **hardware** is not found.
 
-Since a word can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
+Since a word can have more than one meaning, you need to tell LUIS that want and require mean the same thing in this app domain. 
 
 ## Improve untrained utterance score with phrase list 
 1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
