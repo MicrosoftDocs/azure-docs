@@ -130,6 +130,8 @@ If individual files fail to sync:
     > [!NOTE]
     > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
+We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:
 
