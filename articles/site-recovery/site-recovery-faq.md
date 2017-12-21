@@ -166,7 +166,7 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 Yes, you can use the alternate location recovery to failback to a different host from Azure. Read more about the options in the below links for VMware and Hyper-v virtual machines.
 
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [For Hyper-v virtual machines](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location-in-hyperv-environment)
+* [For Hyper-v virtual machines](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## Service providers
 ### I'm a service provider. Does Site Recovery work for dedicated and shared infrastructure models?
