@@ -112,6 +112,23 @@ Before your code can access the API though, you need to grant the MSI's identity
 az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
+The response contains details for the role assignment created.
+
+```json
+{
+  "id": "/subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourceGroups/rgName/providers/Microsoft.Authorization/roleAssignments/b402bd74-157f-425c-bf7d-zed3a3a581ll",
+  "name": "b402bd74-157f-425c-bf7d-zed3a3a581ll",
+  "properties": {
+    "principalId": "f5fdfdc1-ed84-4d48-8551-999fb9dedfbl",
+    "roleDefinitionId": "/subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "scope": "/subscriptions/1234/resourceGroups/rgName"
+  },
+  "resourceGroup": "rgName",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
+
+```
+
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
 To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
