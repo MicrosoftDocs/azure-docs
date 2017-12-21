@@ -75,7 +75,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    The response contains details for the user-assigned MSI created. Note the `id` value for your MSI, as it will be used in the next step.
+    The response contains details for the user-assigned MSI created, similar to the following example. Note the `id` value for your MSI, as it will be used in the next step:
 
     ```json
     {
@@ -112,18 +112,18 @@ Before your code can access the API though, you need to grant the MSI's identity
 az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-The response contains details for the role assignment created.
+The response contains details for the role assignment created, similar to the following example:
 
 ```json
 {
-  "id": "/subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/resourceGroups/rgName/providers/Microsoft.Authorization/roleAssignments/b402bd74-157f-425c-bf7d-zed3a3a581ll",
+  "id": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Authorization/roleAssignments/b402bd74-157f-425c-bf7d-zed3a3a581ll",
   "name": "b402bd74-157f-425c-bf7d-zed3a3a581ll",
   "properties": {
     "principalId": "f5fdfdc1-ed84-4d48-8551-999fb9dedfbl",
-    "roleDefinitionId": "/subscriptions/80c696ff-5efa-4909-a64d-z1b616f423bl/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "scope": "/subscriptions/1234/resourceGroups/rgName"
+    "roleDefinitionId": "/subscriptions/<SUBSCRIPTION ID>/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "scope": "/subscriptions/1234/resourceGroups/<RESOURCE GROUP>"
   },
-  "resourceGroup": "rgName",
+  "resourceGroup": "<RESOURCE GROUP>",
   "type": "Microsoft.Authorization/roleAssignments"
 }
 
@@ -148,7 +148,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     
     The response includes the access token you need to access Azure Resource Manager. 
     
-    Response:  
+    Response example:  
 
     ```bash
     {
@@ -171,7 +171,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    The response contains the specific Resource Group information: 
+    The response contains the specific Resource Group information, similar to the following example: 
 
     ```bash
     {
