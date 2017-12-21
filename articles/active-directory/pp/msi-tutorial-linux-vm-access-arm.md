@@ -98,9 +98,9 @@ Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on mult
 
 Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
 
-    ```azurecli-interactive
-    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
-    ```
+```azurecli-interactive
+az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+```
 
 ## Grant your user-assigned MSI access to a Resource Group in Azure Resource Manager 
 
@@ -108,9 +108,9 @@ MSI provides your code with an access token to authenticate to resource APIs tha
 
 Before your code can access the API though, you need to grant the MSI's identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Be sure to replace the `<CLIENT ID>`, `<SUBSCRIPTION ID>`, and `<RESOURCE GROUP>` parameter values with your own values. Replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a new User-Assigned MSI](#create-a-new-user-assigned-msi): 
 
-    ```azurecli-interactive
-    az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
-    ```
+```azurecli-interactive
+az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+```
 
 ## Get an access token using the VM's identity and use it to call Resource Manager 
 
