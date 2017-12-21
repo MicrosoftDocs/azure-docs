@@ -32,12 +32,12 @@ This article includes frequently asked questions about configuration and managem
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 
-**Monitoring and Logging**
+**Monitoring and logging**
 
 - [What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Why does IIS stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory)
 
-**Network Configuration**
+**Network configuration**
 
 - [How do I set the idle timeout for Azure load balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
 - [How do I associate a static IP address to my Cloud Service?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
@@ -67,7 +67,7 @@ This article includes frequently asked questions about configuration and managem
 - [I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
-## Certificate
+## Certificates
 
 ### Why is the certificate chain of my Cloud Service SSL certificate incomplete?
     
@@ -193,7 +193,7 @@ Once this has been done, you can verify whether the HTTP/2 has been enabled or n
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
-## Permission
+## Permissions
 
 ### How can I implement Role-Based Access for Cloud Services?
 Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
