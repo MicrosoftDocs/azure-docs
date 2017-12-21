@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 12/21/2017
 ms.author: jeedes
 
 ---
@@ -129,11 +129,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 7. In a different web browser window, log in to your Rollbar company site as an administrator.
 
-8. Click **Identity Provider** under SECURITY.
+8. Click on the **Profile Settings** on the right top corner and then click **Microsoft-Azure-Marketplace settings**.
+	
+	![Configuration](./media/active-directory-saas-rollbar-tutorial/general.png)
+
+9. Click **Identity Provider** under SECURITY.
 
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure1.png)
 
-9. In the **SAML Identity Provider** section, perform the following steps:
+10. In the **SAML Identity Provider** section, perform the following steps:
 	
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure2.png)
 
@@ -143,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Save**.
 
-10. After clicking the save button, the screen will be like this. perform the following steps in this section:
+11. After clicking the save button, the screen will be like this. Perform the following steps in this section:
 	
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
 
@@ -188,26 +192,29 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Rollbar test user
 
-To enable Azure AD users to log in to Rollbar, they must be provisioned into Rollbar.  
-In the case of Rollbar, provisioning is a manual task.
+To enable Azure AD users to log in to Rollbar, they must be provisioned into Rollbar. In the case of Rollbar, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
 1. Log in to your Rollbar company site as an administrator.
 
-2. Click **Users**.
+2. Click on the **Profile Settings** on the right top corner and then click **Microsoft-Azure-Marketplace settings**.
+
+	![User](./media/active-directory-saas-rollbar-tutorial/general.png)
+
+3. Click **Users**.
 	
 	![Add Employee](./media/active-directory-saas-rollbar-tutorial/user1.png)
 
-3. Click **Invite Team Members**.
+4. Click **Invite Team Members**.
 
 	![Invite People](./media/active-directory-saas-rollbar-tutorial/user2.png)
 
-4. In the textbox, enter the name of user like **brittasimon@contoso.com** and the click **Add/Invite**.
+5. In the textbox, enter the name of user like **brittasimon@contoso.com** and the click **Add/Invite**.
 
 	![Invite People](./media/active-directory-saas-rollbar-tutorial/user3.png)
 
-5. User receives an invitation and user has to accept it.
+6. User receives an invitation and after accepting it he/she created in the system.
 
 ### Assign the Azure AD test user
 
