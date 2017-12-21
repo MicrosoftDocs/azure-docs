@@ -52,9 +52,9 @@ Access that you grant at parent scopes is inherited at child scopes. For example
 * You assign the Contributor role to an application at the resource group scope. It can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
 ## Azure RBAC vs. classic subscription administrators
-[Classic subscription administrators and co-admins](../billing/billing-add-change-azure-subscription-administrator.md) have full access to the Azure subscription. They can manage resources using the [Azure portal](https://portal.azure.com) with Azure Resource Manager APIs, or the [Azure classic portal](https://manage.windowsazure.com) and Azure classic deployment model. In the RBAC model, classic administrators are assigned the Owner role at the subscription scope.
+[Classic subscription administrators and co-admins](../billing/billing-add-change-azure-subscription-administrator.md) have full access to the Azure subscription. They can manage resources using the [Azure portal](https://portal.azure.com), Azure Resource Manager APIs, and the classic Azure Service Management APIs. In the RBAC model, classic administrators are assigned the Owner role at the subscription scope.
 
-Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the classic management portal and the Azure classic deployment model.
+Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the the Azure classic deployment model Service Management APIs.
 
 ## Authorization for management vs. data operations
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account. Similarly, a SQL database can be managed, but not the tables within it.
