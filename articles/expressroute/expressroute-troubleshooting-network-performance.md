@@ -29,21 +29,25 @@ This document shows how you can easily and consistently test network latency and
 >
 
 ## Network Components
-Before we dig into troubleshooting, let's discuss some common terms and components to ensure we're thinking about each component in the chain that enables connectivity in Azure.
+Before digging into troubleshooting, let's discuss some common terms and components. This will ensure we're thinking about each component in the end-to-end chain that enables connectivity in Azure.
 [![1]][1]
 
-At the highest level, I describe three major network routing domains; the Azure network (blue cloud on the right), the Internet/WAN (green cloud in the center), and the Corporate Network (peach cloud on the left)
+At the highest level, I describe three major network routing domains;
+
+- the Azure network (blue cloud on the right)
+- the Internet or WAN (green cloud in the center)
+- the Corporate Network (peach cloud on the left)
 
 Looking at the diagram from right to left, let's discuss briefly each component:
- - **Virtual Machine** - The server may have multiple NICs, ensure any static routes, default routes, and Operating System settings are sending/receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. I usually use a DS5v2 for testing (and then delete once done with testing to save money) to ensure adequate bandwidth at the VM.
+ - **Virtual Machine** - The server may have multiple NICs, ensure any static routes, default routes, and Operating System settings are sending and receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. I usually use a DS5v2 for testing (and then delete once done with testing to save money) to ensure adequate bandwidth at the VM.
  - **NIC** - Ensure you know the private IP that is assigned to the NIC in question.
- - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. e.g. ensure ports 5201 for iPerf, 3389 for RDP, or 22 SSH are open to allow test traffic to pass.
+ - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. For example, ensure ports 5201 for iPerf, 3389 for RDP, or 22 SSH are open to allow test traffic to pass.
  - **VNet Subnet** - The NIC is assigned to a specific subnet, ensure you know which one and the rules associated with that subnet.
  - **Subnet NSG** - Just like the NIC, NSGs can be applied at the subnet as well. Ensure the NSG rule-set is appropriate for the traffic you're trying to pass. (for traffic inbound to the NIC the subnet NSG applies first, then the NIC NSG, conversely for traffic outbound from the VM the NIC NSG applies first then the Subnet NSG comes into play).
  - **Subnet UDR** - User Defined Routes can direct traffic to an intermediate hop (like a firewall or load-balancer). Ensure you know if there is a UDR in place for your traffic and if so where it goes and what that next hop will do to your traffic. (for example, a firewall could pass some traffic and deny other traffic between the same two hosts).
  - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what affect they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
- - **Route Filter** (Not shown) - This only applies to Microsoft Peering on ExpressRoute, but is critical to check if you're not seeing the routes you expect. 
+ - **Route Filter** (Not shown) - A route filter only applies to Microsoft Peering on ExpressRoute, but is critical to check if you're not seeing the routes you expect on Microsoft Peering. 
 
 At this point, you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
 
@@ -52,7 +56,7 @@ In the preceding diagram, on the far left is your corporate network. Depending o
 Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This approach can help identify the problem network of the three and then focus your troubleshooting on that specific environment.
 
 ## Tools
-Most network issues can be analyzed and isolated using basic tools like ping and traceroute. It's rare that you need to go as deep as a packet analysis like Wireshark. To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, I like to use iPerf and PSPing. iPerf is a commonly used tool and runs on most operating systems, it's good for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals and is an easy way to perform ICMP and TCP pings in one also easy to use command. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the host.
+Most network issues can be analyzed and isolated using basic tools like ping and traceroute. It's rare that you need to go as deep as a packet analysis like Wireshark. To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, I like to use iPerf and PSPing. iPerf is a commonly used tool and runs on most operating systems. iPerf is good for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals. PSPing is an easy way to perform ICMP and TCP pings in one also easy to use command. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the host.
 
 I've wrapped all of these tools and methods into a PowerShell module (AzureCT) that you can install and use.
 
@@ -89,7 +93,7 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 
 4. Review the output of the tests
 
-    The PowerShell output format will look similar to this:
+    The PowerShell output format looks similar to:
 	[![4]][4]
 
 ## Troubleshooting
@@ -116,7 +120,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 [![2]][2]
 
 >[!NOTE]
-> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to a MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
+> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to an MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
 >
 >
 
@@ -125,7 +129,7 @@ If two VNets (VNets A and B in the diagram) are connected to the **same** Expres
 ### Test Plan
 1. Run the Get-LinkPerformance test between VM1 and VM2. This test provides insight to if the problem is local or not. If this test produces acceptable latency and bandwidth results, you can mark the local VNet network as good.
 2. Assuming the local VNet traffic is good, run the Get-LinkPerformance test between VM1 and VM3. This test exercises the connection through the Microsoft network down to the MSEE and back into Azure. If this test produces acceptable latency and bandwidth results, you can mark the Azure network as good.
-3. If Azure is ruled out, you can perform a similar sequence of tests on your Corporate Network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection. Example: Run this test between two branch offices, or between your desk and a data center server. Depending on what you're testing, find endpoints (servers, PCs, etc) that can exercise that path.
+3. If Azure is ruled out, you can perform a similar sequence of tests on your Corporate Network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection. Example: Run this test between two branch offices, or between your desk and a data center server. Depending on what you're testing, find endpoints (servers, PCs, etc.) that can exercise that path.
 
 >[!IMPORTANT]
 > It's critical that for each test you mark the time of day you run the test and record the results in a common location (I like OneNote or Excel). Each test run should have identical output so you can compare the resultant data across test runs and not have "holes" in the data. Consistency across multiple tests is the primary reason I use the AzureCT for troubleshooting. The magic isn't in the exact load scenarios I run, but instead the *magic* is the fact that I get a *consistent test and data output* from each and every test. Recording the time and having consistent data every single time is especially helpful if you later find that the issue is sporadic. Be diligent with your data collection up front and you'll avoid hours of retesting the same scenarios (I learned this hard way many years ago).
@@ -168,7 +172,7 @@ Test setup:
 
 ### Latency/Bandwidth Results
 >[!IMPORTANT]
-> These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally the effect of these changes aren't noticeable but they can be.
+> These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally the effects of these changes aren't noticeable but they can be.
 >
 >
 | | | | | | |
