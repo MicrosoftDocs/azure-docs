@@ -4,8 +4,10 @@ description: This scenario shows how to do distributed tuning of hyperparameters
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ---
@@ -22,7 +24,7 @@ Following is the link to the public GitHub repository:
 ## Use case overview
 
 Many machine learning algorithms have one or more knobs, called hyperparameters. These knobs allow tuning of algorithms to optimize their performance over future data, measured according to user-specified metrics (for example, accuracy, AUC, RMSE). Data scientist needs to provide values of hyperparameters when building a model over training data and before seeing the future test data. How based on the known training data can we set up the values of hyperparameters so that the model has a good performance over the unknown test data? 
-
+    
 A popular technique for tuning hyperparameters is a *grid search* combined with *cross-validation*. Cross-validation is a technique that assesses how well a model, trained on a training set, predicts over the test set. Using this technique, we first divide the dataset into K folds and then train the algorithm K times in a round-robin fashion. We do this on all but one of the folds called the "held-out fold". We compute the average value of the metrics of K models over K held-out folds. This average value, called *cross-validated performance estimate*, depends on the values of hyperparameters used when creating K models. When tuning hyperparameters, we search through the space of candidate hyperparameter values to find the ones that optimize cross-validation performance estimate. Grid search is a common search technique. In grid search, the space of candidate values of multiple hyperparameters is a cross-product of sets of candidate values of individual hyperparameters. 
 
 Grid search using cross-validation can be time-consuming. If an algorithm has five hyperparameters each with five candidate values, we use K=5 folds. We then complete a grid search by training 5<sup>6</sup>=15625 models. Fortunately, grid-search using cross-validation is an embarrassingly parallel procedure and all these models can be trained in parallel.
@@ -36,8 +38,8 @@ Grid search using cross-validation can be time-consuming. If an algorithm has fi
 * To run this scenario with a Spark cluster, provision Spark HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with the following configuration in both header and worker nodes:
     - four worker nodes
     - eight cores
-    - 28 Gb of memory 
-
+    - 28 Gb of memory  
+      
   D4 instances of virtual machines have such capacity. 
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
