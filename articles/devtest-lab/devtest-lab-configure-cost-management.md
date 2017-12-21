@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 12/22/2016
 ms.author: tarcher
 
 ---
@@ -26,11 +26,12 @@ to view the current calendar month's estimated cost-to-date and the projected en
 To view the Monthly Estimated Cost Trend chart, follow these steps: 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.   
-4. On the lab's blade, select **Cost settings**.
-5. On the lab's **Cost settings** blade, select **Lab cost trend**.
-6. The following screen shot shows an example of a cost chart. 
+1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
+1. From the list of labs, select the desired lab.  
+1. On the lab's **Overview** area, select **Configuration and policies**.   
+1. On the left under **COST TRACKING**, select **Cost trend**.
+
+   The following screen shot shows an example of a cost chart. 
    
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
@@ -50,6 +51,30 @@ Additionally, the following are *not* included in the cost calculation:
 * Your taxes
 * Your discounts
 * Your billing currency. Currently, the lab cost is displayed only in USD currency.
+
+## Managing cost targets for your lab
+DevTest Labs lets you manage the costs in  your lab to better 
+
+1. On your lab's **Overview** pane, select **Configuration and policies**.
+1. On the left under **COST TRACKING**, select **Cost trend**.
+
+    ![Manage target button](./media/devtest-lab-configure-cost-management/cost-trend.png)
+
+1. In the **Cost trend** pane, select **Manage target**.
+
+    ![Manage target button](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
+
+1. In the Manage target pane, specify your desired thresholds and how you want those thresholds reported when they are reached. 
+
+    ![Manage target pane](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
+
+   - Select a time period for when you want cost targets tracked.
+      - **Monthly**: cost targets are tracked every month
+      - **Fixed**: cost targets are tracked for the date range you specify in the Start date and End date fields. Typically, this might correspond with the how long your project is scheduled to run.
+   - Specify a **Target cost** of how much you project to spend on this lab in the time period you defined. 
+   - Select any thresholds you want to monitor, in increments of 25%, up to 125% of your specified **Target cost**.
+      - **Notify**: When this threshold is met, you are notified by the webhook URL you specify.
+      - **Plot on chart**: When this threshold is met, the results are plotted on a graph that you can view in the cost chart described in [Viewing the Monthly Estimated Cost Trend chart](#viewing-the-monthly-estimated-cost-trend-chart).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
