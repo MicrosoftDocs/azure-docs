@@ -42,13 +42,13 @@ In order to use an MSI with a host resource (such as a VM), for sign-in or resou
 
 In the following example, a user-assigned MSI is given access to a storage account.  
 
-1. In order to give the MSI access, you need the client ID (also known as app ID) of the MSI's service principal. The client ID is provided by [az identity create](/cli/azure/identity#az_identity_create), upon provisioning of the MSI (shown here for reference):
+1. In order to give the MSI access, you need the client ID (also known as app ID) of the MSI's service principal. The client ID is provided by [az identity create](/cli/azure/identity#az_identity_create), upon provisioning of the MSI and its service principal (shown here for reference):
 
    ```azurecli-interactive
    az identity create -g rgPrivate -n msiServiceApp
    ```
 
-   A successful response contains the client ID of the user-assigned MSI's service principal:
+   A successful response contains the client ID of the user-assigned MSI's service principal, in the `clientId` property:
 
    ```json
    {
@@ -65,7 +65,7 @@ In the following example, a user-assigned MSI is given access to a storage accou
    }
    ```
 
-2. Once you have the client ID, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the MSI access to another resource. Be sure to use the `clientId` property for the `--assignee` parameter, and the matching subscription ID and resource group name, as returned by `az identity create`. Here the MSI is assigned "Reader" access to a storage account called "myStorageAcct":
+2. Once the client ID is known, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the MSI access to another resource. Be sure to use your client ID for the `--assignee` parameter, and the matching subscription ID and resource group name, as returned when you run `az identity create`. Here the MSI is assigned "Reader" access to a storage account called "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee 9391e5b1-dada-4a8z-834a-43ad44f296bl --role Reader --scope /subscriptions/90z696ff-5efa-4909-a64d-f1b616f423ll/resourcegroups/rgPrivate/providers/Microsoft.Storage/storageAccounts/myStorageAcct
