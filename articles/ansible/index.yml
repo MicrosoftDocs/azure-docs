@@ -14,7 +14,7 @@ metadata:
   ms.date: 12/20/2017
   ms.author: tarcher
 abstract:
-  description: Use Ansible to automate cloud provisioning, configuration management and application deployments.
+  description: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
 sections:
 sections:
 - title: Quickstarts
