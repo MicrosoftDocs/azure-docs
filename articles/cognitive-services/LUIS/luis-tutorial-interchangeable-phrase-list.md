@@ -13,12 +13,7 @@ ms.author: v-geberr
 ---
 
 # Add an interchangeable phrase list 
-Add a phrase list to improve accuracy of intent and entity scores for synonymous words.
-
-The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Words on an interchangeable list are not only semantically related, they are synonyms.
-
-Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
-With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
+Add an interchangeable **[phrase list feature](./luis-concept-feature.md)** to improve accuracy of intent and entity scores for words that have the same meaning.
 
 ## Prerequisite
 
@@ -202,6 +197,10 @@ To see the entity score, [publish](PublishApp.md) the model and query the endpoi
   ]
 }
 ```
+|| intent score | entity score |
+|--|--|--|
+| published - no phrase list| 0.84 | - |
+| currently editing - includes phrase list | 0.92 | 0.595 |
 
 
   [LuisFeatures]: luis-concept-feature.md
