@@ -24,7 +24,7 @@ One of the most common questions heard from Azure Notification Hubs customers is
 First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
 ![][0]
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)**. The notification hub does some processing on all the registrations, which takes into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. With the targets established NH then pushes out notifications, split across multiple batches of registrations, to the device platform-specific **Push Notification Service (PNS)** - for example, APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)*. Any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
+In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)**. The notification hub does some processing on all the registrations, which takes into account the configured tags & tag expressions to determine "targets" that is, all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android. With the targets established NH then pushes out notifications, split across multiple batches of registrations, to the device platform-specific **Push Notification Service (PNS)** - for example, APNS for Apple, FCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore there are four major components - *client*, *application backend*, *Azure Notification Hubs (NH)*, and *Push Notification Services (PNS)*. Any may cause notifications to be dropped. More details on this architecture are available on [Notification Hubs Overview].
 
 Failure to deliver notifications may happen during the initial test/staging phase, which may indicate a configuration issue, or it may happen in production where either some or all of the notifications may be dropped, indicating some deeper application or messaging pattern issue. The next section looks at various dropped notifications scenarios, ranging from common to the rarer kind. Some of these scenarios you may find obvious while others not so much.
 
@@ -44,17 +44,13 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
 2. **Apple Push Notification Service (APNS) configuration**
    
     You must maintain two different hubs - one for production and another for testing purposes. This means uploading the certificate you are going to use in a sandbox environment to a separate hub than the certificate and hub you are going to use in production. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificates to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at minimum you must delete all the existing registrations from the hub. 
-3. **Google Cloud Messaging (GCM) configuration** 
+3. **Firebase Cloud Messaging (FCM) configuration** 
    
-    a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
-   
-    ![][2]
-   
-    b) Make sure that you create a "Server Key" while obtaining the credentials which NH uses to authenticate with GCM. 
+    a) Make sure that the "Server Key" you obtained from Firebase matches what you registered in the Azure portal
    
     ![][3]
    
-    c) Make sure that you have configured "Project ID" on the client, which is an entirely numerical entity that you can obtain from the dashboard:
+    b) Make sure that you have configured "Project ID" on the client, which you can obtain from the dashboard:
    
     ![][1]
 
@@ -84,8 +80,8 @@ and [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). See 
 ## PNS issues
 Once the notification message has been received by the respective PNS it is then its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling, then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
 
-If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
-Source - [APNS guidance] & [GCM guidance]
+If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
+Source - [APNS guidance] & [FCM guidance]
 
 With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (for example, for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers that are passed as is to the respective PNS. 
 
@@ -95,7 +91,7 @@ Here the various avenues to diagnose and determine the root cause of any Notific
 ### Verify credentials
 1. **PNS developer portal**
    
-    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc.) using the [Getting Started Tutorials].
+    Verify them at the respective PNS developer portal (APNS, FCM, WNS etc.) using the [Getting Started Tutorials].
 2. **Azure portal**
    
     Go to the Access Policies tab to review and match the credentials with those obtained from the PNS developer portal. 
@@ -218,9 +214,8 @@ More details here -
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/GCMConfigure.png
-[2]: ./media/notification-hubs-diagnosing/GCMEnable.png
-[3]: ./media/notification-hubs-diagnosing/GCMServerKey.png
+[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
+[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
 [4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
 [5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
 [6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
@@ -234,7 +229,7 @@ More details here -
 [Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
-[GCM guidance]: http://developer.android.com/google/gcm/adv.html
+[FCM guidance]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
 [ServiceBus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
