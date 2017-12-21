@@ -21,7 +21,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
 In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure SDK.
 
