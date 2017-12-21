@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: rajanaki
-
+ 
 ---
 # Troubleshoot errors when reprotecting a virtual machine back to on-premises, after failover
 You may receive one of the following errors while performing reprotect of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
