@@ -1,5 +1,5 @@
 ---
-title: Using the Azure Cloud Shell (Preview) window | Microsoft Docs
+title: Using the Azure Cloud Shell window | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell window.
 services: azure
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
 ---
 
@@ -29,7 +29,7 @@ Use the environment selector in the Cloud Shell toolbar to swap between Bash and
 ## Restart Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Restarting Cloud Shell will reset machine state and any files not persisted by your file share will be lost.
+> Restarting Cloud Shell will reset machine state and any files not persisted by your Azure file share will be lost.
 
 * Click the restart icon in the Cloud Shell toolbar to reset machine state.
 
@@ -53,10 +53,10 @@ If exiting a session, be sure to exit from each session window as each process r
 
 ## Changing the text size
 ![](media/using-the-shell-window/text-size.png)
-* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size.
+* Click the settings icon on the top left of the window, then hover over the "Text size" option and select your desired text size. Your selection will be persisted across sessions.
 
 ## Exit command
-Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
+Running `exit` terminates the active session. This behavior occurs by default after 20 minutes without interaction.
 
 ## Next steps
 

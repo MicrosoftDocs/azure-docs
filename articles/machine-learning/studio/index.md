@@ -2,8 +2,8 @@
 title: Azure Machine Learning Studio Documentation - Tutorials, API Reference | Microsoft Docs
 description: Documentation, videos, and example models for Machine Learning Studio, a cloud service for data scientists and developers using predictive analytics in applications.
 services: machine-learning
-author: czeumault
-manager: carolz
+author: garyericson
+manager: jhubbard
 layout: LandingPage
 ms.assetid: 
 ms.service: machine-learning
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/23/2017
-ms.author: carolz
+ms.author: garye
 ---
 # Azure Machine Learning Studio Documentation
 
@@ -103,7 +103,7 @@ Tutorials, videos, and example models show you how to use Studio to build and de
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.machinelearning/?view=azurermps-4.3.1">PowerShell (New)</a></p>
+                        <p><a href="/powershell/module/azurerm.machinelearning/">PowerShell (New)</a></p>
                         <p><a href="powershell-module.md">PowerShell (Classic)</a></p>
                     </div>
                 </div>

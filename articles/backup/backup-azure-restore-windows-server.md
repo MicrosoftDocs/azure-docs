@@ -18,11 +18,6 @@ ms.author: saurse;trinadhk;markgal;
 
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-azure-restore-windows-server.md)
-> * [Classic portal](backup-azure-restore-windows-server-classic.md)
->
->
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) agent. When you restore data, it is possible to:
 

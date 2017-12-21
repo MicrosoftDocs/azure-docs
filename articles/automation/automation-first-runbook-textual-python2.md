@@ -3,7 +3,7 @@ title: My first Python runbook in Azure Automation | Microsoft Docs
 description:  Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ---
 
 # My first Python runbook
@@ -215,4 +215,5 @@ Click **OK** to start the runbook. The runbook runs and starts the VM that you s
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
-* To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/python/azure/?view=azure-python).
+* To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://docs.microsoft.com/python/azure/?view=azure-python).

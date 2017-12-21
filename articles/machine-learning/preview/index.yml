@@ -5,14 +5,14 @@ metadata:
   title: Azure Machine Learning Documentation (Preview)
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
-  author: czeumault
-  manager: carolz
+  author: garyericson
+  manager: jhubbard
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/06/2017
-  ms.author: carolz
+  ms.author: garye
 abstract:
   description: Learn how to prepare data, and build and deploy models with our quickstarts and tutorials. The preview features of Azure Machine Learning enable building, deploying, and managing ML and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure in order to store and process your data.
 sections:
@@ -24,11 +24,9 @@ sections:
     style: icon48
     items:
     - image:
-       src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+       src: /azure/machine-learning/media/index/i_machine-learning.svg
       text: Install and create
       href: quickstart-installation
-
-
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

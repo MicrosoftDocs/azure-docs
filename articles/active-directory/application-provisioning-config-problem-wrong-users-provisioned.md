@@ -4,7 +4,7 @@ description: Learn how to find out why a different set of users are being provis
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

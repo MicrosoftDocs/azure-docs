@@ -20,7 +20,6 @@ ms.author: kumud
 # Get started creating an Internet facing load balancer (classic) in the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure classic portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)

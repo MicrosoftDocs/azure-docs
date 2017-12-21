@@ -10,7 +10,7 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/29/2017
+ms.date: 11/03/2017
 ---
 
 # List and update configurations of an Azure Database for MySQL server using Azure CLI
@@ -18,7 +18,7 @@ This sample CLI script lists all available configuration parameters as well as t
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 In this sample script, change the highlighted lines to customize the admin username and password.
@@ -33,12 +33,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) | List the configurations of an Azure Database for MySQL server. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#set) | Update the configuration of an Azure Database for MySQL server. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) | Show the configuration of an Azure Database for MySQL server. |
-| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | List the configurations of an Azure Database for MySQL server. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Update the configuration of an Azure Database for MySQL server. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Show the configuration of an Azure Database for MySQL server. |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).

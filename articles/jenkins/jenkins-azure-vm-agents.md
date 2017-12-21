@@ -104,7 +104,7 @@ Configure a template for use to define an Azure VM agent. This template defines 
 1. Select **Add** next to **Add Azure Virtual Machine Template**.
 2. Enter `defaulttemplate` for the **Name**
 3. Enter `ubuntu` for the **Label**
-4. Select the desired [Azure region](https://azure.microsoft.com/regions/) from the combo box.
+4. Select the desired [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) from the combo box.
 5. Select a [VM size](/azure/virtual-machines/linux/sizes) from the drop-down under **Virtual Machine Size**. A general-purpose `Standard_DS1_v2` size is fine for this tutorial.   
 6. Leave the **Retention time** at `60`. This setting defines the number of minutes Jenkins can wait before it deallocated idle agents. Specify 0 if you do not want idle agents to be removed automatically.
 
@@ -141,4 +141,4 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [CI/CD to Azure App Service](deploy-jenkins-app-service-plugin.md)
+> [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md)

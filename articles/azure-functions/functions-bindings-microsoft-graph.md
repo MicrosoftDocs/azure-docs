@@ -16,7 +16,6 @@ ms.author: mahender
 ---
 
 # Azure Functions Microsoft Graph bindings
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions.
 With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
@@ -41,7 +40,11 @@ Microsoft Graph bindings are available through _binding extensions_. Binding ext
 
 ### Enabling Functions 2.0 preview
 
-Binding extensions are only available only for Azure Functions 2.0 preview. To enable Functions 2.0, set the `FUNCTIONS_EXTENSION_VERSION` application setting to "beta".  To learn how to configure application settings, see [Application settings in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Binding extensions are only available only for Azure Functions 2.0 preview. 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+To learn more, see [How to target Azure Functions runtime versions](functions-versions.md).
 
 ### Installing the extension
 
@@ -1056,3 +1059,8 @@ public class UserSubscription {
 
 [HTTP trigger]: functions-bindings-http-webhook.md
 [Working with webhooks in Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

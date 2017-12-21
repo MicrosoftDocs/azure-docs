@@ -1,6 +1,6 @@
 ---
 title: Set security policies in Azure Security Center | Microsoft Docs
-description: This document helps you to configure security policies in Azure Security Center.
+description: This article helps you configure security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -13,48 +13,61 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 10/13/2017
 ms.author: yurid
 
 ---
 # Set security policies in Azure Security Center
-This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
+This article helps you configure security policies in Security Center. 
 
-
-## How security policies work?
-Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Security Center or use [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) to create new definitions, define additional policies, and assign policies across Management Groups (which can represent the entire organization, a business unit in it etc.), and monitor compliance to these policies across these scopes.
+## How security policies work
+Security Center automatically creates a default security policy for each of your Azure subscriptions. In Security Center, you can edit the policies and monitor policy compliance. 
 
 > [!NOTE]
-> Azure Policy is in limited preview. Click [here](https://aka.ms/getpolicy) to join. For more information about Azure Policies read [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> You can now extend Security Center policies by using Azure Policy, which is in limited preview. To join the preview, go to [Sign up for Azure Policy](https://aka.ms/getpolicy). For more information, see [Integrate Security Center security policies with Azure Policy](security-center-azure-policy.md).
 
-## How to change security policies in Security Center?
-You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor or Security Admin of that subscription or the containing Management Group. Sign in to the Azure portal and follow the succeeding steps to view your security polices in Security Center:
+The security requirements for resources that are used for development or test might vary from the requirements for resources that are used for production applications. Applications that use regulated data, such as personally identifiable information, might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md).
 
-1. In the **Security Center** dashboard, under **General**, click **Security Policy**.
-2. Select the subscription on which you want to enable the security policy.
+## Edit security policies
+You can edit the default security policy for each of your Azure subscriptions in Security Center. To modify a security policy, you must be an owner, contributor, or security administrator of the subscription. To configure security policies in Security Center, do the following:
 
-	![Policy Management](./media/security-center-policies/security-center-policies-fig10.png)
+1. Sign in to the Azure portal.
 
-3. In the **POLICY COMPONENTS** section, click **Security policy**.
+2. On the **Security Center** dashboard, under **General**, select **Security policy**.
 
-	![Policy components](./media/security-center-policies/security-center-policies-fig12.png)
+3. Select the subscription that you want to enable a security policy for.
 
-4. This is the default policy assigned to Security Center via Azure Policy. You can delete items that are under **POLICIES AND PARAMETERS**, or you can add other policy definitions that are under **AVAILABLE OPTIONS**. To do that, just click in the plus sign besides the definition’s name.
+4. In the **Policy Components** section, select **Security policy**.  
+    This is the default policy that's assigned by Security Center. You can turn on or off the available security recommendations.
 
-	![Policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
+5. When you finish editing, select **Save**.
 
-5. If you want more detailed explanation about the policy, click on it and another page will open with the details, and the JSON code that has the [policy definition(https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy#policy-definition-structure) structure:
+## Available security policy definitions
 
-	![Json](./media/security-center-policies/security-center-policies-fig13.png)
+To understand the policy definitions that are available in the default security policy, refer to the following table:
 
-6. When you finish editing, click **Save**.
+| Policy | What the policy does |
+| --- | --- |
+| System updates |Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for your virtual machines, and it recommends that missing updates be applied. For Linux systems, the policy uses the distro-provided package-management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) virtual machines. |
+| OS vulnerabilities |Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. For more information about the specific configurations that are being monitored, see the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (At this time, Windows Server 2016 is not fully supported.) |
+| Endpoint protection |Recommends that endpoint protection be set up for all Windows virtual machines (VMs) to help identify and remove viruses, spyware, and other malicious software. |
+| Disk encryption |Recommends enabling disk encryption in all virtual machines to enhance data protection at rest. |
+| Network security groups |Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet are inherited by all virtual-machine network interfaces unless otherwise specified. In addition to checking to see whether a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
+| Web application firewall |Recommends that a web application firewall be set up on virtual machines when either of the following is true: <ul><li>An [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) is used, and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</li><li>A load-balanced IP is used, and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
+| Next generation firewall |Extends network protections beyond network security groups, which are built into Azure. Security Center discovers deployments for which a next generation firewall is recommended, and then you can set up a virtual appliance. |
+| SQL auditing and threat detection |Recommends that auditing of access to your SQL database be enabled for both compliance and advanced threat detection, for investigation purposes. |
+| SQL encryption |Recommends that encryption at rest be enabled for your SQL database, associated backups, and transaction log files. Even if your data is breached, it is not readable. |
+| Vulnerability assessment |Recommends that you install a vulnerability assessment solution on your VM. |
+| Storage encryption |Currently, this feature is available for blobs and Azure Files. After you enable Storage Service Encryption, only new data is encrypted, and any existing files in this storage account remain unencrypted. |
+| JIT network access |When just-in-time network access is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic should be locked down. For more information, see [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
-## See also
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-* [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+## Next steps
+In this article, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following articles:
+
+* [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md): Learn how to plan and understand the design considerations about Azure Security Center.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
+* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
+* [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
+* [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
+* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.

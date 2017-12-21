@@ -3,8 +3,8 @@ title: Using Azure DNS for private domains | Microsoft Docs
 description: Overview of private DNS hosting service on Microsoft Azure.
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jennoc
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
+ms.date: 11/20/2017
+ms.author: kumud
 ---
 
 
@@ -33,18 +33,18 @@ Azure DNS provides a reliable, secure DNS service to manage and resolve domain n
 
 * **Use all common DNS records types.**  Azure DNS supports A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT records.
 
-* **Automatic hostname record management.** Along with hosting your custom DNS records, Azure will automatically maintain hostname records for the VMs in the specified virtual networks.  This allows you to optimize the domain names you use without needing to create custom DNS solutions or modify application.
+* **Automatic hostname record management.** Along with hosting your custom DNS records, Azure automatically maintains hostname records for the VMs in the specified virtual networks.  This allows you to optimize the domain names you use without needing to create custom DNS solutions or modify application.
 
-* **Hostname resolution between virtual networks.** Unlike Azure-provided hostnames, private DNS zones can be shared between virtual networks.  This capability simplifies cross-network and service discovery scenarios such as virtual network peering.
+* **Hostname resolution between virtual networks.** Unlike Azure-provided host names, private DNS zones can be shared between virtual networks.  This capability simplifies cross-network and service discovery scenarios such as virtual network peering.
 
-* **Familiar tools and user experience.** To reduce the learning curve, this new offering uses the already well-established Azure DNS tools (PowerShell, Resource Manager templates, REST API) and support will be added to the CLI and portal as soon as possible.
+* **Familiar tools and user experience.** To reduce the learning curve, this new offering uses the already well-established Azure DNS tools (PowerShell, Resource Manager templates, REST API).
 
 * **Split-horizon DNS support.** Azure DNS allows you to create zones with the same name that resolve to different answers from within a virtual network and from the public Internet.  A typical scenario for split-horizon DNS is to provide a dedicated version of a service for use inside your virtual network.
 
 
 ## Pricing
 
-Private DNS zones will be free of charge during the managed preview. On announcement of general availability, this feature will use a usage-based pricing model similar to the existing Azure DNS offering. 
+Private DNS zones is free of charge during the managed preview. During general availability, this feature will use a usage-based pricing model similar to the existing Azure DNS offering. 
 
 
 ## Next steps

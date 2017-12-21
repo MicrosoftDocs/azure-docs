@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Azure operational security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure operational security.
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
@@ -51,6 +51,6 @@ Many organizations have successfully deployed and operated their cloud applicati
 ## Next steps
 In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 
-- [Operations Management Suite (OMS) overview](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Operations Management Suite (OMS) overview](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Design and operational security](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Security Center planning and operations](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

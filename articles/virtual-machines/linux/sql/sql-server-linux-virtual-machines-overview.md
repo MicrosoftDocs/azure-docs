@@ -22,7 +22,7 @@ ms.author: jroth
 This topic describes your options for running SQL Server on Azure Linux virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing).
 
 > [!NOTE]
-> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server Linux VM, see [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md).
+> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server Linux VM, see [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md). Or if you want to create a Windows VM with SQL Server, see [Provision a Windows SQL Server VM in Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud.
 
@@ -32,7 +32,7 @@ There are many reasons that you might choose to host your data in Azure. If you 
 
 SQL Server running on Azure VMs is one option for storing your relational data in Azure. You also have the option of using Azure SQL Database service. For more information about choosing between SQL Server on Virtual Machines versus Azure SQL Database, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## Create a new SQL VM
+## <a id="create"></a> Create a new SQL VM
 
 Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md).
 

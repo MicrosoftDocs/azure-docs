@@ -4,7 +4,7 @@ description: A topic demonstrating how to disable email verification during cons
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 433f32b8-96d2-4113-aa82-efcf42fa9827

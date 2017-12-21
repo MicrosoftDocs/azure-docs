@@ -3,8 +3,8 @@ title: Manage Azure Blob Storage resources with Storage Explorer (Preview) | Mic
 description: Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
+ms.author: cawa
 
 ---
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)

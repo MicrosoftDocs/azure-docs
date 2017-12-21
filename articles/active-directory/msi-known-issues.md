@@ -3,8 +3,8 @@ title: FAQs and known issues with Managed Service Identity (MSI) for Azure Activ
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
+author: bryanla
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
-ms.author: skwan
+ms.date: 12/12/2017
+ms.author: bryanla
 ---
 
 # FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
@@ -22,9 +22,13 @@ ms.author: skwan
 
 ## Frequently Asked Questions (FAQs)
 
+### Does MSI work with Azure Cloud Services?
+
+No, there are no plans to support MSI in Azure Cloud Services.
+
 ### Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
 
-No, MSI is not yet integrated with ADAL or MSAL.
+No, MSI is not yet integrated with ADAL or MSAL. For details on acquiring an MSI token using the MSI REST endpoint, see [How to use an Azure VM Managed Service Identity (MSI) for token acquisition](msi-how-to-use-vm-msi-token.md).
 
 ### What are the supported Linux distributions?
 
@@ -51,6 +55,16 @@ Where:
 - Extension name and type for Linux is: ManagedIdentityExtensionForLinux
 
 ## Known issues
+
+### "Automation script" fails when attempting schema export for MSI extension
+
+When Managed Service Identity is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
+
+![MSI automation script export error](media/msi-known-issues/automation-script-export-error.png)
+
+The Managed Service Identity VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable Managed Service Identity on the resource. These sections can be added manually by following the examples in [Configure a VM Managed Service Identity by using a template](msi-qs-configure-template-windows-vm.md).
+
+When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
