@@ -146,7 +146,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## View the NGIX welcome page
+## View the NGINX welcome page
 
 With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
