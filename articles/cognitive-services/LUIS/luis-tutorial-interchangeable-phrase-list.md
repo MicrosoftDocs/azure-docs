@@ -13,9 +13,9 @@ ms.author: v-geberr
 ---
 
 # Add an interchangeable phrase list 
-Add a phrase list to improve accuracy of intent and entity prediction of synonymous words.
+Add a phrase list to improve accuracy of intent and entity scores for synonymous words.
 
-The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Words of an interchangeable list are not only related; they are synonyms.
+The **[Phrase list feature](./luis-concept-feature.md)** helps your app by providing semantically related words. Words on an interchangeable list are not only semantically related, they are synonyms.
 
 Without phrase lists, LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__.
 With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*meaning*__.
@@ -29,6 +29,8 @@ With phrase lists, LUIS adds semantic analysis, which refers to the word's  __*m
 Use the published endpoint to query an utterance the app knows about:
 
 `I want a computer replacement`
+
+The endpoint responds with the following JSON:
 
 ```JSON
 {
@@ -73,7 +75,7 @@ Use the published endpoint to query an utterance the app knows about:
 
 || intent score | entity score |
 |--|--|--|
-|trained | 0.973 | 0.846 |
+|trained (want) | 0.973 | 0.846 |
 
 You expect the intent score of 0.973 and the entity detection of 0.846 to be high because the app was trained with this utterance. You can see this utterance in the LUIS app on the intent page for **GetHardware**. The utterance's text of `computer` is labeled as the **Hardware** entity. 
 
@@ -126,19 +128,25 @@ The endpoint response is:
 
 || intent score | entity score |
 |--|--|--|
-| trained | 0.973 | 0.846 |
-| untrained | 0.840 | - |
+| trained (want) | 0.973 | 0.846 |
+| untrained (require) | 0.840 | - |
 
 The untrained utterance score is lower than the labeled utterance because LUIS provides syntactic analysis, which analyzes utterances based on its __*grammatical structure*__ but doesn't know about the semantic meaning of the word yet. Since words can have more than one meaning, you need to tell LUIS what meaning your app gives to a word. 
 
 ## Add phrase list 
-Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Recommend** to see what words LUIS recommends. Add all the words. If `require` is not in the recommended list, add it as a required value. Keep the setting of interchangeable because these words are synonyms. Click **save**.
+1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
+2. Click on **Recommend** to see what words LUIS recommends. 
+3. Add all the words. If `require` is not in the recommended list, add it as a required value. 
+4. Keep the setting of interchangeable because these words are synonyms. Click **save**.
 
-![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
+    ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-Train the app but don't publish it. 
+5. Train the app but don't publish it. 
 
-In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
+## Interactive testing
+In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. 
+
+Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
 
 ![Inspect Published versus current](./media/luis-tutorial-interchangeable-phrase-list/inspect.png)
 
@@ -149,6 +157,7 @@ After adding the phrase list, the accuracy increased for the utterance.
 | published - no phrase list| 0.84 | - |
 | currently editing - includes phrase list | 0.92 | Hardware entity identified |
 
+## Endpoint testing
 To see the entity score, [publish](PublishApp.md) the model and query the endpoint. 
 
 ```JSON
