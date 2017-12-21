@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Enhance LUIS understanding of synonyms with a phrase list 
-Improve accuracy of intent score and identify entities for words that have the same meaning by adding an interchangeable **[phrase list feature](./luis-concept-feature.md)**.
+Improve accuracy of intent score and identify entities for words that have the same meaning (synonyms) by adding an interchangeable **[phrase list feature](./luis-concept-feature.md)**.
 
 ## Import new app
 1. Download [example LUIS app model file][LuisSampleApp] designed for this tutorial. Remember where the file is. You will need it in the next step. 
@@ -142,12 +142,14 @@ The endpoint response is:
 
 The untrained utterance intent score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS doesn't know the utterances have the same meaning. Also, without the phrase list, the entity of **hardware** is not found.
 
-Since a word can have more than one meaning, you need to tell LUIS that want and require mean the same thing in this app domain. 
+Since a word can have more than one meaning, you need to tell LUIS that **want** and **require** mean the same thing in this app domain. 
 
 ## Improve score of untrained utterance with phrase list 
 1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
 
 2. Click on **Recommend** to see what words LUIS recommends. 
+
+    ![Recommend values](./media/luis-tutorial-interchangeable-phrase-list/recommend.png)
 
 3. Add all the words. If `require` is not in the recommended list, add it as a required value. 
 
@@ -155,7 +157,7 @@ Since a word can have more than one meaning, you need to tell LUIS that want and
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Train the app but don't publish it. 
+5. Train the app but don't publish it. Now you have two models. You can compare values in the two models.
 
 ## Compare phrase list model to published model
 In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. Use [interactive testing](Train-Test.md#interactive-testing) to compare the differences. 
