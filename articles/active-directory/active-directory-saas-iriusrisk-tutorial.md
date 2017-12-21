@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 12/21/2017
 ms.author: jeedes
 
 ---
@@ -164,7 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in IriusRisk. IriusRisk supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access IriusRisk if it doesn't exist yet.
 
 > [!Note]
-> If you need to create a user manually, Contact [IriusRisk support team](mailto:info@continuumsecurity.net).
+> If you need to create a user manually, contact [IriusRisk support team](mailto:info@continuumsecurity.net).
 
 ### Assign the Azure AD test user
 
