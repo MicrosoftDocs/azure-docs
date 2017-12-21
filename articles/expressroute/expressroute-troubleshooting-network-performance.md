@@ -37,12 +37,13 @@ At the highest level, I describe three major network routing domains; the Azure 
 Looking at the diagram from right to left, let's discuss briefly each component:
  - **Virtual Machine** - The server may have multiple NICs, ensure any static routes, default routes, and Operating System settings are sending/receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. I usually use a DS5v2 for testing (and then delete once done with testing to save money) to ensure adequate bandwidth at the VM.
  - **NIC** - Ensure you know the private IP that is assigned to the NIC in question.
- - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass.
+ - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. e.g. ensure ports 5201 for iPerf, 3389 for RDP, or 22 SSH are open to allow test traffic to pass.
  - **VNet Subnet** - The NIC is assigned to a specific subnet, ensure you know which one and the rules associated with that subnet.
  - **Subnet NSG** - Just like the NIC, NSGs can be applied at the subnet as well. Ensure the NSG rule-set is appropriate for the traffic you're trying to pass. (for traffic inbound to the NIC the subnet NSG applies first, then the NIC NSG, conversely for traffic outbound from the VM the NIC NSG applies first then the Subnet NSG comes into play).
  - **Subnet UDR** - User Defined Routes can direct traffic to an intermediate hop (like a firewall or load-balancer). Ensure you know if there is a UDR in place for your traffic and if so where it goes and what that next hop will do to your traffic. (for example, a firewall could pass some traffic and deny other traffic between the same two hosts).
  - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what affect they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
+ - **Route Filter** (Not shown) - This only applies to Microsoft Peering on ExpressRoute, but is critical to check if you're not seeing the routes you expect. 
 
 At this point, you're on the WAN portion of the link. This routing domain can be your service provider, your corporate WAN, or the Internet. Many hops, technologies, and companies involved with these links can make it somewhat difficult to troubleshoot. Often, you work to rule out both Azure and your Corporate Networks first before jumping into this collection of companies and hops.
 
@@ -86,6 +87,11 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 
 	This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
 
+4. Review the output of the tests
+
+    The PowerShell output format will look similar to this:
+	[![4]][4]
+
 ## Troubleshooting
 If the performance test is not giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach generally provides a faster path to resolution than jumping around and potentially needlessly doing the same testing multiple times.
 
@@ -96,9 +102,9 @@ If the performance test is not giving you expected results, figuring out why sho
 
 First, challenge your assumptions. Is your expectation reasonable. For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency it's unreasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
 
-Next I recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain; the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path, while blaming the block box is easy to do, it may significantly delay resolution especially if the problem is actually in an area that you have the ability to make changes. Make sure you do your due diligence before handing off to your service provider or ISP.
+Next I recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain; the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path, while blaming the black box is easy to do, it may significantly delay resolution especially if the problem is actually in an area that you have the ability to make changes. Make sure you do your due diligence before handing off to your service provider or ISP.
 
-Once you've identified the major routing domain that appears to contain the problem, you should create a diagram of the area in question. Either on a whiteboard, notepad, or Visio as a diagram provides a concrete "battle map" to allow a methodical approach to further isolate the problem. You can plan testing points, and update the map as you clear or dig deeper as the testing progresses.
+Once you've identified the major routing domain that appears to contain the problem, you should create a diagram of the area in question. Either on a whiteboard, notepad, or Visio as a diagram provides a concrete "battle map" to allow a methodical approach to further isolate the problem. You can plan testing points, and update the map as you clear areas or dig deeper as the testing progresses.
 
 Now that you have a diagram, start to divide the network into segments and narrow the problem down. Find out where it works and where it doesn't. Keep moving your testing points to isolate down to the offending component.
 
@@ -110,7 +116,7 @@ If you're not sure where the edge of the cloud actually is, isolating the Azure 
 [![2]][2]
 
 >[!NOTE]
-> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. From that MSEE as a connection point to Microsoft's network, you can then go to any of the cloud services, like Office 365 or Azure.
+> Notice that the MSEE isn't in the Azure cloud. ExpressRoute is actually at the edge of the Microsoft network not actually in Azure. Once you're connected with ExpressRoute to a MSEE, you're connected to Microsoft's network, from there you can then go to any of the cloud services, like Office 365 (with Microsoft Peering) or Azure (with Private and/or Microsoft Peering).
 >
 >
 
@@ -119,7 +125,7 @@ If two VNets (VNets A and B in the diagram) are connected to the **same** Expres
 ### Test Plan
 1. Run the Get-LinkPerformance test between VM1 and VM2. This test provides insight to if the problem is local or not. If this test produces acceptable latency and bandwidth results, you can mark the local VNet network as good.
 2. Assuming the local VNet traffic is good, run the Get-LinkPerformance test between VM1 and VM3. This test exercises the connection through the Microsoft network down to the MSEE and back into Azure. If this test produces acceptable latency and bandwidth results, you can mark the Azure network as good.
-3. If Azure is ruled out, you can perform a similar sequence of tests on your Corporate Network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection.
+3. If Azure is ruled out, you can perform a similar sequence of tests on your Corporate Network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection. Example: Run this test between two branch offices, or between your desk and a data center server. Depending on what you're testing, find endpoints (servers, PCs, etc) that can exercise that path.
 
 >[!IMPORTANT]
 > It's critical that for each test you mark the time of day you run the test and record the results in a common location (I like OneNote or Excel). Each test run should have identical output so you can compare the resultant data across test runs and not have "holes" in the data. Consistency across multiple tests is the primary reason I use the AzureCT for troubleshooting. The magic isn't in the exact load scenarios I run, but instead the *magic* is the fact that I get a *consistent test and data output* from each and every test. Recording the time and having consistent data every single time is especially helpful if you later find that the issue is sporadic. Be diligent with your data collection up front and you'll avoid hours of retesting the same scenarios (I learned this hard way many years ago).
@@ -127,7 +133,7 @@ If two VNets (VNets A and B in the diagram) are connected to the **same** Expres
 >
 
 ## The Problem is isolated, now what?
-The more you can isolate the problem the easier it is to fix, however often you reach the point where you can't go deeper or further with your troubleshooting. This point is when you should reach out for help. Who you ask is dependent on the routing domain you isolated the issue to, or even better if you are able to narrow it down to a specific component.
+The more you can isolate the problem the easier it is to fix, however often you reach the point where you can't go deeper or further with your troubleshooting. Example: you see the link across your service provider taking hops through Europe, but your expected path is all in Asia. This point is when you should reach out for help. Who you ask is dependent on the routing domain you isolated the issue to, or even better if you are able to narrow it down to a specific component.
 
 For corporate network issues, your internal IT department or service provider supporting your network (which may be the hardware manufacturer) may be able to help with device configuration or hardware repair.
 
@@ -148,7 +154,7 @@ Test setup:
  - A physical server running Windows Server 2016 with a 10 Gbps NIC, connected to an ExpressRoute circuit.
  - A 10Gbps Premium ExpressRoute circuit in the location identified with Private Peering enabled.
  - An Azure VNet with an UltraPerformance gateway in the specified region.
- - A DS5v2 VM running Windows Server 2016 on the VNet.
+ - A DS5v2 VM running Windows Server 2016 on the VNet. The VM was non-domain joined, built from the default Azure image (no optimization or customization) with AzureCT installed.
  - All testing was using the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the six test runs. For example:
 
 	```powershell
@@ -158,7 +164,13 @@ Test setup:
  - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
 
+[![3]][3]
+
 ### Latency/Bandwidth Results
+>[!IMPORTANT]
+> These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally the effect of these changes aren't noticeable but they can be.
+>
+>
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
@@ -184,6 +196,8 @@ Test setup:
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure Network Components"
 [2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "ExpressRoute Troubleshooting"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Perf Test Environment"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell Output"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
