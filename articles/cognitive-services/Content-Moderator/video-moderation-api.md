@@ -30,17 +30,17 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
 
-   1. Your Azure subscription ID
-   1. Your Azure Media Services account name
-   1. Your region
+   - Your Azure subscription ID
+   - Your Azure Media Services account name
+   - Your region
 
 ## Get Azure Active Directory credentials
 
-   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
-   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
+   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
+   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
 
    > [!NOTE]
-   > The sample code in this quick start uses the **service principal authentication** method described in both the articles.
+   > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
 
 ## Scan your videos for possible adult and racy content
@@ -116,11 +116,11 @@ After getting access to the Content Moderator media processor, use the following
             IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
                 Path.GetFileName(inputFilePath) + "_" + Guid.NewGuid()));
 
-            ITask contentModeratorTask = job.Tasks.AddNew("Adult classifier task",
+            ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
                 mp, configuration,
                 TaskOptions.None);
             contentModeratorTask.InputAssets.Add(asset);
-            contentModeratorTask.OutputAssets.AddNew("Adult classifier output",
+            contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
             AssetCreationOptions.None);
 
             job.Submit();
@@ -208,10 +208,10 @@ After getting access to the Content Moderator media processor, use the following
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
-1. Video summary
-1. **Shots** as "**fragments**", each including
-1. **Clips** as "**events**" with
-1. **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
+- Video summary
+- **Shots** as "**fragments**", each including
+- **Clips** as "**events**" with
+- **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
  
 > [!NOTE]
 > Location of a keyframe in seconds = timestamp/timescale

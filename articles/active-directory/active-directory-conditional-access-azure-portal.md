@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -200,7 +200,7 @@ If you want to add another layer of protection to these apps, you can configure 
 
 This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
 However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
+While the focus of the previous scenario was on apps with access to sensitive data, the focus of this scenario is on trusted locations.  
 In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
 
 

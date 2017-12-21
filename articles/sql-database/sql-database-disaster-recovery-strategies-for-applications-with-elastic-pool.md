@@ -13,10 +13,10 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: "Inactive"
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
 Over the years we have learned that cloud services are not foolproof and catastrophic incidents happen. SQL Database provides several capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.

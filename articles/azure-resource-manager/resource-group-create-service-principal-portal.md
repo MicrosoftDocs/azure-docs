@@ -115,7 +115,7 @@ When programmatically logging in, you need the ID for your application and an au
 
    ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+1. Copy the **Application ID** and store it in your application code. Some [sample applications](#log-in-as-the-application) refer to this value as the client ID.
 
    ![client ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

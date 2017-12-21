@@ -4,7 +4,7 @@ description: This topic gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -28,9 +28,13 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) 
 - [Sign-ins from infected devices](#sign-ins-from-infected-devices) 
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) (exclusive to **Azure Active Directory Premium P2** editions)
+- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
+
+The insight you get for a detected risk event is tied to your Azure AD subscription. If you have an Azure AD Premium P1 edition (included in EMS E3 offering), detections that are not covered by your license are reported as  **Sign-in with additional risk detected**. In other words, you see a risk event Sign-in with additional risk detected for detections exclusive to Azure AD Identity Protection subscribers.
+
 
 This topic gives you a detailed overview of what risk events are and how you can use them to protect your Azure AD identities.
 
@@ -61,9 +65,9 @@ This risk event type identifies users who have successfully signed in from an IP
 
 ### Impossible travel to atypical locations
 
-This risk event type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. In addition, the time between the two sign-ins is shorter than the time it would have taken the user to travel from the first location to the second, indicating that a different user is using the same credentials. 
+This risk event type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior. Among several other factors, this machine learning algorithm takes into account the time between the two sign-ins and the time it would have taken for the user to travel from the first location to the second, indicating that a different user is using the same credentials.
 
-This machine learning algorithm that ignores obvious "*false positives*" contributing to the impossible travel condition, such as VPNs and locations regularly used by other users in the organization.  The system has an initial learning period of 14 days during which it learns a new user’s sign-in behavior.
+The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of 14 days during which it learns a new user’s sign-in behavior. 
 
 ### Sign-in from unfamiliar locations
 
@@ -134,7 +138,7 @@ We recommend that you immediately contact the user to verify if they were using 
 Impossible travel is usually a good indicator that a hacker was able to successfully sign-in. However, false-positives may occur when a user is traveling using a new device or using a VPN that is typically not used by other users in the organization. Another source of false-positives is applications that incorrectly pass server IPs as client IPs, which may give the appearance of sign-ins taking place from the data center where that application’s back-end is hosted (often these are Microsoft datacenters, which may give the appearance of sign-ins taking place from Microsoft owned IP addresses). As a result of these false-positives, the risk level for this risk event is **Medium**.
 
 > [!TIP]
-> You can reduce the amount of reported false-positves for this risk event type by configuring [named locations](active-directory-named-locations.md). 
+> You can reduce the amount of reported false-positives for this risk event type by configuring [named locations](active-directory-named-locations.md). 
 
 ### Sign-in from unfamiliar locations
 

@@ -34,4 +34,4 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Query API</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Query Syntax</a></p>
+      html: <p><a href="/rest/api/time-series-insights-management">Resource Management API</a></p>   <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Query API</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Query Syntax</a></p>
