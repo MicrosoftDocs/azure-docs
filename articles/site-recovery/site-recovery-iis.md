@@ -98,7 +98,7 @@ A typical multi-tier IIS web application will consist of a database tier with SQ
 
 
 ### Adding scripts to the recovery plan
-You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-create-recovery-plans.md#add-scripts).
+You may need to do some operations on the Azure virtual machines post failover/Test failover to make IIS web farm function correctly. You can automate the post failover operation like updating DNS entry, changing site binding, change  in connection string  by adding corresponding scripts in the recovery plan as below. [Learn more about add script recovery plan](./site-recovery-how-to-add-vmmscript.md).
 
 #### DNS Update
 If the DNS is configured for dynamic DNS update then virtual machines usually update the DNS with the new IP once they start. If you want to add an explicit step to update DNS with the new IPs of the virtual machines then add this [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post action on recovery plan groups.  
