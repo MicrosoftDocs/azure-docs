@@ -25,8 +25,8 @@
       items:
         - name: C
           href: quick-create-simulated-device-x509.md
-#        - name: Java
-#          href: quick-create-simulated-device-x509-java.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
 #        - name: C#
 #          href: quick-create-simulated-device-x509-csharp.md
 #        - name: Python
