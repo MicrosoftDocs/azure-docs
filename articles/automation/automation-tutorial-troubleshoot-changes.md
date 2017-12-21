@@ -20,7 +20,7 @@ In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Onboard a VM for Change tracking and Inventory
-> * Search inventory logs for installed software
+> * Search change logs for stopped services
 > * Configure change tracking
 > * Enable Activity log connection
 > * Trigger an event
@@ -177,7 +177,7 @@ In this tutorial you learned how to:
 
 > [!div class="checklist"]
 > * Onboard a VM for Change tracking and Inventory
-> * Search inventory logs for installed software
+> * Search change logs for stopped services
 > * Configure change tracking
 > * Enable Activity log connection
 > * Trigger an event

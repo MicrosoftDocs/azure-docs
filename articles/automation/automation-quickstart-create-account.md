@@ -60,4 +60,4 @@ When no longer needed, delete the resource group, Automation account, and all re
 In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first runbook.
 
 > [!div class="nextstepaction"]
-> [Automation Quickstart - Create Runbook](./automation-first-runbook-textual.md)
+> [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
