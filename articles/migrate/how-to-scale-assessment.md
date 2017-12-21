@@ -1,6 +1,6 @@
 ---
-title: Scale discovery and assessment with Azure Migrate | Microsoft Docs
-description: Describes how to assess large numbers of on-premises machines with the Azure Migrate service.
+title: Scale discovery and assessment by using Azure Migrate | Microsoft Docs
+description: Describes how to assess large numbers of on-premises machines by using the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -10,7 +10,7 @@ ms.author: raynew
 
 # Discover and assess a large VMware environment
 
-This article describes how to assess large numbers of on-premises machines with [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure. It provides sizing and cost estimations for running the machines in Azure.
+This article describes how to assess large numbers of on-premises machines by using [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure. The service provides sizing and cost estimations for running the machines in Azure.
 
 ## Prerequisites
 
@@ -30,19 +30,19 @@ Plan your discoveries and assessments based on the following limits:
 | Assessment | 400               |
 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
-- If you have between 400 and 1,000 machines to discover, you need a single project with a single discovery. But, you will need multiple assessments to assess these machines as a single assessment can hold up to 400 machines.
-- If you have between 1,000 and 1,500 machines, you need a single project with two discoveries in it.
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you could set up four projects: two with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
 
 ## Plan multiple discoveries
 
-You can use the same Azure Migrate collector to do multiple discoveries to one or more projects. 
+You can use the same Azure Migrate collector to do multiple discoveries to one or more projects. Keep these planning considerations in mind:
  
 - When you do a discovery by using the Azure Migrate collector, you can set the discovery scope to a vCenter Server folder, datacenter, cluster, or host.
 - To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,000 machines.
-- We recommend that for assessment purposes, you keep machines with interdependencies within the same project and assessment. So in vCenter Server, make sure that dependent machines are in the same folder, datacenter, or cluster for the purposes of assessment.
+- We recommend that for assessment purposes, you keep machines with interdependencies within the same project and assessment. In vCenter Server, make sure that dependent machines are in the same folder, datacenter, or cluster for the assessment.
 
 
 ## Create a project
@@ -57,11 +57,11 @@ Create an Azure Migrate project in accordance with your requirements.
 
 ## Set up the collector appliance
 
-Azure Migrate creates an on-premises VM known as the collector appliance. This VM discovers on-premises VMware VMs, and it sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an OVA file and import it to the on-premises vCenter server to create the VM.
+Azure Migrate creates an on-premises VM known as the collector appliance. This VM discovers on-premises VMware VMs, and it sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an OVA file and import it to the on-premises vCenter server.
 
 ### Download the collector appliance
 
-If you have multiple projects, you need to download the collector appliance only once to the vCenter server. After you download and set up the appliance, you run it for each project, and you specify the unique project ID and key.
+If you have multiple projects, you need to download the collector appliance only once to the computer running vCenter Server. After you download and set up the appliance, you run it for each project, and you specify the unique project ID and key.
 
 1. In the Azure Migrate project, select **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Discover machines**, select **Download**, to download the OVA file.
@@ -78,7 +78,7 @@ Check that the OVA file is secure before you deploy it.
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings.
+3. Make sure that the generated hash matches the following settings.
  
     For the OVA version 1.0.8.38:
     **Algorithm** | **Hash value**
@@ -110,41 +110,41 @@ will be hosted.
 5. In **Host/Cluster**, specify the host or cluster on which the collector VM will run.
 7. In storage, specify the storage destination for the collector VM.
 8. In **Disk Format**, specify the disk type and size.
-9. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity, to send metadata to Azure. 
+9. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity to send metadata to Azure. 
 10. Review and confirm the settings, and then select **Finish**.
 
 ## Identify the key and ID for each project
 
-If you have multiple projects, make sure you identify the ID and key for each one. You need the key when you run the collector to discover the VMs.
+If you have multiple projects, be sure to identify the ID and key for each one. You need the key when you run the collector to discover the VMs.
 
 1. In the project, select **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Copy project credentials**, copy the ID and key for the project. 
     ![Project ID](./media/how-to-scale-assessment/project-id.png)
 
-## vCenter statistics level to collect the performance counters
-Following is the list of counters that are collected during the discovery. The counters are by default available at various levels in the computer running vCenter Server. 
+## Set the vCenter statistics level
+Following is the list of performance counters that are collected during the discovery. The counters are by default available at various levels in the computer running vCenter Server. 
 
-We recommend that you set the highest common level (level 3) for the statistics level so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data. 
+For the statistics level, we recommend that you set the highest common level (level 3) so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data. 
 
 The following table also lists the assessment results that will be affected if a particular counter is not collected.
 
-|Counter                                  |Level    |Per device level  |Assessment impact                               |
+|Counter                                  |Level    |Per-device level  |Assessment impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |NA                |Recommended VM Size and cost                    |
-|mem.usage.average                        | 1       |NA                |Recommended VM Size and cost                    |
-|virtualDisk.read.average                 | 2       |2                 |Disk size, storage cost and the VM size         |
-|virtualDisk.write.average                | 2       |2                 |Disk size, storage cost and the VM size         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk size, storage cost and the VM size         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk size, storage cost and the VM size         |
-|net.received.average                     | 2       |3                 |VM Size and network cost                        |
-|net.transmitted.average                  | 2       |3                 |VM Size and network cost                        |
+|cpu.usage.average                        | 1       |NA                |Recommended VM size and cost                    |
+|mem.usage.average                        | 1       |NA                |Recommended VM size and cost                    |
+|virtualDisk.read.average                 | 2       |2                 |Disk size, storage cost, and VM size         |
+|virtualDisk.write.average                | 2       |2                 |Disk size, storage cost, and VM size         |
+|virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk size, storage cost, and VM size         |
+|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk size, storage cost, and VM size         |
+|net.received.average                     | 2       |3                 |VM size and network cost                        |
+|net.transmitted.average                  | 2       |3                 |VM size and network cost                        |
 
 > [!WARNING]
 > If you have just set a higher statistics level, it will take up to a day to generate the performance counters. So, we recommend that you run the discovery after one day.
 
 ## Run the collector to discover VMs
 
-For each discovery that you need to perform, you run the collector to discovery VMs in the required scope. Run the discoveries one after the other. Concurrent discoveries aren't supported, and each discovery must have a different scope.
+For each discovery that you need to perform, you run the collector to discover VMs in the required scope. Run the discoveries one after the other. Concurrent discoveries aren't supported, and each discovery must have a different scope.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password preferences for the appliance.
@@ -169,8 +169,8 @@ For each discovery that you need to perform, you run the collector to discovery 
 
     ![Select scope](./media/how-to-scale-assessment/select-scope.png)
 
-6. In **Specify migration project**, specify the ID and key for the project. If you didn't copy them, open the Azure portal from the collector VM. In the project's **Overview** page, select **Discover Machines**, and copy the values.  
-7. In **View collection progress**, monitor the discovery process, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
+6. In **Specify migration project**, specify the ID and key for the project. If you didn't copy them, open the Azure portal from the collector VM. On the project's **Overview** page, select **Discover Machines** and copy the values.  
+7. In **View collection progress**, monitor the discovery process and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
 
 ### Verify VMs in the portal
