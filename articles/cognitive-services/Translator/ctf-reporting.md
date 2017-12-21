@@ -15,8 +15,7 @@ ms.author: v-jansko
 # How to use Collaborative Translation Framework (CTF) reporting
 
 > [!NOTE]
-> The Collaborative Translations Framework (CTF) will be deprecated as of February 1, 2018. Beginning February 1, 2018, the AddTranslation() method will do nothing, it will silently fail. The API response will still be success (200), but nothing will be written.
-Microsoft will replace the functionality with an extended version of the Translator Hub API, which produces a custom system with your terminology, and you can invoke it using the Category ID of your custom Hub system. See [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). 
+> The Collaborative Translations Framework (CTF) will be deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2017, these two functions will not accept new sentence submissions, and you will receive an error message. These functions are being retired and will not be replaced. Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. See [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). 
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it:
 *Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
