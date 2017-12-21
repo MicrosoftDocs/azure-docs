@@ -41,11 +41,11 @@ At the highest level, I describe three major network routing domains;
 Looking at the diagram from right to left, let's discuss briefly each component:
  - **Virtual Machine** - The server may have multiple NICs, ensure any static routes, default routes, and Operating System settings are sending and receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. I usually use a DS5v2 for testing (and then delete once done with testing to save money) to ensure adequate bandwidth at the VM.
  - **NIC** - Ensure you know the private IP that is assigned to the NIC in question.
- - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. For example, ensure ports 5201 for iPerf, 3389 for RDP, or 22 SSH are open to allow test traffic to pass.
+ - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. For example, ensure ports 5201 for iPerf, 3389 for RDP, or 22 for SSH are open to allow test traffic to pass.
  - **VNet Subnet** - The NIC is assigned to a specific subnet, ensure you know which one and the rules associated with that subnet.
  - **Subnet NSG** - Just like the NIC, NSGs can be applied at the subnet as well. Ensure the NSG rule-set is appropriate for the traffic you're trying to pass. (for traffic inbound to the NIC the subnet NSG applies first, then the NIC NSG, conversely for traffic outbound from the VM the NIC NSG applies first then the Subnet NSG comes into play).
  - **Subnet UDR** - User Defined Routes can direct traffic to an intermediate hop (like a firewall or load-balancer). Ensure you know if there is a UDR in place for your traffic and if so where it goes and what that next hop will do to your traffic. (for example, a firewall could pass some traffic and deny other traffic between the same two hosts).
- - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what affect they have on your traffic.
+ - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they are there and what effect they have on your traffic.
  - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have multiple ExpressRoute circuits or VPN tunnels connected to the same VNet Gateway, you should be aware of the connection weight settings as this setting affects connection preference and affects the path your traffic takes.
  - **Route Filter** (Not shown) - A route filter only applies to Microsoft Peering on ExpressRoute, but is critical to check if you're not seeing the routes you expect on Microsoft Peering. 
 
@@ -53,7 +53,7 @@ At this point, you're on the WAN portion of the link. This routing domain can be
 
 In the preceding diagram, on the far left is your corporate network. Depending on the size of your company, this routing domain can be a few network devices between you and the WAN or multiple layers of devices in a campus/enterprise network.
 
-Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This approach can help identify the problem network of the three and then focus your troubleshooting on that specific environment.
+Given the complexities of these three different high-level network environments, it's often optimal to start at the edges and try to show where performance is good, and where it degrades. This approach can help identify the problem routing domain of the three and then focus your troubleshooting on that specific environment.
 
 ## Tools
 Most network issues can be analyzed and isolated using basic tools like ping and traceroute. It's rare that you need to go as deep as a packet analysis like Wireshark. To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, I like to use iPerf and PSPing. iPerf is a commonly used tool and runs on most operating systems. iPerf is good for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals. PSPing is an easy way to perform ICMP and TCP pings in one also easy to use command. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the host.
@@ -78,7 +78,7 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 	```powershell
 	Install-LinkPerformance
 	```
-	This AzureCT PowerShell module command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
+	This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
 
 3. Run the performance test
 
@@ -94,7 +94,10 @@ There are three basic steps to use this toolkit for Performance testing. 1) Inst
 4. Review the output of the tests
 
     The PowerShell output format looks similar to:
+
 	[![4]][4]
+
+	The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
 
 ## Troubleshooting
 If the performance test is not giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach generally provides a faster path to resolution than jumping around and potentially needlessly doing the same testing multiple times.
@@ -104,9 +107,9 @@ If the performance test is not giving you expected results, figuring out why sho
 >
 >
 
-First, challenge your assumptions. Is your expectation reasonable. For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency it's unreasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
+First, challenge your assumptions. Is your expectation reasonable? For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency it's unreasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
 
-Next I recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain; the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path, while blaming the black box is easy to do, it may significantly delay resolution especially if the problem is actually in an area that you have the ability to make changes. Make sure you do your due diligence before handing off to your service provider or ISP.
+Next, I recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain; the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path, while blaming the black box is easy to do, it may significantly delay resolution especially if the problem is actually in an area that you have the ability to make changes. Make sure you do your due diligence before handing off to your service provider or ISP.
 
 Once you've identified the major routing domain that appears to contain the problem, you should create a diagram of the area in question. Either on a whiteboard, notepad, or Visio as a diagram provides a concrete "battle map" to allow a methodical approach to further isolate the problem. You can plan testing points, and update the map as you clear areas or dig deeper as the testing progresses.
 
@@ -143,7 +146,7 @@ For corporate network issues, your internal IT department or service provider su
 
 For the WAN, sharing your testing results with your Service Provider or ISP may help get them started and avoid covering some of the same ground you've tested already. However, don't be offended if they want to verify your results themselves. "Trust but verify" is a good motto when troubleshooting based on other people's reported results.
 
-With Azure, once you isolated the issue in as much detail as you're able, it's time to review the [Azure Network Documentation][Network Docs] and then if still needed [open a support ticket][Ticket Link].
+With Azure, once you isolate the issue in as much detail as you're able, it's time to review the [Azure Network Documentation][Network Docs] and then if still needed [open a support ticket][Ticket Link].
 
 ## References
 ### Latency/Bandwidth Expectations
@@ -172,9 +175,10 @@ Test setup:
 
 ### Latency/Bandwidth Results
 >[!IMPORTANT]
-> These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally the effects of these changes aren't noticeable but they can be.
+> These numbers are for general reference only. Many factors affect latency, and while these values are generally consistent over time, conditions within Azure or the Service Providers network can send traffic via different paths at any time, thus latency and bandwidth can be affected. Generally, the effects of these changes don't result in significant differences.
 >
 >
+
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
@@ -190,8 +194,10 @@ Test setup:
 | Seattle | West Europe      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
 | Seattle | Australia East   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
 | Seattle | Southeast Asia   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
-| Seattle | Brazil South     | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
+| Seattle | Brazil South     | 10,930 km | 189 ms |   8.2 Mbits/sec* |   699 Mbits/sec | 22
 | Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
+
+\* The latency to Brazil is a good example where the straight line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160ms, but is actually 189ms. This could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a generally straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
 ## Next Steps
 1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
