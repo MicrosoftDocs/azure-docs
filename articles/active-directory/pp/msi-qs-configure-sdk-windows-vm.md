@@ -3,7 +3,7 @@ title: How to configure an MSI-enabled Azure VM using an Azure SDK
 description: Step by step instructions for configuring and using a Managed Service Identity (MSI) on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
-author: BryanLa
+author: bryanla
 manager: mbaldwin
 editor: ''
 
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -35,14 +35,11 @@ Azure supports multiple programming platforms through a series of [Azure SDKs](h
 
 | SDK | Sample |
 | --- | ------ | 
-| .NET   | [Manage resource from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Manage storage from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [Create a VM with MSI enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Create Azure VM with an MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## Next steps
 
-- See related articles under "Configure MSI for an Azure VM", to learn how you can also use the Azure portal, PowerShell, CLI, and resource templates.
+- See related articles under "Configure MSI for an Azure VM", to learn how you can configure a user-assigned MSI on an Azure VM.
 
 Use the following comments section to provide feedback and help us refine and shape our content.
