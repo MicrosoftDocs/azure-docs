@@ -27,7 +27,7 @@ The Hub allows for varying levels of customization. You can start by adding just
 
 As your needs grow, you can use parallel sentences to build a translation system that reflects your domain-specific terminology and style better than a generic translation system. Use your previously translated documents (leaflets, webpages, documentation, etc.) or an export of your translation memory in TMX, XLIFF, TXT, HTML, DOCX, XLSX and PDF document formats. 
 
-The customized system is then available by through a regular call to the Microsoft Translator Text API using the category parameter.
+The customized system is then available through a regular call to the Microsoft Translator Text API using the category parameter.
 
 More details about the various levels of customization, based on available data, can be found on the [Microsoft Translator Blog](https://blogs.msdn.microsoft.com/translation/2016/01/27/new-microsoft-translator-customization-features-help-unleash-the-power-of-artificial-intelligence-for-everyone/).
 
