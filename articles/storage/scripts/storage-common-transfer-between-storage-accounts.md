@@ -30,7 +30,13 @@ This sample also requires the [latest version of AzCopy on Windows](http://aka.m
 
 The following is an example of the input for this script:
 
-![Input](../common/media/storage-migrate-blobs-across-storage-accounts/ExampleScriptInput.png)
+```Powershell
+srcStorageAccountName: ExampleSourceStorageAccountName
+srcStorageAccountKey: ExampleSourceStorageAccountKey
+DestStorageAccountName: ExampleTargetStorageAccountName
+DestStorageAccountKey: ExampleTargetStorageAccountKey
+AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
+```
 
 
 ## Sample script
