@@ -82,7 +82,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 
 ## Neural Machine Translation systems
 
-The following languages are supported for Neural Machine Translation. The NMT system can be used by adding "generalnn" to the category parameter of the API call.
+The following languages are supported for Neural Machine Translation. The neural system can be used by adding "generalnn" to the category parameter of the API call. You may use the "generalnn" category for any of the above languages, even if there is no neural translation system handling it. 
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -111,16 +111,12 @@ The following languages are supported for Neural Machine Translation. The NMT sy
 
 ## Access the list programmatically
 
-You can access the list of supported languages programmatically using the Languages API method on the Languages API reference page. This list provides the language code as well as the language name in English, or localized into another language. This list is automatically updated by the Microsoft Translator service as new languages become available.
+You can access the list of supported languages programmatically using the Languages resource. The list provides the language code as well as the language name in English, or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
 
-The Languages API method returns the list of supported languages for each of the three groups. The languages method 
-does not require an access token for authentication.
+The Languages resource returns the list of supported languages for text and speech translation. The Languages resource 
+does not require authentication.
 
-To access the list, in the 'Scope' parameter of the method of the Language API reference page, add 'text'. After you have entered the scope parameter, 
-select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible
-in the 'Response Body' section. 
-
-Note that this method uses the Microsoft Translator Speech API to return the list of languages. The list of supported text languages is the same for the Text and Speech APIs, but the Speech API would be used for speech to text (or speech to speech) translation rather than text to text translation.
+To access the list, in the 'Scope' parameter of the method of the Languages resource reference page, add 'text'. After you have entered the scope parameter, select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible in the 'Response Body' section. 
 
 [Visit the API reference to try out the languages method](http://docs.microsofttranslator.com/languages.html)
 
@@ -128,7 +124,7 @@ Note that this method uses the Microsoft Translator Speech API to return the lis
 
 For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists available in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
 
-[See the list of languages on our website](https://www.microsoft.com/translator/languages.aspx)
+[See the list of languages](https://www.microsoft.com/translator/languages.aspx)
 
 ## Languages detected by the Detect() method
 
