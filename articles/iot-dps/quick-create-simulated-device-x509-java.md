@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: msebolt
 ms.author: v-masebo
-ms.date: 12/05/2017
+ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
 
@@ -19,6 +19,8 @@ ms.custom: mvc
 > [!div class="op_single_selector"]
 > * [C](quick-create-simulated-device-x509.md)
 > * [Java](quick-create-simulated-device-x509-java.md)
+> * [C#](quick-create-simulated-device-x509-csharp.md)
+> * [Python](quick-create-simulated-device-x509-python.md)
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
