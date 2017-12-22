@@ -15,7 +15,7 @@ ms.author: v-jansko
 # How to receive word alignment information
 
 ## Receiving word alignment information
-To receive alignment information, use the TranslateArray2() method. The TranslateArray2() method is part of the regular V2 API and returned as part of the V2 WSDL. TranslateArray2() works just like the regular TranslateArray() method, except it has an additional element in the response structure, called "Alignment".
+To receive alignment information, use the TranslateArray2() method. TranslateArray2() works just like the regular TranslateArray() method, except it has an additional element in the response structure, called "Alignment".
 
 ## Alignment information format
 "Alignment" is returned as a string value of the following format for every word of the source. The information for each word is separated by a space, including for non-space-separated languages (scripts) like Chinese: 
@@ -24,7 +24,7 @@ To receive alignment information, use the TranslateArray2() method. The Translat
 
 Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. No error.
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. The method returns no error in that case. 
 
 ## Restrictions
 Alignment is only returned for a subset of the language pairs at this point:
