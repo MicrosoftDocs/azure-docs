@@ -1,8 +1,8 @@
 ---
 title: Get started with Notification Hubs for Xamarin.Android apps | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application.
-author: ysxu
-manager: erikre
+author: jwhitedev
+manager: kpiteira
 editor: ''
 services: notification-hubs
 documentationcenter: xamarin
@@ -13,27 +13,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/25/2017
-ms.author: yuaxu
+ms.date: 12/22/2017
+ms.author: jawh
 
 ---
-# Get started with Notification Hubs with Xamarin for Android
+# Get started with Notification Hubs for Xamarin.Android apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You'll create a blank Xamarin.Android app that receives push notifications by using Firebase Cloud Messaging (FCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
 
 ## Before you begin
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid).
+The completed code for this tutorial can be found on GitHub [here][GitHub].
 
 ## Prerequisites
 This tutorial requires the following:
 
-* Visual Studio with Xamarin on Windows or Xamarin Studio on Mac OS X. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* [Visual Studio with Xamarin] on Windows or [Visual Studio for Mac] on OS X.
 * Active Google account
 * [Azure Messaging Component]
 * [Google Cloud Messaging Client Component]
@@ -45,20 +45,20 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 > 
 > 
 
-## Enable Google Cloud Messaging
-[!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+## Enable Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
+<ol start="6">
 
 <li><p>Choose the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then select <b>Save</b>.</p>
 </li>
 </ol>
-&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
-Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
+Your notification hub is now configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
 ## Connect your app to the notification hub
 First, you create a new project.
@@ -460,16 +460,16 @@ In this simple example, you broadcasted notifications to all your Android device
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Visual Studio with Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
 [Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
-[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
+[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Messaging Component]: http://components.xamarin.com/view/azure-messaging
