@@ -1,37 +1,33 @@
 ## Set up the development environment
 
-This section walks through setting up the development environment, including creating an ASP.NET MVC app, adding a Connected Services connection, adding a controller, and specifying the required namespace directives.
+This section walks through setting up the development environment. This includes creating an ASP.NET MVC app, adding a Connected Services connection, adding a controller, and specifying the required namespace directives.
 
 ### Create an ASP.NET MVC app project
 
 1. Open Visual Studio.
 
-1. Select **File->New->Project** from the main menu
+1. From the main menu, select **File** > **New** > **Project**.
 
-1. On the **New Project** dialog, specify the options as highlighted in the following figure:
+1. On the **New Project** dialog box, select **Web** > **ASP.NET Web Application (.NET Framework)**. In the **Name** field, specify **StorageAspNet**. Select **OK**.
 
-	![Create ASP.NET project](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+	![Screenshot of New Project dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Select **OK**.
+1. On the **New ASP.NET Web Application** dialog box, select **MVC**, and then select **OK**.
 
-1. On the **New ASP.NET Project** dialog, specify the options as highlighted in the following figure:
-
-	![Specify MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
-
-1. Select **OK**.
+	![Screenshot of New ASP.NET Web Application dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
 ### Use Connected Services to connect to an Azure storage account
 
-1. In the **Solution Explorer**, right-click the project, and from the context menu, select **Add->Connected Service**.
+1. In **Solution Explorer**, right-click the project. From the context menu, select **Add** > **Connected Service**.
 
-1. On the **Add Connected Service** dialog, select **Cloud Storage with Azure Storage**, and then select **Configure**.
+1. On the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
 
-	![Connected Service dialog](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
+	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. On the **Azure Storage** dialog, select the Azure Storage account to be used for this tutorial.  To create a new Azure Storage account, click **Create a New Storage Account** and complete the form.  After selecting either an existing storage account or creating a new one, click **Add**.  Visual Studio will install the NuGet package for Azure Storage and a storage connection string to **Web.config**.
+1. On the **Azure Storage** dialog box, select the Azure Storage account to be used for this tutorial. To create a new Azure Storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
 
 > [!TIP]
 > To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 >
-> An Azure storage account can also be created using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Azure Cloud Shell](../articles/cloud-shell/overview.md).
+> You can also create a storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 
