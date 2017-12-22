@@ -268,6 +268,7 @@ A country can be specified through its country code. An option is provided to in
 
 ---
 ### Edge Cname
+
 **Key Information** 
 - The list of available edge CNAMEs is limited to those that have been configured on the Edge CNAMEs page corresponding to the platform on which HTTP Rules Engine is being configured.
 - Before attempting to delete an edge CNAME configuration, make sure that an Edge Cname match condition does not reference it. Edge CNAME configurations that have been defined in a rule cannot be deleted from the Edge CNAMEs page. 
@@ -303,7 +304,7 @@ The hostname associated with the referrer through which content was requested de
 </br>
 
 ---  
- ### Request Header Literal
+### Request Header Literal
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires the request to contain the specified header and its value must match the one defined in this match condition.
 - **Does Not Match:** Requires that the request satisfy either of the following criteria:
