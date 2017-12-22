@@ -21,9 +21,10 @@ ms.author: v-masebo
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+This tutorial builds on the [Get started with IoT Hub] tutorial.  The tutorial:
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+* Shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way.
+* Illustrates how to isolate interactive messages that require immediate action from the solution back end for further processing.  For example, a device might send an alarm message that triggers inserting a ticket into a CRM system.  In contrast, data-point messages, such as temperature telemetry, feed into an analytics engine.
 
 At the end of this tutorial, you run three Python console apps:
 
@@ -41,7 +42,8 @@ To complete this tutorial, you need the following:
 * [Node.js 4.0 or later][lnk-node-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. This is needed to install the [IoT Hub Explorer tool][lnk-iot-hub-explorer].
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
+
 
 ## Send interactive messages from a device app
 In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
@@ -101,10 +103,11 @@ In this section, you modify the device app you created in the [Get started with 
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
 
-2. Save and close the **SimulatedDevice.py** file.
+1. Save and close the **SimulatedDevice.py** file.
 
     > [!NOTE]
     > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
+
 
 ## Add queues to your IoT hub and route messages to them
 
@@ -114,19 +117,15 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 
 1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
-2. In the Azure portal, open your IoT hub and click **Endpoints**.
+1. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
 
-3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **OK** at the bottom.  
-
-1. Click **Add** again, name the endpoint **GeneralQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
+1. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **OK** at the bottom.  
 
     ![Adding an endpoint][31]
 
-4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
-
-1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **GeneralQueue** as the endpoint.  When you are done, click **Save** at the bottom.
+1. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
     ![Adding a route][32]
 
@@ -147,15 +146,15 @@ In this section, you create a Python console app that reads critical messages fr
     > [!NOTE]
     > For issues installing the **azure-servicebus** package or for further installation options see the [Python azure-servicebus package][lnk-python-service-bus].
 
-2. Create a file named **ReadCriticalQueue.py**. Open this file in a Python editor/IDE of your choice (for example, IDLE).
+1. Create a file named **ReadCriticalQueue.py**. Open this file in a Python editor/IDE of your choice (for example, IDLE).
 
-3. Add the following code to import the required modules from the device SDK:
+1. Add the following code to import the required modules from the device SDK:
 
     ```python
     from azure.servicebus import ServiceBusService, Message, Queue
     ```
 
-4. Add the following code and replace the placeholders with connection data for your service bus:
+1. Add the following code and replace the placeholders with connection data for your service bus:
 
     ```python
     SERVICE_BUS_NAME = {serviceBusName}
@@ -185,7 +184,8 @@ In this section, you create a Python console app that reads critical messages fr
         setup_client()
     ```
 
-9. Save and close the **ReadCriticalQueue.py** file. You are now ready to run the applications.
+1. Save and close the **ReadCriticalQueue.py** file. You are now ready to run the applications.
+
 
 ## Run the applications
 
@@ -197,31 +197,55 @@ Now you are ready to run the applications.
     npm install -g iothub-explorer
     ```
 
-2. Run the following command on the command prompt, to begin monitoring the device-to-cloud messages from your device. Use your IoT hub's connection string in the placeholder after `--login`.
+1. Run the following command on the command prompt, to begin monitoring the device-to-cloud messages from your device. Use your IoT hub's connection string in the placeholder after `--login`.
 
     ```cmd/sh
     iothub-explorer monitor-events [deviceId] --login "[IoTHub connection string]"
     ```
 
-3. Open a new command prompt and navigate to the directory containing the **SimulatedDevice.py** file.
+1. Open a new command prompt and navigate to the directory containing the **SimulatedDevice.py** file.
 
-4. Run the **SimulatedDevice.py** file, which periodically sends telemetry data to your IoT hub. 
+1. Run the **SimulatedDevice.py** file, which periodically sends telemetry data to your IoT hub. 
    
     ```cmd/sh
     python SimulatedDevice.py
     ```
 
-2. To run the **ReadCriticalQueue** application, in a command prompt or shell navigate to **ReadCriticalQueue.py** file and execute the following command:
+1. To run the **ReadCriticalQueue** application, in a command prompt or shell navigate to **ReadCriticalQueue.py** file and execute the following command:
 
    ```cmd/sh
    python ReadCriticalQueue.py
    ```
 
-5. Observe the device messages on the command prompt running the IoT Hub Explorer from the previous section.  Note the messages marked `storage` and `critical` are not picked up by the messages endpoint. Observe the `critical` messages in the **ReadCriticalQueue** application.
+1. Observe the device messages on the command prompt running the IoT Hub Explorer from the previous section. Observe the `critical` messages in the **ReadCriticalQueue** application.
 
     ![Python device-to-cloud messages][2]
 
-1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.  Observe the messages marked `storage`.
+
+## (Optional) Add Storage Container to your IoT hub and route messages to it
+
+In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the account based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > If you are not limited to one **Endpoint**, you may setup the **StorageContainer** in addition to the **CriticalQueue** and run both simulatneously.
+
+1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
+
+2. In the Azure portal, open your IoT hub and click **Endpoints**.
+
+3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageContainer** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
+
+ > [!NOTE]
+   > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
+
+4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageContainer** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+
+    Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
+
+1. Make sure your previous application **SimulatedDevice.py** is still running. 
+
+1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+
 
 ## Next steps
 
@@ -242,7 +266,11 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [33]: ./media/iot-hub-python-python-process-d2c/fallback-route.png
 
 <!-- Links -->
-
+[lnk-python-download]: https://www.python.org/downloads/
+[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
+[lnk-node-download]: https://nodejs.org/en/download/
+[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
+[lnk-iot-hub-explorer]: https://github.com/Azure/iothub-explorer
 [lnk-sb-queues-node]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
