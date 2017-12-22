@@ -61,7 +61,7 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
 }
 ```
 
-Based on this ranking response, the sidebar would display the two entity results related to Jimi Hendix.
+Based on this ranking response, the sidebar would display the two entity results related to Jimi Hendrix.
 
 ## Next steps
 
