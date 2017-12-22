@@ -190,7 +190,7 @@ An example configuration might look like the following:
 }
 ```
 > [!NOTE] 
-> In this example, the response's body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
+> In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
 ## <a name="enable"></a>Enable Azure Functions Proxies
 
