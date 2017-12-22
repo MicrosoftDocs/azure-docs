@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 12/22/2017
 ms.author: ergreenl
 
 ---
@@ -22,13 +22,12 @@ ms.author: ergreenl
 
 
 ## Creating the right Network Security Group
-To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
+To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking#ports-required-for-azure-ad-domain-services.md) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
 
 ### Creating a "default" NSG
 
-Below are steps you can use to create an NSG from scratch that will keep all of the ports needed to run Azure AD Domain Services open while denying any other access.
+Preceding are steps you can use to create an NSG from scratch that keeps all of the ports needed to run Azure AD Domain Services open while denying any other unwanted access.
 
-1. ghfghf
 
 ### Adding a rule to a Network Security group
 Follow these steps to create rules in your Network security group
@@ -42,9 +41,6 @@ Follow these steps to create rules in your Network security group
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
 
 ![sample NSG](.\media\active-directory-domain-services-admin-guide\secure-ldap-sample-nsg.png)
-
-##Other helpful articles on Network Security groups
-
 
 
 ## Contact Us
