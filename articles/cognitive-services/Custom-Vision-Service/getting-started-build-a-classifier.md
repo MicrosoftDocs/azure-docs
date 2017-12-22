@@ -92,7 +92,7 @@ h. To load more images with a different set of tags, return to step a.
 
 5. Train your classifier
 
-After your images are uploaded, you are ready to train your classifier. All you have to do is se;ect the **Train** button.
+After your images are uploaded, you are ready to train your classifier. All you have to do is select the **Train** button.
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train01.png)
 
@@ -110,7 +110,7 @@ The precision and recall indicators tell you how good your classifier is, based 
 
 The classifier uses all the images to create a model that identifies each tag. To test the quality of the model, the classifier then tries each image on its model to see what the model finds.
 
-The qualities of the classifier results are displayed
+The qualities of the classifier results are displayed.
 
 |Term|Definition|
 |---|---|
