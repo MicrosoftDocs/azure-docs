@@ -63,10 +63,6 @@ This section walks you through creating a new notification hub and configuring a
 <p>Make sure to select <b>Sandbox</b> mode since you will be sending push messages in a development environment. Only use the <b>Production</b> setting if you want to send push notifications to users who already purchased your app from the store.</p>
 </li>
 </ol>
-&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-apns.png)
-
-&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-sandbox.png)
-
 Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.
 
 ## Connect your app to the notification hub
