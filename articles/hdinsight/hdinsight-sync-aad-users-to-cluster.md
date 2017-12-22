@@ -21,27 +21,25 @@ ms.author: ashishth
 ---
 # Synchronize Azure Active Directory users to a cluster
 
-When you [provision a domain-joined HDInsight cluster](hdinsight-domain-joined-introduction.md), you are able to take advantage of strong authentication with Azure Active Directory (Azure AD) users, as well as use role-based access control (RBAC) policies. As you add more users and groups to Azure AD, you will need to synchronize those users who you want to have access to your cluster.
-
+When you [provision a domain-joined HDInsight cluster](hdinsight-domain-joined-introduction.md), you are able to take advantage of strong authentication with Azure Active Directory (Azure AD) users, as well as use *role-based access control* (RBAC) policies. As you add more users and groups to Azure AD, you will need to synchronize those users who you want to have access to your cluster.
 
 ## Provision a domain-joined HDInsight cluster
 
 If you have not already done so, follow [these instructions](hdinsight-domain-joined-configure.md) to provision a new domain-joined cluster.
 
-
 ## Add new Azure AD users
 
-Since each node will need to be updated (as you see fit) with the new unattended upgrade settings, open the Ambari Web UI to view your hosts.
+Since each node will need to be updated with the new unattended upgrade settings, open the Ambari Web UI to view your hosts.
 
 1. From the Azure Portal (portal.azure.com), navigate to the Azure Active Directory directory associated with your domain-joined cluster.
 
-2. Select **All users** from the left-hand menu, then select **New user** from the All users blade.
+2. Select **All users** from the left-hand menu, then select **New user** from the All users pane.
 
-![All users blade](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
+![All users pane](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
 3. Complete the new user form. Select groups you created for assigning cluster-based permissions. In our example, we created a group named "HiveUsers", to which we will assign our new users. If you followed the [step-by-step instructions](../hdinsight-domain-joined-configure.md) for provisioning your domain-joined cluster, you will have added two groups: "HiveUsers" and "AAD DC Administrators".
 
-![New user blade](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
+![New user pane](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
 4. Click **Create**.
 
@@ -50,7 +48,7 @@ Since each node will need to be updated (as you see fit) with the new unattended
 
 We will be POSTing to the Ambari REST API, following the instructions found [here](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-1. Connect to your cluster [with SSH](hdinsight-hadoop-linux-use-ssh-unix.md). From the overview blade for your cluster in the Azure portal, select the **Secure Shell (SSH)** button.
+1. Connect to your cluster [with SSH](hdinsight-hadoop-linux-use-ssh-unix.md). From the overview pane for your cluster in the Azure portal, select the **Secure Shell (SSH)** button.
 
 ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
 
@@ -145,7 +143,6 @@ Open the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify that the n
 3. You should see your new user listed within the Users table. Note that the Type is set to LDAP, instead of Local.
 
 ![Users page](./media/hdinsight-sync-aad-users-to-cluster/users.png)
-
 
 ## Log in to Ambari with the new user
 
