@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 12/22/2017
 ms.author: jeedes
 
 ---
@@ -129,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 7. In a different web browser window, log in to your Rollbar company site as an administrator.
 
-8. Click on the **Profile Settings** on the right top corner and then click **Microsoft-Azure-Marketplace settings**.
+8. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
 	
 	![Configuration](./media/active-directory-saas-rollbar-tutorial/general.png)
 
@@ -198,7 +198,7 @@ To enable Azure AD users to log in to Rollbar, they must be provisioned into Rol
 
 1. Log in to your Rollbar company site as an administrator.
 
-2. Click on the **Profile Settings** on the right top corner and then click **Microsoft-Azure-Marketplace settings**.
+2. Click on the **Profile Settings** on the right top corner and then click **Account Name settings**.
 
 	![User](./media/active-directory-saas-rollbar-tutorial/general.png)
 
