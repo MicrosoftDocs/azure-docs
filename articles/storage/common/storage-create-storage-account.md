@@ -13,8 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: 
-  - "sql13.swb.windowsazurestorage.connect.f1"
+f1_keywords: "sql13.swb.windowsazurestorage.connect.f1"
 ms.date: 10/11/2017
 ms.author: tamram
 
