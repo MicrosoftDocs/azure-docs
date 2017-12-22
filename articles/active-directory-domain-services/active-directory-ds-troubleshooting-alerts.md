@@ -69,16 +69,11 @@ To restore your service, follow the steps provided in the [Troubleshooting NSG C
 ### AADDS100: Missing tenant
 **Error message:**
 
-*error message here*
+*Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original tenant this subscription was associated with.*
 
 **Remediation:**
 
-To restore your service, follow these steps:
-
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. C
-3. S
-4. C
+Contact the Azure Active Directory Domain Services product team to [for support](active-directory-ds-contact-us.md).
 
 ### AADDS101: Azure B2C is enabled on the tenant
 **Error message:**
@@ -87,12 +82,14 @@ To restore your service, follow these steps:
 
 **Remediation:**
 
+>[!NOTE]
+>In order to continue to use Azure AD Domain Services, you must recreate your Azure AD Domain Services instance in a non-Azure AD B2C tenant.
+
 To restore your service, follow these steps:
 
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. C
-3. S
-4. C
+1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your existing tenant.
+2. Create a new directory that is not an Azure AD B2C directory.
+3. Follow our [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
 
 ### AADDS102: Missing Service Principal
 **Error message:**
@@ -116,7 +113,7 @@ To restore your service, follow the steps provided in the [Troubleshooting Servi
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-1. [Delete your managed domain](#active-directory-ds-disable-aadds.md) from your tenant.
+1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your tenant.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Select the virtual network you plan to use for Azure AD Domain Services.
@@ -125,8 +122,8 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   5. Click on **Subnets** in the left-hand navigation.
   6. Click on the subnet you wish to edit in the table.
   7. Update the address range and save your changes.
-3. Follow [the Getting Started Using Azure AD Domain Services guide](#active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
-4. To domain-join your virtual machines to your new domain, follow [this guide](#active-directory-ds-admin-guide-join-windows-vm-portal).
+3. Follow [the Getting Started Using Azure AD Domain Services guide](#active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
+4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 
 
 ### AADDS104: Network Error
@@ -139,9 +136,10 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 To restore your service, follow these steps:
 
 >[!NOTE]
-> If you do make a change in any of these steps, wait until your alerts page updates (could take up to two hours) to see if that step corrected your problem. 
+> If you do make a change in any of these steps, wait until your alerts page updates (could take up to two hours) to see if that step corrected your problem.
 
-1. Check to make sure you have the right NSG configuration using the [Troubleshooting NSG Configuration](#active-directory-ds-troubleshoot-nsg.md)
+1. Check to make sure you have the right NSG configuration using the [Troubleshooting NSG Configuration](active-directory-ds-troubleshoot-nsg.md)
+2. If after two hours your service is not restored, [contact our team for support](active-directory-ds-contact-us.md).
 
 
 ## Contact Us
