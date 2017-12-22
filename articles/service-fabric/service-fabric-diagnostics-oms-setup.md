@@ -143,11 +143,11 @@ The main changes made are the following:
 
 If you prefer to add an OMS workspace after you have deployed a cluster, head over to Azure Marketplace (in the Portal) and look for *"Service Fabric Analytics"*.
 
-1. Click on **New** on the left navigation menu. 
+1. Click **Create a resource** in the left navigation menu. 
 
 2. Search for *Service Fabric Analytics*. Click on the resource that shows up.
 
-3. Click on **Create**
+3. Click **Create**.
 
     ![OMS SF Analytics in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
