@@ -49,7 +49,7 @@ As it states above the chart, the costs you see by default in the chart are *est
 Additionally, the following are *not* included in the cost calculation:
 
 * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
-* Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
+* Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
 * Your taxes
 * Your discounts
 * Your billing currency. Currently, the lab cost is displayed only in USD currency.
@@ -72,16 +72,16 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
 
    - Select a time period during which you want cost targets tracked.
       - **Monthly**: cost targets are tracked per month.
-      - **Fixed**: cost targets are tracked for the date range you specify in the Start date and End date fields. Typically, this might correspond with the how long your project is scheduled to run.
-   - Specify a **Target cost**. Typically, this might be how much you plan to spend on this lab in the time period you defined.
+      - **Fixed**: cost targets are tracked for the date range you specify in the Start date and End date fields. Typically, this might correspond with how long your project is scheduled to run.
+   - Specify a **Target cost**. For example, this might be how much you plan to spend on this lab in the time period you defined.
    - Select to enable or disable any threshold you want reported – in increments of 25% – up to 125% of your specified **Target cost**.
       - **Notify**: When this threshold is met, you are notified by a webhook URL you specify.
       - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in [Viewing the Monthly Estimated Cost Trend chart](#viewing-the-monthly-estimated-cost-trend-chart).
    - If you choose to **Notify** when the threshold is met, you must specify a webhook URL. In the Cost integrations area, select **Click here to add an integration**.
 
-       ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
+      Enter a Webhook URL in the Configure notification pane and then select **OK**.
 
-   Enter a Webhook URL in the Configure notification pane and then select **OK**.
+       ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
       - If you specify **Notify**, you must define a webhook URL.
       - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.
