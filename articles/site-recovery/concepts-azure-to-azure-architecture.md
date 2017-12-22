@@ -11,7 +11,7 @@ ms.author: raynew
 # Azure to Azure replication architecture
 
 
-This article describes the architecture and processes used when you replicate, fail over, and recover Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes the architecture used when you replicate, fail over, and recover Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 >[!NOTE]
 >Azure VM replication with the Site Recovery service is currently in preview.
@@ -33,7 +33,7 @@ The following graphic provides a high-level view of an Azure VM environment in a
 
 ### Step 1
 
-When you enable Azure VM replication, the resources shown below are automatically created in the target region, based on source region settings. You can customize target resources settings as required.
+When you enable Azure VM replication, the following resources are automatically created in the target region, based on the source region settings. You can customize target resources settings as required.
 
 ![Enable replication process, step 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -41,7 +41,7 @@ When you enable Azure VM replication, the resources shown below are automaticall
 --- | ---
 **Target resource group** | The resource group to which replicated VMs belong after failover.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
-**Cache storage accounts** | Before source VMs changes are replicated to a target storage account, they are tracked and sent to the cache storage account in the target location. This ensures minimal impact on production apps running on the VM.
+**Cache storage accounts** | Before source VM changes are replicated to a target storage account, they are tracked and sent to the cache storage account in source location. This step ensures minimal impact on production applications running on the VM.
 **Target storage accounts**  | Storage accounts in the target location to which the data is replicated.
 **Target availability sets**  | Availability sets in which the replicated VMs are located after failover.
 
@@ -56,7 +56,11 @@ As replication is enabled, the Site Recovery extension Mobility service is autom
    ![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 
- Site Recovery never needs inbound connectivity to the VM. Only outbound connectivity is needed, to Site Recovery service URLs/IP addresses, Office 365 authentication URLs/IP addresses, and cache storage account IP addresses.
+ Site Recovery never needs inbound connectivity to the VM. Only outbound connectivity is needed for the following.
+
+ - Site Recovery service URLs/IP addresses
+ - Office 365 authentication URLs/IP addresses
+ - Cache storage account IP addresses
 
 If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004.
 
