@@ -1,10 +1,10 @@
 ---
-title: How to configure an MSI-enabled Azure VM using an Azure SDK
-description: Step by step instructions for configuring and using a Managed Service Identity (MSI) on an Azure VM, using an Azure SDK.
+title: How to configure a user-assigned MSI for an Azure VM using an Azure SDK
+description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -17,13 +17,13 @@ ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Configure a VM Managed Service Identity (MSI) using an Azure SDK
+# Configure a user-assigned Managed Service Identity (MSI) for a VM, using an Azure SDK
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure SDK.
+In this article, you learn how to enable and remove a user-assigned MSI for an Azure VM, using an Azure SDK.
 
 ## Prerequisites
 
