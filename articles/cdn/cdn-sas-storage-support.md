@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: v-deasim
+ms.author: rli v-deasim
 
 ---
 
@@ -45,33 +45,7 @@ For more information about setting parameters, see [SAS parameter considerations
 
 ![CDN SAS settings](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### Option 1: Using CDN security token authentication with a rewrite rule
-
-This option is the most secure and customizable. To use CDN security token authentication, you must have an **Azure CDN Premium from Verizon** profile. Client access is based on the security parameters set on the CDN security token. However, if the SAS becomes invalid, the CDN won't be able to revalidate the content from the origin server.
-
-1. [Create a CDN security token](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) and activate it by using the rules engine for the CDN endpoint and path where your users can access the file.
-
-   A SAS URL has the following format:   
-   `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
- 
-   For example:   
-   ```
-   https://demoendpoint.azureedge.net/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
-   ```
-       
-   The parameter options for a CDN security token authentication are different than the parameter options for a SAS token. If you choose to use an expiration time when you create a CDN security token, set it to the same value as the expiration time for the SAS token. Doing so ensures that the expiration time is predictable. 
- 
-2. Use the [rules engine](https://docs.microsoft.com/azure/cdn/cdn-rules-engine) to create a URL Rewrite rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
-
-   ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
-
-   ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
-
-   ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-
-3. When you renew the SAS, update the Url Rewrite rule to use the new SAS token. 
-
-### Option 2: Using SAS with pass-through to blob storage from the CDN
+### Option 1: Using SAS with pass-through to blob storage from the CDN
 
 This option is the simplest and uses only a single SAS token, which is passed from the CDN to the origin server. It is supported by **Azure CDN from Verizon**, for both Standard and Premium profiles, and **Azure CDN from Akamai**. 
  
@@ -88,14 +62,14 @@ This option is the simplest and uses only a single SAS token, which is passed fr
    ```
    https://demoendpoint.azureedge.net/test/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-       
-   Because the CDN does not honor SAS parameters (such as end time), as a best practice you should set up a caching time that expires before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. In this case, to indicate that you no longer want the file to be accessible, you must perform a purge operation on the file. 
+   
+   Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
-### Option 3: Hidden CDN security token using rewrite rule
+### Option 2: Hidden CDN security token using rewrite rule
  
 With this option, you can secure the origin blob storage without requiring a SAS token for the CDN user. You may want to use this option if you don't need specific access restrictions for the file, but want to prevent users from accessing the storage origin directly to improve CDN offload times. This option is available only for **Azure CDN Premium from Verizon** profiles. 
  
-1. Use the [rules engine](https://docs.microsoft.com/azure/cdn/cdn-rules-engine) to create a URL Rewrite rule. New rules take about 90 minutes to propagate.
+1. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule. New rules take about 90 minutes to propagate.
  
 2. Access the file on your CDN without the SAS token, in the following format:
    `https://<endpoint>.azureedge.net/<folder>/<file>`
@@ -105,9 +79,37 @@ With this option, you can secure the origin blob storage without requiring a SAS
        
    Note that anyone, regardless of whether they are using a SAS token, can access a CDN endpoint. In addition, long caching durations can make the file available after the expiration time of the SAS has passed. If you want to make your cached file inaccessible after the expiration time or after you revoke a SAS, you must purge it.
 
+   Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, you must perform a purge operation on the file to clear it from cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
+
+### Option 3: Using CDN security token authentication with a rewrite rule
+
+This option is the most secure and customizable. To use CDN security token authentication, you must have an **Azure CDN Premium from Verizon** profile. Client access is based on the security parameters set on the CDN security token. However, if the SAS becomes invalid, the CDN won't be able to revalidate the content from the origin server.
+
+1. [Create a CDN security token](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) and activate it by using the rules engine for the CDN endpoint and path where your users can access the file.
+
+   A SAS URL has the following format:   
+   `https://<endpoint>.azureedge.net/<folder>/<file>?sv=<SAS_TOKEN>`
+ 
+   For example:   
+   ```
+   https://demoendpoint.azureedge.net/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   ```
+       
+   The parameter options for a CDN security token authentication are different than the parameter options for a SAS token. If you choose to use an expiration time when you create a CDN security token, set it to the same value as the expiration time for the SAS token. Doing so ensures that the expiration time is predictable. 
+ 
+2. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
+
+   ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
+
+   ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
+
+   ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+
+3. When you renew the SAS, update the Url Rewrite rule to use the new SAS token. 
+
 ### SAS parameter considerations
 
-Because SAS parameters are not visible to the CDN, the CDN cannot change its delivery behavior based on them. The defined parameter restrictions apply only on requests that the CDN makes to the origin server, not for requests from the client to the CDN. This distinction is important to consider when you set the SAS parameters. If these advanced capabilities are required and you are using [Option 1](#option-1-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the CDN security token.
+Because SAS parameters are not visible to the CDN, the CDN cannot change its delivery behavior based on them. The defined parameter restrictions apply only on requests that the CDN makes to the origin server, not for requests from the client to the CDN. This distinction is important to consider when you set the SAS parameters. If these advanced capabilities are required and you are using [Option 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the CDN security token.
 
 | SAS parameter name | Description |
 | --- | --- |

@@ -8,7 +8,9 @@
 ## Integrate
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### [Storage]
+#### [Integrate a storage account](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS storage support](cdn-sas-storage-support.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
 ### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
 ### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
