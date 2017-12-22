@@ -1,10 +1,10 @@
 ---
-title: How to configure MSI on an Azure VM by using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
+title: How to configure a user-assigned MSI for an Azure VM using an Azure template
+description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
-author: BryanLa
-manager: mbaldwin
+author: bryanla
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Configure a VM Managed Service Identity by using a template
+# Configure a user-assigned Managed Service Identity (MSI) for a VM, using an Azure template
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure Resource Manager deployment template.
+In this article, you learn how to enable and remove a user-assigned MSI for an Azure VM, using an Azure Resource Manager deployment template.
 
 ## Prerequisites
 
