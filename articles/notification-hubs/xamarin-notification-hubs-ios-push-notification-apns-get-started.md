@@ -1,5 +1,5 @@
 ---
-title: Sending push notifications to Xamarin.iOS apps with Azure Notification Hubs | Microsoft Docs
+title: Get started with Azure Notification Hubs for Xamarin.iOS apps| Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application.
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
@@ -18,7 +18,7 @@ ms.date: 12/22/2017
 ms.author: jawh
 
 ---
-# Sending push notifications to Xamarin.iOS apps with Azure Notification Hubs
+# Get started with Azure Notification Hubs for Xamarin.iOS apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
