@@ -19,13 +19,11 @@ ms.author: manayar
 ---
 # Manage virtual machine network interfaces for on-premises to Azure scenarios
 
-A virtual machine in Azure must have at least one network interface attached to it, and can have as many network interfaces attached to it as the VM size supports. By default, the first network interface attached to an Azure virtual machine is defined as the primary network interface. All other network interfaces in the virtual machine are secondary network interfaces.
+A virtual machine in Azure must have at least one network interface attached to it, and can have as many network interfaces attached to it as the VM size supports. By default, the first network interface attached to an Azure virtual machine is defined as the primary network interface. All other network interfaces in the virtual machine are secondary network interfaces. By default, all outbound traffic from the virtual machine is sent out the IP address assigned to the primary IP configuration of the primary network interface.
 
-Though you can control which network interface you sent outbound traffic to, by default, all outbound traffic from the virtual machine is sent out the IP address assigned to the primary IP configuration of the primary network interface. This makes assigning the right IP for the primary network very important from an application management perspective.
+In an on-premises environment, virtual machines/servers can have multiple network interfaces for different networks within the environment. Different networks are typically used for performing specific operations such as upgrades, maintenance, internet access, etc. When migrating or failing over to Azure from an on-premises environment, keep in mind that network interfaces in the same virtual machine must all be connected to the same virtual network.
 
-In an on-premises environment, virtual machines/servers can have multiple network interfaces for different networks within the environment. Different networks are typically used for performing specific operations such as upgrades, maintenance, internet access, etc. When migrating or failing over to Azure from an on-premises environment, it is important to keep in mind that while network interfaces in the same virtual machine can be connected to different subnets within an Azure virtual network, the network interfaces must all be connected to the same virtual network. This can often make multiple network interfaces redundant.
-
-By default, Site Recovery will create as many network interfaces on an Azure virtual machine as are connected to the on-premises server. You can avoid creating redundant network interfaces during migration or failover by editing the network interface settings under settings for the replicated virtual machine.
+By default, Site Recovery creates as many network interfaces on an Azure virtual machine as are connected to the on-premises server. You can avoid creating redundant network interfaces during migration or failover by editing the network interface settings under settings for the replicated virtual machine.
 
 ## Select the target network
 
@@ -35,7 +33,7 @@ For VMware & Physical machines, and for Hyper-V (without VMM) Virtual machines, 
 
 2. Click on the 'Compute and Network' tab to access the network settings for the replicated item.
 
-3. Under 'Network properties', choose a virtual network from the list of available network interfaces for protected VMware & Physical machines, and for Hyper-V (without VMM) Virtual machines.
+3. Under 'Network properties', choose a virtual network from the list of available network interfaces.
 
 	![Compute and Network](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 
@@ -51,7 +49,7 @@ Under the 'Network interfaces' section of the 'Compute and Network' blade, you c
 - All other selected network interfaces, if any, are **Secondary** network interfaces.
 - Select **Do not use** to exclude a network interface from creation at failover.
 
-By default, when enabling replication, Site Recovery will select all detected network interfaces on the on-premises server, marking one as 'Primary', and all others as 'Secondary' network interfaces. Any subsequent interfaces added on the on-premises server will be marked 'Do not use' by default. When adding more network interfaces, ensure that the correct Azure virtual machine target size is selected to accommodate all required network interfaces.
+By default, when enabling replication, Site Recovery selects all detected network interfaces on the on-premises server, marking one as 'Primary', and all others as 'Secondary' network interfaces. Any subsequent interfaces added on the on-premises server are marked 'Do not use' by default. When adding more network interfaces, ensure that the correct Azure virtual machine target size is selected to accommodate all required network interfaces.
 
 ## Modifying network interface settings
 
@@ -61,7 +59,7 @@ You can modify the subnet and IP for a replicated item's network interfaces. If 
 
 2. Choose the desired subnet from the list of available subnets.
 
-3. Enter the desired IP (if required).
+3. Enter the desired IP (as required).
 
 	![Network interface settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
 
