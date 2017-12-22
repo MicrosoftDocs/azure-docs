@@ -23,9 +23,10 @@ ms.author: v-jansko
 - After you sign into Azure, go to the [Cognitive Services](https://portal.azure.com/#create/Microsoft.CognitiveServices) section
 - Under "API Type" select the Translator Text API
 - In the Pricing Tier section, select the pricing tier that best fits your needs
-	- Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and does not have an expiration date
+	- Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and does not have an expiration date.
+	- You can have only one free subscription in your account.
 - Fill out the rest of the form, and select the Create button
-- All subscriptions go into effect immediately
+- The subscriptions is ready for immediate use
 
 ### 3: Authentication Key 	
 - Retrieve your authentication key by going to the menu All Resources > click on your subscription
