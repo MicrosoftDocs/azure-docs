@@ -37,14 +37,14 @@
       items:
         - name: Java
           href: quick-enroll-device-tpm-java.md
-#        - name: Node.js
-#          href: quick-enroll-device-tpm-node.md
+        - name: Node.js
+          href: quick-enroll-device-tpm-node.md
     - name: X.509 
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
-#        - name: Node.js
-#          href: quick-enroll-device-x509-node.md
+        - name: Node.js
+          href: quick-enroll-device-x509-node.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
