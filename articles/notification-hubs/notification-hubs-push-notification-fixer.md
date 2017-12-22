@@ -34,14 +34,14 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
 
 1. **General**
    
-    a) Make sure that your notification hub name (without typos) is the same:
-   
-     * Where you are registering from the client, 
-     * Where you are sending notifications from the backend,  
-     * Where you have configured the PNS credentials and 
-     * Whose SAS credentials you have configured on the client and the backend. 
+&emsp;&emsp;a) Make sure that your notification hub name (without typos) is the same:
+
+&emsp;&emsp;&emsp;* Where you are registering from the client<br>
+&emsp;&emsp;&emsp;* Where you are sending notifications from the backend<br>
+&emsp;&emsp;&emsp;* Where you have configured the PNS credentials<br> 
+&emsp;&emsp;&emsp;* Whose SAS credentials you have configured on the client and the backend.<br>
      
-    b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must use the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
+&emsp;&emsp;b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must use the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
 
 2. **Apple Push Notification Service (APNS) configuration**
    
