@@ -91,8 +91,8 @@ The following values are returned under MaintenanceRedeployStatus:
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time ||
 | PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
 | PreMaintenanceWindowEndTime           | The end of the maintenance self-service window when you can initiate maintenance on your VM ||
-| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled window when you can initiate maintenance on your VM ||
-| MaintenanceWindowEndTime              | The end of the maintenance scheduled window when you can initiate maintenance on your VM ||
+| MaintenanceWindowStartTime            | The beginning of the maintenance scheduled window in which Azure initiates maintenance on your VM ||
+| MaintenanceWindowEndTime              | The end of the maintenance scheduled window in which Azure initiates maintenance on your VM ||
 | LastOperationResultCode               | The result of the last attempt to initiate maintenance on the VM ||
 
 
@@ -158,7 +158,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: How long will it take you to reboot my virtual machine?**
 
-**A:** Depending on the size of your VM, reboot may take up to several minutes. Note that in case you use Cloud Services (Web/Worker Role), Virtual Machine Scale Sets, or availability sets, you will be given 30 minutes between each group of VMs (UD). 
+**A:**  Depending on the size of your VM, reboot may take up to several minutes during the self-service maintenance window. During the Azure initiated reboots in the scheduled maintenance window, the reboot will typicall take about 25 minutes. Note that in case you use Cloud Services (Web/Worker Role), Virtual Machine Scale Sets, or availability sets, you will be given 30 minutes between each group of VMs (UD) during the scheduled maintenance window.
 
 **Q: What is the experience in the case of Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets?**
 
