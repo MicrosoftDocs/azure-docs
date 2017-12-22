@@ -62,7 +62,7 @@ Your notification hub is now configured to work with FCM, and you have the conne
 
 ## Connect your app to the notification hub
 First, you create a new project.
-1. In Xamarin Studio, choose **New Solution** > **Android App** and then select **Next**.
+1. In Visual Studio, choose **New Solution** > **Android App** and then select **Next**.
    
       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
 
@@ -153,6 +153,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
    > 
 8. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly that you added earlier):
    
+    ```csharp
         using System.Collections.Generic;
         using System.Text;
         using Android.App;
@@ -160,8 +161,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
         using Android.Util;
         using Gcm.Client;
         using WindowsAzure.Messaging;
+    ```
+
 9. In **MyBroadcastReceiver.cs**, add the following permission requests between the **using** statements and the **namespace** declaration:
    
+    ```csharp
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
@@ -170,8 +174,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+    ```
+
 10. In **MyBroadcastReceiver.cs**, change the **MyBroadcastReceiver** class to match the following:
    
+    ```csharp
         [BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
             Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -185,8 +192,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
    
             public const string TAG = "MyBroadcastReceiver-GCM";
         }
+    ```
+
 11. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService**, which derives from **GcmServiceBase**. Make sure to apply the **Service** attribute to the class:
     
+    ```csharp
          [Service] // Must use the service tag
          public class PushHandlerService : GcmServiceBase
          {
@@ -198,9 +208,12 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                  Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
              }
          }
+    ```
+
 12. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Our **PushHandlerService** implementation class must override these methods, and these methods will fire in response to interacting with the notification hub.
 13. Override the **OnRegistered()** method in **PushHandlerService** by using the following code:
     
+    ```csharp
          protected override void OnRegistered(Context context, string registrationId)
          {
              Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
@@ -232,6 +245,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                  Log.Error(MyBroadcastReceiver.TAG, ex.Message);
              }
          }
+    ```
     
     > [!NOTE]
     > In the **OnRegistered()** code above, you should note the ability to specify tags to register for specific messaging channels.
@@ -239,6 +253,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
     > 
 14. Override the **OnMessage** method in **PushHandlerService** by using the following code:
     
+    ```csharp
         protected override void OnMessage(Context context, Intent intent)
         {
             Log.Info(MyBroadcastReceiver.TAG, "GCM Message Received!");
@@ -261,6 +276,8 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                 createNotification ("Unknown message details", msg.ToString ());
             }
         }
+    ```
+
 15. Add the following **createNotification** and **dialogNotify** methods to **PushHandlerService** for notifying users when a notification is received.
     
     > [!NOTE]
@@ -268,6 +285,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
     > 
     > 
     
+    ```csharp
         void createNotification(string title, string desc)
         {
             //Create notification
@@ -306,8 +324,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
                 alert.Show();
             });
         }
+    ```
+
 16. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles:
     
+    ```csharp
         protected override void OnUnRegistered(Context context, string registrationId)
         {
             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Unregistered: " + registrationId);
@@ -326,6 +347,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
         {
             Log.Error(MyBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
+    ```
 
 ## Run your app in the emulator
 If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
@@ -348,10 +370,10 @@ If you run this app in the emulator, make sure that you use an Android Virtual D
    
    The app retrieves the *registrationId* from GCM and registers with the notification hub.
 
-## Send notifications from your backend
-You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
+## Send notifications from the portal
+You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This will send a test push notification to your device.
 
-![][30]
+![Azure portal - Test Send][30]
 
 Push notifications are normally sent in a backend service like Mobile Services or ASP.NET through a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your backend.
 
@@ -360,70 +382,6 @@ Here is a list of some other tutorials that you may want to review for sending n
 * ASP.NET: See [Use Notification Hubs to push notifications to users].
 * Azure Notification Hubs Java SDK: See [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) for sending notifications from Java. This has been tested in Eclipse for Android Development.
 * PHP: See [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md).
-
-In the next subsections of the tutorial, you send notifications by using a .NET console app, and by using a mobile service through a node script.
-
-#### (Optional) Send notifications by using a .NET app
-In this section, we will send notifications by using a .NET console app
-
-1. Create a new Visual C# console application:
-   
-      ![][20]
-2. In Visual Studio, choose **Tools** > **NuGet Package Manager**, and then select **Package Manager Console**.
-   
-    This displays the Package Manager Console in Visual Studio.
-3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-4. Open the Program.cs file and add the following `using` statement:
-   
-        using Microsoft.Azure.NotificationHubs;
-5. In your `Program` class, add the following method. Update the placeholder text with your *DefaultFullSharedAccessSignature* connection string and hub name from the [Azure Classic Portal].
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"message\":\"Hello from Azure!\"}}");
-        }
-6. Add the following lines in your **Main** method:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-7. Press the F5 key to run the app. You should receive a notification in the app.
-   
-      ![][21]
-
-#### (Optional) Send notifications by using a mobile service
-1. Follow [Get started with Mobile Services].
-2. Sign in to the [Azure Classic Portal], and select your mobile service.
-3. Select the **Scheduler** tab on the top.
-   
-      ![][22]
-4. Create a new scheduled job, insert a name, and select **On demand**.
-   
-      ![][23]
-5. When the job is created, select the job name. Then choose the **Script** tab on the top bar.
-6. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Choose **Save**.
-   
-        var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
-        notificationHubService.gcm.send(null,'{"data":{"message" : "Hello from Mobile Services!"}}',
-          function (error)
-          {
-            if (!error) {
-               console.warn("Notification successful");
-            }
-            else
-            {
-              console.warn("Notification failed" + error);
-            }
-          }
-        );
-7. Choose **Run Once** on the bottom bar. You should receive a toast notification.
 
 ## Next steps
 In this simple example, you broadcasted notifications to all your Android devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for Android].
@@ -451,7 +409,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png
 [23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png
 
-[30]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
+[30]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-test-send.png
 
 
 <!-- URLs. -->
