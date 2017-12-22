@@ -51,7 +51,7 @@ The following steps are provided as a high-level overview of the scale unit node
 1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
 
    > [!NOTE]
-   > Please note that in any case only one Node can be drained and powered off at the same time without breaking the SSD (Storage Spaces Direct)
+   > In any case, only one Node can be drained and powered off at the same time without breaking the SSD (Storage Spaces Direct).
 
 2. If the node is still powered on, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
  
