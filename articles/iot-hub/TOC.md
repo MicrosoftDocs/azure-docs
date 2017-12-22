@@ -92,6 +92,7 @@
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
+#### [Python back end/Python device](iot-hub-python-python-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
