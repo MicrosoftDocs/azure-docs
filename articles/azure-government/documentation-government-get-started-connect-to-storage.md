@@ -169,6 +169,7 @@ These endpoint differences must be taken into account when you connect to storag
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
 2. When using the Storage SDK for Python to connect to Azure Government, you **must separately define an "endpoint_suffix" parameter**. 
     **Paste** in your Azure storage account name and key in the placeholders below.
+    
 	```python
 	# Create the BlockBlockService that is used to call the Blob service for the storage account
 	block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
@@ -187,19 +188,19 @@ These endpoint differences must be taken into account when you connect to storag
 	- QueueEndpoint= //ends with 'table.core.usgovcloudapi.net'
 	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
 
->[!Note]
-> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
->
->
-   	```php
+	>[!Note]
+	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
+	> **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
+	>
+	
+
+	```php
 	<?php
 	require_once "vendor/autoload.php";
 	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;
-	
-	
+	use MicrosoftAzure\Storage\Common\ServiceException;	
 	$connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
-	
+
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	try {
 	// Create table.
