@@ -41,7 +41,7 @@ After you sign in to Custom Vision Service, you are presented with a list of pro
 
     ![The new project dialog box has fields for name, description, and domains, which consist of general, food, landmarks, retail, and adult.](./media/getting-started-build-a-classifier/new-project.png)
 
-3. Enter a name and a description for this project. Then select one domain.There are several domains available. Each one optimizes the classifier for specific types of images, as described in the following table:
+3. Enter a name and a description for this project. Then select one domain. There are several domains available. Each one optimizes the classifier for specific types of images, as described in the following table:
 
     |Domain|Purpose|
     |---|---|
@@ -116,7 +116,7 @@ After you sign in to Custom Vision Service, you are presented with a list of pro
     |Term|Definition|
     |---|---|
     |Precision|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images that are used to train the classifier (dogs and ponies), what percent did the model get correct? Ninety-nine correct tags out of 100 images gives a precision of 99%.|
-    |Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A recall of 100% means that if there are 38 dog images in the images that wareere used to train the classifier, the classifer found 38 dogs.|
+    |Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A recall of 100% means that if there are 38 dog images in the images that were used to train the classifier, the classifier found 38 dogs.|
 
 ## Next steps
 
