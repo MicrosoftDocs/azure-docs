@@ -95,7 +95,6 @@ Alternatively, you may specify the market using the `mkt` query parameter and a 
 |Mexico|Spanish|es-MX|
 |Netherlands|Dutch|nl-NL|
 |New Zealand|English|en-NZ|
-|Norway|Norwegian|no-NO|
 |China|Chinese|zh-CN|
 |Poland|Polish|pl-PL|
 |Portugal|Portuguese|pt-PT|
