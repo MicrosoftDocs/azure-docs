@@ -33,7 +33,7 @@ The following graphic provides a high-level view of an Azure VM environment in a
 
 ### Step 1
 
-When you enable Azure VM replication, the resources shown below are automatically created in the target region, based on source region settings. You can customize target resources settings as required. 
+When you enable Azure VM replication, the resources shown below are automatically created in the target region, based on source region settings. You can customize target resources settings as required.
 
 ![Enable replication process, step 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -55,8 +55,12 @@ As replication is enabled, the Site Recovery extension Mobility service is autom
 
    ![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
+
  Site Recovery never needs inbound connectivity to the VM. Only outbound connectivity is needed, to Site Recovery service URLs/IP addresses, Office 365 authentication URLs/IP addresses, and cache storage account IP addresses.
+
+If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004.
+
+If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Step 3
 
@@ -70,4 +74,4 @@ When you initiate a failover, the VMs are created in the target resource group, 
 
 ## Next steps
 
-[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region. 
+[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
