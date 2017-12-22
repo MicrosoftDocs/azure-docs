@@ -1,5 +1,5 @@
 ---
-title: Bing Entity Search single-page Web app | Microsoft Docs
+title: Bing Entity Search single-page web app | Microsoft Docs
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
 author: jerrykindall
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: v-jerkin
 ---
-# Tutorial: Single-page Web app
+# Tutorial: Single-page web app
 
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
