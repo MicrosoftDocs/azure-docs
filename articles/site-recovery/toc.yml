@@ -79,6 +79,8 @@
       href: concepts-on-premises-to-azure-networking.md
     - name: Set up IP addressing for access to a secondary site after failover
       href: concepts-on-premises-to-on-premises-networking.md
+    - name: Network interface management for on-premises to Azure scenarios
+      href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
   - name: Disaster recovery
     items:
     - name: Hyper-V VMs to Azure
