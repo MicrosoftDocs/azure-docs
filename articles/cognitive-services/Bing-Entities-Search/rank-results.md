@@ -66,4 +66,4 @@ Based on this ranking response, the sidebar would display the two entity results
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
+> [Bing Entity Search tutorial](tutorial-bing-entities-search-single-page-app.md)
