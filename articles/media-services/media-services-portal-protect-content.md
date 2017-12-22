@@ -20,41 +20,41 @@ ms.author: juliako
 # Configure content protection policies by using the Azure portal
  With Azure Media Services, you can secure your media from the time it leaves your computer through storage, processing, and delivery. You can use Media Services to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) by using 128-bit encryption keys, common encryption (CENC) by using PlayReady and/or Widevine digital rights management (DRM), and Apple FairPlay. 
 
-Media Services provides a service for delivering DRM licenses and AES clear keys to authorized clients. The Azure portal enables you to create one key/license authorization policy for all types of encryptions.
+Media Services provides a service for delivering DRM licenses and AES clear keys to authorized clients. You can use the Azure portal to create one key/license authorization policy for all types of encryptions.
 
-This article demonstrates how to configure a content protection policy with the Azure portal. The article also shows how to apply dynamic encryption to your assets.
+This article demonstrates how to configure a content protection policy by using the portal. The article also shows how to apply dynamic encryption to your assets.
 
 ## Start to configure content protection
-To use the portal to start configuring content protection, global to your Media Services account, do the following:
+To use the portal to configure global content protection by using your Media Services account, do the following:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
+1. In the [portal](https://portal.azure.com/), select your Media Services account.
 
 2. Select **Settings** > **Content protection**.
 
 ![Content protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## Key/license authorization policy
-Media Services supports multiple ways of authenticating users who make key or license requests. The content key authorization policy must be configured by you and met by your client in order for the key/license to be delivered to the client. The content key authorization policy can have one or more authorization restrictions, either open or token restriction.
+Media Services supports multiple ways of authenticating users who make key or license requests. You must configure the content key authorization policy. Your client then must meet the policy for the key/license to be delivered to it. The content key authorization policy can have one or more authorization restrictions, either open or token restriction.
 
-You can use the Azure portal to create one key/license authorization policy for all types of encryptions.
+You can use the portal to create one key/license authorization policy for all types of encryptions.
 
 ### Open authorization
 Open restriction means that the system delivers the key to anyone who makes a key request. This restriction might be useful for test purposes. 
 
 ### Token authorization
-The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token (SWT) and JSON Web Token (JWT) formats. Media Services doesn't provide a STS. You can create a custom STS or use Azure Access Control Service to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
+The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token (SWT) and JSON Web Token (JWT) formats. Media Services doesn't provide a STS. You can create a custom STS or use Azure Access Control Service to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. If the token is valid and the claims in the token match those configured for the key (or license), the Media Services key delivery service returns the requested key (or license) to the client.
 
 When you configure the token-restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 ![Key/license authorization policy](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## PlayReady license template
-The PlayReady license template sets the functionality enabled on your PlayReady license. For more information about the PlayReady license template, see the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
+The PlayReady license template sets the functionality that is enabled on your PlayReady license. For more information about the PlayReady license template, see the [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md).
 
-### Non-persistent
-If you configure a license as non-persistent, it's held in memory only while the player uses the license.  
+### Nonpersistent
+If you configure a license as nonpersistent, it's held in memory only while the player uses the license.  
 
-![Non-persistent content protection](./media/media-services-portal-content-protection/media-services-content-protection003.png)
+![Nonpersistent content protection](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### Persistent
 If you configure a license as persistent, it's saved in persistent storage on the client.
@@ -73,7 +73,7 @@ For more information about the Widevine rights template, see the [Widevine licen
 ![Advanced content protection](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## FairPlay configuration
-To enable FairPlay encryption, enter the **App certificate** and **Application Secret Key** in the **FairPlay configuration** option. For more information about FairPlay configuration and requirements, see [Protect your HLS content with Apple FairPlay or Microsoft PlayReady](media-services-protect-hls-with-FairPlay.md).
+To enable FairPlay encryption, select **FairPlay configuration**. Then select the **App certificate** and enter the **Application Secret Key**. For more information about FairPlay configuration and requirements, see [Protect your HLS content with Apple FairPlay or Microsoft PlayReady](media-services-protect-hls-with-FairPlay.md).
 
 ![FairPlay configuration](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -97,12 +97,12 @@ AES clear key encryption is enabled on all streaming protocols: Smooth Streaming
 1. After you select **DRM**, you see different content protection policies (which must be configured by this point) and a set of streaming protocols:
 
     * **PlayReady and Widevine with MPEG-DASH** dynamically encrypts your MPEG-DASH stream with PlayReady and Widevine DRMs.
-    * **PlayReady and Widevine with MPEG-DASH + FairPlay with HLS** dynamically encrypts your MPEG-DASH stream with PlayReady and Widevine DRMs. Will also encrypt your HLS streams with FairPlay.
-    * **PlayReady only with Smooth Streaming, HLS and MPEG-DASH** dynamically encrypts Smooth Streaming, HLS, MPEG-DASH streams with PlayReady DRM.
+    * **PlayReady and Widevine with MPEG-DASH + FairPlay with HLS** dynamically encrypt your MPEG-DASH stream with PlayReady and Widevine DRMs. This option also encrypts your HLS streams with FairPlay.
+    * **PlayReady only with Smooth Streaming, HLS and MPEG-DASH** dynamically encrypts Smooth Streaming, HLS, and MPEG-DASH streams with PlayReady DRM.
     * **Widevine only with MPEG-DASH** dynamically encrypts your MPEG-DASH with Widevine DRM.
     * **FairPlay only with HLS** dynamically encrypts your HLS stream with FairPlay.
 
-2. To enable FairPlay encryption, enter the **App certificate** and **Application Secret Key** in the **FairPlay configuration** option on the **Content Protection Global Settings** blade.
+2. To enable FairPlay encryption, on the **Content Protection Global Settings** blade, select **FairPlay configuration**. Then select the **App certificate**, and enter the **Application Secret Key**.
 
     ![Encryption type](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
