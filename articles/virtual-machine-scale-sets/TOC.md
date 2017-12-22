@@ -2,9 +2,12 @@
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
-## [Deploy a scale set in Azure portal](virtual-machine-scale-sets-portal-create.md)
-## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
-## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Create in the Azure portal](virtual-machine-scale-sets-create-portal.md)
+## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Create with a template
+### [Linux scale set](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows scale set](virtual-machine-scale-sets-create-template-windows.md)
 
 # How To
 ## Plan and design
@@ -17,9 +20,7 @@
 ### [Use guest-based autoscaling with a Linux scale set template](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Deploy
-### [Create with Azure portal](virtual-machine-scale-sets-portal-create.md)
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Create with Azure PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Autoscale a scale set](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Use the Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
