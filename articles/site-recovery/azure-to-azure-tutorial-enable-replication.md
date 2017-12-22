@@ -182,7 +182,7 @@ your requirements.
   target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
 
 
-3. To override the default replication settings, click **Customize** next to **Replication policy**.  
+To override the default replication settings, click **Customize** next to **Replication policy**.  
 
 - **Replication policy name**: Policy name.
 
