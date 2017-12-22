@@ -1,5 +1,5 @@
 ---
-title: Sending push notifications to iOS with Azure Notification Hubs | Microsoft Docs
+title: Get started with Azure Notification Hubs for iOS apps | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to an iOS application.
 services: notification-hubs
 documentationcenter: ios
@@ -14,11 +14,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 12/18/2017
+ms.date: 12/22/2017
 ms.author: jawh
 
 ---
-# Sending push notifications to iOS with Azure Notification Hubs
+# Get started with Azure Notification Hubs for iOS apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
