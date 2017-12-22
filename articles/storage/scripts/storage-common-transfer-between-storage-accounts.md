@@ -20,13 +20,13 @@ ms.author: v-rogara
 
 # Create a storage account and rotate its account access keys
 
-This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of AzCopy.exe. Then the script will copy all the contents of the source storage account to the target storage account. At this time this is only supported on Windows.
+This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of AzCopy.exe. Then the script copies all the contents of the source storage account to the target storage account. At this time, this is only supported on Windows.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-This sample also requires the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy). Note that the default install directory is `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+This sample also requires the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy). The default install directory is `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
 
 The following is an example of the input for this script:
 
