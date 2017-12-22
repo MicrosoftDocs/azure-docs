@@ -77,13 +77,13 @@ For example, if you wanted to alert when the processor runs over 90%, you would 
 
 	
 
-If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**.
+If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query like the following with the threshold for the alert rule **greater than 0**.
 
-	Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+	Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
 	
 >[!NOTE]
-> If your workspace has not yet been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following:
+> If your workspace has not yet been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following with the latter using the [measure command](log-analytics-search-reference.md#commands):
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
@@ -111,8 +111,8 @@ Consider a scenario where you wanted an alert if any computer exceeded processor
 **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **Time window:** 30 minutes<br>
 **Alert frequency:** 5 minutes<br>
-**Aggregate value:** Great than 90<br>
-**Trigger alert based on:** Total breaches Greater than 5<br>
+**Aggregate value:** Greater than 90<br>
+**Trigger alert based on:** Total breaches Greater than 2<br>
 
 The query would create an average value for each computer at 5 minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
 
