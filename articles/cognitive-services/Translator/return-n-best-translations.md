@@ -13,12 +13,8 @@ ms.author: v-jansko
 ---
 # How to return N-Best translations
 
-> [!NOTE]
-> This feature is used with the Collaborative Translations Framework which will be deprecated as of February 1, 2018. Beginning February 1, 2018, the AddTranslation() method will do nothing, it will silently fail. The API response will still be success (200), but nothing will be written.
-Microsoft will replace the functionality with an extended version of the Translator Hub API, which produces a custom system with your terminology, and you can invoke it using the Category ID of your custom Hub system. See [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). 
-
-The GetTranslations() and GetTranslationsArray() methods in the V2 API of Microsoft Translator include an optional Boolean flag "IncludeMultipleMTAlternatives".
-The signature remains unchanged from the SDK. The method will return up to maxTranslations alternatives where the delta is supplied from the n-best list of the translator engine.
+The GetTranslations() and GetTranslationsArray() methods of the Microsoft Translator API include an optional Boolean flag "IncludeMultipleMTAlternatives".
+The method will return up to maxTranslations alternatives where the delta is supplied from the n-best list of the translator engine.
 
 The signature is:
 
@@ -41,15 +37,12 @@ The signature is:
 
 *Category: The only supported, and the default, option is "general".
 *ContentType: The only supported, and the default, option is "text/plain".
-*Uri: Filter results by this URI. If no value is set, the default is all.
-*User: Filter results by this user. If no value is set, the default is all.
 *State: User state to help correlate request and response. The same contents will be returned in the response.
 *IncludeMultipleMTAlternatives: flag to determine whether to return more than one alternatives from the MT engine. Default is false and includes only 1 alternative. |
 
 ## Ratings
 The ratings are applied as follows:
 The best automatic translation has a rating of 5.
-The alternatives reflect the authority of the reviewer, from -10 to +10.
 The automatically generated (n-best) translation alternatives have a rating of 0, and have a match degree of 100.
 
 ## Number of Alternatives
