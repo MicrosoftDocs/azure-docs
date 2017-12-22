@@ -17,6 +17,8 @@
     href: /cli/azure/batchai
   - name: REST
     href: /rest/api/batchai
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.batchai
   - name: Python
     href: /python/api/overview/azure/batchai
 - name: Resources

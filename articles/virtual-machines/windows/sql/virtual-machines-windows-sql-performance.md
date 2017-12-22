@@ -24,7 +24,7 @@ ms.author: jroth
 
 This topic provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
-When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager implement all these best practices, including the storage configuration.
+When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager follow best practices.
 
 This article is focused on getting the *best* performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
 
@@ -88,6 +88,9 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 * **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../premium-storage.md).
 
+   > [!NOTE]
+   > When you provision a SQL Server VM in the portal, you have the option of editing your storage configuration. Depending on your configuration, Azure configures one or more disks. Multiple disks are combined into a single storage pool with striping. Both the data and log files reside together in this configuration, rather than two separate disks. For more information, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md).
+
 * **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
 
   * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
@@ -110,7 +113,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
 
-* **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics. For the classic (ASM) deployment model see: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). For the Azure Resource Manager deployment model see: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) and [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.

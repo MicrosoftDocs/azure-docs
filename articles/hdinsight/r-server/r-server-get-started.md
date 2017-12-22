@@ -262,7 +262,7 @@ You can submit a job using scaleR functions. Here is an example of the commands 
 	dir.create(source)
 
 	# Download data to the tmp folder.
-	remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+	remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
 	download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
 	download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
 	download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
@@ -414,7 +414,7 @@ A compute context allows you to control whether computation is performed locally
         dir.create(source)
 
         # Download data to the tmp folder
-        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+        remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
         download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
         download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
         download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
@@ -784,6 +784,5 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 Now you should understand how to create a new HDInsight cluster that includes the R Server and the basics of using the R console from an SSH session. The following topics explain other ways of managing and working with R Server on HDInsight:
 
-* [Add RStudio Server to HDInsight (if not installed during cluster creation)](r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md)

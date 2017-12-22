@@ -3,8 +3,8 @@ title: Restore an Azure data warehouse - local and geo-redundant | Microsoft Doc
 description: Overview of the database restore options for recovering a database in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 10/31/2016
-ms.author: lakshmir;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # SQL Data Warehouse restore

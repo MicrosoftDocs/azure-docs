@@ -81,4 +81,4 @@ You can enable programmatic deployment for a licensed image by following these s
 
 ## Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](devtest-lab-add-vm.md)

@@ -6,14 +6,12 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create managed application with Azure CLI
+  - name: Create managed application
     href: managed-apps-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Create service catalog application
+  - name: Create managed application files
     href: publish-service-catalog-app.md
-  - name: Create marketplace application
-    href: publish-marketplace-app.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -28,7 +26,7 @@
     href: create-uidefinition-overview.md
   - name: Update managed resources
     href: update-managed-resources.md
-  - name: Publish service catalog app - portal
+  - name: Use portal to publish
     href: publish-portal.md
 - name: Reference
   items:

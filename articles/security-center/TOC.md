@@ -1,6 +1,5 @@
 # Overview
 ## [What is Azure Security Center?](security-center-intro.md)
-## [Get insights with Power BI](security-center-powerbi.md)
 ## [Data security](security-center-data-security.md)
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)

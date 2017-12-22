@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/26/2017
+ms.date: 11/03/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 

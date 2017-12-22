@@ -774,6 +774,6 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [How to manage Cloud Services](cloud-services-how-to-manage.md)
+* [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](/documentation/services/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

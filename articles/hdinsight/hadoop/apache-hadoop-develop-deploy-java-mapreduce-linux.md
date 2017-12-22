@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/03/2017
 ms.author: larryfr
 
 ---

@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 11/03/2017
 ms.author: jgao
 
 ---
@@ -33,7 +33,7 @@ Before you begin trying this HBase example, you must have the following items:
 * [curl](http://curl.haxx.se/download.html).
 
 ## Create HBase cluster
-The following procedure uses an Azure Resource Manager template to create a version 3.4 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
    

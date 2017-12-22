@@ -10,7 +10,41 @@
   - name: Set up auto provisioning
     href: quick-setup-auto-provision.md
   - name: Create simulated device
-    href: quick-create-simulated-device.md
+    items:
+    - name: TPM 
+      items:
+        - name: C
+          href: quick-create-simulated-device.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
+        - name: C#
+          href: quick-create-simulated-device-tpm-csharp.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
+    - name: X.509 
+      items:
+        - name: C
+          href: quick-create-simulated-device-x509.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
+        - name: C#
+          href: quick-create-simulated-device-x509-csharp.md
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
+  - name: Enroll device
+    items:
+    - name: TPM 
+      items:
+        - name: Java
+          href: quick-enroll-device-tpm-java.md
+        - name: Node.js
+          href: quick-enroll-device-tpm-node.md
+    - name: X.509 
+      items:
+        - name: Java
+          href: quick-enroll-device-x509-java.md
+#        - name: Node.js
+#          href: quick-enroll-device-x509-node.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
@@ -32,11 +66,15 @@
 - name: How-to guides
   items:
   - name: Manage device enrollments
-    href: how-to-manage-enrollments.md
-  - name: Revoke device access
-    href: how-to-revoke-device-access-portal.md
+    items:
+    - name: Manage device enrollments with Azure portal
+      href: how-to-manage-enrollments.md
+    - name: Manage device enrollments with Service SDKs
+      href: how-to-manage-enrollments-sdks.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
+  - name: Control access to Provisioning Service
+    href: how-to-control-access.md
 - name: Reference
   items:
   - name: REST

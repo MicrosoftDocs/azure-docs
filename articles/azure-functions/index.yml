@@ -34,7 +34,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/http.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_http.svg
       text: HTTP
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 

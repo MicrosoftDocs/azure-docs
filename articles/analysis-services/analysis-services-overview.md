@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 12/08/2017
 ms.author: owend
 
 ---
@@ -43,9 +43,18 @@ In Azure portal, you can [create a server](analysis-services-create-server.md) w
 Once you have a server created, you can create a tabular model right in Azure portal. With the new (preview) [Web designer feature](analysis-services-create-model-portal.md), you can connect to an Azure SQL Database, Azure SQL Data Warehouse data source, or import a Power BI Desktop .pbix file. Relationships between tables are created automatically, and you can create measures or edit the model.bim file in json format right from your browser.
 
 ## Scale to your needs
+
+### The right tier when you need it
+
 Azure Analysis Services is available in Developer, Basic, and Standard tiers. Within each tier, plan costs vary according to processing power, QPUs, and memory size. When you create a server, you select a plan within a tier. You can change plans up or down within the same tier, or upgrade to a higher tier, but you cannot downgrade from a higher tier to a lower tier.
 
-Scale up, scale down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use. To learn more about the different plans and tiers, and use the pricing calculator to determine the right plan for you, see [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
+Go up, down, or pause your server. Use the Azure portal or have total control on-the-fly by using PowerShell. You only pay for what you use. To learn more about the different plans and tiers, and use the pricing calculator to determine the right plan for you, see [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### Scale-out resources for fast query responses
+
+With Azure Analysis Services scale-out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. You can create a query pool with up to seven additional query replicas (eight total, including your server). 
+
+Just like with changing your tier, you can scale-out query replicas according to your needs. Configure scale-out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale-out](analysis-services-scale-out.md).
 
 ## Keep your data close
 Azure Analysis Services servers can be created in the following [Azure regions](https://azure.microsoft.com/regions/):
@@ -89,16 +98,22 @@ User authentication for Azure Analysis services is handled by [Azure Active Dire
 #### Data security
 Azure Analysis Services utilizes Azure Blob storage to persist storage and metadata for Analysis Services databases. Data files within Blob are encrypted using Azure Blob Server Side Encryption (SSE). When using Direct Query mode, only metadata is stored. The actual data is accessed from the data source at query time.
 
+#### Firewall
+
+Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked allowed. 
+
 #### On-premises data sources
 Secure access to data residing on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
 
 Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
+
+
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
-Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide users with highly interactive and visually rich insights into your model data.
+Modern data exploration and visualization tools like Power BI, Excel, SQL Server 2017 Reporting Services, and third-party tools are all supported, providing users with highly interactive and visually rich insights into your model data. 
 
 Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 
@@ -106,7 +121,7 @@ Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-prov
 ## Get help
 
 #### Documentation
-Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [SQL Server Analysis Services help](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### Videos
 Check out helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

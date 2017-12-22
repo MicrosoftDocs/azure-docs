@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/17/2017
+ms.date: 11/06/2017
 ms.author: jgao
 
 ---
@@ -87,7 +87,7 @@ Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET S
             private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.5";
+            private const string NewClusterVersion = "3.6";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";

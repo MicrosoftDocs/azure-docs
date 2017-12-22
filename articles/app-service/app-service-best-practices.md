@@ -37,7 +37,26 @@ When you notice an app consumes more CPU than expected or experiences repeated C
 For more information about “statefull” vs “stateless” applications you can watch this video: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). For more information about App Service scaling and autoscaling options read: [Scale a Web App in Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>When socket resources are exhausted
-A common reason for exhausting outbound TCP connections is the use of client libraries which are not implemented to reuse TCP connections, or in the case of a higher level protocol such as HTTP - Keep-Alive not being leveraged. Please review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress impact may be mitigated by scaling out to multiple instances.  
+A common reason for exhausting outbound TCP connections is the use of client libraries which are not implemented to reuse TCP connections, or in the case of a higher level protocol such as HTTP - Keep-Alive not being leveraged. Please review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress impact may be mitigated by scaling out to multiple instances.
+
+### Node.js and outgoing http requests
+When working with Node.js and many outgoing http requests, dealing with HTTP - Keep-Alive is really important. You can use the [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` package to make it easier in your code.
+
+You should always handle the `http` response, even if you do nothing in the handler. If you don't handle the response properly, your application will eventually get stuck because no more sockets are available.
+
+For example, when working with the `http` or `https` package:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+If you are running on App Service on Linux on a machine with multiple cores, another best practice is to use PM2 to start multiple Node.js processes to execute your application. You can do this by specifying a startup command to your container.
+
+For example, to start four instances:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>When your app backup starts failing
 The two most common reasons why app backup fails are: invalid storage settings and invalid database configuration. These failures typically happen when there are changes to storage or database resources, or changes for how to access these resources (e.g. credentials updated for the database selected in the backup settings). Backups typically run on a schedule and require access to storage (for outputting the backed up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources would be consistent backup failure. 

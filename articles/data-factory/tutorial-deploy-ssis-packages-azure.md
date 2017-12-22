@@ -16,14 +16,6 @@ ms.date: 10/06/2017
 ms.author: spelluru
 ---
 # Deploy SQL Server Integration Services packages to Azure
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### This tutorial
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
@@ -33,6 +25,9 @@ This tutorial provides steps for provisioning an Azure-SSIS integration runtime 
 > * Deploy SSIS packages
 > * Review the complete script
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. For conceptual information on Azure-SSIS IR, see [Azure-SSIS integration runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 ## Prerequisites
@@ -41,6 +36,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     - Add the IP address of the client machine or a range of IP addresses that includes the IP address of client machine to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md). 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
+> [!NOTE]
+> For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
+
 ## Launch Windows PowerShell ISE
 Start **Windows PowerShell ISE** with administrative privileges. 
 
@@ -48,17 +46,17 @@ Start **Windows PowerShell ISE** with administrative privileges.
 Copy and pate the following script: Specify values for the variables. For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
 $DataFactoryName = "<Data factory name>" 
-# In public preview, only EastUS amd EastUS2 are supported.
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS and NorthEurope are supported.
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_A4_v2"
@@ -204,20 +202,22 @@ The PowerShell script in this section configures an instance of Azure-SSIS integ
 > [!NOTE]
 > The script connects to your Azure SQL Database to prepare the SSIS Catalog database (SSISDB). The script also configures permissions and settings for your VNet, if specified, and joins the new instance of Azure-SSIS integration runtime to the VNet.
 
-For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
+For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md). 
+
+For a list of regions supported by Azure Data Factory V2 and Azure-SSIS Integration Runtime, see [Products available by region](https://azure.microsoft.com/regions/services/). Expand **Data + Analytics** to see **Data Factory V2** and **SSIS Integration Runtime**.
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
 $DataFactoryName = "<Data factory name>" 
-# In public preview, only EastUS amd EastUS2 are supported.
 $DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS and NorthEurope are supported.
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_A4_v2"
