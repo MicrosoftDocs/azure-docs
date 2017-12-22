@@ -34,6 +34,7 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 | SDK             | Code sample |
 | --------------- | ----------- |
 | Python          | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Ruby            | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
 
 ## Next steps
 
