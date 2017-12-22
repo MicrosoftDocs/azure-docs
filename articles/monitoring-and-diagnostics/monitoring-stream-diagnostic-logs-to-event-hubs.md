@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Diagnostic Logs to an Event Hubs Namespace | Microsoft Docs
-description: Learn how to stream Azure diagnostic logs to an Event Hubs namespace.
+title: Stream Azure Diagnostic Logs to an event hub | Microsoft Docs
+description: Learn how to stream Azure diagnostic logs to an event hub.
 author: johnkemnetz
 manager: orenr
 editor: ''
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
 
 ---
-# Stream Azure Diagnostic Logs to an Event Hubs Namespace
-**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Service Bus Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI.
+# Stream Azure Diagnostic Logs to an event hub
+**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI.
 
 ## What you can do with diagnostics logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
 
-* **Stream logs to 3rd party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your diagnostic logs in to third-party SIEMs and log analytics solutions.
+* **Stream logs to 3rd party logging and telemetry systems** – You can stream all of your diagnostic logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
 * **View service health by streaming “hot path” data to PowerBI** – Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your diagnostics data in to near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up Event Hubs, process data with Stream Analytics, and use PowerBI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here are a few tips for getting set up with diagnostic logs:
   
   * An event hub for a category of diagnostic logs is created automatically when you check the option in the portal or enable it through PowerShell, so you want to select the event hub in the namespace with the name that starts with **insights-**.
@@ -49,7 +49,7 @@ You can enable streaming of diagnostic logs programmatically, via the portal, or
 > 
 > 
 
-The Service Bus or Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+The Event Hubs namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Stream diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
@@ -70,11 +70,11 @@ The Service Bus or Event Hubs namespace does not have to be in the same subscrip
    
    ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   The namespace selected will be where the event hub is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an event hub requires Manage, Send, and Listen permissions. You can create or modify Event Hubs namespace shared access policies in the portal under the Configure tab for your namespace. To update one of these diagnostic settings, the client must have the ListKey permission on the Event Hubs authorization rule.
+   The namespace selected will be where the event hub is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an event hub requires Manage, Send, and Listen permissions. You can create or modify Event Hubs namespace shared access policies in the portal under the Configure tab for your namespace. To update one of these diagnostic settings, the client must have the ListKey permission on the Event Hubs authorization rule. You can also optionally specify an event hub name. If you specify an event hub name, logs are routed to that event hub rather than to a newly created event hub per log category.
 
 4. Click **Save**.
 
-After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are streamed to that storage account as soon as new event data is generated.
+After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are streamed to that event hub as soon as new event data is generated.
 
 ### Via PowerShell Cmdlets
 To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
@@ -83,7 +83,7 @@ To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-sampl
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+The Service Bus Rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. You cannot currently select a particular event hub name with PowerShell.
 
 ### Via Azure CLI
 To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
@@ -92,7 +92,7 @@ To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use th
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet.
+Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet. You cannot currently select a particular event hub name with the Azure CLI.
 
 ## How do I consume the log data from Event Hubs?
 Here is sample output data from Event Hubs:
