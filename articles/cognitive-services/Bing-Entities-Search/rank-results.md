@@ -59,15 +59,11 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
     }
   }
 }
-```  
-  
+```
+
 Based on this ranking response, the sidebar would display the two entity results related to Jimi Hendix.
-  
 
 ## Next steps
 
-For information about promoting unranked results, see [Promoting answers that are not ranked](./filter-answers.md#promoting-answers-that-are-not-ranked).
-
-For information about limiting the number of ranked answers in the response, see [Limiting the number of answers in the response](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
-
-For a C# example that uses ranking to display results, see [C# ranking tutorial](./csharp-ranking-tutorial.md).
+> [!div class="nextstepaction"]
+> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
