@@ -19,7 +19,7 @@ ms.author: rli
 ---
 
 # Azure CDN rules engine match conditions
-This topic lists detailed descriptions of the available Match Conditions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+This topic lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
@@ -27,37 +27,19 @@ For example, it may be used to filter requests for content at a particular locat
 
 ## Always match condition
 
-The Always match condition is designed to apply a default set of features to all requests.
+This match condition is designed to apply a default set of features to all requests.
+
+Name | Purpose
+-----|--------
+[Always](#always) | Applies a default set of features to all requests.
 
 ## Device match condition
 
-The Device match condition identifies requests made from a mobile device based on its properties.  Mobile device detection is achieved through [WURFL](http://wurfl.sourceforge.net/).  WURFL capabilities and their CDN Rules Engine variables are listed below.
-<br>
-> [!NOTE] 
-> The variables below are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
+This match condition identifies requests made from a mobile device based on its properties.  
 
-Capability | Variable | Description | Sample Value(s)
------------|----------|-------------|----------------
-Brand Name | %{wurfl_cap_brand_name} | A string that indicates the brand name of the device. | Samsung
-Device OS | %{wurfl_cap_device_os} | A string that indicates the operating system installed on the device. | IOS
-Device OS Version | %{wurfl_cap_device_os_version} | A string that indicates the version number of the OS installed on the device. | 1.0.1
-Dual Orientation | %{wurfl_cap_dual_orientation} | A Boolean that indicates whether the device supports dual orientation. | true
-HTML Preferred DTD | %{wurfl_cap_html_preferred_dtd} | A string that indicates the mobile device's preferred document type definition (DTD) for HTML content. | none<br/>xhtml_basic<br/>html5
-Image Inlining | %{wurfl_cap_image_inlining} | A Boolean that indicates whether the device supports Base64 encoded images. | false
-Is Android | %{wurfl_vcap_is_android} | A Boolean that indicates whether the device uses the Android OS. | true
-Is IOS | %{wurfl_vcap_is_ios} | A Boolean that indicates whether the device uses iOS. | false
-Is Smart TV | %{wurfl_cap_is_smarttv} | A Boolean that indicates whether the device is a smart TV. | false
-Is Smartphone | %{wurfl_vcap_is_smartphone} | A Boolean that indicates whether the device is a smartphone. | true
-Is Tablet | %{wurfl_cap_is_tablet} | A Boolean that indicates whether the device is a tablet. This is an OS-independent description. | true
-Is Wireless Device | %{wurfl_cap_is_wireless_device} | A Boolean that indicates whether the device is considered a wireless device. | true
-Marketing Name | %{wurfl_cap_marketing_name} | A string that indicates the device's marketing name. | BlackBerry 8100 Pearl
-Mobile Browser | %{wurfl_cap_mobile_browser} | A string that indicates the browser used to request content from the device. | Chrome
-Mobile Browser Version | %{wurfl_cap_mobile_browser_version} | A string that indicates the version of the browser used to request content from the device. | 31
-Model Name | %{wurfl_cap_model_name} | A string that indicates the device's model name. | s3
-Progressive Download | %{wurfl_cap_progressive_download} | A Boolean that indicates whether the device supports the playback of audio/video while it is still being downloaded. | true
-Release Date | %{wurfl_cap_release_date} | A string that indicates the year and month on which the device was added to the WURFL database.<br/><br/>Format: `yyyy_mm` | 2013_december
-Resolution Height | %{wurfl_cap_resolution_height} | An integer that indicates the device's height in pixels. | 768
-Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the device's width in pixels. | 1024
+Name | Purpose
+-----|--------
+[Device](#device) | Identifies requests made from a mobile device based on its properties.
 
 ## Location match conditions
 
@@ -115,6 +97,15 @@ URL Query Wildcard | Compares the specified value(s) against the request's query
 ## Azure CDN rules engine match conditions reference
 
 ---
+### Always
+
+This match condition is designed to apply a default set of features to all requests.
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### AS Number 
 This network is defined by its Autonomous System Number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified AS number.
 
@@ -137,13 +128,13 @@ This network is defined by its Autonomous System Number (ASN). An option is prov
 ### CDN Origin
 This match condition is met when both of the following conditions are met:
 - Content from CDN storage was requested.
-- The request URI leverages the content access point (e.g., /000001) defined in this match condition.
+- The request URI leverages the content access point (for example, /000001) defined in this match condition.
   - CDN URL: The request URI must contain the selected content access point.
   - Edge CNAME URL: The corresponding edge CNAME configuration must point to the selected content access point.
   
-*Notes:*
+Additional information:
  - The content access point identifies the service that should serve the requested content.
- - An AND IF statement should not be used to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this very same reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
+ - An AND IF statement should not be used to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
 
 [Back to top](#azure-cdn-rules-engine-match-conditions)
 
@@ -267,6 +258,42 @@ A country can be specified through its country code. An option is provided to in
 </br>
 
 ---
+### Device
+
+This match condition identifies requests made from a mobile device based on its properties.
+Mobile device detection is achieved through [WURFL](http://wurfl.sourceforge.net/).  WURFL capabilities and their CDN Rules Engine variables are listed below.
+<br>
+> [!NOTE] 
+> The variables below are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
+
+Capability | Variable | Description | Sample Value(s)
+-----------|----------|-------------|----------------
+Brand Name | %{wurfl_cap_brand_name} | A string that indicates the brand name of the device. | Samsung
+Device OS | %{wurfl_cap_device_os} | A string that indicates the operating system installed on the device. | IOS
+Device OS Version | %{wurfl_cap_device_os_version} | A string that indicates the version number of the OS installed on the device. | 1.0.1
+Dual Orientation | %{wurfl_cap_dual_orientation} | A Boolean that indicates whether the device supports dual orientation. | true
+HTML Preferred DTD | %{wurfl_cap_html_preferred_dtd} | A string that indicates the mobile device's preferred document type definition (DTD) for HTML content. | none<br/>xhtml_basic<br/>html5
+Image Inlining | %{wurfl_cap_image_inlining} | A Boolean that indicates whether the device supports Base64 encoded images. | false
+Is Android | %{wurfl_vcap_is_android} | A Boolean that indicates whether the device uses the Android OS. | true
+Is IOS | %{wurfl_vcap_is_ios} | A Boolean that indicates whether the device uses iOS. | false
+Is Smart TV | %{wurfl_cap_is_smarttv} | A Boolean that indicates whether the device is a smart TV. | false
+Is Smartphone | %{wurfl_vcap_is_smartphone} | A Boolean that indicates whether the device is a smartphone. | true
+Is Tablet | %{wurfl_cap_is_tablet} | A Boolean that indicates whether the device is a tablet. This is an OS-independent description. | true
+Is Wireless Device | %{wurfl_cap_is_wireless_device} | A Boolean that indicates whether the device is considered a wireless device. | true
+Marketing Name | %{wurfl_cap_marketing_name} | A string that indicates the device's marketing name. | BlackBerry 8100 Pearl
+Mobile Browser | %{wurfl_cap_mobile_browser} | A string that indicates the browser used to request content from the device. | Chrome
+Mobile Browser Version | %{wurfl_cap_mobile_browser_version} | A string that indicates the version of the browser used to request content from the device. | 31
+Model Name | %{wurfl_cap_model_name} | A string that indicates the device's model name. | s3
+Progressive Download | %{wurfl_cap_progressive_download} | A Boolean that indicates whether the device supports the playback of audio/video while it is still being downloaded. | true
+Release Date | %{wurfl_cap_release_date} | A string that indicates the year and month on which the device was added to the WURFL database.<br/><br/>Format: `yyyy_mm` | 2013_december
+Resolution Height | %{wurfl_cap_resolution_height} | An integer that indicates the device's height in pixels. | 768
+Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the device's width in pixels. | 1024
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Edge Cname
 
 **Key Information** 
@@ -326,7 +353,8 @@ The **Matches/Does Not Match** option determines the conditions under which this
 
 ---  
 ### Request Header Regex
-**Note:** This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it. 
+> [!NOTE]
+> This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it. 
 
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires the request to contain the specified header and its value must match the pattern defined in the specified regular expression.
