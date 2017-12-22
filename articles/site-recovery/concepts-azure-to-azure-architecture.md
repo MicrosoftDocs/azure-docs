@@ -64,6 +64,7 @@ As replication is enabled, the Site Recovery extension Mobility service is autom
 
 If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004.
 
+> [!IMPORTANT]
 If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Step 3

@@ -158,7 +158,7 @@ your requirements.
 1. Click **Settings** to view the target and replication settings.
 2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability Sets**.
 
-![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Target location**: The target region used for disaster recovery. We recommend that the target
@@ -181,8 +181,7 @@ your requirements.
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
   target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
 
-
-To override the default replication settings, click **Customize** next to **Replication policy**.  
+To override the default replication policy settings, click **Customize** next to **Replication policy**.  
 
 - **Replication policy name**: Policy name.
 
@@ -194,7 +193,7 @@ To override the default replication settings, click **Customize** next to **Repl
 
 - **Replication group**: If your application needs multi-VM consistency across VMs, you can create a replication group for those VMs. By default, the selected VMs are not part of any replication group.
 
-  Click **Customize** and then select **Yes** for multi-VM consistency to make VMs part of a replication group. You can create a new replication group or use an existing replication group. Select the VMs to be part of the replication group and click **OK**.
+  Click **Customize** next to **Replication policy** and then select **Yes** for multi-VM consistency to make VMs part of a replication group. You can create a new replication group or use an existing replication group. Select the VMs to be part of the replication group and click **OK**.
 
 > [!IMPORTANT]
   All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance and should be used only if machines are running the same workload and you need consistency across multiple machines.
