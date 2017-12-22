@@ -30,7 +30,7 @@ This sample also requires the [latest version of AzCopy on Windows](http://aka.m
 
 The following is an example of the input for this script:
 
-[Input](../common/media/storage-migrate-blobs-across-storage-accounts/ExampleScriptInput.png)
+![Input](../common/media/storage-migrate-blobs-across-storage-accounts/ExampleScriptInput.png)
 
 
 ## Sample script
