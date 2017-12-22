@@ -295,13 +295,13 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 
 4. In your `MainActivity` class, add the following method to the availability of Google Play Services. 
    
-        /**
-         * Check the device to make sure it has the Google Play Services APK. If
-         * it doesn't, display a dialog that allows users to download the APK from
-         * the Google Play Store or enable it in the device's system settings.
-         */
-    
     ```java
+        /**
+        * Check the device to make sure it has the Google Play Services APK. If
+        * it doesn't, display a dialog that allows users to download the APK from
+        * the Google Play Store or enable it in the device's system settings.
+        */
+    
         private boolean checkPlayServices() {
             GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
             int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
@@ -479,13 +479,13 @@ In addition to the above, ensure that you have added your Google account to your
 #### Running the application
 1. Run the app and notice that the registration ID is reported for a successful registration.
    
-       ![Testing on Android - Channel registration](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
+    ![Testing on Android - Channel registration](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
 2. Enter a notification message to be sent to all Android devices that have registered with the hub.
    
-       ![Testing on Android - sending a message](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
+    ![Testing on Android - sending a message](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
 3. Press **Send Notification**. Any devices that have the app running shows an `AlertDialog` instance with the push notification message. Devices that don't have the app running but were previously registered for push notifications receive a notification in the Android Notification Manager. Those can be viewed by swiping down from the upper-left corner.
    
-       ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
+    ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ## Next steps
 We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It demonstrates how to send notifications from an ASP.NET backend using tags to target specific users.
