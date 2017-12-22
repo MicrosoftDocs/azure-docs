@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 12/22/2017
 ms.author: raynew
 ---
 
@@ -66,7 +66,7 @@ Once you have installed agents on all the machines of the group, you can visuali
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
-     ![View group dependencies](./media/how-to-create-group-dependencies/create-group.png)
+     ![View group dependencies](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
@@ -76,7 +76,7 @@ Once you have installed agents on all the machines of the group, you can visuali
     - You can optionally create a new assessment when you modify the group.
 5. Click **OK** to save the group.
 
-    ![Add and remove](./media/how-to-create-group-dependencies/add-remove.png)
+    ![Add or remove machines](./media/how-to-create-group-dependencies/add-remove.png)
 
 If you want to check the dependencies of a specific machine that appears in the group dependency map, [set up machine dependency mapping](how-to-create-group-machine-dependencies.md).
 
