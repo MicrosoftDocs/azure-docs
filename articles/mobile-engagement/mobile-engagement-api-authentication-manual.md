@@ -41,32 +41,28 @@ It describes an alternate way to do the One-time setup for setting up your authe
      ![configure app][11]
 10. Create a new key and immediately copy it and save it for use. It will never be shown again
      ![configure app][12]
+
     > [!IMPORTANT]
     > This key expires at the end of the duration that you specified so make sure to renew it when the time comes otherwise your API authentication will not work anymore. You can also delete and recreate this key if you think that it has been compromised.
+    > 
+    > 
 11. Click on **Endpoints** button at the top of the page and copy the **OAUTH 2.0 TOKEN ENDPOINT**. 
     ![][14]
 16. This endpoint will be in the following form where the GUID in the URL is your **TENANT_ID** so make a note of it: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 17. Now we will proceed to configure the permissions on this app. For this you will have to open up the [Azure portal](https://portal.azure.com). 
 18. Click on **Resource Groups** and find the **Mobile Engagement** resource group.  
-    
     ![][15]
 19. Click the **Mobile Engagement** resource group and navigate to the **Settings** section here. 
-    
     ![][16]
 20. Click on **Users** in the Settings section and then click on **Add** to add a user. 
-    
     ![][17]
 21. Click on **Select a role**
-    
     ![][18]
 22. Click on **Owner**
-    
     ![][19]
 23. Search for the name of your application **AD\_APP\_NAME** in the Search box. You will not see this by default here. Once you find it, select it and click on **Select** at the bottom of the section.
-    
     ![][20]
 24. On the **Add Access** section, it will show up as **1 user, 0 groups**. Click **OK** on this section to confirm the change.
-    
     ![][21]
 
 You have now completed the required AAD configuration and you are all set to call the APIs. 
