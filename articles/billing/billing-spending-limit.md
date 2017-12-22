@@ -45,7 +45,7 @@ To remove your spending limit, follow these steps:
 
 1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
 1. Select a subscription.
-1. If the subscription is disabled due to the spending limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
+. If the subscription is disabled due to the spending limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
 1. Select an option that is appropriate for you.
 
 ![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -83,6 +83,6 @@ We don't have custom spend limits today. However, you can opt in to [use billing
 
 ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## Need help? Contact support.
+## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
