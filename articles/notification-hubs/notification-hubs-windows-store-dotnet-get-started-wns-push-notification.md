@@ -78,8 +78,8 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>Select <b>Notification Services</b> > <b>Windows (WNS)</b>, and then enter the application secret password in the <b>Security Key</b> box. In the <b>Package SID</b> box, enter the value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
+<ol start="6">
+<li><p>Under <b>Notification Services</b>, select <b>Windows (WNS)</b>, and then enter the application secret password in the <b>Security Key</b> box. In the <b>Package SID</b> box, enter the value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
 </li>
 </ol>
 
