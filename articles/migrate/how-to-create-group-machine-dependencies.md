@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 12/22/2017
 ms.author: raynew
 ---
 
@@ -55,14 +55,16 @@ To install the agent on a Linux machine:
 1. After you install the agents, go to the portal and click **Manage** > **Machines**.
 2. Search for the machine where you installed the agents.
 3. The **Dependencies** column for the machine should now show as **View Dependencies**. Click the column to view the dependencies of the machine.
-4. For each machine, you can verify:
-    - Inbound and outbound TCP connections and the port details for each connection.
-    - Processes running on the machine. 
-    - The guest operating system running on the machine.
+4. The dependency map for the machine shows the following details:
+    - Inbound (Clients) and outbound (Servers) TCP connections to/from the machine
+        - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
+        - The dependenct machines that have the MMA and the dependency agent installed are shown as separate boxes 
+    - Processes running inside the machine, you can expand each machine box to view the processes
+    - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
  ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
-4. For more granular dependencies, click the time range to modify it. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate. 
 
