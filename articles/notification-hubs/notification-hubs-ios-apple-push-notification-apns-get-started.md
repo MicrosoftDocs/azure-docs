@@ -62,7 +62,7 @@ This section walks you through the steps to create a new notification hub and co
 
 <li>
 
-<p>Click the <b>Notification Services</b> button, then select <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
+<p>Under <b>Notification Services</b> select <b>Apple (APNS)</b>. Make sure to select <b>Certificate</b>, click the file icon, and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
 
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>

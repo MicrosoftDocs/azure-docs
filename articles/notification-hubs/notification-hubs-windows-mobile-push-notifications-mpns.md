@@ -52,7 +52,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 </li>
 </ol>
 
-&emsp;&emsp;![Azure Portal - Enable unathenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+&emsp;&emsp;![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
