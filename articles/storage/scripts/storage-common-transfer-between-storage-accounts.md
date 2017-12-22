@@ -18,7 +18,7 @@ ms.date: 12/22/2017
 ms.author: v-rogara
 ---
 
-# Create a storage account and rotate its account access keys
+# Migrate blobs across storage accounts using AzCopy on Windows
 
 This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of AzCopy.exe. Then the script copies all the contents of the source storage account to the target storage account. At this time, this is only supported on Windows.
 
