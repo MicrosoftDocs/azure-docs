@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 12/21/2017
 ms.author: rli
 
 ---
@@ -25,11 +25,11 @@ The second part of a rule is the match condition. A match condition identifies s
 
 For example, it may be used to filter requests for content at a particular location, requests generated from a particular IP address or country, or by header information.
 
-## Always
+## Always match condition
 
 The Always match condition is designed to apply a default set of features to all requests.
 
-## Device
+## Device match condition
 
 The Device match condition identifies requests made from a mobile device based on its properties.  Mobile device detection is achieved through [WURFL](http://wurfl.sourceforge.net/).  WURFL capabilities and their CDN Rules Engine variables are listed below.
 <br>
@@ -59,16 +59,62 @@ Release Date | %{wurfl_cap_release_date} | A string that indicates the year and 
 Resolution Height | %{wurfl_cap_resolution_height} | An integer that indicates the device's height in pixels. | 768
 Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the device's width in pixels. | 1024
 
-
-## Location
+## Location match conditions
 
 These match conditions are designed to identify requests based on the requester's location.
 
 Name | Purpose
 -----|--------
-AS Number | Identifies requests that originate from a particular network.
-Country | Identifies requests that originate from the specified countries.
+[AS Number](#as-number) | Identifies requests that originate from a particular network.
+[Country](#country) | Identifies requests that originate from the specified countries.
 
+## Origin match conditions
+
+These match conditions are designed to identify requests that point to CDN storage or a customer origin server.
+
+Name | Purpose
+-----|--------
+[CDN Origin](#cdn-origin) | Identifies requests for content stored on CDN storage.
+[Customer Origin](#customer-origin) | Identifies requests for content stored on a specific customer origin server.
+
+## Request match conditions
+
+These match conditions are designed to identify requests based on their properties.
+
+Name | Purpose
+-----|--------
+[Client IP Address](#client-ip-address) | Identifies requests that originate from a particular IP address.
+[Cookie Parameter](#cookie-parameter) | Checks the cookies associated with each request for the specified value.
+[Cookie Parameter Regex](#cookie-parameter-regex) | Checks the cookies associated with each request for the specified regular expression.
+[Edge Cname](#edge-cname) | Identifies requests that point to a specific edge CNAME.
+[Referring Domain](#referring-domain) | Identifies requests that were referred from the specified hostname(s).
+[Request Header Literal](#request-header-literal) | Identifies requests that contain the specified header set to a specified value(s).
+[Request Header Regex](#request-header-regex) | Identifies requests that contain the specified header set to a value that matches the specified regular expression.
+[Request Header Wildcard](#request-header-wildcard) | Identifies requests that contain the specified header set to a value that matches the specified pattern.
+[Request Method](#request-method) | Identifies requests by their HTTP method.
+[Request Scheme](#request-scheme) | Identifies requests by their HTTP protocol.
+
+## URL match conditions
+
+These match conditions are designed to identify requests based on their URLs.
+
+Name | Purpose
+-----|--------
+URL Path Directory | Identifies requests by their relative path.
+URL Path Extension | Identifies requests by their filename extension.
+URL Path Filename | Identifies requests by their filename.
+URL Path Literal | Compares a request's relative path to the specified value.
+URL Path Regex | Compares a request's relative path to the specified regular expression.
+URL Path Wildcard | Compares a request's relative path to the specified pattern.
+URL Query Literal | Compares a request's query string to the specified value.
+URL Query Parameter | Identifies requests that contain the specified query string parameter set to a value that matches a specified pattern.
+URL Query Regex | Identifies requests that contain the specified query string parameter set to a value that matches a specified regular expression.
+URL Query Wildcard | Compares the specified value(s) against the request's query string.
+
+
+## Azure CDN rules engine match conditions reference
+
+---
 ### AS Number 
 This network is defined by its Autonomous System Number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified AS number.
 
@@ -83,32 +129,11 @@ This network is defined by its Autonomous System Number (ASN). An option is prov
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-### Country
-A country can be specified through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified value(s).
+[Back to top](#azure-cdn-rules-engine-match-conditions)
 
+</br>
 
-**Key Information**
-- Specify multiple country codes by delimiting each one with a single space.
-- Wildcards are not supported when specifying a country code.
-- The "EU" and "AP" country codes do not encompass all IP addresses in those regions.
-- Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.
-- Country codes are case-sensitive.
-- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
-  - Complete Cache Fill
-  - Default Internal Max-Age
-  - Force Internal Max-Age
-  - Ignore Origin No-Cache
-  - Internal Max-Stale
-
-## Origin
-
-These match conditions are designed to identify requests that point to CDN storage or a customer origin server.
-
-Name | Purpose
------|--------
-CDN Origin | Identifies requests for content stored on CDN storage.
-Customer Origin | Identifies requests for content stored on a specific customer origin server.
-
+---
 ### CDN Origin
 This match condition is met when both of the following conditions are met:
 - Content from CDN storage was requested.
@@ -119,33 +144,12 @@ This match condition is met when both of the following conditions are met:
 *Notes:*
  - The content access point identifies the service that should serve the requested content.
  - An AND IF statement should not be used to combine certain match conditions. For example, combining a CDN Origin match condition with a Customer Origin match condition would create a match pattern that could never be matched. For this very same reason, two CDN Origin match conditions cannot be combined through an AND IF statement.
- 
-### Customer Origin
 
-**Key Information** 
-- This match condition will be satisfied regardless of whether content is requested using a CDN or an edge CNAME URL that points to the selected customer origin.
-- A customer origin configuration referenced by a rule may not be deleted from the Customer Origin page. Before attempting to delete a customer origin configuration, make sure that the following configurations do not reference it:
-  - Customer Origin match condition
-  - An edge CNAME configuration.
-- An AND IF statement should not be used to combine certain match conditions. For example, combining a Customer Origin match condition with a CDN Origin match condition would create a match pattern that could never be matched. For this very same reason, two Customer Origin match conditions cannot be combined through an AND IF statement.
+[Back to top](#azure-cdn-rules-engine-match-conditions)
 
-## Request
+</br>
 
-These match conditions are designed to identify requests based on their properties.
-
-Name | Purpose
------|--------
-Client IP Address | Identifies requests that originate from a particular IP address.
-Cookie Parameter | Checks the cookies associated with each request for the specified value.
-Cookie Parameter Regex | Checks the cookies associated with each request for the specified regular expression.
-Edge Cname | Identifies requests that point to a specific edge CNAME.
-Referring Domain | Identifies requests that were referred from the specified hostname(s).
-Request Header Literal | Identifies requests that contain the specified header set to a specified value(s).
-Request Header Regex | Identifies requests that contain the specified header set to a value that matches the specified regular expression.
-Request Header Wildcard | Identifies requests that contain the specified header set to a value that matches the specified pattern.
-Request Method | Identifies requests by their HTTP method.
-Request Scheme | Identifies requests by their HTTP protocol.
-
+---
 ### Client IP Address
 An option is provided to indicate whether this condition will be met when a client's IP address "Matches" or "Does Not Match" the specified IP address(es).
 
@@ -164,6 +168,11 @@ An option is provided to indicate whether this condition will be met when a clie
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Cookie Parameter
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires a request to contain the specified cookie with a value that matches at least one of the values defined in this match condition.
@@ -189,6 +198,11 @@ The **Matches/Does Not Match** option determines the conditions under which this
    - Ignore Origin No-Cache
    - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Cookie Parameter Regex
 This Match condition defines a cookie name and value. Regular expressions may be used to define the desired cookie value. 
 
@@ -213,6 +227,46 @@ The **Matches/Does Not Match** option determines the conditions under which this
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+--- 
+### Country
+A country can be specified through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified value(s).
+
+**Key Information**
+- Specify multiple country codes by delimiting each one with a single space.
+- Wildcards are not supported when specifying a country code.
+- The "EU" and "AP" country codes do not encompass all IP addresses in those regions.
+- Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.
+- Country codes are case-sensitive.
+- Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
+  - Complete Cache Fill
+  - Default Internal Max-Age
+  - Force Internal Max-Age
+  - Ignore Origin No-Cache
+  - Internal Max-Stale
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
+### Customer Origin
+
+**Key Information** 
+- This match condition will be satisfied regardless of whether content is requested using a CDN or an edge CNAME URL that points to the selected customer origin.
+- A customer origin configuration referenced by a rule may not be deleted from the Customer Origin page. Before attempting to delete a customer origin configuration, make sure that the following configurations do not reference it:
+  - Customer Origin match condition
+  - An edge CNAME configuration.
+- An AND IF statement should not be used to combine certain match conditions. For example, combining a Customer Origin match condition with a CDN Origin match condition would create a match pattern that could never be matched. For this very same reason, two Customer Origin match conditions cannot be combined through an AND IF statement.
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Edge Cname
 **Key Information** 
 - The list of available edge CNAMEs is limited to those that have been configured on the Edge CNAMEs page corresponding to the platform on which HTTP Rules Engine is being configured.
@@ -225,6 +279,11 @@ The **Matches/Does Not Match** option determines the conditions under which this
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Referring Domain
 The hostname associated with the referrer through which content was requested determines whether this condition is met. An option is provided to indicate whether this condition will be met when the referring hostname "Matches" or "Does Not Match" the specified value(s).
 **Key information:**
@@ -238,7 +297,12 @@ The hostname associated with the referrer through which content was requested de
   - Force Internal Max-Age
   - Ignore Origin No-Cache
   - Internal Max-Stale
-  
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---  
  ### Request Header Literal
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires the request to contain the specified header and its value must match the one defined in this match condition.
@@ -254,7 +318,12 @@ The **Matches/Does Not Match** option determines the conditions under which this
   - Force Internal Max-Age
   - Ignore Origin No-Cache
   - Internal Max-Stale
-  
+
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---  
 ### Request Header Regex
 **Note:** This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it. 
 
@@ -279,6 +348,11 @@ The **Matches/Does Not Match** option determines the conditions under which this
   - Ignore Origin No-Cache
   - Internal Max-Stale 
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Request Header Wildcard
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires the request to contain the specified header and its value must match at least one of the values defined in this match condition.
@@ -302,6 +376,11 @@ The **Matches/Does Not Match** option determines the conditions under which this
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Request Method
 Only assets that are requested using the selected request method will satisfy this condition. The available request methods are:
 - GET
@@ -322,6 +401,11 @@ Only assets that are requested using the selected request method will satisfy th
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
+[Back to top](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### Request Scheme
 Only assets that are requested using the selected protocol will satisfy this condition. The available protocols are HTTP and HTTPS.
 
@@ -333,23 +417,9 @@ Only assets that are requested using the selected protocol will satisfy this con
   - Ignore Origin No-Cache
   - Internal Max-Stale
 
-## URL
+[Back to top](#azure-cdn-rules-engine-match-conditions)
 
-These match conditions are designed to identify requests based on their URLs.
-
-Name | Purpose
------|--------
-URL Path Directory | Identifies requests by their relative path.
-URL Path Extension | Identifies requests by their filename extension.
-URL Path Filename | Identifies requests by their filename.
-URL Path Literal | Compares a request's relative path to the specified value.
-URL Path Regex | Compares a request's relative path to the specified regular expression.
-URL Path Wildcard | Compares a request's relative path to the specified pattern.
-URL Query Literal | Compares a request's query string to the specified value.
-URL Query Parameter | Identifies requests that contain the specified query string parameter set to a value that matches a specified pattern.
-URL Query Regex | Identifies requests that contain the specified query string parameter set to a value that matches a specified regular expression.
-URL Query Wildcard | Compares the specified value(s) against the request's query string.
-
+</br>
 
 ## Next steps
 * [Azure CDN Overview](cdn-overview.md)
