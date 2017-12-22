@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: JimacoMS
 ms.author: v-jamebr
-ms.date: 11/01/2017
+ms.date: 12/22/2017
 ms.topic: article
 ms.service: iot-dps
 
