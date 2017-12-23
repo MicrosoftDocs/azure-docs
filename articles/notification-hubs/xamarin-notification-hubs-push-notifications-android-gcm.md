@@ -407,7 +407,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [20]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png
 [21]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png
 
-[30]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-test-send.png
+[30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
 
 <!-- URLs. -->
