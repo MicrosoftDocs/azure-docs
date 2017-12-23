@@ -193,25 +193,25 @@ Your notification hub is now configured to work with APNS, and you have the conn
    
 
    > [!NOTE]
-   > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (e.g. Airplane) and you want to handle push messaging scenarios specific to your app.
+   > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
    > 
    > 
 10. Run the app on your device.
 
 ## Sending Test Push Notifications
-You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This will send a test push notification to your device.
+You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This sends a test push notification to your device.
 
 ![Azure portal - Test Send][30]
 
-Push notifications are normally sent in a back-end service like Mobile Apps or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
+Push notifications are normally sent in a back-end service like Mobile Apps or ASP.NET using a compatible library. If a library is not available for your back-end you can also use the REST API directly to send notification messages.
 
-As a next step it is recommended to view the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial as the next step for sending notifications from an ASP.NET backend. However, the following approaches can be used for sending notifications:
+As a next step it is recommended to view the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial as the next step for sending notifications from an ASP.NET back-end. However, the following approaches can be used for sending notifications:
 
 Here is a list of some other tutorials you may want to review for sending notifications:
-* Azure Mobile Apps : For an example of how to send notifications from an Mobile Apps backend integrated with Notification Hubs, see [Add Push Notifications to your iOS App](../articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).  
-* REST Interface:  You can support push notification on any backend platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back-end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](../articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).  
+* REST Interface:  You can support push notification on any back-end platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* Node.js : [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
+* Node.js: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * Java / PHP**: For an example of how to send push notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notifition-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## Next steps
