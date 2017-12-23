@@ -31,7 +31,7 @@ If you have not already done so, [create a domain-joined HDInsight cluster](hdin
 
 To view your hosts, open the Ambari Web UI. Each node will be updated with  new unattended upgrade settings.
 
-1. In  the [Azure portal](portal.azure.com), navigate to the Azure AD directory associated with your domain-joined cluster.
+1. In  the [Azure portal](https://portal.azure.com), navigate to the Azure AD directory associated with your domain-joined cluster.
 
 2. Select **All users** from the left-hand menu, then select **New user**.
 
@@ -125,7 +125,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 5. This  result shows  that the status is **COMPLETE**,  one new user was created, and the user was assigned a membership. In this example,  the user is assigned to the "HiveUsers" synchronized LDAP group, since the user was added to that same group in Azure AD.
 
 > [!NOTE]
-> The previous method only  synchronizes   the Azure AD groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](hdinsight-domain-joined-configure.md#create-hdinsight-cluster).
+> The previous method only  synchronizes   the Azure AD groups specified in the **Access user group** property of the domain settings during cluster creation. For more information, see  [create an HDInsight cluster](apache-domain-joined-configure.md).
 
 ## Verify the newly added Azure AD user
 

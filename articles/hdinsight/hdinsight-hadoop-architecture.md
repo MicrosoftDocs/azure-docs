@@ -92,4 +92,4 @@ After Spark jobs complete, then job execution information is available in the Sp
 ## See also
 
 * [HDInsight Architecture](hdinsight-architecture.md)
-* [Use MapReduce in Hadoop on HDInsight](hadoop/use-mapreduce.md)
+* [Use MapReduce in Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md)

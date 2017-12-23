@@ -21,35 +21,36 @@ ms.author: ashishth
 ---
 # Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer over [HBase](hdinsight-hbase-overview.md). It allows you to use SQL-like queries over HBase. It uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, upsert rows individually and in bulk. It uses noSQL native compilation instead of using MapReduce to compile queries enabling the creation of low latency applications on top of HBase. To do this, Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This minimizes client/server data transfer.
+[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [HBase](hbase/hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
 
-Like other tools used to query big data using SQL-like syntax, such as [Hive](../hdinsight-use-hive.md) and [Spark SQL](hdinsight-spark-sql-with-hdinsight.md), Apache Phoenix opens up big data queries to non-developers who do not want to learn a new programming language just to work with data. The benefit to developers is writing highly performant queries with much less code. Unlike Hive and Spark SQL, Phoenix is highly optimized for HBase, providing powerful features and ease-of-use over MapReduce.
+Apache Phoenix opens up big data queries to non-developers who can use  an SQL-like syntax rather than programming. Phoenix is highly optimized for HBase, unlike other tools such as [Hive](hadoop/hdinsight-use-hive.md) and Spark SQL. The benefit to developers is writing highly performant queries with much less code.
+<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
-When you submit a SQL query, Phoenix compiles the query to HBase native calls and runs the scan or plan in parallel for optimization. This layer of abstraction takes away the focus (and requirement) of the developer from writing MapReduce jobs, bearing in mind big data fundamentals, and allows them instead to focus on the business logic and the workflow of their application around the big data storage Phoenix gives them access to.
+When you submit a SQL query, Phoenix compiles the query to HBase native calls and runs the scan (or plan) in parallel for optimization. This layer of abstraction frees the developer from writing MapReduce jobs,  to focus instead on the business logic and the workflow of their application around Phoenix's big data storage.
 
 ## Query performance optimization and other features
 
-Apache Phoenix adds several performance enhancements, as well as some powerful features, to your HBase queries.
+Apache Phoenix adds several performance enhancements and  features to  HBase queries.
 
 ### Secondary indexes
 
-HBase has a single index which is lexicographically sorted on the primary row key. As such, records can only be accessed through the row key. Accessing records through any column other than the row key, requires scanning all of the data and applying the required filter. In a secondary index, the column or expressions indexed form an alternate row key, allowing lookups and range scans on the index.
+HBase has a single index that is lexicographically sorted on the primary row key. These records can only be accessed through the row key. Accessing records through any column other than the row key requires scanning all of the data while applying the required filter. In a secondary index, the columns or expressions that are indexed form an alternate row key, allowing lookups and range scans on that index.
 
-You can create a secondary index using the `CREATE INDEX` command:
+Create a secondary index with the `CREATE INDEX` command:
 
 ```sql
-CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate)INCLUDE(bookname,quantity);
+CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-This typically yields a significant performance increase over executing queries without an index. Such secondary indexes are known as a **covering index**, wherein the index contains all of the columns included in the query. Therefore, the table lookup is not required and the index satisfies the entire query.
+This approach can yield a significant performance increase over executing single-indexed queries. This type of secondary index is a **covering index**,  containing all of the columns included in the query. Therefore, the table lookup is not required and the index satisfies the entire query.
 
 ### Views
 
-Phoenix views provide a nice way to overcome one of HBase's limitations; the performance degredation experienced when you create more than around 100 physical tables. Views help in this regard by enabling multiple virtual tables to share the same underlying physical HBase table.
+Phoenix views provide a  way to overcome an  HBase limitation, where performance begins to degrade when you create more than about 100 physical tables. Phoenix views enable multiple *virtual tables* to share one underlying physical HBase table.
 
-Creating views is very similar to using standard SQL view syntax. One primary difference is that you can define additional columns for your view in addition to the columns inherited from its base table. You may also optionally add new `KeyValue` columns.
+Creating a Phoenix view is  similar to using standard SQL view syntax. One difference is that you can define columns for your view, in addition to the columns inherited from its base table. You can also  add new `KeyValue` columns.
 
-For example, let's suppose we have a physical table named `product_metrics` with the following definition:
+For example, here is a physical table named `product_metrics` with the following definition:
 
 ```sql
 CREATE  TABLE product_metrics (
@@ -60,7 +61,7 @@ CREATE  TABLE product_metrics (
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
 
-We can define a view over top of this table, that adds additional columns:
+Define a view over this table, with additional columns:
 
 ```sql
 CREATE VIEW mobile_product_metrics (carrier VARCHAR, dropped_calls BIGINT) AS
@@ -68,13 +69,13 @@ SELECT * FROM product_metrics
 WHERE metric_type = 'm';
 ```
 
-Additional columns may be added post-creation with an `ALTER VIEW` statement.
+To add more columns later,  use the `ALTER VIEW` statement.
 
-### Skip Scan
+### Skip scan
 
-Skip scan uses one or more columns of a composite index to find distinct values. This implements intra-row scanning as opposed to Range Scan, yielding [improved performance](http://phoenix.apache.org/performance.html#Skip-Scan). While scanning, the first matched value is skipped along with the index until it finds the next value.
+Skip scan uses one or more columns of a composite index to find distinct values. Unlike a range scan, skip scan implements intra-row scanning, yielding [improved performance](http://phoenix.apache.org/performance.html#Skip-Scan). While scanning, the first matched value is skipped along with the index until the next value is found.
 
-The skip scan leverages the `SEEK_NEXT_USING_HINT` enum of the HBase filter. Using this, the skip scan keeps track of which set of keys or ranges of kees are being searched for in each column. It then takes a key that was passed to it during filter evaluation, and figures out whether it is one of the combinations. If not, it evaluates the next highest key to which to jump.
+A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Using `SEEK_NEXT_USING_HINT`, the skip scan keeps track of which set of keys, or ranges of keys, are being searched for in each column. The skip scan then takes a key that was passed to it during filter evaluation, and determines whether it is one of the combinations. If not, the skip scan evaluates the next highest key to jump to.
 
 ### Transactions
 
@@ -82,29 +83,28 @@ While HBase provides row-level transactions, Phoenix integrates with [Tephra](ht
 
 As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
 
-To create a new table with transactions enabled, use the `TRANSACTIONAL=true` property in your `CREATE` statement:
+To enable Phoenix transactions, see the [Apache Phoenix transaction documentation](http://phoenix.apache.org/transactions.html).
+
+To create a new table with transactions enabled, set the `TRANSACTIONAL` property to `true` in a `CREATE` statement:
 
 ```sql
 CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ```
 
-If you wish to alter an existing table to be transactional, use the same property in an `ALTER` statement:
+To alter an existing table to be transactional, use the same property in an `ALTER` statement:
 
 ```sql
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> Be aware that you cannot switch a transactional table back to being non-transactional.
-
-Follow [these steps](http://phoenix.apache.org/transactions.html) to enable Phoenix transactions.
+> [!NOTE]
+> You cannot switch a transactional table back to being non-transactional.
 
 ### Salted Tables
 
-A common issue when writing records with sequential keys to HBase is known as RegionServer Hotspotting. Though you may have multiple region servers in your cluster, your writes are all occurring on just one. This creates the hotspotting issue where, instead of your write workload being distributed across all of the available region servers, just one is handling the load. Since each region has a pre-defined maximum size, when a region reaches that size limit, it is split into two small regions. When that happens, one of these new regions takes all new records, becoming the new hotspot victim.
+*Region server hotspotting* can occur  when writing records with sequential keys to HBase. Though you may have multiple region servers in your cluster, your writes are all occurring on just one. This concentration creates the hotspotting issue where, instead of your write workload being distributed across all of the available region servers, just one is handling the load. Since each region has a predefined maximum size, when a region reaches that size limit, it is split into two small regions. When that happens, one of these new regions takes all new records, becoming the new hotspot.
 
-To mitigate this problem, achieving better performance, we can pre-split tables in a way that all of the region servers are equally used. Phoenix provides us with Salted tables, where it transparently adds the salting byte to the row key for a particular table. The table is pre-split on the salt byte boundaries to ensure equal load distribution among region servers during the initial phase of the table. This distributes the write workload across all of the available region servers, thus improving the write and read performance. This is achieved by specifying the `SALT_BUCKETS` table property at table creation time.
-
-Example:
+To mitigate this problem and achieve better performance,  pre-split tables so  that all of the region servers are equally used. Phoenix provides *salted tables*,  transparently adding the salting byte to the row key for a particular table. The table is pre-split on the salt byte boundaries to ensure equal load distribution among region servers during the initial phase of the table. This approach distributes the write workload across all of the available region servers, improving the write and read performance. To salt a table,  specify the `SALT_BUCKETS` table property when the table is created:
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -125,19 +125,19 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## Enabling and tuning Phoenix through Ambari
+## Enable and tune Phoenix with Ambari
 
-When you provision an HDInsight HBase cluster, you gain access to [Ambari](hdinsight-hadoop-manage-ambari.md) to easily make configuration changes.
+An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-ambari.md) for making configuration changes.
 
-To enable or disable Phoenix, and to control Phoenix's query timeout settings, log in to Ambari Web UI (https://YOUR_CLUSTER_NAME.azurehdinsight.net) using your Hadoop user credentials specified during cluster creation.
+1. To enable or disable Phoenix, and to control Phoenix's query timeout settings, log in to the Ambari Web UI (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) using your Hadoop user credentials.
 
-Once logged in, select **HBase** from the list of services in the left-hand menu, then select the **Configs** tab.
+2. Select **HBase** from the list of services in the left-hand menu, then select the **Configs** tab.
 
-![Ambari HBase config](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
+    ![Ambari HBase config](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
 
-Find the **Phoenix SQL** configuration section to enable/disable phoenix, as well as set the query timeout in minutes and seconds.
+3. Find the **Phoenix SQL** configuration section to enable or disable phoenix, and set the query timeout.
 
-![Ambari Phoenix SQL configuration section](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
+    ![Ambari Phoenix SQL configuration section](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
 ## See also
 
