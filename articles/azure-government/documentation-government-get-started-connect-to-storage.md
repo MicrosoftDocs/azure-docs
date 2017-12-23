@@ -189,7 +189,7 @@ These endpoint differences must be taken into account when you connect to storag
    Depending on which service you are using, you must define the parameter and set it to the endpoint for that service:
    
 	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-	- QueueEndpoint= //ends with 'table.core.usgovcloudapi.net'
+	- QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
 	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
 	>[!Note]
 	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
