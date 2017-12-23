@@ -129,11 +129,11 @@
       - name: Enable Backup for Azure Stack with PowerShell
         href: azure-stack-backup-enable-backup-powershell.md
       - name: Back up Azure Stack
-        href: azure-stack-backup-back-up-Azure-Stack.md
+        href: azure-stack-backup-back-up-azure-stack.md
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices
-        href: azure-stack-backup-best-pracitices.md
+        href: azure-stack-backup-best-practices.md
       - name: Backup reference
         href: azure-stack-backup-reference.md
   - name: Security, compliance & identity

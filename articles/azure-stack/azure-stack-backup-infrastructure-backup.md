@@ -55,5 +55,5 @@ The services contains the following features.
 
 - Learn how to [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 - Learn how to [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Learn how to [Back up Azure Stack](azure-stack-backup-back-up-Azure-Stack.md)
+- Learn how to [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md )
 - Learn how to [Recover from catastrophic data loss](azure-stack-backup-recover-data.md)

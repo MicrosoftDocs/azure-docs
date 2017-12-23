@@ -1,6 +1,6 @@
 ---
-title: Infrastructure Backup Service reference | Microsoft Docs
-description: This article contains reference material for the Azure Stack Infastructure Backup Service.
+title: Azure Stack Infrastructure Backup Service reference | Microsoft Docs
+description: This article contains reference material for the Azure Stack Infrastructure Backup Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -23,9 +23,9 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack consists of many services that comprise the portal, Azure Resource Manager, and infrastructure management experience. The appliance-like management experience of Azure Stack focuses on reducing the complexity exposed to the operator of the solution. 
+Azure Stack consists of many services that comprise the portal, Azure Resource Manager, and infrastructure management experience. The appliance-like management experience of Azure Stack focuses on reducing the complexity exposed to the operator of the solution.
 
-Infrastructure Backup is designed to internalize the complexity of backing up and restoring data for infrastructure services, ensuring operators can focus on managing the solution and maintaining an SLA to users. 
+Infrastructure Backup is designed to internalize the complexity of backing up and restoring data for infrastructure services, ensuring operators can focus on managing the solution and maintaining an SLA to users.
 
 Exporting the backup data to an external share is required to avoid storing backups on the same system. Requiring an external share gives the administrator the flexibility to determine where to store the data based on existing company BC/DR policies. 
 
