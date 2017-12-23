@@ -208,7 +208,6 @@ Push notifications are normally sent in a back-end service like Mobile Apps or A
 As a next step it is recommended to view the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial as the next step for sending notifications from an ASP.NET back-end. However, the following approaches can be used for sending notifications:
 
 Here is a list of some other tutorials you may want to review for sending notifications:
-* Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back-end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](../articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).  
 * REST Interface:  You can support push notification on any back-end platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * Node.js: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
