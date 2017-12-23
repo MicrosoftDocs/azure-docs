@@ -14,28 +14,30 @@ ms.custom: mvc
 
 # Create container for deployment to Azure Container Instances
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances. We cover:
+Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances.
+
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Cloning application source from GitHub
-> * Creating container images from application source
-> * Testing the images in a local Docker environment
+> * Clone application source code from GitHub
+> * Create a container image from application source
+> * Test the image in a local Docker environment
 
 In subsequent tutorials, you upload your image to an Azure Container Registry, and then deploy it to Azure Container Instances.
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.23 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
 
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic `docker` commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics.
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic `docker` commands. If needed, see [Get started with Docker][docker-get-started] for a primer on container basics.
 
-To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
+Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. You must install the Azure CLI and Docker development environment on your local computer to complete this tutorial.
 
 ## Get application code
 
-The sample in this tutorial includes a simple web application built in [Node.js](http://nodejs.org). The app serves a static HTML page and looks like this:
+The sample in this tutorial includes a simple web application built in [Node.js][nodejs]. The app serves a static HTML page and looks like this:
 
 ![Tutorial app shown in browser][aci-tutorial-app]
 
@@ -47,7 +49,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## Build the container image
 
-The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][dockerhub-nodeimage] based on [Alpine Linux](https://alpinelinux.org/), a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
+The Dockerfile provided in the sample repo shows how the container is built. It starts from an [official Node.js image][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally starts the application.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -58,13 +60,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Use the `docker build` command to create the container image, tagging it as *aci-tutorial-app*:
+Use the [docker build][docker-build] command to create the container image, tagging it as *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Output from the `docker build` command is similar to the following (truncated for readability):
+Output from the [docker build][docker-build] command is similar to the following (truncated for readability):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -85,7 +87,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Use the `docker images` to see the built image:
+Use the [docker images][docker-images] to see the built image:
 
 ```bash
 docker images
@@ -124,9 +126,23 @@ Advance to the next tutorial to learn about storing container images in an Azure
 > [!div class="nextstepaction"]
 > [Push images to Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
-<!-- LINKS -->
-[dockerhub-nodeimage]: https://store.docker.com/images/node
-
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
+
+<!-- LINKS - External -->
+[alpine-linux]: https://alpinelinux.org/
+[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-hub-nodeimage]: https://store.docker.com/images/node
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+[nodejs]: http://nodejs.org
+
+<!-- LINKS - Internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli
