@@ -1,5 +1,5 @@
 --- 
-title: Migrate on-premises data to cloud storage with AzCopy| Microsoft Docs
+title: Migrate on-premises data to Azure Storage with AzCopy| Microsoft Docs
 description: Use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure storage.  
 services: storage 
 author: ruthogunnnaike
@@ -95,7 +95,7 @@ If you only want to copy source resources that do not exist in the destination, 
 ---
 
 ## Create a scheduled task or cron job 
-You can create a scheduled task/cron job that runs an AzCopy command script that identifies and uploads new on-premise data to cloud storage at a specific time interval. 
+You can create a scheduled task/cron job that runs an AzCopy command script that identifies and uploads new on-premises data to cloud storage at a specific time interval. 
 
 Copy the AzCopy command to a text editor. Update the parameter values of AzCopy command to the appropriate values. Save the file as `script.sh` or `script.bat` for AzCopy on Linux and Windows respectively. 
 
