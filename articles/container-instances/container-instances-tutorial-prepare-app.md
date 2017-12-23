@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances.
 
-In part one of the series, you:
+In this article, part one of the series, you:
 
 > [!div class="checklist"]
 > * Clone application source code from GitHub
@@ -87,7 +87,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Use the [docker images][docker-images] to see the built image:
+Use the [docker images][docker-images] command to see the built image:
 
 ```bash
 docker images
