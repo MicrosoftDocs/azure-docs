@@ -79,6 +79,7 @@ These endpoint differences must be taken into account when you connect to storag
     var contact = result.Result as ContactEntity;
     Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
     ```
+
 #### Java
 1. Download the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) and configure your project accordingly.
 2. Create a `CustomerEntity` class in your project and paste the code below:
@@ -150,6 +151,7 @@ These endpoint differences must be taken into account when you connect to storag
 	  }	
     }   
     ```
+
 #### Node.js
 1. Download the [Azure Storage SDK for Node.js](../storage/blobs/storage-nodejs-how-to-use-blob-storage.md#configure-your-application-to-access-storage) and configure your application accordingly.
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
@@ -165,6 +167,7 @@ These endpoint differences must be taken into account when you connect to storag
 	}
 	});
 	```
+
 #### Python
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
 2. When using the Storage SDK for Python to connect to Azure Government, you **must separately define an "endpoint_suffix" parameter**. 
@@ -178,6 +181,7 @@ These endpoint differences must be taken into account when you connect to storag
 	for blob in generator:
 		print(blob.name)
 	```
+
 #### PHP
 1. Download the [Azure Storage SDK for PHP](../php-download-sdk.md).
 2. The code below accesses Azure Table Storage using the Azure Storage API.
@@ -187,13 +191,11 @@ These endpoint differences must be taken into account when you connect to storag
 	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
 	- QueueEndpoint= //ends with 'table.core.usgovcloudapi.net'
 	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-
 	>[!Note]
 	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
 	> **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
 	>
 	
-
 	```php
 	<?php
 	require_once "vendor/autoload.php";
@@ -212,7 +214,8 @@ These endpoint differences must be taken into account when you connect to storag
 	}
 	?>
 	```
-## Next Steps
+
+## Next steps
 * Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
