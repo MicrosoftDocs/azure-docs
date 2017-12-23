@@ -64,6 +64,7 @@ This section walks you through the steps to create a new notification hub and co
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>
 </ol>
+
 &emsp;&emsp;&emsp;&emsp;![Configure APNS in Azure portal][6]
 
 &emsp;&emsp;&emsp;&emsp;![Configure APNS certification in Azure portal][7]
