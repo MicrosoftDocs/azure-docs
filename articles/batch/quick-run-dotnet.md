@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 12/21/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -60,7 +60,7 @@ To see the Batch workflow in action, build and run the application. After runnin
 * Right-click the solution in Solution Explorer, and click **Build Solution**. 
 * Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks.
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks.
 
 ```
 Sample start: 12/4/2017 4:02:54 PM
@@ -72,17 +72,16 @@ Uploading file taskdata2.txt to container [input]...
 Creating pool [DotNetQuickstartPool]...
 Creating job [DotNetQuickstartJob]...
 Adding 3 tasks to job [DotNetQuickstartJob]...
-Awaiting task completion, timeout in 00:30:00...
+Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 ```
 
 After tasks complete, you see output similar to the following for each task:
 
 ```
 Printing task output.
-Task Task0
-Node tvm-2850684224_3-20171205t000401z
-stdout:
-Processing file taskdata0.txt in task Task0:
+Task: Task0
+Node: tvm-2850684224_3-20171205t000401z
+Standard out:
 Batch processing began with mainframe computers and punch cards. Today it still plays a central role in business, engineering, science, and other pursuits that require running lots of automated tasks....
 stderr:
 ...
@@ -97,10 +96,9 @@ Typical execution time is approximately 5 minutes when you run the application i
 The .NET app in this quickstart does the following:
 
 * Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch.
-* Creates a pool of two compute nodes running Windows Server.
+* Creates a pool of compute nodes running Windows Server.
 * Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. 
-* Displays files returned by each task.
-
+* Displays files returned by the tasks.
 
 See the file `Program.cs` and the following sections for details. 
 
@@ -129,7 +127,7 @@ See the file `Program.cs` and the following sections for details.
       inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
   }
   ```
-* The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports Azure Active Directory authentication.
+* The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. (Batch also supports Azure Active Directory authentication.)
 
   ```csharp
   BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -179,11 +177,15 @@ A Batch job specifies a pool to run tasks on and optional settings such as a pri
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) method submits the job to the Batch service. Initially the job has no tasks.
 
 ```csharp
-CloudJob job = batchClient.JobOperations.CreateJob();
+try
+{
+    CloudJob job = batchClient.JobOperations.CreateJob();
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+    job.Commit(); 
+}
+...       
 ```
 
 ### Create tasks
@@ -196,7 +198,7 @@ foreach (ResourceFile inputFile in inputFiles)
     {
     string taskId = "Task" + inputFiles.IndexOf(inputFile);
     string inputfilename = inputFile.FilePath
-    string taskCommandLine = String.Format("cmd /c echo Processing file {0} in task {1} & type {0}", inputfilename, taskId);
+    string taskCommandLine = String.Format("cmd /c type {0}", inputfilename);
     
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFile };
@@ -207,17 +209,16 @@ batchClient.JobOperations.AddTaskAsync(JobId, tasks).Wait();
  
 ### View task output
 
-The app creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) to monitor the tasks to make sure they complete. Then, the app uses the [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) property to display the `stdout.txt` and `stderr.txt` files generated by each completed task. When the task runs successfully, the output of the task command is written to stdout.txt, and stderr.txt is an empty file:
+The app creates a [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) to monitor the tasks to make sure they complete. Then, the app uses the [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) property to display the `stdout.txt` file generated by each completed task. When the task runs successfully, the output of the task command is written to `stdout.txt`:
 
 ```csharp
 foreach (CloudTask task in completedtasks)
 {
     string nodeId = String.Format(task.ComputeNodeInformation.ComputeNodeId);
-    Console.WriteLine("Task " + task.Id);
-    Console.WriteLine("Node " + nodeId);
-    Console.WriteLine("stdout:" + Environment.NewLine + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
-    Console.WriteLine();
-    Console.WriteLine("stderr:" + Environment.NewLine + task.GetNodeFile(Constants.StandardErrorFileName).ReadAsString());
+    Console.WriteLine("Task: {0}", task.Id);
+    Console.WriteLine("Node: {0}", nodeId);
+    Console.WriteLine("Standard out:");
+    Console.WriteLine(task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
 }
 ```
 
