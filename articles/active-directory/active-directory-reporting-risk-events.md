@@ -138,7 +138,7 @@ We recommend that you immediately contact the user to verify if they were using 
 Impossible travel is usually a good indicator that a hacker was able to successfully sign-in. However, false-positives may occur when a user is traveling using a new device or using a VPN that is typically not used by other users in the organization. Another source of false-positives is applications that incorrectly pass server IPs as client IPs, which may give the appearance of sign-ins taking place from the data center where that application’s back-end is hosted (often these are Microsoft datacenters, which may give the appearance of sign-ins taking place from Microsoft owned IP addresses). As a result of these false-positives, the risk level for this risk event is **Medium**.
 
 > [!TIP]
-> You can reduce the amount of reported false-positves for this risk event type by configuring [named locations](active-directory-named-locations.md). 
+> You can reduce the amount of reported false-positives for this risk event type by configuring [named locations](active-directory-named-locations.md). 
 
 ### Sign-in from unfamiliar locations
 
