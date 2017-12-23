@@ -16,14 +16,16 @@ ms.custom: mvc
 
 This is part two of a three-part tutorial. In the [previous step](container-instances-tutorial-prepare-app.md), a container image was created for a simple web application written in [Node.js][nodejs]. In this tutorial, you push the image to an Azure Container Registry. If you have not created the container image, return to [Tutorial 1 – Create container image](container-instances-tutorial-prepare-app.md).
 
-The Azure Container Registry is an Azure-based, private registry for Docker container images. This tutorial walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
+The Azure Container Registry is an Azure-based, private registry for Docker container images. This tutorial walks you through deploying an Azure Container Registry instance, and pushing a container image to it.
+
+In this article, part two of the series, you:
 
 > [!div class="checklist"]
-> * Deploying an Azure Container Registry instance
-> * Tagging container image for Azure Container Registry
-> * Uploading image to Azure Container Registry
+> * Deploy an Azure Container Registry instance
+> * Tag a container image for your Azure container registry
+> * Upload the image to your registry
 
-In the next tutorial, you deploy the container from your private registry to Azure Container Instances.
+In the next article, the final tutorial in the series, you deploy the container from your private registry to Azure Container Instances.
 
 ## Before you begin
 
