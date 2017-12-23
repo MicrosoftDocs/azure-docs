@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/27/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances.
 
-In this tutorial, you:
+In part one of the series, you:
 
 > [!div class="checklist"]
 > * Clone application source code from GitHub
