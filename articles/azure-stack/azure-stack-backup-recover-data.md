@@ -68,4 +68,4 @@ None of the user Infrastructure as a Service (IaaS) or Platform as a Service (Pa
 
 ## Next steps
 
- - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).
+ - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-pracitices.md).

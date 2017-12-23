@@ -133,7 +133,7 @@
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices
-        href: azure-stack-backup-best-practices.md
+        href: azure-stack-backup-best-pracitices.md
       - name: Backup reference
         href: azure-stack-backup-reference.md
   - name: Security, compliance & identity
