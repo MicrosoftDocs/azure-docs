@@ -87,13 +87,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 To start a Compose deployment upgrade, use the following command:
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
