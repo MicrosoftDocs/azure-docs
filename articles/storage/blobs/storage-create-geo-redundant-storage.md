@@ -34,7 +34,7 @@ In part one of the series, you learn how to:
 
 To complete this tutorial:
  
-# [.Net] (#tab/dotnet)
+# [.NET] (#tab/dotnet)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
@@ -43,9 +43,11 @@ To complete this tutorial:
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
  
 # [Python] (#tab/python) 
+
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,12 +83,13 @@ Follow these steps to create a read-access geo-redundant storage account:
 
 ## Download the sample
 
-# [.Net] (#tab/dotnet)
+# [.NET] (#tab/dotnet)
+
 [Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)  or use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 Extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
 The sample project contains a console application.
 
-```
+```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
 # [Python] (#tab/python) 
@@ -95,7 +98,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 Extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
 The sample project contains a basic Python application.
 
-```
+```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 ---
@@ -119,7 +122,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 ## Run the console application
 
-# [.Net] (#tab/dotnet)
+# [.NET] (#tab/dotnet)
 In Visual Studio, press **F5** or select **Start** to start debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit to [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
@@ -130,10 +133,9 @@ In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file i
 
 
 # [Python] (#tab/python) 
-
 The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
-![Console app running](media/storage-create-geo-redundant-storage/pythonfigure3.png)
+![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
 In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method. 
 
@@ -145,7 +147,7 @@ Prior to the download, the Service object [retry_callback](https://docs.microsof
 
 ### Retry event handler
 
-# [.Net] (#tab/dotnet)
+# [.NET] (#tab/dotnet)
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries, which are defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
 
@@ -198,7 +200,7 @@ def retry_callback(retry_context):
 ---
 ### Request completed event handler
 
-# [.Net] (#tab/dotnet)
+# [.NET] (#tab/dotnet)
 
 The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 

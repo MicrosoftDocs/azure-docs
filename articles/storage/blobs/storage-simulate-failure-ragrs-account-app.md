@@ -15,7 +15,7 @@ ms.author: v-ruogun
 
 # Simulate a failure in accessing read-access redundant storage
 
-This tutorial is part two of a series.  In this tutorial, you use [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
+This tutorial is part two of a series.  In this tutorial, you can use [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -133,9 +133,11 @@ To add a static route for a destination host, type the following command on a Wi
 
 
 # [Linux](#tab/linux)
+
   route add <destination_ip> gw <gateway_ip>
 
 # [Windows](#tab/windows)
+
   route add <destination_ip> <gateway_ip>
 
 ---
@@ -150,14 +152,15 @@ To simulate the primary endpoint functioning again, delete the static route of t
 
 To delete the static route of a destination host, the storage account, type the following command on a Windows command prompt or linux terminal. 
  
-```
-# Windows command prompt
-route delete <destination_ip> <gateway_ip>
-``` 
-```
-# Linux terminal 
+# [Linux](#tab/linux)
+
 route del <destination_ip> gw <gateway_ip>
-```
+
+# [Windows](#tab/windows)
+
+route delete <destination_ip> <gateway_ip>
+
+---
 
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
