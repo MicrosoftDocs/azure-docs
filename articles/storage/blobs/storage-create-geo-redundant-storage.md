@@ -10,16 +10,17 @@ editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
 
 # Make your application data highly available with Azure storage
 
-This tutorial is part one of a series. This tutorial shows you how to make your application data highly available in Azure. When you're finished, you have a .NET core console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker.md) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
+This tutorial is part one of a series. This tutorial shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
+
 
 In part one of the series, you learn how to:
 
@@ -32,13 +33,20 @@ In part one of the series, you learn how to:
 ## Prerequisites
 
 To complete this tutorial:
-
+ 
+# [.Net] (#tab/dotnet)
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# [Python] (#tab/python) 
+* Install [Python](https://www.python.org/downloads/)
+* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,10 +81,25 @@ Follow these steps to create a read-access geo-redundant storage account:
 
 ## Download the sample
 
-[Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
-
+# [.Net] (#tab/dotnet)
+[Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)  or use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 Extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
 The sample project contains a console application.
+
+```
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+```
+# [Python] (#tab/python) 
+
+[Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) or use [git](https://git-scm.com/) to download a copy of the application to your development environment.
+Extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
+The sample project contains a basic Python application.
+
+```
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+---
+
 
 ## Set the connection string
 
@@ -84,22 +107,19 @@ In the application, you must provide the connection string for your storage acco
 
 In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until to reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
 
-### Linux
+# [Linux] (#tab/linux) 
+export storageconnectionstring=<yourconnectionstring> 
 
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-
-### Windows
-
-```cmd
+# [Windows] (#tab/windows) 
 setx storageconnectionstring "<yourconnectionstring>"
-```
+
+---
 
 ![app config file](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## Run the console application
 
+# [.Net] (#tab/dotnet)
 In Visual Studio, press **F5** or select **Start** to start debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit to [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
 A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
@@ -108,7 +128,24 @@ A console window launches and the application begins running. The application up
 
 In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) method. Prior to the download an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
 
+
+# [Python] (#tab/python) 
+
+The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+
+![Console app running](media/storage-create-geo-redundant-storage/pythonfigure3.png)
+
+In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method. 
+
+The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
+ 
+Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
+
+---
+
 ### Retry event handler
+
+# [.Net] (#tab/dotnet)
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries, which are defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
 
@@ -136,7 +173,32 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
+# [Python] (#tab/python) 
+The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retry defined in the application is reached, the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
 ### Request completed event handler
+
+# [.Net] (#tab/dotnet)
 
 The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
@@ -156,6 +218,25 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
     }
 }
 ```
+
+# [Python] (#tab/python) 
+
+The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
 
 ## Next steps
 
