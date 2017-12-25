@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 12/25/2017
 ms.author: raynew
 ---
 
@@ -68,11 +68,11 @@ To install the agent on a Linux machine:
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate. 
 
-> [!NOTE]
-> If a dependent machine is not discovered by Azure Migrate, you cannot add it to the group. To add such machines to the group, you need to run the discovery process again with the right scope in vCenter Server and ensure that the machine is discovered by Azure Migrate.  
+    > [!NOTE]
+    > If a dependent machine is not discovered by Azure Migrate, you cannot add it to the group. To add such machines to the group, you need to run the discovery process again with the right scope in vCenter Server and ensure that the machine is discovered by Azure Migrate.  
 
-8. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
-9. Click **OK** to save the group.
+7. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
+8. Click **OK** to save the group.
 
 Once the group is created, it is recommended to install agents on all the machines of the group and refine the group by visualizing the dependency of the entire group.
 
