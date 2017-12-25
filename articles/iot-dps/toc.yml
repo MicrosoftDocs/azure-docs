@@ -71,6 +71,8 @@
       href: how-to-manage-enrollments.md
     - name: Manage device enrollments with Service SDKs
       href: how-to-manage-enrollments-sdks.md
+  - name: Revoke device access
+    href: how-to-revoke-device-access-portal.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
   - name: Control access to Provisioning Service
