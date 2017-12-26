@@ -79,6 +79,8 @@
       href: concepts-on-premises-to-azure-networking.md
     - name: Set up IP addressing for access to a secondary site after failover
       href: concepts-on-premises-to-on-premises-networking.md
+    - name: Network interface management for on-premises to Azure scenarios
+      href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
   - name: Disaster recovery
     items:
     - name: Hyper-V VMs to Azure
@@ -195,6 +197,8 @@
         href: site-recovery-replicate-vmware-to-azure.md
   - name: Automate
     items:
+    - name: Replicate VMware virtual machines to Azure using PowerShell
+      href: site-recovery-vmware-to-azure-powershell.md
     - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
       href: site-recovery-deploy-with-powershell-resource-manager.md
     - name: Set up Hyper-V replication to Azure (with VMM) using PowerShell
@@ -262,7 +266,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.siterecovery
+    href: /powershell/module/azurerm.recoveryservices.siterecovery
   - name: Azure PowerShell classic
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST

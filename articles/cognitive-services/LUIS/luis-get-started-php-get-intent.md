@@ -49,4 +49,4 @@ You can use PHP to access the same results you saw in the browser window in the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Add utterances](luis-quickstart-php-add-utterance.md)
