@@ -42,7 +42,7 @@ The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-s
 
 ### Conversion to function.json
 
-When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers and bindings and points to the project assembly file.
+When you build an Azure Functions project, a *function.json* file is created in the function's directory. The directory name is the same as the function name that the `[FunctionName]` attribute specifies. The *function.json* file contains triggers, input and output bindings, and points to the project assembly file.
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -122,7 +122,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 Azure Functions supports triggers and input and output bindings for Cosmos DB. To learn more about the features of the Cosmos DB binding, see [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md).
 
-To trigger from a Cosmos DB document, use the attribute `[CosmosDBTrigger]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example triggers from a specific `database` and `collection`. The setting `myCosmosDB` contains the connection to the Cosmos DB instance. 
+To trigger from a Cosmos DB document, use the attribute `[CosmosDBTrigger]` in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. The following example triggers from a specific `database` and `collection`. The app setting `myCosmosDB` contains the connection string to the Cosmos DB instance. 
 
 ```csharp
 [FunctionName("DocumentUpdates")]
@@ -166,7 +166,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-The following example has an Event Hub output, using the method return value as the output:
+The following example uses the method's return value as the Event Hub output binding:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -267,7 +267,6 @@ public static class QueueFunctions
 {
     // Queue trigger
     [FunctionName("QueueTrigger")]
-    [StorageAccount("AzureWebJobsStorage")]
     public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
@@ -316,7 +315,7 @@ Note that this example requires the SendGrid API key to be storage in an applica
 
 ### Service Bus trigger and output
 
-Azure Functions supports trigger and output bindings for Service Bus queues and topics. For more information on configuring bindings, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
+Azure Functions supports trigger, input, and output bindings for Service Bus queues and topics. For more information on configuring bindings, see [Azure Functions Service Bus bindings](functions-bindings-service-bus.md).
 
 The attributes `[ServiceBusTrigger]` and `[ServiceBus]` are defined in the NuGet package [Microsoft.Azure.WebJobs.ServiceBus]. 
 
