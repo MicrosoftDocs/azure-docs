@@ -31,21 +31,21 @@ You can take one of two approaches for requiring two-step verification. The firs
 
 **Enabling Azure Multi-Factor Authentication with a conditional access policy** is a more flexible approach for requiring two-step verification. It only works for Azure Multi-Factor Authentication in the cloud, though, and _conditional access_ is a [paid feature of Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features). You can create conditional access policies that apply to groups as well as individual users. High-risk groups can be given more restrictions than low-risk groups, or two-step verification can be required only for high-risk cloud apps and skipped for low-risk ones. 
 
-Both options prompt users to register for Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md).
+Both options prompt users to register for Azure Multi-Factor Authentication the first time they sign in after the requirements turn on. Both options also work with the configurable [Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md).
 
 ## Enable Azure Multi-Factor Authentication by changing user status
 
-User accounts in Multi-Factor Authentication have the following three distinct states:
+User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
 | Status | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
 |:---:|:---:|:---:|:--:|:--:|
-| Disabled |The default state for a new user not enrolled in Multi-Factor Authentication. |No |No |No |
-| Enabled |The user has been enrolled in Multi-Factor Authentication, but has not registered. They receive a prompt to register the next time they sign in. |No.  They continue to work until the registration process is completed. | Yes. After the session expires, Multi-Factor Authentication registration is required.| Yes. After the access token expires, Multi-Factor Authentication registration is required. |
-| Enforced |The user has been enrolled and has completed the registration process for Multi-Factor Authentication. |Yes.  Apps require app passwords. |Yes. Multi-Factor Authentication is required at login. | Yes. Multi-Factor Authentication is required at login. |
+| Disabled |The default state for a new user not enrolled in Azure Multi-Factor Authentication. |No |No |No |
+| Enabled |The user has been enrolled in Azure Multi-Factor Authentication, but has not registered. They receive a prompt to register the next time they sign in. |No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
+| Enforced |The user has been enrolled and has completed the registration process for Azure Multi-Factor Authentication. |Yes.  Apps require app passwords. |Yes. Azure Multi-Factor Authentication is required at login. | Yes. Azure Multi-Factor Authentication is required at login. |
 
-A user's state reflects whether an admin has enrolled them in Multi-Factor Authentication, and whether they completed the registration process.
+A user's state reflects whether an admin has enrolled them in Azure Multi-Factor Authentication, and whether they completed the registration process.
 
-All users start out *Disabled*. When you enroll users in Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.  
+All users start out *Disabled*. When you enroll users in Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.  
 
 ### View the status for a user
 
@@ -60,7 +60,7 @@ Use the following steps to access the page where you can view and manage user st
 
 ### Change the status for a user
 
-1. Use the preceding steps to get to the Multi-Factor Authentication **users** page.
+1. Use the preceding steps to get to the Azure Multi-Factor Authentication **users** page.
 2. Find the user you want to enable. You might need to change the view at the top. 
    ![Find user - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 3. Check the box next to their name.
@@ -68,7 +68,7 @@ Use the following steps to access the page where you can view and manage user st
    ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
 
    >[!TIP]
-   >*Enabled* users are automatically switched to *Enforced* when they register for Multi-Factor Authentication. Do not manually change the user state to *Enforced*. 
+   >*Enabled* users are automatically switched to *Enforced* when they register for Azure Multi-Factor Authentication. Do not manually change the user state to *Enforced*. 
 
 5. Confirm your selection in the pop-up window that opens. 
 
@@ -81,7 +81,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/overvi
 * Enforced
 * Disabled  
 
-Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Multi-Factor Authentication registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
+Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure Multi-Factor Authentication registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords). 
 
 Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 
@@ -121,4 +121,4 @@ The other options in the conditional access policy give you the ability to speci
 
 - Get tips on the [Best practices for conditional access](../active-directory/active-directory-conditional-access-best-practices.md).
 
-- Manage Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md).
+- Manage Azure Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md).
