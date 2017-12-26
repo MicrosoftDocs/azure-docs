@@ -1,31 +1,22 @@
 ---
 title: Run a disaster recovery drill for on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: ddd17921-68f4-41c7-ba4c-b767d36f1733
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.topic: tutorial
+ms.date: 12/26/2017
 ms.author: raynew
 
 ---
 # Run a disaster recovery drill to Azure
 
-This tutorial shows you how to run a disaster recovery drill for on-premises machines to Azure,
+This tutorial shows you how to run a disaster recovery drill for an on-premises machine to Azure,
 using a test failover. A drill validates your replication strategy without data loss. In this
 tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up an isolated network for the test failover
-> * Prepare to connect to Azure VMs after failover
+> * Prepare to connect to the Azure VM after failover
 > * Run a test failover for a single machine
 
 This is the fourth tutorial in a series. This tutorial assumes that you have already completed the
@@ -81,7 +72,7 @@ Run the test failover as follows:
    and that it's running.
 6. You should now be able to connect to the replicated VM in Azure.
 7. To delete Azure VMs created during the test failover, click **Cleanup test failover** on the
-   recovery plan. In **Notes**, record and save any observations associated with the test failover.
+  VM. In **Notes**, record and save any observations associated with the test failover.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes
 to complete. You might notice longer test failover times for VMware Linux machines, VMware VMs that
