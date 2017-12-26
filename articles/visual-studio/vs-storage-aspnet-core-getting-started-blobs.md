@@ -93,7 +93,7 @@ This section walks through setting up the development environment. This includes
 
 ## Connect to a storage account and get a container reference
 
-A blob container is a nested hierarchy of blobs and folders. The rest of the steps in this document require a reference to a blob container, so that code should be placed its own method for reusability.
+A blob container is a nested hierarchy of blobs and folders. The rest of the steps in this document require a reference to a blob container, so that code should be placed in its own method for reusability.
 
 The following steps create a method to connect to the storage account by using the connection string in **appsettings.json**. The steps also create a reference to a container. The connection string setting in **appsettings.json** is named with the format `<storageaccountname>_AzureStorageConnectionString`. 
 
@@ -199,7 +199,7 @@ The following steps illustrate how to create a blob container:
 
 ## Upload a blob into a blob container
 
-Once the [blob container is created](#create-a-blob-container), upload files into that container. This section walks through uploading a local file to a blob container. The steps assume there is a blob container named *test-blob-container*. 
+When the [blob container is created](#create-a-blob-container), upload files into that container. This section walks through uploading a local file to a blob container. The steps assume there is a blob container named *test-blob-container*. 
 
 1. Open the `BlobsController.cs` file.
 
@@ -220,7 +220,7 @@ Once the [blob container is created](#create-a-blob-container), upload files int
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Azure storage supports different blob types. This tutorial uses block blobs.  To retrieve a reference to a block blob, call the `CloudBlobContainer.GetBlockBlobReference` method.
+1. Azure storage supports different blob types. This tutorial uses block blobs. To retrieve a reference to a block blob, call the `CloudBlobContainer.GetBlockBlobReference` method.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -229,7 +229,7 @@ Once the [blob container is created](#create-a-blob-container), upload files int
     > [!NOTE]
     > The blob name is part of the URL used to retrieve a blob, and can be any string, including the name of the file.
 
-1. Once there is a blob reference, upload any data stream to it by calling the blob reference object's `UploadFromStream` method. The `UploadFromStream` method creates the blob if it doesn't exist, or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qualified path to a file to be uploaded.)
+1. After there is a blob reference, you can upload any data stream to it by calling the blob reference object's `UploadFromStream` method. The `UploadFromStream` method creates the blob if it doesn't exist, or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qualified path to a file to be uploaded.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
