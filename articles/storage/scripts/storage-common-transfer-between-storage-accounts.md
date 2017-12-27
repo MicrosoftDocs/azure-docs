@@ -20,7 +20,7 @@ ms.author: v-rogara
 
 # Migrate blobs across storage accounts using AzCopy on Windows
 
-This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory). Then the script copies the Blob contents of the source storage account to the target storage account.
+This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory). Then the script copies the blob objects from the source storage account to the target storage account.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
