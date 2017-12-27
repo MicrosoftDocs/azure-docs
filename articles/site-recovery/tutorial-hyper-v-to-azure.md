@@ -25,7 +25,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
 
-Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-azure-architecture) for this disaster recovery scenario.
+Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
 
 ## Select a replication goal
 
