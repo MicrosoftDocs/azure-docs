@@ -145,7 +145,7 @@ With the `ICounter` interface implemented, the final step is to open the Service
 
 In this case, we replace the existing `CreateServiceReplicaListeners` method and provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through `ServiceProxy`.  
 
-The `CreateServiceRemotingListener` extension method on the `IService` interface allows you to easily create a `ServiceRemotingListener` with all default settings. To use this extension method, ensure you have the `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace imported. 
+The `CreateServiceRemotingReplicaListeners` extension method on the `IService` interface allows you to easily create a `ServiceRemotingListener` with all default settings. To use this extension method, ensure you have the `Microsoft.ServiceFabric.Services.Remoting.Runtime` namespace imported. 
 
 ```c#
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
@@ -154,12 +154,7 @@ using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
-    return new List<ServiceReplicaListener>()
-    {
-        new ServiceReplicaListener(
-            (context) =>
-                this.CreateServiceRemotingListener(context))
-    };
+    return this.CreateServiceRemotingReplicaListeners();
 }
 ```
 
