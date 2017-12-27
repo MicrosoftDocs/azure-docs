@@ -24,7 +24,9 @@ ms.author: ashishth
 Hadoop includes two core components, the High Density File System (HDFS) that provides storage, and Yet Another Resource Negotiator (YARN) that provides processing. With storage and processing capabilities a cluster becomes capable of running MapReduce programs to perform the desired data processing.
 
 > [!NOTE]
-> As described in [HDInsight architecture](hdinsight-architecture.md), an HDFS is not typically deployed within the HDInsight cluster to provide storage. Instead, an HDFS-compatible interface layer is used by Hadoop  components. The actual storage capability is provided by either Azure Storage or Azure Data Lake Store. For Hadoop, MapReduce jobs executing on the HDInsight cluster run as if an HDFS were present and so require no changes to support their storage needs. In Hadoop on HDInsight, storage is outsourced, but YARN processing  remains a core component. 
+> An HDFS is not typically deployed within the HDInsight cluster to provide storage. Instead, an HDFS-compatible interface layer is used by Hadoop  components. The actual storage capability is provided by either Azure Storage or Azure Data Lake Store. For Hadoop, MapReduce jobs executing on the HDInsight cluster run as if an HDFS were present and so require no changes to support their storage needs. In Hadoop on HDInsight, storage is outsourced, but YARN processing  remains a core component. 
+
+<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
 
 This article introduces YARN and how it coordinates the execution of applications on HDInsight, and then shows how Spark utilizes YARN to run Spark jobs.
 
@@ -91,5 +93,6 @@ After Spark jobs complete, then job execution information is available in the Sp
 
 ## See also
 
-* [HDInsight Architecture](hdinsight-architecture.md)
 * [Use MapReduce in Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md)
+
+<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
