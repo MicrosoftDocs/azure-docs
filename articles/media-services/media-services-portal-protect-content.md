@@ -31,7 +31,7 @@ To use the portal to configure global content protection by using your Media Ser
 
 2. Select **Settings** > **Content protection**.
 
-![Content protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
+    ![Content protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## Key/license authorization policy
 Media Services supports multiple ways of authenticating users who make key or license requests. You must configure the content key authorization policy. Your client then must meet the policy for the key/license to be delivered to it. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions.

@@ -1,5 +1,5 @@
 ---
-title: Use AES-128 dynamic encryption and key delivery service | Microsoft Docs
+title: Use AES-128 dynamic encryption and the key delivery service | Microsoft Docs
 description: Deliver your content encrypted with AES 128-bit encryption keys by using Microsoft Azure Media Services. Media Services also provides the key delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
@@ -70,7 +70,7 @@ The following image demonstrates the workflow previously described. Here, the to
 
 ![Protect with AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-The rest of this article provides explanations, code examples, and links to topics that show you how to achieve the tasks previously described.
+The remainder of this article provides explanations, code examples, and links to topics that show you how to achieve the tasks previously described.
 
 ## Current limitations
 If you add or update your asset's delivery policy, you must delete any existing locator and create a new locator.
@@ -100,7 +100,7 @@ Media Services supports multiple ways of authenticating users who make key reque
 
 For more information, see [Configure a content key authorization policy](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Configure asset delivery policy
+## <a id="configure_asset_delivery_policy"></a>Configure an asset delivery policy
 Configure the delivery policy for your asset. Some things that the asset delivery policy configuration includes are:
 
 * The key acquisition URL. 
