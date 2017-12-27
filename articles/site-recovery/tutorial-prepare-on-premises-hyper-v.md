@@ -4,7 +4,7 @@ description: Learn how to prepare on-premises Hyper-V VMs not managed by System 
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 12/27/2017
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -15,8 +15,7 @@ ms.custom: MVC
 This tutorial shows you how to prepare your on-premises Hyper-V infrastructure when you want to replicate Hyper-V VMs to Azure, for the purposes of disaster recovery. Hyper-V hosts can be managed by System Center Virtual Machine Manager (VMM), but it's not required.  In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Review Hyper-V server, and VMM (if applicable) requirements
-> * Review Hyper-V VM requirements
+> * Review Hyper-V requirements, and VMM requirements if applicable.
 > * Prepare VMM if applicable
 > * Verify internet access to Azure locations
 > * Prepare VMs so that you can access them after failover to Azure
