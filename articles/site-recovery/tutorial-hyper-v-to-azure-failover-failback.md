@@ -46,8 +46,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 1. In **Protected Items**, click **Replicated Items** > <VM-name>.
 
 2. In the **Replicated item** pane, review the VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
-     - In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and
-   [managed disk settings](#managed-disk-considerations). You can also view and modify network settings, including the network/subnet in which the Azure VM
+     - In **Compute and Network**, you can modify the VM settings, and network settings, including the network/subnet in which the Azure VM. Managed disks aren't supported for failback from Azure to Hyper-V.
    will be located after failover, and the IP address that will be assigned to it.
     - In **Disks**, you can see information about the operating system and data disks on the VM.
 
