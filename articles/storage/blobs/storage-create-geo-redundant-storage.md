@@ -111,10 +111,10 @@ In the application, you must provide the connection string for your storage acco
 In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until to reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
 
 # [Linux] (#tab/linux) 
-export storageconnectionstring=<yourconnectionstring> 
+export storageconnectionstring=\<yourconnectionstring\> 
 
 # [Windows] (#tab/windows) 
-setx storageconnectionstring "<yourconnectionstring>"
+setx storageconnectionstring "\<yourconnectionstring\>"
 
 ---
 
