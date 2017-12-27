@@ -195,12 +195,10 @@ Your notification hub is now configured to work with APNS, and you have the conn
             }
         }
     ```
-   
-
    > [!NOTE]
    > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
-   > 
-   
+  
+
 12. Run the app on your device.
 
 ## Sending Test Push Notifications
