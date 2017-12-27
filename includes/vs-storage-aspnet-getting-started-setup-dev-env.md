@@ -1,6 +1,6 @@
 ## Set up the development environment
 
-This section walks through setting up the development environment. This includes creating an ASP.NET MVC app, adding a Connected Services connection, adding a controller, and specifying the required namespace directives.
+This section walks through setting up the development environment. This includes creating an ASP.NET MVC app, adding a connected services connection, adding a controller, and specifying the required namespace directives.
 
 ### Create an ASP.NET MVC app project
 
@@ -16,7 +16,7 @@ This section walks through setting up the development environment. This includes
 
 	![Screenshot of New ASP.NET Web Application dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-### Use Connected Services to connect to an Azure storage account
+### Use connected services to connect to an Azure storage account
 
 1. In **Solution Explorer**, right-click the project. From the context menu, select **Add** > **Connected Service**.
 

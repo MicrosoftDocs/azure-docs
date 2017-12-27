@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Blob storage and Visual Studio connected services (ASP.NET) | Microsoft Docs
-description: How to get started using Azure Blob storage in an ASP.NET project in Visual Studio, after connecting to a storage account by using Visual Studio Connected Services
+description: How to get started using Azure Blob storage in an ASP.NET project in Visual Studio, after connecting to a storage account by using Visual Studio connected services
 services: storage
 documentationcenter: ''
 author: kraigb
@@ -25,7 +25,7 @@ ms.author: kraig
 
 Azure Blob storage is a service that stores unstructured data in the cloud as objects or blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
-This tutorial shows how to write ASP.NET code for some common scenarios that use Azure blob storage. Scenarios 
+This tutorial shows how to write ASP.NET code for some common scenarios that use Blob storage. Scenarios 
 include creating a blob container, and uploading, listing, downloading, and deleting blobs.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
