@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (w
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/19/2017
+ms.date: 12/27/2017
 ms.author: raynew
 ---
 
@@ -17,8 +17,8 @@ This tutorial shows you how to set up disaster recovery of on-premises Hyper-V V
 > [!div class="checklist"]
 > * Select your replication source and target.
 > * Set up the source replication environment, including on-premises Site Recovery components, and the target replication environment.
-> * Create a replication policy
-> * Enable replication for a VM
+> * Create a replication policy.
+> * Enable replication for a VM.
 
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
@@ -30,7 +30,7 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 ## Select a replication goal
 
 
-1. In **All Services** > **Recovery Services vaults**, click the vault name, **ContosoVMVault**.
+1. In **All Services** > **Recovery Services vaults**, click the name of the vault we prepared in the previous tutorial, **ContosoVMVault**.
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
@@ -41,19 +41,20 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 
 ## Set up the source environment
 
-To set up the the source environment, you add Hyper-V hosts to a Hyper-V site, download and install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register the Hyper-V site in the vault. 
+To set up the source environment, you add Hyper-V hosts to a Hyper-V site, download and install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register the Hyper-V site in the vault. 
 
 1. In **Prepare Infrastructure**, click **Source**.
-2. Click **+Hyper-V Site**, and specify the name **ContosoHyperVSite**.
+2. Click **+Hyper-V Site**, and specify the name of the site we created in the previous tutorial, **ContosoHyperVSite**.
 3. Click **+Hyper-V Server**.
 4. Download the Provider setup file.
 5. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
 
     ![Download Provider](./media/tutorial-hyper-v-to-azure/download.png)
+    
 
 ### Install the Provider
 
-Run the Provider file (AzureSiteRecoveryProvider.exe) on each Hyper-V host you added to the **ContosoHyperVSite** site. This installs the Azure Site Recovery Provider, and Recovery Services agent, on each Hyper-V host.
+Run the Provider setup file (AzureSiteRecoveryProvider.exe) on each Hyper-V host you added to the **ContosoHyperVSite** site. Setup installs the Azure Site Recovery Provider and Recovery Services agent, on each Hyper-V host.
 
 1. In the Azure Site Recovery Provider Setup wizard > **Microsoft Update**, opt in to use Microsoft Update to check for Provider updates.
 2. In **Installation**, accept the default installation location for the Provider and agent, and click **Install**.
@@ -70,7 +71,7 @@ Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the se
 Select and verify target resources. 
 
 1. Click **Prepare infrastructure** > **Target**.
-2. Select the subscription and the resource group (**ContosoRG**) in which the Azure VMs will be created after failover.
+2. Select the subscription and the resource group **ContosoRG**, in which the Azure VMs will be created after failover.
 3. Select the **Resource Manager"** deployment model.
 
 Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
@@ -96,7 +97,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 1. In **Replicate application**, click **Source**. 
 2. In **Source**, select the **ContosoHyperVSite** site. Then click **OK**.
 3. In **Target**, verify Azure as the target, the vault subscription, and the **Resource Manager** deployment model.
-4. Select the **contosovmsacct1910171607** storage account for replicated data, and the **ContosoASRnet** network, in which Azure VMs will be located after failover.
+4. Select the **contosovmsacct1910171607** storage account we created in the previous tutorial for replicated data, and the **ContosoASRnet** network, in which Azure VMs will be located after failover.
 5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then click **OK**.
 
  You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
