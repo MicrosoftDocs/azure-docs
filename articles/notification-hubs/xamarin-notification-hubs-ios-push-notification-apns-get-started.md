@@ -85,23 +85,24 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 4. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages...**. Search for **NotificationHubs.iOS** and add the package to your project.
 
-5. In **AppDelegate.cs**, add the following using statement:
-   
-    ```csharp
-        using WindowsAzure.Messaging;
-    ```
-
-6. Declare an instance of **SBNotificationHub**:
-   
-    ```csharp
-        private SBNotificationHub Hub { get; set; }
-    ```
-7. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
+5. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
    
     ```csharp
         // Azure app-specific connection string and hub path
         public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<Azure hub path>";
+    ```
+
+6. In **AppDelegate.cs**, add the following using statement:
+   
+    ```csharp
+        using WindowsAzure.Messaging;
+    ```
+
+7. Declare an instance of **SBNotificationHub**:
+   
+    ```csharp
+        private SBNotificationHub Hub { get; set; }
     ```
 
 8. In **AppDelegate.cs**, update **FinishedLaunching()** to match the following:
