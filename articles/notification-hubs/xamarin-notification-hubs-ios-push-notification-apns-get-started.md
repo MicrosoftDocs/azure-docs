@@ -83,7 +83,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
     ![Visual Studio- iOS App Config][32]
 
-4. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages...**. Search for **NotificationHubs.iOS** and add the package to your project.
+4. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages**. Search for **Xamarin.Azure.NotificationHubs.iOS** and add the package to your project.
 
 5. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
    
@@ -200,7 +200,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
    > [!NOTE]
    > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
    > 
-   > 
+   
 12. Run the app on your device.
 
 ## Sending Test Push Notifications
