@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery of on-premises Hyper-V VMs in
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 12/27/2017
 ms.author: raynew
 ---
 
@@ -32,7 +32,7 @@ Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-
 
 ## Select a replication goal
 
-1. In **All Services** > **Recovery Services vaults**, click the vault name, **ContosoVMVault**.
+1. In **All Services** > **Recovery Services vaults**, click the vault name we use in these tutorials, **ContosoVMVault**.
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
 3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
 4. In **Where do you want to replicate your machines**, select **To Azure**.
