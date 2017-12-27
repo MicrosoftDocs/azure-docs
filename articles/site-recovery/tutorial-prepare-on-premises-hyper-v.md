@@ -98,5 +98,5 @@ To connect to Windows VMs using RDP after failover, do the following:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-site-to-azure.md)
+> [Set up disaster recovery to Azure for Hyper-V VMs](tutorial-hyper-v-to-azure.md)
 > [Set up disaster recovery to Azure for Hyper-V VMs in VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
