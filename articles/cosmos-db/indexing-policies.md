@@ -34,7 +34,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I make changes to a collection’s indexing policy?
 * How do I compare storage and performance of different indexing policies?
 
-## <a id="CustomizingIndexingPolicy"></a> Customize the indexing policy of a collection
+## Customize the indexing policy of a collection <a id="CustomizingIndexingPolicy"></a>  
 You can customize the trade-offs between storage, write and query performance, and query consistency by overriding the default indexing policy on an Azure Cosmos DB collection. You can configure the following aspects:
 
 * **Include or exclude documents and paths to and from the index**. You can exclude or include specific documents in the index when you insert or replace the documents in the collection. You can also include or exclude specific JSON properties, also called *paths*, to be indexed across documents that are included in an index. Paths include wildcard patterns.
@@ -66,7 +66,7 @@ You can change the indexing policy of a collection in the Azure portal:
 2. In the left navigation menu, select **Settings**, and then select **Indexing Policy**. 
 3. Under **Indexing Policy**, change your indexing policy, and then select **OK**. 
 
-### <a id="indexing-modes"></a>Database indexing modes
+### Database indexing modes <a id="indexing-modes"></a>  
 Azure Cosmos DB supports three indexing modes that you can configure via the indexing policy on an Azure Cosmos DB collection: Consistent, Lazy, and None.
 
 **Consistent**: If an Azure Cosmos DB collection’s policy is Consistent, the queries on a specific Azure Cosmos DB collection follow the same consistency level as specified for the point-reads (strong, bounded-staleness, session, or eventual). The index is updated synchronously as part of the document update (insert, replace, update, and delete a document in an Azure Cosmos DB collection).
@@ -232,7 +232,7 @@ Similarly, you can completely exclude paths from indexing. The next example show
 
 
 
-## Opting in and opting out of indexing
+## Opt in and opt out of indexing
 You can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID.
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude specific documents. Indexing on/off configurations are useful when you have only a subset of documents that needs to be queried.

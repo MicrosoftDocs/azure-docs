@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: jgao
 
 ---
@@ -55,7 +55,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
     Some properties have been hardcoded in the template.  You can configure these values from the template.
 
     * **Location**: The location of the cluster and the dependent storage account share the same location as the resource group.
-    * **Cluster version**: 3.5
+    * **Cluster version**: 3.6
     * **OS Type**: Linux
     * **Number of worker nodes**: 2
 
@@ -63,11 +63,11 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
      
      For more explanation of these properties, see [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
+3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group. You can see both the cluster and the default storage listed.
    
     ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group").
 
-4. Click the cluster name to open the cluster in a new blade.
+4. Click the cluster name to open the cluster.
 
    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")
 
@@ -79,7 +79,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
    
-    ![Selecting Ambari views](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viwer menu").
+    ![Selecting Ambari views](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menu").
 4. In the **Query Editor** section of the page, paste the following HiveQL statements into the worksheet:
    
         SHOW TABLES;
@@ -117,7 +117,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
-3. Click **Delete** on the resource blade to delete the resource group, which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
+3. Click **Delete** to delete the resource group, which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete**. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
 ## Troubleshoot
 
@@ -133,12 +133,12 @@ To learn more about analyzing data with HDInsight, see the following articles:
 * To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 * To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 
-If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following:
+If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
-If you'd like to learn more about creating or managing an HDInsight cluster, see the following:
+If you'd like to learn more about creating or managing an HDInsight cluster, see the following articles:
 
 * To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Ambari](../hdinsight-hadoop-manage-ambari.md).
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](../hdinsight-hadoop-provision-linux-clusters.md).

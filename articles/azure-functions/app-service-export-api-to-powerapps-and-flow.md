@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
 
 ---
@@ -92,21 +92,25 @@ To complete the export in **Manual** mode, follow these steps:
 
     This example shows the API key security definition that was included in the OpenAPI definition.
 
-Now that you've exported the API definition, you import it to create a custom connector in PowerApps and Microsoft Flow. The following example uses PowerApps, but custom connectors are shared between the two services, so you only need to import the definition once.
+Now that you've exported the API definition, you import it to create a custom connector in PowerApps and Microsoft Flow. Custom connectors are shared between the two services, so you only need to import the definition once.
 
 To import the API definition into PowerApps and Microsoft Flow, follow these steps:
 
-1. Sign into [web.powerapps.com](https://web.powerapps.com) or [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Go to [powerapps.com](https://web.powerapps.com) or [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Click the **Settings** button (the gear icon) at the upper right of the page, and select **Custom connectors**.
+2. In the upper right corner, click the gear icon, then click **Custom connectors**.
 
-    ![Custom connectors](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Gear icon in service](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Click **Create custom connector**.
+3. Click **Create custom connector**, then click **Import an OpenAPI definition**.
 
-4. On the **General** tab, provide a name for your API, and then upload the OpenAPI definition or paste in the metadata URL. Click **Upload**, then **Continue**.
+   ![Create custom connector](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![General tab](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Enter a name for the custom connector, then navigate to the OpenAPI definition that you exported, and click **Continue**.
+
+   ![Upload OpenAPI definition](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. On the **General** tab, review the information that comes from the OpenAPI definition.
 
 5. On the **Security** tab, if you are prompted to provide authentication details, enter the values appropriate for the authentication type. Click **Continue**.
 
