@@ -24,7 +24,7 @@ tasks in the previous tutorials.
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises VMware](tutorial-prepare-on-premises-hyper-v.md)
-3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-to-azure.md), or for ]Hyper-V VMs managed in System Center VMM clouds](tutorial-hyper-to-azure-vmm.md)
+3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-to-azure.md), or for ]Hyper-V VMs managed in System Center VMM clouds](tutorial-hypervmm-to-azure.md)
 4. [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
 ## Prepare for failover and failback
