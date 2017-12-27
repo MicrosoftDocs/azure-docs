@@ -79,20 +79,24 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 2. Enter your App Name and Organization identifier, then hit **Next**, then **Create**
 
-    ![Visual Studio- iOS app Configuration][32]
+3. From the Solution view, double click *Into.plist* and under **Identity** make sure your Bundle Identifier matches the one used when creating your provisioning profile. Under **Signing** ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
 
-3. In **AppDelegate.cs**, add the following using statement:
+    ![Visual Studio- iOS App Config][32]
+
+4. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages...**. Search for **NotificationHubs.iOS** and add the package to your project.
+
+5. In **AppDelegate.cs**, add the following using statement:
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-4. Declare an instance of **SBNotificationHub**:
+6. Declare an instance of **SBNotificationHub**:
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
-5. Create a **Constants.cs** class with the following variables:
+7. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
    
     ```csharp
         // Azure app-specific connection string and hub path
@@ -100,7 +104,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         public const string NotificationHubPath = "<Azure hub path>";
     ```
 
-6. In **AppDelegate.cs**, update **FinishedLaunching()** to match the following:
+8. In **AppDelegate.cs**, update **FinishedLaunching()** to match the following:
    
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -121,7 +125,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-7. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
+9. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -144,7 +148,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-8. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
+10. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -153,7 +157,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-9. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
+11. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -196,7 +200,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
    > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
    > 
    > 
-10. Run the app on your device.
+12. Run the app on your device.
 
 ## Sending Test Push Notifications
 You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This sends a test push notification to your device.
@@ -226,7 +230,7 @@ In this simple example, you broadcasted push notifications to all your iOS devic
 
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
-[32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-ios-app-configure.png
+[32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 
 
 
