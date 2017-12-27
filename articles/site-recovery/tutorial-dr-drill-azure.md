@@ -37,6 +37,10 @@ Before you run a test failover, verify the VM properties, and make sure that the
 3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk
    settings.
+   
+      >[!NOTE]
+      Failback to on-premises Hyper-V machines from Azure VMs with managed disks isn't currently supported. You should only use the managed disks option for failover if you're planning to migrate on-premises VMs to Azure, without failing them back.
+   
 4. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.
 5. In **Disks**, you can see information about the operating system and data disks on the VM.
@@ -54,14 +58,7 @@ When you run a test failover, the following happens:
 Run the test failover as follows:
 
 1. In **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
-
-2. Select a recovery point to use for the failover:
-    - **Latest processed** : Fails the VM over to the latest recovery point that was processed by
-      Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so
-      it provides a low RTO (recovery time objective).
-    - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent
-      recovery point. The time stamp is shown.
-    - **Custom**: Select any recovery point.
+2. Select the **Latest processed** recovery point for this tutorial. This fails over the VM to the latest available point in time. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (recovery time objective).
 3. In **Test Failover**, select the target Azure network to which Azure VMs will be connected after
    failover occurs.
 4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its
