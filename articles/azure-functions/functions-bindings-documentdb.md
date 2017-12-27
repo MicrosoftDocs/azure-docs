@@ -26,13 +26,7 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 
 ## Trigger
 
-The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The trigger requires a second collection that it uses to store _leases_ over the partitions.
-
-Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
-
- >[!IMPORTANT]
- > Currently, if multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
-
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The change feed publishes inserts and updates, not deletions. 
 
 ## Trigger - example
 
@@ -159,7 +153,7 @@ The following table explains the binding configuration properties that you set i
 |**connectionStringSetting**|**ConnectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
 |**databaseName**|**DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** |**CollectionName** | The name of the collection being monitored. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases collection must have write permissions.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
@@ -168,12 +162,21 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
->[!NOTE] 
->The connection string for the leases collection must have write permissions.
+## Trigger - usage
+
+The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
+
+ >[!IMPORTANT]
+ > If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+
+The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
 ## Input
 
 The DocumentDB API input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
+
+>[!NOTE]
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible. The trigger binding works with any API type because it receives documents in JSON format.
 
 ## Input - example 1
 
@@ -471,6 +474,9 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 ## Output
 
 The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
+
+>[!NOTE]
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible. The trigger binding works with any API type because it receives documents in JSON format.
 
 ## Output - example
 
