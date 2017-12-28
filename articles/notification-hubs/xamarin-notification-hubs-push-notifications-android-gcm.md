@@ -88,12 +88,11 @@ First, you create a new project.
 
 1. Right-click your project and select **Add** > **Add NuGet Packages**
 2. Search for **Xamarin.Azure.NotificationHubs.Android** and add it to the project.
-3. Search for **Xamarin.GooglePlayServices.Gcm** and add it to the project.
+3. Search for **Xamarin.Firemase.Messaging** and add it to the project.
 
 ### Set up notification hubs in your project
 1. Gather the following information for your Android app and notification hub:
    
-   * **GoogleProjectNumber**:  Get this Project Number value from the overview of your app on the Google Developer Portal. You made a note of this value earlier when you created the app on the portal.
    * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
    * **Hub name**: This is the name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
      
@@ -102,8 +101,6 @@ First, you create a new project.
     ```csharp
         public static class Constants
         {
-     
-           public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
            public const string ListenConnectionString = "<Listen connection string>";
            public const string NotificationHubName = "<hub name>";
         }
@@ -113,276 +110,145 @@ First, you create a new project.
    
     ```csharp
         using Android.Util;
-        using Gcm.Client;
     ```
 
 4. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running:
    
     ```csharp
-        public static MainActivity instance;
+        public const string TAG = "MainActivity";
     ```
 
-5. Create the following method in the **MainActivity** class:
+5. In the `OnCreate` method of **MainActivity.cs** add the following after `base.OnCreate(savedInstanceState)`:
 
     ```csharp   
-        private void RegisterWithGCM()
+        if (Intent.Extras != null)
         {
-            // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
-   
-            // Register for push notifications
-            Log.Info("MainActivity", "Registering...");
-            GcmClient.Register(this, Constants.SenderID);
+            foreach (var key in Intent.Extras.KeySet())
+            {
+                if(key!=null)
+                {
+                    var value = Intent.Extras.GetString(key);
+                    Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+                }
+            }
         }
     ```
 
-6. In the `OnCreate` method of **MainActivity.cs**, initialize the `instance` variable and add a call to `RegisterWithGCM`:
+6. Right-click your project and add the `google-services.json` that you downloaded from your created Firebase project earlier. Right click it and set the build action to `GoogleServicesJson`
 
-    ```csharp 
-        protected override void OnCreate (Bundle bundle)
-        {
-            instance = this;
-   
-            base.OnCreate (bundle);
-   
-            // Set your view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
-   
-            // Get your button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button> (Resource.Id.myButton);
-   
-            RegisterWithGCM();
-        }
-    ```
+    ![Visual Studio- Configure google-services.json][25]
 
-7. Create a new class, **MyBroadcastReceiver**.
-   
-   > [!NOTE]
-   > This guide will walk through creating a **BroadcastReceiver** class from scratch below. However, a quick alternative to manually creating **MyBroadcastReceiver.cs** is to refer to the **GcmService.cs** file found in the sample Xamarin.Android project included with the [NotificationHubs samples][GitHub]. Duplicating **GcmService.cs** and changing class names can be a great place to start as well.
-   > 
-   > 
-8. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly that you added earlier):
+7. Create a new class, **MyFirebaseIIDService**.
+
+8. Add the following using statements to **MyFirebaseIIDService.cs**:
    
     ```csharp
+        using System;
+        using Android.App;
+        using Firebase.Iid;
+        using Android.Util;
+        using WindowsAzure.Messaging;
         using System.Collections.Generic;
-        using System.Text;
+    ```
+
+9. In **MyFirebaseIIDService.cs**, add the following above the **class** declaration, and have your class inherit from **FirebaseInstanceIdService**:
+   
+    ```csharp
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+        public class MyFirebaseIIDService : FirebaseInstanceIdService
+    ```
+
+10. In **MyFirebaseIIDService.cs**, add the following code:
+   
+    ```csharp
+        const string TAG = "MyFirebaseIIDService";
+        NotificationHub hub;
+
+        public override void OnTokenRefresh()
+        {
+            var refreshedToken = FirebaseInstanceId.Instance.Token;
+            Log.Debug(TAG, "FCM token: " + refreshedToken);
+            SendRegistrationToServer(refreshedToken);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                      Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+
+11. Create another new class for your project, name it **MyFirebaseMessagingService**.
+
+12. Add the following using statements to **MyFirebaseMessagingService.cs**.
+    
+    ```csharp
+        using System;
+        using System.Linq;
+        using Android;
         using Android.App;
         using Android.Content;
         using Android.Util;
-        using Gcm.Client;
-        using WindowsAzure.Messaging;
+        using Firebase.Messaging;
     ```
 
-9. In **MyBroadcastReceiver.cs**, add the following permission requests between the **using** statements and the **namespace** declaration:
-   
+13. Add the following above your class declaration, and have your class inherit from **FirebaseMessagingService**:
+    
     ```csharp
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-   
-        //GET_ACCOUNTS is needed only for Android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+        public class MyFirebaseIIDService : FirebaseMessagingService
     ```
-
-10. In **MyBroadcastReceiver.cs**, change the **MyBroadcastReceiver** class to match the following:
-   
+    
+14. Add the following code to **MyFirebaseMessagingService.cs**:
+    
     ```csharp
-        [BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
-            Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
+        const string TAG = "MyFirebaseMsgService";
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            public static string[] SENDER_IDS = new string[] { Constants.SenderID };
-   
-            public const string TAG = "MyBroadcastReceiver-GCM";
-        }
-    ```
-
-11. Add another class in **MyBroadcastReceiver.cs** named **PushHandlerService**, which derives from **GcmServiceBase**. Make sure to apply the **Service** attribute to the class:
-    
-    ```csharp
-         [Service] // Must use the service tag
-         public class PushHandlerService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-             private NotificationHub Hub { get; set; }
-    
-             public PushHandlerService() : base(Constants.SenderID)
-                {
-                 Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
-             }
-         }
-    ```
-
-12. **GcmServiceBase** implements methods **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()**, and **OnError()**. Your **PushHandlerService** implementation class must override these methods, and these methods will fire in response to interacting with the notification hub.
-13. Override the **OnRegistered()** method in **PushHandlerService** by using the following code:
-    
-    ```csharp
-         protected override void OnRegistered(Context context, string registrationId)
-         {
-             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
-             RegistrationID = registrationId;
-    
-             createNotification("PushHandlerService-GCM Registered...",
-                                 "The device has been Registered!");
-    
-             Hub = new NotificationHub(Constants.NotificationHubName, Constants.ListenConnectionString,
-                                         context);
-             try
-             {
-                 Hub.UnregisterAll(registrationId);
-             }
-             catch (Exception ex)
-             {
-                 Log.Error(MyBroadcastReceiver.TAG, ex.Message);
-             }
-    
-             //var tags = new List<string>() { "falcons" }; // create tags if you want
-             var tags = new List<string>() {};
-    
-             try
-             {
-                 var hubRegistration = Hub.Register(registrationId, tags.ToArray());
-             }
-             catch (Exception ex)
-             {
-                 Log.Error(MyBroadcastReceiver.TAG, ex.Message);
-             }
-         }
-    ```
-    
-    > [!NOTE]
-    > In the **OnRegistered()** code above, you should note the ability to specify tags to register for specific messaging channels.
-    > 
-    > 
-14. Override the **OnMessage** method in **PushHandlerService** by using the following code:
-    
-    ```csharp
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info(MyBroadcastReceiver.TAG, "GCM Message Received!");
-    
-            var msg = new StringBuilder();
-    
-            if (intent != null && intent.Extras != null)
+            Log.Debug(TAG, "From: " + message.From);
+            if(message.GetNotification()!= null)
             {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
             }
-    
-            string messageText = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty (messageText))
+            else 
             {
-                createNotification ("New hub message!", messageText);
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+
             }
-            else
-            {
-                createNotification ("Unknown message details", msg.ToString ());
-            }
+
+        }
+
+        void SendNotification(string messageBody)
+        {
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+
+            var notificationBuilder = new Notification.Builder(this)
+                        .SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetContentIntent(pendingIntent);
+
+            var notificationManager = NotificationManager.FromContext(this);
+
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
     ```
 
-15. Add the following **createNotification** and **dialogNotify** methods to **PushHandlerService** for notifying users when a notification is received.
-    
-    > [!NOTE]
-    > Notification design in Android version 5.0 and later represents a significant departure from previous versions. If you test this on Android 5.0 or later, the app needs to be running to receive the notification. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
-    > 
-    > 
-    
-    ```csharp
-        void createNotification(string title, string desc)
-        {
-            //Create notification
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-    
-            //Create an intent to show UI
-            var uiIntent = new Intent(this, typeof(MainActivity));
-    
-            //Create the notification
-            var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-    
-            //Auto-cancel will remove the notification once the user touches it
-            notification.Flags = NotificationFlags.AutoCancel;
-    
-            //Set the notification info
-            //we use the pending intent, passing our ui intent over, which will get called
-            //when the notification is tapped.
-            notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-    
-            //Show the notification
-            notificationManager.Notify(1, notification);
-            dialogNotify (title, desc);
-        }
-    
-        protected void dialogNotify(String title, String message)
-        {
-    
-            MainActivity.instance.RunOnUiThread(() => {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.instance);
-                AlertDialog alert = dlg.Create();
-                alert.SetTitle(title);
-                alert.SetButton("Ok", delegate {
-                    alert.Dismiss();
-                });
-                alert.SetMessage(message);
-                alert.Show();
-            });
-        }
-    ```
-
-16. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles:
-    
-    ```csharp
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Verbose(MyBroadcastReceiver.TAG, "GCM Unregistered: " + registrationId);
-    
-            createNotification("GCM Unregistered...", "The device has been unregistered!");
-        }
-    
-        protected override bool OnRecoverableError(Context context, string errorId)
-        {
-            Log.Warn(MyBroadcastReceiver.TAG, "Recoverable Error: " + errorId);
-    
-            return base.OnRecoverableError (context, errorId);
-        }
-    
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error(MyBroadcastReceiver.TAG, "GCM Error: " + errorId);
-        }
-    ```
-
-17. Run your app on your device
-
-## Run your app in the emulator
-If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
-
-> [!IMPORTANT]
-> In order to receive push notifications, you must set up a Google account on your Android Virtual Device. (In the emulator, navigate to **Settings** and choose **Add Account**.) Also, make sure that the emulator is connected to the Internet.
-> 
-> [!NOTE]
-> Notification design in Android version 5.0 and later represents a significant departure from that of previous versions. For more information, see [Android Notifications](http://go.microsoft.com/fwlink/?LinkId=615880).
-> 
-> 
-
-1. From **Tools**, choose **Open Android Emulator Manager**, select your device, and then choose **Edit**.
-   
-      ![][18]
-2. Select **Google APIs** in **Target**, and then choose **OK**.
-   
-      ![][19]
-3. On the top toolbar, choose **Run**, and then select your app. This starts the emulator and runs the app.
-   
-   The app retrieves the *registrationId* from GCM and registers with the notification hub.
+15. Run your app on your device or loaded emulator
 
 ## Send notifications from the portal
 You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This sends a test push notification to your device.
@@ -423,6 +289,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png
 [23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png
 [24]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-xamarin-android-app-options.png
+[25]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-google-services-json.png
 
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
