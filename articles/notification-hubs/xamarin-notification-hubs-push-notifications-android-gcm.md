@@ -75,7 +75,7 @@ First, you create a new project.
     Ensure that the first letter of your **Package name** is lowercase.
    
    > [!IMPORTANT]
-   > The first letter of the package name must be lowercase. Otherwise, you will receive application manifest errors when you register your **BroadcastReceiver** and **IntentFilter** for push notifications below.
+   > The first letter of the package name must be lowercase. Otherwise, you will receive application manifest errors when you register your app for push notifications below.
    > 
    > 
    
@@ -112,13 +112,13 @@ First, you create a new project.
         using Android.Util;
     ```
 
-4. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running:
+4. Add an instance variable to **MainActivity.cs** that will be used to show an alert dialog when the app is running:
    
     ```csharp
         public const string TAG = "MainActivity";
     ```
 
-5. In the `OnCreate` method of **MainActivity.cs** add the following after `base.OnCreate(savedInstanceState)`:
+5. Add the following code to `OnCreate` in **MainActivity.cs** after `base.OnCreate(savedInstanceState)`:
 
     ```csharp   
         if (Intent.Extras != null)
@@ -134,7 +134,7 @@ First, you create a new project.
         }
     ```
 
-6. Right-click your project and add the `google-services.json` that you downloaded from your created Firebase project earlier. Right click it and set the build action to `GoogleServicesJson`
+6. Right-click your project and add the `google-services.json` that you downloaded from your created Firebase project earlier. Right-click the added file and set the build action to `GoogleServicesJson`
 
     ![Visual Studio- Configure google-services.json][25]
 
@@ -255,7 +255,7 @@ You can test receiving notifications in your app with the *Test Send* option in 
 
 ![Azure portal - Test Send][30]
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end.
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. If a library is not available for your back-end you can also use the REST API directly to send notification messages.
 
 Here is a list of some other tutorials that you may want to review for sending notifications:
 
