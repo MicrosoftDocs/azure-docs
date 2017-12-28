@@ -19,7 +19,7 @@ ms.author: rli
 ---
 
 # Azure CDN rules engine match conditions
-This topic lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) [rules engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
@@ -111,7 +111,7 @@ This network is defined by its Autonomous System Number (ASN). An option is prov
 
 **Key Information**
 - Specify multiple AS numbers by delimiting each one with a single space. For example, 64514 64515 matches requests arriving from either 64514 or 64515.
-- Certain requests may not return a valid AS number. A question mark (i.e., ?) will match requests for which a valid AS number could not be determined.
+- Certain requests may not return a valid AS number. A question mark (?) will match requests for which a valid AS number could not be determined.
 - The entire AS number for the desired network must be specified. Partial values will not be matched.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
   - Complete Cache Fill
@@ -230,7 +230,7 @@ A country can be specified through its country code. An option is provided to in
 - Specify multiple country codes by delimiting each one with a single space.
 - Wildcards are not supported when specifying a country code.
 - The "EU" and "AP" country codes do not encompass all IP addresses in those regions.
-- Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.
+- Certain requests may not return a valid country code. A question mark (?) will match requests for which a valid country code could not be determined.
 - Country codes are case-sensitive.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
   - Complete Cache Fill
@@ -353,9 +353,6 @@ The **Matches/Does Not Match** option determines the conditions under which this
 
 ---  
 ### Request Header Regex
-> [!NOTE]
-> This capability requires Rules Engine - Advanced Rules which must be purchased separately. Contact your CDN account manager to activate it. 
-
 The **Matches/Does Not Match** option determines the conditions under which this match condition will be satisfied.
 - **Matches:** Requires the request to contain the specified header and its value must match the pattern defined in the specified regular expression.
 - **Does Not Match:** Requires that the request satisfy either of the following criteria:
