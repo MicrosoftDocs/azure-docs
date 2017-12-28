@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 12/27/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -56,7 +56,7 @@ Select the **mycontainer-myc1** container group to display the container group p
 
 Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png

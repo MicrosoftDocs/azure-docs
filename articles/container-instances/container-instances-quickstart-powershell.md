@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
