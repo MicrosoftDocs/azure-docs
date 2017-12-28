@@ -361,6 +361,8 @@ First, you create a new project.
         }
     ```
 
+17. Run your app on your device
+
 ## Run your app in the emulator
 If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -420,7 +422,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [21]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png
 [22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png
 [23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png
-[24]: /media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png
+[24]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-xamarin-android-app-options.png
 
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
