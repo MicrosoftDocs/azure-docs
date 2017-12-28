@@ -23,7 +23,7 @@ ms.author: mabrigg
 
 Enable the Infrastructure Back Service through the administration portal so that Azure Stack can generate backups. You can use these backs ups to restore your environment if there is a failure.
 
-# Enable backup
+## Enable backup
 
 1. Open the Azure Stack administration portal at [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
