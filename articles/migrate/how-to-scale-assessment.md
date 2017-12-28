@@ -14,7 +14,7 @@ This article describes how to assess large numbers of on-premises virtual machin
 
 ## Prerequisites
 
-- **VMware**: The VMs that you plan to migrate must be managed by Center Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
+- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
 - **vCenter account**: You need a read-only account to access vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: In vCenter Server, you need permissions to create a VM by importing a file in OVA format.
 - **Statistics settings**: The statistics settings for vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory, and configuration data for disk and network adapters.
