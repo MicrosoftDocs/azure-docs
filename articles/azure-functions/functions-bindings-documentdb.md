@@ -176,7 +176,7 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 The DocumentDB API input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
 
 >[!NOTE]
-> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible. The trigger binding works with any API type because it receives documents in JSON format.
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
 
 ## Input - example 1
 
@@ -476,7 +476,7 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
 
 >[!NOTE]
-> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible. The trigger binding works with any API type because it receives documents in JSON format.
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
 
 ## Output - example
 
