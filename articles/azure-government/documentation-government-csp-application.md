@@ -4,7 +4,7 @@ description: Provides an overview of the process to become an Azure Government C
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: todorb
+author: todorgb
 manager: pathuff
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
