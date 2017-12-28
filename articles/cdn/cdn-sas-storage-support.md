@@ -70,11 +70,23 @@ This option is the simplest and uses only a single SAS token, which is passed fr
 With this option, you can secure the origin blob storage without requiring a SAS token for the CDN user. You may want to use this option if you don't need specific access restrictions for the file, but want to prevent users from accessing the storage origin directly to improve CDN offload times. This option is available only for **Azure CDN Premium from Verizon** profiles. 
  
 1. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule. New rules take about 90 minutes to propagate.
+
+   ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
+
+   ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
+
+   This sample URL Rewrite rule has the following patterns:
+   
+   Source: `/test/demo.jpg`
+   
+   Destination: `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+
+   ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
  
 2. Access the file on your CDN without the SAS token, in the following format:
    `https://<endpoint>.azureedge.net/<folder>/<file>`
  
-   For example:
+   For example:   
    `https://demoendpoint.azureedge.net/test/demo.jpg`
        
    Note that anyone, regardless of whether they are using a SAS token, can access a CDN endpoint. In addition, long caching durations can make the file available after the expiration time of the SAS has passed. If you want to make your cached file inaccessible after the expiration time or after you revoke a SAS, you must purge it.
@@ -99,9 +111,11 @@ This option is the most secure and customizable. To use CDN security token authe
  
 2. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
 
-   ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
-
-   ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
+   For example, enter the following patterns for the URL Rewrite rule:
+   
+   Source: `/test/demo.jpg`
+   
+   Destination: `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
 
