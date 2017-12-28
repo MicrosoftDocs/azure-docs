@@ -30,7 +30,7 @@ ms.author: juliako
 
 ## Overview
 > [!NOTE]
-> For information on how to encrypt content with the Advanced Encryption Standard (AES) for delivery to Safari on macOS, see [this blog post](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) .
+> For information on how to encrypt content with the Advanced Encryption Standard (AES) for delivery to Safari on macOS, see [this blog post](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 > For an overview of how to protect your media content with AES encryption, see [this video](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 > 
 > 
@@ -54,9 +54,9 @@ Perform the following general steps when you encrypt your assets with AES by usi
 
 3. [Create a content key, and associate it with the encoded asset](media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
 
-4. [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy). You must configure the content key authorization policy and the client must meet it in order for the content key to be delivered to the client.
+4. [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy). You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 
-5. [Configure the delivery policy for an asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). The delivery policy configuration includes key acquisition URL and Initialization Vector (IV) (AES-128 requires the same IV to be supplied when encrypting and decrypting), delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all), the type of dynamic encryption (for example, envelope or no dynamic encryption).
+5. [Configure the delivery policy for an asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). The delivery policy configuration includes the key acquisition URL and an initialization vector (IV). (AES-128 requires the same IV for encryption and decryption.) The configuration also includes the delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all) and the type of dynamic encryption (for example, envelope or no dynamic encryption).
 
 	You can apply a different policy to each protocol on the same asset. For example, you can apply PlayReady encryption to Smooth/DASH and an AES envelope to HLS. Any protocols that aren't defined in a delivery policy are blocked from streaming. (An example is if you add a single policy that specifies only HLS as the protocol.) The exception is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
 
@@ -81,14 +81,14 @@ To manage, encode, and stream your videos, you must first upload your content in
 For more information, see [Upload files into a Media Services account](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Encode the asset that contains the file to the adaptive bitrate MP4 set
-With dynamic encryption, all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the on-demand streaming server ensures that you receive the stream in the protocol you selected. Then, you only need to store and pay for the files in single storage format. Media Services builds and serves the appropriate response based on requests from a client. For more information, see the [dynamic packaging overview](media-services-dynamic-packaging-overview.md).
+With dynamic encryption, you create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the on-demand streaming server ensures that you receive the stream in the protocol you selected. Then, you only need to store and pay for the files in single storage format. Media Services builds and serves the appropriate response based on requests from a client. For more information, see [Dynamic packaging overview](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >When your Media Services account is created, a default streaming endpoint is added to your account in the "Stopped" state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content must be in the "Running" state. 
 >
 >Also, to use dynamic packaging and dynamic encryption, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
-For instructions on how to encode, see [How to encode an asset by using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+For instructions on how to encode, see [Encode an asset by using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ## <a id="create_contentkey"></a>Create a content key and associate it with the encoded asset
 In Media Services, the content key contains the key that you want to encrypt an asset with.
@@ -96,7 +96,7 @@ In Media Services, the content key contains the key that you want to encrypt an 
 For more information, see [Create a content key](media-services-dotnet-create-contentkey.md).
 
 ## <a id="configure_key_auth_policy"></a>Configure the content key's authorization policy
-Media Services supports multiple ways of authenticating users who make key requests. You must configure the content key authorization policy and the client (player) must meet it in order for the key to be delivered to the client. The content key authorization policy can have one or more authorization restrictions, either open, token restriction, or IP restriction.
+Media Services supports multiple ways of authenticating users who make key requests. You must configure the content key authorization policy. The client (player) must meet the policy before the key can be delivered to the client. The content key authorization policy can have one or more authorization restrictions, either open, token restriction, or IP restriction.
 
 For more information, see [Configure a content key authorization policy](media-services-dotnet-configure-content-key-auth-policy.md).
 
@@ -104,8 +104,8 @@ For more information, see [Configure a content key authorization policy](media-s
 Configure the delivery policy for your asset. Some things that the asset delivery policy configuration includes are:
 
 * The key acquisition URL. 
-* The initialization vector (IV) to use for the envelope encryption. AES-128 requires the same IV to be supplied when you encrypt and decrypt. 
-* The asset delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming, or all).
+* The initialization vector (IV) to use for the envelope encryption. AES-128 requires the same IV for encryption and decryption. 
+* The asset delivery protocol (for example, MPEG-DASH, HLS, Smooth Streaming, or all).
 * The type of dynamic encryption (for example, AES envelope) or no dynamic encryption. 
 
 For more information, see [Configure an asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
@@ -186,7 +186,7 @@ If you open one of the segment files in a text editor (for example, http://test0
 
 ### Request the key from the key delivery service
 
-The following code shows how to send a request to the Media Services key delivery service by using a key delivery Uri (that was extracted from the manifest) and a token. (This article doesn't explain how to get SWTs from a STS.)
+The following code shows how to send a request to the Media Services key delivery service by using a key delivery Uri (that was extracted from the manifest) and a token. (This article doesn't explain how to get SWTs from an STS.)
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {

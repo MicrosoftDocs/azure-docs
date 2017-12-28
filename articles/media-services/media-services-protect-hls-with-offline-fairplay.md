@@ -81,8 +81,9 @@ if (objDRMSettings.EnableOfflineMode)
 ```
 
 ## Code change in the asset delivery policy configuration
-The second change is to add the third key into the dictionary Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
-The third AssetDeliveryPolicyConfigurationKey needs to be added as shown here: 
+The second change is to add the third key into Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
+Add AssetDeliveryPolicyConfigurationKey as shown here:
+ 
 ```csharp
 // FPS offline mode
     if (drmSettings.EnableOfflineMode)
@@ -111,7 +112,7 @@ Now your Media Services account is configured to deliver offline FairPlay licens
 FPS offline-mode support is available only on iOS 10 and later. The FPS Server SDK (version 3.0 or later) contains the document and sample for FPS offline mode. 
 Specifically, FPS Server SDK (version 3.0 or later) contains the following two items related to offline mode:
 
-* Document: "Offline Playback with FairPlay Streaming and HTTP Live Streaming." Apple, 9/14/2016. In FPS Server SDK version 4.0, this document is merged into the main FPS document.
+* Document: "Offline Playback with FairPlay Streaming and HTTP Live Streaming." Apple, September 14, 2016. In FPS Server SDK version 4.0, this document is merged into the main FPS document.
 * Sample code: HLSCatalog sample for FPS offline mode in the \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. 
 In the HLSCatalog sample app, the following code files are used to implement offline-mode features:
 
