@@ -24,7 +24,7 @@ This script takes in a source storage account name and key, a target storage acc
 
 This is done by making use of the Get-AzureStorageContainer command, which lists all the containers in a storage account. The script then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur the script will retry $retryTimes (default is 3, and can be modified with the -RetryTimes parameter). If failure is experienced for each time it retries the user can re-run the script with the -LastSuccessContainerName parameter and provide the name of the last successfully copied container. The script will then continue copying containers from that point.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+This sample requires the Azure PowerShell module version 5.1.1 or later. You can check "Microsoft Azure Powershell" in Add/Remove programs to see what version you have installed. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -99,7 +99,7 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
     if([version] $FilePath -lt "7.0.0.2")
     {
-        $AzCopyPath = Read-Host "Input the full filePath of the AzCopy.exe, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
+        $AzCopyPath = Read-Host "Version of AzCopy found at default install directory is of a lower, unsupported version. Please input the full filePath of the AzCopy.exe that is version 7.0.0.2 or higher, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
     }
  }
  elseIf( (Get-Item $AzCopyPath).Exists -eq $false)
@@ -142,6 +142,21 @@ if((Test-Path $AzCopyPath) -eq $false)
 {
     Write-Error "Script is terminating since the provided AzCopyPath does not exist: $AzCopyPath ";
     return;
+}
+elseif((Get-Item $AzCopyPath).BaseName -ne "AzCopy" )
+{
+    Write-Error "Script is terminating since the provided AzCopyPath does not refer to the AzCopy exe: $AzCopyPath ";
+    return;
+}
+elseif((Get-Item $AzCopyPath).BaseName -eq "AzCopy")
+{
+    $FileItemVersion = (Get-Item $AzCopyPath).VersionInfo
+    $FilePath = ("{0}.{1}.{2}.{3}" -f  $FileItemVersion.FileMajorPart,  $FileItemVersion.FileMinorPart,  $FileItemVersion.FileBuildPart,  $FileItemVersion.FilePrivatePart)
+
+    if([version] $FilePath -lt "7.0.0.2")
+    {
+        $AzCopyPath = Read-Host "Version of AzCopy found at provided path is of a lower, unsupported version. Please input the full filePath of the AzCopy.exe that is version 7.0.0.2 or higher, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
+    }
 }
 
 $OutputLastSuccessContainer = $LastSuccessContainerName;
