@@ -22,7 +22,7 @@ ms.author: rli v-deasim
 
 ## Setting up the Azure Content Delivery Network (CDN) to work with storage SAS
 
-When you serve content from a storage account, you may want to secure how users can access your files. Otherwise, a storage container for which public access has been granted can be accessed by anyone who knows its URL. To protect a storage account that you’ve allowed the CDN to access, use the Shared Access Signature (SAS) feature from Azure storage, which allows you to access private storage containers.
+When you serve content from the storage container of your storage account, you may want to secure how users can access your files by granting private access to the storage container. Otherwise, a storage container for which public access has been granted can be accessed by anyone who knows its URL. To protect a storage account that you’ve allowed the CDN to access, you can use the Shared Access Signature (SAS) feature from Azure storage to grant limited access to private storage containers.
 
 A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. You can provide a SAS to clients that you do not trust with your storage account key but to whom you want to delegate access to certain storage account resources. By distributing a shared access signature URI to these clients, you grant them access to a resource for a specified period of time.
  
@@ -41,7 +41,7 @@ For example:
 https://demostorage.blob.core.windows.net/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
 ```
 
-For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
+For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared access signature parameters](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
 
 ![CDN SAS settings](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
@@ -77,9 +77,11 @@ With this option, you can secure the origin blob storage without requiring a SAS
 
    This sample URL Rewrite rule has the following patterns:
    
-   Source: `/test/demo.jpg`
+   Source:   
+   `/test/demo.jpg`
    
-   Destination: `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+   Destination:   
+   `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
  
@@ -113,9 +115,11 @@ This option is the most secure and customizable. To use CDN security token authe
 
    This sample URL Rewrite rule has the following patterns:
    
-   Source: `/test/demo.jpg`
+   Source:   
+   `/test/demo.jpg`
    
-   Destination: `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
+   Destination:   
+   `/test/demo.jpg?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
 
    ![CDN URL Rewrite rule](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
 
@@ -128,7 +132,7 @@ Because SAS parameters are not visible to the CDN, the CDN cannot change its del
 | SAS parameter name | Description |
 | --- | --- |
 | Start | The time that the CDN can begin to access the blob file. Due to clock skew (when clock a signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
-| End | The time after which the CDN can no longer access the blob file. Previously cached files on the CDN will still be accessible. To control the file expiry time, either set the appropriate expiry time on the CDN security token or purge the asset. |
+| End | The time after which the CDN can no longer access the blob file. Previously cached files on the CDN are still accessible. To control the file expiry time, either set the appropriate expiry time on the CDN security token or purge the asset. |
 | Allowed IP addresses | Optional. If you are using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx). If you are using **Azure CDN from Akamai**, you cannot set the IP ranges parameter because the IP addresses are not static.|
 | Allowed protocols | The protocol(s) allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
