@@ -175,11 +175,11 @@ The **Matches**/**Does Not Match** option determines the conditions under which 
   - It contains the specified cookie, but its value does not match any of the values that are defined in this match condition.
   
 Key information:
-- **Cookie name**: 
+- Cookie name: 
   - Special characters, including an asterisk, are not supported when you're specifying a cookie name. This means that only exact cookie name matches are eligible for comparison.
   - Only a single cookie name can be specified per instance of this match condition.
   - Cookie name comparisons are case-insensitive.
-- **Cookie value**: 
+- Cookie value: 
   - Specify multiple cookie values by delimiting each one with a single space.
   - A cookie value can take advantage of special characters. 
   - If a wildcard character has not been specified, only an exact match will satisfy this match condition. For example, specifying "Value" will match "Value," but not "Value1" or "Value2."
@@ -206,11 +206,11 @@ The **Matches**/**Does Not Match** option determines the conditions under which 
   - It contains the specified cookie, but its value does not match the specified regular expression.
   
 Key information:
-- **Cookie name**: 
+- Cookie name: 
   - Regular expressions and special characters, including an asterisk, are not supported when you're specifying a cookie name. This means that only exact cookie name matches are eligible for comparison.
   - Only a single cookie name can be specified per instance of this match condition.
   - Cookie name comparisons are case-insensitive.
-- **Cookie value**: 
+- Cookie value: 
   - A cookie value can take advantage of regular expressions.
   - The **Ignore Case** option determines whether a case-sensitive comparison will be made against the request's cookie value.
 - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:
