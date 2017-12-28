@@ -35,8 +35,6 @@ This tutorial requires the following:
 
 * [Visual Studio with Xamarin] on Windows or [Visual Studio for Mac] on OS X.
 * Active Google account
-* [Azure Messaging Component]
-* [Google Cloud Messaging Client Component]
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Xamarin.Android apps.
 
@@ -64,11 +62,11 @@ Your notification hub is configured to work with FCM, and you have the connectio
 First, you create a new project.
 1. In Visual Studio, choose **New Solution** > **Android App** and then select **Next**.
    
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![Visual Studio- Create new Android project][22]
 
 2. Enter your **App Name** and **Identifier**. Choose the **Target Platforms** you want to support and then choose **Next** and **Create**.
    
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![Visual Studio- Android app configuration][23]
 
     This creates a new Android project.
 
@@ -81,27 +79,27 @@ First, you create a new project.
    > 
    > 
    
-      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![Visual Studio- Android project options][24]
 4. Optionally, set the **Minimum Android version** to another API Level.
 5. Optionally, set the **Target Android version** to another API version that you want to target (must be API level 8 or higher).
 6. Choose **OK** and close the Project Options dialog.
 
-### Add the required components to your project
-The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.
+### Add the required packages to your project
 
-1. Right-click the Components folder in Xamarin.Android app and choose **Get More Components**.
-2. Search for the **Azure Messaging** component and add it to the project.
-3. Search for the **Google Cloud Messaging Client** component and add it to the project.
+1. Right-click your project and select **Add** > **Add NuGet Packages**
+2. Search for **Xamarin.Azure.NotificationHubs.Android** and add it to the project.
+3. Search for **Xamarin.GooglePlayServices.Gcm** and add it to the project.
 
 ### Set up notification hubs in your project
 1. Gather the following information for your Android app and notification hub:
    
    * **GoogleProjectNumber**:  Get this Project Number value from the overview of your app on the Google Developer Portal. You made a note of this value earlier when you created the app on the portal.
-   * **Listen connection string**: On the dashboard in the [Azure Classic Portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
-   * **Hub name**: This is the name of your hub from the [Azure Classic Portal]. For example, *mynotificationhub2*.
+   * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
+   * **Hub name**: This is the name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
      
 2. Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
-     
+    
+    ```csharp
         public static class Constants
         {
      
@@ -109,15 +107,24 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
            public const string ListenConnectionString = "<Listen connection string>";
            public const string NotificationHubName = "<hub name>";
         }
+    ```
+
 3. Add the following using statements to **MainActivity.cs**:
    
+    ```csharp
         using Android.Util;
         using Gcm.Client;
+    ```
+
 4. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running:
    
+    ```csharp
         public static MainActivity instance;
+    ```
+
 5. Create the following method in the **MainActivity** class:
-   
+
+    ```csharp   
         private void RegisterWithGCM()
         {
             // Check to ensure everything's set up right
@@ -128,8 +135,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
             Log.Info("MainActivity", "Registering...");
             GcmClient.Register(this, Constants.SenderID);
         }
+    ```
+
 6. In the `OnCreate` method of **MainActivity.cs**, initialize the `instance` variable and add a call to `RegisterWithGCM`:
-   
+
+    ```csharp 
         protected override void OnCreate (Bundle bundle)
         {
             instance = this;
@@ -145,6 +155,8 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
    
             RegisterWithGCM();
         }
+    ```
+
 7. Create a new class, **MyBroadcastReceiver**.
    
    > [!NOTE]
@@ -406,6 +418,9 @@ In this simple example, you broadcasted notifications to all your Android device
 
 [20]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png
 [21]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png
+[22]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png
+[23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png
+[24]: /media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png
 
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
@@ -427,5 +442,3 @@ In this simple example, you broadcasted notifications to all your Android device
 [Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
 [Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
-[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Azure Messaging Component]: http://components.xamarin.com/view/azure-messaging
