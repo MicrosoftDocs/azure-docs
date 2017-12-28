@@ -27,7 +27,7 @@ some of them.
 
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
 application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
-by [Status Monitor on an IIS server][redfield], or when you select the Appplication Insights
+by [Status Monitor on an IIS server][redfield], or when you select the Application Insights
 [extension for an Azure website or VM](app-insights-azure-web-apps.md).
 
 There isn't an equivalent file to control the [SDK in a web page][client].
