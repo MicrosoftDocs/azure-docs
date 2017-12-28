@@ -49,7 +49,7 @@ This section shows the total number of virtual machines and computers that were 
 
 ![Monitoring agent health issues](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide#monitoring-agent-health-issues) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
+VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
 #### Recommendations
 This section has a set of [recommendations for each virtual machine and computer](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines and computers that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:
