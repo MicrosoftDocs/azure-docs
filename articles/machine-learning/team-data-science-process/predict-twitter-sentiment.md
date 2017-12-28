@@ -40,11 +40,13 @@ The project highlights the following features of Azure Machine Learning:
 - Easy operationalization in Container Service by using Docker and Kubernetes.
 
 ## Team Data Science Process
-To execute this sample, you use the TDSP project structure and documentation templates in Azure Machine Learning Workbench. The sample follows the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md). The project is created based on these [instructions](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+To execute this sample, you use the TDSP project structure and documentation templates in Azure Machine Learning Workbench. The sample implements the [TDSP lifecycle](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), as shown in the following figure:
 
 ![TDSP lifecycle](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-![Instantiate TDSP](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+The TDSP project is created in Azure Machine Learning Workbench based on these [instructions](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), as shown in the following figure:
+
+![Create TDSP in Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
 ## [Data acquisition and preparation](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
@@ -114,6 +116,8 @@ After the models are trained, the models are used to test Twitter text data and 
 - Gradient Boosting over Word2Vec embedding.
 - Logistic Regression over Word2Vec embedding.
 
+A comparison of the performance of the four models is shown in the following figure:
+
 ![Receiver operating characteristic (ROC) model comparison](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
 
 The Gradient Boosting model with the SSWE feature gives the best performance when comparing the models by using the area under curve (AUC) metric.
@@ -121,10 +125,11 @@ The Gradient Boosting model with the SSWE feature gives the best performance whe
 
 ## [Deployment](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-The final step is deployment of the trained sentiment prediction model to a web service on a cluster in Azure Container Service. The sample uses the Gradient Boosting model with the SSWE embedding algorithm as the trained model. The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+The final step is deployment of the trained sentiment prediction model to a web service on a cluster in Azure Container Service. The sample uses the Gradient Boosting model with the SSWE embedding algorithm as the trained model. The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment, as shown in the following figure: 
 
 ![Kubernetes dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
+For more information on the operationalization process, see [Deploying an Azure Machine Learning model as a web service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
 ## Conclusion
 
