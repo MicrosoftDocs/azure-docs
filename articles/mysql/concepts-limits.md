@@ -52,7 +52,10 @@ When too many connections are reached, you may receive the following error:
 ## Privilege support
 
 ### Unsupported
-- [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+- DBA role
+Many sever parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain our service integrity and SLA at a product level we do not expose the DBA role to customers. The default user account, which is constructed when a new database instance is created, allows customers to perform most of DDL and DML statements in the managed database instance. 
+- SUPER privilege 
+Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
 
 ## Data manipulation statement support
 
