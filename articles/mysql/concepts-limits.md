@@ -81,6 +81,9 @@ When too many connections are reached, you may receive the following error:
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
+## Current Known Issues:
+- MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
+
 ## Next steps
 - [What’s available in each service tier](concepts-service-tiers.md)
 - [Supported MySQL database versions](concepts-supported-versions.md)
