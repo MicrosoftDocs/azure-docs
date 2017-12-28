@@ -244,8 +244,17 @@ For example, to index only the storage metadata, use:
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
 
+### Using blob metadata to control how blobs are indexed
+
+The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
+
+| Property name | Property value | Explanation |
+| --- | --- | --- |
+| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
+
 <a name="DealingWithErrors"></a>
-### Dealing with errors
+## Dealing with errors
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
@@ -268,15 +277,6 @@ You can also continue indexing if errors happen at any point of processing, eith
 	  ... other parts of indexer definition
 	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
 	}
-
-### Using blob metadata to control how blobs are indexed
-
-The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
-
-| Property name | Property value | Explanation |
-| --- | --- | --- |
-| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 ## Incremental indexing and deletion detection
 When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
