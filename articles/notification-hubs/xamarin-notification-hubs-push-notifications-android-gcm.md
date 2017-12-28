@@ -62,7 +62,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
 First, you create a new project.
 
 > [!NOTE]
-> This demo has been written from the context of Visual Studio for Mac. If you are using Visual Studio the code will all be the same, though some operations may be slightly different on Windows.
+> This demo has been written from the context of Visual Studio for Mac. If you are using Visual Studio the code is the same, though some operations may be slightly different on Windows.
 > 
 > 
 
