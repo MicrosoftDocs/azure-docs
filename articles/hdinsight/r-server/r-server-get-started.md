@@ -47,7 +47,7 @@ You can automate the creation of HDInsight R Servers using Azure Resource Manage
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **NEW** -> **Intelligence + Analytics**, -> **HDInsight**.
+2. Select **Create a resource** -> **Data + Analytics**, -> **HDInsight**.
 
     ![Image of creating a new cluster](./media/r-server-get-started/newcluster.png)
 

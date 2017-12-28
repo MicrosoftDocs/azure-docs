@@ -27,7 +27,7 @@ For example, suppose you purchase the domain 'contoso.net' and create a zone wit
 ## Create a DNS zone
 
 1. Sign in to the Azure portal.
-1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
+1. On the Hub menu, click and click **Create a resource > Networking >** and then click **DNS zone** to open the **Create DNS zone** page.
 
     ![DNS zone](./media/dns-domain-delegation/dns.png)
 
@@ -158,7 +158,7 @@ If you want to set up a separate child zone, you can delegate a sub-domain in Az
 ### Create a DNS zone
 
 1. Sign in to the Azure portal
-1. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone page.
+1. On the Hub menu, click **Create a resource > Networking >** and then click **DNS zone** to open the Create DNS zone page.
 
     ![DNS zone](./media/dns-domain-delegation/dns.png)
 

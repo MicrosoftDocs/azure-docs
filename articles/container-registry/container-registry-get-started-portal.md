@@ -24,7 +24,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a container registry
 
-Select **New** > **Containers** > **Azure Container Registry**.
+Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 

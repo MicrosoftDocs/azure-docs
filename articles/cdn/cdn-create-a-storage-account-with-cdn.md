@@ -38,9 +38,9 @@ administrator or a co-administrator for the associated subscription.
 **To create a storage account for an Azure subscription**
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
+2. In the upper left corner, select **Create a resource**. In the **New** pane, select **Data  + Storage**, then click **Storage account**.
 	
-	The **Create storage account** blade appears.   
+	The **Create storage account** pane appears.   
 
 	![Create Storage Account][create-new-storage-account]  
 

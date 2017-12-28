@@ -43,7 +43,7 @@ To be more precise, these are the steps to follow:
 Let’s walk through each of these steps.
 
 ## Create a Storage container if you don’t have one already
-Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **Create a resource** > **Data** + **Storage** > **Storage Account**.
 
 After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 

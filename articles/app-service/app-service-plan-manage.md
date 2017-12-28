@@ -29,7 +29,7 @@ An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) pr
 
 You can create an empty App Service plan or as part of app creation.
 
-In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
+In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Web + mobile**, and then select **Web App** or other App Service app kind.
 
 ![Create an app in the Azure portal.][createWebApp]
 

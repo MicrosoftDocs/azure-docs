@@ -7,10 +7,11 @@ Before we can write CDN management code, we need to do some preparation to enabl
 
 ### Creating the resource group
 1. Log into the [Azure Portal](https://portal.azure.com).
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
+2. Click **Create a resource**.
+3. Search for **Resource group** and in the Resource group pane, click **Create**.
 
     ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+3. Name your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you can click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
 
     ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.

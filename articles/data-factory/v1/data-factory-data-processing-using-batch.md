@@ -491,7 +491,7 @@ The following walkthrough provides additional details.
 #### Step 1: Create the data factory
 1. After logging in to the [Azure portal](https://portal.azure.com/), do the following steps:
 
-   1. Click **NEW** on the left menu.
+   1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.

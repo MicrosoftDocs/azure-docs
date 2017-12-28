@@ -65,7 +65,7 @@ Follow these steps to use the RRS web app template, as shown in the following di
    
     ![Request URI][image4] -->
 
-1. Go to the [Azure portal](https://portal.azure.com), **Login**, click **New**, search for and select **Azure ML Request-Response Service Web App**, then click **Create**. 
+1. Go to the [Azure portal](https://portal.azure.com), **Login**, click **Create a resource**, search for and select **Azure ML Request-Response Service Web App**, then click **Create**. 
    
    * Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
    * Select the Azure subscription and services under which your web service is running.

@@ -50,7 +50,7 @@ If you put the Application Gateway in the GatewaySubnet then you will be unable 
 
 ## Steps to configure ##
 
-1. From within the Azure portal, go to **New > Network > Application Gateway** 
+1. From within the Azure portal, go to **Create a resource > Network > Application Gateway**. 
 	1. Provide:
 		1. Name of the Application Gateway
 		1. Select WAF
