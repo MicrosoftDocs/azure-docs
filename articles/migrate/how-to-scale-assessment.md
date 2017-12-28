@@ -119,7 +119,7 @@ If you have multiple projects, be sure to identify the ID and key for each one. 
 
 1. In the project, select **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Copy project credentials**, copy the ID and key for the project. 
-    ![Project ID](./media/how-to-scale-assessment/project-id.png)
+    ![Project ID](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ## Set the vCenter statistics level
 Following is the list of performance counters that are collected during the discovery. The counters are by default available at various levels in vCenter Server. 
