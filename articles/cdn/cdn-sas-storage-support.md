@@ -111,7 +111,7 @@ This option is the most secure and customizable. To use CDN security token authe
  
 2. Use the [rules engine](cdn-rules-engine.md) to create a URL Rewrite rule to enable token access to all blobs in the container. New rules take about 90 minutes to propagate.
 
-   For example, enter the following patterns for the URL Rewrite rule:
+   This sample URL Rewrite rule has the following patterns:
    
    Source: `/test/demo.jpg`
    
