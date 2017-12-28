@@ -22,7 +22,7 @@ ms.author: v-rogara
 
 This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory). Then the script copies the blob objects from the source storage account to the target storage account.
 
-This is done by making use of the Get-AzureStorageContainer command, which lists all the containers in a storage account. It then uses issues AzCopy commands to copy each container from the source storage account to the destination storage account. If any failures occur the script will retry $retryTimes (default is 3, and can be modified with the -RetryTimes parameter). If failure is experienced for each time it retries the user can re-run the script with the -LastSuccessContainerName parameter and provide the name of the last successfully copied container. The script will then continue copying containers from that point.
+This is done by making use of the Get-AzureStorageContainer command, which lists all the containers in a storage account. It then issues AzCopy commands to copy each container from the source storage account to the destination storage account. If any failures occur the script will retry $retryTimes (default is 3, and can be modified with the -RetryTimes parameter). If failure is experienced for each time it retries the user can re-run the script with the -LastSuccessContainerName parameter and provide the name of the last successfully copied container. The script will then continue copying containers from that point.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
