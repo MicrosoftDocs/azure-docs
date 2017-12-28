@@ -85,18 +85,14 @@ Follow these steps to create a read-access geo-redundant storage account:
 
 # [.NET] (#tab/dotnet)
 
-[Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)  or use [git](https://git-scm.com/) to download a copy of the application to your development environment.
-Extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
-The sample project contains a console application.
+[Download the sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a console application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
 # [Python] (#tab/python) 
 
-[Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) or use [git](https://git-scm.com/) to download a copy of the application to your development environment.
-Extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file.
-The sample project contains a basic Python application.
+[Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Python application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
@@ -118,7 +114,6 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 ---
 
-![app config file](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## Run the console application
 
@@ -129,7 +124,7 @@ A console window launches and the application begins running. The application up
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) method. Prior to the download an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
+In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
 
 
 # [Python] (#tab/python) 
