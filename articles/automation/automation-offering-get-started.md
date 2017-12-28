@@ -156,7 +156,7 @@ The recommended method to onboard Automation is by selecting the Automation & Co
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 
-2. Click **New**.<br><br> ![Select New option in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+2. Click **Create a resource**.<br><br> ![Select New option in Azure portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
 3. Search for **Automation** and then in the search results select **Automation & Control***.<br><br> ![Search and select Automation & Control from Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
