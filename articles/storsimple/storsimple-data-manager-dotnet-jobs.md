@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/19/2017
+ms.date: 12/28/2017
 ms.author: alkohli
 ---
 
@@ -61,7 +61,7 @@ Perform the following steps to use .NET to launch a data transformation job.
     * Active Directory key (same as the one entered above)
     * Subscription ID
 
-        ![Configuration parameters script output](media/storsimple-data-manager-job-using-automation/get-config-parameters.png)
+        ![Configuration parameters script output](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
 3. Using Visual Studio 2012, 2013 or 2015, create a C# .NET console application.
 
