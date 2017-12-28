@@ -31,6 +31,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
