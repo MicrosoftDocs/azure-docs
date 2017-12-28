@@ -60,6 +60,12 @@ Your notification hub is configured to work with FCM, and you have the connectio
 
 ## Connect your app to the notification hub
 First, you create a new project.
+
+> [!NOTE]
+> This demo has been written from the context of Visual Studio for Mac. If you are using Visual Studio the code will all be the same, though some operations may be slightly different on Windows.
+> 
+> 
+
 1. In Visual Studio, choose **New Solution** > **Android App** and then select **Next**.
    
       ![Visual Studio- Create new Android project][22]
@@ -88,7 +94,7 @@ First, you create a new project.
 
 1. Right-click your project and select **Add** > **Add NuGet Packages**
 2. Search for **Xamarin.Azure.NotificationHubs.Android** and add it to the project.
-3. Search for **Xamarin.Firemase.Messaging** and add it to the project.
+3. Search for **Xamarin.Firebase.Messaging** and add it to the project.
 
 ### Set up notification hubs in your project
 1. Gather the following information for your Android app and notification hub:
@@ -134,7 +140,7 @@ First, you create a new project.
         }
     ```
 
-6. Right-click your project and add the `google-services.json` that you downloaded from your created Firebase project earlier. Right-click the added file and set the build action to `GoogleServicesJson`
+6. Right-click your project and add the `google-services.json` that you downloaded from your Firebase project earlier. Right-click the added file and set the build action to `GoogleServicesJson`
 
     ![Visual Studio- Configure google-services.json][25]
 
