@@ -59,12 +59,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
 ## Connect your app to the notification hub
-First, you create a new project.
-
-> [!NOTE]
-> This demo has been written from the context of Visual Studio for Mac. If you are using Visual Studio the code is the same, though some operations may be slightly different on Windows.
-> 
-> 
+First, you create a new project. 
 
 1. In Visual Studio, choose **New Solution** > **Android App** and then select **Next**.
    
