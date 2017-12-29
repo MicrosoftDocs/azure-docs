@@ -59,6 +59,12 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
+1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
+    ```JavaScript```
+    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
+    COSMOSDB_DBNAME={Your DB Name Here}
+    ```
+
 1. Add the following code to the end of index.js to connect to Azure Cosmos DB using the Mongoose framework.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
