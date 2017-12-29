@@ -50,6 +50,10 @@ DestStorageAccountKey: ExampleTargetStorageAccountKey
 AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```
 
+If failure is experienced and the sample must be re-run from a particular container: 
+
+`.\copyScript.ps1 -LastSuccessContainerName myContainerName`
+
 ## Sample script
 
 ```Powershell
