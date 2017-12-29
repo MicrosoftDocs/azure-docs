@@ -70,7 +70,7 @@ Selecting Engine logs all [xEvents](https://docs.microsoft.com/sql/analysis-serv
 
 ### All Metrics
 
-The AllMetrics category logs the same [Server metrics](analysis-services-monitor.md#Servermetrics) displayed in Metrics.
+The AllMetrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) displayed in Metrics.
 
 ## Setup diagnostics logging
 
@@ -90,7 +90,7 @@ The AllMetrics category logs the same [Server metrics](analysis-services-monitor
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
-    * **Metrics**. Select this option to store verbose data in [Metrics](analysis-services-monitor.md#Servermetrics). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Metrics**. Select this option to store verbose data in [Metrics](analysis-services-monitor.md#server-metrics). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
 
 3. Click **Save**.
 
