@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Script Sample - Migrate blobs across storage accounts using AzCopy on Windows | Microsoft Docs
-description: Using AzCopy, copies the contents of one Azure Storage Account to another.
+description: Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
 services: storage
 documentationcenter: na
 author: roygara
@@ -20,9 +20,9 @@ ms.author: v-rogara
 
 # Migrate blobs across storage accounts using AzCopy on Windows
 
-This script takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory). Then the script copies the blob objects from the source storage account to the target storage account.
+This sample copies all blob objects from a user-provided source storage account to a user-provided target storage account. 
 
-This is done by making use of the Get-AzureStorageContainer command, which lists all the containers in a storage account. The script then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur the script retries $retryTimes (default is 3, and can be modified with the `-RetryTimes` parameter). If failure is experienced for each time it retries the user can rerun the script with the `-LastSuccessContainerName` parameter and provide the name of the last successfully copied container. The script then continues copying containers from that point.
+This is accomplished by making use of the `Get-AzureStorageContainer` command, which lists all the containers in a storage account. The sample then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur, the sample retries $retryTimes (default is 3, and can be modified with the `-RetryTimes` parameter). If failure is experienced for each time it retries, the user can rerun the script with the `-LastSuccessContainerName` parameter, and provide the name of the last successfully copied container. The sample then continues copying containers from that point.
 
 This sample requires the Azure PowerShell module version 5.1.1 or later. You can check "Microsoft Azure Powershell" in Add/Remove programs to see what version you have installed. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
@@ -30,7 +30,9 @@ This sample requires the Azure PowerShell module version 5.1.1 or later. You can
 
 This sample also requires the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy). The default install directory is `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
 
-The following are examples of the input for this script:
+This sample takes in a source storage account name and key, a target storage account name and key, and the full filepath of the AzCopy.exe (if it is not installed at the default directory).
+
+The following are examples of the input for this sample:
 
 If AzCopy is installed at the default directory:
 ```PowerShell
