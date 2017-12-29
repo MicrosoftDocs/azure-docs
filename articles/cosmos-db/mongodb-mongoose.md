@@ -19,7 +19,7 @@ ms.author: rogirdh
 ---
 # Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
 
-This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We will use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
+This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -33,13 +33,13 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Set up your Node.js application
 
-1. Use the following command in a node command prompt to create a Node.js application in the folder of your choice.
+1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt .
 
     ```npm init```
 
@@ -48,10 +48,10 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Add a new file to the folder and name it ```index.js```.
 1. Install the necessary packages using one of the ```npm install``` options:
     * Mongoose: ```npm install mongoose --save```
-    * Dotenv (if you'd like to load your secrets from a .env file): ```npm install dotenv --save```
+    * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
     
     >[!Note]
-    > The ```--save``` flag will add the dependency to the package.json file.
+    > The ```--save``` flag adds the dependency to the package.json file.
 
 1. Import the dependencies in your index.js file.
     ```JavaScript
@@ -65,7 +65,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
 
-1. Add the following code to the end of index.js to connect to Azure Cosmos DB using the Mongoose framework.
+1. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -84,7 +84,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 For every model you create, Mongoose creates a new MongoDB collection underneath the covers. However, given the per-collection billing model of Azure Cosmos DB, it might not be the most cost-efficient way to go, if you've got multiple object models that are sparsely populated.
 
-In this walkthrough, we will cover both models. We'll first cover the walkthrough on storing one type of data per collection. This is the defacto behavior for Mongoose.
+This walkthrough covers both models. We'll first cover the walkthrough on storing one type of data per collection. This is the defacto behavior for Mongoose.
 
 Mongoose also has a concept called [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
@@ -92,7 +92,7 @@ You can store the various data models in the same collection and then use a filt
 
 ### One collection per object model
 
-The default Mongoose behavior is to create a MongoDB collection every time you create an Object model. In this section, we will explore how to achieve this with MongoDB for Azure Cosmos DB. This method is recommended with Azure Cosmos DB when you have object models with large amounts of data (Roughly ~ 5GB data, at least). This is the default operating model for Mongoose, so, you might be familar with this, if you're familiar with Mongoose.
+The default Mongoose behavior is to create a MongoDB collection every time you create an Object model. This section explores how to achieve this with MongoDB for Azure Cosmos DB. This method is recommended with Azure Cosmos DB when you have object models with large amounts of data. This is the default operating model for Mongoose, so, you might be familiar with this, if you're familiar with Mongoose.
 
 1. Open your ```index.js``` again.
 
@@ -143,7 +143,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     });
     ```
 
-1. Finally, let's save the object to Azure Cosmos DB. This will create a collection underneath the covers.
+1. Finally, let's save the object to Azure Cosmos DB. This creates a collection underneath the covers.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -172,11 +172,11 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     });
     ```
 
-1. Now, going into the Azure portal, you will notice two collections created in Azure Cosmos DB.
+1. Now, going into the Azure portal, you notice two collections created in Azure Cosmos DB.
 
     ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
-1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads will be the same with any other reads with Mongoose.
+1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -184,13 +184,13 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
     });
     ```
 
-### Using Mongoose discrimintors to store data in a single collection
+### Using Mongoose discriminators to store data in a single collection
 
-In this method, we will use [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow us to define a differentiating 'Key', which will allow us to store, differentiate and filter on different object models.
+In this method, we use [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
 
-Here, we will create a base object model, define a differentiating key and add our 'Family' and 'VacationDestinations' as an extension to our base model.
+Here, we create a base object model, define a differentiating key and add 'Family' and 'VacationDestinations' as an extension to the base model.
 
-1. Let's setup our base config and define our discriminator key.
+1. Let's set up the base config and define the discriminator key.
 
     ```JavaScript
     const baseConfig = {
@@ -205,7 +205,7 @@ Here, we will create a base object model, define a differentiating key and add o
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. We will now define our 'Family' model. Notice here that we're using ```commonModel.discriminator``` instead of ```mongoose.model```. Additionally, we're also adding the base config to our mongoose schema. So, here, our discriminatorKey will be ```FamilyType```.
+1. We now define the 'Family' model. Notice here that we're using ```commonModel.discriminator``` instead of ```mongoose.model```. Additionally, we're also adding the base config to the mongoose schema. So, here, the discriminatorKey is ```FamilyType```.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -232,7 +232,7 @@ Here, we will create a base object model, define a differentiating key and add o
     }, baseConfig));
     ```
 
-1. Similarly, let's add another schema, this time for our 'VacationDestinations'. Here, our DiscriminatorKey is ```VacationDestinationsType```.
+1. Similarly, let's add another schema, this time for the 'VacationDestinations'. Here, the DiscriminatorKey is ```VacationDestinationsType```.
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -242,7 +242,7 @@ Here, we will create a base object model, define a differentiating key and add o
     ```
 
 1. Finally, let's create objects for the model and save it.
-    1. Let's add object(s) to our 'Family' model.
+    1. Let's add object(s) to the 'Family' model.
     ```JavaScript
     const family_common = new Family_common({
         lastName: "Volum",
@@ -265,7 +265,7 @@ Here, we will create a base object model, define a differentiating key and add o
     });
     ```
 
-    1. Next, let's add object(s) to our 'VacationDestinations' model and save it.
+    1. Next, let's add object(s) to the 'VacationDestinations' model and save it.
     ```JavaScript
     const vacay_common = new Vacation_common({
         name: "Honolulu",
