@@ -31,7 +31,7 @@ To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
 > [!NOTE]
-> There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we'll be using the Azure Portal.  
+> There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we use the Azure Portal.  
 > 
 > 
 
@@ -60,7 +60,7 @@ administrator or a co-administrator for the associated subscription.
    
     This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 4. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
-5. Select the **Subscription** that the storage account will be used with.
+5. Select the **Subscription** that the storage account is used with.
 6. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Select a location for your storage account.
 8. Click **Create**. The process of creating the storage account might take several minutes to complete.
@@ -71,7 +71,7 @@ With the newest integration, you can now enable CDN for your storage account wit
 
 1. Select the storage account, search "CDN" or scroll down from the left navigation menu, then click "Azure CDN".
 	
-	The **Azure CDN** blade appears.
+	The **Azure CDN** pane appears.
 
 	![cdn enable navigation][cdn-enable-navigation]
 	
@@ -98,17 +98,17 @@ With the newest integration, you can now enable CDN for your storage account wit
 
 ## Step 3: Enable additional CDN features
 
-From storage account "Azure CDN" blade, click the CDN endpoint from the list to open CDN configuration blade. You can enable additional CDN features for your delivery, such as compression, query string, geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
+From storage account "Azure CDN" pane, click the CDN endpoint from the list to open CDN configuration pane. You can enable additional CDN features for your delivery, such as compression, query string, geo filtering. You can also add custom domain mapping to your CDN endpoint and enable custom domain HTTPS.
 	
 ![cdn storage cdn configuration][cdn-storage-cdn-configuration]
 
 ## Step 4: Access CDN content
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob is similar to the following example:
 
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Once you enable CDN access to a storage account, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+> Once you enable CDN access to a storage account, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content is not available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
 > 
 > 
 
@@ -116,11 +116,11 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
-* You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md) for more information.
+* You can make the container private instead of public. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
 * You can disable or delete the CDN endpoint using the Management Portal.
 * You can modify your hosted service to no longer respond to requests for the object.
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+An object already cached in the CDN remains cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN checks to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object is no longer cached.
 
 ## Additional resources
 * [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
