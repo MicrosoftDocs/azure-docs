@@ -22,7 +22,7 @@ Improve accuracy of intent score and identify entities for words that have the s
 
 3. [Train]() your app. You cannot [interactively test](Train-Test.md#interactive-testing) your app in [www.LUIS.ai][www.luis.ai] until the app is trained. 
 
-4. Check **Include all predicted intent scores** on the Publish page. With this checked, all intents are returned. Without this checked, only the top intent is returned. 
+4. Check **Include all predicted intent scores** on the [Publish](PublishApp.md) page. With this checked, all intents are returned. Without this checked, only the top intent is returned. 
 
 5. [Publish](PublishApp.md) the app.  Publishing the app allows you to test using the HTTPS endpoint. 
 
