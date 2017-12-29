@@ -18,7 +18,7 @@ ms.date: 12/29/2017
 ms.author: owend
 
 ---
-# Diagnostic logging
+# Setup diagnostic logging
 
 An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
