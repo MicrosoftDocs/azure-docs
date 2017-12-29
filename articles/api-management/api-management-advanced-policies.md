@@ -408,7 +408,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### Example  
- In the following example request forewarding is retried up to ten times using exponential retry algorithm. Since                    `first-fast-retry` is set to false, all retry attempts are subject to the exponsntial retry algorithm.  
+ In the following example request forwarding is retried up to ten times using exponential retry algorithm. Since                    `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.  
   
 ```xml  
   
