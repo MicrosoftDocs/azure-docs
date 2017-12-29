@@ -78,7 +78,6 @@ From any one of these portals (or cmdlets), you can:
 * Set up on-premises integration with Azure AD identity and authentication services
 
 The Azure AD admin center, Office 365 Admin Center, Microsoft Intune account portal, and the Azure AD cmdlets all read from and write to a single shared instance of Azure AD that is associated with your organization’s directory. Each of those tools acts as a front-end interface that pulls in or changes your directory data.
-
 When you change your organization's data using any of the portals or cmdlets while signed in under the context of one of these services, the changes are also shown in the other portals the next time you sign in. This data is shared across the Microsoft cloud services to which you subscribe.
 
 For example, if you use the Office 365 Admin Center to block a user from signing in, that action blocks the user from signing in to any other service to which your organization is currently subscribed to. If you view the same user account in the Microsoft Intune account portal, you also see that the user is blocked.
@@ -115,8 +114,8 @@ The following conditions are checked:
 
 
 ## Next steps
-* [Azure AD Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Stack Overflow for Azure questions](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow for Azure questions](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md)
