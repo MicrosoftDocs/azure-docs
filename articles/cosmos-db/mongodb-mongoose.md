@@ -1,64 +1,65 @@
 ---
-title: Connect a NodeJS Mongoose app to Azure Cosmos DB | Microsoft Docs
+title: Connect a Node.js Mongoose app to Azure Cosmos DB | Microsoft Docs
 description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: romitgirdhar
+manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.custom: quick start connect, mongoose, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 10/02/2017
+ms.topic: tutorial
+ms.date: 12/05/2017
 ms.author: rogirdh
 
 ---
 # Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We will use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
-This quickstart demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We will use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an onject modeling framework for MongoDB in NodeJS and provides a straight-forward, schema-based solution to model your application data.
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-## Prerequisites for the Node.js tutorial
+## Prerequisites
 
-Please make sure you have the following:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* [Node.js](https://nodejs.org/) version v0.10.29 or higher.
-* An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Create an Azure Cosmos DB account
 
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Set up your Node.js application
 
-1. Create a NodeJS application in the folder of your choice
+1. Use the following command in a node command prompt to create a Node.js application in the folder of your choice.
+
     ```npm init```
+
     Answer the questions and your project will be ready to go.
 
-1. Add a new file to the folder called ```index.js```.
-1. Install the necessary packages using ```npm install```
-    1. Mongoose: ```npm install mongoose --save```
-    1. Dotenv (if you'd like to load your secrets from a .env file): ```npm install dotenv --save```
+1. Add a new file to the folder and name it ```index.js```.
+1. Install the necessary packages using one of the ```npm install``` options:
+    * Mongoose: ```npm install mongoose --save```
+    * Dotenv (if you'd like to load your secrets from a .env file): ```npm install dotenv --save```
     
     >[!Note]
     > The ```--save``` flag will add the dependency to the package.json file.
 
-1. Import the dependencies in your index.js.
+1. Import the dependencies in your index.js file.
     ```JavaScript
     var mongoose = require('mongoose');
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Connect to Azure Cosmos DB using the Mongoose
+1. Add the following code to the end of index.js to connect to Azure Cosmos DB using the Mongoose framework.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -71,8 +72,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     >[!Note]
     > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.
 
-    Once you are connected to Azure Cosmos DB, you can now start setting up Object models in Mongoose.
-
+    Once you are connected to Azure Cosmos DB, you can now start setting up object models in Mongoose.
     
 ## Caveats to using Mongoose with Azure Cosmos DB
 
@@ -92,58 +92,58 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 1. Create the schema definition for 'Family'.
 
-```JavaScript
-const Family = mongoose.model('Family', new mongoose.Schema({
-    lastName: String,
-    parents: [{
-        familyName: String,
-        firstName: String,
-        gender: String
-    }],
-    children: [{
-        familyName: String,
-        firstName: String,
-        gender: String,
-        grade: Number
-    }],
-    pets:[{
-        givenName: String
-    }],
-    address: {
-        country: String,
-        state: String,
-        city: String
-    }
-}));
-```
+    ```JavaScript
+    const Family = mongoose.model('Family', new mongoose.Schema({
+        lastName: String,
+        parents: [{
+            familyName: String,
+            firstName: String,
+            gender: String
+        }],
+        children: [{
+            familyName: String,
+            firstName: String,
+            gender: String,
+            grade: Number
+        }],
+        pets:[{
+            givenName: String
+        }],
+        address: {
+            country: String,
+            state: String,
+            city: String
+        }
+    }));
+    ```
 
 1. Create an object for 'Family'.
 
-```JavaScript
-const family = new Family({
-    lastName: "Volum",
-    parents: [
-        { firstName: "Thomas" },
-        { firstName: "Mary Kay" }
-    ],
-    children: [
-        { firstName: "Ryan", gender: "male", grade: 8 },
-        { firstName: "Patrick", gender: "male", grade: 7 }
-    ],
-    pets: [
-        { givenName: "Blackie" }
-    ],
-    address: { country: "USA", state: "WA", city: "Seattle" }
-});
-```
+    ```JavaScript
+    const family = new Family({
+        lastName: "Volum",
+        parents: [
+            { firstName: "Thomas" },
+            { firstName: "Mary Kay" }
+        ],
+        children: [
+            { firstName: "Ryan", gender: "male", grade: 8 },
+            { firstName: "Patrick", gender: "male", grade: 7 }
+        ],
+        pets: [
+            { givenName: "Blackie" }
+        ],
+        address: { country: "USA", state: "WA", city: "Seattle" }
+    });
+    ```
 
 1. Finally, let's save the object to Azure Cosmos DB. This will create a collection underneath the covers.
 
-```JavaScript
-family.save((err, saveFamily) => {
-    console.log(JSON.stringify(saveFamily));
-});
-```
+    ```JavaScript
+    family.save((err, saveFamily) => {
+        console.log(JSON.stringify(saveFamily));
+    });
+    ```
 
 1. Now, let's create another schema and object. This time, let's create one for 'Vacation Destinations' that the families might be interested in.
     1. Just like last time, let's create the scheme
@@ -168,9 +168,10 @@ family.save((err, saveFamily) => {
 
 1. Now, going into the Azure portal, you will notice two collections created in Azure Cosmos DB.
 
-![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
 1. Finally, let's read the data from Azure Cosmos DB. Since we're using the default Mongoose operating model, the reads will be the same with any other reads with Mongoose.
+
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
         foundFamily.forEach(fam => console.log("Found Family: " + JSON.stringify(fam)));
@@ -185,54 +186,54 @@ Here, we will create a base object model, define a differentiating key and add o
 
 1. Let's setup our base config and define our discriminator key.
 
-```JavaScript
-const baseConfig = {
-    discriminatorKey: "_type", //If you've got a lot of different data types, you could also consider setting up a secondary index here.
-    collection: "alldata"   //Name of the Common Collection
-};
-```
+    ```JavaScript
+    const baseConfig = {
+        discriminatorKey: "_type", //If you've got a lot of different data types, you could also consider setting up a secondary index here.
+        collection: "alldata"   //Name of the Common Collection
+    };
+    ```
 
 1. Next, let's define the common object model
 
-```JavaScript
-const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
-```
+    ```JavaScript
+    const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
+    ```
 
 1. We will now define our 'Family' model. Notice here that we're using ```commonModel.discriminator``` instead of ```mongoose.model```. Additionally, we're also adding the base config to our mongoose schema. So, here, our discriminatorKey will be ```FamilyType```.
 
-```JavaScript
-const Family_common = commonModel.discriminator('FamilyType', new mongoose.Schema({
-    lastName: String,
-    parents: [{
-        familyName: String,
-        firstName: String,
-        gender: String
-    }],
-    children: [{
-        familyName: String,
-        firstName: String,
-        gender: String,
-        grade: Number
-    }],
-    pets:[{
-        givenName: String
-    }],
-    address: {
-        country: String,
-        state: String,
-        city: String
-    }
-}, baseConfig));
-```
+    ```JavaScript
+    const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
+        lastName: String,
+        parents: [{
+            familyName: String,
+            firstName: String,
+            gender: String
+        }],
+        children: [{
+            familyName: String,
+            firstName: String,
+           gender: String,
+            grade: Number
+        }],
+        pets:[{
+            givenName: String
+        }],
+        address: {
+            country: String,
+            state: String,
+            city: String
+        }
+    }, baseConfig));
+    ```
 
 1. Similarly, let's add another schema, this time for our 'VacationDestinations'. Here, our DiscriminatorKey is ```VacationDestinationsType```.
 
-```JavaScript
-const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
-    name: String,
-    country: String
-}, baseConfig));
-```
+    ```JavaScript
+    const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
+        name: String,
+        country: String
+    }, baseConfig));
+    ```
 
 1. Finally, let's create objects for the model and save it.
     1. Let's add object(s) to our 'Family' model.
@@ -272,30 +273,27 @@ const Vacation_common = commonModel.discriminator('VacationDestinationsType', ne
 
 1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
-![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
+    ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
 
 1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 
 1. Finally, let's read the data that is stored in Azure Cosmos DB. Mongoose takes care of filtering data based on the model. So, you have to do nothing different when reading data. Just specify your model (in this case, ```Family_common```) and Mongoose handles filtering on the 'DiscriminatorKey'.
 
-```JavaScript
-Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
-    foundFamily.forEach(fam => console.log("Found Family (using discriminator): " + JSON.stringify(fam)));
-});
-```
+    ```JavaScript
+    Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
+        foundFamily.forEach(fam => console.log("Found Family (using discriminator): " + JSON.stringify(fam)));
+    });
+    ```
 
 As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running on the MongoDB API on Azure Cosmos DB without requiring too many changes.
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
-1. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next Steps
 
-* Clone the [sample](https://github.com/romitgirdhar/AzureSamples/tree/master/Mongoose_CosmosDB) used for this tutorial and build your NodeJS Mongoose application on Azure Cosmos DB.
+* Clone the [sample](https://github.com/romitgirdhar/AzureSamples/tree/master/Mongoose_CosmosDB) used for this tutorial and build your Node.js Mongoose application on Azure Cosmos DB.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
