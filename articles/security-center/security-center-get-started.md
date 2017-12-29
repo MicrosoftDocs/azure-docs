@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Onboard your Azure subscription to Security Center Standard | Microsoft Docs
+title: Azure Security Center Quickstart - Onboard your Azure subscription to Security Center Standard | Microsoft Docs
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
