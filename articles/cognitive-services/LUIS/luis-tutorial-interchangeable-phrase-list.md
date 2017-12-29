@@ -143,7 +143,10 @@ The untrained utterance intent score is lower than the labeled utterance because
 You need to teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
 
 ## Improve score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
+1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Enter**.
+
+    > [!TIP]
+    > Press the **Enter** key after every word or phrase. The word or phrase is added to the **Phrase list values** box while the cursor stays on the **Value** box. You can enter many values quickly with this feature.
 
 2. Click on **Recommend** to see what words LUIS recommends. 
 
