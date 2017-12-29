@@ -1,19 +1,10 @@
 ---
-title: Review the architecture for VMware replication to Azure | Microsoft Docs
+title: VMware to Azure replication architecture in Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with the Azure Site Recovery service
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
 ---
 
@@ -82,6 +73,4 @@ When your primary on-premises site is available again, you can fail back.
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable VMware to Azure replication.
-Run a failover and failback.
+Follow [this tutorial](tutorial-vmware-to-azure.md) to enable VMware to Azure replication.
