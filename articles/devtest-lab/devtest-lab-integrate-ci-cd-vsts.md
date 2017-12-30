@@ -3,7 +3,7 @@ title: Integrate Azure DevTest Labs into your VSTS continuous integration and de
 description: Learn how to integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
