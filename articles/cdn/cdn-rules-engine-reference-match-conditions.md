@@ -354,9 +354,6 @@ Key information:
 
 ---  
 ### Request Header Regex
-> [!NOTE]
-> This capability requires Rules Engine - Advanced Rules, which must be purchased separately. To activate it, contact your Content Delivery Network account manager. 
-
 The **Matches**/**Does Not Match** option determines the conditions under which the Request Header Regex match condition will be satisfied.
 - **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified regular expression.
 - **Does Not Match**: Requires that the request satisfy either of the following criteria:
