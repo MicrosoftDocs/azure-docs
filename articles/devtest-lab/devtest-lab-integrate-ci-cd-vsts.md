@@ -19,7 +19,12 @@ ms.author: tarcher
 ---
 
 # Integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline
-You can use the *Azure DevTest Labs Tasks* extension that's installed in Visual Studio Team Services (VSTS) to easily integrate your CI/CD build-and-release pipeline with Azure DevTest Labs. The extension installs three tasks: create a VM, create a custom image from a VM, and delete a VM. The process makes it easy to, for example, quickly deploy a "golden image" for a specific test task and then delete it when the test is finished.
+You can use the *Azure DevTest Labs Tasks* extension that's installed in Visual Studio Team Services (VSTS) to easily integrate your CI/CD build-and-release pipeline with Azure DevTest Labs. The extension installs three tasks: 
+* Create a VM
+* Create a custom image from a VM
+* Delete a VM 
+
+The process makes it easy to, for example, quickly deploy a "golden image" for a specific test task and then delete it when the test is finished.
 
 This article shows how to create and deploy a VM, create a custom image, and then delete the VM, all as one complete pipeline. You would ordinarily perform each task individually in your own custom build-test-deploy pipeline.
 
@@ -77,7 +82,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Check the script in to your source control system. Name it something like **GetLabVMParams.ps1**.
 
-   When you run this script on the agent as part of the release definition, the script collects the values that you need to deploy your app to the VM if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
+   When you run this script on the agent as part of the release definition, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
 
 ## Create the release definition in Release Management
 To create the release definition, do the following:
@@ -100,64 +105,64 @@ In the release definition, select **Add tasks** and then, on the **Deploy** tab,
 > [!NOTE]
 > To create the VM to use for subsequent deployments, see [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-- **Azure RM Subscription**: Select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
-- **Lab Name**: Select the name of the instance that you created earlier.
-- **Template Name**: Enter the full path and name of the template file that you saved to your source code repository. You can use the built-in properties of Release Management to simplify the path, for example:
+1. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+2. For **Lab Name**, select the name of the instance that you created earlier.
+3. For **Template Name**, enter the full path and name of the template file that you saved to your source code repository. You can use the built-in properties of Release Management to simplify the path, for example:
 
    ```
    $(System.DefaultWorkingDirectory)/Contoso/ARMTemplates/CreateVMTemplate.json
    ```
 
-- **Template Parameters**: Enter the parameters for the variables defined in the template. Use the names of the variables you defined in the environment, for example:
+4. For **Template Parameters**, enter the parameters for the variables that are defined in the template. Use the names of the variables that you defined in the environment, for example:
 
    ```
    -newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)
    ```
 
-- **Output Variables - Lab VM ID**: You need the ID of the newly created VM for subsequent steps. You set the default name of the environment variable that is automatically populated with this ID in the **Output Variables** section. You can edit the variable if necessary, but remember to use the correct name in subsequent tasks. The Lab VM ID is in the form:
+5. For **Output Variables - Lab VM ID**, you need the ID of the newly created VM for subsequent steps. You set the default name of the environment variable that is automatically populated with this ID in the **Output Variables** section. You can edit the variable if necessary, but remember to use the correct name in subsequent tasks. The Lab VM ID is written in the following form:
 
    ```
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-1. Execute the script you created earlier to collect the details of the DevTest Labs VM. 
-1. In the release definition, select **Add tasks**and then, on the **Deploy** tab, add an *Azure PowerShell* task. Configure the task as follows:
+6. Execute the script you created earlier to collect the details of the DevTest Labs VM. 
+7. In the release definition, select **Add tasks** and then, on the **Deploy** tab, add an *Azure PowerShell* task. Configure the task as follows:
 
    > [!NOTE]
    > To collect the details of the DevTest Labs VM, see [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) and execute the script.
 
-   - For **Azure Connection Type**, select **Azure Resource Manager**.
-   - For **Azure RM Subscription**, select a connection from the list under **Available Azure Service Connections**, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
-   - For **Script Type**, select **Script File**.
-   - For **Script Path**, enter the full path and name of the script that you saved to your source code repository. You can use the built-in properties of Release Management to simplify the path, for example:
+   a. For **Azure Connection Type**, select **Azure Resource Manager**.
+   b. For **Azure RM Subscription**, select a connection from the list under **Available Azure Service Connections**, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   c. For **Script Type**, select **Script File**.
+   d. For **Script Path**, enter the full path and name of the script that you saved to your source code repository. You can use the built-in properties of Release Management to simplify the path, for example:
       ```
       $(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1
       ```
-   - For **Script Arguments**, enter the name of the environment variable that was automatically populated with the ID of the lab VM by the previous task, for example: 
+   e. For **Script Arguments**, enter the name of the environment variable that was automatically populated with the ID of the lab VM by the previous task, for example: 
       ```
       -labVmId '$(labVMId)'
       ```
    The script collects the required values and stores them in environment variables within the release definition so that you can easily refer to them in subsequent steps.
 
-1. Deploy your app to the new DevTest Labs VM. The tasks you ordinarily use to deploy the app are *Azure File Copy* and *PowerShell on Target Machines*.
-   - The information about the VM you need for the parameters of these tasks is stored in three configuration variables named **labVmRgName**, **labVMIpAddress**, and **labVMFqdn** within the release definition.
-   - If you just want to experiment with creating a DevTest Labs VM and a custom image, without deploying an app to it, you can skip this step.
+8. Deploy your app to the new DevTest Labs VM. The tasks you ordinarily use to deploy the app are *Azure File Copy* and *PowerShell on Target Machines*.
+   The information about the VM you need for the parameters of these tasks is stored in three configuration variables named **labVmRgName**, **labVMIpAddress**, and **labVMFqdn** within the release definition. If you only want to experiment with creating a DevTest Labs VM and a custom image, without deploying an app to it, you can skip this step.
 
 ### Create an image
 
 In this stage, you create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use the image to create copies of the VM on demand whenever you want to execute a dev task or run some tests. 
 
-In the release definition, select **Add tasks** and then, on the **Deploy** tab, add an **Azure DevTest Labs Create Custom Image** task. Configure it as follows:
+1. In the release definition, select **Add tasks**.
+2. On the **Deploy** tab, add an **Azure DevTest Labs Create Custom Image** task. Configure it as follows:
 
-> [!NOTE]
-> To create the image, see [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
+   > [!NOTE]
+   > To create the image, see [Azure DevTest Labs tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-- For **Azure RM Subscription**, in the **Available Azure Service Connections** list, select a connection from the list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
-- For **Lab Name**, select the name of the instance you created earlier.
-- For **Custom Image Name**, enter a name for the custom image.
-- (Optional) For **Description**, enter a description to make it easy to select the correct image later.
-- For **Source Lab VM - Source Lab VM ID**, if you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default value is **$(labVMId)**.
-- For **Output Variables - Custom Image ID**, you need the ID of the newly created image when you want to manage or delete it. The default name of the environment variable that is automatically populated with this ID is set in the **Output Variables** section. You can edit the variable if necessary.
+   a. For **Azure RM Subscription**, in the **Available Azure Service Connections** list, select a connection from the list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. For **Lab Name**, select the name of the instance you created earlier.
+   c. For **Custom Image Name**, enter a name for the custom image.
+   d. (Optional) For **Description**, enter a description to make it easy to select the correct image later.
+   e. For **Source Lab VM - Source Lab VM ID**, if you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default value is **$(labVMId)**.
+   f. For **Output Variables - Custom Image ID**, you need the ID of the newly created image when you want to manage or delete it. The default name of the environment variable that is automatically populated with this ID is set in the **Output Variables** section. You can edit the variable if necessary.
 
 ### Delete the VM
 
@@ -168,11 +173,11 @@ In this final stage, you delete the VM that you deployed in your Azure DevTest L
       > [!NOTE]
       > To delete the VM, see [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-      - For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
-      - For **Lab VM ID**, if you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default value is **$(labVMId)**.
+      a. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+      b. For **Lab VM ID**, if you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default value is **$(labVMId)**.
 
-1. Enter a name for the release definition, and then save it.
-1. Create a new release, select the latest build, and deploy it to the single environment in the definition.
+2. Enter a name for the release definition, and then save it.
+3. Create a new release, select the latest build, and deploy it to the single environment in the definition.
 
 At each stage, refresh the view of your DevTest Labs instance in the Azure portal to view the VM and image that are being created, and the VM that's being deleted again.
 
