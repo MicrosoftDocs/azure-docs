@@ -91,10 +91,13 @@ To create the release definition, do the following:
 1. In the **Create release definition** window, select the **Empty** template, and then select **Next**.
 1. In the next page, select **Choose Later** and then select **Create** to create a new release definition with one default environment and no linked artifacts.
 1. To open the shortcut menu, in the new release definition, select the ellipsis (...) next to the environment name, and then select **Configure variables**. 
-1. In the **Configure - environment** window, enter the following values for the variables that you use in the release definition tasks:
-   - **vmName**: Enter the name you assigned to the VM when you created the Resource Manager template in the Azure portal.
-   - **userName**: Enter the username you assigned to the VM when you created the Resource Manager template in the Azure portal.
-   - **password**: Enter the password you assigned to the VM when you created the Resource Manager template in the Azure portal. Use the "padlock" icon to hide and secure the password.
+1. In the **Configure - environment** window, for the variables that you use in the release definition tasks, enter the following values:
+
+   a. For **vmName**, enter the name that you assigned to the VM when you created the Resource Manager template in the Azure portal.
+
+   b. For **userName**, enter the username that you assigned to the VM when you created the Resource Manager template in the Azure portal.
+
+   c. For **password**, enter the password that you assigned to the VM when you created the Resource Manager template in the Azure portal. Use the "padlock" icon to hide and secure the password.
 
 ### Create a VM
 
