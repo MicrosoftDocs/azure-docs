@@ -62,7 +62,7 @@ Security Center analyzes the security state of your Azure and non-Azure resource
 
 ![Recommendations][4]
 
-See [Managing security recommendations](security-center-recommendations) for more information.
+See [Managing security recommendations](security-center-recommendations.md) for more information.
 
 ## Just in time VM access
 Reduce the network attack surface with just in time, controlled access to management ports on Azure VMs, drastically reducing exposure to brute force and other network attacks.
