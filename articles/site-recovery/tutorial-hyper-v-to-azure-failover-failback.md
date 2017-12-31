@@ -1,10 +1,11 @@
 ---
 title: Fail over and fail back Hyper-V VMs replicated to Azure with Site Recovery | Microsoft Docs
 description: Learn how to fail over Hyper-V VMs to Azure, and fail back to the on-premises site, with Azure Site Recovery
+services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 12/31/2017
 ms.author: raynew
 ---
 
