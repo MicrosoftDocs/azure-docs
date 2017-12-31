@@ -74,7 +74,7 @@ Multi-NIC | Yes | Yes
 Reserved IP | Yes | Yes
 IPv4 | Yes | Yes
 Retain source IP address | Yes | Yes
-VNET service endpoints (Azure storage firewalls and virtual networks) | No | No
+VNET service endpoints<br/><br/> (Azure storage firewalls and virtual networks) | No | No
 
 
 ## Hyper-V host storage
@@ -84,7 +84,7 @@ VNET service endpoints (Azure storage firewalls and virtual networks) | No | No
 NFS | NA | NA
 SMB 3.0 | Yes | Yes
 SAN (ISCSI) | Yes | Yes
-Multi-path (MPIO)<br></br>Tested with:Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes | Yes
+Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
 
 ## Hyper-V VM guest storage
 
@@ -99,8 +99,8 @@ Encrypted disk | No | No
 NFS | NA | NA
 SMB 3.0 | No | No
 RDM | NA | NA
-Disk > 1 TB | | Yes<br/><br/>Up to 4095 GB | Yes<br/><br/>Up to 4095 GB
-Disk: 4K logical and physical sector | Not supported:Gen 1/Gen 2<br/><br/>Not supported:Gen 1/Gen 2
+Disk > 1 TB | Yes, up to 4095 GB | Yes, up to 4095 GB
+Disk: 4K logical and physical sector | Not supported:Gen 1/Gen 2 | Not supported:Gen 1/Gen 2
 Disk: 4K logical and 512 bytes physical sector | Yes |  Yes
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | Yes | Yes
@@ -130,7 +130,7 @@ VNET service endpoints (Azure storage firewalls and VNETs), on target to cache s
 --- | --- | ---
 Availability sets | Yes | Yes
 HUB | Yes | Yes  
-Managed disks | Yes (failback of managed disks isn't supported) | Yes (failback of managed disks isn't supported)
+Managed disks | Yes, for failover<br/><br/> Failback of managed disks isn't supported | Yes, for failover<br/><br/> Failback of managed disks isn't supported
 
 ## Azure VM requirements
 
