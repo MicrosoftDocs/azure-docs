@@ -18,7 +18,7 @@ ms.author: terrylan
 
 ---
 # Quickstart: Onboard Windows computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Microsoft Monitoring Agent
+After you onboard your Azure subscriptions, you can enable Security Center for resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Microsoft Monitoring Agent.
 
 This quickstart shows you how to:
 
@@ -69,7 +69,7 @@ You must now install the downloaded file on the target computer.
 5. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics (OMS) and then select **Next**.
 6. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
 7. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** form the **Azure Cloud** dropdown list.  If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
-8. Select **Next** once you have completed providing the necessary configuration settings
+8. Select **Next** once you have completed providing the necessary configuration settings.
 
   ![Install the agent][5]
 
@@ -83,7 +83,7 @@ For further information on installing and configuring the agent, see [Connect Wi
 ## Clean up resources
 When no longer needed, you can remove the agent from the Windows computer.
 
-To remove the agent, perform the following steps.
+To remove the agent:
 
 1. Open **Control Panel**.
 2. Open **Programs and Features**.
