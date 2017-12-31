@@ -24,7 +24,7 @@ tasks in the previous tutorials.
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises VMware](tutorial-prepare-on-premises-hyper-v.md)
-3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-to-azure.md), or for ]Hyper-V VMs managed in System Center VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-to-azure.md), or for [Hyper-V VMs managed in System Center VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
 4. [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
 ## Prepare for failover and failback
@@ -41,7 +41,7 @@ Failover and failback has four stages:
 
 ## Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verify the VM properties, and make sure that the VM complies with [Azure requirements](../site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. In **Protected Items**, click **Replicated Items** > <VM-name>.
 
@@ -53,8 +53,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 ## Fail over to Azure
 
 1. In **Settings** > **Replicated items** click the VM > **Failover**.
-
-2. In **Failover** select the **Latest** recovery point. T
+2. In **Failover** select the **Latest** recovery point. 
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to do a shutdown of source VMs before triggering the failover. Failover continues even if shutdown fails. You
    can follow the failover progress on the **Jobs** page.
 4. After you verify the failover click **Commit**. This deletes all the available recovery points.
