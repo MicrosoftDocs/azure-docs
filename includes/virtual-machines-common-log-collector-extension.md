@@ -8,8 +8,8 @@ Diagnosing issues with a Microsoft Azure cloud service requires collecting the s
 
 There are two modes of collection dependent on the types of files to be collected.
 
-* Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-* All Logs (Full). This collection mode collects all files in GA mode plus:
+* **Azure Guest Agent Logs only (GA)**. This collection mode includes all the logs related to Azure guest agents and other Azure components.
+* **All Logs (Full)**. This collection mode collects all files in GA mode plus:
   
   * system and application event logs
   * HTTP error logs
@@ -39,7 +39,7 @@ Internally, this extension uses the JSON-based PublicConfiguration and PrivateCo
 
 ### PublicConfiguration
 
-```powershell
+```json
 {
     "Instances":  "*",
     "Mode":  "Full",
@@ -64,7 +64,7 @@ Internally, this extension uses the JSON-based PublicConfiguration and PrivateCo
 
 ### PrivateConfiguration
 
-```powershell
+```json
 {
 
 }
@@ -121,10 +121,10 @@ You can follow one of the two following steps to add the AzureLogCollector to on
 
   ```powershell
   $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = ‘YouStorageAccountKey'
+  $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-5. Call the SetAzureServiceLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under `https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
+5. Call the SetAzureServiceLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
   ```powershell
   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -213,10 +213,10 @@ Follow the instructions to connect Azure PowerShell to your subscription.
 
   ```powershell
   $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = ‘YouStorageAccountKey'
+  $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-3. Call the SetAzureVMLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. Call the SetAzureVMLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 The following is the definition of the parameters passed to the script. (This is copied below as well.)
 
@@ -261,7 +261,7 @@ param (
   ```
 
 ## Extention PowerShell Script files
-SetAzureServiceLogCollector.ps1
+### SetAzureServiceLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -370,7 +370,7 @@ $SasUri = $SasUri + "&restype=container&comp=list"
 Write-Output "The container for uploaded file can be accessed using this link:`r`n$sasuri"
 ```
 
-SetAzureVMLogCollector.ps1
+### SetAzureVMLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
