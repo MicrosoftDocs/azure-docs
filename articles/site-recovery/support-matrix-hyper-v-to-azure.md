@@ -7,6 +7,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2017
 ms.author: raynew
+---
 
 
 # Support matrix for Hyper-V replication to Azure
@@ -34,7 +35,7 @@ This article summarizes the supported components and settings for disaster recov
 ## Replicated VMs
 
 
-The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
+The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system. 
 
  **Component** | **Details
 --- | ---
