@@ -1,10 +1,11 @@
 ---
 title: Prepare on-premises Hyper-V server for disaster recovery of Hyper-V VMs to Azure| Microsoft Docs
 description: Learn how to prepare on-premises Hyper-V VMs not managed by System Center VMM for disaster recovery to Azure with the Azure Site Recovery service.
+services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2017
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
 ---
