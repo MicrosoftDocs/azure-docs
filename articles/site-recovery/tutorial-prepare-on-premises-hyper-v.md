@@ -31,7 +31,7 @@ Make sure Hyper-V hosts meet the following requirements. If you're managing host
 
 
 **Component** | **Hyper-V managed by VMM** | **Hyper-V without VMM**
---- | ---
+--- | --- | ---
 **Hyper-V host operating system** | Windows Server 2016, 2012 R2 | NA
 **VMM** | VMM 2012, VMM 2012 R2 | NA
 
@@ -43,7 +43,7 @@ Make sure that the VM complies with requirements summarized in the table.
 **VM requirement** | **Details**
 --- | ---
 **Guest operating system** | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Azure requirements** | On-premises Hyper-V VMs must meet Azure VM requirements(support-matrix-hyper-v-to-azure.md#azure-vm-requirements).
+**Azure requirements** | On-premises Hyper-V VMs must meet Azure VM requirements(site-recovery-support-matrix-to-azure.md).
 
 ## Prepare VMM (optional)
 
@@ -67,9 +67,9 @@ Prepare VMM for network mapping as follows:
 1. For the purposes of the tutorial, the simplest configuration is for the Hyper-V hosts and VMM server, if applicable, to have direct access to the internet without using a proxy. 
 2. Make sure that Hyper-V hosts, and the VMM server if relevant, can access these URLs: 
 
-
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
+3. Ensure that:
     - Any IP address-based firewall rules should allow communication to Azure.
     - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
     - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
