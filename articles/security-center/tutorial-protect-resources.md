@@ -111,7 +111,7 @@ In this tutorial, you learned how to limit your exposure to threats by:
 Advance to the next tutorial to learn about responding to security incidents.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Define and assess security policies](tutorial-security-incident.md)
+> [Tutorial: Respond to security incident](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png
