@@ -44,7 +44,6 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
 1. Under the Security Center main menu, select **Onboarding to advanced security**.
 2. Select **Do you want to add new non-Azure computers**.
-
    ![Onboard to advanced security][3]
 
 3. On **Add Non-Azure Computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
