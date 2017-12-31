@@ -1,10 +1,11 @@
 ---
 title: Create resources for use with Azure Site Recovery | Microsoft Docs
 description: Learn how to prepare Azure for replication of on-premises machines using the Azure Site Recovery service.
+services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2017
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
 
