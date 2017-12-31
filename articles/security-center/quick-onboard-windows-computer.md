@@ -78,7 +78,7 @@ You must now install the downloaded file on the target computer.
 
 When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows computers](./log-analytics/log-analytics-agent-windows#install-the-agent-using-setup).
+For further information on installing and configuring the agent, see [Connect Windows computers](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Windows computer.
