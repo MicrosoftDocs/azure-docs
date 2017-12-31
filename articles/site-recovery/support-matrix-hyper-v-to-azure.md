@@ -37,7 +37,7 @@ This article summarizes the supported components and settings for disaster recov
 
 The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system. 
 
- **Component** | **Details
+ **Component** | **Details**
 --- | ---
 VM configuration | VMs that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
 Guest operating system | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).<br/><br/> Windows Server 2016 Nano Server isn't supported.
@@ -66,7 +66,7 @@ Guest VM network:Multi-NIC | Yes
 
 **Component** | **Hyper-V with VMM** | **Hyper-V without VMM**
 --- | --- | ---
-Express Route | Yes | Yes
+ExpressRoute | Yes | Yes
 ILB | Yes | Yes
 ELB | Yes | Yes
 Traffic Manager | Yes | Yes
