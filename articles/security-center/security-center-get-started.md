@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 12/30/2017
 ms.author: terrylan
 
 ---
@@ -118,7 +118,7 @@ If you wish to disable automatic provisioning:
 In this quick start, you onboarded an Azure subscription, upgraded to Standard tier, and provisioned the Microsoft Monitoring agent. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Onboard Windows computers to Azure Security Center](quickstart-onboard-windows-computer.md)
+> [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/portal.png
