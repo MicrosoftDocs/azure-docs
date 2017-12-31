@@ -1,10 +1,11 @@
 ---
 title: Run a disaster recovery drill for on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
+services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/26/2017
+ms.date: 12/31/2017
 ms.author: raynew
 
 ---
