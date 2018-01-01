@@ -86,13 +86,13 @@
 ### [Search](security-center-search.md)
 
 ## [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
+## [Permissions](security-center-permissions.md)
+## [Supported platforms](security-center-os-coverage.md)
 
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
 ### [Use recommendations to enhance security](security-center-using-recommendations.md)
 
-## [Permissions](security-center-permissions.md)
-## [Supported platforms](security-center-os-coverage.md)
 ## [Troubleshoot](security-center-troubleshooting-guide.md)
 
 # Reference
