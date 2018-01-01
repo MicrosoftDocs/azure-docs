@@ -1,6 +1,6 @@
 ---
-title: Import and export a domain zone file to Azure DNS using Azure CLI 1.0 | Microsoft Docs
-description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 1.0 
+title: Import and export a domain zone file to Azure DNS using Azure CLI 2.0 | Microsoft Docs
+description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 2.0 
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,9 +16,9 @@ ms.date: 08/16/2016
 ms.author: gwallace
 ---
 
-# Import and export a DNS zone file using the Azure CLI 1.0 
+# Import and export a DNS zone file using the Azure CLI 2.0 
 
-This article walks you through how to import and export DNS zone files for Azure DNS using the Azure CLI 1.0.
+This article walks you through how to import and export DNS zone files for Azure DNS using the Azure CLI 2.0.
 
 ## Introduction to DNS zone migration
 
@@ -26,12 +26,12 @@ A DNS zone file is a text file that contains details of every Domain Name System
 
 Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
 
-The Azure CLI 1.0 is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+The Azure CLI 2.0 is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
 > [!NOTE]
-> There are currently two versions of the Azure CLI. CLI1.0 is based on Node.js, and has commands beginning with "azure".
+> There are currently two versions of the Azure CLI. CLI2.0 is based on Node.js, and has commands beginning with "azure".
 > CLI2.0 is based on Python and has commands beginning with "az". While zone file import is supported in both versions,
-> we recommend using the CLI1.0 commands, as described in this page.
+> we recommend using the CLI2.0 commands, as described in this page.
 
 ## Obtain your existing DNS zone file
 
@@ -100,7 +100,7 @@ To verify the format of a zone file without actually importing it, use the `--pa
 
 To import a zone file for the zone **contoso.com**.
 
-1. Sign in to your Azure subscription by using the Azure CLI 1.0.
+1. Sign in to your Azure subscription by using the Azure CLI 2.0.
 
     ```azurecli
     azure login
@@ -109,28 +109,22 @@ To import a zone file for the zone **contoso.com**.
 2. Select the subscription where you want to create your new DNS zone.
 
     ```azurecli
-    azure account set <subscription name>
+    azure account set -s <subscription name>
     ```
 
-3. Azure DNS is an Azure Resource Manager-only service, so the Azure CLI must be switched to Resource Manager mode.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Before you use the Azure DNS service, you must register your subscription to use the Microsoft.Network resource provider. (This is a one-time operation for each subscription.)
+3. Before you use the Azure DNS service, you must register your subscription to use the Microsoft.Network resource provider. (This is a one-time operation for each subscription.)
 
     ```azurecli
     azure provider register Microsoft.Network
     ```
 
-5. If you don't have one already, you also need to create a Resource Manager resource group.
+4. If you don't have one already, you also need to create a Resource Manager resource group.
 
     ```azurecli
     azure group create myresourcegroup westeurope
     ```
 
-6. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.<BR>This command loads the zone file and parse it. The command executes a series of commands on the Azure DNS service to create the zone and all the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
+5. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.<BR>This command loads the zone file and parse it. The command executes a series of commands on the Azure DNS service to create the zone and all the record sets in the zone. The command reports progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
 
     ```azurecli
     azure network dns zone import myresourcegroup contoso.com contoso.com.txt
