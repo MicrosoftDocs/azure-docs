@@ -1,5 +1,5 @@
 # Overview
-## [Azure Security Center?](security-center-intro.md)
+## [Azure Security Center](security-center-intro.md)
 
 # Quickstarts
 ## [Onboard Azure subscriptions](security-center-get-started.md)
@@ -98,16 +98,16 @@
 # Reference
 ## [REST APIs](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
-## Resources
-### [FAQ](security-center-faq.md)
-### [Platform migration](security-center-platform-migration.md)
-#### [Platform migration FAQ](security-center-platform-migration-faq.md)
-### [Planning and operations](security-center-planning-and-operations-guide.md)
-### [Azure Security](/azure/security/)
-### [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-### [Stack Overflow](https://stackoverflow.com/search?q=security-center )
-### [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-### [Pricing](https://azure.microsoft.com/pricing/details/security-center/)
-### [Service updates](https://azure.microsoft.com/updates/?product=security-center)
-### [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-### [Regional availability](https://azure.microsoft.com/regions/services/)
+# Resources
+## [FAQ](security-center-faq.md)
+## [Platform migration](security-center-platform-migration.md)
+### [Platform migration FAQ](security-center-platform-migration-faq.md)
+## [Planning and operations](security-center-planning-and-operations-guide.md)
+## [Azure Security](/azure/security/)
+## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
+## [Stack Overflow](https://stackoverflow.com/search?q=security-center )
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
+## [Pricing](https://azure.microsoft.com/pricing/details/security-center/)
+## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Regional availability](https://azure.microsoft.com/regions/services/)
