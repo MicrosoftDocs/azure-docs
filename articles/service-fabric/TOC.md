@@ -309,7 +309,7 @@
 #### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md)
 
 ## API clients
-### [Java API client] (service-fabric-java-rest-api-usage.md)
+### [Java API client](service-fabric-java-rest-api-usage.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
