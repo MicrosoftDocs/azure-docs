@@ -1,6 +1,6 @@
 ---
 title: Online migration to Azure Database for PostgreSQL | Microsoft Docs
-description: Describes how to perform an online migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
+description: This article describes how to perform an online migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
