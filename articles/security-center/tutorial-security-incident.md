@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/02/2018
 ms.author: yurid
 ms.custom: mvc
 ---
@@ -56,8 +56,6 @@ Investigate an alert or incident
 
 
 ## Investigate an alert or incident
-If additional information about is needed, use the [investigation feature](https://docs.microsoft.com/azure/security-center/security-center-investigation) to learn more about the entities involved.
-
 On the **Security alert** page, click **Start investigation** button (if you already started, the name changes to **Continue investigation**).
 
 ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
@@ -79,3 +77,8 @@ In this tutorial, you learned about basic tasks to be done during a security inc
 > * Security incident
 > * Investigation
 > * Search
+
+To learn more about Security Center's investigation feature see:
+
+> [!div class="nextstepaction"]
+> [Investigate incidents and alerts](security-center-investigation.md)

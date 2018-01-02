@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/02/2018
 ms.author: yurid
 ms.custom: mvc
 ---
@@ -68,7 +68,7 @@ In this tutorial, you learned about basic policy definition and security assessm
 > * Security policy configuration
 > * Security assessment for compute, networking, SQL & storage, and applications
 
-Advance to the next tutorial to learn how to use Security Center to respond to an incident.
+Advance to the next tutorial to learn how to use Security Center to protect your resources.
 
 > [!div class="nextstepaction"]
-> [Respond to Security Incidents](tutorial-security-incident.md)
+> [Protect your resources](tutorial-protect-resources.md)

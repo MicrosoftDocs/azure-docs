@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2017
+ms.date: 01/02/2018
 ms.author: terrylan
 
 ---
@@ -111,7 +111,7 @@ In this tutorial, you learned how to limit your exposure to threats by:
 Advance to the next tutorial to learn about responding to security incidents.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Respond to security incident](tutorial-security-incident.md)
+> [Tutorial: Respond to security incidents](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png
