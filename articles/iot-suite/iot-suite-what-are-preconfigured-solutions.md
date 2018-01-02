@@ -28,6 +28,10 @@ Azure IoT Suite is a set of *preconfigured solutions* that:
 
 The *IoT Suite* preconfigured solutions are all designed according to the same principles and goals.
 
+The following video presents an overview of the remote monitoring preconfigured solution:
+
+[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/]
+
 ## Preconfigured solutions overview
 
 A preconfigured solution is open source implementation of a common IoT solution patterns that you can deploy to Azure using your subscription. Each preconfigured solution combines custom code and Azure services to implement a specific IoT scenario or scenarios. You can customize any of the scenarios to meet your specific requirements. These scenarios include:
