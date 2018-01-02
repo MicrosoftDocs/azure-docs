@@ -65,8 +65,8 @@ Selecting Engine logs all [xEvents](https://docs.microsoft.com/sql/analysis-serv
 |SuspendServer    |   Pause a server      |
 |DeleteServer     |    Delete a server     |
 |RestartServer    |     User restarts a server through SSMS or PowerShell    |
-|GetServerLogFiles    |    User exports server log through PowerShell     |User exports a model in the portal by using Open in Power BI Desktop or Open in Visual Studio
-|ExportModel     |        |
+|GetServerLogFiles    |    User exports server log through PowerShell     |
+|ExportModel     |   User exports a model in the portal by using Open in Power BI Desktop or Open in Visual Studio     |
 
 ### All Metrics
 
