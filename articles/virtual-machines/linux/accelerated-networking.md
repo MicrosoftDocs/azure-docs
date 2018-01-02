@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/20/2017
+ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
 
@@ -47,7 +47,7 @@ The following limitations exist when using this capability:
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Regions:** The capability is available in many Azure regions, and continues to expand. For a full list, see [Azure Virtual Networking Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
-* **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3, and CentOS 7.3 (Published by “Rogue Wave Software”).
+* **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.4, and CentOS 7.4 (Published by “Rogue Wave Software”).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](sizes.md). The set of supported VM instance sizes continues to expand.
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
@@ -157,7 +157,7 @@ Once the VM is created, output similar to the following example output is return
 }
 ```
 
-## SSH to the VM
+## Confirm that accelerated networking is enabled
 
 Use the following command to create an SSH session with the VM. Replace `<your-public-ip-address> with the public IP address assigned to the virtual machine you created, and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
 
@@ -165,116 +165,14 @@ Use the following command to create an SSH session with the VM. Replace `<your-p
 ssh azureuser@<your-public-ip-address>
 ```
 
-## Configure the operating system
-
 From the Bash shell, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
-    * **Ubuntu**: 4.4.0-77-generic
-    * **SLES**: 4.4.59-92.20-default
-    * **RHEL**: 7.3
-    * **CentOS**: XXX
+* **Ubuntu 16.04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
 
-@@@ Can we add the earliest Azure OS image version numbers that have the previous kernel numbers too? Please add/correct the version numbers in the list above. @@@ 
-
-Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
-  		  
-```bash
-wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
-chmod +x ./configure_hv_sriov.sh
-sudo ./configure_hv_sriov.sh
-```
-
-@@@ It appears this script is only determining which distro is installed, not the version. Shouldn't it also be checking for the version to make sure a supported version is installed? @@@
-
-The VM restarts after a 60-second pause. Once the VM restarts, SSH into the VM again. Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
+Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
  
 >[!NOTE]
 >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
-
-@@@ It seems that the instructions for what to do with distro versions earlier than what's above are different for Ubuntu/SLES than they are for RHEL/CentOS. The "Phase 1/Phase 2 instructions in the previous version of this article were only for RHEL/CentOS.  Are those instructions still accurate for RHEL/CentOS?  Are any additional/different instructions required for earlier distro versions of Ubuntu/SLES?@@@
-
-## Bring up the DPDK
-
-The following instructions bring up the DPDK with MLX4. You can use DPDK by either porting all the required kernel patches and installing RDMA core, or by just deploying the latest Ubuntu image on Azure and installing Mellanox OFED. For more information on both approaches, see [MLX4 poll mode driver library](http://www.dpdk.org/doc/guides/nics/mlx4.html).
-
-The DPDK application on Azure has to bind to a Fail-safe poll mode driver (PMD), since the packets can show up either on the VF interface or the synthetic interface. Binding applications to the Fail-safe PMD library ensures that applications can see all packets. 
-
-If you're not already connected to the VM via SSH, [SSH into the VM](#ssh-to-the-vm). Download the Fail-safe PMD script:
-
-```bash
-wget https://gallery.technet.microsoft.com/Azure-DPDK-Failsafe-PMD-c34b1a4b/file/183012/1/failsafe.sh
-chmod +x ./failsafe.sh
-```
-
-Get the MAC address of the **bond0** (virtual function) interface:
-
-```bash
-ifconfig
-```
-
-Run the Fail-safe script (replace `<replace-with-mac-address>` in the following command with the MAC address of the **bond0** interface):
-
-```bash
-sudo ./failsafe.sh <replace-with-mac-address> 
-```
-
-The output of the previous command is similar to the following output:
-
-```bash
---vdev=net_failsafe0,mac=00:15:5d:44:4b:0c,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:0c),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:0c) -w 0000:00.0 
-``` 
-
-Run the DPDK application: 
-
-```bash
-testpmd –c 0xf -n 4 $(/root/failsafe.sh 00:15:5d:44:4b:0c) -- --port-numaconfig=0,1 --socket-num=1  --burst=64 --txd=256 --rxd=256 --mbcache=512  -rxq=1 --txq=1 --nb-cores=1 --forward-mode=macswap --i    
-```
-
-@@@ The previous command failed for me on Ubuntu (of course, I used the MAC address for bond0, rather than the one above) with the following error:
-
-bash: /root/failsafe.sh: Permission denied
-The program 'testpmd' is currently not installed. You can install it by typing:
-sudo apt install dpdk
-
-@@@
-
-or
-
-```bash 
-testpmd –c 0xf -n 4 -- vdev=” net_failsafe0,mac=00:15:5d:44:4b:0c,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:0c),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:0c)" -w 0000:00.0 -- --port-numa-config=0,1 --socket-num=1  --burst=64 --txd=256 -rxd=256 --mbcache=512  --rxq=1 --txq=1 --nb-cores=1 -i    
-```
-
-@@@ The previous command also failed for me with this error:
-
-bash: syntax error near unexpected token `('
-
-@@@
-
-When more than one VF is assigned to the VM, and the failsafe.sh script is run without any parameters, the command’s output, generates a command line for all VFs that are presented on the VM. @@@ I'm not clear what to tell people to replace the MACs below with @@@  
-
-```bash 
-/root/failsafe.sh 00:15:5d:44:4b:0d 00:15:5d:44:4b:13 --vdev=net_failsafe0,mac=00:15:5d:44:4b:0d,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:0d),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:0d,0) -vdev=net_failsafe1,mac=00:15:5d:44:4b:13,exec(/root/failsafe.sh,preferred, 00:15:5d:44:4b:13),exec(/root/failsafe.sh,fallback,00:15:5d:44:4b:13,1) -w 0000:00.0   
-``` 
-
-If only a specific VF is needed, run the following command: 
-
-```bash
-sudo ./failsafe.sh preferred 
-```
-
-@@@ Likely because of the previous errors I'm receiving, the command returned no output for me.
-
-The output returns all VF pci devices: 
-
-```bash
-0002:00:02.0,port=0
-0003:00:02.0,port=0 
-```
-
-Run testpmd with a specific VF:  
-
-```bash
-./x86_64-native-linuxapp-gcc/build/app/test-pmd/testpmd -n 1 $(/root/failsafe.sh 00:15:5d:44:4b:0d)  -- -i
-```
-
-Accelerated Networking with DPDK is now enabled for your VM.
