@@ -1,6 +1,7 @@
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Cheat sheet](cheat-sheet.md)
 
 # Quickstarts
 

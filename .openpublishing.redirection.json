@@ -31,6 +31,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
         "redirect_document_id": false 
@@ -15535,6 +15540,16 @@
           "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
             "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
             "redirect_document_id": false
@@ -15618,7 +15633,7 @@
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false
-          },
+        },
         {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
@@ -15644,7 +15659,7 @@
             "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path": "articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
             "redirect_document_id": false

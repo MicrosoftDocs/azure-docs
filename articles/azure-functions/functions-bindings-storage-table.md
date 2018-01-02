@@ -31,8 +31,8 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 See the language-specific example:
 
-* [Precompiled C# read one entity](#input---c-example-1)
-* [Precompiled C# read multiple entities](#input---c-example-2)
+* [C# read one entity](#input---c-example-1)
+* [C# read multiple entities](#input---c-example-2)
 * [C# script - read one entity](#input---c-script-example-1)
 * [C# script - read multiple entities](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -40,7 +40,7 @@ See the language-specific example:
 
 ### Input - C# example 1
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that reads a single table row. 
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. 
 
 The row key value "{queueTrigger}" indicates that the row key comes from the queue message string.
 
@@ -67,7 +67,7 @@ public class TableStorage
 
 ### Input - C# example 2
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that reads multiple table rows. Note that the `MyPoco` class derives from `TableEntity`.
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads multiple table rows. Note that the `MyPoco` class derives from `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -282,7 +282,7 @@ module.exports = function (context, myQueueItem) {
 
 ## Input - attributes
  
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table input binding:
+In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -312,7 +312,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   }
   ```
 
-  For a complete example, see [Input - precompiled C# example](#input---c-example).
+  For a complete example, see [Input - C# example](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -385,14 +385,14 @@ Use an Azure Table storage output binding to write entities to a table in an Azu
 
 See the language-specific example:
 
-* [Precompiled C#](#output---c-example)
-* [C# script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that uses an HTTP trigger to write a single table row. 
+The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row. 
 
 ```csharp
 public class TableStorage
@@ -565,7 +565,7 @@ module.exports = function (context) {
 
 ## Output - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
@@ -593,9 +593,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-For a complete example, see [Output - precompiled C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes).
 
 ## Output - configuration
 
