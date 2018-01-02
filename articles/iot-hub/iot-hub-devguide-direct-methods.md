@@ -72,8 +72,7 @@ The back-end app receives a response that comprises:
 * *Headers* that contain the ETag, request ID, content type, and content encoding
 * A JSON *body* in the following format:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -107,15 +106,15 @@ The body is set by the device and can be any status.
 
 ### AMQP
 #### Method invocation
-The device receives direct method requests by creating a link on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+The device receives direct method requests by creating a receive link on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
-The AMQP message arriving on the receive link which represents the method request contains the following:
+The AMQP message will arrive on the receive link that represents the method request. It contains the following:
 * The correlation ID property which contains a request ID that should be passed back with the corresponding method response
 * An application property named `IoThub-methodname` which contains the name of the method being invoked
 * The AMQP message body containing the method payload as JSON
 
 #### Response
-THe device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 The method’s response is returned on the sending link and is structured as follows:
 * The correlation ID property contains the request ID passed in the method’s request message
