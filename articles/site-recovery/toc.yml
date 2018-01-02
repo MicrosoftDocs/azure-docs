@@ -1,7 +1,7 @@
 - name: Site Recovery Documentation
   href: index.yml
 - name: Migration of on-premises machines and Azure VMs
-  href: migrate/overview-migrate.md
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
 - name: Azure to Azure disaster recovery
   href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Overview
