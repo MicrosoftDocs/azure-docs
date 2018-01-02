@@ -32,7 +32,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I make changes to a collection’s indexing policy?
 * How do I compare storage and performance of different indexing policies?
 
-## <a id="CustomizingIndexingPolicy"></a> Customizing the indexing policy of a collection
+## Customizing the indexing policy of a collection <a id="CustomizingIndexingPolicy"></a>  
 Developers can customize the trade-offs between storage, write/query performance, and query consistency, by overriding the default indexing policy on an Azure Cosmos DB collection and configuring the following aspects.
 
 * **Including/Excluding documents and paths to/from index**. Developers can choose certain documents to be excluded or included in the index at the time of inserting or replacing them to the collection. Developers can also choose to include or exclude certain JSON properties a.k.a. paths (including wildcard patterns) to be indexed across documents which are included in an index.
@@ -60,7 +60,7 @@ The following .NET code snippet shows how to set a custom indexing policy during
 
 You can change the indexing policy of a collection using the Azure portal. Open your Azure Cosmos DB account in the Azure portal, select your collection, in the left navigation menu click **Settings**, and then click **Indexing Policy**. In the **Indexing Policy** blade, change your indexing policy and then click **OK** to save your changes. 
 
-### <a id="indexing-modes"></a>Database indexing modes
+### Database indexing modes <a id="indexing-modes"></a>  
 Azure Cosmos DB supports three indexing modes which can be configured via the indexing policy on an Azure Cosmos DB collection – Consistent, Lazy and None.
 
 **Consistent**: If an Azure Cosmos DB collection’s policy is designated as "consistent", the queries on a given Azure Cosmos DB collection follow the same consistency level as specified for the point-reads (i.e. strong, bounded-staleness, session or eventual). The index is updated synchronously as part of the document update (i.e. insert, replace, update, and delete of a document in an Azure Cosmos DB collection).  Consistent indexing supports consistent queries at the cost of possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level”. Consistent indexing mode is designed for “write quickly, query immediately” workloads.
@@ -227,7 +227,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude only specific documents. Indexing on/off configurations are useful when you have only a subset of documents that need to be queried.
 
-For example, the following sample shows how to include a document explicitly using the [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+For example, the following sample shows how to include a document explicitly using the [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -256,9 +256,9 @@ You can however move to Lazy or None indexing mode while a transformation is in 
 * When you move to Lazy, the index policy change is made effective immediately and Azure Cosmos DB starts recreating the index asynchronously. 
 * When you move to None, then the index is dropped effective immediately. Moving to None is useful when you want to cancel an in progress transformation and start fresh with a different indexing policy. 
 
-If you’re using the .NET SDK, you can kick off an indexing policy change using the new **ReplaceDocumentCollectionAsync** method and track the percentage progress of the index transformation using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs and the REST API support equivalent properties and methods for making indexing policy changes.
-
 Here's a code snippet that shows how to modify a collection's indexing policy from Consistent indexing mode to Lazy.
+
+If you’re using the .NET SDK, you can kick off an indexing policy change using the new **ReplaceDocumentCollectionAsync** method.
 
 **Modify Indexing Policy from Consistent to Lazy**
 
@@ -269,10 +269,9 @@ Here's a code snippet that shows how to modify a collection's indexing policy fr
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-You can check the progress of an index transformation by calling ReadDocumentCollectionAsync, for example, as shown below.
-
 **Track Progress of Index Transformation**
+
+You can track the percentage progress of the index transformation to a consistent index by using the **IndexTransformationProgress** response property from a **ReadDocumentCollectionAsync** call. Other SDKs, and the REST API, support equivalent properties and methods for making indexing policy changes. You can check the progress of an index transformation to a consistent index by calling  **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -286,6 +285,14 @@ You can check the progress of an index transformation by calling ReadDocumentCol
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> The IndexTransformationProgress property is applicable only when transforming to a consistent index. Use the ResourceResponse.LazyIndexingProgress property for tracking transformations to a lazy index.
+>
+
+> [!NOTE]
+> The IndexTransformationProgress and the LazyIndexingProgress properties are populated only in the case of a non-partitioned collection, that is, a collection that is created without a partition key.
+>
 
 You can drop the index for a collection by moving to the None indexing mode. This might be a useful operational tool if you want to cancel an in-progress transformation and start a new one immediately.
 
@@ -409,5 +416,5 @@ Follow the links below for index policy management samples and to learn more abo
 
 1. [SQL API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [SQL API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Query with SQL](documentdb-sql-query.md)
+3. [Query with SQL](sql-api-sql-query.md)
 

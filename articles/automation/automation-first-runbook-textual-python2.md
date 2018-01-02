@@ -3,7 +3,7 @@ title: My first Python runbook in Azure Automation | Microsoft Docs
 description:  Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ---
 
 # My first Python runbook
@@ -146,7 +146,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Use the Compute client to start the VM. Add the following code to the runbook:
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
 
@@ -26,6 +26,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | | |
 |-|-|
 |**Create app**||
+| [Create a web app and deploy files with FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and deploys a file to it using FTP. |
 | [Create a web app and deploy code from GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and deploys code from a public GitHub repository. |
 | [Create a web app with continuous deployment from GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app with continuous publishing from a GitHub repository you own. |
 | [Create a web app and deploy code from a local Git repository](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and configures code push from a local Git repository. |

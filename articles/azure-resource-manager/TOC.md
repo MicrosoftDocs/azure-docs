@@ -13,16 +13,13 @@
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
-### [Best practices for templates](resource-manager-template-best-practices.md)
+#### [Variables](resource-manager-templates-variables.md)
+#### [Resources](resource-manager-templates-resources.md)
+#### [Outputs](resource-manager-templates-outputs.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
-### [Set location](resource-manager-template-location.md)
-### [Assign tags](resource-manager-template-tags.md)
-### [Set child resource name and type](resource-manager-template-child-resource.md)
-### [Update resource](resource-manager-update.md)
-### [Use objects for parameters](resource-manager-objects-as-parameters.md)
-### [Share state between linked templates](best-practices-resource-manager-state.md)
+### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 
 
