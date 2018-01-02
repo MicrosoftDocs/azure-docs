@@ -210,7 +210,7 @@ This issue is specific to managed VMs where user locks the Resource Group and Ba
 
 To resolve the issue, please use the following steps to remove the restore point collection: <br>
  
-1. Remove the Resource Group lock in which the VM resides <br>
+1. Remove the Resource Group lock in which the VM resides 
 	 
 2. Install ARM Client using Chocolatey <br>
    https://github.com/projectkudu/ARMClient
@@ -224,9 +224,9 @@ To resolve the issue, please use the following steps to remove the restore point
     Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30` <br>
 			 
 5. Delete the Restore Point Collection <br>
-		  	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` <br>
+		  	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
  
-6. Next scheduled backup will automatically create restore point collection and new restore points <br>
+6. Next scheduled backup will automatically create restore point collection and new restore points 
  
-7. The problem will re-appear if you lock the Resource Group again as there is only a limit of 18 restore points after which the backups start failing <br>
+7. The problem will re-appear if you lock the Resource Group again as there is only a limit of 18 restore points after which the backups start failing 
 
