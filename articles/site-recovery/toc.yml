@@ -90,7 +90,7 @@
   - name: Disaster recovery
     items:
     - name: Prepare Hyper-V for replication to Azure
-      href: tutorial-prepare-on-premises-hyper-v-to-azure
+      href: tutorial-prepare-on-premises-hyper-v.md
     - name: Hyper-V VMs to Azure
       href: tutorial-hyper-v-to-azure.md
     - name: Hyper-V VMs in VMM clouds to Azure
