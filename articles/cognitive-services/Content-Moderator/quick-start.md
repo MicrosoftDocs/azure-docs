@@ -42,5 +42,5 @@ As your business application calls the Moderator APIs, the tagged content starts
 
 ![Review results](images/reviewresults.png)
 
-## Next steps
+## Next steps: Use the APIs
 Once you have explored the review tool, [test drive the Content Moderator APIs](try-image-api.md) to scan your images, text, and videos in bulk and optionally, create reviews for human moderators.
