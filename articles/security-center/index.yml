@@ -19,26 +19,57 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: 'Learn how to onboard your VMs and computers to Security Center and connect your security solutions.'
+    text: Learn how to onboard your VMs and computers to Security Center and connect your security solutions.
   - type: list
     style: icon48
     items: 
     - image: 
-        src: /azure/security-center/media/index/security-center.svg
-      text: Learn about Azure Security Center
-      href: /azure/security-center/security-center-intro
-    - image: 
-        src: /azure/security-center/media/index/video-library.svg
-      text: Azure Security Center Video Library
-      href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
-    - image: 
-        src: /azure/security-center/media/index/get-started.svg
-      text: Get started with Azure Security Center
+        src: /media/common/i_subscription.svg
+      text: Onboard Azure subscriptions
       href: /azure/security-center/security-center-get-started
+    - image: 
+        src: /media/logos/logo_Windows.svg
+      text: Onboard Windows computers
+      href: /azure/security-center/quick-onboard-windows-computer
+    - image: 
+        src: /media/logos/logo_linux.svg
+      text: Onboard Linux computers
+      href: /azure/security-center/quick-onboard-linux-computer
+    - image: 
+        src: /media/common/i_multi-connect.svg
+      text: Connect security solutions
+      href: /azure/security-center/quick-security-solutions
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/security-center/tutorial-security-policy">Define and assess security policies</a>
+    - html: <a href="/azure/security-center/tutorial-protect-resources">Protect your resources</a>
+    - html: <a href="/azure/security-center/tutorial-security-incident">Respond to security incidents</a>
+- title: Free Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Security Center Overview
+      href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-overview/
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-overview/
+    - title: Security Center - Focus on prevention
+      href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-focus-on-prevention/
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-focus-on-prevention/
+    - title: Security Center - Threat detection
+      href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-threat-detection/
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-threat-detection/
 - title: Reference
   items:
   - type: list
