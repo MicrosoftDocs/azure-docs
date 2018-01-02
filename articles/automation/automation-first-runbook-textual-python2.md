@@ -44,9 +44,6 @@ You start by creating a simple runbook that outputs the text *Hello World*.
    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 1. Select **Runbooks** under **PROCESS MANAGEMENT** to open the list of runbooks.
 1. Select **+ Add a runbook** to create a new runbook.
-1. Click the **Runbooks** tile to open the list of runbooks.
-   ![RunbooksControl](media/automation-first-runbook-textual-python/runbooks-control-tiles.png)
-1. Create a new runbook by clicking the **Add a runbook** button and then **Create a new runbook**.
 1. Give the runbook the name *MyFirstRunbook-Python*.
 1. In this case, you're going to create a [Python runbook](automation-runbook-types.md#python-runbooks) so select **Python 2** for **Runbook type**.
 1. Click **Create** to create the runbook and open the textual editor.
