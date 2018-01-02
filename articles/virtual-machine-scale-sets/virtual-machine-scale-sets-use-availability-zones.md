@@ -118,4 +118,4 @@ To create the actual scale set, follow the additional steps as detailed in the g
 
 
 ## Next steps
-Once you have a scale set in an Availability Zone, you can learn how to [Deploy applictions on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) or [Use autoscale with virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md).
+Once you have a scale set in an Availability Zone, you can learn how to [Deploy applications on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) or [Use autoscale with virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md).
