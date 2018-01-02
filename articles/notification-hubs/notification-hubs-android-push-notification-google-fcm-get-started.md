@@ -604,7 +604,7 @@ Normally, you would send notifications using a backend server. For some cases, y
                             //        "tag1 || tag2 || tag3");
    
                             // Send notification message
-                            urlConnection.setFixedLengthStreamingMode(json.length());
+                            urlConnection.setFixedLengthStreamingMode(json.getBytes().length);
                             OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
                             bodyStream.write(json.getBytes());
                             bodyStream.close();
