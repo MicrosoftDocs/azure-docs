@@ -40,6 +40,9 @@ Review installer.log to determine the cause of the installation failure.
 > [!Note]  
 > The agent installation will fail if your machine is set up to use Microsoft Update and the Windows Update service is not running.
 
+<a id="agent-installation-websitename-failure"></a>**Agent installation fails with an error, "Storage Sync Agent Wizard ended prematurely"**  
+This issue occurs when web site default name is changed. To work around this issue, rename the default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
+
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
 1. Log in to the server that you want to register.
