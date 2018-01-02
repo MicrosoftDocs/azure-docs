@@ -700,7 +700,7 @@ Can manage SQL servers and databases but not their security-related policies
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
 | Microsoft.Insights/alertRules/* |Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
