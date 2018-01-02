@@ -10,7 +10,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
 
 ### Write code to send messages
 
-1. At the top of the Program.cs file, replace the existing **using** statements with the following **using** statements:
+1. At the top of the Program.cs file, replace the existing `using` statements with the following `using` statements:
    
     ```csharp
     using System;
@@ -19,7 +19,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the **Program** class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
+2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -27,7 +27,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Add the following method to the **Program** class:
+3. Add the following method to the `Program` class:
    
     ```csharp
     private static async Task RunAsync()
@@ -88,7 +88,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         await relayConnection.CloseAsync(CancellationToken.None);
     }
     ```
-4. Add the following line of code to the **Main** method in the **Program** class.
+4. Add the following line of code to the `Main` method in the `Program` class.
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
