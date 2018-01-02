@@ -11,7 +11,7 @@
 ### Get management credentials
 
 1. Select **All resources**, and then select the newly created namespace name.
-2. Under the Relay namespace, select **Shared access policies**.
+2. Under the Relay namespace, select **Shared access policies**.  
 3. Under **Shared access policies**, select **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
