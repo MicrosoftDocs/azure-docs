@@ -21,7 +21,7 @@ Attunity Replicate is a data replication tool that enables data sync between a v
 
 An overview of the process for performing an online migration includes:
 
-1. **Migrate the MySQL source schema** to and Azure Database for MySQL database by using the [MySQL Workbench](https://www.mysql.com/products/workbench/).
+1. **Migrate the MySQL source schema** to an Azure Database for MySQL database by using the [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
 2. **Set up initial load and continuous data sync from the source database to the target database** by using Attunity Replicate for Microsoft Migrations. Doing so minimizes the time that the source database must be set as read-only while you prepare to switch your applications to the target MySQL database on Azure.
 
