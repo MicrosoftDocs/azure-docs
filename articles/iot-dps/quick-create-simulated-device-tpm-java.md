@@ -49,17 +49,24 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
     ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
 
-1. In a separate command prompt, navigate to the sample folder.
+1. In a separate command prompt, navigate to the root folder and build the sample dependencies.
 
     ```cmd/sh
-    cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-tpm-sample
+    cd azure-iot-sdk-java
+    mvn install -DskipTests=true
+    ```
+
+1. Navigate to the sample folder.
+
+    ```cmd/sh
+    cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
 1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _Id Scope_ and _Provisioning Service Global Endpoint_.
 
     ![DPS information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
+1. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
