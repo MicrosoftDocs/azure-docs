@@ -1,6 +1,6 @@
 ---
 title: Credentials in Azure Content Moderator | Microsoft Docs
-description: Content Moderator credentials to use with the APIs.
+description: Manage Content Moderator credentials to use with the APIs.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -14,9 +14,10 @@ ms.author: sajagtap
 
 # Manage credentials
 
-Your Content Moderator credentials can come from the following locations:
-- The Azure portal.
-- The Content Moderator Review tool.
+Your Content Moderator credentials are created in the following locations:
+
+- [The Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
+- [The Content Moderator review tool](http://contentmoderator.cognitive.microsoft.com/)
 
 This article explains where to find them and how they relate to each other.
 
