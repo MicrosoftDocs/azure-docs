@@ -1,6 +1,6 @@
 ---
-title: Use Service Fabric Client REST API specification to generate and use Java Client | Microsoft Docs
-description: Use Service Fabric Client REST API specification to generate and use Java Client
+title:  Generate and Use Java API Client using Service Fabric Client REST API specification | Microsoft Docs
+description: Generate and Use Java API Client using Service Fabric Client REST API specification
 services: service-fabric
 documentationcenter: java
 author: rapatchi
@@ -17,11 +17,11 @@ ms.date: 11/27/2017
 ms.author: rapatchi
 
 ---
-# Use Service Fabric Client REST API specification to generate and use Java Client
+# Generate and Use Java API Client using Service Fabric Client REST API specification 
 
-In this article we describe how to generate and use Java clients using the Service Fabric Client REST API specification.
+In this article we describe how to generate and use Java API clients using the Service Fabric Client REST API specification.
 
-## Generating the Java Client code using AutoRest
+## Generating the client code using AutoRest
 
 Follow these steps to install and generate Java Client code using AutoRest tool.
 
@@ -34,7 +34,7 @@ Follow these steps to install and generate Java Client code using AutoRest tool.
   ```bash
   npm install -g autorest
   ```
-3. Fork and clone [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs)  repository in your local machine and go to the cloned location on the termial of your machine.
+3. Fork and clone [azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs)  repository in your local machine and go to the cloned location from the termial of your machine.
 
 4. Run the following commands on the terminal to generate the client code.
   ```bash
