@@ -1,6 +1,7 @@
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Cheat sheet](cheat-sheet.md)
 
 # Quickstarts
 
@@ -32,7 +33,7 @@
 
 ## Load & move data
 ### [Overview](design-elt-data-loading.md)
-### [Guidance](guidance-for-loading-data.md)
+### [Best practices](guidance-for-loading-data.md)
 
 
 ## Integrate

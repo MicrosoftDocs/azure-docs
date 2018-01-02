@@ -1,5 +1,9 @@
 - name: Site Recovery Documentation
   href: index.yml
+- name: Migration of on-premises machines and Azure VMs
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure to Azure disaster recovery
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Overview
   items:
   - name: What is Site Recovery?
@@ -55,6 +59,8 @@
     href: site-recovery-support-matrix-azure-to-azure.md
   - name: On-premises to Azure support matrix
     href: site-recovery-support-matrix-to-azure.md
+  - name: Hyper-V to Azure support matrix
+    href: support-matrix-hyper-v-to-azure.md
   - name: On-premises to secondary site support matrix
     href: site-recovery-support-matrix-to-sec-site.md
   - name: Disaster recovery for workloads
@@ -79,10 +85,16 @@
       href: concepts-on-premises-to-azure-networking.md
     - name: Set up IP addressing for access to a secondary site after failover
       href: concepts-on-premises-to-on-premises-networking.md
+    - name: Network interface management for on-premises to Azure scenarios
+      href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
   - name: Disaster recovery
     items:
+    - name: Prepare Hyper-V for replication to Azure
+      href: tutorial-prepare-on-premises-hyper-v.md
     - name: Hyper-V VMs to Azure
       href: tutorial-hyper-v-to-azure.md
+    - name: Hyper-V VMs in VMM clouds to Azure
+      href: tutorial-hyper-v-vmm-to-azure.md
     - name: Physical servers to Azure
       href: tutorial-physical-to-azure.md
     - name: Hyper-V VMs to a secondary site

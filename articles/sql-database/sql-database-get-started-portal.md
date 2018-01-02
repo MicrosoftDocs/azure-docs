@@ -48,7 +48,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group**  | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Source source** | Sample (AdventureWorksLT) | Loads the AdventureWorksLT schema and data into your new database |
+   | **Select source** | Sample (AdventureWorksLT) | Loads the AdventureWorksLT schema and data into your new database |
 
    > [!IMPORTANT]
    > You must select the sample database on this form because it is used in the remainder of this quick start.
@@ -60,7 +60,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
@@ -139,7 +139,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
    ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Click , click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
+2. Click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
 3. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
 
