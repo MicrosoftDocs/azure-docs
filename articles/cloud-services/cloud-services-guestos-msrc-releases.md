@@ -13,12 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 12/14/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-10 | [4048953] |Windows 10 updates |5.13 |November 14, 2017 |
+| Rel 17-10 | [4048960], [4048962], [4048961] |Windows Security only |2.68, 3.55, 4.48 |November 14, 2017 |
+| Rel 17-10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |November 14, 2017 |
+| Rel 17-10 | [4048951] |Flash |3.55, 4.48, 5.13 |November 14, 2017 |
+| N/A | [4041681] |October non-security rollup |2.67 |October 10, 2017 |
+| N/A | [4041690] |October non-security rollup |3.55 |October 10, 2017 |
+| N/A | [4041693] |October non-security rollup |4.48 |October 10, 2017 |
+| N/A | [3191566] |Update for Windows Management Framework 5.1  |2.68 |November 14, 2017 |
+| N/A | [3191565] |Update for Windows Management Framework 5.1  |3.55 |November 14, 2017 |
+| N/A | [3191564] |Update for Windows Management Framework 5.1  |4.48 |November 14, 2017 |
+
+## October Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-10 | [4041691] |Windows 10 updates |5.12 |October 10, 2017 |
+| Rel 17-10 | [4041678], [4041679], [4041687] |Windows Security only |2.67, 3.54, 4.47 |October 10, 2017 |
+| Rel 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |October 10, 2017 |
+| Rel 17-10 | [4041681], [4041690], [4041693] |Windows Monthly Rollups |2.67, 3.54, 4.47 |October 10, 2017 |
+| N/A | [4038777] |September non-security rollup |2.67 |September 12, 2017 |
+| N/A | [4038799] |September non-security rollup |3.54 |September 12, 2017 |
+| N/A | [4038792] |September non-security rollup |4.47 |September 12, 2017 |
+| N/A | [4040980] |September .NET non-security rollup |2.67 |September 12, 2017 |
+| N/A | [4040979] |September .NET non-security rollup |3.54 |September 12, 2017 |
+| N/A | [4040981] |September .NET non-security rollup |4.47 |September 12, 2017 |
 
 ## September Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -532,6 +560,34 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
+
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

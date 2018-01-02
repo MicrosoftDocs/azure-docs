@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 11/27/2017
 ---
 # Configure and access server logs using Azure CLI
 You can download the PostgreSQL server error logs using the Command Line Interface (Azure CLI). However, access to transaction logs is not supported. 
@@ -28,14 +28,14 @@ You can configure the server to access query logs and error logs. Error logs can
 For more information, see [customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
 
 ## List logs for Azure Database for PostgreSQL server
-To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs#list) command.
+To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) command.
 
 You can list the log files for server **mypgserver-20170401.postgres.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## Download logs locally from the server
-The [az postgres server-logs download](/cli/azure/postgres/server-logs#download) command allows you to download individual log files for your server. 
+The [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) command allows you to download individual log files for your server. 
 
 This example downloads the specific log file for the server **mypgserver-20170401.postgres.database.azure.com** under Resource Group **myresourcegroup** to your local environment.
 ```azurecli-interactive

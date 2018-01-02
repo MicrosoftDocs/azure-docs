@@ -3,7 +3,7 @@ title: Analytics - the powerful search and query tool of Azure Application Insig
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
-ms.author: bwren
+ms.date: 11/27/2017
+ms.author: mbullwin
 
 ---
 # Analytics in Application Insights
@@ -48,7 +48,7 @@ The language has many attractive features:
 
 * [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) your raw app telemetry by any fields, including your custom properties and metrics.
 * [Join](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
-* Powerful statistical [aggregations](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+* Powerful statistical [aggregations](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
 * Immediate and powerful visualizations.
 * [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from PowerShell.
 

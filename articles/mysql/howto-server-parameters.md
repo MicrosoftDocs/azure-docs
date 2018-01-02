@@ -37,10 +37,12 @@ The following parameters are not configurable and tied to your [pricing tier](co
 | Basic 100  | 2560 | 100 | 
 | Standard 100 | 2560 | 200 | 
 | Standard 200 | 5120 | 400 | 
-| Standard 400 | 10240 | 400 | 
+| Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
-Other server parameter default values for version [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+ Innodb_file_per_table in Basic tier: OFF
+ 
+All other server parameters that are not listed in the previous table are set to their default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## Next steps
 - [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).

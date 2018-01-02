@@ -13,7 +13,7 @@ ms.custom: develop databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sql-database
+ms.workload: "On Demand"
 ms.date: 01/10/2017
 ms.author: bonova
 

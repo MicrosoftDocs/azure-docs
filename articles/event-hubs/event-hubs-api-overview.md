@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
 
 ---
 
 # Available Event Hubs APIs
+
+This article describes the set of available API clients you can use for managing Event Hubs resources.
 
 ## Runtime APIs
 

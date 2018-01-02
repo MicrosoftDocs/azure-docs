@@ -3,18 +3,18 @@ title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft 
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: sngun
+ms.date: 10/24/2017
+ms.author: mabrigg
 
 ---
 
@@ -48,7 +48,6 @@ Set-ExecutionPolicy RemoteSigned `
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
 Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -78,38 +77,34 @@ expand-archive master.zip `
 
 cd AzureStack-Tools-master
 
-Import-Module `
-  .\Connect\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1
 
-# For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-$ArmEndpoint = "<Resource Manager endpoint for your environment>"
+# For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-$GraphAudience = "<GraphAuidence endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
-# Configure the Azure Stack operator’s PowerShell environment.
-Add-AzureRMEnvironment `
-  -Name "AzureStackAdmin" `
-  -ArmEndpoint $ArmEndpoint
 
-Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience $GraphAudience
+# Register an AzureRM environment that targets your Azure Stack instance
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
 
-$TenantID = Get-AzsDirectoryTenantId `
-  -AADTenantName $TenantName `
-  -EnvironmentName AzureStackAdmin
+# Get the Active Directory tenantId that is used to deploy Azure Stack
+  $TenantID = Get-AzsDirectoryTenantId `
+    -AADTenantName $TenantName `
+    -EnvironmentName "AzureStackAdmin"
 
-# Sign in to the operator's portal.
-Login-AzureRmAccount `
-  -EnvironmentName "AzureStackAdmin" `
-  -TenantId $TenantID 
-
+# Sign in to your environment
+  Login-AzureRmAccount `
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $TenantID 
 ```
 
-## Set up PowerShell for AD FS-based deployments 
+## Set up PowerShell for AD FS-based deployments
 
-Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
+You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 
@@ -122,8 +117,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -152,34 +146,28 @@ expand-archive master.zip `
 
 cd AzureStack-Tools-master
 
-Import-Module `
-  .\Connect\AzureStack.Connect.psm1
+Import-Module .\Connect\AzureStack.Connect.psm1
 
-# For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+# For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-$GraphAudience = "<GraphAudience endpoint for your environment>"
+# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
-# Configure the cloud administrator’s PowerShell environment.
+# Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
-  -Name "AzureStackAdmin" `
-  -ArmEndpoint $ArmEndpoint
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
 
-Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience $GraphAudience `
-  -EnableAdfsAuthentication:$true
-
+# Get the Active Directory tenantId that is used to deploy Azure Stack     
 $TenantID = Get-AzsDirectoryTenantId `
-  -ADFS `
-  -EnvironmentName "AzureStackAdmin"
+    -ADFS `
+    -EnvironmentName "AzureStackAdmin"
 
-# Sign in to the operator's portal.
+# Sign in to your environment
 Login-AzureRmAccount `
-  -EnvironmentName "AzureStackAdmin" `
-  -TenantId $TenantID 
-
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $TenantID
 ```
 
 ## Test the connectivity

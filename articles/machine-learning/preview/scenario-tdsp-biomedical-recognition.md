@@ -1,4 +1,4 @@
-T--
+---
 title: Biomedical entity recognition - Team Data Science Process - Azure Machine Learning | Microsoft Docs
 description: A Team Data Science Process project quickstart that uses deep learning for biomedical entity recognition in Azure Machine Learning Workbench.
 services: machine-learning
@@ -8,6 +8,7 @@ manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na

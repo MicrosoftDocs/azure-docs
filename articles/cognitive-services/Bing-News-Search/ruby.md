@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing News search
 
-The [Bing News Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News results from the Bing search engine.
+The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News results from the Bing search engine.
 
 1. Create a new Ruby project in your favorite IDE or editor.
 2. Add the code provided below.

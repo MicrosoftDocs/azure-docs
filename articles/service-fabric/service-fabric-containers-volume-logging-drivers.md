@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Docker Compose Preview | Microsoft Docs
-description: Azure Service Fabric accepts Docker Compose format to make it easier to orchestrate exsiting containers using Service Fabric. This support is currently in preview.
+title: Azure Service Fabric Docker Compose (Preview) | Microsoft Docs
+description: Azure Service Fabric accepts the Docker Compose format to make it easier to orchestrate existing containers by using Service Fabric. Support for Docker Compose is currently in preview.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -17,24 +17,28 @@ ms.date: 8/9/2017
 ms.author: subramar
 ---
 
-# Using volume plugins and logging drivers in your container
+# Use Docker volume plug-ins and logging drivers in your container
+Azure Service Fabric supports specifying [Docker volume plug-ins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. You can persist your data in [Azure Files](https://azure.microsoft.com/services/storage/files/) when your container is moved or restarted on a different host.
 
-Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. 
+Only volume drivers for Linux containers are currently supported. If you're using Windows containers, you can map a volume to an Azure Files [SMB3 share](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) without a volume driver. For this mapping, update your virtual machines (VMs) in your cluster to the latest Windows Server 1709 version.
 
-## Install volume/logging driver
 
-If the Docker volume/logging driver is not installed on the machine, install it manually through RDP/SSH-ing into the machine or through a VMSS start-up script. For instance, in order to install the Docker Volume Driver, SSH into the machine and execute:
+## Install the Docker volume/logging driver
+
+If the Docker volume/logging driver is not installed on the machine, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
+
+An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
 
 ```bash
-docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
     CLOUD_PLATFORM=AZURE \
     AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
 
-## Specify the plugin or driver in the manifest
-The plugins are specified in the application manifest as shown in the following manifest:
+## Specify the plug-in or driver in the manifest
+The plug-ins are specified in the application manifest as follows:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -69,20 +73,16 @@ The plugins are specified in the application manifest as shown in the following 
 </ApplicationManifest>
 ```
 
-In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped to within the running container. 
+The **Source** tag for the **Volume** element refers to the source folder. The source folder can be a folder in the VM that hosts the containers or a persistent remote store. The **Destination** tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container.
 
-When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified. The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin. Options can be specified using the `DriverOption` tag as shown in the following snippet:
+When specifying a volume plug-in, Service Fabric automatically creates the volume by using the specified parameters. The **Source** tag is the name of the volume and the **Driver** tag specifies the volume driver plug-in. Options can be specified by using the **DriverOption** tag as follows:
 
 ```xml
-<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
+If a Docker log driver is specified, you have to deploy agents (or containers) to handle the logs in the cluster. The **DriverOption** tag can be used to specify options for the log driver.
 
-If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster.  The `DriverOption` tag can be used to specify log driver options as well.
-
-Refer to the following articles to deploy containers to a Service Fabric cluster:
-
-
-[Deploy a container on Service Fabric](service-fabric-deploy-container.md)
-
+## Next steps
+To deploy containers to a Service Fabric cluster, see [Deploy a container on Service Fabric](service-fabric-deploy-container.md).

@@ -1,24 +1,14 @@
 - name: Azure for Containers
   href: index.yml
   items:
-    - name: Container Service (ACS)
-      href: https://docs.microsoft.com/en-us/azure/container-service/
+    - name: Container Service (AKS)
+      href: https://docs.microsoft.com/en-us/azure/aks/
       expanded: true
       items:
-        - name: Kubernetes
-          href: https://docs.microsoft.com/azure/container-service/kubernetes/ 
-          items:
-            - name: Overview - Introduction to Azure Container Service for Kubernetes
-              href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes
-            - name: Quickstart - Deploy Kubernetes cluster for Linux containers
-              href: https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
-        - name: Docker Swarm & DC/OS
-          href: https://docs.microsoft.com/azure/container-service/dcos-swarm/ 
-          items:
-            - name: Quickstart - Deploy Docker Swarm cluster
-              href: https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough
-            - name: Quickstart - Deploy a DC/OS cluster
-              href: https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart
+        - name: Introduction to AKS
+          href: ../aks/intro-kubernetes.md
+        - name: Deploy an AKS cluster
+          href: ../aks/kubernetes-walkthrough.md
     - name: Container Instances (ACI)
       href: https://docs.microsoft.com/en-us/azure/container-instances/
       items:
@@ -49,7 +39,7 @@
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication
             - name: Use ACR webhooks
               href: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook
-    - name: Web Apps for Containers
+    - name: Web App for Containers
       href: https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro
       items:
         - name: Using a custom Docker image for Azure Web App for Containers
@@ -67,26 +57,11 @@
               href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine
             - name: Use Docker Compose
               href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart
-    - name: Virtual Machines (Linux)
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview
-      items:
-        - name: Develop and run container workloads in Azure
-          href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers
-        - name: How To
-          items:
-            - name: Create Docker host
-              href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension
-            - name: Use Docker Machine
-              href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine
-            - name: Use Docker Compose
-              href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart
-    - name: Virtual Machines (Windows)
+    - name: Windows Containers
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview
       items:
         - name: Quickstart - Windows Containers on Windows Server
           href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
-        - name: Virtual machines and containers in Azure
-          href: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers
         - name: About Windows Containers
           href: https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index
     - name: Reference
@@ -97,7 +72,7 @@
           href: https://docs.microsoft.com/en-us/cli/azure/acs
         - name: Azure Container Registry (az acr)
           href: https://docs.microsoft.com/en-us/cli/azure/acr      
-        - name: Azure Web Apps for Containers(az appservice)
+        - name: Web App for Containers(az appservice)
           href: https://docs.microsoft.com/en-us/cli/azure/appservice
         - name: Azure App Service Web App (az webapp)
           href: https://docs.microsoft.com/en-us/cli/azure/webapp

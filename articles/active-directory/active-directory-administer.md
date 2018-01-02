@@ -4,7 +4,7 @@ description: Explains what an Azure AD tenant is, and how to manage Azure using 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -119,4 +119,4 @@ The following conditions are checked:
 * [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 * [Stack Overflow for Azure questions](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
-* [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md)
+* [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md)

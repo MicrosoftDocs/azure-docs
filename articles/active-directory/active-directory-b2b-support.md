@@ -5,7 +5,7 @@ description: What is the support experience for Azure Active Directory B2B colla
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 

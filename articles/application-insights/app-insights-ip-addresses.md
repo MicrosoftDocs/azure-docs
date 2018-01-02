@@ -3,7 +3,7 @@ title: IP addresses used by Application Insights and Log Analytics | Microsoft D
 description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
-ms.author: bwren
+ms.date: 12/13/2017
+ms.author: mbullwin
 
 ---
 # IP addresses used by Application Insights and Log Analytics
@@ -73,6 +73,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -80,6 +84,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153

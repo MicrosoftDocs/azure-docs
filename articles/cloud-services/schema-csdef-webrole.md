@@ -293,7 +293,7 @@ The following table describes the attributes of the `Certificate` element.
 |permissionLevel|string|Optional. Specifies the access permissions given to the role processes. If you want only elevated processes to be able to access the private key, then specify `elevated` permission. `limitedOrElevated` permission allows all role processes to access the private key. Possible values are `limitedOrElevated` or `elevated`. The default value is `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
-The `Imports` element describes a collection of import modules for a web role that add components to the guest operating system. This element is the parent of the `Import` element. This element is optional and a role can have only one runtime block.
+The `Imports` element describes a collection of import modules for a web role that add components to the guest operating system. This element is the parent of the `Import` element. This element is optional and a role can have only one imports block. 
 
 The `Imports` element is only available using the Azure SDK version 1.3 or higher.
 

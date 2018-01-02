@@ -13,16 +13,21 @@
 ## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 
 # How-to 
-## [Manage a server](analysis-services-manage.md)
-## [Manage database users](analysis-services-database-users.md)
-## [Manage server administrators](analysis-services-server-admins.md)
-## [Monitor server metrics](analysis-services-monitor.md)
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
-## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
-## [Connect with Excel](analysis-services-connect-excel.md)
-## [Connect with Power BI](analysis-services-connect-pbi.md)
-## [Create an .odc file](analysis-services-odc.md)
+## [Refresh with REST API](analysis-services-async-refresh.md)
+## [Configure scale-out](analysis-services-scale-out.md)
+## Server management
+### [Configure a server name alias](analysis-services-server-alias.md)
+### [Manage a server](analysis-services-manage.md)
+### [Manage database users](analysis-services-database-users.md)
+### [Manage server administrators](analysis-services-server-admins.md)
+### [Monitor server metrics](analysis-services-monitor.md)
+## Connect
+### [Get client libraries](analysis-services-data-providers.md)
+### [Connect with Excel](analysis-services-connect-excel.md)
+### [Connect with Power BI](analysis-services-connect-pbi.md)
+### [Create an .odc file](analysis-services-odc.md)
 ## Tutorials
 ### [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
 ### [Lesson 1: Create a new tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
