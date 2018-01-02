@@ -91,14 +91,14 @@
       href: concepts-migrate-import-export.md
   - name: Replication
     items:
-    - name: Sync data
-      href: concepts-sync-data.md
+    - name: Data-in Replication
+      href: concepts-data-in.md
 - name: How-to guides
   items:
   - name: Replica
     items:
-    - name: Sync data
-      href: howto-sync-data.md
+    - name: Data-in Replication
+      href: howto-data-in.md
   - name: Manage a Server
     items:
     - name: Azure portal
@@ -143,6 +143,8 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Data-in Replication store procedures
+    href: reference-data-in-store-procedures.md
 - name: Resources
   items:
   - name: Deployment templates
