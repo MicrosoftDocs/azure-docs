@@ -303,9 +303,9 @@ Details of metadata properties for each trigger are described in the correspondi
 
 ## Binding expressions and patterns
 
-One of the most powerful features of triggers and bindings is *binding expressions*. Within your binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as shown in the sample in the preceding section.
+One of the most powerful features of triggers and bindings is *binding expressions*. In the configuration for a binding, you can define pattern expressions which can then be used in other bindings or your code. Trigger metadata can also be used in binding expressions, as shown in the preceding section.
 
-For example, suppose you want to resize images in particular blob storage container, similar to the **Image Resizer** template in the **New Function** page. Go to **New Function** -> Language **C#** -> Scenario **Samples** -> **ImageResizer-CSharp**. 
+For example, suppose you want to resize images in a particular blob storage container, similar to the **Image Resizer** template in the **New Function** page of the Azure portal (see the **Samples** scenario). 
 
 Here is the *function.json* definition:
 
@@ -330,7 +330,7 @@ Here is the *function.json* definition:
 }
 ```
 
-Notice that the `filename` parameter is used in both the blob trigger definition as well as the blob output binding. This parameter can also be used in function code.
+Notice that the `filename` parameter is used in both the blob trigger definition and the blob output binding. This parameter can also be used in function code.
 
 ```csharp
 // C# example of binding to {filename}
@@ -344,9 +344,41 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
+The same ability to use binding expressions and patterns applies to attributes in class libraries. For example, here is a image resizing function in a class library:
 
-### Random GUIDs
-Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
+```csharp
+[FunctionName("ResizeImage")]
+[StorageAccount("AzureWebJobsStorage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```
+
+### Create GUIDs
+
+The `{rand-guid}` binding expression creates a GUID. The following example uses a GUID to create a unique blob name: 
 
 ```json
 {
@@ -359,7 +391,7 @@ Azure Functions provides a convenience syntax for generating GUIDs in your bindi
 
 ### Current time
 
-You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNow`.
+The binding expression `DateTime` resolves to `DateTime.UtcNow`.
 
 ```json
 {
@@ -370,7 +402,7 @@ You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNo
 }
 ```
 
-## Bind to custom input properties in a binding expression
+## Bind to custom input properties
 
 Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
 
@@ -443,13 +475,14 @@ module.exports = function (context, info) {
 
 ## Configuring binding data at runtime
 
-In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
 ## function.json file schema
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## Next steps
+
 For more information on a specific binding, see the following articles:
 
 - [HTTP and webhooks](functions-bindings-http-webhook.md)
