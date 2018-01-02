@@ -77,7 +77,7 @@ Here are some common misconfigurations to check for:
     
     Review your registrations to ensure that there are matching tags when you send a notification. Then, verify the notification receipt only from the clients that have those registrations. 
     
-    As an example, if all your registrations with Notification Hubs were made by using the tag "Politics" and you send a notification with the tag "Sports", the notification isn't sent to any device. A complex case might involve tag expressions in which you registered by using "Tag A" OR "Tag B," but while sending notifications, you target "Tag A && Tag B." In the self-diagnosis tips section later in the article, we show you how to review your registrations and their tags. 
+    As an example, if all your registrations with Notification Hubs were made by using the tag "Politics" and you send a notification with the tag "Sports," the notification isn't sent to any device. A complex case might involve tag expressions in which you registered by using "Tag A" OR "Tag B," but while sending notifications, you target "Tag A && Tag B." In the self-diagnosis tips section later in the article, we show you how to review your registrations and their tags. 
 
 * **Template issues**
 
@@ -94,7 +94,7 @@ Here are some common misconfigurations to check for:
 
     As each batch is sent to the push notification service, which in turn is accepting and validating the registrations, it's possible that the push notification service will detect an error with one or more of the registrations in a batch. In this case, the push notification service returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNS, which uses a TCP stream protocol. 
 
-    Although we are optimized for at-most once delivery, in this case, the faulting registration is removed from the database and we retry notification delivery for the rest of the devices in that batch.
+    We are optimized for at-most once delivery. But in this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
     To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
@@ -107,7 +107,7 @@ If a push notification service attempts to deliver a notification but the device
 
 For each app, only one recent notification is stored. If multiple notifications are sent while a device is offline, each new notification causes the prior notification to be discarded. Keeping only the newest notification is referred to as *coalescing notifications* in APNs, and *collapsing* in FCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for the device  are discarded. For more information, see [APNs overview] and [About FCM messages].
 
-With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API (for example, for the .NET SDK, you'd use **SendNotificationAsync**). The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service. 
+With Azure Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use **SendNotificationAsync**. The SendNotification API also takes HTTP headers that are passed as-is to the respective push notification service. 
 
 ## Self-diagnosis tips
 Here are paths to diagnosing the root cause of dropped notifications in Notification Hubs:
