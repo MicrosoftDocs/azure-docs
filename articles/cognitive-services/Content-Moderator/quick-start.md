@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Get started with Content Moderator
 
-There are a few things you need to do before you can try out Content Moderator tools. You will first need to sign up for Content Moderator, then create a review team. After that, you can upload images or submit simple text to try the automated moderation and human review capabilities without writing any code.
+There are a few things you need to do before you can try out Content Moderator tools. You first need to sign up for Content Moderator, then create a review team. After that, you can upload images or submit simple text to try the automated moderation and human review capabilities without writing any code.
 
 ## Sign up for Content Moderator
 You can either sign up with your Microsoft account or create an account on the Content Moderator web site.
@@ -23,7 +23,7 @@ Navigate to the [Content Moderator sign up](http://contentmoderator.cognitive.mi
 ![Content Moderator Home Page](images/homepage.PNG)
 
 ## Create a review team
-You will see a "Create Team" screen. Give your team a name. If you want to invite your colleagues, you can do so by entering their email addresses.
+Give your team a name. If you want to invite your colleagues, you can do so by entering their email addresses.
 
 ![Invite team member](images/QuickStart-2-small.png)
 
