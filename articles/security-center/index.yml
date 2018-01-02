@@ -60,16 +60,21 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
         href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-overview/
-    - title: Security Center - Focus on prevention
+    - title: Focus on prevention
       href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-focus-on-prevention/
       image: 
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
         href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-focus-on-prevention/
-    - title: Security Center - Threat detection
+    - title: Threat detection
       href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-threat-detection/
       image: 
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
         href: https://azure.microsoft.com/en-us/resources/videos/azure-security-center-threat-detection/
+    - title: Hybrid Cloud Workload Protection
+      href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
 - title: Reference
   items:
   - type: list
