@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/02/2017
 ms.author: ankshah
 
 ---
@@ -57,7 +57,7 @@ To enable access to the Azure portal, through the Azure portal, set the **Allow 
 ![Screenshot showing how to enable Azure portal access](./media/firewall-support/enable-azure-portal.png)
 
 ## Connections from other Azure PaaS services 
-In Azure, PaaS services like Azure Stream analytics and Azure Functions are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically, or set the **Allow Access to Azure Services** value to ON in the Azure portal (the **Enable IP Access Control** value must be set to **ON** to view and change the **Allow Access to Azure Services** value). This ensures that Azure PaaS services can access the Azure Cosmos DB account. 
+In Azure, PaaS services like Azure Stream analytics, Azure Functions, and Azure App Service are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically, or set the **Allow Access to Azure Services** value to ON in the Azure portal (the **Enable IP Access Control** value must be set to **ON** to view and change the **Allow Access to Azure Services** value). This ensures that Azure PaaS services can access the Azure Cosmos DB account. 
 
 ![Screenshot showing how to open the Firewall blade in the Azure portal](./media/firewall-support/enable-azure-services.png)
 
