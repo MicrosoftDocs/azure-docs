@@ -17,7 +17,7 @@ You can migrate your existing MySQL database to Azure Database for MySQL by usin
 Attunity Replicate is a data replication tool that enables data sync between a variety of sources and targets, propagating the schema creation script and data associated with each database table. Attunity Replicate does not propagate any other artifacts (such as SP, triggers, functions, etc.) or convert, for example, PL/SQL code hosted in such artifacts, to T-SQL.
 
 > [!NOTE]
-> While Attunity Replicate supports a broad set of migration scenarios, Attunity Replicate for Microsoft Migrations is focused on support for a specific a subset of source/target pairs.
+> While Attunity Replicate supports a broad set of migration scenarios, Attunity Replicate for Microsoft Migrations is focused on support for a specific subset of source/target pairs.
 
 An overview of the process for performing an online migration includes:
 
