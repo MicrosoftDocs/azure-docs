@@ -23,6 +23,10 @@ ms.custom: H1Hack27Feb2017
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multimodel database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
+> [!TIP]
+> In order for an Azure Cosmos DB containers to partition using the logic provided in this article, the container must be created with a minimum thoroughput of 1,000 RU/s, and a partition key must be provided. If a container was created with a throughput value less than 1,000 RU/s and/or a partition key was not provided at initial creation, Azure Cosmos DB will not auto-split the partitions when they reach a maximim storage value of 10 GB/partition.  
+>
+
 Partitioning and partition keys are discussed in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
