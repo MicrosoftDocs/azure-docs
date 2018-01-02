@@ -24,7 +24,7 @@ ms.author: sethm
 This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). You can learn how to use Microsoft .NET to create a client application that sends messages to a corresponding listener application. 
 
 ## What will be accomplished
-Hybrid Connections requires both a client and server component. In this tutorial, you complete these steps to create two console applications:
+Hybrid Connections requires both a client component and a server component. In this tutorial, you complete these steps to create two console applications:
 
 1. Create a Relay namespace by using the Azure portal.
 2. Create a hybrid connection in that namespace by using the Azure portal.
@@ -51,12 +51,12 @@ If you have already created a hybrid connection, go to [Create a server applicat
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## 3. Create a server application (listener)
-To listen for and receive messages from the relay, write a C# console application by using Visual Studio.
+In Visual Studio, write a C# console application to listen for and receive messages from the relay.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## 4. Create a client application (sender)
-To send messages to the relay, write a C# console application by using Visual Studio.
+In Visual Studio, write a C# console application to send messages to the relay.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
