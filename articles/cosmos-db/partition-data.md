@@ -23,17 +23,27 @@ ms.custom: H1Hack27Feb2017
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multimodel database service designed to help you achieve fast, predictable performance. It scales seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB. It also describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
-> [!TIP]
-> In order for an Azure Cosmos DB containers to partition using the logic provided in this article, the container must be created with a minimum thoroughput of 1,000 RU/s, and a partition key must be provided. If a container was created with a throughput value less than 1,000 RU/s and/or a partition key was not provided at initial creation, Azure Cosmos DB will not auto-split the partitions when they reach a maximim storage value of 10 GB/partition.  
->
-
 Partitioning and partition keys are discussed in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
 > 
 
+## Prerequisites for partitioning
+
+For containers to auto-scale using the logic provided in this article, the container must be created with a thoroughput of 1,000 RU/s or more, and a partition key must be provided. When creating a container in the Azure portal, select the **Unlimited** storage capacity option to take advantage of partitioning and auto-scaling. 
+
+If you created a container in the Azure portal or programmatically and the initial throughput was 1,000 RU/s or more, and your data includes a partition key, you can take advantage of partitioning with no changes to your container - this includes **Fixed** size accounts, so long as the initial container was created with at least 1,000 RU/s in througput, and a partition key is present in the data.
+
+If you created a container with no partition key, or created a container with throughput less than 1,000 RU/s, the container cannot auto-scale. To migrate data from container like this to an auto-scaling container (one with at least 1,000 RU/s in throughput, and a partition key), you need to use the [Data Migration tool](import-data.md) or the [Change Feed library](change-feed.md) to migrate the changes. 
+
 ## Partitioning in Azure Cosmos DB
-In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Azure Cosmos DB provides containers for storing data called *collections* (for documents), *graphs*, or *tables*. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Azure Cosmos DB has a fixed amount of SSD-backed storage associated with it and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Azure Cosmos DB provides containers for storing data called *collections* (for documents), *graphs*, or *tables*. 
+
+Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. 
+
+Every partition in Azure Cosmos DB has a fixed amount of SSD-backed storage associated with it and is replicated for high availability.
+
+ Partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
 
 ![Resource partitioning](./media/introduction/azure-cosmos-db-partitioning.png) 
 
