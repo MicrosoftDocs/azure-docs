@@ -5,13 +5,12 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
 ### Add the Relay NuGet package
 
 1. Right-click the newly created project, and then select **Manage NuGet Packages**.
-2. Select the **Browse** tab.
-3. Search for **Microsoft.Azure.Relay**, and then select **Microsoft Azure Relay**. 
-4. Select **Install** to complete the installation. Close the dialog box.
+2. Select **Browse**, and then search for **Microsoft.Azure.Relay**. In the search results, select **Microsoft Azure Relay**. 
+3. Select **Install** to complete the installation. Close the dialog box.
 
 ### Write code to send messages
 
-1. Replace the existing **using** statements at the top of the Program.cs file with the following **using** statements:
+1. At the top of the Program.cs file, replace the existing **using** statements with the following **using** statements:
    
     ```csharp
     using System;
@@ -20,7 +19,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the **Program** class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name:
+2. Add constants to the **Program** class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -51,12 +50,12 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         // the connection, which terminates the read task.
    
         var reads = Task.Run(async () => {
-            // Initialize the stream reader over the connection
+            // Initialize the stream reader over the connection.
             var reader = new StreamReader(relayConnection);
             var writer = Console.Out;
             do
             {
-                // Read a full line of UTF-8 text up to newline
+                // Read a full line of UTF-8 text up to newline.
                 string line = await reader.ReadLineAsync();
                 // If the string is empty or null, you are done.
                 if (String.IsNullOrEmpty(line))
@@ -143,7 +142,7 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
                     var writer = Console.Out;
                     do
                     {
-                        // Read a full line of UTF-8 text up to newline
+                        // Read a full line of UTF-8 text up to newline.
                         string line = await reader.ReadLineAsync();
                         // If the string is empty or null, you are done.
                         if (String.IsNullOrEmpty(line))
