@@ -169,7 +169,7 @@ When deploying new updates to your application, Service Fabric rolls out the upd
 To upgrade the application, do the following:
 
 1. Open the **/VotingWeb/Views/Home/Index.cshtml** file in Visual Studio.
-2. Change the <h2> heading on the page by adding or updating the text. For example, change the heading to "Service Fabric Voting Sample v2".
+2. Change the heading on the page by adding or updating the text. For example, change the heading to "Service Fabric Voting Sample v2".
 3. Save the file.
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
