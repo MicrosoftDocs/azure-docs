@@ -1,5 +1,5 @@
 ---
-title: Azure CLI samples to resotre an Azure Database for MySQL server to a previous point in time | Microsoft Docs
+title: Azure CLI samples to restore an Azure Database for MySQL server to a previous point in time | Microsoft Docs
 description: This sample CLI script restores Azure Database for MySQL server to a previous point in time.
 services: mysql
 author: v-chenyh
