@@ -23,7 +23,7 @@ An overview of the process for performing an online migration includes:
 
 1. **Migrate the MySQL source schema** to Azure Database for MySQL by using [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
-2.	**Set up initial load and continuous data sync from the source database to the target database** by using Attunity Replicate for Microsoft Migrations. Doing so minimizes the time that the source database needs to be set as read-only while you prepare to switch your applications to the target MySQL database on Azure.
+2. **Set up initial load and continuous data sync from the source database to the target database** by using Attunity Replicate for Microsoft Migrations. Doing so minimizes the time that the source database needs to be set as read-only while you prepare to switch your applications to the target MySQL database on Azure.
 
 For more information about the Attunity Replicate for Microsoft Migrations offering, view the following resources:
  - The Attunity Replicate for Microsoft Migrations [web page](https://aka.ms/attunity-replicate).
