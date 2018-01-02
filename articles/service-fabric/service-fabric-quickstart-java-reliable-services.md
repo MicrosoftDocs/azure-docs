@@ -36,10 +36,10 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 To complete this quickstart:
-1. [Install Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Install Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Install Git](https://git-scm.com/)
 3. [Install Eclipse](https://www.eclipse.org/downloads/)
-4. [Set up Java Environment](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), making sure to follow the optional steps to install the Eclipse plug-in 
+4. [Set up Java Environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), making sure to follow the optional steps to install the Eclipse plug-in 
 
 ## Download the sample
 In a command window, run the following command to clone the sample app repository to your local machine.

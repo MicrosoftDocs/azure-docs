@@ -45,7 +45,7 @@ The following operating system versions are supported for development:
 
 ## Install the SDK and tools
 ### To use Visual Studio 2017
-Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
+Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]

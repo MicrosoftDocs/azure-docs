@@ -138,7 +138,7 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 
 4.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 
@@ -211,7 +211,7 @@ To copy your incremental snapshots for DR efficiently, review the instructions i
 
 ### Recovery from snapshots
 
-To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](../articles/storage/common/storage-powershell-guide-full.md) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy).
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](../articles/storage/common/storage-powershell-guide-full.md) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 For VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. After you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM by using the template for the VM.
 

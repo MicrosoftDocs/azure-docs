@@ -5,7 +5,7 @@ description: Explains how to add the user profile, including profile picture, in
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
@@ -40,5 +40,4 @@ This article explains how to add user profile information, such as a profile pic
 * [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Add or change profile information for a user in Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Delete a user from a directory in Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
