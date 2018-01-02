@@ -18,7 +18,7 @@
     - name: Java library for Android
       href: GetStarted/GetStartedJavaAndroid.md
     - name: Objective-C library for iOS
-      herf: GetStarted/Get-Started-ObjectiveC-iOS.md 
+      href: GetStarted/Get-Started-ObjectiveC-iOS.md 
 - name: How-to guides
   items:
   - name: Authentication for using the service 
