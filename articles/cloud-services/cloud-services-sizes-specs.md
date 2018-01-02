@@ -185,10 +185,10 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes currently available for your Cloud Service.
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes for a given location. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
 ## Next steps
