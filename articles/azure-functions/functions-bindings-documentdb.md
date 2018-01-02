@@ -173,10 +173,10 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 
 ## Input
 
-The DocumentDB API input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
+The Azure Cosmos DB input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
 
 >[!NOTE]
-> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
 
 ## Input - example 1
 
@@ -252,7 +252,7 @@ Here's the C# script code:
 ```cs
     using System;
 
-    // Change input document contents using DocumentDB API input binding 
+    // Change input document contents using Azure Cosmos DB input binding 
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
       inputDocument.text = "This has changed.";
@@ -284,7 +284,7 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the F# code:
 
 ```fsharp
-    (* Change input document contents using DocumentDB API input binding *)
+    (* Change input document contents using Azure Cosmos DB input binding *)
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
     inputDocument?text <- "This has changed."
@@ -331,7 +331,7 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+    // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
     module.exports = function (context) {   
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
@@ -369,7 +369,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ### Input - C# script example 2
 
-The following example shows a DocumentDB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. 
 
@@ -408,7 +408,7 @@ Here's the C# script code:
 
 ### Input - JavaScript example 2
 
-The following example shows a DocumentDB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department. 
 
@@ -473,10 +473,10 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 
 ## Output
 
-The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
+The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database. 
 
 >[!NOTE]
-> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+> Don't use Azure Cosmos DB input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
 
 ## Output - example
 
@@ -506,7 +506,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ### Output - C# script example
 
-The following example shows a DocumentDB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
 {
@@ -570,7 +570,7 @@ To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollecto
 
 ### Output - F# example
 
-The following example shows a DocumentDB output binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
 {
@@ -649,7 +649,7 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 
 ### Output - JavaScript example
 
-The following example shows a DocumentDB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
 {
