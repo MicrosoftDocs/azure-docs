@@ -18,6 +18,7 @@ ms.author: cephalin
 
 ---
 # Configure web apps in Azure App Service
+
 This topic explains how to configure a web app using the [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -42,6 +43,8 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 <a name="platform"></a>
 **Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR] or [socket.io](https://socket.io/).
 
@@ -117,7 +120,7 @@ To view the log files, you must create FTP credentials, as follows:
 
 ![Set deployment credentials][configure03]
 
-The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
+The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.
 
 ![FTP deployment credentials][configure02]
 
