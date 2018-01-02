@@ -61,7 +61,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 Let's start with creating the data factory in this step.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**.
+2. Click **Create a resource** on the left menu, click **Data + Analytics**, and click **Data Factory**.
 3. In the **New data factory** blade, enter **SparkDF** for the Name.
 
    > [!IMPORTANT]

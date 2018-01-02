@@ -24,7 +24,7 @@ This article shows how to deploy a Windows Server virtual machine using the Azur
 Perform the following steps to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
 1. Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
-2. Click the **New** button found on the upper left-hand corner of the Azure portal.
+2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 3. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
 
     ![Select image](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)

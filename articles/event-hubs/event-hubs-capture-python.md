@@ -42,7 +42,7 @@ This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/pyth
 
 ## Create an Azure Storage account
 1. Log on to the [Azure portal][Azure portal].
-2. In the left navigation pane of the portal, click **New**, then click **Storage**, and then click **Storage Account**.
+2. In the left navigation pane of the portal, click **Create a resource**, click **Storage**, and then click **Storage Account**.
 3. Complete the fields in the storage account blade and then click **Create**.
    
    ![][1]

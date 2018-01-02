@@ -28,7 +28,7 @@ This article walks you through the steps to create your first reverse lookup DNS
 ## Create a reverse lookup DNS zone
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. On the Hub menu, click and click **New** > **Networking** > and then click **DNS zone** to open the **Create DNS zone** blade.
+1. On the Hub menu, click **Create a resource** > **Networking** > and then click **DNS zone** to open the **Create DNS zone** blade.
 
    ![DNS zone](./media/dns-reverse-dns-hosting/figure1.png)
 
