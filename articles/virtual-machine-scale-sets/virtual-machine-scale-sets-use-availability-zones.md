@@ -21,7 +21,7 @@ ms.author: iainfou
 ---
 
 # Create a virtual machine scale set that uses Availability Zones
-To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set in an Availability Zones. Each supported Azure region has a minimum of three separate zones. Zones have their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md). This article shows you how to create a scale set that uses Availability Zones with the Azure portal, Azure CLI 2.0, Azure PowerShell, and templates.
+To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set in an Availability Zone. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md). This article shows you how to create a scale set that uses Availability Zones with the Azure portal, Azure CLI 2.0, Azure PowerShell, and templates.
 
 
 ## Overview and requirements
@@ -34,9 +34,11 @@ To use Availability Zones, your scale set must be created in a [supported Azure 
 
 
 ## Use the Azure portal
-The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-portal.md). To use Availability Zones, you must select a supported Azure region. Once you have selected a supported Azure region, you can then create your scale set in one of the available zones, as shown in the following example:
+The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-portal.md). When you select a supported Azure region, you can create a scale set in one of the available zones, as shown in the following example:
 
 ![Create a scale set in a single Availability Zone](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
+
+The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
 
 
 ## Use the Azure CLI 2.0
@@ -53,11 +55,11 @@ az vmss create \
     --zone 1
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs.
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone that you specify.
 
 
 ## Use Azure PowerShell
-The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `-Zone` parameter to the [New-AzureRmVmssConfig](powershell/module/azurerm.compute/new-azurermvmssconfig) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a scale set config named *vmssConfig* in zone *1*:
+The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `-Zone` parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a scale set config named *vmssConfig* in zone *1*:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
@@ -68,7 +70,7 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Zone "1"
 ```
 
-To create the actual set, follow the additional steps as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md).
+To create the actual scale set, follow the additional steps as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md).
 
 
 ## Use Azure Resource Manager templates
@@ -112,7 +114,7 @@ The process to create a scale set that uses an Availability Zone is the same as 
 }
 ```
 
-To create the actual set, follow the additional steps as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md)
+To create the actual scale set, follow the additional steps as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 
 ## Next steps
