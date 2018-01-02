@@ -34,25 +34,27 @@ Follow these steps to install and generate Java Client code using AutoRest tool.
   ```bash
   npm install -g autorest
   ```
-3. Download(Make it as hyderlink) the Service Fabric Client Swagger spec, goto that directory and run the following commands on the terminal to generate the client code.
+3. Download this(Make it as hyderlink) archive, goto that directory and run the following commands on the terminal to generate the client code.
   ```bash
   tar -xvzf (filename).tar.gz
+  cd (filename)
   autorest --input-file= [swagger-spec-yaml-file] --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
   ```
-	> [!NOTE]
-	> If your cluster version is **6.0.* ** then change the default value of  **ApiVersionRequiredQueryParam** parameter to 6.0 in parameters section of the **[swagger_spec_yaml_file]**.
-	>
-After this step you would find two folders **models**, **implemenation** and two files **ServiceFabricClientAPIs.java** and **package-info.java** generated in the output folder as you mentioned in step 3.
+> [!NOTE]
+> If your cluster version is 6.0.* then change the default value of  ``ApiVersionRequiredQueryParam`` parameter to 6.0 in parameters section of the ``[swagger_spec_yaml_file]``.
+>
+After this step you would find two folders ``models``, ``implemenation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``[output-folder-name]`` folder.
 
 ## Including and using the generated client in your code
 
-1. Add the generated code appropriately into your project and the following dependency in your project.
+1. Add the generated code appropriately into your project.
+2. Add following dependency into your project.
 ```
 	GroupId:  com.microsoft.rest
 	Artifactid: client-runtime
 	Version: 1.2.1
 ```
-	For example, if you are using maven build system include the following in you pom.xml file:
+For example, if you are using maven build system include the following in you ``pom.xml`` file:
 ```xml
 	<dependency>
 	  <groupId>com.microsoft.rest</groupId>
@@ -61,7 +63,7 @@ After this step you would find two folders **models**, **implemenation** and two
 	</dependency>
 ```
 
-2. Create a RestClient using the following code:
+3. Create a RestClient using the following code:
 ```java
 	RestClient simpleClient = new RestClient.Builder()
 		.withBaseUrl("http://<cluster-ip or name:port>")
@@ -70,15 +72,15 @@ After this step you would find two folders **models**, **implemenation** and two
 		.build();
 	ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
 ```
-3. Use the client object and make the appropriate calls as required.
+4. Use the client object and make the appropriate calls as required.
 
 ## Understanding the generated code
-For every API you will find 4 variations of implementation. If there are optional parameters then you would find 4 more variations including those optional parameters. For example consider the API **removeReplica**.
-	* public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout):
-		This is the synchronous variant of the API call
-	* public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback):
-		This variant of API call is used if you want to use future based asynchronous programming and use callbacks
-	* public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)
-		This variant of API call can be used if you want to use reactive asynchronous programming
-	* public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)
-This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
+For every API you will find 4 variations of implementation. If there are optional parameters then you would find 4 more variations including those optional parameters. For example consider the API ``removeReplica``.
+ 1. public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout):
+	* This is the synchronous variant of the API call
+ 2. public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback):
+	* This variant of API call can be used if you want to use future based asynchronous programming and use callbacks
+ 3. public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)
+	* This variant of API call can be used if you want to use reactive asynchronous programming
+ 4. public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)
+	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
