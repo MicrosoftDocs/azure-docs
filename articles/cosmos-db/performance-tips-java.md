@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/02/2017
 ms.author: mimig
 
 ---
@@ -102,7 +102,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 7. **Use name based addressing**
 
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid caching _rid values.  
+    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
