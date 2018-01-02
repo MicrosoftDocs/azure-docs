@@ -84,7 +84,7 @@ The AllMetrics category logs the same [Server metrics](analysis-services-monitor
 
     * **Name**. Enter a name for the logs to create.
 
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
+    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
     * **Send to Log Analytics**. To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
 
@@ -159,17 +159,17 @@ Logs are typically available within a couple hours of setting up logging. It's u
 
 Metrics and server events are integrated with xEvents in Log Analytics for side-by-side analysis. Log Analytics can also be configured to receive events from other Azure services providing a holistic view of diagnostic logging data across your architecture.
 
-To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area of the page, as shown in the following image.
+To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area of the page, as shown in the following image:
 
 ![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
 Now that you've enabled data collection, in **Log Search**, click **All collected data**.
 
-In **Type**, click **AzureDiagnostics**, and then click **Apply**. AzureDiagnostics includes Engine and Service events. Notice a Log Analytics query is created on-the-fly. The EventClass\_s field contains xEvent names which, if you've used xEvents for on-premises logging, may look familiar.
+In **Type**, click **AzureDiagnostics**, and then click **Apply**. AzureDiagnostics includes Engine and Service events. Notice a Log Analytics query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging.
 
 Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
 
-We've shown only the highest level when it comes to consuming Log Analytics data. There is a lot more you can do. For example, Operations Management Suite provides a website with enhanced query, dashboarding, and alerting capabilities on Log Analytics data.
+Be sure to checkout Operations Management Suite, which provides a website with enhanced query, dashboarding, and alerting capabilities on Log Analytics data.
 
 <a id="#queries"></a>
 ### Queries
@@ -193,7 +193,7 @@ To learn more about using the new Log Search query language, see [Understanding 
 
 
 > [!TIP]
-> Have a great Log Analytics query you want to share? You can add it to this article, it's opensource! Just click **Edit** at the top-right of this page.
+> Have a great Log Analytics query you want to share? If you have a GitHub account, you can add it to this article. Just click **Edit** at the top-right of this page.
 
 
 <a id="#tutorial"></a>
@@ -302,7 +302,7 @@ Tags                        :
 
 This confirms that logging is now enabled for the server, saving information to the storage account.
 
-You can also set retention policy for your logs so older logs are automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true**, and set **-RetentionInDays** parameter to **90**. Logs older than 90 days will be automatically deleted.
+You can also set retention policy for your logs so older logs are automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true**, and set **-RetentionInDays** parameter to **90**. Logs older than 90 days are automatically deleted.
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
@@ -312,6 +312,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## Next steps
 
-Learn more about [Azure resource diaganostic logging](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Learn more about [Azure resource diagnostic logging](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 See [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) in PowerShell help.
