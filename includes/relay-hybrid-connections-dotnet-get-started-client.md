@@ -1,15 +1,17 @@
 ### Create a console application
 
-First, launch Visual Studio and create a new **Console App (.NET Framework)** project.
+In Visual Studio, create a new **Console App (.NET Framework)** project.
 
 ### Add the Relay NuGet package
 
-1. Right-click the newly created project and then click **Manage NuGet Packages**.
-2. Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item. Click **Install** to complete the installation, then close this dialog box.
+1. Right-click the newly created project, and then select **Manage NuGet Packages**.
+2. Select the **Browse** tab.
+3. Search for **Microsoft.Azure.Relay**, and then select **Microsoft Azure Relay**. 
+4. Select **Install** to complete the installation. Close the dialog box.
 
-### Write some code to send messages
+### Write code to send messages
 
-1. Replace the existing `using` statements at the top of the Program.cs file with the following `using` statements:
+1. Replace the existing **using** statements at the top of the Program.cs file with the following **using** statements:
    
     ```csharp
     using System;
@@ -18,7 +20,7 @@ First, launch Visual Studio and create a new **Console App (.NET Framework)** pr
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values you obtained when creating the hybrid connection. Be sure to use the fully qualified namespace name:
+2. Add constants to the **Program** class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -26,27 +28,27 @@ First, launch Visual Studio and create a new **Console App (.NET Framework)** pr
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Add the following method to the `Program` class:
+3. Add the following method to the **Program** class:
    
     ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
    
-        // Create a new hybrid connection client
+        // Create a new hybrid connection client.
         var tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(KeyName, Key);
         var client = new HybridConnectionClient(new Uri(String.Format("sb://{0}/{1}", RelayNamespace, ConnectionName)), tokenProvider);
    
-        // Initiate the connection
+        // Initiate the connection.
         var relayConnection = await client.CreateConnectionAsync();
    
-        // We run two concurrent loops on the connection. One 
+        // Run two concurrent loops on the connection. One 
         // reads input from the console and writes it to the connection 
         // with a stream writer. The other reads lines of input from the 
         // connection with a stream reader and writes them to the console. 
-        // Entering a blank line will shut down the write task after 
-        // sending it to the server. The server will then cleanly shut down
-        // the connection which will terminate the read task.
+        // Entering a blank line shuts down the write task after 
+        // sending it to the server. The server then cleanly shuts down
+        // the connection, which terminates the read task.
    
         var reads = Task.Run(async () => {
             // Initialize the stream reader over the connection
@@ -56,44 +58,44 @@ First, launch Visual Studio and create a new **Console App (.NET Framework)** pr
             {
                 // Read a full line of UTF-8 text up to newline
                 string line = await reader.ReadLineAsync();
-                // if the string is empty or null, we are done.
+                // If the string is empty or null, you are done.
                 if (String.IsNullOrEmpty(line))
                     break;
-                // Write to the console
+                // Write to the console.
                 await writer.WriteLineAsync(line);
             }
             while (true);
         });
    
-        // Read from the console and write to the hybrid connection
+        // Read from the console and write to the hybrid connection.
         var writes = Task.Run(async () => {
             var reader = Console.In;
             var writer = new StreamWriter(relayConnection) { AutoFlush = true };
             do
             {
-                // Read a line form the console
+                // Read a line from the console.
                 string line = await reader.ReadLineAsync();
-                // Write the line out, also when it's empty
+                // Write the line out, also when it's empty.
                 await writer.WriteLineAsync(line);
-                // Quit when the line was empty
+                // Quit when the line is empty,
                 if (String.IsNullOrEmpty(line))
                     break;
             }
             while (true);
         });
    
-        // Wait for both tasks to complete
+        // Wait for both tasks to finish.
         await Task.WhenAll(reads, writes);
         await relayConnection.CloseAsync(CancellationToken.None);
     }
     ```
-4. Add the following line of code to the `Main` method in the `Program` class.
+4. Add the following line of code to the **Main** method in the **Program** class.
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Here is what your Program.cs should look like.
+    The Program.cs should look like this:
    
     ```csharp
     using System;
@@ -120,56 +122,56 @@ First, launch Visual Studio and create a new **Console App (.NET Framework)** pr
             {
                 Console.WriteLine("Enter lines of text to send to the server with ENTER");
    
-                // Create a new hybrid connection client
+                // Create a new hybrid connection client.
                 var tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(KeyName, Key);
                 var client = new HybridConnectionClient(new Uri(String.Format("sb://{0}/{1}", RelayNamespace, ConnectionName)), tokenProvider);
    
-                // Initiate the connection
+                // Initiate the connection.
                 var relayConnection = await client.CreateConnectionAsync();
    
-                // We run two conucrrent loops on the connection. One 
-                // reads input from the console and writes it to the connection 
+                // Run two conucrrent loops on the connection. One 
+                // reads input from the console and then writes it to the connection 
                 // with a stream writer. The other reads lines of input from the 
-                // connection with a stream reader and writes them to the console. 
-                // Entering a blank line will shut down the write task after 
-                // sending it to the server. The server will then cleanly shut down
-                // the connection which will terminate the read task.
+                // connection with a stream reader and then writes them to the console. 
+                // Entering a blank line shuts down the write task after 
+                // sending it to the server. The server then cleanly shuts down
+                // the connection, which terminates the read task.
    
                 var reads = Task.Run(async () => {
-                    // Initialize the stream reader over the connection
+                    // Initialize the stream reader over the connection.
                     var reader = new StreamReader(relayConnection);
                     var writer = Console.Out;
                     do
                     {
                         // Read a full line of UTF-8 text up to newline
                         string line = await reader.ReadLineAsync();
-                        // If the string is empty or null, we are done.
+                        // If the string is empty or null, you are done.
                         if (String.IsNullOrEmpty(line))
                             break;
-                        // Write to the console
+                        // Write to the console.
                         await writer.WriteLineAsync(line);
                     }
                     while (true);
                 });
    
-                // Read from the console and write to the hybrid connection
+                // Read from the console and write to the hybrid connection.
                 var writes = Task.Run(async () => {
                     var reader = Console.In;
                     var writer = new StreamWriter(relayConnection) { AutoFlush = true };
                     do
                     {
-                        // Read a line form the console
+                        // Read a line from the console.
                         string line = await reader.ReadLineAsync();
-                        // Write the line out, also when it's empty
+                        // Write the line out, also when it's empty.
                         await writer.WriteLineAsync(line);
-                        // Quit when the line was empty
+                        // Quit when the line is empty.
                         if (String.IsNullOrEmpty(line))
                             break;
                     }
                     while (true);
                 });
    
-                // Wait for both tasks to complete
+                // Wait for both tasks to finish.
                 await Task.WhenAll(reads, writes);
                 await relayConnection.CloseAsync(CancellationToken.None);
             }

@@ -21,13 +21,13 @@ ms.author: sethm
 # Get started with Relay Hybrid Connections
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections), and shows how to use .NET to create a client application that sends messages to a corresponding listener application. 
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). You can learn how to use Microsoft .NET to create a client application that sends messages to a corresponding listener application. 
 
 ## What will be accomplished
-Because Hybrid Connections requires both a client and a server component, the tutorial creates two console applications. Here are the steps:
+Hybrid Connections requires both a client and server component. In this tutorial, you complete these steps to create two console applications:
 
-1. Create a Relay namespace, using the Azure portal.
-2. Create a hybrid connection in that namespace, using the Azure portal.
+1. Create a Relay namespace by using the Azure portal.
+2. Create a hybrid connection in that namespace by using the Azure portal.
 3. Write a server (listener) console application to receive messages.
 4. Write a client (sender) console application to send messages.
 
@@ -35,35 +35,35 @@ Because Hybrid Connections requires both a client and a server component, the tu
 
 To complete this tutorial, you need the following prerequisites:
 
-1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
-2. An Azure subscription.
+* [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+* An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
-If you have already created a Relay namespace, jump to the [Create a hybrid connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
+## 1. Create a namespace by using the Azure portal
+If you have already created a Relay namespace, go to [Create a hybrid connection by using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## 2. Create a hybrid connection using the Azure portal
-If you have already created a hybrid connection, jump to the [Create a server application](#3-create-a-server-application-listener) section.
+## 2. Create a hybrid connection by using the Azure portal
+If you have already created a hybrid connection, go to [Create a server application](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## 3. Create a server application (listener)
-To listen and receive messages from the Relay, write a C# console application using Visual Studio.
+To listen for and receive messages from the relay, write a C# console application by using Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## 4. Create a client application (sender)
-To send messages to the Relay, write a C# console application using Visual Studio.
+To send messages to the relay, write a C# console application by using Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
 ## 5. Run the applications
 1. Run the server application.
 2. Run the client application and enter some text.
-3. Ensure that the server application console outputs the text that was entered in the client application.
+3. Ensure that the server application console displays the text that was entered in the client application.
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
