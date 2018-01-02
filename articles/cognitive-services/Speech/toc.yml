@@ -1,6 +1,7 @@
 - name: Overview
   href: Home.md
 - name: Get started
+  expanded: true
   href: GetStarted/GetStarted.md
   items:
   - name: REST
@@ -9,15 +10,15 @@
     href: GetStarted/GetStartedClientLibraries.md
     items:
     - name: C# desktop library
-    - href: GetStarted/GetStartedCSharpDesktop.md
+      href: GetStarted/GetStartedCSharpDesktop.md
     - name: C# service library
-    - href: GetStarted/GetStartedCSharpServiceLibrary.md
+      href: GetStarted/GetStartedCSharpServiceLibrary.md
     - name: JavaScript library
-    - href: GetStarted/GetStartedJSWebsockets.md
+      href: GetStarted/GetStartedJSWebsockets.md
     - name: Java library for Android
-    - href: GetStarted/GetStartedJavaAndroid.md
+      href: GetStarted/GetStartedJavaAndroid.md
     - name: Objective-C library for iOS
-    - herf: GetStarted/Get-Started-ObjectiveC-iOS.md 
+      herf: GetStarted/Get-Started-ObjectiveC-iOS.md 
 - name: How-to guides
   items:
   - name: Authentication for using the service 
