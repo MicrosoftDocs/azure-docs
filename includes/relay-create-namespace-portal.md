@@ -9,12 +9,13 @@
 7. Click **Create**. The system now creates your namespace and enables it. After a few minutes, the system provisions resources for your account.
 
 ### Obtain the management credentials
+
 1. Click **All resources**, then click the newly created namespace name.
 2. In the Relay namespace window, click **Shared access policies**.
-3. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
+3. In the **Shared access policies** window, click **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–Primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+4. In the **Policy: RootManageSharedAccessKey** screen, click the **Copy** button next to **Connection string–Primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
     ![connection-string][connection-string]
 

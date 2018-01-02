@@ -107,6 +107,8 @@
       href: concepts-migrate-dump-restore.md
     - name: Import & export
       href: concepts-migrate-import-export.md
+    - name: Online migration
+      href: howto-migrate-online.md
   - name: Connect applications
     items:
     - name: Create users
