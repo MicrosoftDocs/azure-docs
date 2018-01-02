@@ -97,14 +97,12 @@ In this section, you create a Python console app to simulate the device and rece
         print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
         return IoTHubMessageDispositionResult.ACCEPTED
 
-
     def iothub_client_init():
         client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
 
         client.set_message_callback(receive_message_callback, RECEIVE_CONTEXT)
 
         return client
-
 
     def print_last_message_time(client):
         try:
@@ -208,7 +206,6 @@ In this section, you create a Python console app that sends cloud-to-device mess
     ```python
     def open_complete_callback(context):
         print ( 'open_complete_callback called with context: {0}'.format(context) )
-
 
     def send_complete_callback(context, messaging_result):
         context = 0
