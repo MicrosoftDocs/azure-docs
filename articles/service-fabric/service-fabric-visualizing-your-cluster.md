@@ -3,8 +3,8 @@ title: Visualizing your cluster using Service Fabric Explorer | Microsoft Docs
 description: Service Fabric Explorer is a web-based tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: ''
 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
@@ -13,18 +13,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
+ms.date: 12/07/2017
+ms.author: mikhegn
 
 ---
 # Visualize your cluster with Service Fabric Explorer
-Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster, so it is always available, regardless of where your cluster is running.
+
+Service Fabric Explorer is an open-source tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is an Electron based desktop application, supported on Windows and Linux, with MacOS support coming soon.
+
+> [!NOTE]
+> Service Fabric Explorer is also hosted in a Service Fabric cluster's http management endpoint - for example https://clusterFQDN:19080/Explorer/index.htm. The version hosted in the cluster is updated with cluster runtime updates, whereas the desktop version will have a different update cadence.
+>
+>
+
+You can download Service Fabric Explorer from two channels:
+
+- Stable channel: https://aka.ms/sfx-stable
+  - This channel provides stable builds based off the master branch
+- Preview channel: http://aka.ms/sfx-preview
+  - This channel provides experimental preview builds, based off the preview branch
 
 ## Video tutorial
 
 To learn how to use Service Fabric Explorer, watch the following Microsoft Virtual Academy video:
 
+> [!NOTE]
+> This video shows Service Fabric Explorer hosted in a Service Fabric cluster, not the desktop version.
+>
+>
+
 [<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+
+
 
 ## Connect to Service Fabric Explorer
 If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
