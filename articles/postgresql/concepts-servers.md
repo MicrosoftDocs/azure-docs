@@ -33,6 +33,7 @@ Within an Azure Database for PostgreSQL server, you can create one or multiple d
 ## How do I connect and authenticate to an Azure Database for PostgreSQL server?
 The following elements help ensure safe access to your database:
 
+|||
 |:--|:--|
 | **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
@@ -43,7 +44,7 @@ The following elements help ensure safe access to your database:
 You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
 
 ## Server parameters
-The PostgreSQL server parameters determine the configuration of the server. In Azure Database for PostgreSQL the list of parameters can be viewed and edited via the Azure portal or the Azure CLI. 
+The PostgreSQL server parameters determine the configuration of the server. In Azure Database for PostgreSQL, the list of parameters can be viewed and edited using the Azure portal or the Azure CLI. 
 
 As a managed service for Postgres, the configurable parameters in Azure Database for PostgreSQL are a subset of the parameters in a local Postgres instance (For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Your Azure Database for PostgreSQL server is enabled with default values for each parameter on creation. Parameters that would require a server restart or superuser access for changes to take effect cannot be configured by the user.
 
