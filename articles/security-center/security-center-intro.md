@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 01/02/2018
 ms.author: terrylan
 
 ---
@@ -30,7 +30,7 @@ Why use Security Center?
 - **Actionable recommendations** – Remediate security vulnerabilities before they can be exploited by attackers with prioritized and actionable security recommendations.
 - **Advanced cloud defenses** – Reduce threats with just in time access to management ports and whitelisting to control applications running on your VMs.
 - **Prioritized alerts and incidents** - Focus on the most critical threats first with prioritized security alerts and incidents.
-- **Integrated security solutions** - Collect, search, and analyze security data from a variety of sources, including connected partner solutions
+- **Integrated security solutions** - Collect, search, and analyze security data from a variety of sources, including connected partner solutions.
 
 The **Security Center - Overview** provides a quick view into the security posture of your Azure and non-Azure workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Built in dashboard provides instant insights into security alerts and vulnerabilities that require attention.
 
@@ -51,7 +51,7 @@ Security Center policies contain the following components:
 See [Security policies overview](security-center-policies-overview.md) for more information.
 
 ## Continuous security assessment
-Security Center analyzes the security state of your compute resources, virtual networks, storage and data services, and applications. Continuous assessment helps you to discover potential security issues, such as systems with missing security updates or exp.mdosed network ports. Select a tile in the Prevention section to view more information, including a list of resources and any vulnerabilities that have been identified.
+Security Center analyzes the security state of your compute resources, virtual networks, storage and data services, and applications. Continuous assessment helps you to discover potential security issues, such as systems with missing security updates or exposed network ports. Select a tile in the Prevention section to view more information, including a list of resources and any vulnerabilities that have been identified.
 
 ![Security health monitoring][3]
 
