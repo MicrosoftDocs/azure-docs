@@ -48,6 +48,7 @@
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+## [CSP for Azure Government](documentation-government-csp-application.md)
 ## Certifications
 ### [ITAR](documentation-government-overview-itar.md)
 ### [Justice and Public Safety](documentation-government-overview-jps.md)

@@ -26,25 +26,19 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 
 ## Trigger
 
-The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The trigger requires a second collection that it uses to store _leases_ over the partitions.
-
-Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
-
- >[!IMPORTANT]
- > Currently, if multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
-
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for changes across partitions. The change feed publishes inserts and updates, not deletions. 
 
 ## Trigger - example
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that triggers from a specific database and collection.
+The following example shows a [C# function](functions-dotnet-class-library.md) that triggers from a specific database and collection.
 
 ```cs
     using System.Collections.Generic;
@@ -130,7 +124,7 @@ Here's the JavaScript code:
 
 ## Trigger - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Trigger - configuration](#trigger---configuration). Here's a `CosmosDBTrigger` attribute example in a method signature:
 
@@ -145,7 +139,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 ## Trigger - configuration
 
@@ -159,7 +153,7 @@ The following table explains the binding configuration properties that you set i
 |**connectionStringSetting**|**ConnectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
 |**databaseName**|**DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** |**CollectionName** | The name of the collection being monitored. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optional) The name of an app setting that contains the connection string to the service which holds the lease collection. When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases collection must have write permissions.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. |
@@ -168,39 +162,36 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
->[!NOTE] 
->The connection string for the leases collection must have write permissions.
+## Trigger - usage
+
+The trigger requires a second collection that it uses to store _leases_ over the partitions. Both the collection being monitored and the collection that contains the leases must be available for the trigger to work.
+
+ >[!IMPORTANT]
+ > If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection. Otherwise, only one of the functions will be triggered. 
+
+The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
 
 ## Input
 
 The DocumentDB API input binding retrieves one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function. 
 
+>[!NOTE]
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+
 ## Input - example 1
 
 See the language-specific example that reads a single document:
 
-* [Precompiled C#](#input---c-example)
-* [C# script](#input---c-script-example)
+* [C#](#input---c-example)
+* [C# script (.csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
 ### Input - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. First, `Id` and `Maker` values for a `CarReview` instance are passed to a queue. 
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. 
 
- ```cs
-    public class CarReview
-    {
-        public string Id { get; set; }
-        public string Maker { get; set; }
-        public string Description { get; set; }
-        public string Model { get; set; }
-        public string Image { get; set; }
-        public string Review { get; set; }
-    }
- ```
-
-The Cosmos DB binding uses `Id` and `Maker` from the queue message to retrieve the document from the database.
+First, `Id` and `Maker` values for a `CarReview` instance are passed to a queue. The Cosmos DB binding uses `Id` and `Maker` from the queue message to retrieve the document from the database.
 
 ```cs
     using Microsoft.Azure.WebJobs;
@@ -221,6 +212,20 @@ The Cosmos DB binding uses `Id` and `Maker` from the queue message to retrieve t
         }
     }
 ```
+
+Here's the `CarReview` POCO:
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
 
 ### Input - C# script example
 
@@ -338,13 +343,13 @@ Here's the JavaScript code:
 
 See the language-specific example that reads multiple documents:
 
-* [Precompiled C#](#input---c-example-2)
-* [C# script](#input---c-script-example-2)
+* [C#](#input---c-example-2)
+* [C# script (.csx)](#input---c-script-example-2)
 * [JavaScript](#input---javascript-example-2)
 
 ### Input - C# example 2
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that executes a SQL query. To use the `SqlQuery` parameter, you need to install the latest beta version of `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet package.
+The following example shows a [C# function](functions-dotnet-class-library.md) that executes a SQL query. To use the `SqlQuery` parameter, you need to install the latest beta version of `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet package.
 
 ```csharp
     using System.Net;
@@ -438,7 +443,7 @@ Here's the JavaScript code:
 
 ## Input - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration). 
 
@@ -470,18 +475,21 @@ In JavaScript functions, updates are not made automatically upon function exit. 
 
 The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
 
+>[!NOTE]
+> Don't use DocumentDB API input or output bindings if you're using MongoDB API on a Cosmos DB account. Data corruption is possible.
+
 ## Output - example
 
 See the language-specific example:
 
-* [Precompiled C#](#output---c-example)
-* [C# script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
     using System;
@@ -696,7 +704,7 @@ Here's the JavaScript code:
 
 ## Output - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 
@@ -710,7 +718,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Output - precompiled C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-example).
 
 ## Output - configuration
 
