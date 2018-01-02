@@ -12,7 +12,7 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# Credentials
+# Manage credentials
 
 Your Content Moderator credentials can come from the following locations:
 - The Azure portal.
