@@ -4190,6 +4190,35 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    SQL Tools
+                                                </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>PREVIEW</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">See all SQL tools</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-11.svg" alt="" />
                                                 </div>
                                             </div>

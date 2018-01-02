@@ -26,7 +26,7 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
  
     ![Create new phrase list](./media/luis-add-features/create-new-phrase-list.png)
     
-3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas, and then press Enter.
+3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas, and then press **Enter**.
 
     ![Add phrase list Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
