@@ -1,6 +1,6 @@
 ---
 title: Online migration to Azure Database for PostgreSQL | Microsoft Docs
-description: Describes how to perform an online migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
+description: This article describes how to perform an online migration by extracting a PostgreSQL database into a dump file, restoring the PostgreSQL database from an archive file created by pg_dump in Azure Database for PostgreSQL, and setting up initial load and continuous data sync from the source database to the target database by using Attunity Replicate for Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 1/03/2018
+ms.date: 01/03/2018
 ---
 
 # Online migration to Azure Database for PostgreSQL
@@ -17,7 +17,7 @@ You can migrate your existing PostgreSQL database to Azure Database for PostgreS
 Attunity Replicate is a data replication tool that enables data sync between a variety of sources and targets, propagating the schema creation script and data associated with each database table. Attunity Replicate does not propagate any other artifacts (such as SP, triggers, functions, etc.) or convert, for example, PL/SQL code hosted in such artifacts, to T-SQL.
 
 > [!NOTE]
-> While Attunity Replicate supports a broad set of migration scenarios, Attunity Replicate for Microsoft Migrations is focused on support for a specific a subset of source/target pairs.
+> While Attunity Replicate supports a broad set of migration scenarios, Attunity Replicate for Microsoft Migrations is focused on support for a specific subset of source/target pairs.
 
 An overview of the process for performing an online migration includes:
 
