@@ -25,7 +25,7 @@ Pick the troubleshooting steps that correspond to the error message or alert ID 
 
 | **Alert ID** | **Error Message** | **Resolution** |
 | --- | --- | :--- |
-| AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Secure LDAP configuration](#aadds001-secure-ldap-configuration) |
+| AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Incorrect secure LDAP configuration](#aadds001-secure-ldap-configuration) |
 | AADDS002 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available](#aadds002-insufficient-amount-of-ip-addresses-available) |
 | AADDS100 | *Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original tenant this subscription was associated with.* | [Missing tenant](#aadds100-missing-tenant) |
 | AADDS101 | *Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.* | [Azure B2C is enabled on the tenant](#aadds101-azure-b2c-enabled-on-the-tenant) |
@@ -41,7 +41,7 @@ Pick the troubleshooting steps that correspond to the error message or alert ID 
 
 **Remediation:**
 
-To restore your service, follow the steps provided in the [Troubleshooting NSG Configuration](active-directory-ds-troubleshoot-nsg.md) article.
+To restore your service, follow the steps provided in the [Troubleshooting Secure LDAP Configuration](active-directory-ds-troubleshoot-nsg.md) article.
 
 ### AADDS002: Insufficient amount of IP addresses available
 **Error message:**
