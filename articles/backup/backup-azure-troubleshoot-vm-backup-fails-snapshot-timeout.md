@@ -212,8 +212,8 @@ To resolve the issue, please use the following steps to remove the restore point
  
 1. Remove the Resource Group lock in which the VM resides <br>
 	 
-2. Install ARMClient using Chocolatey <br>
-   `https://github.com/projectkudu/ARMClient`
+2. Install ARM Client using Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
 	 
 3. Login to ARM Client <br>
 		  	 `.\armclient.exe login`
