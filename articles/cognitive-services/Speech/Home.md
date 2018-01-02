@@ -40,7 +40,7 @@ Whichever approach developers choose (REST APIs or client libraries), Microsoft 
 - Support many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [recognition languages](api-reference-rest/supportedlanguages.md).
 - Integration with language understanding. Besides converting the input audio into text, the *Speech to Text* provides applications an additional capability to understand what the text means. It uses the [Language Understanding Intelligent Service(LUIS)](../LUIS/Home.md) to extract intents and entities from the recognized text.
 
-### What's next
+### Next steps
 
 - Get started to use Microsoft speech recognition service with [REST APIs](GetStarted/GetStartedREST.md) or [client libraries](GetStarted/GetStartedClientLibraries.md).
 - Check out [sample applications](samples.md) in your preferred programming language.
@@ -50,6 +50,6 @@ Whichever approach developers choose (REST APIs or client libraries), Microsoft 
 
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech conversion in various voices and languages. In addition users also have the ability to change audio characteristics like pronunciation, volume, pitch etc. using SSML tags.
 
-### What's next
+### Next steps
 
 - Get started to use Microsoft text to speech service: [Text to Speech API Reference](api-reference-rest/bingvoiceoutput.md). For the full list of languages and voices supported by Text to Speech, see [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#SupLocales).

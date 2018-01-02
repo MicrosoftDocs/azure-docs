@@ -146,7 +146,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Use the Compute client to start the VM. Add the following code to the runbook:
 
