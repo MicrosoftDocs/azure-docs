@@ -9,7 +9,7 @@
 | Container deletes per hour | 150<sup>1</sup> |
 | Container deletes per 5 minutes | 50<sup>1</sup> |
 | Multiple containers per group | Linux only<sup>2</sup> |
-| Azure file volumes | Linux only<sup>2</sup> |
+| Azure Files volumes | Linux only<sup>2</sup> |
 | GitRepo volumes | Linux only<sup>2</sup> |
 | Secret volumes | Linux only<sup>2</sup> |
 
