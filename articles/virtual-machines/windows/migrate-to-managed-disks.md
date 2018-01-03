@@ -72,7 +72,7 @@ There are seven types of premium managed disks that can be used with your VM and
 There are seven types of standard managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
 
 | Standard Disk Type  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
-|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
 | Disk size           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
