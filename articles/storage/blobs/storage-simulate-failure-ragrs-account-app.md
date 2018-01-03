@@ -15,7 +15,7 @@ ms.author: v-ruogun
 
 # Simulate a failure in accessing read-access redundant storage
 
-This tutorial is part two of a series.  In this tutorial, you can use [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
+This tutorial is part two of a series.  In this tutorial, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -169,7 +169,7 @@ Press **any key** to resume the application. The application continues reading f
 
 ## Next steps
 
-In part two of the series, you learned about simulating a failure to test read access geo-redundant storage such as how to:
+In part two of the series, you learned about simulating a failure to test read access geo-redundant storage, such as how to:
 
 > [!div class="checklist"]
 > * Run and pause the application
