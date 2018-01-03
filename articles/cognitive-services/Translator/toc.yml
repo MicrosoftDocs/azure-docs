@@ -26,13 +26,13 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items: 
-  - name: Translator App
+  - name: Translator app
     href: tutorial-wpf-translation-csharp.md
 - name: Samples
   items: 
   - name: Samples on GitHub
     href: https://aka.ms/TranslatorGitHub
-- name: How-Tos
+- name: How-to guides
   items:
   - name: Sign-up for Translator Text API
     href: translator-text-how-to-signup.md
