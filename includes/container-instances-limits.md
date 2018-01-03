@@ -1,5 +1,5 @@
 | Resource | Default Limit |
-| --- | :---: |
+| --- | :--- |
 | Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 20 |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
