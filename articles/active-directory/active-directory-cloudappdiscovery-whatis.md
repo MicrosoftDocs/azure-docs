@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -21,11 +21,11 @@ ms.reviewer: nigu
 # Find unmanaged cloud applications with Cloud App Discovery
 ## Summary
 
-Cloud App Discovery is a feature of Azure Active Directory Premium that enables you to discover unmanaged cloud applications being used by the people in your organization. In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.
+Cloud App Discovery in Azure Active Directory now provides an enhanced agentless discovery experience powered by [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/). Just sign in with your Azure AD Premium P1 credentials. This update is available at no additional cost to all Azure AD Premium P1 customers. 
 
-> [!TIP] 
-> Check out the improvements to Cloud App Discovery in Azure Active Directory (Azure AD), which are enhanced by [integration with Microsoft Cloud App Security](https://portal.cloudappsecurity.com).
-
+> [!NOTE] 
+> The old experience of Azure AD Cloud App Discovery which runs on agent-based discovery will continue to function until March 5th after which the agents will be disabled and the data deleted. Please take action before March 4th to get up and running on the new experience to avoid disruption of service.  
+ 
 **With Cloud App Discovery, you can:**
 
 * Find the cloud applications being used and measure that usage by number of users, volume of traffic or number of web requests to the application.
