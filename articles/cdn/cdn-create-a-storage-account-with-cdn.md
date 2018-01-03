@@ -90,7 +90,7 @@ With the newest integration, you can now enable CDN for your storage account wit
 	![cdn storage new endpoint][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> You can also go to Azure CDN extension to enable CDN.[Tutorial](#Tutorial-cdn-create-profile).
+> You can also go to Azure CDN extension to enable CDN. [Tutorial](#Tutorial-cdn-create-profile).
 > 
 > 
 

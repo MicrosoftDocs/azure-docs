@@ -20,7 +20,7 @@ ms.author: cephalin
 ---
 # Manage an App Service plan in Azure
 
-An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan. 
+An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -65,6 +65,8 @@ Select **Change App Service plan** to start the process.
 > 
 
 ![App Service plan selector.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier, enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher tiered plan to a lower tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. For example, if one of your apps uses SSL certificates, you might see the error message: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`In this case, you need to scale up the pricing tier of the target plan to **Basic** or higher, or you need to remove all SSL connections to your app, before you can move the app to the target plan.
 
