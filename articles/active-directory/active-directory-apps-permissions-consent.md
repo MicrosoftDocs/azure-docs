@@ -98,21 +98,6 @@ In the Azure portal, select **users can register applications**.
 >- Users cannot make changes to apps that they are not owners of.
 
 
-
-- You can control whether users can themselves add pre-integrated apps that use password SSO (aka “password vaulting”)
-![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- You can control under which conditions applications can be accessed (that is, conditional access). Be aware this applies both to the client app and to the resource app. So, say you set a conditional access policy that says that the “Office 365 Exchange Online” app can only be accessed from machines, which are compliant.  This policy will also kick in when a user attempts to use a client app which requests permissions to Exchange Online.
-
-
-
-- You have visibility into which apps have been consented to and which ones are being used.
-
-1. 	When a user consents to an app, a ServicePrincipal object is created in the tenant. ServicePrincipal creation is included in the audit report.
-2. 	User sign-in activity reports tell you which app the user is signing in to. 
-
 ## Example
 
 As an example, let’s take the “FabrikamMail for Office 365” app, which you’ve noticed users in your tenant are signing in to. “FabrikamMail” is a mail reader app for Android, published by “Fabrikam, Inc.”. This falls into the “multi-tenant apps other develop, which Contoso can consent to”.
