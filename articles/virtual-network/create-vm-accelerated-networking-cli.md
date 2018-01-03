@@ -159,7 +159,7 @@ Once the VM is created, output similar to the following example output is return
 
 ## Confirm that accelerated networking is enabled
 
-Use the following command to create an SSH session with the VM. Replace `<your-public-ip-address> with the public IP address assigned to the virtual machine you created, and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
+Use the following command to create an SSH session with the VM. Replace `<your-public-ip-address>` with the public IP address assigned to the virtual machine you created, and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
 
 ```bash
 ssh azureuser@<your-public-ip-address>

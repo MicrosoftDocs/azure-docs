@@ -125,6 +125,7 @@ $publicIp = New-AzureRmPublicIpAddress `
 
 Create a network interface with [New-AzureRmNetworkInterface](/powershell/module/AzureRM.Network/New-AzureRmNetworkInterface) with accelerated networking enabled and assign the public IP address to the network interface. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and assigns the *myPublicIp* public IP address to it:
 
+```powershell
 $nic = New-AzureRmNetworkInterface `
     -ResourceGroupName "myResourceGroup" `
     -Name "myNic" `
@@ -132,6 +133,7 @@ $nic = New-AzureRmNetworkInterface `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIp.Id `
     -EnableAcceleratedNetworking
+```
 
 ## Create the virtual machine
 
