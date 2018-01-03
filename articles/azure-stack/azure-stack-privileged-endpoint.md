@@ -76,7 +76,7 @@ We recommend that you connect to the privileged endpoint only from the hardware 
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
-    ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/getcommandoutput.png)
+    ![Get-Command cmdlet output showing list of available commands](media/azure-stack-privileged-endpoint/GetCommandOutput.PNG)
 
     Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
 
@@ -115,7 +115,7 @@ To close the endpoint session:
 2. Run the `Close-PrivilegedEndpoint` cmdlet. 
 3. You're prompted for a path on which to store the transcript log file. Specify the file share that you created earlier, in the format &#92;&#92;*servername*&#92;*sharename*. If you don’t specify a path, the cmdlet fails and the session remains open. 
 
-    ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/closeendpoint.png)
+    ![Close-PrivilegedEndpoint cmdlet output that shows where you specify the transcript destination path](media/azure-stack-privileged-endpoint/CloseEndpoint.png)
 
 After the transcript log files are successfully transferred to the file share, they're automatically deleted from the privileged endpoint. If you close the privileged endpoint session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the privileged endpoint. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer.
 
