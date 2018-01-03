@@ -18,11 +18,13 @@ Improve accuracy of intent score and identify entities for words that have the s
 ## Import new app
 1. Download [example LUIS app][LuisSampleApp] designed for this tutorial. You will need it in the next step. 
 
-2. [Import](Create-new-app.md#import-new-app) the file you just downloaded into [www.LUIS.ai][www.luis.ai] as a new app. The app name is "My Phrase List tutorial". This app has intents, entities, and utterances.
+2. [Import](Create-new-app.md#import-new-app) the file you downloaded into [www.LUIS.ai][www.luis.ai] as a new app. The app name is "My Phrase List tutorial". This app has intents, entities, and utterances. 
 
 3. [Train]() your app. You cannot [interactively test](Train-Test.md#interactive-testing) your app in [www.LUIS.ai][www.luis.ai] until the app is trained. 
 
-4. [Publish](PublishApp.md) the app. Publishing the app allows you to test using the HTTPS endpoint. 
+4. Check **Include all predicted intent scores** on the [Publish](PublishApp.md) page. With this checked, all intents are returned. Without this checked, only the top intent is returned. 
+
+5. [Publish](PublishApp.md) the app.  Publishing the app allows you to test using the HTTPS endpoint. 
 
 ## Test a trained utterance
 Use the published endpoint to query an utterance the app already knows. Because LUIS already knows about the utterance, the score is high and the entity is detected.
@@ -138,10 +140,13 @@ The endpoint response is:
 
 The untrained utterance intent score is lower than the labeled utterance because LUIS knows the sentence is grammatically the same but LUIS doesn't know the utterances have the same meaning. Also, without the phrase list, the entity of **hardware** is not found.
 
-You need to tell LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
+You need to teach LUIS that **want** and **require** mean the same thing in this app domain because a word can have more than one meaning. 
 
 ## Improve score of untrained utterance with phrase list 
-1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. 
+1. Add a [phrase list](Add-Features.md) feature named **want** with the value of `want`. Click on **Enter**.
+
+    > [!TIP]
+    > Press the **Enter** key after every word or phrase. The word or phrase is added to the **Phrase list values** box while the cursor stays on the **Value** box. You can enter many values quickly with this feature.
 
 2. Click on **Recommend** to see what words LUIS recommends. 
 
