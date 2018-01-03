@@ -54,7 +54,7 @@ Build a chat bot with integrated language understanding.
     * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
 
 > [!Note]
-> This web app bot creation process also created a new LUIS app for you. It has been trained and published for you. 
+> This web app bot creation process also created a new LUIS app for you. It has been trained and published for you.
 
 ## Try the default bot
 
@@ -77,6 +77,9 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 > 1. Click on **My apps**. 
 > 2. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 > 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](Train-Test.md) and [published](PublishApp.md). 
+
+    > [!WARNING]
+    > If you delete your app ID or programmatic key, the bot will stop working.
 
 ## Modify the bot code
 
