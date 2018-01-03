@@ -30,13 +30,15 @@ ms.author: magoedte;bwren
 This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation. You start with a simple runbook that tests and publishes while learning how to track the status of the runbook job. Then you modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Then you complete the tutorial by making the runbook more robust by adding runbook parameters and conditional links.
 
 ## Prerequisites
+
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. You stop and start this machine so it should not be a production VM.
 
-## Step 1 - Create runbook
+## Create runbook
+
 Start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure portal, open your Automation account.
@@ -44,61 +46,65 @@ Start by creating a simple runbook that outputs the text *Hello World*.
    The Automation account page gives you a quick view of the resources in this account. You should already have some Assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 
 2. Select **Runbooks** under **PROCESS MANAGEMENT** to open the list of runbooks.
-3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
+3. Create a new runbook by selecting **+ Add a runbook**, then click **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-Graphical*.
 5. In this case, you're going to create a [graphical runbook](automation-graphical-authoring-intro.md) so select **Graphical** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Click **Create** to create the runbook and open the graphical editor.
 
-## Step 2 - Add activities to the runbook
+## Add activities
+
 The Library control on the left side of the editor allows you to select activities to add to your runbook. You're going to add a **Write-Output** cmdlet to output text from the runbook.
 
 1. In the Library control, click in the search textbox and type **Write-Output**. The search results are shown in the following image: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
-2. Scroll down to the bottom of the list. You can either right-click **Write-Output** and select **Add to canvas**, or click the ellipses next to the cmdlet and then select **Add to canvas**.
-3. Click the **Write-Output** activity on the canvas. This action opens the Configuration control blade, which allows you to configure the activity.
-4. The **Label** defaults to the name of the cmdlet, but you can change it to something more friendly. Change it to *Write Hello World to output*.
-5. Click **Parameters** to provide values for the cmdlet's parameters.
+1. Scroll down to the bottom of the list. You can either right-click **Write-Output** and select **Add to canvas**, or click the ellipses next to the cmdlet and then select **Add to canvas**.
+1. Click the **Write-Output** activity on the canvas. This action opens the Configuration control blade, which allows you to configure the activity.
+1. The **Label** defaults to the name of the cmdlet, but you can change it to something more friendly. Change it to *Write Hello World to output*.
+1. Click **Parameters** to provide values for the cmdlet's parameters.
 
-   Some cmdlets have multiple parameter sets, and you need to select which you one to use. In this case, **Write-Output** has only one parameter set, so you don't need to select one. <br> ![Write-Output properties](media/automation-first-runbook-graphical/write-output-properties-b.png)
+   Some cmdlets have multiple parameter sets, and you need to select which you one to use. In this case, **Write-Output** has only one parameter set, so you don't need to select one.
 
-6. Select the **InputObject** parameter. This is the parameter where you specify the text to send to the output stream.
-7. In the **Data source** dropdown, select **PowerShell expression**. The **Data source** dropdown provides different sources that you use to populate a parameter value.
+1. Select the **InputObject** parameter. This is the parameter where you specify the text to send to the output stream.
+2. In the **Data source** dropdown, select **PowerShell expression**. The **Data source** dropdown provides different sources that you use to populate a parameter value.
 
    You can use output from such sources such as another activity, an Automation asset, or a PowerShell expression. In this case, the output is just *Hello World*. You can use a PowerShell expression and specify a string.
 
-8. In the **Expression** box, type *"Hello World"* and then click **OK** twice to return to the canvas.<br> ![PowerShell Expression](media/automation-first-runbook-graphical/expression-hello-world.png)
-9. Save the runbook by clicking **Save**.<br> ![Save runbook](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
+1. In the **Expression** box, type *"Hello World"* and then click **OK** twice to return to the canvas.
+1. Save the runbook by clicking **Save**.
 
-## Step 3 - Test the runbook
+## Test the runbook
+
 Before you publish the runbook to make it available in production, you want to test it to make sure that it works properly. When you test a runbook, you run its **Draft** version and view its output interactively.
 
-1. Click **Test pane** to open the Test blade.<br> ![Test pane](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
-2. Click **Start** to start the test. This should be the only enabled option.
-3. A [runbook job](automation-runbook-execution.md) is created and its status displayed in the pane.
+1. Select **Test pane** to open the Test blade.
+1. Click **Start** to start the test. This should be the only enabled option.
+1. A [runbook job](automation-runbook-execution.md) is created and its status displayed in the pane.
 
    The job status starts as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It then moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.
 
-4. When the runbook job completes, its output is displayed. In this case, you see *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
-5. Close the Test blade to return to the canvas.
+1. When the runbook job completes, its output is displayed. In this case, you see *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Close the Test blade to return to the canvas.
 
-## Step 4 - Publish and start the runbook
+## Publish and start the runbook
+
 The runbook that you created is still in Draft mode. It needs to be published before you can run it in production. When you publish a runbook, you overwrite the existing Published version with the Draft version. In this case, you don't have a Published version yet because you just created the runbook.
 
-1. Click **Publish** to publish the runbook and then **Yes** when prompted.<br> ![Publish](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
-2. If you scroll left to view the runbook in the **Runbooks** blade, it shows an **Authoring Status** of **Published**.
-3. Scroll back to the right to view the blade for **MyFirstRunbook**.
+1. Select **Publish** to publish the runbook and then **Yes** when prompted.
+1. If you scroll left to view the runbook in the **Runbooks** blade, it shows an **Authoring Status** of **Published**.
+1. Scroll back to the right to view the blade for **MyFirstRunbook**.
 
    The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 
-4. Start the runbook so click **Start** and then **Yes** when prompted.<br> ![Start runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
-5. A job blade is opened for the runbook job that was created. Verify that the **Job status** shows **Completed**.
-7. Once the runbook status shows *Completed*, click **Output**. The **Output** blade is opened, and you can see the *Hello World* in the pane.
-8. Close the Output blade.
-9. Click **All Logs** to open the Streams blade for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
-10. Close the All Logs blade and the Job blade to return to the MyFirstRunbook blade.
-11. To view all the jobs for the runbook close the **Job** blade and select **Jobs** under **RESOURCES**. This lists all the jobs created by this runbook. You should only see one job listed since you only ran the job once.
-12. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
+1. Select **Start** and then **Yes** when prompted to start the runbook.
+1. A job blade is opened for the runbook job that was created. Verify that the **Job status** shows **Completed**.
+1. Once the runbook status shows *Completed*, click **Output**. The **Output** blade is opened, and you can see the *Hello World* in the pane.
+1. Close the Output blade.
+1. Click **All Logs** to open the Streams blade for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
+1. Close the All Logs blade and the Job blade to return to the MyFirstRunbook blade.
+1. To view all the jobs for the runbook close the **Job** blade and select **Jobs** under **RESOURCES**. This lists all the jobs created by this runbook. You should only see one job listed since you only ran the job once.
+1. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
-## Step 5 - Create variable assets
+## Create variable assets
+
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. Before you configure the runbook to authenticate, you create a variable to hold the subscription ID and reference it after you set up the activity to authenticate in step 6 below. Including a reference to the subscription context allows you to easily work between multiple subscriptions. Before proceeding, copy your subscription ID from the Subscriptions option off the Navigation pane.
 
 1. In the Automation Accounts blade, select **Variables** under **SHARED RESOURCES**.
