@@ -130,7 +130,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 
 
 ## Create virtual network interface card
-A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in an Ansible playbook creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
+A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
