@@ -1,6 +1,6 @@
 ---
 title: Understand compatibility level for Azure Stream Analytics jobs. | Microsoft Docs
-description: Learn how to set a compatibility level for a Azure Stream Analytics job and major changes in the latest compatibility level.
+description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
 keywords: Compatibility level, streaming data
 documentationcenter: ''
 services: stream-analytics
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/13/2017
+ms.date: 01/03/2018
 ms.author: sngun
 
 ---
 
-# Compatibility level for Azure Stream Analytics jobs. 
+# Compatibility level for Azure Stream Analytics jobs
  
 Compatibility level refers to the release-specific behaviors of the Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually these updates are automatically available for end users. In some cases, new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. In these cases, we introduce the concept of compatibly level that can be explicitly set by users for each individual job. 
 
@@ -67,7 +67,7 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **In previous versions:** The JSON parser would automatically upcast string values with date/time/zone information to DateTime type and then convert it to UTC. This resulted in losing the timezone information.
 
-  * **In current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone are kept. 
+  * **In current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone information is kept. 
 
 ## Next steps
 * [Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
