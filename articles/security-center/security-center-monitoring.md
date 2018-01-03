@@ -45,7 +45,7 @@ When you click **Compute** tile, you see three tabs:
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
 
 #### Monitoring recommendations
-When Security Center identifies potential security vulnerabilities, it creates recommendations. These recommendations will be listed under **MONITORING RECOMMENDATIONS**. In this example there is one recommendation, **Monitoring agent health issues**.  Select this recommendation.
+This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. In this example there is one recommendation, **Monitoring agent health issues**.  Select this recommendation.
 
 ![Monitoring agent health issues](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
