@@ -42,7 +42,8 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure portal, open your Automation account.
 
-    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
+    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).<br>
+
 1. Select **Runbooks** under **PROCESS MANAGEMENT** to open the list of runbooks.
 2. Select **+ Add a runbook** to create a new runbook.
 3. Give the runbook the name *MyFirstRunbook-Python*.
