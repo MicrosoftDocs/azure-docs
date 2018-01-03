@@ -120,7 +120,7 @@ az network nic create \
 ```
 
 ## Create a VM and attach the NIC
-When you create the VM, specify the NIC you created with `--nics`. You must select a size and and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+When you create the VM, specify the NIC you created with `--nics`. You must select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
