@@ -80,8 +80,8 @@ You [configure an Azure Recovery Services vault to retain automated backups](sql
 
    ![define retention policy](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
-> [!NOTE]
-> Retention policy names does not allow some characters, including spaces.
+   >[!NOTE]
+   >Retention policy names don't allow some characters, including spaces.
 
 13. On the **Long-term backup retention** page for your database, click **Save** and then click **OK** to apply the long-term backup retention policy to all selected databases.
 
