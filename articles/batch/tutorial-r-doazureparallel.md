@@ -84,7 +84,7 @@ Save the file. Then, run the following command to set the credentials for your c
 setCredentials("credentials.json") 
 ```
 
-## Set up your Azure Batch pool 
+## Create a Batch pool 
 
 doAzureParallel includes a function to generate an Azure Batch pool (cluster) to run parallel R jobs. The nodes run an Ubuntu-based [Azure Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md), which has Microsoft R Open and popular R packages pre-installed. You can view or customize certain cluster settings, such as the number and size of the nodes. To generate a cluster configuration JSON file in your working directory: 
  
