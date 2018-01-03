@@ -14,8 +14,6 @@ ms.author: v-jerkin
 ---
 # Tutorial: Microsoft Translator WPF application in C#
 
-![[The tutorial program running]](media/translator-text-csharp-session.png)
-
 In this tutorial, we'll build an interactive text translation tool using the Microsoft Translator text translation service, a part of Microsoft Cognitive Services in Azure. You'll learn how to:
 
 > [!div class="checklist"]
@@ -29,6 +27,8 @@ This application also features integration with two other Microsoft Cognitive Se
 |-|-|
 |[Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)|Used to optionally automatically detect the source language of the text to be translated|
 |[Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)|For English source text, used to correct misspellings so translation is more accurate
+
+![[The tutorial program running]](media/translator-text-csharp-session.png)
 
 ## Prerequisites
 
