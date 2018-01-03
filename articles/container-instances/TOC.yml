@@ -23,6 +23,8 @@
     href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
+  - name: Quotas and limits
+    href: container-instances-quotas.md
   - name: Regions and availability
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
