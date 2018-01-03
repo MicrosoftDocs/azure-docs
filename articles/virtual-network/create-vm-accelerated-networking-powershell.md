@@ -46,7 +46,7 @@ The following limitations exist when using this capability:
 
 ## Create a virtual network
 
-Install [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [add-azurermaccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Install [Azure PowerShell](/powershell/azure/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
 
@@ -92,7 +92,7 @@ $rdp = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) and assign the *Allow-RDP-All* security rule to it. In addition to the *Allow-RDP-All* rule, the network security group contains several default rules. Ond default rule disables all inbound access from the Internet, which is why the *Allow-RDP-All* rule is assigned to the network security group so that you can remotely connect to the virtual machine, once it's created.
+Create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) and assign the *Allow-RDP-All* security rule to it. In addition to the *Allow-RDP-All* rule, the network security group contains several default rules. One default rule disables all inbound access from the Internet, which is why the *Allow-RDP-All* rule is assigned to the network security group so that you can remotely connect to the virtual machine, once it's created.
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
