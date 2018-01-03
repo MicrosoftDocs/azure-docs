@@ -55,8 +55,6 @@ You can download the solution in either of two ways. Download it to a Mac and op
 On a Mac or Windows computer, do the following:
 
 1. Go to the [Azure portal].
-GLENN, WHICH STEP 2 IS CORRECT?
-2. On the **Settings** blade for your mobile app, under **Mobile**, select **Get Started** > **Xamarin.Forms**. Under **step 3**, select  **Create a new app**, and then select **Download**.
 
 2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
