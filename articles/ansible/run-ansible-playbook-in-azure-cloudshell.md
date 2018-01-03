@@ -38,29 +38,13 @@ In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud 
 
   1. You should now see results similar to the following:
 
-  
-
-  
-
-
-  1. Cloud Shell requires an Azure file share to persist files. Specify an existing storage account, or create a new storage account. 
-
-Select "Create storage"
-
-
-
-
-
-
-
-
-
+    ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-started.png)
 
 ## Set up authentication with Azure
-By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, you need to run the Azure CLI `az account set` command as follows:
+By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscription> placeholder with the name of your Azure subscription):
 
 ```cli
-az account set --subscription mySubscriptionName
+az account set --subscription <YourAzureSubscriptionName>
 ```
 
 ## Launch Bash in Cloud Shell
