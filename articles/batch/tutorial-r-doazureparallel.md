@@ -31,7 +31,7 @@ This tutorial details how you can deploy a Batch pool and run a parallel R job i
 
 * An installed [R](https://www.r-project.org/) distribution, such as [Microsoft R Open](https://mran.microsoft.com/open). Use R version 3.3.1 or later.
 
-* [RStudio](https://www.rstudio.com/). For this tutorial, you can use the open source [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop). 
+* [RStudio](https://www.rstudio.com/). For this tutorial, you can use the open-source [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop). 
 
 * An Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
@@ -170,7 +170,7 @@ getClosingPrice <- function() {
 } 
 ```
 
-First run 10,000 simulations locally using a standard foreach loop with the `%do` keyword:
+First run 10,000 simulations locally using a standard foreach loop with the `%do%` keyword:
 
 ```R
 start_s <- Sys.time() 
@@ -205,7 +205,7 @@ Estimated runtime for 10 million outcomes locally, using a linear approximation,
 ```
 
 
-Now run the code using `foreach` with the `%dopar%` keysord to compare how long it takes to run 10 million simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
+Now run the code using `foreach` with the `%dopar%` keyword to compare how long it takes to run 10 million simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
 
 ```R
 # Optimize runtime. Chunking allows running multiple iterations on a single R instance.
