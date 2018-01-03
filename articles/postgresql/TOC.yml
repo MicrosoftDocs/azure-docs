@@ -95,7 +95,7 @@
       href: howto-migrate-using-dump-and-restore.md
     - name: Import & export
       href: howto-migrate-using-export-and-import.md
-    - name: Online migration
+    - name: Minimal downtime migration
       href: howto-migrate-online.md
   - name: Configure server parameters
     items:
