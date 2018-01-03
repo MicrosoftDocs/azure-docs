@@ -12,17 +12,17 @@ ms.author: anroth
 ---
 
 # Face detection using Cognitive Services
-In this walkthrough, we will the cognitive services [Face APIs](https://azure.microsoft.com/en-us/services/cognitive-services/face/) to detect faces in an image and identify various attributes such as the number of people, their gender and age. The sample images we will use are from the [How-Old Robot](http://www.how-old.net) that uses the same service behind the scenes.
+In this walkthrough, we will use the cognitive services [Face API](https://azure.microsoft.com/en-us/services/cognitive-services/face/) to detect faces in an image and identify various attributes such as the number of people, their gender and age. The sample images we will use are from the [How-Old Robot](http://www.how-old.net) that uses the same service behind the scenes.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
-Please refer to the [API definitions](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for technical documentation for the APIs.
+Please refer to the [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for more details.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face APIs**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 To continue with this walkthrough, please replace `subscription_key` below with a valid subscription key that you obtained earlier.
 
@@ -32,7 +32,7 @@ subscription_key = "354f9ac5f2f04a008504575c15f458a7"
 assert subscription_key
 ```
 
-Next, please verify the URL below and make sure it corresponds to the region you used when generating the API key. If you used a trial subscription, you are good to go!
+Next, please verify the URL below and make sure it corresponds to the region you used when generating the subscription key. If you used a trial subscription, you are good to go!
 
 
 ```python
@@ -46,7 +46,7 @@ Here is the URL of the image above. You can experiment with different images sim
 image_url = 'https://how-old.net/Images/faces2/main007.jpg'
 ```
 
-We next call into the Face API to recognize the faces in the image. In this instance, the image is specified via a publically-visible URL. You can also pass an image directly as part of the request body. For more details, please refer to the [API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+We next call into the Face API to detect the faces in the image. In this instance, the image is specified via a publically-visible URL. You can also pass an image directly as part of the request body. For more details, please see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
 
 
 ```python
@@ -73,7 +73,7 @@ HTML("<font size=5>Detected <font color='blue'>%d</font> faces in the image</fon
 
 
 
-Finally, we use the Matplotlib library in Python to plot the image and annotate it with face information found using the Face APIs.
+Finally, we use the Matplotlib library in Python to plot the image and annotate it with face information found using the Face API.
 
 
 ```python
@@ -98,8 +98,6 @@ for face in faces:
     plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]), fontsize=20, weight="bold", va="bottom")
 _ = plt.axis("off")
 ```
-
-For more information on the Microsoft Cognitive Face APIs, see [here](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for the full documentation of the REST APIs.
 
 Here are more images that can be analyzed using the same technique.
 First, we define a helper function, ``annotate_image`` to annotate an image given its URL.

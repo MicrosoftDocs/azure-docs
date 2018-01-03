@@ -31,7 +31,7 @@ Please replace `subscription_key` below with the API key you obtained earlier.
 
 
 ```python
-subscription_key = "11966e80bb4a407bac5a340693a790e4"
+subscription_key = "eeb35d3bc60b4298addcea8d14bb022c"
 assert subscription_key
 ```
 
@@ -42,7 +42,7 @@ Also, please verify that the URL below corresponds to the region you used when s
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-In the emotion API walktrough, we will be using images that are stored on disk. You can also use images that are available via a publically-accessible URL. For more details, please see the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) documentation.
+In the emotion API walktrough, we will use images that are stored on disk. You can also use images that are available via a publically-accessible URL. For more details, please see the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) documentation.
 
 Since the image data is passed as part of the request body, notice that we need to set the `Content-Type` header to `application/octet-stream`. If you are passing in an image via a URL, remember to set the header to:
 ```python
