@@ -269,7 +269,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	}
 	
 	```
-
 	
 	d. Make sure that you check on **Use autoformatting for policy editing**.
 	
