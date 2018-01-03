@@ -33,7 +33,9 @@ In Azure Cosmos DB, you can store and query schema-less data with order-of-milli
 
 Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. 
 
-Every physical partition in Azure Cosmos DB has a fixed amount of SSD-backed storage associated with it (10 GB max) and is replicated for high availability, one or more physical partitions make up a container. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+A physical partition is a fixed amount of reserved SSD-backed storage, with a 10 GB max. Each physical partition is replicated for high availability. One or more physical partitions make up a container. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+
+A logical partition is a partition within a physical partition, that stores all the data associated with a single partition key value. In the following diagram, a single container has three logical partitions. Each logical partition stores the data for one partition key, LAX, AMS, and MEL respectively. Each of the LAX, AMS, and MEL logical partitions cannot grow beyond the maximum physical partition limit of 10 GB. 
 
 ![Resource partitioning](./media/introduction/azure-cosmos-db-partitioning.png) 
 
