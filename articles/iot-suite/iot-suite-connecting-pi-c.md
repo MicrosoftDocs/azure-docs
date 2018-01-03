@@ -87,9 +87,9 @@ Complete the following steps using the **ssh** connection to your Raspberry Pi:
     cd remote_monitoring
     ```
 
-1. Create the four files `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, and `CMakeLists.txt` in the `remote_monitoring` folder.
+1. Create the four files **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, and **CMakeLists.txt** in the `remote_monitoring` folder.
 
-1. In a text editor, open the `remote_monitoring.c` file. On the Raspberry Pi, you can use either the **nano** or **vi** text editor. Add the following `#include` statements:
+1. In a text editor, open the **remote_monitoring.c** file. On the Raspberry Pi, you can use either the **nano** or **vi** text editor. Add the following `#include` statements:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -104,15 +104,19 @@ Complete the following steps using the **ssh** connection to your Raspberry Pi:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+1. Save the **remote_monitoring.c** file and exit the editor.
+
 ## Add code to run the app
 
-In a text editor, open the `remote_monitoring.h` file. Add the following code:
+In a text editor, open the **remote_monitoring.h** file. Add the following code:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-In a text editor, open the `main.c` file. Add the following code:
+Save the **remote_monitoring.h** file and exit the editor.
+
+In a text editor, open the **main.c** file. Add the following code:
 
 ```c
 #include "remote_monitoring.h"
@@ -124,6 +128,8 @@ int main(void)
   return 0;
 }
 ```
+
+Save the **main.c** file and exit the editor.
 
 ## Build and run the application
 
@@ -177,6 +183,8 @@ The following steps describe how to use *CMake* to build your client application
         m
     )
     ```
+
+1. Save the **CMakeLists.txt** file and exit the editor.
 
 1. In the `remote_monitoring` folder, create a folder to store the *make* files that CMake generates. Then run the **cmake** and **make** commands as follows:
 
