@@ -1,10 +1,10 @@
 ---
-title: How to configure MSI on an Azure VM by using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
+title: How to configure a user-assigned MSI for an Azure VM using an Azure template
+description: Step by step instructions for configuring a user-assigned Managed Service Identity (MSI) for an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-# Configure a VM Managed Service Identity by using a template
+# Configure a user-assigned Managed Service Identity (MSI) for a VM, using an Azure template
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed Service Identity provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to enable and remove MSI for an Azure VM, using an Azure Resource Manager deployment template.
+In this article, you learn how to enable and remove a user-assigned MSI for an Azure VM, using an Azure Resource Manager deployment template.
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
    - Using a local [JSON editor (such as VS Code)](~/articles/azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling MSI on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Creating and assigning a user-assigned MSI to a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments:
 
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the MSI and VM. Also ensure that your account belongs to a role that gives you write permissions on the subscription or resources (for example, the role of "owner").
 
 2. After loading the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. Yours might look slightly different from the following screenshot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one.
 

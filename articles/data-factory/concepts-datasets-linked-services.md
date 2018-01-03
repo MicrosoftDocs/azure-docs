@@ -42,6 +42,56 @@ The following diagram shows the relationships among pipeline, activity, dataset,
 
 ![Relationship between pipeline, activity, dataset, linked services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
+## Linked service JSON
+A linked service in Data Factory is defined in JSON format as follows:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+The following table describes properties in the above JSON:
+
+Property | Description | Required |
+-------- | ----------- | -------- |
+name | Name of the linked service. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
+type | Type of the linked service. For example: AzureStorage (data store) or AzureBatch (compute). See the description for typeProperties. | Yes |
+typeProperties | The type properties are different for each data store or compute. <br/><br/> For the supported data store types and their type properties, see the [dataset type](#dataset-type) table in this article. Navigate to the data store connector article to learn about type properties specific to a data store. <br/><br/> For the supported compute types and their type properties, see [Compute linked services](compute-linked-services.md). | Yes |
+connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No
+
+## Linked service example
+The following linked service is an Azure Storage linked service. Notice that the type is set to AzureStorage. The type properties for the Azure Storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset JSON
 A dataset in Data Factory is defined in JSON format as follows:
 
@@ -70,12 +120,12 @@ A dataset in Data Factory is defined in JSON format as follows:
 ```
 The following table describes properties in the above JSON:
 
-Property | Description | Required | Default
--------- | ----------- | -------- | -------
-name | Name of the dataset. | See [Azure Data Factory - Naming rules](naming-rules.md). | Yes | NA
-type | Type of the dataset. | Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes | NA
-structure | Schema of the dataset. | For details, see [Dataset structure](#dataset-structure). | No | NA
-typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes | NA
+Property | Description | Required |
+-------- | ----------- | -------- |
+name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes |
+structure | Schema of the dataset. For details, see [Dataset structure](#dataset-structure). | No |
+typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
 ## Dataset example
 In the following example, the dataset represents a table named MyTable in a SQL database.
@@ -102,28 +152,6 @@ Note the following points:
 - type is set to AzureSqlTable.
 - tableName type property (specific to AzureSqlTable type) is set to MyTable.
 - linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
-
-## Linked service example
-AzureSqlLinkedService is defined as follows:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-In the preceding JSON snippet:
-
-- **type** is set to AzureSqlDatabase.
-- **connectionString** type property specifies information to connect to a SQL database.
-
-As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.
 
 ## Dataset type
 There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.

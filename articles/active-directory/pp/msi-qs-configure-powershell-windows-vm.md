@@ -3,7 +3,7 @@ title: How to configure MSI on an Azure VM using PowerShell
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using PowerShell.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: BryanLa
 manager: mbaldwin
 editor: 
 

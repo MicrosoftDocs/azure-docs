@@ -3,7 +3,7 @@ title: How to assign an MSI access to an Azure resource, using PowerShell
 description: Step by step instructions for assigning an MSI on one resource, access to another resource, using PowerShell.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: BryanLa
 manager: mbaldwin
 editor: 
 

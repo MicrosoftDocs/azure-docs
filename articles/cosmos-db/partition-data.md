@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -58,7 +58,7 @@ Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosm
 > It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum).
 >
 
-Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2,500 RU/s.
+Azure Cosmos DB containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create a container as unlimited, you must specify a minimum throughput of 1,000 RU/s and you must specify a partition key.
 
 It is a good idea to check how your data is distributed in partitions. To check this in portal, go to your Azure Cosmos DB account and click on **Metrics** in **Monitoring** section and then on right pane click on **storage** tab to see how your data is partitioned in different physical partition.
 
@@ -125,25 +125,18 @@ Results:
 
 ### Table API
 
-With the Table API, you specify the throughput for tables in the appSettings configuration for your application.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Then you create a table by using the Azure Table storage SDK. The partition key is implicitly created as the `PartitionKey` value. 
+To create a table using the Azure Cosmos DB Table API, use the CreateIfNotExists method. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Throughput is set as an argument of CreateIfNotExists.
+
+The partition key is implicitly created as the `PartitionKey` value. 
 
 You can retrieve a single entity by using the following snippet:
 

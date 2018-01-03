@@ -3,7 +3,7 @@ title: Grant user permissions to specific lab policies | Microsoft Docs
 description: Learn how to grant user permissions to specific lab policies in DevTest Labs based on each user's needs
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Grant user permissions to specific lab policies

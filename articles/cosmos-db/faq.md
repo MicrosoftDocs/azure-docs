@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
 
 ---
@@ -35,7 +35,7 @@ If you had a DocumentDB API account before, you now have a SQL API account, with
 
 ### What happened to Azure DocumentDB as a service?
 
-The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API (Preview), Table API, MongoDB API, and Cassandra API (Preview).
+The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API, Table API, MongoDB API, and Cassandra API (Preview).
 
 ### What are the typical use cases for Azure Cosmos DB?
 Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md). 
@@ -92,7 +92,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Graph API (Preview), Table API, MongoDB API, or Cassandra API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Graph API, Table API, MongoDB API, or Cassandra API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
@@ -108,12 +108,12 @@ When you set a region, remember that Azure Cosmos DB respects sovereign and gove
 ## Develop against the SQL API
 
 ### How do I start developing against the SQL API?
-First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a SQL API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-documentdb-dotnet.md#create-account). 
+First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a SQL API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](create-sql-api-dotnet.md#create-account). 
 
-[SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/documentdb/) to interact with Azure Cosmos DB resources from various platforms and languages.
+[SDKs](sql-api-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java. Developers can also use the [RESTful HTTP APIs](/rest/api/documentdb/) to interact with Azure Cosmos DB resources from various platforms and languages.
 
 ### Can I access some ready-made samples to get a head start?
-Samples for the SQL API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), and [Python](documentdb-python-samples.md) SDKs are available on GitHub.
+Samples for the SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), and [Python](sql-api-python-samples.md) SDKs are available on GitHub.
 
 
 ### Does the SQL API database support schema-free data?
@@ -128,16 +128,16 @@ A collection is a group of documents and their associated JavaScript application
 Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### How do I create a database?
-You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-documentdb-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or the [REST APIs](/rest/api/documentdb/). 
+You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/documentdb/). 
 
 ### How do I set up users and permissions?
-You can create users and permissions by using one of the [Cosmos DB API SDKs](documentdb-sdk-dotnet.md) or the [REST APIs](/rest/api/documentdb/).  
+You can create users and permissions by using one of the [Cosmos DB API SDKs](sql-api-sdk-dotnet.md) or the [REST APIs](/rest/api/documentdb/).  
 
 ### Does the SQL API support SQL?
 The SQL query language supported by SQL API accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see the [SQL Query][query] article.
 
 ### Does the SQL API support SQL aggregation functions?
-The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](documentdb-sql-query.md#Aggregates).
+The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-api-sql-query.md#Aggregates).
 
 ### How does the SQL API provide concurrency?
 The SQL API supports optimistic concurrency control (OCC) through HTTP entity tags, or ETags. Every SQL API resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then re-fetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the If-None-Match header to determine whether a re-fetch of a resource is needed.
@@ -289,7 +289,7 @@ Yes, the same API is supported.
 No, you can create and use existing Azure Table storage assets without interruption of any kind. However, if you do not use the Table API, you cannot benefit from the automatic index, the additional consistency option, or global distribution. 
 
 ### How do I add replication of the data in the Table API across multiple regions of Azure?
-You can use the Azure Cosmos DB portal’s [global replication settings](tutorial-global-distribution-documentdb.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
+You can use the Azure Cosmos DB portal’s [global replication settings](tutorial-global-distribution-sql-api.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
 
 ### How do I change the primary write region for the account in the Table API?
 You can use the Azure Cosmos DB global replication portal pane to add a region and then fail over to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
@@ -365,7 +365,7 @@ From the .NET SDK it can be submitted in the app.config file:
 ```
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API? 
-The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We will provide additional functionality in the Table API in a future service update. For more information, see [SQL queries](documentdb-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We will provide additional functionality in the Table API in a future service update. For more information, see [SQL queries](sql-api-sql-query.md).
  
 ### When should I change TableThroughput for the Table API?
 You should change TableThroughput when either of the following conditions applies:
@@ -411,14 +411,14 @@ Azure Table storage and Azure Cosmos DB Table API use the same SDKs so most of t
 ### Why do I get throttled when I try to create lot of tables one after another in the Table API?
 Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability, and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
-## Develop against the Graph API (Preview)
-### How can I apply the functionality of Graph API (Preview) to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API (Preview). This library is called Microsoft Azure Graphs, and it is available on NuGet. 
+## Develop against the Graph API
+### How can I apply the functionality of Graph API to Azure Cosmos DB?
+You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on NuGet. 
 
 ### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
 Yes, we plan to add other mechanisms for query in the future. 
 
-### How can I use the new Graph API (Preview) offering? 
+### How can I use the new Graph API offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
 <a id="cassandra"></a> 
@@ -544,4 +544,4 @@ The Apache Cassandra API provides the same CQL functionality as Apache Cassandra
 Provide feedback via [uservoice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

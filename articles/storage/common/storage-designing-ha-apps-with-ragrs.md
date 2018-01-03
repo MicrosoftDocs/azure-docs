@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
 
 ---
@@ -23,7 +23,7 @@ A common feature of cloud-based infrastructures like Azure Storage is that they 
 
 Azure Storage offers four choices for redundancy for data in your storage account:
 
-– LRS (Locally Refdundant Storage)
+- LRS (Locally Redundant Storage)
 - ZRS (Zone Redundant Storage) 
 - GRS (Geo-Redundant Storage)
 - RA-GRS (Read Access Geo-Redundant Storage). 

@@ -3,7 +3,7 @@ title: Use a Windows VM MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: BryanLa
 manager: mbaldwin
 editor: bryanla
 

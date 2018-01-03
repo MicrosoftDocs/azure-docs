@@ -3,7 +3,7 @@ title: Use a Windows VM MSI to access Azure Storage using a SAS credential
 description: A tutorial that shows you how to use a Windows VM Managed Service Identity (MSI) to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: BryanLa
 manager: mbaldwin
 editor: bryanla
 
