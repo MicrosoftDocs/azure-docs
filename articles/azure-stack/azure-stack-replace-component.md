@@ -53,6 +53,10 @@ The Azure Stack health and monitoring system monitors the health of network adap
 The following steps are provided as a high-level overview of the component replacement process. Do not follow these steps without referring to your OEM-provided FRU documentation.
 
 1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]
+   > In any case, only one Node can be drained and powered off at the same time without breaking the S2D (Storage Spaces Direct).
+
 2. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
  
    > [!NOTE]
