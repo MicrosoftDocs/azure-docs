@@ -53,6 +53,6 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 
 ## See also
 - [Cognitive Services Documentation page](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
-- [Cognitive Services Product page](https://azure.microsoft.com/en-us/services/cognitive-services/)
+- [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 - [Solution and pricing information](https://www.microsoft.com/en-us/translator/default.aspx).
 
