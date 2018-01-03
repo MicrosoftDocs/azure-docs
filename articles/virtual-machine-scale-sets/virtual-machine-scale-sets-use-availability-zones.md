@@ -1,12 +1,11 @@
 ---
 title: Create an Azure scale set that uses Availability Zones | Microsoft Docs
-description: Learn how to create virtual machine scale sets that use Availability Zones
-keywords: virtual machine scale sets
+description: Learn how to create Azure virtual machine scale sets that use Availability Zones for increased redundancy against outages
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: tysonn
+editor:
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/03/2018
 ms.author: iainfou
 
 ---
@@ -116,4 +115,4 @@ To create the actual scale set, follow the additional steps as detailed in the g
 
 
 ## Next steps
-Once you have a scale set in an Availability Zone, you can learn how to [Deploy applications on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) or [Use autoscale with virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md).
+Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md) or [Use autoscale with virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md).
