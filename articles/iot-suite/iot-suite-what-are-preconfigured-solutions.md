@@ -30,7 +30,7 @@ The *IoT Suite* preconfigured solutions are all designed according to the same p
 
 The following video presents an overview of the remote monitoring preconfigured solution:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/]
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## Preconfigured solutions overview
 
