@@ -8,7 +8,7 @@ manager: timlt
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/21/2017
+ms.date: 01/03/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -150,11 +150,11 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
-             offer="UbuntuServer",
-             sku="16.04.0-LTS",
-             version="latest"
+            offer="UbuntuServer",
+            sku="16.04.0-LTS",
+            version="latest"
             ),
-    node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT
 )
@@ -182,7 +182,7 @@ except batchmodels.batch_error.BatchErrorException as err:
 
 ### Create tasks
 
-The app creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the `command_line` runs the bash shell `cat` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the `command_line` runs the bash shell `cat` command to display the text file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) method, which queues them to run on the compute nodes. 
 
@@ -192,11 +192,11 @@ tasks = list()
 for idx, input_file in enumerate(input_files): 
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
-            id='Task{}'.format(idx),
-            command_line=command,
-            resource_files=[input_file]
-            )
-     )
+        id='Task{}'.format(idx),
+        command_line=command,
+        resource_files=[input_file]
+    )
+)
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -229,7 +229,7 @@ for task_id in task_ids:
 
 ## Clean up resources
 
-The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted. When you delete the pool, all task output on the nodes is deleted.
+The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted. 
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
 

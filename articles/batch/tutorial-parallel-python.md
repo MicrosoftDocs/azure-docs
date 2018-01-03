@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/22/17
+ms.date: 01/03/2018
 ms.author: dlepow
 ms.custom: mvc
 ---
 
 # Process media files in parallel with Azure Batch using the Python API
 
-Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial covers building a Python sample application step by step to process a parallel workload using Batch. In this tutorial, you convert media files in parallel using the [ffmpeg](http://ffmpeg.org/) open-source tool. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
+Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial covers building a Python sample application step by step to run a parallel workload using Batch. In this tutorial, you convert media files in parallel using the [ffmpeg](http://ffmpeg.org/) open-source tool. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts
@@ -65,7 +65,7 @@ The following sections break down the sample application into the steps that it 
       account_key=STORAGE_ACCOUNT_KEY)
   ```
 
-* The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users or an unattended application.
+* The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Azure Active Directory](batch-aad-auth.md), to authenticate individual users, or an unattended application.
 
   ```python
   credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
@@ -79,26 +79,29 @@ The following sections break down the sample application into the steps that it 
 ## Upload input files
 
 
-The app uses the `blob_client` reference to create a container in the storage account and calls the `upload-file_to_container` function to upload input MP4 files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload-file_to_container` function to upload input MP4 files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
-  ```python
-  input_file_paths = []
+```python
+
+blob_client.create_container(input_container_name, fail_on_exist=False)
+blob_client.create_container(output_container_name, fail_on_exist=False)
+input_file_paths = []
     
     for folder, subs, files in os.walk('./InputFiles/'):
         for filename in files:
             if filename.endswith(".mp4"):
                 input_file_paths.append(os.path.abspath(os.path.join(folder, filename)))
 
-    # Upload the input files. This is the collection of files that are to be processed by the tasks. 
-    input_files = [
-        upload_file_to_container(blob_client, input_container_name, file_path)
-        for file_path in input_file_paths]
-  ```
+# Upload the input files. This is the collection of files that are to be processed by the tasks. 
+input_files = [
+    upload_file_to_container(blob_client, input_container_name, file_path)
+    for file_path in input_file_paths]
+```
 
 
 ## Create a Batch pool
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to the `create_pool` function. This function uses the [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure.batch.models.imagereference) to an Ubuntu Server 16.04 LTS image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account with a call to the `create_pool` function. This function uses the Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure.batch.models.imagereference) to an Ubuntu Server 16.04 LTS image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool of 5 low-priority nodes in size *Standard_A1_v2*. 
 
@@ -108,33 +111,32 @@ The [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_ope
 
 ```python
 new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-            image_reference=batchmodels.ImageReference(
-        	        publisher="Canonical",
-        	        offer="UbuntuServer",
-        	        sku="16.04.0-LTS",
-        	        version="latest"
-                ),
-            node_agent_sku_id="batch.node.ubuntu 16.04"),
-        vm_size=_POOL_VM_SIZE,
-        target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
-        target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
-        start_task=batchmodels.StartTask(
-            command_line="/bin/bash -c \"add-apt-repository -y ppa:djcj/hybrid && apt-get update && apt-get install -y ffmpeg\"",
-            wait_for_success=True,
-            user_identity=batchmodels.UserIdentity(
-                auto_user=batchmodels.AutoUserSpecification(
-                scope=batchmodels.AutoUserScope.pool,
-                elevation_level=batchmodels.ElevationLevel.admin)),
-         )
-  )
-    try:
-        batch_service_client.pool.add(new_pool)
-    except batchmodels.batch_error.BatchErrorException as err:
-        print_batch_exception(err)
-        raise
-
+    id=pool_id,
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+            publisher="Canonical",
+            offer="UbuntuServer",
+            sku="16.04.0-LTS",
+            version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
+    vm_size=_POOL_VM_SIZE,
+    target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
+    target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
+    start_task=batchmodels.StartTask(
+        command_line="/bin/bash -c \"add-apt-repository -y ppa:djcj/hybrid && apt-get update && apt-get install -y ffmpeg\"",
+        wait_for_success=True,
+        user_identity=batchmodels.UserIdentity(
+            auto_user=batchmodels.AutoUserSpecification(
+            scope=batchmodels.AutoUserScope.pool,
+            elevation_level=batchmodels.ElevationLevel.admin)),
+    )
+)
+try:
+    batch_service_client.pool.add(new_pool)
+except batchmodels.batch_error.BatchErrorException as err:
+    print_batch_exception(err)
+    raise
 ```
 
 ## Create a Batch job
@@ -155,9 +157,9 @@ except batchmodels.batch_error.BatchErrorException as err:
 
 ### Create tasks
 
-The app creates tasks in the job with a call to `add_tasks`. This defined function creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task uses ffmpeg to process an input `resource_files` object using a `command_line` parameter. ffmpeg was previously installed on each node when the pool was created. Here, the command line runs ffmpeg to convert each input MP4 file to an MP3 file.
+The app creates tasks in the job with a call to `add_tasks`. This defined function creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task runs ffmpeg to process an input `resource_files` object using a `command_line` parameter. ffmpeg was previously installed on each node when the pool was created. Here, the command line runs ffmpeg to convert each input MP4 file to an MP3 file.
 
-The sample creates an [OutputFile](/python/api/azure.batch.models.outputfile) object for the MP3 file generated by each task. Each task's output files (one, in this case) are uploaded to a container in the linked storage account by using the task's `output_files` property.
+The sample creates an [OutputFile](/python/api/azure.batch.models.outputfile) object for the MP3 file generated by each task. Each task's output files (one, in this case) are uploaded to a container in the linked storage account, using the task's `output_files` property.
 
 Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) method, which queues them to run on the compute nodes. 
 
@@ -220,7 +222,7 @@ Typical execution time is approximately **5 minutes** when you run the applicati
 2. Click **All services** > **Batch accounts** and then click the name of your Batch account.
 3. Click **Pools** > *LinuxFFmpegPool*.
 
-When tasks are running the heatmap is similar to the following:
+When tasks are running, the heat map is similar to the following:
 
 ![Pool heat map](./media/tutorial-parallel-python/pool.png)
 
@@ -235,7 +237,7 @@ Although not shown in this sample, you can also download the files programmatica
 
 ## Clean up resources
 
-After it runs the tasks, the app automatically deletes the input storage container it created and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure.batch.operations.joboperations) and [PoolOperations](/python/api/azure.batch.operations.pooloperations) classes both have delete methods, which are called if the user confirms deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
+After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure.batch.operations.joboperations) and [PoolOperations](/python/api/azure.batch.operations.pooloperations) classes both have delete methods, which are called if you confirm deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
 
