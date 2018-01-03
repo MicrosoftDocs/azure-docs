@@ -25,10 +25,10 @@ Once the Azure Database for PostgreSQL server is created, use the server admin u
 1. Get the connection information and admin user name.
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal. 
 
-2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as PostgreSQL Workbench, PostgreSQL.exe, HeidiSQL, or others. 
+2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
    If you are unsure of how to connect, see [Connect to the PostgreSQL Database by using psql in Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
 
-3. Edit and run the following SQL code. Replace your new user name for the placeholder value `new_master_user`. This syntax grants the listed privileges on all the database schemas (*.*) to the user name (new_master_user in this example). 
+3. Edit and run the following SQL code. Replace your new user name for the placeholder value `new_master_user`. 
 
    ```sql
    CREATE USER new_master_user WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'StrongPassword!';
