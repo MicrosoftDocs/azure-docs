@@ -15953,6 +15953,11 @@
       "source_path": "articles/storage/blobs/storage-account-options.md",
       "redirect_url": "/azure/storage/common/storage-account-options",
       "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
+      "redirect_url": "/azure/active-directory/license-users-groups",
+      "redirect_document_id": false
       }
     ]
 }
