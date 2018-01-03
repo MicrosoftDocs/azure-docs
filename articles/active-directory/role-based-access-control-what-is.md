@@ -3,7 +3,7 @@ title: Manage access and permissions with RBAC - Azure RBAC | Microsoft Docs
 description: Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory.
 services: active-directory
 documentationcenter: ''
-author: andredm7
+author: curtand
 manager: mtillman
 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/19/2017
-ms.author: andredm
+ms.date: 01/02/2018
+ms.author: curtand
 ms.reviewer: rqureshi
 ---
+
 # Get started with Role-Based Access Control in the Azure portal
 Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure.
 
