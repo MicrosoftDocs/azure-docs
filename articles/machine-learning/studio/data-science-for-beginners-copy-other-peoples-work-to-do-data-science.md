@@ -1,6 +1,6 @@
 ---
 title: Copy others' data science examples – Azure Machine Learning  | Microsoft Docs
-description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Cortana Analytics Gallery.'
+description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
 services: machine-learning
 documentationcenter: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
 
 ---
 # Copy other people's work to do data science
 ## Video 5: Data Science for Beginners series
-One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Cortana Analytics Gallery to use for your own machine learning experiment.
+One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Azure AI Gallery to use for your own machine learning experiment.
+
+> [!IMPORTANT]
+> Cortana Intelligence Gallery was renamed **Azure AI Gallery**. As a result, text and images in this transcript vary slightly from the video, which uses the former name.
+>
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 <br>
@@ -45,14 +49,13 @@ In this one, you’ll discover a place to find examples that you can borrow from
 
 One of the trade secrets of data science is getting other people to do your work for you.
 
-## Find examples in the Cortana Intelligence Gallery
-Microsoft has a cloud-based service called [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
+## Find examples in the Azure AI Intelligence Gallery
 
-Part of this service is something called the **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. It contains resources, including a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions.
+Microsoft has a cloud-based service called [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
-You can find the gallery at [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Everyone is welcome to browse through it.
+Part of this service is something called the **[Azure AI Gallery](https://gallery.cortanaintelligence.com/)**. It contains resources, including a collection of Azure Machine Learning experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
 
-![Cortana Intelligence Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 If you click **Experiments** at the top, you'll see a number of the most recent and popular experiments in the gallery. You can search through the rest of experiments by clicking **Browse All** at the top of the screen, and there you can enter search terms and choose search filters.
 
@@ -80,11 +83,11 @@ I can click on that and it takes me right to **Azure Machine Learning Studio**. 
 And now I have a starting point. I can swap out their data for my own and do my own tweaking of the model. This gives me a running start, and it lets me build on the work of people who really know what they’re doing.
 
 ## Find experiments that demonstrate machine learning techniques
-There are other experiments in the [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
+There are other experiments in the [Azure AI Gallery](https://gallery.cortanaintelligence.com) that were contributed specifically to provide how-to examples for people new to data science. For instance, there's an experiment in the gallery that demonstrates how to handle missing values ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). It walks you through 15 different ways of substituting empty values, and talks about the benefits of each method and when to use it.
 
 ![Gallery experiments open in Machine Learning Studio - methods for missing values](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is a place to find working experiments that you can use as a starting point for your own solutions.
+[Azure AI Gallery](https://gallery.cortanaintelligence.com) is a place to find working experiments that you can use as a starting point for your own solutions.
 
 Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
 
