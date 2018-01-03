@@ -9,7 +9,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 01/03/2018
 ---
 # Deploying a Machine Learning Model as a web service
 
@@ -25,7 +25,7 @@ We recommend starting with a local deployment. You first validate that your mode
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
 2. Create a schema for your web service's input and output data
-3. Create an Docker-based container image
+3. Create a Docker-based container image
 4. Create and deploy the web service
 
 ### 1. Save your model
