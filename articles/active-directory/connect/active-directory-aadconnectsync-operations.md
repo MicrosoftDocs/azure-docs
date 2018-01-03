@@ -262,7 +262,7 @@ do 
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

@@ -14,7 +14,7 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
 
 ---
@@ -69,92 +69,8 @@ You can use the configuration file to:
 - Edit the existing simulated factories, production lines, and stations.
 - Map data from real OPC UA servers that you connect to the solution.
 
-To clone a copy of the Connected factory Visual Studio solution, use the following git command:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-The file **ContosoTopologyDescription.json** defines the mapping from the OPC UA server data items to the views in the Connected factory solution dashboard. You can find this configuration file in the **Contoso\Topology** folder in the **WebApp** project in the Visual Studio solution.
-
-The content of the JSON file is organized as a hierarchy of factory, production line, and station nodes. This hierarchy defines the navigation hierarchy in the Connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-The name, description, and location appear on this view in the dashboard:
-
-![Munich data in the dashboard][img-munich]
-
-Each factory, production line, and station have an image property. You can find these JPEG files in the **Content\img** folder in the **WebApp** project. These image files display in the Connected factory dashboard.
-
-Each station includes several detailed properties that define the mapping from the OPC UA data items. These properties are described in the following sections:
-
-### OpcUri
-
-The **OpcUri** value is the OPC UA Application URI that uniquely identifies the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like the following: **urn:scada2194:ua:munich:productionline0:assemblystation**.
-
-You can view the URIs of the connected OPC UA servers in the solution dashboard:
-
-![View OPC UA server URIs][img-server-uris]
-
-### Simulation
-
-The information in the **Simulation** node is specific to the OPC UA simulation that runs in the OPC UA servers that are provisioned by default. It is not used for a real OPC UA server.
-
-### Kpi1 and Kpi2
-
-These nodes describe how data from the station contributes to the two KPI values in the dashboard. In a default deployment, these KPI values are units per hour and kWh per hour. The solution calculates KPI vales at the level of a station and aggregates them at the production line and factory levels.
-
-Each KPI has a minimum, maximum, and target value. Each KPI value can also define alert actions for the Connected factory solution to perform. The following snippet shows the KPI definitions for the assembly station on production line 1 in Munich:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-The following screenshot shows the KPI data in the dashboard.
-
-![KPI information in the dashboard][lnk-kpi]
-
-### OpcNodes
-
-The **OpcNodes** nodes identify the published data items from the OPC UA server and specify how to process that data.
-
-The **NodeId** value identifies the specific OPC UA NodeID from the OPC UA server. The first node in the assembly station for production line 1 in Munich has a value **ns=2;i=385**. A **NodeId** value specifies the data item to read from the OPC UA server, and the **SymbolicName** provides a user-friendly name to use in the dashboard for that data.
-
-Other values associated with each node are summarized in the following table:
-
-| Value | Description |
-| ----- | ----------- |
-| Relevance  | The KPI and OEE values this data contributes to. |
-| OpCode     | How the data is aggregated. |
-| Units      | The units to use in the dashboard.  |
-| Visible    | Whether to display this value in the dashboard. Some values are used in calculations but not displayed.  |
-| Maximum    | The maximum value that triggers an alert in the dashboard. |
-| MaximumAlertActions | An action to take in response to an alert. For example, send a command to a station. |
-| ConstValue | A constant value used in a calculation. |
+For more information about mapping and aggregating the data to meet your specific requirements, see [How to configure the Connected factory preconfigured solution
+](iot-suite-connected-factory-configure.md).
 
 ## Deploy the changes
 

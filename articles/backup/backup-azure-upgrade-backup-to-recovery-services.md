@@ -31,7 +31,7 @@ When upgrading a Backup vault to a Recovery Services vault, there is no impact t
 ## Changes to your automation and tool after upgrading
 
 While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
-Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 
 ## Before you upgrade

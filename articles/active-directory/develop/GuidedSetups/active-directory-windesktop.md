@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows desktop getting started | Microsoft Docs
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint.
+title: Get started with Azure Active Directory v2 Windows desktop | Microsoft Docs
+description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by an Azure Active Directory v2 endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

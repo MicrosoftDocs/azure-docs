@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: Learn about Language Understanding Intelligent Service
+  - name: Learn about Language Understanding
     href: Home.md
   - name: Supported languages
     href: luis-supported-languages.md
@@ -29,10 +29,20 @@
       href: luis-get-started-ruby-get-intent.md
   - name: Call LUIS authoring API
     items: 
+    - name: C#
+      href: luis-quickstart-cs-add-utterance.md
+    - name: Java
+      href: luis-quickstart-java-add-utterance.md
+    - name: JavaScript
+      href: luis-quickstart-javascript-add-utterance.md
     - name: Node.js
       href: luis-quickstart-node-add-utterance.md
     - name: Python
       href: luis-quickstart-python-add-utterance.md
+    - name: PHP
+      href: luis-quickstart-php-add-utterance.md
+    - name: Ruby
+      href: luis-quickstart-ruby-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
@@ -41,6 +51,8 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Learn synonyms with a phrase list
+    href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples

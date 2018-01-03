@@ -24,11 +24,6 @@ Before scaling based on instance count, you should consider that scaling is affe
 
 You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to adjust scale manually or automatically.
 
-> [!NOTE]
-> This article describes how to create an autoscale setting in the portal at [http://portal.azure.com](http://portal.azure.com). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
-
 ## Scaling manually
 1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as an **App Service plan**.
 2. Click **Settings > Scale out (App Service plan).**

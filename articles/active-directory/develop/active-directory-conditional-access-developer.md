@@ -106,7 +106,7 @@ The claims challenge is inside the ```WWW-Authenticate``` header, which can be p
 
 The ```WWW-Authenticate``` header does have a unique structure and is not trivial to parse in order to extract values.  Here's a short method to help.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -134,7 +134,7 @@ The ```WWW-Authenticate``` header does have a unique structure and is not trivia
             }
             return null; 
         }
-    ```
+```
 
 For code samples that demonstrate how to handle the claims challenge, refer to the [On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) for ADAL .NET.
 

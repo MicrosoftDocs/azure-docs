@@ -96,7 +96,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -108,7 +108,7 @@ As mentioned earlier, the release task is executed when a job is terminated or d
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub

@@ -24,8 +24,6 @@
     href: quickstarts/ruby.md
 - name: How To Guides
   items:
-  - name: Upgrade from v5 to v7
-    href: bing-image-upgrade-guide-v5-to-v7.md
   - name: Use and display results
     href: UseAndDisplayRequirements.md
   - name: Get image insights
@@ -36,6 +34,8 @@
     href: paging-images.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page Web app

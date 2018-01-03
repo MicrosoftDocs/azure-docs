@@ -63,7 +63,7 @@ Next, encode the storage account key. If needed, replace `$STORAGE_KEY` with the
 echo -n $STORAGE_KEY | base64
 ```
 
-Create a file named `azure-secret.yml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
+Create a file named `azure-secret.yaml` and copy in the following YAML. Update the `azurestorageaccountname` and `azurestorageaccountkey` values with the base64 encoded values retrieved in the last step.
 
 ```yaml
 apiVersion: v1
@@ -79,12 +79,12 @@ data:
 Use the [kubectl create][kubectl-create] command to create the secret.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## Mount file share as volume
 
-You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
+You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
@@ -109,7 +109,7 @@ spec:
 Use kubectl to create a pod.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
