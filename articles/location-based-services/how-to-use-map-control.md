@@ -7,7 +7,7 @@ keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: philmea
 ms.author: philmea
 ms.date: 11/22/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
 ---
