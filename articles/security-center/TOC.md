@@ -1,5 +1,5 @@
 # Overview
-## [Azure Security Center](security-center-intro.md)
+## [What is Security Center?](security-center-intro.md)
 
 # Quickstarts
 ## [Onboard Azure subscriptions](security-center-get-started.md)
