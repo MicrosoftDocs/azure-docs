@@ -222,7 +222,7 @@ Once the resize operation has completed, start the VM.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-If you’ve resized the operating system disk, the partition is automatically be expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
+If you’ve resized the operating system disk, the partition is automatically expanded. If you have resized a data disk, any current partitions need to be expanded in the VMs operating system.
 
 ## Snapshot Azure disks
 

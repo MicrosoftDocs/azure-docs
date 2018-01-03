@@ -210,7 +210,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 ```
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
   if(!error){
-    // Messages retreived
+    // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
       var message = result[index];
