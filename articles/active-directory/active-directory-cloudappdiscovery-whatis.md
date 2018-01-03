@@ -23,7 +23,7 @@ ms.reviewer: nigu
 
 Cloud App Discovery in Azure Active Directory now provides an enhanced agentless discovery experience powered by [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/). Just sign in with your Azure AD Premium P1 credentials. This update is available at no additional cost to all Azure AD Premium P1 customers. Get started with the article [Set up Cloud App Discovery in Azure AD](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started).
 
-> [!NOTE] 
+> [!IMPORTANT] 
 > The current Azure AD Cloud App Discovery experience with agent-based discovery is to be turned off on March 5, 2018, after which the agents are disabled and their data deleted. Take action before March 4 to get up and running on the new experience to avoid disruption of service.  
  
 **With Cloud App Discovery, you can:**
