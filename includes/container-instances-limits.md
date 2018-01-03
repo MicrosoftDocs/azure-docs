@@ -1,8 +1,8 @@
 | Resource | Default Limit |
 | --- | :---: |
 | Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 20 |
-| Number of containers | 60 |
-| Number of volumes | 20 |
+| Number of containers per container group | 60 |
+| Number of volumes per container group | 20 |
 | Ports per IP | 5 |
 | Container creates per hour |60<sup>1</sup> |
 | Container creates per 5 minutes | 20<sup>1</sup> |
