@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -33,16 +33,18 @@ The customer isolation within the infrastructure stamp is performed in tenants, 
 
 These bare-metal server units are supported to run SAP HANA only. The SAP application layer or workload middle-ware layer is running in Microsoft Azure Virtual Machines. The infrastructure stamps running the SAP HANA on Azure (Large Instance) units are connected to the Azure Network backbones, so, that low latency connectivity between SAP HANA on Azure (Large Instance) units and Azure Virtual Machines is provided.
 
-This document is one of five documents, which cover the topic of SAP HANA on Azure (Large Instance). In this document, we go through the basic architecture, responsibilities, services provided, and on a high-level through capabilities of the solution. For most of the areas, like networking and connectivity, the other four documents are covering details and drill downs. The documentation of SAP HANA on Azure (Large Instance) does not cover aspects of SAP NetWeaver installation or deployments of SAP NetWeaver in Azure VMs. This topic is covered in separate documentation found in the same documentation container. 
+This document is one of multiple documents, which cover SAP HANA on Azure (Large Instance). In this document, we go through the basic architecture, responsibilities, services provided, and on a high-level through capabilities of the solution. For most of the areas, like networking and connectivity, the other four documents are covering details and drill downs. The documentation of SAP HANA on Azure (Large Instance) does not cover aspects of SAP NetWeaver installation or deployments of SAP NetWeaver in Azure VMs. SAP NetWeaver on Azure is covered in separate documents found in the same Azure documentation container. 
 
 
-The five parts of this guide cover the following topics:
+The different documents of HANA Large Instance guidance cover the following areas:
 
 - [SAP HANA (large Instance) Overview and Architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [How to install and configure SAP HANA (large instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (large instances) Troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [High availability set up in SUSE using the STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [OS backup and restore for Type II SKUs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## Definitions
 
@@ -64,7 +66,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
     - **Type II Class:** S384, S384m, S384xm, S576, S768, and S960
 
 
-There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
+There are a variety of additional resources that have been published on deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 
 
 - [Using SAP solutions on Microsoft Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -356,7 +358,7 @@ These sizes are rough volume numbers that can vary slightly based on deployment 
 
 You as a customer might have need for more storage, you have the possibility to add storage to purchase additional storage in 1 TB units. This additional storage can be added as additional volume or can be used to extend one or more of the existing volumes. It is not possible to decrease the sizes of the volumes as originally deployed and mostly documented by the table(s) above. It is also not possible to change the names of the volumes or mount names. The storage volumes as described above are attached to the HANA Large Instance units as NFS4 volumes.
 
-You as a customer can choose to use storage snapshots for backup/restore and disaster recovery purposes. More details on this topic are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You as a customer can choose to use storage snapshots for backup/restore and disaster recovery purposes. More details are detailed in [SAP HANA (large instances) High Availability and Disaster Recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Encryption of data at rest
 The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit, you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime. 
