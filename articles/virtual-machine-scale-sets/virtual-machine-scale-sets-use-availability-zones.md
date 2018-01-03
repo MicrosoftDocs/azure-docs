@@ -48,7 +48,7 @@ az vmss create \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
-    --generate-ssh-keys
+    --generate-ssh-keys \
     --zone 1
 ```
 
@@ -63,7 +63,7 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic
+    -UpgradePolicyMode Automatic `
     -Zone "1"
 ```
 
