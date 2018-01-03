@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Create a Linux virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
+In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
 ![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -30,11 +30,6 @@ Without accelerated networking, all networking traffic in and out of the VM must
 With accelerated networking, network traffic arrives at the VM's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies without accelerated networking are offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
 
 The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
-
-> [!WARNING]
-> Features in preview release may not have the same level of availability and reliability as features that are in general 
-> availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure 
-> locations. For the most up-to-date notifications on availability and status of this feature, see [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## Benefits
 * **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
@@ -62,7 +57,7 @@ Create a resource group with [az group create](/cli/azure/group#create). The fol
 az group create --name myResourceGroup --location centralus
 ```
 
-While Accelerated Networking for Linux is in preview, you must select a supported Linux region listed in [Linux accelerated networking preview](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+You must select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Create a virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with one subnet:
 
@@ -125,7 +120,7 @@ az network nic create \
 ```
 
 ## Create a VM and attach the NIC
-When you create the VM, specify the NIC you created with `--nics`. While this feature is in preview, you can only select a VM size and Linux distribution listed in [Linux accelerated networking preview](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+When you create the VM, specify the NIC you created with `--nics`. You must select a size and and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Create a VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
