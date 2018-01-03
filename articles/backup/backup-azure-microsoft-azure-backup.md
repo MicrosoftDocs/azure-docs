@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
 
 ---
 # Preparing to back up workloads using Azure Backup Server
@@ -56,6 +56,7 @@ If you do not want to run the base server in Azure, you can run the server on a 
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials (MABS v2 onwards) |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
