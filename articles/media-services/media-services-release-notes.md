@@ -460,10 +460,10 @@ The following changes are included in the June 2013 Media Services SDK releases.
 
 * Starting with version 2.3.0.0, the Media Services SDK supports linking multiple storage accounts to a Media Services account. The following APIs support this feature:
   
-    * The IStorageAccount type
-    * The Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
-    * The StorageAccount property
-    * The StorageAccountName property
+    * IStorageAccount type
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
+    * StorageAccount property
+    * StorageAccountName property
   
     For more information, see [Manage Media Services assets across multiple storage accounts](http://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Notification-related APIs. Starting with version 2.2.0.0, you can listen to Azure Queue storage notifications. For more information, see [Handle Media Services job notifications](http://msdn.microsoft.com/library/azure/dn261241.aspx).
