@@ -21,10 +21,8 @@ ms.author: iainfou
 ---
 
 # Create a virtual machine scale set that uses Availability Zones
-To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set in an Availability Zone. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md). This article shows you how to create a scale set that uses Availability Zones with the Azure portal, Azure CLI 2.0, Azure PowerShell, and templates.
+To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set in an Availability Zone. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
-
-## Overview and requirements
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
