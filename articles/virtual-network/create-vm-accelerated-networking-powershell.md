@@ -41,7 +41,7 @@ The following limitations exist when using this capability:
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Regions:** Available in most Azure regions. 
 * **Supported operating systems:** Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016
-* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Windows VM sizes](sizes.md).
+* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 ## Create a virtual network
@@ -147,7 +147,7 @@ First, define your VM with [New-AzureRmVMConfig](/powershell/module/azurerm.comp
 $vmConfig = New-AzureRmVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
 ```
 
-For a list of all VM sizes and characteristics, see [Windows VM sizes](sizes.md).
+For a list of all VM sizes and characteristics, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Create the rest of your VM configuration with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) and [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). The following example creates a Windows Server 2016 VM:
 
@@ -183,11 +183,9 @@ Once you create the VM in Azure, connect to the VM and confirm that the driver i
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure account.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *myVm*. When **myVm** appears in the search results, click it. If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** in the top left corner of the overview only after you no longer see **Creating** under the **Connect** button.
-3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](quick-create-portal.md#connect-to-virtual-machine).
+3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
    
     ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
 Accelerated Networking is now enabled for your VM.
-
-
