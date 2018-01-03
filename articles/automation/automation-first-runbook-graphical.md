@@ -57,7 +57,7 @@ The Library control on the left side of the editor allows you to select activiti
 
 1. In the Library control, click in the search textbox and type **Write-Output**. The search results are shown in the following image: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 1. Scroll down to the bottom of the list. You can either right-click **Write-Output** and select **Add to canvas**, or click the ellipses next to the cmdlet and then select **Add to canvas**.
-1. Click the **Write-Output** activity on the canvas. This action opens the Configuration control blade, which allows you to configure the activity.
+1. Click the **Write-Output** activity on the canvas. This action opens the Configuration control page, which allows you to configure the activity.
 1. The **Label** defaults to the name of the cmdlet, but you can change it to something more friendly. Change it to *Write Hello World to output*.
 1. Click **Parameters** to provide values for the cmdlet's parameters.
 
@@ -75,32 +75,32 @@ The Library control on the left side of the editor allows you to select activiti
 
 Before you publish the runbook to make it available in production, you want to test it to make sure that it works properly. When you test a runbook, you run its **Draft** version and view its output interactively.
 
-1. Select **Test pane** to open the Test blade.
+1. Select **Test pane** to open the Test page.
 1. Click **Start** to start the test. This should be the only enabled option.
 1. A [runbook job](automation-runbook-execution.md) is created and its status displayed in the pane.
 
    The job status starts as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It then moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.
 
 1. When the runbook job completes, its output is displayed. In this case, you see *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
-1. Close the Test blade to return to the canvas.
+1. Close the Test page to return to the canvas.
 
 ## Publish and start the runbook
 
 The runbook that you created is still in Draft mode. It needs to be published before you can run it in production. When you publish a runbook, you overwrite the existing Published version with the Draft version. In this case, you don't have a Published version yet because you just created the runbook.
 
 1. Select **Publish** to publish the runbook and then **Yes** when prompted.
-1. If you scroll left to view the runbook in the **Runbooks** blade, it shows an **Authoring Status** of **Published**.
-1. Scroll back to the right to view the blade for **MyFirstRunbook**.
+1. If you scroll left to view the runbook in the **Runbooks** page, it shows an **Authoring Status** of **Published**.
+1. Scroll back to the right to view the page for **MyFirstRunbook**.
 
    The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 
 1. Select **Start** and then **Yes** when prompted to start the runbook.
-1. A job blade is opened for the runbook job that was created. Verify that the **Job status** shows **Completed**.
-1. Once the runbook status shows *Completed*, click **Output**. The **Output** blade is opened, and you can see the *Hello World* in the pane.
-1. Close the Output blade.
-1. Click **All Logs** to open the Streams blade for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
-1. Close the All Logs blade and the Job blade to return to the MyFirstRunbook blade.
-1. To view all the jobs for the runbook close the **Job** blade and select **Jobs** under **RESOURCES**. This lists all the jobs created by this runbook. You should only see one job listed since you only ran the job once.
+1. A job page is opened for the runbook job that was created. Verify that the **Job status** shows **Completed**.
+1. Once the runbook status shows *Completed*, click **Output**. The **Output** page is opened, and you can see the *Hello World* in the pane.
+1. Close the Output page.
+1. Click **All Logs** to open the Streams page for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
+1. Close the All Logs page and the Job page to return to the MyFirstRunbook page.
+1. To view all the jobs for the runbook close the **Job** page and select **Jobs** under **RESOURCES**. This lists all the jobs created by this runbook. You should only see one job listed since you only ran the job once.
 1. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Create variable assets
@@ -116,27 +116,27 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 Now that you have a variable to hold the subscription ID, you can configure the runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites). You do that by adding the Azure Run As connection **Asset** and **Add-AzureRMAccount** cmdlet to the canvas.
 
-1. Navigate back to your runbook and select **Edit** on the MyFirstRunbook blade.
+1. Navigate back to your runbook and select **Edit** on the MyFirstRunbook page.
 1. You don't need the **Write Hello World to output** anymore, so click the ellipses (...) and select **Delete**.
 1. In the Library control, expand **ASSETS**, **Connections**, and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
 1. In the Library control, type **Add-AzureRmAccount** in the search textbox.
 1. Add **Add-AzureRmAccount** to the canvas.
 1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Add-AzureRmAccount**. The arrow that you created is a *link*. The runbook starts with **Get Run As Connection** and then run **Add-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. On the canvas, select **Add-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
-1. Click **Parameters** and the Activity Parameter Configuration blade appears.
+1. Click **Parameters** and the Activity Parameter Configuration page appears.
 1. **Add-AzureRmAccount** has multiple parameter sets, so you need to select one before you can provide parameter values. Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set.
-1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade. Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
-1. In the Parameter Value blade, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**. You are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
-1. Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**. Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.
-1. Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
-1. Click **TENANTID**, and in the Parameter Value blade, select **Activity output** for the **Data source**. Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.
+1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. In the Parameter Value page, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**. You are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
+1. Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value page, select **Activity output** for the **Data source**. Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.
+1. Click **SERVICEPRINCIPAL**, and in the Parameter Value page, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
+1. Click **TENANTID**, and in the Parameter Value page, select **Activity output** for the **Data source**. Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.
 1. In the Library control, type **Set-AzureRmContext** in the search textbox.
 1. Add **Set-AzureRmContext** to the canvas.
 1. On the canvas, select **Set-AzureRmContext** and in the Configuration control pane type **Specify Subscription Id** in the **Label** textbox.
-1. Click **Parameters** and the Activity Parameter Configuration blade appears.
+1. Click **Parameters** and the Activity Parameter Configuration page appears.
 1. **Set-AzureRmContext** has multiple parameter sets, so you need to select one before you can provide parameter values. Click **Parameter Set** and then select the **SubscriptionId** parameter set.
-1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade. Click **SubscriptionID**
-1. In the Parameter Value blade, select **Variable Asset** for the **Data source** and select **AzureSubscriptionId** from the list and then click **OK** twice.
+1. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration page. Click **SubscriptionID**
+1. In the Parameter Value page, select **Variable Asset** for the **Data source** and select **AzureSubscriptionId** from the list and then click **OK** twice.
 1. Hover over **Login to Azure** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Specify Subscription Id**.
 
 Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
@@ -190,7 +190,7 @@ You now modify the runbook so that it only attempts to start the virtual machine
 1. In the library control, expand **Runbook Control** and add **Code** to the canvas.  
 1. Create a link from **Get-AzureRmVM** to **Code**.  
 1. Click **Code** and in the Configuration pane, change label to **Get Status**.
-1. Select **Code** parameter, and the **Code Editor** blade appears.  
+1. Select **Code** parameter, and the **Code Editor** page appears.  
 1. In the code editor, paste the following snippet of code:
 
     ```powershell-interactive
