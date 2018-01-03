@@ -25,7 +25,7 @@ ms.reviewer: dhanyahk
 
 
 
-> Stay up-to-date with what's new in Azure Active Directory by subscribing to our ![RSS](./media/whats-new/feed-icon-16x16.png) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Stay up-to-date with what's new in Azure Active Directory by subscribing to our [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
