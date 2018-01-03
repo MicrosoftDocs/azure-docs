@@ -56,7 +56,7 @@ On a Mac or Windows computer, do the following:
 
 1. Go to the [Azure portal].
 
-2. On the **Settings** blade for your mobile app, under **Mobile**, select **Get Started** > **Xamarin.Forms**. Under **step 3**, select  **Create a new app**, and then select **Download**.
+2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
    This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 

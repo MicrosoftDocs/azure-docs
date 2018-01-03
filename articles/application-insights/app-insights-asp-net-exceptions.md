@@ -56,7 +56,7 @@ In the code, notice that CodeLens shows data about the exceptions:
 ## Diagnosing failures using the Azure portal
 Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section. 
 You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right you'll see some of the most 
-useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing depedency types. 
+useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing dependency types. 
 
 ![Failures triage view (operations tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 

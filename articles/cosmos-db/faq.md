@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
 
 ---
@@ -35,7 +35,7 @@ If you had a DocumentDB API account before, you now have a SQL API account, with
 
 ### What happened to Azure DocumentDB as a service?
 
-The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API (Preview), Table API, MongoDB API, and Cassandra API (Preview).
+The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Graph API, Table API, MongoDB API, and Cassandra API (Preview).
 
 ### What are the typical use cases for Azure Cosmos DB?
 Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md). 
@@ -92,7 +92,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Graph API (Preview), Table API, MongoDB API, or Cassandra API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Graph API, Table API, MongoDB API, or Cassandra API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
@@ -411,14 +411,14 @@ Azure Table storage and Azure Cosmos DB Table API use the same SDKs so most of t
 ### Why do I get throttled when I try to create lot of tables one after another in the Table API?
 Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability, and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
-## Develop against the Graph API (Preview)
-### How can I apply the functionality of Graph API (Preview) to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API (Preview). This library is called Microsoft Azure Graphs, and it is available on NuGet. 
+## Develop against the Graph API
+### How can I apply the functionality of Graph API to Azure Cosmos DB?
+You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on NuGet. 
 
 ### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
 Yes, we plan to add other mechanisms for query in the future. 
 
-### How can I use the new Graph API (Preview) offering? 
+### How can I use the new Graph API offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
 <a id="cassandra"></a> 

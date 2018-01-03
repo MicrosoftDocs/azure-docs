@@ -154,6 +154,8 @@ NSG rules define networking ports over which traffic is allowed or denied. The r
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
+The default rules for NSGs are:
+
 - **Virtual network** - Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
 - **Internet** - Outbound traffic is allowed, but inbound traffic is blocked.
 - **Load balancer** - Allow Azure’s load balancer to probe the health of your VMs and role instances. If you are not using a load balanced set, you can override this rule.

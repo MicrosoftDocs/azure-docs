@@ -189,7 +189,7 @@ To further explore the capabilities of IoT Hub, see:
 
 [Azure portal]: https://portal.azure.com/
 
-[Azure IoT Developer Center]: http://www.azure.com/develop/iot
+[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
