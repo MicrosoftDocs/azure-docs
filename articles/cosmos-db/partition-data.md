@@ -51,11 +51,11 @@ Partitioning is transparent to your application. Azure Cosmos DB supports fast r
 
 How does partitioning work? Each item must have a partition key and a row key, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across partitions. In brief, here's how partitioning works in Azure Cosmos DB:
 
-* You provision a Azure Cosmos DB container with `T` requests/s throughput.
-* Behind the scenes, Azure Cosmos DB provisions partitions needed to serve `T` requests/s. If `T` is higher than the maximum throughput per partition `t`, then Azure Cosmos DB provisions `N` = `T/t` partitions.
-* Azure Cosmos DB allocates the key space of partition key hashes evenly across the `N` partitions. So, each partition (physical partition) hosts `1/N` partition key values (logical partitions).
-* When a physical partition `p` reaches its storage limit, Azure Cosmos DB seamlessly splits `p` into two new partitions, `p1` and `p2`. It distributes values corresponding to roughly half the keys to each of the partitions. This split operation is invisible to your application.
-* Similarly, when you provision throughput higher than `t*N`, Azure Cosmos DB splits one or more of your partitions to support the higher throughput.
+* You provision a Azure Cosmos DB container with **T** requests per second throughput.
+* Behind the scenes, Azure Cosmos DB provisions partitions needed to serve **T** requests per second. If **T** is higher than the maximum throughput per partition **t**, then Azure Cosmos DB provisions **N = T/t** partitions.
+* Azure Cosmos DB allocates the key space of partition key hashes evenly across the **N** partitions. So, each partition (physical partition) hosts **1/N** partition key values (logical partitions).
+* When a physical partition **p** reaches its storage limit, Azure Cosmos DB seamlessly splits **p** into two new partitions, **p1** and **p2**. It distributes values corresponding to roughly half the keys to each of the partitions. This split operation is invisible to your application. If a partition key value reaches its storage limit and all of the data shares the same partition key, the split operation does not occur, and in that case a different partition key strategy should be employed.
+* When you provision throughput higher than **t*N**, Azure Cosmos DB splits one or more of your partitions to support the higher throughput.
 
 The semantics for partition keys are slightly different to match the semantics of each API, as shown in the following table:
 
@@ -66,7 +66,7 @@ The semantics for partition keys are slightly different to match the semantics o
 | Graph | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
 
-Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosmos DB hashes the partition key value and uses the hashed result to determine which partition to store the item in. Azure Cosmos DB stores all items with the same partition key in the same physical partition. The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns.
+Azure Cosmos DB uses hash-based partitioning. When you write an item, Azure Cosmos DB hashes the partition key value and uses the hashed result to determine which partition to store the item in. Azure Cosmos DB stores all items with the same partition key in the same physical partition. The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns. If a physical partition is reaches it's storage limit and the same partition key is on all the data in the partition, Azure Cosmos DB returns the "Partition key reached maximum size of 10 GB" error, and the partition is not split, thus choosing a partition key is a very important decision.
 
 > [!NOTE]
 > It's a best practice to have a partition key with many distinct values (hundreds to thousands at a minimum).
