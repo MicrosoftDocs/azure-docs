@@ -48,10 +48,10 @@ The completed code for this tutorial can be downloaded from GitHub [here](https:
 ## Create a new Android Studio Project
 1. In Android Studio, start a new Android Studio project.
    
-![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+    ![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
 2. Choose the **Phone and Tablet** form factor and the **Minimum SDK** that you want to support. Then click **Next**.
    
-![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+    ![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. Choose **Empty Activity** for the main activity, click **Next**, and then click **Finish**.
 
 ## Create a project that supports Firebase Cloud Messaging
@@ -470,6 +470,7 @@ You can test receiving push notifications in your app by sending them via the [A
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
+
 ## Testing your app
 #### Push notifications in the emulator
 If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you end up with the **SERVICE\_NOT\_AVAILABLE** exception.
@@ -489,6 +490,7 @@ In addition to the above, ensure that you have added your Google account to your
 
 ## Next steps
 We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It demonstrates how to send notifications from an ASP.NET backend using tags to target specific users.
+
 
 If you want to segment your users by interest groups, check out the [Use Notification Hubs to send breaking news] tutorial.
 

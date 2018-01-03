@@ -23,6 +23,7 @@
 ### [Manage database users](analysis-services-database-users.md)
 ### [Manage server administrators](analysis-services-server-admins.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
+### [Setup diagnostic logging](analysis-services-logging.md)
 ## Connect
 ### [Get client libraries](analysis-services-data-providers.md)
 ### [Connect with Excel](analysis-services-connect-excel.md)

@@ -61,7 +61,7 @@ After a blob is placed in a container, that blob can grow to use more space. As 
 
 Containers are not limited to a single share. When the combined blob data in a container grows  use 80% or more of the available space, the container enters *overflow* mode. When in overflow mode, any new blobs that are created in that container are allocated to a different volume that has sufficient space. Over time, a container in overflow mode can have blobs that are distributed across multiple volumes.
 
-When 80%, and then 90% of the available space in a volume is used, the system raises alerts in the Azure Stack administrator portal. Cloud operators should review available storage capacity, and plan to rebalance the content. The storage service stops working when a disk is 100% used, and there are no additional alerts are raised.
+When 80%, and then 90% of the available space in a volume is used, the system raises alerts in the Azure Stack administrator portal. Cloud operators should review available storage capacity, and plan to rebalance the content. The storage service stops working when a disk is 100% used, and no additional alerts are raised.
 
 ### Disks
 VM disks are added to containers by tenants and include an operating system disk. VMs can also have one or more data disks. Both types of disks are stored as page blobs. The guidance to tenants is to place each disk into a separate container to improve performance of the VM.
@@ -127,7 +127,7 @@ You can try to free up space on an overused share by manually migrating some blo
 
 Migration consolidates all a containers blob on the new share.
 
-- If a container has entered overflow mode and has placed blobs on additional volumes, the new share must have sufficient capacity to hold all of the blobs for the container you migrate. This includes the blogs that are located on additional shares.
+- If a container has entered overflow mode and has placed blobs on additional volumes, the new share must have sufficient capacity to hold all of the blobs for the container you migrate. This includes the blobs that are located on additional shares.
 
 - The PowerShell cmdlet *Get-AzsStorageContainer* identifies only the space in use on the initial volume for a container. The cmdlet does not identify space that is used by blobs put on additional volumes. Therefore, the full size of a container might not be evident. It is possible that consolidation of a container on a new share can send that new share into an overflow condition where it places data onto additional shares. As a result, you might need to rebalance shares again.
 

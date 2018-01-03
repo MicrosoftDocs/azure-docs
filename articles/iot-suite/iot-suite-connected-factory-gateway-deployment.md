@@ -140,7 +140,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 To install the OPC Proxy, run the following command at a command prompt:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
 ```
 
 You only need to run the installation once on a system.
@@ -148,7 +148,7 @@ You only need to run the installation once on a system.
 Use the following command to run the OPC Proxy:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
 ```
 
 OPC Proxy saves the connection string during the installation. On subsequent runs you should omit the connection string because it poses a security risk.
