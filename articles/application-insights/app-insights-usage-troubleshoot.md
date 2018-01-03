@@ -16,10 +16,15 @@ ms.author: mbullwin
 
 ---
 # Troubleshoot usage analytics in Application Insights
-Have questions about the [usage analytics tools in Application Insights](app-insights-usage-overview.md)? Here are answers.
+Have questions about the [usage analytics tools in Application Insights](app-insights-usage-overview.md): [Users, Sessions, Events](app-insights-usage-segmentation.md), [Funnels](usage-funnels.md), [User Flows](app-insights-usage-flows.md), [Retention](app-insights-usage-retention.md), or Cohorts? Here are some answers.
 
-## TBD Section of Questions
-**TBD specific question.**
+## Counting Users
+**The usage analytics tools show that my app has one user, but I know my app has many users. How can I fix this?**
+
+* TBD answer.
+
+## Naming Events
+**My app has thousands of different page view, custom event, and request names. It's hard to distinguish between them, and the usage analytics tools often become unresponsive. How can I fix this?**
 
 * TBD answer.
 
