@@ -52,7 +52,10 @@ When too many connections are reached, you may receive the following error:
 ## Privilege support
 
 ### Unsupported
-- [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+- DBA role
+Many sever parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain our service integrity and SLA at a product level we do not expose the DBA role to customers. The default user account, which is constructed when a new database instance is created, allows customers to perform most of DDL and DML statements in the managed database instance. 
+- SUPER privilege 
+Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
 
 ## Data manipulation statement support
 
@@ -80,6 +83,9 @@ When too many connections are reached, you may receive the following error:
 
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
+
+## Current Known Issues:
+- MySQL server instance displays the wrong server version after connection is established. To get the correct server instance versioning, use select version(); command at the MySQL prompt.
 
 ## Next steps
 - [What’s available in each service tier](concepts-service-tiers.md)

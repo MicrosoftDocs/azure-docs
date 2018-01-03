@@ -40,13 +40,13 @@ Use a Blob storage trigger to start a function when a new or updated blob is det
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows [precompiled C#](functions-dotnet-class-library.md) code that writes a log when a blob is added or updated in the `samples-workitems` container.
+The following example shows a [C# function](functions-dotnet-class-library.md) that writes a log when a blob is added or updated in the `samples-workitems` container.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -56,11 +56,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
+For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes).
 
 ### Trigger - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
+The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
 
 Here's the binding data in the *function.json* file:
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 
 ## Trigger - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a blob trigger:
+In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -165,7 +165,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   }
   ```
 
-  For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+  For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -317,13 +317,13 @@ Use Blob storage input and output bindings to read and write blobs.
 
 See the language-specific example:
 
-* [Precompiled C#](#input--output---c-example)
-* [C# script](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C# script (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### Input & output - C# example
 
-The following example is a [precompiled C#](functions-dotnet-class-library.md) function that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob. 
+The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -356,7 +356,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### Input & output - C# script example
 
-The following example shows blob input and output bindings in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -450,7 +450,7 @@ module.exports = function(context) {
 
 ## Input & output - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
@@ -476,9 +476,9 @@ public static void Run(
 }
 ```
 
-For a complete example, see [Input & output - precompiled C# example](#input--output---c-example).
+For a complete example, see [Input & output - C# example](#input--output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes).
 
 ## Input & output - configuration
 
@@ -487,7 +487,7 @@ The following table explains the binding configuration properties that you set i
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Must be set to `blob`. |
-|**direction** | n/a | Must be set to `in` for an input binding or out for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
+|**direction** | n/a | Must be set to `in` for an input binding or `out` for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob. | 
 |**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
@@ -497,7 +497,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Input & output - usage
 
-In precompiled C# and C# script, access the blob by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+In C# class libraries and C# script, access the blob by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
 * `out string`
 * `TextWriter` 
