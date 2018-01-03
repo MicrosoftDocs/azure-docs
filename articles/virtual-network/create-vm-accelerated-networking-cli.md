@@ -21,7 +21,7 @@ ms.custom:
 ---
 # Create a Linux virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
+In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
 ![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -34,7 +34,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 > [!WARNING]
 > Features in preview release may not have the same level of availability and reliability as features that are in general 
 > availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure 
-> locations. For the most up-to-date notifications on availability and status of this feature, see [Azure Virtual Network updates](https://azure.microsoft.com/en-us/updates/?product=virtual-network).
+> locations. For the most up-to-date notifications on availability and status of this feature, see [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## Benefits
 * **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
@@ -47,7 +47,7 @@ The following limitations exist when using this capability:
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
 * **Regions:** The capability is available in many Azure regions, and continues to expand. For a full list, see [Azure Virtual Networking Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
-* **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.4, and CentOS 7.4 (Published by “Rogue Wave Software”).
+* **Supported operating systems:** Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.4, and CentOS 7.4 (published by Rogue Wave Software).
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). The set of supported VM instance sizes continues to expand.
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 

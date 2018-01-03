@@ -19,7 +19,7 @@ ms.author: jimdial
 ---
 # Create a Windows virtual machine with Accelerated Networking
 
-In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
+In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
 ![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -179,7 +179,7 @@ Finally, create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
 ```
 
-## Confirm driver is installed in the operating system
+## Confirm the driver is installed in the operating system
 
 Once you create the VM in Azure, connect to the VM and confirm that the driver is installed in Windows. 
 
