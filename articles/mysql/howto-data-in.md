@@ -58,8 +58,7 @@ The results should be like below:
 ### Dump all databases from primary server
 You can use mysqldump to dump databases from your primary – the existing server. For details, please refer to [Dump & Restore](./concepts-migrate-dump-restore.md).
 
-[!NOTE]
->No need to dump MySQL library and test library.
+Please note: it is unnecessary to dump MySQL library and test library.
 
 ### Set primary server to read/write mode
 Once the database has been dumpped, change the primary MySQL server setting back to read/write mode.
@@ -79,8 +78,7 @@ GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
 ### Restore dump file to new server created in step 1
 Please refer to [Dump & Restore](./concepts-migrate-dump-restore.md) about how to restore a dump file to a MySQL server.
 
-[!NOTE]
->If the dump file is large, please upload it to virtual machine on Azure, and then restore it into the MySQL server from the virtual machine.
+Please note: if the dump file is large, please upload it to virtual machine on Azure, and then restore it into the MySQL server from the virtual machine.
 
 ## Step 4 – Link Primary and Replica Server to start Data-in Replication
 
