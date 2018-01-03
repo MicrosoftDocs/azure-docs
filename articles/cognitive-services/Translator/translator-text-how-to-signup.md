@@ -38,7 +38,7 @@ ms.author: v-jansko
 
 
 ## Pricing Options
-- [Translator Text API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/)
+- [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
 **Translator Hub**
@@ -46,5 +46,5 @@ ms.author: v-jansko
 Use the Translator Hub tool to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator statistical machine translation systems. [Learn more](customization.md)
  
 ## Additional resources
-- [Get Started with Azure (5-minute video)](https://azure.microsoft.com/en-us/get-started/?b=16.24)
-- [How to Pay with an Invoice](https://azure.microsoft.com/en-us/pricing/invoicing/)
+- [Get Started with Azure (5-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
+- [How to Pay with an Invoice](https://azure.microsoft.com/pricing/invoicing/)
