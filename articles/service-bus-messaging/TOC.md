@@ -4,6 +4,11 @@
 ## [Service Bus architecture](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
+# Quickstarts
+## [Create namespace and queue using PowerShell](service-bus-quickstart-powershell.md)
+## [Create namespace and queue using Azure portal(service-bus-quickstart-powershell.md)
+## [Create namespace and queue using Azure CLI](service-bus-quickstart-powershell.md)
+
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
