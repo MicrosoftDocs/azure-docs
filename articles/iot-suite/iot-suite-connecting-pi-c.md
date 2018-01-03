@@ -104,7 +104,7 @@ Complete the following steps using the **ssh** connection to your Raspberry Pi:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-1. Save the **remote_monitoring.c** file and exit the editor.
+Save the **remote_monitoring.c** file and exit the editor.
 
 ## Add code to run the app
 
