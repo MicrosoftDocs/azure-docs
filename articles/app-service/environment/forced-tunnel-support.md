@@ -11,9 +11,10 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: ccompy
+ms.custom: mvc
 ---
 
 # Configure your App Service Environment with forced tunneling

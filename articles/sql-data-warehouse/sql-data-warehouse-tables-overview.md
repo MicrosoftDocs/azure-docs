@@ -3,8 +3,8 @@ title: Overview of tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with Azure SQL Data Warehouse Tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2016
-ms.author: shigu;jrj
+ms.date: 12/14/2017
+ms.author: barbkess
 
 ---
 # Overview of tables in SQL Data Warehouse
@@ -57,7 +57,7 @@ Statistics are an extremely important to getting the best performance out of you
 Temporary tables are tables which only exist for the duration of your logon and cannot be seen by other users.  Temporary tables can be a good way to prevent others from seeing temporary results and also reduce the need for cleanup.  Since temporary tables also utilize local storage, they can offer faster performance for some operations.  See the [Temporary Table][Temporary] articles for more details about temporary tables.
 
 ## External tables
-External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][Load data with Polybase].  
+External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage or Azure Data Lake Store.  For more details on how to create and query an external table, see [Load data with Polybase][Load data with Polybase].  
 
 ## Unsupported table features
 While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.

@@ -3,7 +3,7 @@ title: Create Azure Automation Run As accounts | Microsoft Docs
 description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: ''
 
@@ -54,16 +54,16 @@ To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountN
 To update an Automation account, you must have the following specific privileges and permissions required to complete this topic.   
  
 * Your AD user account needs to be added to a role with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
-* Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the App registrations setting is set to **Yes**.  If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD. 
+* Non-admin users in your Azure AD tenant can [register AD applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
 
 If you are not a member of the subscription’s Active Directory instance before you are added to the global administrator/co-administrator role of the subscription, you are added to Active Directory as a guest. In this situation, you receive a “You do not have permissions to create…” warning on the **Add Automation Account** blade. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
 ## Create Run As account from the portal
-In this section, perform the following steps to update your Azure Automation account in  the Azure portal.  You create the Run As and Classic Run As accounts individually, and if you don't need to manage classic resources, you can just create the Azure Run As account.  
+In this section, perform the following steps to update your Azure Automation account in the Azure portal.  You create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.  
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Automation**. As you begin typing, the list filters based on your input. Select **Automation Accounts**.
-3. On the Automation account page, select your Automation account.  
+3. On the **Automation Accounts** page, select your Automation account from the list of Automation accounts.
 4. In the left-hand pane, select **Run As Accounts** under the section **Account Settings**.  
 5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**.  After selecting either the **Add Azure Run As** or **Add Azure Classic Run As Account** pane appears and after reviewing the overview information, click **Create** to proceed with Run As account creation.  
 6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu.  A banner is also displayed stating the account is being created.  This process can take a few minutes to complete.  

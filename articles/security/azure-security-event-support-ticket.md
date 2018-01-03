@@ -17,16 +17,16 @@ ms.date: 11/13/2017
 ms.author: v-dabosl
 
 ---
-# How to log a Security Event Support Ticket
+# How to Log a Security Event Support Ticket
 
-1. Navigate to [Publisher Portal](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) and sign in with Microsoft credentials.
+1. Navigate to [Publisher Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) and sign in with your Microsoft credentials.
 2. Select "Security Event" as the Problem Type and choose between the "Security Incident" and "Vulnerability" categories.
 
     ![Event type and Definition][1]
 
-3. After you select the Problem Type and Category, click the '**Start request**' button.
+3. After you select the Problem Type and Category, click the '**Start request**' button. Provide the following information to help us better understand the issue.
 
-    i. What is the problem and/or vulnerability.
+    i. What is the problem and/or vulnerability?
 
     ii. For vulnerabilities, please provide the CVE (mitre.org) or the filled out CVSS3 v3 calculator (https://www.first.org/cvss/calculator/3.0).
 

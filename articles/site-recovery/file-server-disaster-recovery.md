@@ -141,7 +141,7 @@ The suggested approach of integrating Azure File Sync with Azure Site Recovery i
 
 The below steps detail using Azure File Sync service:
 
-1. [Create a storage account in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. Refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
+1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. Refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
 2. [Create a file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Deploy Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) in your on-premises file server.
 4. Create a Sync Group: Endpoints within a Sync Group will be kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure File share, and one Server Endpoint, which represents a path on the on-premises Windows Server.

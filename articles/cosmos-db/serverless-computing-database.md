@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
 ---
 
@@ -41,7 +41,7 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 * An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger, and can be used with or without an output binding as well. You could use this combination to apply up-to-date currency exchange information (pulled in with an input binding to an exchange container) to the change feed of new orders in your shopping cart service. The updated shopping cart total, with the current currency conversion applied, can be written to a third container using an output binding.
 
 > [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with DocumentDB, Table, and Graph API accounts only.
+> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
 ## Use cases
 
@@ -83,14 +83,14 @@ The following images show the code in the Azure portal for this scenario.
 
 ### Gaming use case - Azure Cosmos DB trigger and output binding
 
-In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB Table database](table-introduction.md) for easy retrieval.
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Graph API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB SQL database] for easy retrieval.
 
 **Implementation:** Use an Azure Cosmos DB trigger and an output binding
 
 1. Using an Azure Cosmos DB [graph database](graph-introduction.md) to store all users, you can create a new function with an Azure Cosmos DB trigger. 
 2. Whenever a new user is inserted, the function is invoked, and then the result is stored using an **output binding**.
 3. The function queries the graph database to search for all the users that are directly related to the new user and returns that dataset to the function.
-4. This data is then stored in an Azure Cosmos DB [table database](table-introduction.md) as a key-value set of pairs, which can then be easily retrieved by any front-end application that shows the new user their connected friends.
+4. This data is then stored in an Azure Cosmos DB which can then be easily retrieved by any front-end application that shows the new user their connected friends.
 
 ### Retail use case - Multiple functions
 

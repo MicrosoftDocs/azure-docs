@@ -1,22 +1,13 @@
 ---
 title: Assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of assessment calculations in the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 39a63769-31eb-49f9-9089-4d3e4e88a412
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Assessment calculations
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. This article provides information about how assessments are calculated.

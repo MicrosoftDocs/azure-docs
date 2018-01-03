@@ -4,7 +4,7 @@ description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory

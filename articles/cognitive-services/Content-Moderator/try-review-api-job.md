@@ -1,6 +1,6 @@
 ---
-title: Content moderation jobs in Azure Content Moderator | Microsoft Docs
-description: Start content moderation jobs from the API console
+title: Run content moderation jobs in Azure Content Moderator | Microsoft Docs
+description: Learn how to run content moderation jobs in the API console.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,47 +12,54 @@ ms.date: 08/03/2017
 ms.author: sajagtap
 ---
 
-# Content moderation jobs from the API console
+# Run content moderation jobs in the API console
 
-Use the Review API's [Job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs with image or text content. The moderation job scans your content by using the image or text moderation APIs. It then uses the default and custom workflows (defined within the Review Tool) to generate reviews within the Review Tool. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
+Use the Review API's [job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
+
+The moderation job scans your content by using the Content Moderator Image Moderation API or Text Moderation API. Then, the moderation job uses the default and custom workflows (defined by using the Review tool) to generate reviews in the Review tool. 
+
+After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the Review API submits all information to your API endpoint.
 
 ## Use the API console
-Before you can test-drive the API from the online console, you will need a few values.
+To test-drive the API by using the online console, you need a few values to enter into the console:
 
-- teamName: The team name you created when you set up your review tool account. 
-- ContentId: A string, this is passed to the API and returned through the callback, and is useful for associating internal identifiers or metadata with the results of a moderation job.
-- Workflowname: The name of the workflow you have created. For a quick test, you can use “Default”.
-- Ocp-Apim-Subscription-Key: This is found under the Settings tab, as shown in the [Overview](overview.md) article.
+- **teamName**: The team name that you created when you set up your Review tool account. 
+- **ContentId**: This string is passed to the API and returned through the callback. **ContentId** is useful for associating internal identifiers or metadata with the results of a moderation job.
+- **Workflowname**: The name of the workflow that you created. For a quick test, you can use the value **Default**.
+- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
 
+The simplest way to access a testing console is from the **Credentials** window.
 
-The simplest way to access a testing console is from the Credentials window.
-1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)**.
+1.	In the **Credentials** window, select [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
-2.	The **Job – Create** API opens. Click the button that most closely describes your location, under Open API testing console.
+  The **Job - Create** page opens.
 
-  ![Test Drive Job Step 2](images/test-drive-job-1.png)
+2.	For **Open API testing console**, select the region that most closely describes your location.
+
+  ![Job - Create page region selection](images/test-drive-job-1.png)
+
+  The **Job - Create** API console opens. 
   
-3.	Fill in the required values, and edit the Request Body to specify the location of the 
-information being scanned.
+3.	Enter values for the required query parameters, and your subscription key. In the **Request body** box, specify the location of the information that you want to scan.
 
-  ![Test Drive Job Step 3](images/test-drive-job-2.png)
+  ![Job - Create console query parameters, headers, and Request body box](images/test-drive-job-2.png)
   
-4.	Click **Send**. A JobID is created. Copy this to use in the next steps.
+4.	Select **Send**. A job ID is created. Copy this to use in the next steps.
 
-  ![Test Drive Job Step 4](images/test-drive-job-3.png)
+  ![Job - Create console Response content box displays the job ID](images/test-drive-job-3.png)
   
-5.	Click **Get**, then open the API by clicking the button matching your region.
+5.	Select **Get**, and then open the API by selecting the button that matches your region.
 
-  ![Test Drive Job Step 5](images/test-drive-job-4.png)
+  ![Job - Create console Get results](images/test-drive-job-4.png)
   
-6.	Fill in **teamName** and the **JobID** you just created. Enter your subscription key and click Send. The results of the scan are returned.
+6.	Enter values for **teamName** and **JobID**. Enter your subscription key, and then select **Send**. The results of the scan are returned.
 
-  ![Test Drive Job Step 6](images/test-drive-job-5.png)
+  ![Job - Create console Response content box](images/test-drive-job-5.png)
   
-7.	Go to the Content Moderator Dashboard, and click **Review > Image**. The image you just scanned displays, ready for human review.
+7.	On the Content Moderator Dashboard, select **Review** > **Image**. The image that you scanned appears, ready for human review.
 
-  ![Test Drive Job Step 7](images/test-drive-job-6.png)
+  ![Review tool image of three cyclists](images/test-drive-job-6.png)
 
 ## Next steps
 
-To learn how to create reviews with no scanning, see the [Review operation](try-review-api-review.md) article.
+* Learn how to [create reviews with no scanning](try-review-api-review.md).

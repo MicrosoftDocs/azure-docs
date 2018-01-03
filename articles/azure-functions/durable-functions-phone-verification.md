@@ -56,7 +56,7 @@ This article walks through the following functions in the sample app:
 
 The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
  
-## The SMS verification orchestration
+## The SMS verification orchestration (Visual Studio Code and Azure portal sample code) 
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
 

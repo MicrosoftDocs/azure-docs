@@ -4,7 +4,7 @@ description: Learn how to assign user licenses for Microsoft Azure Multi-Factor 
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 514ef423-8ee6-4987-8a4e-80d5dc394cf9
 ms.service: multi-factor-authentication

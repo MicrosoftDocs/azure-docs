@@ -42,7 +42,7 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the **login** method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](/cli/azure/authenticate-azure-cli) and connect to your subscription using the **login** method.
 
 ## Create a cluster
 
@@ -114,7 +114,7 @@ The following steps should be performed from a command line, such as PowerShell 
     * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
 
     > [!IMPORTANT]
-    > This example creates a cluster with two worker notes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
+    > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
     >
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 

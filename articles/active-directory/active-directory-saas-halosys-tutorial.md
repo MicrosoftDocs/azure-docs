@@ -4,7 +4,7 @@ description: Learn how to use Halosys with Azure Active Directory to enable sing
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory

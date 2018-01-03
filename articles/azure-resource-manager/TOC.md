@@ -12,16 +12,14 @@
 # How to
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
-### [Best practices for templates](resource-manager-template-best-practices.md)
+#### [Parameters](resource-manager-templates-parameters.md)
+#### [Variables](resource-manager-templates-variables.md)
+#### [Resources](resource-manager-templates-resources.md)
+#### [Outputs](resource-manager-templates-outputs.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
-### [Set location](resource-manager-template-location.md)
-### [Assign tags](resource-manager-template-tags.md)
-### [Set child resource name and type](resource-manager-template-child-resource.md)
-### [Update resource](resource-manager-update.md)
-### [Use objects for parameters](resource-manager-objects-as-parameters.md)
-### [Share state between linked templates](best-practices-resource-manager-state.md)
+### [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 
 
@@ -38,7 +36,7 @@
 #### [Deploy resources](resource-group-template-deploy-portal.md)
 #### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
+### [Multiple resource groups or subscriptions](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 

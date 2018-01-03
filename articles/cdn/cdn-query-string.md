@@ -40,13 +40,13 @@ Three query string modes are available:
    
    ![CDN profile endpoints](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Under Settings, click **Cache**.
+2. In the left pane under Settings, click **Caching rules**.
    
-    ![CDN profile Cache button](./media/cdn-query-string/cdn-cache-btn.png)
+    ![CDN Caching rules button](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. In the **Query string caching behavior** list, select a query string mode, then click **Save**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Because it takes time for the registration to propagate through the CDN, cache string settings changes might not be immediately visible. For **Azure CDN from Akamai** profiles, propagation usually completes within one minute. For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes, but in some cases can take longer.

@@ -165,5 +165,5 @@ Use the following code to delete the new product that you previously added using
 
 <!-- Article link references. -->
 
-[ssms-install-latest-84g]: https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms
+[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
 

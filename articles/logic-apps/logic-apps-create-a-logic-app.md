@@ -77,7 +77,7 @@ for example, running your own code from a logic app with [Azure Functions](../az
 1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. From the main Azure menu, choose 
-**New** > **Web + Mobile** > **Logic App**.
+**New** > **Enterprise Integration** > **Logic App**.
 
    ![Azure portal, New, Enterprise Integration, Logic App](./media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 

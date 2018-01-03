@@ -4,7 +4,7 @@ description: Learn how to use SCC LifeCycle with Azure Active Directory to enabl
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory

@@ -4,7 +4,7 @@ description: This article discusses the registration and use of certificate cred
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8

@@ -3,8 +3,8 @@ title: Replace a hardware component on an Azure Stack scale unit node | Microsof
 description: Learn how to replace a hardware component on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 

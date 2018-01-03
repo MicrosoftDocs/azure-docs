@@ -4,7 +4,7 @@ description: Learn how to view SAML returned by the Access Control Service in Ja
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: ''
 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48

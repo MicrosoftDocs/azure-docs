@@ -4,7 +4,7 @@ description: Choose the multi-factor authentication security solution that is ri
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication

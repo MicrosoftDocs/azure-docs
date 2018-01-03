@@ -122,7 +122,7 @@ For the Demand Forecasting for Energy Solution Template, the Azure Stream Analyt
 
 The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query can be found by:
 
-* Logging in to the [Azure portal](https://manage.windowsazure.com/)
+* Logging in to the [Azure portal](https://portal.azure.com/)
 * Locating the stream analytics jobs ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) that were
   generated when the solution was deployed. One is for pushing data to blob storage (for example, mytest1streaming432822asablob) and the other one is for pushing data to Power BI (for example, mytest1streaming432822asapbi).
 * Selecting

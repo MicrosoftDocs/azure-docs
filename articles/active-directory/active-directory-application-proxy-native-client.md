@@ -4,7 +4,7 @@ description: Covers how to enable native client apps to communicate with Azure A
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory

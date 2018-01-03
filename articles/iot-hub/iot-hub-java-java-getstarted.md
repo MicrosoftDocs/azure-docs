@@ -212,7 +212,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
                   Iterable<EventData> receivedEvents = receiver.receive(100).get();
                   int batchSize = 0;
                   if (receivedEvents != null) {
-                    System.out.println("Got some evenst");
+                    System.out.println("Got some events");
                     for (EventData receivedEvent : receivedEvents) {
                       System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s",
                         receivedEvent.getSystemProperties().getOffset(),

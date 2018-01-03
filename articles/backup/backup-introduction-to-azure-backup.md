@@ -13,10 +13,10 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # Overview of the features in Azure Backup
@@ -251,7 +251,7 @@ For details about protecting other workloads, try one of these articles:
 
 * [Back up your Windows Server](backup-configure-vault.md)
 * [Back up application workloads](backup-azure-microsoft-azure-backup.md)
-* [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
+* [Backup Azure IaaS VMs](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

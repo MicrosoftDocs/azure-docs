@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -48,13 +48,17 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Select the **TimerTrigger** template for your desired language. Then use the settings as specified in the table:
+2. In the search field, type `timer` and then choose your desired language for the timer trigger template. 
 
-    ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Choose the timer triggered function template.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Configure the new trigger with the settings as specified in the table below the image.
+
+    ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Name your function** | TimerTriggerCSharp1 | Defines the name of your timer triggered function. |
+    | **Name** | Default | Defines the name of your timer triggered function. |
     | **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
 
 2. Click **Create**. A function is created in your chosen language that runs every minute.

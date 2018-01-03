@@ -21,14 +21,13 @@ ms.author: jgao
 ---
 # Manage resources for Apache Spark cluster on Azure HDInsight 
 
-In this article you learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You also learn about how to tune the cluster configuration for optimal performance.
+Learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster, and how to tune the cluster configuration for optimal performance.
 
 **Prerequisites:**
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## How do I launch the Ambari Web UI?
+## Open the Ambari Web UI
 1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 2. For your Spark cluster, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
@@ -37,7 +36,7 @@ In this article you learn how to access the interfaces like Ambari UI, YARN UI, 
 
     ![Ambari Web UI](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
-## How do I launch the Spark History Server?
+## Open the Spark History Server
 1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**. In the **Cluster Dashboard** blade, click **Spark History Server**.
 
@@ -45,7 +44,7 @@ In this article you learn how to access the interfaces like Ambari UI, YARN UI, 
 
     When prompted, enter the admin credentials for the Spark cluster.
 
-## How do I launch the Yarn UI?
+## Open the Yarn UI
 You can use the YARN UI to monitor applications that are currently running on the Spark cluster.
 
 1. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.
@@ -57,7 +56,7 @@ You can use the YARN UI to monitor applications that are currently running on th
    >
    >
 
-## What is the optimum cluster configuration to run Spark applications?
+## The optimum cluster configuration to run Spark applications
 The three key parameters that can be used for Spark configuration depending on application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. It runs on the worker node and is responsible to carry out the tasks for the application. The default number of executors and the executor sizes for each cluster is calculated based on the number of worker nodes and the worker node size. This information is stored in `spark-defaults.conf` on the cluster head nodes.
 
 The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.

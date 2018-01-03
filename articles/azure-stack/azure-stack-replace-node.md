@@ -3,8 +3,8 @@ title: Replace a scale unit node on an Azure Stack integrated system | Microsoft
 description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 
@@ -49,6 +49,10 @@ If you open the "Scale unit node is offline" alert, the alert description contai
 The following steps are provided as a high-level overview of the scale unit node replacement process. See your OEM hardware vendor’s FRU documentation for detailed steps that are specific to your system. Do not follow these steps without referring to your OEM-provided documentation.
 
 1. Use the [Drain](azure-stack-node-actions.md#scale-unit-node-actions) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]
+   > In any case, only one Node can be drained and powered off at the same time without breaking the SSD (Storage Spaces Direct).
+
 2. If the node is still powered on, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
  
    > [!NOTE]

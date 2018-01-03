@@ -4,7 +4,7 @@ description: Use Azure Active Directory to enable single sign-on to all of the S
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
@@ -50,7 +50,7 @@ Once a user have authenticated with an application, they also need to have an ac
  More details on these single sign-on modes and provisioning below.
 
 ### Federated Single Sign-On
-Federated Single Sign-On enables sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from Azure AD.
+Federated Single Sign-On enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from Azure AD.
 
 In this scenario, when you have already been logged into Azure AD, and you want to access resources that are controlled by a third-party SaaS application, federation eliminates the need for a user to be re-authenticated.
 
