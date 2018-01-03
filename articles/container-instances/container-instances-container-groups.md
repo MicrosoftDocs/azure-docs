@@ -54,7 +54,6 @@ Example usage could include:
 Learn how to [deploy a multi-container group](container-instances-multi-container-group.md) with an Azure Resource Manager template.
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
 
 <!-- LINKS - External -->

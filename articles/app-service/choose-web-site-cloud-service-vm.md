@@ -107,6 +107,8 @@ Azure App Service is a great solution for this scenario, because you can start u
 * Add additional Azure services and features to your application as needed.
 * Secure your web app with HTTPS.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### <a id="designer"></a> I'm a web or graphic designer, and I want to design and build websites for my customers
 For web developers and designers, Azure App Service integrates easily with a variety of frameworks and tools, includes deployment support for Git and FTP, and offers tight integration with tools and services such as Visual Studio and SQL Database. With App Service, you can:
 
