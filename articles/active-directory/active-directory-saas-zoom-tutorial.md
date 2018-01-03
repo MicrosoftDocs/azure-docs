@@ -149,31 +149,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-8. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Zoom Configuration](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-9. Click on the **App registrations** followed by the **Azure Active Directory**.
+9. In a different web browser window, log in to your Zoom company site as an administrator.
 
-    ![App Registrations](./media/active-directory-saas-zoom-tutorial/appreg.png)
-
-10. Click **Endpoints**.
-
-    ![Endpoints](./media/active-directory-saas-zoom-tutorial/endpoint.png)
-
-11. Copy the **SAML-P SIGN-OUT ENDPOINT** value.
-    
-    ![Endpoints](./media/active-directory-saas-zoom-tutorial/endpoint1.png) 
-
-12. In a different web browser window, log in to your Zoom company site as an administrator.
-
-13. Click the **Single Sign-On** tab.
+10. Click the **Single Sign-On** tab.
    
     ![Single sign-on tab](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
 
-14. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
+11. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
-15. In the Single Sign-On section, perform the following steps:
+12. In the Single Sign-On section, perform the following steps:
    
     ![Single sign-on section](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
    
@@ -188,7 +176,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     e. Click **Save**.
 
     > [!NOTE] 
-	> For information visit the zoom documentation [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
+	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
