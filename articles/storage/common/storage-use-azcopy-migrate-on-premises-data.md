@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a storage account. 
 > * Use AzCopy to upload all your data.
-> * Modify the data for testing purposes.
+> * Modify the data for test purposes.
 > * Create a scheduled task or cron job to identify new files to upload.
 
 ## Prerequisites
@@ -58,14 +58,14 @@ Container names must start with a letter or number. They can contain only letter
 
 You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). To upload all blobs in a folder, enter the following AzCopy command:
 
-### [Linux](#tab/linux)
+# [Linux](#tab/linux)
     azcopy \
         --source /mnt/myfolder \
         --destination https://myaccount.blob.core.windows.net/mycontainer \
         --dest-key <key> \
         --recursive
 
-### [Windows](#tab/windows)
+# [Windows](#tab/windows)
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
@@ -74,11 +74,11 @@ Replace `<key>` and `key` with your account key. In the Azure portal, you can re
 To upload the contents of the specified directory to Blob storage recursively, specify the `--recursive` (Linux) or `/S` (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
 ## Upload modified files to Blob storage
-You can use AzCopy to [upload files](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) based on their last-modified time. To try this, modify or create new files in your source directory for testing purposes. To upload only updated or new files, add the `--exclude-older` (Linux) or `/XO` (Windows) parameter to the AzCopy command.
+You can use AzCopy to [upload files](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) based on their last-modified time. To try this, modify or create new files in your source directory for test purposes. To upload only updated or new files, add the `--exclude-older` (Linux) or `/XO` (Windows) parameter to the AzCopy command.
 
 If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` (Linux) or `/XO` and `/XN` (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
  
-### [Linux](#tab/linux)
+# [Linux](#tab/linux)
     azcopy \
     --source /mnt/myfolder \
     --destination https://myaccount.blob.core.windows.net/mycontainer \
@@ -86,19 +86,19 @@ If you only want to copy source resources that do not exist in the destination, 
     --recursive \
     --exclude-older
 
-### [Windows](#tab/windows)
+# [Windows](#tab/windows)
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
 ---
 
 ## Create a scheduled task or cron job 
-You can create a scheduled task or cron job that runs an AzCopy command script that identifies and uploads new on-premises data to cloud storage at a specific time interval. 
+You can create a scheduled task or cron job that runs an AzCopy command script. The script identifies and uploads new on-premises data to cloud storage at a specific time interval. 
 
 Copy the AzCopy command to a text editor. Update the parameter values of the AzCopy command to the appropriate values. Save the file as `script.sh` (Linux) or `script.bat` (Windows) for AzCopy. 
 
-### [Linux](#tab/linux)
+# [Linux](#tab/linux)
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-### [Windows](#tab/windows)
+# [Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
@@ -109,7 +109,7 @@ In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/
  **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on a local or remote computer. **Cron** enables Linux and Unix users to run commands or scripts at a specified date and time by using [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 
-### [Linux](#tab/linux)
+# [Linux](#tab/linux)
 To create a cron job on Linux, enter the following command on a terminal: 
 
 ```bash
@@ -119,8 +119,8 @@ crontab -e
 
 Specifying the cron expression `*/5 * * * * ` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression). 
 
-### [Windows](#tab/windows)
-To create a scheduled task on Windows, enter the following command on a command prompt or PowerShell:
+# [Windows](#tab/windows)
+To create a scheduled task on Windows, enter the following command at a command prompt or in PowerShell:
 
 ```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
@@ -137,7 +137,7 @@ Windows, see [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).
 
 ---
  
-To validate that the scheduled task/cron job runs correctly, create new files in your directory `myfolder`. Wait five minutes to confirm that the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task or cron job. 
+To validate that the scheduled task/cron job runs correctly, create new files in your `myfolder` directory. Wait five minutes to confirm that the new files have been uploaded to your storage account. Go to your log directory to view output logs of the scheduled task or cron job. 
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, see [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
