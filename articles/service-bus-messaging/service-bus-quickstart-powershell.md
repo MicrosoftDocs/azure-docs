@@ -44,7 +44,7 @@ Install-Module AzureRM.ServiceBus
 
 ## Set the current Azure subscription
 
-Choose which Azure subscription you want to use, then set the current Azure subscription context by running the following command:
+Decide which Azure subscription you want to use, then set the current Azure subscription context by running the following command:
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
@@ -60,7 +60,7 @@ Get-AzureRmContext
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group.
 
-You create a new resource group with the **[New-AzureRmResourceGroup][]** cmdlet. The following example creates a resource group named `sbResourceGroup` in the **West US** region:
+Create a new resource group by using the **New-AzureRmResourceGroup** cmdlet. For example:
 
 ```powershell
 New-AzureRmResourceGroup –Name <resource_group_name> –Location westus2
