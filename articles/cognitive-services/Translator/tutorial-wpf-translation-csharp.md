@@ -409,7 +409,7 @@ Now find the `MainWindow.xaml` file in the Solution Explorer and open it. It's b
 ![[Annotated view of main window in Visual Studio designer]](media/translator-text-csharp-xaml.png)
 
 > [!NOTE]
-> The [source code page](tutorial-wpf-translation-csharp-source.md) for this tutorial includes the XAML source for this form. You may paste it to your project instead of building the form in Visual Studio.
+> The source code for this tutorial includes the XAML source for this form. You may paste it to your project instead of building the form in Visual Studio.
 
 * `FromLanguageComboBox` *(ComboBox)* - Displays a list of the languages supported by Microsoft Translator for text translation. The user selects the language they are translating from.
 * `ToLanguageComboBox` *(ComboBox)* - Displays the same list of languages as `FromComboBox`, but is used to select the language the user is translating to.
