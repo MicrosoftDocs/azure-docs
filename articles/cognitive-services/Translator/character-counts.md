@@ -1,8 +1,8 @@
 ---
-title: Translator Text API Character Counts
+title: Microsoft Translator Text API Character Counts
 description: How the Microsoft Translator Text API counts characters.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
