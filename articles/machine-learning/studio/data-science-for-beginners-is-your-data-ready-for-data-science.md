@@ -82,11 +82,11 @@ The next ingredient we need is accuracy. Here are four targets that we’d like 
 
 ![Accurate data vs. inaccurate data - data criteria](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Look at the target in the upper right. We’ve got a tight grouping right around the bullseye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
+Look at the target in the upper right. We’ve got a tight grouping right around the bulls eye. That, of course, is accurate. Oddly, in the language of data science, our performance on the target right below it is also considered accurate.
 
-If you were to map out the center of these arrows, you'd see that it's very close to the bullseye. The arrows are spread out all around the target, so they're considered imprecise, but they're centered around the bullseye, so they're considered accurate.
+If you were to map out the center of these arrows, you'd see that it's very close to the bulls eye. The arrows are spread out all around the target, so they're considered imprecise, but they're centered around the bulls eye, so they're considered accurate.
 
-Now look at the upper-left target. Here our arrows hit very close together, a tight grouping. They're precise, but they're inaccurate because the center is way off the bullseye. And, of course, the arrows in the bottom-left target are both inaccurate and imprecise. This archer needs more practice.
+Now look at the upper-left target. Here our arrows hit very close together, a tight grouping. They're precise, but they're inaccurate because the center is way off the bulls eye. And, of course, the arrows in the bottom-left target are both inaccurate and imprecise. This archer needs more practice.
 
 ## Do you have enough data to work with?
 Finally, ingredient #4 - we need to have enough data.
