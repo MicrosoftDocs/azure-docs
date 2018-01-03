@@ -1,5 +1,5 @@
 ---
-title: Create an Azure scale set that uses Availability Zones | Microsoft Docs
+title: Create an Azure scale set that uses Availability Zones (Preview) | Microsoft Docs
 description: Learn how to create Azure virtual machine scale sets that use Availability Zones for increased redundancy against outages
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: iainfou
 
 ---
 
-# Create a virtual machine scale set that uses Availability Zones
+# Create a virtual machine scale set that uses Availability Zones (Preview)
 To protect your virtual machine scale sets from datacenter-level failures, you can create a scale set in an Availability Zone. Azure regions that support Availability Zones have a minimum of three separate zones, each with their own independent power source, network, and cooling. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones). You can create a scale set that uses Availability Zones with one of the following methods:
@@ -39,7 +39,7 @@ The scale set and supporting resources, such as the Azure load balancer and publ
 
 
 ## Use the Azure CLI 2.0
-The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `--zone` parameter to the [az vmss create](/cli/azure/vmss#az_vmss_create) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a scale set named *myScaleSet* in zone *1*:
+The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `--zones` parameter to the [az vmss create](/cli/azure/vmss#az_vmss_create) command and specify which zone to use (such as zone *1*, *2*, or *3*). The following example creates a scale set named *myScaleSet* in zone *1*:
 
 ```azurecli
 az vmss create \
@@ -49,7 +49,7 @@ az vmss create \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --zone 1
+    --zones 1
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs in the zone that you specify.
@@ -79,7 +79,7 @@ The process to create a scale set that uses an Availability Zone is the same as 
   "name": "myScaleSet",
   "location": "East US 2",
   "apiVersion": "2017-12-01",
-  "zones": "1",
+  "zones": ["1"],
   "sku": {
     "name": "Standard_A1",
     "capacity": "2"
