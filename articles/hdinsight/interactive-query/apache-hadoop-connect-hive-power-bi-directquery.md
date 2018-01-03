@@ -1,6 +1,6 @@
 ---
-title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight  | Microsoft Docs
-description: Learn how to use Microsoft Power BI to visualize Interacive Query Hive data processed by Azure HDInsight.
+title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight | Microsoft Docs
+description: Learn how to use Microsoft Power BI to visualize Interactive Query Hive data processed by Azure HDInsight.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery 
 services: hdinsight
 documentationcenter: ''
@@ -30,7 +30,7 @@ For how to connect to Hive using ODBC, see [Visualize Hive data with Microsoft P
 ## Prerequisites
 Before going through this article, you must have the following items:
 
-* **HDInsight cluster**. The cluster can be either a HDInsight cluster with Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **HDInsight cluster**. The cluster can be either an HDInsight cluster with Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## Load data from HDInsight
@@ -41,7 +41,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 2. Click the **Home** tab, click **Get Data** from the **External data** ribbon, and then select **More**.
 
     ![HDInsight Power BI open data](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
-3. From the **Get Data** pane, type **hdinsight** in the search box. If you don't see **HDInsight Interactive Query (Beta)**, you need to update your Power Bi Desktop to the latest version.
+3. From the **Get Data** pane, type **hdinsight** in the search box. If you don't see **HDInsight Interactive Query (Beta)**, you need to update your Power BI Desktop to the latest version.
 4. Click **HDInsight Interactive Query (Beta)**, and then click **Connect**.
 5. Click **Continue** to close the **Preview connector** warning dialog.
 6. From **HDInsight Interactive Query**, select or enter the following information:
@@ -57,7 +57,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 
     ![HDInsight interactive query power bi hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
-## Visualize date
+## Visualize data
 
 Continue from the last procedure.
 

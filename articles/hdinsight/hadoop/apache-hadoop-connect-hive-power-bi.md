@@ -49,7 +49,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 4. From the **From ODBC** pane, select the data source name you created in the last section, and then click **OK**.
 5. From the **Navigator** pane, expand **ODBC->HIVE->default**, select **hivesampletable**, and then click **Load**.
 
-## Visualize date
+## Visualize data
 
 Continue from the last procedure.
 
