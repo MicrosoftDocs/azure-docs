@@ -198,7 +198,7 @@ By default, the PreferredDataLocation attribute is not enabled for synchronizati
 > Currently, Azure AD allows the PreferredDataLocation attribute on both synchronized User objects and cloud User objects to be directly configured using Azure AD PowerShell. Once you have enabled synchronization of the PreferredDataLocation attribute, you must stop using Azure AD PowerShell to configure the attribute on **synchronized User objects** as Azure AD Connect will override them based on the source attribute values in on-premises Active Directory.
 
 > [!IMPORTANT]
-> Since September 1 2017, Azure AD no longer allows the PreferredDataLocation attribute on **synchronized User objects** to be directly configured using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect.
+> Since September 1, 2017, Azure AD no longer allows the PreferredDataLocation attribute on **synchronized User objects** to be directly configured using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect.
 
 Before enabling synchronization of the PreferredDataLocation attribute, you must:
 
@@ -228,9 +228,9 @@ The steps to enable synchronization of the PreferredDataLocation attribute can b
 Ensure no synchronization takes place while you are in the middle of updating synchronization rules to avoid unintended changes being exported to Azure AD. To disable the built-in sync scheduler:
 
 1. Start a PowerShell session on the Azure AD Connect server.
-2. Disable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
-3. Start the **Synchronization Service Manager** by going to **START**, **Synchronization Service**.
-4. Go to the **Operations** tab and confirm there is no operation whose status is *in progress*.
+2. Disable scheduled synchronization by running the cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+3. Start the **Synchronization Service Manager** by going to **START** > **Synchronization Service**.
+4. Go to the **Operations** tab and confirm there is no operation with the status *in progress*.
 
 ![Synchronization Service Manager - check no operations in progress](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
@@ -259,7 +259,7 @@ By default, the PreferredDataLocation attribute is not imported into the Azure A
 ### Step 4: Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
 The inbound synchronization rule permits the attribute value to flow from the source attribute from on-premises Active Directory to the Metaverse:
 
-1. Start the **Synchronization Rules Editor** by going to **START**, **Synchronization Rules Editor**.
+1. Start the **Synchronization Rules Editor** by going to **START** > **Synchronization Rules Editor**.
 2. Set the search filter **Direction** to be **Inbound**.
 3. Click **Add new rule** button to create a new inbound rule.
 4. Under the **Description** tab, provide the following configuration:
@@ -329,7 +329,7 @@ In general, full synchronization cycle is required since we have added new attri
 
    1. Go to the **Operations** tab in the Synchronization Service Manager.
 
-   2. Right-click the **on-premises AD Connector** and select **Run...**
+   2. Right-click the **on-premises AD Connector** and select **Run...**.
 
    3. In the pop-up dialog, select **Full Import** and click **OK**.
 
@@ -352,7 +352,7 @@ The source attribute from on-premises Active Directory and PreferredDataLocation
 
 4. Run **Full Synchronization** step on the **on-premises AD Connector**:
 
-   1. Right-click the **on-premises AD Connector** and select **Run...**
+   1. Right-click the **on-premises AD Connector** and select **Run...**.
 
    2. In the pop-up dialog, select **Full Synchronization** and click **OK**.
 
@@ -374,7 +374,7 @@ The source attribute from on-premises Active Directory and PreferredDataLocation
 
 6. Run **Export** step on the **Azure AD Connector**
 
-   1. Right-click the **Azure AD Connector** and select **Run...**
+   1. Right-click the **Azure AD Connector** and select **Run...**.
 
    2. In the Run Connector pop-up dialog, select **Export** and click **OK**.
 
