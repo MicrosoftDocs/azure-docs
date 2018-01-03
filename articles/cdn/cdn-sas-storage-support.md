@@ -1,5 +1,5 @@
 ---
-title: SAS storage support | Microsoft Docs
+title: Using Azure CDN with SAS | Microsoft Docs
 description: ''
 services: cdn
 documentationcenter: ''
@@ -18,17 +18,15 @@ ms.author: rli v-deasim
 
 ---
 
-# SAS storage support
+# Using Azure CDN with SAS
 
-## Setting up the Azure Content Delivery Network (CDN) to work with storage SAS
-
-When you serve content from the storage container of your storage account, you may want to secure how users can access your files by granting private access to the storage container. Otherwise, a storage container for which public access has been granted can be accessed by anyone who knows its URL. To protect a storage account that you’ve allowed the CDN to access, you can use the Shared Access Signature (SAS) feature from Azure storage to grant limited access to private storage containers.
+When you serve content from the storage container of your storage account, you may want to secure how users can access your files by granting private access to the storage container. Otherwise, a storage container for which public access has been granted can be accessed by anyone who knows its URL. To protect a storage account that you’ve allowed the content delivery network (CDN) to access, you can use the Shared Access Signature (SAS) feature from Azure storage to grant limited access to private storage containers.
 
 A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. You can provide a SAS to clients that you do not trust with your storage account key but to whom you want to delegate access to certain storage account resources. By distributing a shared access signature URI to these clients, you grant them access to a resource for a specified period of time.
  
-SAS allows you to define various parameters of access to a blob, such as start and expiry times, permissions (read/write), and IP ranges. This article describes how to use SAS in conjunction with CDN. For more information about SAS, including how to create it and its parameter options, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+SAS allows you to define various parameters of access to a blob, such as start and expiry times, permissions (read/write), and IP ranges. This article describes how to use SAS in conjunction with Azure CDN. For more information about SAS, including how to create it and its parameter options, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-## Usage
+## Setting up Azure CDN to work with storage SAS
 The following three options are recommended for using SAS with Azure CDN. All options assume that you have already created a working SAS (see prerequisites). 
  
 ### Prerequisites
@@ -125,7 +123,7 @@ This option is the most secure and customizable. To use CDN security token authe
 
 3. When you renew the SAS, update the Url Rewrite rule to use the new SAS token. 
 
-### SAS parameter considerations
+## SAS parameter considerations
 
 Because SAS parameters are not visible to the CDN, the CDN cannot change its delivery behavior based on them. The defined parameter restrictions apply only on requests that the CDN makes to the origin server, not for requests from the client to the CDN. This distinction is important to consider when you set the SAS parameters. If these advanced capabilities are required and you are using [Option 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the CDN security token.
 
