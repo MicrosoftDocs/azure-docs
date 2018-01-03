@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2017
+ms.date: 01/03/2018
 ms.author: terrylan
 
 ---
@@ -43,11 +43,11 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 ## Add new Windows computer
 
 1. Under the Security Center main menu, select **Onboarding to advanced security**.
-2. Select **Do you want to add new non-Azure computers**.
+2. Select **Do you want to add non-Azure computers**.
 
    ![Onboard to advanced security][3]
 
-3. On **Add Non-Azure Computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
+3. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
 
     ![Add non-Azure computer][4]
 
@@ -90,7 +90,7 @@ To remove the agent:
 3. In **Programs and Features**, select **Microsoft Monitoring Agent** and click **Uninstall**.
 
 ## Next steps
-In this quickstart, you provisioned the Microsoft Monitoring agent on a Windows computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the Microsoft Monitoring Agent on a Windows computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

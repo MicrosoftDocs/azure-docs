@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2017
+ms.date: 01/03/2018
 ms.author: terrylan
 
 ---
@@ -43,10 +43,10 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 ## Add new Linux computer
 
 1. Under the Security Center main menu, select **Onboarding to advanced security**.
-2. Select **Do you want to add new non-Azure computers**.
+2. Select **Do you want to add non-Azure computers**.
    ![Onboard to advanced security][3]
 
-3. On **Add Non-Azure Computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
+3. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
 
     ![Add non-Azure computer][4]
 
