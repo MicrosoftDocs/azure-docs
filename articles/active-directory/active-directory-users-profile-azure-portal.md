@@ -40,5 +40,4 @@ This article explains how to add user profile information, such as a profile pic
 * [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Add or change profile information for a user in Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Delete a user from a directory in Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
