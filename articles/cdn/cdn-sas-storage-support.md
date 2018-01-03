@@ -63,7 +63,7 @@ This option is the simplest and uses only a single SAS token, which is passed fr
    https://demoendpoint.azureedge.net/test/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
+3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
 ### Option 2: Hidden CDN security token using rewrite rule
  
@@ -91,9 +91,9 @@ With this option, you can secure the origin blob storage without requiring a SAS
    For example:   
    `https://demoendpoint.azureedge.net/test/demo.jpg`
        
-   Note that anyone, regardless of whether they are using a SAS token, can access a CDN endpoint. In addition, long caching durations can make the file available after the expiration time of the SAS has passed. If you want to make your cached file inaccessible after the expiration time or after you revoke a SAS, you must purge it.
+   Note that anyone, regardless of whether they are using a SAS token, can access a CDN endpoint. 
 
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, you must perform a purge operation on the file to clear it from cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
+3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin. Because the CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the CDN origin server after the SAS expiration time has elapsed. If this occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on the CDN, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
 ### Option 3: Using CDN security token authentication with a rewrite rule
 
