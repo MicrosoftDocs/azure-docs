@@ -6576,6 +6576,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storsimple/storsimple-virtual-array-configure-mpio-windows-server.md",
+            "redirect_url": "/azure/storsimple",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storsimple/storsimple-ova-backup.md",
             "redirect_url": "/azure/storsimple/storsimple-virtual-array-backup",
             "redirect_document_id": false
