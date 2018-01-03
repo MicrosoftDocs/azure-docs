@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
@@ -21,12 +21,12 @@ ms.custom: oldportal;it-pro;
 ---
 
 # Apps, permissions, and consent in Azure Active Directory
-Within Azure Active Directory, you can add applications to your directory.  The applications can vary depending on the type of application.  To view applications in the classic portal, select a directory and choose applications.
+Within Azure Active Directory, you can add applications to your directory.  The applications can vary depending on the type of application.  To view applications in the portal, select a directory and choose applications.
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
 > [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article.
+> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure portal referenced in this article.
 
 ## Types of apps
 
@@ -70,7 +70,7 @@ Summarizing:
 
 ## Controls
 
-The following is a list of the different admin controls available for all this behavior. The admin controls can be accessed in the classic portal from configure under the directory.
+The following is a list of the different admin controls available for all this behavior. The admin controls can be accessed in the portal from configure under the directory.
 
 ![](media/active-directory-apps-permissions-consent/apps7.png)
 
@@ -82,7 +82,7 @@ In the Azure portal, under **manage**, **user settings**.
 
 - You can control whether users can consent to apps:
 
-In the classic portal, select **Users may give applications permissions to access their data.**
+In the portal, select **Users may give applications permissions to access their data.**
 ![](media/active-directory-apps-permissions-consent/apps8.png)
 
 In the Azure portal, select **users can allow apps to access their data**.
@@ -91,7 +91,7 @@ In the Azure portal, select **users can allow apps to access their data**.
 
 
 - You can control whether users can register their own single-tenant LOB apps:
-In the classic portal select **Users may add integrated applications.**
+In the portal select **Users may add integrated applications.**
 ![](media/active-directory-apps-permissions-consent/apps9.png)
 
 In the Azure portal, select **users can allow apps to access their data**.
