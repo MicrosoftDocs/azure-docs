@@ -51,7 +51,7 @@ The Availability Zones preview is available in the East US 2, West Europe, and F
 3. Choose a region that supports Availability Zones.
 4. Use one of the following links to start using Availability Zones with your service. 
     - [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Create a zonal virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Create a virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Load balancer](../load-balancer/load-balancer-standard-overview.md)
 

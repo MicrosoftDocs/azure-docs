@@ -20,7 +20,7 @@
 #### [Add a managed disk in Availability Zones with PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Virtual machine scale sets
-#### [Create a virtual machine scale set with Azure portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Create a scale set in an Availability Zone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Load balancer
 #### [What is Load balancer?](../load-balancer/load-balancer-standard-overview.md)
