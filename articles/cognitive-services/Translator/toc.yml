@@ -57,7 +57,7 @@
   - name: FAQ
     href: https://www.microsoft.com/en-us/translator/faq.aspx 
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/ 
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/558796-translator
   - name: Stack Overflow
