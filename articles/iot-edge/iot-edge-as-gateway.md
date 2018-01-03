@@ -53,7 +53,7 @@ Here is a quick cheat sheet that compares IoT Hub primitives when using transpar
 | Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device | The cloud can address each connected device individually |
 | [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device | Apply to each device |
 
-When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+When using an opaque gateway (protocol translation) pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 ## Next steps
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 
