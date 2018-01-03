@@ -104,10 +104,10 @@ After the namespace and queue are provisioned, and you have the necessary creden
 
 ## Clean up deployment
 
-Run the following command to remove the resource group, namespace, storage account, and all related resources
+Run the following command to remove the resource group, namespace, and all related resources:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name eventhubsResourceGroup
+Remove-AzureRmResourceGroup -Name <resource_group_name>
 ```
 
 ## Next steps
