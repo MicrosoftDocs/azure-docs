@@ -19,11 +19,11 @@ ms.author: cynthn
 
 # Use Azure file shares with Windows VMs 
 
-You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all your VMs to share. In this topic, we show you how to create and mount an Azure file share, and how to upload and download files.
+You can use Azure file shares as a way to store and access files from your VM. For example, you can store a script or an application configuration file that you want all your VMs to share. In this article, we show you how to create and mount an Azure file share, and how to upload and download files.
 
 ## Connect to a file share from a VM
 
-This section assumes you already have a file share that you want to connect to. If you need to create one, see [Create a file share](#create-a-file-share) later in this topic.
+This section assumes you already have a file share that you want to connect to. If you need to create one, see [Create a file share](#create-a-file-share) later in this article.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left menu, click **Storage accounts**.
@@ -32,7 +32,7 @@ This section assumes you already have a file share that you want to connect to. 
 5. Select a file share or click **+ File share** to create a new file share to use.
 6. Click **Connect** to open a page that shows the command-line syntax for mounting the file share from Windows or Linux.
 7. In **Drive letter**, select the letter that you would like to use to identify the drive.
-8. Choose which syntax to use and select the copy button on the right to copy it to your clipboard. Paste it someplace where you can easily access it. 
+8. Choose which syntax to use and select the copy button on the right to copy it to your clipboard. Paste it some place where you can easily access it. 
 8. Connect to your VM and open a command prompt.
 9. Paste in the edited connection syntax and hit **Enter**.
 10. When the connection has been created, you get the message **The command completed successfully.**
