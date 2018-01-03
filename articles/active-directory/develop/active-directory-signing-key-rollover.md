@@ -3,7 +3,7 @@ title: Signing Key Rollover in Azure AD | Microsoft Docs
 description: This article discusses the signing key rollover best practices for Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: PatAltimore
 manager: mtillman
 editor: ''
 
@@ -180,7 +180,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
