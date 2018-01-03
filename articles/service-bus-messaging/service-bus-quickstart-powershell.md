@@ -20,7 +20,7 @@ ms.author: sethm
 
 # Create Service Bus namespace and queue using PowerShell
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. This article describes how to use PowerShell to create a Service Bus messaging namespace and a queue within that namespace, and how toobtain the authorization credentials on that namespace. Once these entities are provisioned, you can start sending and receiving messages from Service Bus.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. This article describes how to use PowerShell to create a Service Bus messaging namespace and a queue within that namespace, and how to obtain the authorization credentials on that namespace. Once these entities are provisioned, you can start sending and receiving messages from Service Bus.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
@@ -97,7 +97,7 @@ Copy and paste the **PrimaryConnectionString** value to a temporary location, su
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
 
 1. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
-2. Double click **Program.cs** to open it in the Visual Studio editor.
+2. Double-click **Program.cs** to open it in the Visual Studio editor.
 3. Replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the [previous section](#get-the-connection-string).
 4. Replace the value of `QueueName` with the name of the queue you [created previously](#create-a-queue).
 5. Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
