@@ -1,14 +1,14 @@
 ﻿---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
-services: virtual-machines-windows
+services: virtual-network
 documentationcenter: ''
 author: jdial
 manager: jeconnoc
 editor: ''
 
 ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
@@ -21,7 +21,7 @@ ms.author: jimdial
 
 In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
-![Comparison](./media/accelerated-networking/accelerated-networking.png)
+![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
 
@@ -186,7 +186,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the driver i
 3. Enter the username and password you entered in [Create the virtual machine](#create-the-virtual-machine). If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](quick-create-portal.md#connect-to-virtual-machine).
 4. Right-click the Windows Start button and click **Device Manager**. Expand the **Network adapters** node. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following picture:
    
-    ![Device Manager](./media/accelerated-networking/device-manager.png)
+    ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
 Accelerated Networking is now enabled for your VM.
 

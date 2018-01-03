@@ -1,7 +1,7 @@
 ---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
-services: virtual-machines-linux
+services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -23,7 +23,7 @@ ms.custom:
 
 In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. Accelerated Networking is in preview release for specific Linux distributions. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
-![Comparison](./media/accelerated-networking/accelerated-networking.png)
+![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
 
@@ -172,7 +172,24 @@ From the Bash shell, enter `uname -r` and confirm that the kernel version is one
 * **RHEL**: 7.4.2017120423
 * **CentOS**: 7.4.20171206
 
-Run `ifconfig` and confirm that the **bond0** interface is showing as *UP*.
- 
->[!NOTE]
->Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
+
+Confirm the Mellanox VF device is exposed to the VM with the `lspci` command. The returned output is similar to the following output:
+
+```bash
+0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
+0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
+0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+0000:00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 02)
+0000:00:08.0 VGA compatible controller: Microsoft Corporation Hyper-V virtual VGA
+0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+```
+
+Check for activity on the VF (virtual function) with the `ethtool -S eth0 | grep vf_` command. If you receive output similar to the following sample output, accelerated networking is enabled and working.
+
+```bash
+vf_rx_packets: 992956
+vf_rx_bytes: 2749784180
+vf_tx_packets: 2656684
+vf_tx_bytes: 1099443970
+vf_tx_dropped: 0
+```
