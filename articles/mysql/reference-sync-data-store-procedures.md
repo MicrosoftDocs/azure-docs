@@ -45,7 +45,7 @@ If state of *SLAVE_IO_Running* and *Slave_SQL_Running* are **yes**, that means t
 
 ## Next steps 
 For more information about MySQL Data Sync, see:
-- [MySQL Data Sync Concept](./concepts-sync-data.md)
+- MySQL Data Sync Concept
 - Getting Started with Azure Database for MySQL Data Sync
 
 For more information about Azure Database for MySQL, see:
