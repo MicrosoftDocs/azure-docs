@@ -31,7 +31,7 @@ At a high level, the entire authorization flow for an application looks a bit li
 ![OAuth Auth Code Flow](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Request an authorization code
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 endpoints from your application's page in Azure Classic Portal, in the **View Endpoints** button in the bottom drawer.
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 endpoint for your tenant by selecting **App registrations > Endpoints** in the Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -130,7 +130,7 @@ grant_type=authorization_code
 | Parameter |  | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Classic Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. The Application Id is displayed in the settings of the app registration.  |
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
