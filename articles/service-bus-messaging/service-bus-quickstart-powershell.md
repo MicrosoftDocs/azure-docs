@@ -24,11 +24,11 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
-This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+This quickstart requires the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and follow the on-screen directions.
+Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and follow the on-screen directions:
 
 ```powershell
 Login-AzureRmAccount
@@ -120,6 +120,6 @@ In this article, you created a Service Bus namespace and other resources require
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
+[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
