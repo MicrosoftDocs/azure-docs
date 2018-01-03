@@ -18,6 +18,8 @@ In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud 
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
+- **Azure virtual machine** - You need to connect to an Azure virtual machine to complete this QuickStart. The article, [Create a complete Linux virtual machine environment in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-complete-vm), illustrates the steps to use Ansible to create a virtual machine.
+
 ## Configure Cloud Shell
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -41,30 +43,34 @@ In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud 
     ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-started.png)
 
 ## Set up authentication with Azure
-By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscription> placeholder with the name of your Azure subscription):
+By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscriptionId> placeholder with your Azure subscription ID):
 
 ```cli
-az account set --subscription <YourAzureSubscriptionName>
+az account set --subscription <YourAzureSubscriptionId>
 ```
 
-## Launch Bash in Cloud Shell
+## Use Ansible to connect to your Azure virtual machine
+Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
-1.	Launch Cloud Shell from your preferred location
-2.	Verify your preferred subscription is set
-azcliinteractive Copy It 
-az account show
+1. Open the Azure Cloud Shell.
 
-## Use Ansible connect to your Azure VM
-If you don’t have any Azure VM, you could create one through below commands or follow https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-create-complete-vm to use Ansible creating one VM. 
-azcliinteractive Copy 
-az group create --resource-group myresourcegroup --location eastus
-az vm create --resource-group myresourcegroup --name myfirstVM --image UbuntuLTS --generate-ssh-keys
+1. Use the GNU wget command to retrieve the `azure_rm.py` script by typing the following into the Cloud Shell prompt:
 
-Here we will use Azure resource manager inventory script named azure_rm.py to identify your host. More information, you could refer to our new doc Use Ansible manage your Azure dynamic inventories.docx.
-azcliinteractive Copy 
-wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
-chmod +x azure_rm.py
-ansible -i azure_rm.py myfirstVM -m ping
+  ```cli
+  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
+  ```
+
+1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script by entering the following into the Cloud Shell prompt:
+
+  ```cli
+  chmod +x azure_rm.py
+  ```
+
+1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to ping your virtual machine - to ensure that it can be contacted - by entering the following command into the Cloud Shell: 
+
+  ```cli
+  ansible -i azure_rm.py &lt;YourVMName> -m ping
+  ```
 
 The output is as following. 
 The authenticity of host '52.168.52.51 (52.168.52.51)' can't be established.
@@ -77,10 +83,9 @@ myfirstVM | SUCCESS => {
 }
 
 The other example is as following. 
-azcliinteractive Copy 
 ansible -i azure_rm.py myfirstVM -m shell -a 'hostname'
 
-Run Ansible playbook in CloudShell
+## Run Ansible playbook in CloudShell
 Create a Resource Group
 Below is an example of an Ansible Playbook to create a resource group. You could run below command to create a rg.yml and copy below example to rg.yml. 
 azcliinteractive Copy 
