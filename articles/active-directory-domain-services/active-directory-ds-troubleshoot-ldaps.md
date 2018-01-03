@@ -45,6 +45,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
    6. Give the rule an appropriate name, description, and priority. This rule's priority should be higher than your "Deny all" rule's priority, if you have one.
    7. Click **OK**.
 5. Verify that your rule has been created.
+6. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 
 ## Contact Us

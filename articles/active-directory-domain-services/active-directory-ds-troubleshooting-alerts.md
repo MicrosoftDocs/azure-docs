@@ -65,6 +65,7 @@ To restore your service, follow the steps provided in the [Troubleshooting Secur
   7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+5. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 ### AADDS100: Missing tenant
 **Error message:**
@@ -124,6 +125,7 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](#active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
+8. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
 
 ### AADDS104: Network Error

@@ -68,7 +68,7 @@ Use the following steps to restore Domain Services on your tenant:
 
 4. Click **Properties**.
 
-5. Check to see if you have disabled the toggle that says "Enable for users to sign-in?."
+5. Check to see if you have disabled the toggle that says "Enable for users to sign-in."
 
 6. Re-enable the application by toggling to "Yes."
 
