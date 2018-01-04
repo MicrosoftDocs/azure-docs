@@ -195,15 +195,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][203]
 
-5. In the toolbar on the bottom, click **Assign**.
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-	![Assign User][205]
+6. Click **Select** button on the **Users and groups** dialog.
 
-6. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-7. Click **Select** button on the **Users and groups** dialog.
-
-8. Click **Assign** button on the **Add Assignment** dialog.
+7. Click **Assign** button on the **Add Assignment** dialog.
 
 ### Testing single sign-on
 
