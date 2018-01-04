@@ -81,7 +81,7 @@ Planned maintenance information can be seen using [azure vm get-instance-view](/
 Maintenance information is returned only if there is maintenance planned. If there is no maintenance scheduled that impacts the VM, the command does not return any maintenance information. 
 
 ```azure-cli
-az vm get-instance-view  - g rgName  -n vmName 
+az vm get-instance-view -g rgName -n vmName
 ```
 
 The following values are returned under MaintenanceRedeployStatus: 
