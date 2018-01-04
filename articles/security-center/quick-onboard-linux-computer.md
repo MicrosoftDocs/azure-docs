@@ -63,6 +63,12 @@ Now you can monitor your Azure VMs and non-Azure computers in one place. Under *
 
   ![Compute blade][7]
 
+There are two types of icons represented on the **Compute** blade:
+
+  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure computer.
+
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM.
+
 ## Clean up resources
 When no longer needed, you can remove the agent from the Linux computer.
 
@@ -72,16 +78,6 @@ To remove the agent:
 2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
-
-Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation.
-
-  ![Compute blade][7]
-
-There are two types of icons represented on the **Compute** blade:
-
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure computer.
-
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM.
 
 ## Next steps
 In this quick start, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.

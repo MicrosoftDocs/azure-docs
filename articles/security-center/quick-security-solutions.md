@@ -13,28 +13,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
 ms.custom: mvc
 ---
 
 # Quickstart: Connect Security Solutions to Security Center
 
-In addition to collecting security data from your computers, you can integrate security data from a variety of other security solutions, including any that support Common Event Format (CEF). Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms. By connecting your CEF logs to Security Center, you can take advantage of Search & Correlation, Alerting and Threat Intelligence enrichment for each log.
+In addition to collecting security data from your computers, you can integrate security data from a variety of other security solutions, including any that support Common Event Format (CEF). CEF is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms.
 
 This quickstart shows you how to:
-- Connect a security solution to Security Center using Common Event Format Logs (CEF)
+- Connect a security solution to Security Center using CEF Logs
 - Validate the connection with the security solution
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/free/).
 
-To step through this quickstart, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost for the first 60 days   The Quickstart: Onboard your Azure subscription to Security Center Standard walks you through how to upgrade to Standard.
+To step through this quickstart, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost for the first 60 days. The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
 
 You also need a [Linux machine](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux), with Syslog service that is already connected to your Security Center.
 
-
-## Connect a Security Solution using Common Event Format
+## Connect solution using CEF
 
 1. Sign into the Azure portal.
 2. On the **Microsoft Azure** menu, select **Security Center**.
@@ -59,7 +58,7 @@ You also need a [Linux machine](https://docs.microsoft.com/azure/log-analytics/l
 	![Restart the syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
 
 
-## Validate the connection with the security solution
+## Validate the connection
 
 Before you proceed to the steps below, you will need to wait until the syslog starts reporting to Security Center. This can take some time, and it will vary according to the size of the environment.
 
@@ -69,7 +68,7 @@ Before you proceed to the steps below, you will need to wait until the syslog st
 
 
 ## Next steps
-In this quick start, you learned how to connect a Linux Syslog solution to Security Center. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quick start, you learned how to connect a Linux Syslog solution to Security Center using CEF. By connecting your CEF logs to Security Center, you can take advantage of search & custom alert rules, and threat intelligence enrichment for each log. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](./tutorial-security-policy.md)
