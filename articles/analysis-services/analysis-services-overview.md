@@ -1,5 +1,5 @@
 ---
-title: What is Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services overview| Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
 documentationcenter: ''
