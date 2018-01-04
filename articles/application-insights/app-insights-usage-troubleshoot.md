@@ -32,9 +32,11 @@ If your app is sending [authenticated user IDs](app-insights-api-custom-events-m
 The usage analytics tools don't currently support counting users or sessions based on properties other than anonymous user ID, authenticated user ID, or session ID.
 
 ## Naming Events
-**My app has thousands of different page view, custom event, and request names. It's hard to distinguish between them, and the usage analytics tools often become unresponsive. How can I fix this?**
+**My app has thousands of different page view and custom event names. It's hard to distinguish between them, and the usage analytics tools often become unresponsive. How can I fix this?**
 
-* TBD answer.
+Page view and custom event names are used throughout the usage analytics tools, and naming events carefully is critical to getting value from these tools. Naming events is an art, finding a balance between having too few, overly generic names ("Button clicked") and having too many, overly specific names ("Edit button clicked on http://www.contoso.com/index").
+
+If your app is sending too many event names, the solution is to change the event names in your app's source code. However, be aware that **all telemetry data in Application Insights is stored for 90 days and cannot be deleted**, so changes you make to reduce the number of unique event names will take 90 days to fully manifest.
 
 ## Next steps
 
