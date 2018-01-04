@@ -175,11 +175,11 @@ For the tumbling window trigger:
 * **Window Start & Window End Variables**: Users can access triggerOutputs().windowStartTime and triggerOutputs().windowEndTime as trigger system variables in the trigger definition, that will be the window start and window end times, respectively. See *Using WindowStart and WindowEnd* for more details on using the system variables. For example, if you have a tumbling window trigger running every hour, for the window 1am-2am, the triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z and triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
 * **Pipeline to Trigger Relationship**: Scheduler triggers have a n:m relationship with pipelines. A scheduler trigger can trigger multiple pipelines. Tumbling Window triggers have a 1:1 relationship with pipelines. A tumbling window trigger can only trigger one pipeline.
 
-For more specific information about Tumbling Window triggers and examples, see [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger-trigger.md)
+For more specific information about Tumbling Window triggers and examples, see [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md)
 
 ## Next steps
 See the following tutorials:
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [How to: Create a Schedule Trigger](how-to-create-schedule-trigger.md)
-- [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger-trigger.md)
+- [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md)
