@@ -23,7 +23,7 @@ ms.author: pratshar
 
 This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.  
 
-You run a test failover to validate your replication and disaster reecovery strategy without any data loss or downtime. A test failover doesn't impact ongoing replication, or your production environment. You can run a test failover on a specific virtual machine (VM), or on a [recovery plan](site-recovery-create-recovery-plans.md) containing multiple VMs. 
+You run a test failover to validate your replication and disaster recovery strategy without any data loss or downtime. A test failover doesn't impact ongoing replication, or your production environment. You can run a test failover on a specific virtual machine (VM), or on a [recovery plan](site-recovery-create-recovery-plans.md) containing multiple VMs. 
 
 
 ## Run a test failover
