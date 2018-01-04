@@ -67,11 +67,6 @@ The Java client library for Event Hubs is available for use in Maven projects fr
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
 </dependency>
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-eventhubs-eph</artifactId>
-  <version>0.14.0</version>
-</dependency>
 ```
 
 For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository][Maven Package] or from [the release distribution point on GitHub](https://github.com/Azure/azure-event-hubs/releases).  
