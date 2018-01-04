@@ -44,16 +44,16 @@ The Azure services that support Availability Zones are:
 
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on VM sizes, see the [Windows](/virtual-machines/windows/sizes.md) or [Linux](/virtual-machines/linux/sizes.md) overview docs.
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see the [Windows](../virtual-machines/windows/sizes.md) or [Linux](../virtual-machines/linux/sizes.md) overview docs.
 
 ### Azure CLI 2.0
-View the available VM SKUs with the [az vm list-skus](/cli/azure/vm#az_vm_list_skus) command. The following example lists available VM SKUs in the *eastus2* region:
+You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm#az_vm_list_skus) command. The following example lists available VM SKUs in the *eastus2* region:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-The output is similar to the following condensed example:
+The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones
@@ -72,13 +72,13 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 ```
 
 ### Azure PowerShell
-View the available VM SKUs with the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. The following example lists available VM SKUs in the *eastus2* region:
+You can view the available VM SKUs with the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. The following example lists available VM SKUs in the *eastus2* region:
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 ```
 
-The output is similar to the following condensed example:
+The output is similar to the following condensed example, which shows the Availability Zones in which each VM size is available:
 
 ```powershell
 ResourceType                Name  Location      Zones
