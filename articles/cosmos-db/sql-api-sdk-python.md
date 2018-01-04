@@ -50,6 +50,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.3.1"/>2.3.1
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB
+
 ### <a name="2.3.0"/>2.3.0
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
 
@@ -133,6 +136,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |December 21, 2017 |--- |
 | [2.3.0](#2.3.0) |November 10, 2017 |--- |
 | [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
 | [2.2.0](#2.2.0) |May 10, 2017 |--- |
