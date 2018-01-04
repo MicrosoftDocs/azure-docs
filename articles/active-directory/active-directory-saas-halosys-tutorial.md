@@ -24,7 +24,7 @@ Integrating Halosys with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Halosys
 - You can enable your users to automatically get signed-on to Halosys (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+- You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -97,7 +97,7 @@ To configure and test Azure AD single sign-on with Halosys, you need to complete
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Halosys application.
+In this section, you enable Azure AD single sign-on in the portal and configure single sign-on in your Halosys application.
 
 
 **To configure Azure AD single sign-on with Halosys, perform the following steps:**
@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 
 ### Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+In this section, you create a test user in the portal called Britta Simon.
 
 
 ![Create Azure AD User][20]
