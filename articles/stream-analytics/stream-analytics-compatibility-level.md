@@ -21,10 +21,9 @@ ms.author: sngun
 
 # Compatibility level for Azure Stream Analytics jobs
  
-Compatibility level refers to the release-specific behaviors of the Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually these updates are automatically available for end users. In some cases, new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. In these cases, we introduce the concept of compatibly level that can be explicitly set by users for each individual job. 
+Compatibility level refers to the release-specific behaviors of an Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually updates are automatically made available to end users. However, some new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. A compatibility level is used to represent a major change introduced in Stream Analytics. Major changes are always introduced with a new compatibility level. 
 
-> [!NOTE]
-> Breaking changes are always introduced with a new combability level, this will make sure that existing jobs can run without failing. It’s a best practice to create new jobs by using the latest compatibility level available. 
+Compatibility level makes sure that existing jobs run without any failure. When you create a new Stream Analytics job, it’s a best practice to create it by using the latest compatibility level that is available for you. 
  
 ## Set a compatibility level 
 
@@ -59,7 +58,7 @@ The following major changes are introduced in compatibility level 1.1:
  
 * **FloatNaNDeserializationDisabled**  
 
-  * **In previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number e.g. Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.
+  * **In previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number. For example, Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.
 
   * **In current version:** CREATE TABLE allows you to specify a strong schema. The Stream Analytics engine validates that the data conforms to this schema. With this model, the command can filter events with NaN values. 
 
