@@ -2,8 +2,8 @@
 title: Enable offline syncing with iOS mobile apps | Microsoft Docs
 description: Learn how to use Azure App Service mobile apps to cache and sync offline data in iOS applications.
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Enable offline syncing with iOS mobile apps

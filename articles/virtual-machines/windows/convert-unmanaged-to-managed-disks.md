@@ -5,7 +5,7 @@ description: How to convert a Windows VM from unmanaged disks to managed disks b
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 01/03/2018
 ms.author: cynthn
 ---
 
@@ -29,6 +29,7 @@ This article shows you how to convert VMs by using Azure PowerShell. If you need
 
 
 * Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+
 * Review [the FAQ about migration to Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]

@@ -69,14 +69,6 @@ The function in the following table is used to access connections in a Python2 r
 4. In the **Type** dropdown, select the type of connection you want to create. The form will present the properties for that particular type.
 5. Complete the form and click **Create** to save the new connection.
 
-### To create a new connection with the Azure classic portal
-
-1. From your automation account, click **Assets** at the top of the window.
-2. At the bottom of the window, click **Add Setting**.
-3. Click **Add Connection**.
-4. In the **Connection Type** dropdown, select the type of connection you want to create.  The wizard will present the properties for that particular type.
-5. Complete the wizard and click the checkbox to save the new connection.
-
 ### To create a new connection with Windows PowerShell
 
 Create a new connection with Windows PowerShell using the [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
