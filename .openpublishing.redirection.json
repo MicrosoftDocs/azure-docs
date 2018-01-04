@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/search/search-howto-index-documentdb.md",
+        "redirect_url": "/azure/search/search-howto-index-cosmosdb",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
         "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
         "redirect_document_id": true
