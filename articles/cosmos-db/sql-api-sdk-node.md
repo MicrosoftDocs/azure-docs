@@ -60,6 +60,13 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="1.14.2"/>1.14.2</a>
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB
+* Added Support for proxyUrl setting in ConnectionPolicy
+
+### <a name="1.14.1"/>1.14.1</a>
+* Minor fix for case sensitive file systems
+
 ### <a name="1.14.0"/>1.14.0</a>
 * Adds support for Session Consistency.
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
@@ -184,6 +191,8 @@ Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |December 21, 2017 |--- |
+| [1.14.1](#1.14.1) |November 10, 2017 |--- |
 | [1.14.0](#1.14.0) |November 9, 2017 |--- |
 | [1.13.0](#1.13.0) |October 11, 2017 |--- |
 | [1.12.2](#1.12.2) |August 10, 2017 |--- |
