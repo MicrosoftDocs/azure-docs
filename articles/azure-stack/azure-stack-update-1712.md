@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/05/2017
 ms.author: andredm
 
 ---
@@ -33,10 +33,17 @@ The Azure Stack 1712 update build number is **180103.2**.
 
 ## Before you begin
 
-### Prerequisites
+> [!WARNING]
+> If you’re currently in an active interactive remote session to the PEP, you need to exit the session before initiating the Azure Stack update process. You can type **exit** in the remote console to exit the session.
+> You can check if there’s any existing sessions by running the following PowerShell command **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. PowerShell command sample:
+```
+Get-PSSession | Remove-PSSession
+```
 
 > [!IMPORTANT]
 > Do not attempt to create virtual machines during the 1712 update installation process. See [manage updates in Azure Stack overview](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) for more details.
+
+### Prerequisites
 
 You must first install the Azure Stack [1711 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) before applying this update.
 
@@ -44,7 +51,7 @@ You must first install the Azure Stack [1711 Update](https://docs.microsoft.com/
 
 This update also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
 
-> [NOTE]
+> [!NOTE]
 > Please refer to your OEM partner website to download the updates.
 
 ### New features and fixes
