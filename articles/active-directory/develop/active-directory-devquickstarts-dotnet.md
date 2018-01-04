@@ -82,7 +82,7 @@ public MainWindow()
 }
 ```
 
-* Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
+* Now locate the `Search(...)` method, which will be invoked when the user clicks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

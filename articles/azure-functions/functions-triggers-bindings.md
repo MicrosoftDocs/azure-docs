@@ -407,6 +407,10 @@ module.exports = function (context, info) {
 
 In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see [Binding at runtime via imperative bindings](functions-reference-csharp.md#imperative-bindings) in the C# developer reference.
 
+## function.json file schema
+
+The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
 ## Next steps
 For more information on a specific binding, see the following articles:
 

@@ -30,7 +30,8 @@ A namespace is a scoping container for all your Azure Relay components. Multiple
 
 Congratulations! You have now created a relay namespace.
 
-## Next steps:
+## Next steps
+
 * [Relay FAQ](relay-faq.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)

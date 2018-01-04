@@ -1,5 +1,5 @@
 # Overview
-## [What is Azure Analysis Services?](analysis-services-overview.md)
+## [About Analysis Services](analysis-services-overview.md)
 ## [Supported data sources](analysis-services-datasource.md)
 ## [Authentication and user permissions](analysis-services-manage-users.md)
 ## [Connecting to on-premises data sources](analysis-services-gateway.md)
@@ -23,6 +23,7 @@
 ### [Manage database users](analysis-services-database-users.md)
 ### [Manage server administrators](analysis-services-server-admins.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
+### [Setup diagnostic logging](analysis-services-logging.md)
 ## Connect
 ### [Get client libraries](analysis-services-data-providers.md)
 ### [Connect with Excel](analysis-services-connect-excel.md)

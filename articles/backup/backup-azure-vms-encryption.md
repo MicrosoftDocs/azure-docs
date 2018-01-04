@@ -74,12 +74,12 @@ Use the following steps to set a backup goal, define a policy, configure items, 
 6. Choose the encrypted VMs to associate with the specified policy, and select **OK**.
 
       ![Select encrypted VMs](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. This page shows a message about key vaults associated to the encrypted VMs you selected. Backup requires read-only access to the keys and secrets in the key vault. It uses these permissions to back up the keys and secrets, along with the associated VMs.
+7. This page shows a message about key vaults associated to the encrypted VMs you selected. Backup requires read-only access to the keys and secrets in the key vault. It uses these permissions to back up the keys and secrets, along with the associated VMs.<br>
 If you are a **Member user**, Enable Backup process will seamlessly acquire access to the key vault to backup encrypted VMs without requiring any user intervention.
 
    ![Encrypted VMs message](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-azure-backup).
+   For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-backup)
 
    ![Encrypted VMs message](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
  
