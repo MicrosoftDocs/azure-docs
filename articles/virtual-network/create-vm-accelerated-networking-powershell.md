@@ -34,14 +34,23 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 * **Reduced jitter:** Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
 * **Decreased CPU utilization:** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
 
+## Supported operating systems
+Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016.
+
+## Supported VM instances
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with four or more physical cores. Hyperthreaded cores on instances like D/DSv3 only count as .5 of a physical core.  Supported series are:
+D/DSv2, D/DSv3, E/ESv3, F/FS, and Ms/Mms. 
+
+For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## Regions
+Available in all public Azure and Azure Government regions. 
+
 ## Limitations
 The following limitations exist when using this capability:
 
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
-* **Regions:** Available in most Azure regions. 
-* **Supported operating systems:** Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016
-* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 ## Create a virtual network
