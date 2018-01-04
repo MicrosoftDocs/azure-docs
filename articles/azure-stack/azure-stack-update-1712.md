@@ -29,18 +29,23 @@ This article describes the improvements and fixes in this update package, known 
 
 ## Build reference
 
-The Azure Stack 1712 update build number is **1712nn.n**.
+The Azure Stack 1712 update build number is **180103.2**.
 
 ## Before you begin
 
 ### Prerequisites
 
+> [!IMPORTANT]
+> Do not attempt to create virtual machines during the 1712 update installation process. See [manage updates in Azure Stack overview](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) for more details.
+
 You must first install the Azure Stack [1711 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) before applying this update.
 
 ### Post-update steps
+
 This update also requires that you install firmware updates from the OEM partner after you complete the 1712 Azure Stack update installation.
 
-Please refer to your OEM partner website to download the updates.
+> [NOTE]
+> Please refer to your OEM partner website to download the updates.
 
 ### New features and fixes
 
@@ -69,7 +74,8 @@ This update includes the following improvements and fixes for Azure Stack.
 
 #### Windows Server 2016 new features and fixes
 
-- [December, 12th - 2017—KKB4053579 (OS Build 14393.1944) ](https://support.microsoft.com/help/4053579)
+- [January, 3rd - 2018—KB4056890 (OS Build 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
+	- This update includes the software fixes for the industry-wide security issue described by [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
  
 ### Known issues with the update process
 
@@ -90,7 +96,7 @@ This section contains known issues that you may encounter during the 1712 update
 
 ### Known issues (post-installation)
 
-This section contains post-installation known issues with build **1712nn.n*.
+This section contains post-installation known issues with build **180103.2**.
 
 #### Portal
 
