@@ -15963,6 +15963,21 @@
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
         "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/azure/stream-analytics/",
+        "redirect_document_id": false
       }
     ]
 }
