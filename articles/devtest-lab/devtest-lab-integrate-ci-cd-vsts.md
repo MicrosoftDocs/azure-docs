@@ -84,7 +84,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
    When you run this script on the agent as part of the release definition, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
 
-## Create the release definition in Release Management
+## Create a release definition in Release Management
 To create the release definition, do the following:
 
 1. On the **Releases** tab of the **Build & Release** hub, select the plus sign (+) button.
