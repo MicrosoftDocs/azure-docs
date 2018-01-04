@@ -1,5 +1,5 @@
 ---
-title: Copy machine learning example experiments - Azure | Microsoft Docs
+title: Create experiments from machine learning examples - Azure | Microsoft Docs
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning.
 keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
@@ -18,7 +18,8 @@ ms.date: 01/05/2018
 ms.author: cgronlun
 
 ---
-# Copy example experiments to create new machine learning experiments
+# Create machine learning experiments from working examples in Azure AI Gallery
+
 Learn how to start with example experiments from [Azure AI Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
 The gallery has example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
@@ -39,8 +40,8 @@ To browse all experiments:
 1. Click **Browse all** at the top of the page.
 2. On the left-hand side, under **Refine by** in the **Categories** section, select **Experiment** to see all the experiments in the Gallery.
 3. You can find experiments that meet your requirements a couple different ways:
-   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: Under **Categories** click **Experiment**. Then, under **Algorithms Used**, click **Show all** and choose **PCA-Based Anomaly Detection**. <br></br>
-     ![Select filters](./media/sample-experiments/refine-the-view.png)
+   * **Select filters on the left.** For example, to browse experiments that use a PCA-based anomaly detection algorithm: Under **Categories** click **Experiment**. Then, under **Algorithms Used**, click **Show all** and in the dialog box choose **PCA-Based Anomaly Detection**. You may have to scroll to see it.<br></br>
+     ![Select filters](./media/sample-experiments/choose-an-algorithm.png)
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/sample-experiments/search-for-experiments.png)
 4. Click an experiment to learn more about it.
