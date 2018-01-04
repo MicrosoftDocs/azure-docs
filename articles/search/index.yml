@@ -42,6 +42,10 @@ sections:
       text: REST
       href: https://docs.microsoft.com/azure/search/search-fiddler
     - image: 
+        src: /azure/data-factory/media/index/logo_rest.svg
+      text: REST
+      href: /azure/search/search-fiddler
+    - image: 
         src: https://docs.microsoft.com/azure/search/media/index/logo_Csharp.svg
       text: .NET
       href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
