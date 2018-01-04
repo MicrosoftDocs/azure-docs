@@ -81,7 +81,9 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
 
-Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
+Note: Microsoft Azure for DreamSpark is now known as Microsoft Imagine for students.
+
+Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
 
 ### Can I create a preconfigured solution if I have Cloud Solution Provider (CSP) subscription?
 
