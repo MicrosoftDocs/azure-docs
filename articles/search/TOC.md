@@ -30,17 +30,10 @@
 ## [GitHub samples](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 # Concepts
-## [How full text search works](search-lucene-query-architecture.md)
-## [Data import](search-what-is-data-import.md)
-## [Indexes](search-what-is-an-index.md)
-## [Indexers](search-indexer-overview.md)
-## [Analyzers](search-analyzers.md)
-## [Queries](search-query-overview.md)
-## [Filters](search-filters.md)
-## [Faceted navigation](search-faceted-navigation.md)
-## [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-## [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
-## [Synonyms (in preview)](search-synonyms.md)
+## [Full text search](search-lucene-query-architecture.md)
+## [Indexing](search-what-is-data-import.md)
+## [Index definition](search-what-is-an-index.md)
+## [Analyzers and text processing](search-analyzers.md)
 
 # How-to guides
 
@@ -71,7 +64,8 @@
 ### [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
 ### [Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
-## Load data
+## Indexing data
+### [Indexers overview](search-indexer-overview.md)
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -81,14 +75,20 @@
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Search
+### [Basic query construction](search-query-overview.md)
 ### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 ### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Lucene syntax query examples](search-query-lucene-examples.md)
+### [Lucene syntax query examples](search-query-lucene-examples.md)
+### [Faceted navigation](search-faceted-navigation.md)
+### [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
+### [Synonyms (in preview)](search-synonyms.md)
 ## Filters
+### [Filter overview](search-filters.md)
 ### [Facet filters](search-filters-facets.md)
 ### [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 
-## Monitor & manage
+## Administration & Analytics
 ### [Administration (portal)](search-manage.md)
 ### [PowerShell (Azure Search)](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
