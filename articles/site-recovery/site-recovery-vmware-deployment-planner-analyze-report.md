@@ -214,9 +214,9 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
+**Boot Type**: Boot type of the VM. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI VMs (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI VMs, Azure Site Recovery mobility service version must be 9.13 or above. Only failover is supported for EFI VMs. Failback is not supported.  
 
-**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
+**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other. 
 
 ## Incompatible VMs
 
@@ -232,16 +232,24 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 * Boot type is EFI. Azure Site Recovery currently supports only BIOS boot type virtual machine.
 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
+
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk.
+
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
+
 * Average data churn exceeds supported Site Recovery data churn limit of 10 MB/s for average I/O size for the disk.
+
+* Average data churn exceeds supported Site Recovery data churn limit of 25 MB/s for average I/O size for the VM (sum of all disks churn).
+
 * Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MB/s per VM.
+
 * Average effective write IOPS exceeds the supported Site Recovery IOPS limit of 840 for disk.
+
 * Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB.
 
-**R/W IOPS (with Growth Factor)**: The peak workload IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of the VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
+**Peak R/W IOPS (with Growth Factor)**: The peak workload IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of the VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 
-**Data Churn in Mbps (with Growth Factor)**: The peak churn rate on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
+**Peak Data Churn in Mbps (with Growth Factor)**: The peak churn rate on the disk (default 95th percentile) including the future growth factor (default 30 percent). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
 
 **Number of Disks**: The total number of VMDKs on the VM.
 
@@ -255,8 +263,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
 
-**OS Type**: The is OS type of the VM. It can be either Windows or Linux or other.
-
+**OS Type**: It is OS type of the VM. It can be either Windows or Linux or other based on the template from VMware vSphere chosen while creating the VM. 
 
 ## Azure Site Recovery limits
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by issuing a test failover to get the true performance picture of the application.
