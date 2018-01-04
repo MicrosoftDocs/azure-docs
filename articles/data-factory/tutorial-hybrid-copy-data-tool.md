@@ -1,6 +1,6 @@
 ---
 title: Copy on-premises data using the Azure Copy Data tool | Microsoft Docs
-description: 'Create an Azure data factory and then use the Copy Data tool to copy data from an on-premises SQL Server database to an Azure blob storage.'
+description: 'Create an Azure data factory and then use the Copy Data tool to copy data from an on-premises SQL Server database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,12 +14,12 @@ ms.date: 01/04/2018
 ms.author: jingwang
 
 ---
-# Copy data from an on-premises SQL Server database to an Azure Blob storage by using Copy Data tool
+# Copy data from an on-premises SQL Server database to Azure Blob storage by using Copy Data tool
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](tutorial-hybrid-copy-data-tool.md)
 
-In this tutorial, you use Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premises SQL Server database to an Azure blob storage.
+In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premises SQL Server database to an Azure blob storage.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -68,6 +68,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
     INSERT INTO emp (FirstName, LastName) VALUES ('Jane', 'Doe')
     GO
     ```
+
 ### Azure Storage account
 In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
 
