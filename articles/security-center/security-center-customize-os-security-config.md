@@ -73,7 +73,7 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 
     ![](media/security-center-customize-os-security-config/save-after-change.png)
 
-At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop up alert. Click **Yes** to confirm.
+At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop-up alert. Click **Yes** to confirm.
 
 ![](media/security-center-customize-os-security-config/edit-alert.jpg)
 
@@ -310,7 +310,7 @@ The list below has all potential errors:
 | ErrorParsingIsDefaultProperty            | The given 'configurationStatus' value '{0}' is invalid. The value can be only 'Default' or 'Custom'.                                         |
 | InCompatibleViewVersion                  | View version: {0} is NOT supported on this workspace type.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | The given baseline configuration was found with one or more type validation errors.                                                          |
-| ViewConversionError                      | View is older version that workspace supported. View conversion failed : {0}                                                                 |
+| ViewConversionError                      | View is older version that workspace supported. View conversion failed: {0}                                                                 |
 
 If you don’t have sufficient permissions, you may get a general failure error (see below).
 
