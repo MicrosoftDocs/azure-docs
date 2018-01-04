@@ -4,7 +4,7 @@ description: Create a new Windows VM by attaching a specialized managed disk as 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,21 +14,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/04/2018
 ms.author: cynthn
 
 ---
 # Create a Windows VM from a specialized disk
 
-Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of virtual hard disk (VHD) from an existing VM that maintains the user accounts, applications, and other state data from your original VM. 
+Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a virtual hard disk (VHD) from an existing VM that maintains the user accounts, applications, and other state data from your original VM. 
 
 When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also be kept and, in some cases, this duplicate information could cause issues. Be aware of what types of computer-specific information your applications rely on when copying a VM.
 
-You have two options:
+You have three options:
 * [Upload a VHD](#option-1-upload-a-specialized-vhd)
 * [Copy an existing Azure VM](#option-2-copy-an-existing-azure-vm)
+* You can also use a VHD that was previously attached to a VM in Azure to [create a new VM](#create-the-new-vm).
 
-This topic shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md)
+This topic shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. 
@@ -139,7 +140,7 @@ You can create a copy of a VM that uses managed disks by taking a snapshot of th
 
 ### Take a snapshot of the OS disk
 
-You can take a snapshot of and entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM using the [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
 Set some parameters. 
 
