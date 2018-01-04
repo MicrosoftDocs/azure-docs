@@ -1,6 +1,6 @@
 ---
-title: Word Alignment Information with the Microsoft Translator Text API | Microsoft Docs
-description: Recieve word alignment information from the Microsoft Translator Text API.
+title: Word alignment information with the Microsoft Translator Text API | Microsoft Docs
+description: Receive word alignment information from the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -28,14 +28,14 @@ In other words, the colon separates start and end index, the dash separates the 
 
 ## Restrictions
 Alignment is only returned for a subset of the language pairs at this point:
-*from English to any other language;
-*from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English
-*from Japanese to Korean or from Korean to Japanese
+* from English to any other language;
+* from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English
+* from Japanese to Korean or from Korean to Japanese
 
 You will not receive alignment information in the following cases:
-*If the translation comes from CTF (added under your account with AddTranslation()).
-*If the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
-*By any method other than TranslateArray2(). Specifically, the Translate() method does not expose alignment. TranslateArray2() is a true superset of Translate().
+* if the translation comes from CTF (added under your account with AddTranslation()).
+* if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
+* by any method other than TranslateArray2(). Specifically, the Translate() method does not expose alignment. TranslateArray2() is a true superset of Translate().
 
 
 
