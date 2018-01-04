@@ -37,7 +37,7 @@ When you create a scale set in a single zone, you control which zone all those V
 
 ![Zonal scale set deployment with zone-redundant load balancer](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
 
-A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interuption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones. The following diagram shows an example of a single scale set that is deployed across zones:
+A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones. The following diagram shows an example of a single scale set that is deployed across zones:
 
 ![Zonal-redundant scale set deployment and load balancer](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
 
