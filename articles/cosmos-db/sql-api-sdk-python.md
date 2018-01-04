@@ -51,7 +51,7 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 ### <a name="2.3.1"/>2.3.1
-* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
 ### <a name="2.3.0"/>2.3.0
 * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
