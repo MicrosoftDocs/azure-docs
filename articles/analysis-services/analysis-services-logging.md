@@ -31,9 +31,9 @@ You can select **Engine**, **Service**, and **Metrics** categories.
 
 ### Engine
 
-Selecting Engine logs all [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
+Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
 
-|XEvent categories |Event Name  |
+|XEvent categories |Event name  |
 |---------|---------|
 |Security Audit    |   Audit Login      |
 |Security Audit    |   Audit Logout      |
@@ -68,19 +68,19 @@ Selecting Engine logs all [xEvents](https://docs.microsoft.com/sql/analysis-serv
 |GetServerLogFiles    |    User exports server log through PowerShell     |
 |ExportModel     |   User exports a model in the portal by using Open in Visual Studio     |
 
-### All Metrics
+### All metrics
 
-The AllMetrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) displayed in Metrics.
+The Metrics category logs the same [Server metrics](analysis-services-monitor.md#server-metrics) displayed in Metrics.
 
 ## Setup diagnostics logging
 
-### By using the Azure portal
+### Azure portal
 
-1. In [Azure portal](https://portal.azure.com), in your Azure Analysis Services server, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
+1. In [Azure portal](https://portal.azure.com) > server, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. In the **Diagnostic settings** page, do the following: 
+2. In **Diagnostic settings**, do the following: 
 
     * **Name**. Enter a name for the logs to create.
 
@@ -98,8 +98,9 @@ The AllMetrics category logs the same [Server metrics](analysis-services-monitor
 
     If you want to change how your diagnostic logs are saved at any point in the future, you can return to this page to modify settings.
 
-### By using PowerShell
-Here are the basic commands to get you going. If you want step-by-step help on setting up logging to a storage account by using PowerShell, see the [tutorial](#tutorial) later in this article.
+### PowerShell
+
+Here are the basic commands to get you going. If you want step-by-step help on setting up logging to a storage account by using PowerShell, see the tutorial later in this article.
 
 To enable metrics and diagnostics logging by using PowerShell, use the following commands:
 
@@ -153,13 +154,11 @@ Logs are typically available within a couple hours of setting up logging. It's u
 * Delete logs that you no longer want to keep in your storage account.
 * Be sure to set a retention period for so old logs are deleted from your storage account.
 
-
-<a id="#view-in-loganalytics"></a>
 ## View logs in Log Analytics
 
 Metrics and server events are integrated with xEvents in Log Analytics for side-by-side analysis. Log Analytics can also be configured to receive events from other Azure services providing a holistic view of diagnostic logging data across your architecture.
 
-To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area of the page, as shown in the following image:
+To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area, as shown below.
 
 ![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -171,7 +170,6 @@ Click **EventClass\_s** or one of the event names and Log Analytics continues co
 
 Be sure to checkout Operations Management Suite, which provides a website with enhanced query, dashboarding, and alerting capabilities on Log Analytics data.
 
-<a id="#queries"></a>
 ### Queries
 
 There are hundreds of queries you can use. Here are a few to get you started.
@@ -196,7 +194,6 @@ To learn more about using the new Log Search query language, see [Understanding 
 > Have a great Log Analytics query you want to share? If you have a GitHub account, you can add it to this article. Just click **Edit** at the top-right of this page.
 
 
-<a id="#tutorial"></a>
 ## Tutorial - Turn on logging by using PowerShell
 In this quick tutorial, you create a storage account in the same subscription and resource group as your Analysis Service server. You then use Set-AzureRmDiagnosticSetting to turn on diagnostics logging, sending output to the new storage account.
 
@@ -205,8 +202,7 @@ To complete this tutorial, you must have the following resources:
 
 * An existing Azure Analysis Services server. For instructions on creating a server resource, see [Create a server in Azure portal](analysis-services-create-server.md), or [Create an Azure Analysis Services server by using PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Connect to your subscriptions
+### </a>Connect to your subscriptions
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
@@ -233,7 +229,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Create a new storage account for your logs
+### Create a new storage account for your logs
 
 You can use an existing storage account for your logs, provided it's in the same subscription as your server. For this tutorial you create a new storage account dedicated to Analysis Services logs. To make it easy, you're storing the storage account details in a variable named **sa**.
 
@@ -244,7 +240,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Identify the server account for your logs
+### Identify the server account for your logs
 
 Set the account name to a variable named **account**, where ResourceName is the name of the account.
 
@@ -253,7 +249,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Enable logging
+### Enable logging
 
 To enable logging, use the Set-AzureRmDiagnosticSetting cmdlet together with the variables for the new storage account, server account, and the category. Run the following command, setting the **-Enabled** flag to **$true**:
 
