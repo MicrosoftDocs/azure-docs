@@ -20,7 +20,7 @@
 
 # Tutorials
 
-## [1 - Search & Azure SQL Database](search-indexer-tutorial)
+## [1 - Search & Azure SQL Database](search-indexer-tutorial.md)
 ## [2 - Search & Azure blobs](search-semi-structured-data.md)
 ## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
 ## [4 - Portal walkthrough: Index & queries](search-get-started-portal.md)
