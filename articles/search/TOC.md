@@ -23,7 +23,7 @@
 ## [1 - Search & Azure SQL Database](search-indexer-tutorial.md)
 ## [2 - Search & Azure blobs](search-semi-structured-data.md)
 ## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
-## [4 - Portal walkthrough: Index & queries](search-get-started-portal.md)
+## [4 - Portal walkthrough](search-get-started-portal.md)
 
 # Samples
 ## [Azure code samples](https://azure.microsoft.com/resources/samples/?service=search)

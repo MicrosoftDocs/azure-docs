@@ -54,7 +54,8 @@ sections:
     items:
     - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
     - html: <a href="/azure/search/search-get-started-portal">How to use the portal for indexing and query testing</a> 
-    - html: <a href="/azure/search/search-semi-structured-data">Search over semi-structured data in Azure blob storage with REST</a>
+    - html: <a href="/azure/search/search-semi-structured-data">Index content from Azure SQL Database with .NET</a>
+    - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure blob storage with REST</a>
     - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a>
 - title: Recommended Videos
   items:
