@@ -1,5 +1,5 @@
 ---
-title: Microsoft Translator Text API Translation Customization
+title: Microsoft Translator Text API Translation Customization | Microsoft Docs
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
 author: Jann-Skotdal
