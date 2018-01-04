@@ -1,13 +1,13 @@
 ---
-title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Microsoft Docs
-description: Learn about the different lifecycle events in Service Fabric reliable services
-services: Service-Fabric
+title: Azure Service Fabric Reliable Services lifecycle | Microsoft Docs
+description: Learn about the lifecycle events in Service Fabric Reliable Services.
+services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
 
 ms.assetid:
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,73 +16,77 @@ ms.date: 06/30/2017
 ms.author: pakunapa;
 ---
 
-# Reliable services lifecycle overview
+# Reliable Services lifecycle
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-lifecycle.md)
 > * [Java on Linux](service-fabric-reliable-services-lifecycle-java.md)
 >
 >
 
-When thinking about the lifecycles of Reliable Services, the basics of the lifecycle are the most important. In general:
+Reliable Services in Azure Service Fabric has the following basic lifecycle events:
 
-* During Startup
-  * Services are constructed
-  * They have an opportunity to construct and return zero or more listeners
-  * Any returned listeners are opened, allowing communication with the service
-  * The Service's runAsync method is called, allowing the service to do long running or background work
-* During shutdown
-  * The cancellation token passed to runAsync is canceled, and the listeners are closed
-  * Once that is complete, the service object itself is destructed
+* During startup:
+  1. Services are constructed.
+  2. Services have an opportunity to construct and return zero or more listeners.
+  3. Any returned listeners are opened, for communication with the service.
+  4. The service's `runAsync` method is called, so the service can do long-running or background work.
+* During shutdown:
+  1. The cancellation token that was passed to `runAsync` is canceled, and the listeners are closed.
+  2. The service object itself is destructed.
 
-There are details around the exact ordering of these events. In particular, the order of events may change slightly depending on whether the Reliable Service is Stateless or Stateful. In addition, for stateful services, we have to deal with the Primary swap scenario. During this sequence, the role of Primary is transferred to another replica (or comes back) without the service shutting down. Finally, we have to think about error or failure conditions.
+The exact ordering of events depends on configuration details. The order of events might change slightly depending on whether the reliable service is stateless or stateful. 
+
+Also, for stateful services, you must address the primary swap scenario. During this sequence, the role of primary is transferred to another replica (or comes back) without the service shutting down. 
+
+Finally, you have to think about error or failure conditions.
 
 ## Stateless service startup
 The lifecycle of a stateless service is fairly straightforward. Here's the order of events:
 
-1. The Service is constructed
+1. The service is constructed.
 2. Then, in parallel two things happen:
-    - `StatelessService.createServiceInstanceListeners()` is invoked and any returned listeners are Opened (`CommunicationListener.openAsync()` is called on each listener)
-    - The service's runAsync method (`StatelessService.runAsync()`) is called
-3. If present, the service's own onOpenAsync method is called (Specifically, `StatelessService.onOpenAsync()` is called. This is an uncommon override but it is available).
+    - `StatelessService.createServiceInstanceListeners()` is invoked, and any returned listeners are opened. (`CommunicationListener.openAsync()` is called on each listener.)
+    - The service's `runAsync` method (`StatelessService.runAsync()`) is called.
+3. If present, the service's own `onOpenAsync` method is called. (Specifically, `StatelessService.onOpenAsync()` is called. This is an uncommon override, but it is available.)
 
-It is important to note that there is no ordering between the calls to create and open the listeners and runAsync. The listeners may open before runAsync is started. Similarly, runAsync may end up invoked before the communication listeners are open or have even been constructed. If any synchronization is required, it is left as an exercise to the implementer. Common solutions:
+It's important to note that there is no ordering between the call to create and open the listeners and call `runAsync`. The listeners might open before `runAsync` is started. Similarly, `runAsync` might be invoked before the communication listeners are open, or before they have even been constructed. If any synchronization is required, it must be done by the implementer. Common solutions:
 
-* Sometimes listeners can't function until some other information is created or work done. For stateless services that work can usually be done in the service's constructor, during the `createServiceInstanceListeners()` call, or as a part of the construction of the listener itself.
-* Sometimes the code in runAsync does not want to start until the listeners are open. In this case additional coordination is necessary. One common solution is some flag within the listeners indicating when they have completed, which is checked in runAsync before continuing to actual work.
+* Sometimes listeners can't function until other information is created or other work is done. For stateless services, that work can usually be done in the service's constructor. It can be done during the `createServiceInstanceListeners()` call, or as part of the construction of the listener itself.
+* Sometimes the code in `runAsync` won't start until the listeners are open. In this case, additional coordination is necessary. One common solution is to add flag in the listeners. The flag indicates when the listeners have finished. The `runAsync` method checks this before continuing the actual work.
 
 ## Stateless service shutdown
-When shutting down a stateless service, the same pattern is followed, just in reverse:
+When shutting down a stateless service, the same pattern is followed, but in reverse:
 
-1. In parallel
-    - Any open listeners are Closed (`CommunicationListener.closeAsync()` is called on each listener)
-    - The cancellation token passed to `runAsync()` is canceled (checking the cancellation token's `isCancelled` property returns true, and if called the token's `throwIfCancellationRequested` method throws a `CancellationException`)
-2. Once `closeAsync()` completes on each listener and `runAsync()` also completes, the service's `StatelessService.onCloseAsync()` method is called, if present (again this is an uncommon override).
-3. After `StatelessService.onCloseAsync()` completes, the service object is destructed
+1. These events occur in parallel:
+    - Any open listeners are closed. (`CommunicationListener.closeAsync()` is called on each listener.)
+    - The cancellation token that was passed to `runAsync()` is canceled. (Checking the cancellation token's `isCancelled` property returns `true`, and if called, the token's `throwIfCancellationRequested` method throws a `CancellationException`.)
+2. When `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatelessService.onCloseAsync()` method is called, if it is present. (Again this is an uncommon override.)
+3. After `StatelessService.onCloseAsync()` finishes, the service object is destructed.
 
 ## Stateful service startup
-Stateful services have a similar pattern to stateless services, with a few changes. For starting up a stateful service, the order of events is as follows:
+Stateful services have a pattern that is similar to stateless services, with a few changes. Here's the order of events for starting a stateful service:
 
 1. The service is constructed.
 2. `StatefulServiceBase.onOpenAsync()` is called. This call is not commonly overridden in the service.
 3. The following things happen in parallel:
     - `StatefulServiceBase.createServiceReplicaListeners()` is invoked. 
-      - If the service is a Primary service, all returned listeners are opened. `CommunicationListener.openAsync()` is called on each listener.
-      - If the service is a Secondary service, only those listeners marked as `listenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
-    - If the service is currently a Primary, the service's `StatefulServiceBase.runAsync()` method is called.
+      - If the service is a primary service, all returned listeners are opened. `CommunicationListener.openAsync()` is called on each listener.
+      - If the service is a secondary service, only listeners marked as `listenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
+    - If the service is currently a primary, the service's `StatefulServiceBase.runAsync()` method is called.
 4. After all the replica listener's `openAsync()` calls finish and `runAsync()` is called, `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
-Similar to stateless services, there's no coordination between the order in which the listeners are created and opened and when **runAsync** is called. If you need coordination, the solutions are much the same. There is one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners could open before the reliable collections are readable or writeable, and before **runAsync** could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
+Similar to stateless services, there's no coordination between the order in which the listeners are created and opened, and when `runAsync` is called. If you need coordination, the solutions are much the same. But there's one additional case for stateful service. Say that the calls that arrive at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Because the communication listeners might open before the Reliable Collections are readable or writeable, and before `runAsync` starts, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return an error code that the client uses to know to retry the request.
 
 ## Stateful service shutdown
 Like stateless services, the lifecycle events during shutdown are the same as during startup, but reversed. When a stateful service is being shut down, the following events occur:
 
-1. In parallel:
+1. These events occur in parallel:
     - Any open listeners are closed. `CommunicationListener.closeAsync()` is called on each listener.
-    - The cancellation token passed to `runAsync()` is cancelled. A call to the cancellation token's `isCancelled()` method returns true, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
+    - The cancellation token that was passed to `runAsync()` is cancelled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
 2. After `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
    > [!NOTE]  
-   > The need to wait for **runAsync** to finish is only necessary if this replica is a Primary replica.
+   > Waiting for `runAsync` to finish is only necessary if this replica is a primary replica.
 
 3. After the `StatefulServiceBase.onChangeRoleAsync()` method finishes, the `StatefulServiceBase.onCloseAsync()` method is called. This call is an uncommon override, but it is available.
 3. After `StatefulServiceBase.onCloseAsync()` finishes, the service object is destructed.
@@ -118,12 +122,12 @@ Handling the exceptions that come from use of the `ReliableCollections` in conju
 
 ## Notes on service lifecycle
 * Both the `runAsync()` method and the `createServiceInstanceListeners/createServiceReplicaListeners` calls are optional. A service may have one of them, both, or neither. For example, if the service does all its work in response to user calls, there is no need for it to implement `runAsync()`. Only the communication listeners and their associated code are necessary. Similarly, creating and returning communication listeners is optional, as the service may have only background work to do, and so only needs to implement `runAsync()`
-* It is valid for a service to complete `runAsync()` successfully and return from it. This is not considered a failure condition and would represent the background work of the service completing. For stateful reliable services `runAsync()` would be called again if the service were demoted from primary and then promoted back to primary.
-* If a service exits from `runAsync()` by throwing some unexpected exception, this is a failure and the service object is shut down and a health error reported.
-* While there is no time limit on returning from these methods, you immediately lose the ability to write and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request. If your service does not respond to these API calls in a reasonable amount of time Service Fabric may forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
-* Failures in the `onCloseAsync()` path result in `onAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
+* It's valid for a service to complete `runAsync()` successfully and return from it. This isn't considered a failure condition, and represents the background work of the service finishing. For stateful reliable services, `runAsync()` would be called again if the service were demoted from primary, and then promoted back to primary.
+* If a service exits from `runAsync()` by throwing some unexpected exception, this is a failure. The service object is shut down, and a health error is reported.
+* Although there is no time limit on returning from these methods, you immediately lose the ability to write. Therefore, you can't complete any real work. We recommend that you return as quickly as possible upon receiving the cancellation request. If your service doesn't respond to these API calls in a reasonable amount of time, Service Fabric might forcibly terminate your service. Usually, this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
+* Failures in the `onCloseAsync()` path result in `onAbort()` being called. This call is a last-chance, best-effort opportunity for the service to clean up and release any resources that they have claimed.
 
 ## Next steps
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
-* [Reliable Services quick start](service-fabric-reliable-services-quick-start-java.md)
+* [Reliable Services quickstart](service-fabric-reliable-services-quick-start-java.md)
 * [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
