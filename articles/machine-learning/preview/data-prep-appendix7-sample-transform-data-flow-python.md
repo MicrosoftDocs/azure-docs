@@ -79,7 +79,7 @@ The data now looks like the following:
 |              |Texas         |Houston    |
 
 
-### Min Max Normalization
+### Min-max normalization
 ```python
     df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
 ```
