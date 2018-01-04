@@ -24,7 +24,7 @@ The TranslateArray method takes an “options” parameter, which contains the n
 |ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|
 | :---|:---|:---|:---|
 | NoAction | Default. Same as not setting the option. Profanity will pass from source to target. | 彼はジャッカスです。 | He is a jackass. |
-| Marked | Profane words will be surrounded by XML tags <profanity> … </profanity>. | 彼はジャッカスです。 | He is a <profanity>jackass</profanity>. |
+| Marked | Profane words will be surrounded by XML tags \<profanity> … \</profanity>. | 彼はジャッカスです。 | He is a \<profanity>jackass\</profanity>. |
 | Deleted | Profane words will be removed from the output without replacement. | 彼はジャッカスです。 | He is a. |
 
 ## Next Steps
