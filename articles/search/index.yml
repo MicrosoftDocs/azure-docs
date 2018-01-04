@@ -38,13 +38,13 @@ sections:
       text: Azure portal
       href: https://docs.microsoft.com/azure/search/search-create-service-portal
     - image: 
-        src: https://docs.microsoft.com/azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image: 
         src: https://docs.microsoft.com/azure/search/media/index/rest.svg
       text: REST
       href: https://docs.microsoft.com/azure/search/search-fiddler
+    - image: 
+        src: https://docs.microsoft.com/azure/search/media/index/logo_Csharp.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

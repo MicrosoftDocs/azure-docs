@@ -20,8 +20,8 @@
 
 # Tutorials
 
-## [1 - Search & Azure SQL Database](search-indexer-tutorial.md)
-## [2 - Search & Azure blobs](search-semi-structured-data.md)
+## [1 - Indexing Azure SQL Database](search-indexer-tutorial.md)
+## [2 - Indexing Azure blobs](search-semi-structured-data.md)
 ## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
 ## [4 - Portal walkthrough](search-get-started-portal.md)
 
@@ -33,7 +33,7 @@
 ## [Full text search](search-lucene-query-architecture.md)
 ## [Indexing](search-what-is-data-import.md)
 ## [Index definition](search-what-is-an-index.md)
-## [Analyzers and text processing](search-analyzers.md)
+## [Linguistic analysis](search-analyzers.md)
 
 # How-to guides
 
