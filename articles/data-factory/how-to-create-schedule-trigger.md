@@ -33,15 +33,15 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "type": "ScheduleTrigger",
     "typeProperties": {
       "recurrence": {
-        "frequency": <<Minute, Hour, Day, Week, Year>>,
+        "frequency": <<Minute, Hour, Day, Week, Month>>,
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
-        "endTime": <<datetime>>,
+        "endTime": <<datetime - optional>>,
         "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
-          "hours": [<<0-24>>],
-          "weekDays": ": [<<Monday-Sunday>>],
-          "minutes": [<<0-60>>],
+          "hours": [<<0-23>>],
+          "weekDays": : [<<Monday-Sunday>>],
+          "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurences": [
                {
@@ -81,7 +81,7 @@ The following table provides a high-level overview of the major elements related
 JSON property | 	Description
 ------------- | -------------
 startTime | startTime is a Date-Time. For simple schedules, startTime is the first occurrence. For complex schedules, the trigger starts no sooner than startTime.
-endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past.
+endTime | Specifies the end date-time for the trigger. The trigger does not execute after this time. It is not valid to have an endTime in the past. This is an optional property.
 timeZone | Currently, only UTC is supported.
 recurrence | The recurrence object specifies recurrence rules for the trigger. The recurrence object supports the elements: frequency, interval, endTime, count, and schedule. If recurrence is defined, frequency is required; the other elements of recurrence are optional.
 frequency | Represents the unit of frequency at which the trigger recurs. Supported values are: `minute`, `hour`, `day`, `week`, or `month`.
