@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
@@ -31,7 +31,7 @@ Customization of the rules can help organizations to control which configuration
 > [!NOTE]
 > - Currently OS Security Configuration customization is available for Windows Server 2008, 2008R2, 2012, 2012R2 operating systems only.
 - The configuration will apply to all VMs and computers connected to all workspaces under the selected subscription.
-- OS Security Config customization is available for Security Center users in the Standard tier on subscription level only.
+- OS Security Configuration customization is available only on Security Center's Standard tier.
 >
 >
 
@@ -42,7 +42,7 @@ You can customize the OS Security Configuration rules by enabling and disabling 
 New rules have to be in the same format and structure as other existing rules of the same type.
 
 > [!NOTE]
-> To customize OS security configurations, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+> To customize OS security configurations, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Administrator.
 >
 >
 
@@ -52,75 +52,76 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 
 1.  Open **Security Center** dashboard.
 
-2.  Click **Security Policy** located under **Overview** section.
+2.  Under the Security Center main menu, select **Security policy**.  **Security Center - Security policy** opens.
 
-3.  Under **Security policy**, click the subscription that you want to perform the customization for, and click **Security Policy**; makes sure it is “on”.
+3.  Select the subscription that you want to perform the customization for.
 
-4.  Click **Edit** option
+4. Under **POLICY COMPONENTS**, select **Security Policy**; make sure the rule is “on”.
+
+5.  Select **Edit** next to the rule.
 
     ![](media/security-center-customize-os-security-config/show-recommendations.png)
 
-5.  **Edit OS Security Configuration rules** opens. Follow the three steps highlighted in the screen to download, edit, and upload the modified file.
+6.  **Edit OS Security Configuration rules** opens. Follow the steps highlighted in the screen to download, edit, and upload the modified file.
 
-    ![](media/security-center-customize-os-security-config/edit-os-configuration-rules.png)
+    ![](media/security-center-customize-os-security-config/blade.png)
 
-> [!NOTE]
-> By default, the configuration file that you download is in *json* format. For instructions on how to modify this file, go to the next section in this article.
->
->
+  > [!NOTE]
+  > By default, the configuration file that you download is in *json* format. For instructions on how to modify this file, go to
+  >[Customize the configuration file](#customize-the-configuration-file).
+  >
 
-6.  After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Click **Save** to commit the change, otherwise the policy will not be stored.
+7. After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Select **Save** to commit the change, otherwise the policy will not be stored.
 
-    ![](media/security-center-customize-os-security-config/save-after-change.png)
+    ![](media/security-center-customize-os-security-config/save-sucessfully.png)
 
-At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop-up alert. Click **Yes** to confirm.
+At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop-up alert. Select **Yes** to confirm.
 
-![](media/security-center-customize-os-security-config/edit-alert.jpg)
+![](media/security-center-customize-os-security-config/edit-alert.png)
 
 ## Customize the configuration file
 
-In the customization file each supported OS version has a set of rules (ruleset), and each has its own name and unique ID, as shown in the following example:
+In the customization, file each supported OS version has a set of rules (ruleset). Each set of rules has its own name and unique ID, as shown in the following example:
 
-![](media/security-center-customize-os-security-config/custom-file.jpg)
+![](media/security-center-customize-os-security-config/custom-file.png)
 
 > [!NOTE]
-> This file was edited using Visual Studio, but you can also use Notepad++ as long as you have the JSON Viewer Plugin installed.
+> This file was edited using Visual Studio, but you can also use Notepad as long as you have the JSON Viewer Plugin installed.
 >
 >
 
 When editing this file, you can modify one rule or all of them. Each ruleset includes a *rules* section that contains the rules, broken down into 3 categories of rules: Registry, Audit Policy, and Security Policy, as show below:
 
-![](media/security-center-customize-os-security-config/rules-section.jpg)
+![](media/security-center-customize-os-security-config/rules-section.png)
 
-Each category has its own set of attributes, and for existing rules you can make changes in the following ones:
+Each category has its own set of attributes. For existing rules, you can make changes in the following ones:
 
--   expectedValue: this attribute’s field data type must match the supported values per each Rule Type, for example:
+- expectedValue: this attribute’s field data type must match the supported values per each Rule Type, for example:
 
--   BaselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85).aspx) defined in that rule.
+  - BaselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85) defined in that rule.
 
-    -   BaselineAuditPolicyRules: the value should be a string value, one of the following:
+  - BaselineAuditPolicyRules: the value should be a string value, one of the following:
 
-        -   Success and Failure
+    - Success and Failure
 
-        -   Success
+    - Success
 
-    -   baselineSecurityPolicyRules: the value should be a string value, one of
+  - baselineSecurityPolicyRules: the value should be a string value, one of
         the following:
 
-        -   “No one”
+    - “No one”
 
-        -   List of allowed user groups, for example: “Administrators, Backup
-            Operators”
+    - List of allowed user groups, for example: “Administrators, Backup Operators”
 
--   state: string that may contain the options “Disabled” or “Enabled”. For this private preview release, the string is case sensitive.
+-   state: string that may contain the options “Disabled” or “Enabled”. For this private preview release, the string is case-sensitive.
 
-These are the only fields that can be configured, and if you violate the file format or size you won’t be able to save the change. The example that follows has the error message that happens when the file can’t be processed:
+These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. The following error message occurs when the file can’t be processed:
 
-![](media/security-center-customize-os-security-config/error-message.png)
+![](media/security-center-customize-os-security-config/invalid-json.png)
 
-Refer to the section below for list of potential errors.
+See [Error codes](#error-codes) for list of potential errors.
 
-Below you have some examples of these rules, and the attributes that can be changed in bold:
+Below you have examples of these rules and the attributes (in bold) that can be changed:
 
 **Rules Section:** baselineRegistryRules
 ```
@@ -180,11 +181,11 @@ Below you have some examples of these rules, and the attributes that can be chan
 },
 ```
 
-There are some rules that are duplicated for the different OS types. Duplicate rules have the same ‘Originald’.
+There are some rules that are duplicated for the different OS types. Duplicate rules have the same ‘originalId’.
 
 ## Adding a new custom rule
 
-In the previous section you learned how to change an existing rule, but you can also create a new rule. Before creating a new rule, keep in mind the following restrictions:
+You can also create a new rule. Before creating a new rule, keep in mind the following restrictions:
 
 -   Schema version, *baselineId* and *baselineName* can’t be changed.
 
@@ -192,31 +193,30 @@ In the previous section you learned how to change an existing rule, but you can 
 
 -   Ruleset cannot be added.
 
--   The max number of rules allowed (including default rules) is 1000 rules.
+-   The maximum number of rules allowed (including default rules) is 1000 rules.
 
-New custom rules are marked with a new custom Source (!= "Microsoft"). The *ruleId* field may be null or empty, if it is empty Microsoft generates one, and if it is not empty it must have a valid GUID unique across all rules (default and custom). Review the constraints below regarding the core fields:
+New custom rules are marked with a new custom Source (!= "Microsoft"). The *ruleId* field may be null or empty. If it is empty, Microsoft generates one. If it is not empty, it must have a valid GUID unique across all rules (default and custom). Review the constraints below regarding the core fields:
 
--   *originalId* may be null or empty. In case it is not empty - should be a
-    valid GUID.
+-   *originalId* - may be null or empty. If *originalId* is not empty, it should be a valid GUID.
 
--   *cceId* may be null or empty. In case it’s not it have to be unique.
+-   *cceId* - may be null or empty. If *cceId* is not, it has to be unique.
 
 -   *ruleType* - one of: Registry, AuditPolicy, SecurityPolicy.
 
--   *Severity* - one of: Unknown, Critical, Warning, Informational
+-   *Severity* - one of: Unknown, Critical, Warning, Informational.
 
--   *analyzeOperation*: must be Equals.
+-   *analyzeOperation* - must be Equals.
 
--   *auditPolicyId* - has to be valid GUID.
+-   *auditPolicyId* - must be valid GUID.
 
--   *regValueType* must be one of - Int, Long, String, MultipleString
+-   *regValueType* - must be one of: Int, Long, String, MultipleString.
 
 > [!NOTE]
-> Hive has to be *LocalMachine*.
+> Hive must be *LocalMachine*.
 >
 >
 
-Below you have an example of a new custom rule:
+Example of a new custom rule:
 
 **Registry**:
 ```
@@ -252,7 +252,7 @@ Below you have an example of a new custom rule:
    }
 ```
 **Audit policy:**
-
+```
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -263,16 +263,17 @@ Below you have an example of a new custom rule:
    "analyzeOperation": "Equals", "source": " MyCustomSource ",
    "state": "Enabled"
    }
+```
 
 ## File upload failures
 
-If the submitted configuration file is invalid due to errors in values, formatting, etc. a failure error is shown and a link to the detailed errors csv file is available for you to download and use to remediate and fix errors before resubmitting a corrected configuration file.
+If the submitted configuration file is invalid due to errors in values or formatting, a failure error is shown. You can download a detailed errors csv report to remediate and fix errors before resubmitting a corrected configuration file.
 
-![](media/security-center-customize-os-security-config/config-file.jpg)
+![](media/security-center-customize-os-security-config/invalid-configuration.png)
 
 Example of the errors file:
 
-![](media/security-center-customize-os-security-config/errors-file.jpg)
+![](media/security-center-customize-os-security-config/errors-file.png)
 
 ## Error codes
 
@@ -292,7 +293,7 @@ The list below has all potential errors:
 | BaselineRuleNameNotUniqueError           | The rule name is not unique.                                                                                                                 |
 | BaselineRuleNotExistInConfigError        | The rule was not found in the new configuration. Rule cannot be deleted.                                                                     |
 | BaselineRuleNotFoundError                | The rule was not found in default baseline rules set.                                                                                        |
-| BaselineRuleNotInPlace                   | The rule match a default rule with type {0} and is listed in {1} list.                                                                       |
+| BaselineRuleNotInPlace                   | The rule matches a default rule with type {0} and is listed in {1} list.                                                                       |
 | BaselineRulePropertyTooLong              | Property: '{0}' is too long. Max allowed length: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | The expected value '{0}' doesn't match the registry value type that is defined.                                                              |
 | BaselineRulesetAdded                     | Rules set with id '{0}' was not found in the default configuration. Rules set cannot be added.                                               |
@@ -302,7 +303,7 @@ The list below has all potential errors:
 | BaselineRuleTypeDoesntMatch              | The default rule type is '{0}'.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | The actual type of the rule is: {0}, but ruleType property is: {1}.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Only 'expectedValue' and 'state' properties are allowed to be changed.                                                                       |
-| BaselineTooManyRules                     | Maximum allowed customized rules number is {0} rules. The given configuration contains {1} rules. ({2} default rules + {3} customized rules) |
+| BaselineTooManyRules                     | Maximum allowed customized rules number is {0} rules. The given configuration contains {1} rules. ({2} default rules + {3} customized rules. |
 | ErrorNoConfigurationStatus               | No configuration status was found. Please state the desired configuration status - 'Default' or 'Custom'.                                    |
 | ErrorNonEmptyRulesetOnDefault            | Configuration state is set to default. BaselineRulesets list must be null or empty.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | The given configuration status is 'Custom' but the 'baselineRulesets' property is null or empty.                                             |
@@ -314,7 +315,7 @@ The list below has all potential errors:
 
 If you don’t have sufficient permissions, you may get a general failure error (see below).
 
-![](media/security-center-customize-os-security-config/e23666181bed1279c2d2adf3f7b2ebf8.jpg)
+![](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## Next steps
 
