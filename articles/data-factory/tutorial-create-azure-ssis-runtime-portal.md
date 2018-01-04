@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: hero-article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: spelluru
 ---
 # Provision an Azure-SSIS (SQL Server Integration Services) integration runtime by using the Azure portal
