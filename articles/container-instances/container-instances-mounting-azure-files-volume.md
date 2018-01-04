@@ -16,6 +16,8 @@ ms.custom: mvc
 
 By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. This article shows how to mount an Azure file share for use with Azure Container Instances.
 
+Mounting an Azure file share is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find the current limitations in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+
 ## Create an Azure file share
 
 Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share, and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string.
