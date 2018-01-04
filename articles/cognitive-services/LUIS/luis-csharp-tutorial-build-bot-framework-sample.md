@@ -54,7 +54,7 @@ Build a chat bot with integrated language understanding.
     * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
 
 > [!Note]
-> This web app bot creation process also created a new LUIS app for you. It has been trained and published for you.
+> This web app bot creation process also created a new LUIS app for you. It has been trained and published for you. 
 
 ## Try the default bot
 
@@ -68,7 +68,7 @@ The bot responds by saying "You have reached Greeting. You said: hello".  This r
 
 ## Connect your LUIS app to the bot
 
-Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app.
+Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your programmatic key. You change this to your subscription key when your traffic exceeds the free tier quota. 
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
