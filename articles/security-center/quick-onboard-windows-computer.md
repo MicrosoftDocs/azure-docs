@@ -20,46 +20,38 @@ ms.author: terrylan
 # Quickstart: Onboard Windows computers to Azure Security Center
 After you onboard your Azure subscriptions, you can enable Security Center for resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Microsoft Monitoring Agent.
 
-This quickstart shows you how to:
-
-- Provision the Microsoft Monitoring Agent on a Windows computer
+This quickstart shows you how to install the Microsoft Monitoring Agent on a Windows computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
 You must be on Security Center’s Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center’s Standard at no cost for the first 60 day.
 
-## Onboard a Windows computer
+## Add new Windows computer
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
-2. On the **Microsoft Azure** menu, select **Security Center**.
-
-  ![Azure menu][1]
-
-  **Security Center - Overview** opens.
+2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
  ![Security Center overview][2]
 
-## Add new Windows computer
-
-1. Under the Security Center main menu, select **Onboarding to advanced security**.
-2. Select **Do you want to add non-Azure computers**.
+3. Under the Security Center main menu, select **Onboarding to advanced security**.
+4. Select **Do you want to add non-Azure computers**.
 
    ![Onboard to advanced security][3]
 
-3. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
+5. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
 
     ![Add non-Azure computer][4]
 
   The **Direct Agent** blade opens with a link for downloading a Windows agent and keys for your workspace ID to use in configuring the agent.
 
-4.	Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
+6.	Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
 
-5.	On the right of **Workspace ID**, select the copy icon and paste the ID into Notepad.
+7.	On the right of **Workspace ID**, select the copy icon and paste the ID into Notepad.
 
-6.	On the right of **Primary Key**, select the copy icon and paste the key into Notepad.
+8.	On the right of **Primary Key**, select the copy icon and paste the key into Notepad.
 
-## Install the agent using setup
+## Install the agent
 You must now install the downloaded file on the target computer.
 
 1. Copy the file to the target computer and Run Setup.
@@ -80,6 +72,16 @@ When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. 
 
 For further information on installing and configuring the agent, see [Connect Windows computers](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
 
+Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation.
+
+  ![Compute blade][6]
+
+There are two types of icons represented on the **Compute** blade:
+
+  ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Non-Azure computer.
+
+  ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM.
+
 ## Clean up resources
 When no longer needed, you can remove the agent from the Windows computer.
 
@@ -96,8 +98,8 @@ In this quickstart, you provisioned the Microsoft Monitoring Agent on a Windows 
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)
 
 <!--Image references-->
-[1]: ./media/quick-onboard-windows-computer/portal.png
 [2]: ./media/quick-onboard-windows-computer/overview.png
 [3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
+[6]: ./media/quick-onboard-windows-computer/compute.png

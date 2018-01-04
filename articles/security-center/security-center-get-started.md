@@ -20,7 +20,7 @@ ms.author: terrylan
 # Quickstart: Onboard your Azure subscription to Security Center Standard
 Azure Security Center’s Standard tier provides unified security management and threat protection across your workloads running in Azure, on-premises, and in other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days.
 
-In this article, you’ll upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
+In this article, you upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +43,7 @@ You can view and filter the list of subscriptions by clicking the **Subscription
 Within minutes of launching Security Center the first time, you may see:
 
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
-- An inventory of **Compute**, **Networking**, **Storage & data**, and **Application** resources that are now being assessed by Security Center along with the security posture of each.
+- An inventory of **Compute**, **Networking**, **Storage & data**, and **Applications** resources that are now being assessed by Security Center along with the security posture of each.
 
 To enable the full set of assessments, you will need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
 
@@ -105,7 +105,7 @@ If you wish to disable automatic provisioning:
 >
 
 ## Next steps
-In this quick start you upgraded to Standard tier and provisioned the Microsoft Monitoring Agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding a Windows computer.
+In this quick start you upgraded to Standard tier and provisioned the Microsoft Monitoring Agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)
