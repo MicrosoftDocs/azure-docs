@@ -87,11 +87,11 @@ This section describes how to create the Azure Resource Manager template that yo
 ## Create the release definition in Release Management
 To create the release definition, do the following:
 
-1. On the **Releases** tab of the **Build & Release** hub, select the plus sign (+).
-1. In the **Create release definition** window, select the **Empty** template, and then select **Next**.
-1. In the next page, select **Choose Later** and then select **Create** to create a new release definition with one default environment and no linked artifacts.
-1. To open the shortcut menu, in the new release definition, select the ellipsis (...) next to the environment name, and then select **Configure variables**. 
-1. In the **Configure - environment** window, for the variables that you use in the release definition tasks, enter the following values:
+1. On the **Releases** tab of the **Build & Release** hub, select the plus sign (+) button.
+2. In the **Create release definition** window, select the **Empty** template, and then select **Next**.
+3. Select **Choose Later**, and then select **Create** to create a new release definition with one default environment and no linked artifacts.
+4. To open the shortcut menu, in the new release definition, select the ellipsis (...) next to the environment name, and then select **Configure variables**. 
+5. In the **Configure - environment** window, for the variables that you use in the release definition tasks, enter the following values:
 
    a. For **vmName**, enter the name that you assigned to the VM when you created the Resource Manager template in the Azure portal.
 
@@ -101,7 +101,7 @@ To create the release definition, do the following:
 
 ### Create a VM
 
-In the first stage of this deployment, you create the VM to use as the "golden image" for subsequent deployments. You create the VM within your Azure DevTest Lab instance by using the task that's specially developed for this purpose. 
+The next stage of the deployment is to create the VM to use as the "golden image" for subsequent deployments. You create the VM within your Azure DevTest Lab instance by using the task that's specially developed for this purpose. 
 
 1. In the release definition, select **Add tasks**.
 2. On the **Deploy** tab, add an *Azure DevTest Labs Create VM* task. Configure the task as follows:
@@ -158,7 +158,7 @@ In the first stage of this deployment, you create the VM to use as the "golden i
 
 ### Create an image
 
-In this stage, you create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use the image to create copies of the VM on demand whenever you want to execute a dev task or run some tests. 
+The next stage is to create an image of the newly deployed VM in your Azure DevTest Labs instance. You can then use the image to create copies of the VM on demand whenever you want to execute a dev task or run some tests. 
 
 1. In the release definition, select **Add tasks**.
 2. On the **Deploy** tab, add an **Azure DevTest Labs Create Custom Image** task. Configure it as follows:
@@ -180,7 +180,7 @@ In this stage, you create an image of the newly deployed VM in your Azure DevTes
 
 ### Delete the VM
 
-In this final stage, you delete the VM that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the VM after you execute the dev tasks or run the tests that you need on the deployed VM. 
+The final stage is to delete the VM that you deployed in your Azure DevTest Labs instance. You would ordinarily delete the VM after you execute the dev tasks or run the tests that you need on the deployed VM. 
 
 1. In the release definition, select **Add tasks** and then, on the **Deploy** tab, add an *Azure DevTest Labs Delete VM* task. Configure it as follows:
 
