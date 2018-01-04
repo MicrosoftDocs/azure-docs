@@ -103,7 +103,7 @@ Copy the AzCopy command to a text editor. Update the parameter values of the AzC
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
-AzCopy is run with the verbose `--verbose` (Linux) and `/V` (Windows) option. The output is redirected into a log file. 
+AzCopy is run with the verbose `--verbose` (Linux) or `/V` (Windows) option. The output is redirected into a log file. 
 
 In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows. The [Crontab](http://crontab.org/) command is used to create a cron job on Linux. 
  **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on a local or remote computer. **Cron** enables Linux and Unix users to run commands or scripts at a specified date and time by using [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
