@@ -96,14 +96,14 @@ The lookup result is returned in the `output` section of the activity run result
     ```
 
 ## Example
-In this example, the copy activity copies data from a SQL table in your Azure SQL database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically without your having to redeploy pipelines or datasets. 
+In this example, the copy activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically without your having to redeploy pipelines or datasets. 
 
 This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
 
 ### Pipeline
 This pipeline contains two activities: *lookup* and *copy*. 
 
-- The lookup activity is configured to use the LookupDataset, which refers to a location in Azure Blob storage. The lookup activity reads the name of the SQL table from a JSON file in this location. 
+- The lookup activity is configured to use LookupDataset, which refers to a location in Azure Blob storage. The lookup activity reads the name of the SQL table from a JSON file in this location. 
 - The copy activity uses the output of the lookup activity (name of the SQL table). The tableName property in the source dataset (SourceDataset) is configured to use the output from the lookup activity. The copy activity copies data from the SQL table to a location in Azure Blob storage that is specified by the SinkDataset property. 
 
 
@@ -162,7 +162,7 @@ This pipeline contains two activities: *lookup* and *copy*.
 ```
 
 ### Lookup dataset
-The lookup dataset refers to the *sourcetable.json* file in the Azure storage lookup folder that's specified by the AzureStorageLinkedService type. 
+The lookup dataset refers to the *sourcetable.json* file in the Azure Storage lookup folder that's specified by the AzureStorageLinkedService type. 
 
 ```json
 {
@@ -246,7 +246,7 @@ This storage account contains the JSON file with the names of the SQL tables.
 ```
 
 ### Azure SQL Database linked service
-This Azure SQL database instance contains the data to be copied to Blob storage. 
+This Azure SQL Database instance contains the data to be copied to Blob storage. 
 
 ```json
 {
