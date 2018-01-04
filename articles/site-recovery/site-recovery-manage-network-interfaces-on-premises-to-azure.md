@@ -29,7 +29,7 @@ By default, Azure Site Recovery creates as many network interfaces on an Azure v
 
 ## Select the target network
 
-For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, [network mapping](site-recovery-network-mapping.md) is used to map VM networks on a source Virtual Machine Manager server and target Azure networks.
+For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, use [network mapping](site-recovery-network-mapping.md) to map VM networks on a source Virtual Machine Manager server and target Azure networks.
 
 1. Under **Replicated items** in a Recovery Services vault, select any replicated item to access the settings for that replicated item.
 
@@ -51,17 +51,17 @@ Under the **Network interfaces** section of the **Compute and Network** pane, yo
 - All other selected network interfaces, if any, are **Secondary** network interfaces.
 - Select **Do not use** to exclude a network interface from creation at failover.
 
-By default, when you're enabling replication, Site Recovery selects all detected network interfaces on the on-premises server. It marks one as **Primary** and all others as **Secondary** network interfaces. Any subsequent interfaces added on the on-premises server are marked **Do not use** by default. When you're adding more network interfaces, ensure that the correct Azure virtual machine target size is selected to accommodate all required network interfaces.
+By default, when you're enabling replication, Site Recovery selects all detected network interfaces on the on-premises server. It marks one as **Primary** and all others as **Secondary**. Any subsequent interfaces added on the on-premises server are marked **Do not use** by default. When you're adding more network interfaces, ensure that the correct Azure virtual machine target size is selected to accommodate all required network interfaces.
 
 ## Modify network interface settings
 
-You can modify the subnet and IP for a replicated item's network interfaces. If an IP is not specified, Site Recovery will assign the next available IP from the subnet to the network interface at failover.
+You can modify the subnet and IP address for a replicated item's network interfaces. If an IP address is not specified, Site Recovery will assign the next available IP address from the subnet to the network interface at failover.
 
 1. Select any available network interface to open the network interface settings.
 
 2. Choose the desired subnet from the list of available subnets.
 
-3. Enter the desired IP (as required).
+3. Enter the desired IP address (as required).
 
 	![Network interface settings](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
 
