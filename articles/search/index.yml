@@ -44,7 +44,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/search/media/index/rest.svg
       text: REST
-      href: https://docs.microsoft.com/azure/search/search-create-index-rest-api
+      href: https://docs.microsoft.com/azure/search/search-fiddler
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
