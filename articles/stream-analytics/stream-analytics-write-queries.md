@@ -4,7 +4,7 @@ description: Write queries in Stream Analytics and query data | learning path se
 keywords: how to write queries, query data, write a query, writing queries
 documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: cwatson-cat
 manager: jhubbard
 editor: cgronlun
 

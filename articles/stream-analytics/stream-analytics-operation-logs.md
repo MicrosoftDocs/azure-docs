@@ -4,7 +4,7 @@ description: How-to use Stream Analytics operation logs
 keywords: service logs
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: cwatson-cat
 manager: jhubbard
 editor: cgronlun
 
