@@ -28,7 +28,13 @@
   - name: 1 - Deploy SSIS packages to Azure
     href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
-    href: tutorial-copy-data-dot-net.md
+    items:
+    - name: Copy Data tool
+      href: tutorial-copy-data-tool.md
+    - name: Azure portal
+      href: tutorial-copy-data-portal.md    
+    - name: PowerShell
+      href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
     href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
