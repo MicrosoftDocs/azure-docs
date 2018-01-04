@@ -39,6 +39,7 @@ The Azure Stack 1712 update build number is **180103.2**.
 ```
 Get-PSSession | Remove-PSSession
 ```
+Additionally, do not create a PEP session even after the Azure Stack update has started.
 
 > [!IMPORTANT]
 > Do not attempt to create virtual machines during the 1712 update installation process. See [manage updates in Azure Stack overview](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) for more details.
