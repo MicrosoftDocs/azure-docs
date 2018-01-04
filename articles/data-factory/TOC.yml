@@ -28,7 +28,11 @@
 - name: Tutorials
   items:
   - name: 1 - Deploy SSIS packages to Azure
-    href: tutorial-deploy-ssis-packages-azure.md    
+    items:
+    - name: Azure portal
+      href: tutorial-create-azure-ssis-runtime-portal.md
+    - name: PowerShell
+      href: tutorial-deploy-ssis-packages-azure.md    
   - name: 2 - Copy data in cloud
     href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
