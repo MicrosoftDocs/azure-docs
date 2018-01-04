@@ -22,8 +22,8 @@ The Microsoft Graph extension provides the following bindings:
 - An [auth token input binding](#token-input) allows you to interact with any Microsoft Graph API.
 - An [Excel table input binding](#excel-input) allows you to read data from Excel.
 - An [Excel table output binding](#excel-output) allows you to modify Excel data.
-- An [OneDrive file input binding](#onedrive-input) allows you to read files from OneDrive.
-- An [OneDrive file output binding](#onedrive-output) allows you to write to files in OneDrive.
+- A [OneDrive file input binding](#onedrive-input) allows you to read files from OneDrive.
+- A [OneDrive file output binding](#onedrive-output) allows you to write to files in OneDrive.
 - An [Outlook message output binding](#outlook-output) allows you to send email through Outlook.
 - A collection of [Microsoft Graph webhook triggers and bindings](#webhooks) allows you to react to events from the Microsoft Graph.
 
@@ -44,7 +44,7 @@ For information about how to set a function app to use the preview 2.0 version o
 
 ### Installing the extension
 
-To install an extension from the Azure portal, navigate to either a template or binding which references it. Create a new function, and while in the template selection screen, choose the "Microsoft Graph" scenario. Select one of the templates from this scenario. Alternatively, you can navigate to the "Integrate" tab of an existing function and select one of the bindings covered in this article.
+To install an extension from the Azure portal, navigate to either a template or binding that references it. Create a new function, and while in the template selection screen, choose the "Microsoft Graph" scenario. Select one of the templates from this scenario. Alternatively, you can navigate to the "Integrate" tab of an existing function and select one of the bindings covered in this article.
 
 In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension.
 
@@ -57,7 +57,7 @@ If you are using Visual Studio, you can get the extensions by installing these N
 
 ### Configuring Authentication / Authorization
 
-The bindings outlined in this topic require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
+The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
 > [!Note] 
 > The Microsoft Graph extension only supports Azure AD authentication. Users need to log in with a work or school account.
@@ -719,7 +719,7 @@ The *function.json* file defines an HTTP trigger with a OneDrive output binding:
 }
 ```
 
-The C# script code gets text from the query string and writes it to a text file (FunctionsTest.txt as defined in the config above) at the root of the caller's OneDrive:
+The C# script code gets text from the query string and writes it to a text file (FunctionsTest.txt as defined in the preceding example) at the root of the caller's OneDrive:
 
 ```csharp
 using System.Net;
