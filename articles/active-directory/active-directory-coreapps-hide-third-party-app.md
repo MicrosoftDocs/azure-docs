@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
@@ -52,7 +52,7 @@ Use the following steps to hide all Office 365 applications from the access pane
 1.	Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2.	Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 3.	On the **Azure Active Directory - *directoryname*** screen (that is, the Azure AD screen for the directory you are managing), select **User settings**.
-4.	On the **User settings** screen, under ** Enterprise applications** select **Yes** for **Users can only see Office 365 apps in the Office 365 portal**.
+4.	On the **User settings** screen, under **Enterprise applications** select **Yes** for **Users can only see Office 365 apps in the Office 365 portal**.
 
 ![Enterprise apps](media/active-directory-coreapps-hide-third-party-app/apps4.png)
 
