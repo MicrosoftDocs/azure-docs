@@ -1,8 +1,8 @@
 ---
-title: Transform Text with the Translator Text API | Microsoft Docs
+title: Transform Text with the Microsoft Translator Text API | Microsoft Docs
 description: Transform text using the Microsoft Translator Text API.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
