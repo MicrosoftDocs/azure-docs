@@ -22,6 +22,7 @@
 ## Deploy
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
+### [Use Availability Zones](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Autoscale a scale set](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Use the Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Use the Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
