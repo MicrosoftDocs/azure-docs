@@ -119,7 +119,7 @@ The contents show the Azure Batch environment variables that are set on the node
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and click **Delete**.
+When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 

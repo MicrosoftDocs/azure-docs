@@ -4,7 +4,7 @@ description: Learn about using the Azure Batch service for large-scale parallel 
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: timlt
+manager: jkabat
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
-ms.author: jkabat
+ms.author: mscurrell
 ms.custom: 
 
 ---
