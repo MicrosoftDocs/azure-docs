@@ -24,7 +24,7 @@ The Azure Database for PostgreSQL server is created with the 3 default roles def
 
 Your server admin user is a member of the azure_pg_admin role. However, the server admin account is not part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role. 
 
-The PostgreSQL engine uses privileges to control acces to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, the server admin user is granted these privileges:
+The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, the server admin user is granted these privileges:
   LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 The server admin user account can be used to create additional users and grant those users into the azure_pg_admin role. Also, the server admin account can be used to create less privileged users and roles that have access to individual databases and schemas.
@@ -36,7 +36,7 @@ The server admin user account can be used to create additional users and grant t
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
    If you are unsure of how to connect, see [Connect to the PostgreSQL Database by using psql in Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
 
-3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placholder password with your own strong password. 
+3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password. 
 
    ```sql
    CREATE USER <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
