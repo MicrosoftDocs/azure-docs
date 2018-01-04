@@ -1,8 +1,5 @@
 # Overview
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
-## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-## [Service Bus architecture](service-bus-architecture.md)
-## [FAQ](service-bus-faq.md)
 
 # Quickstarts
 ## [Send and receive messages using PowerShell](service-bus-quickstart-powershell.md)
@@ -35,6 +32,8 @@
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
 
 # Concepts
+## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus architecture](service-bus-architecture.md)
 ## [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
 ## [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ## [Premium messaging](service-bus-premium-messaging.md)
@@ -98,6 +97,7 @@
 ## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
 
 # Resources
+## [FAQ](service-bus-faq.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
