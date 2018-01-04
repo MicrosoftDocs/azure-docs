@@ -43,7 +43,7 @@ When the **Deployment succeeded** message appears, go to the Batch account in th
 
 ## Create a Batch pool
 
-Create a sample pool of Windows VMs for test purposes. The pool for this quick example consists of 2 size A1 nodes running Windows Server 2012 R2 Datacenter from the Azure Marketplace. 
+Create a sample pool of Windows VMs for test purposes. The pool for this quick example consists of 2 size *Standard_A1* nodes running Windows Server 2012 R2 Datacenter from the Azure Marketplace. 
 
 
 1. In the Batch account, click **Pools** > **Add**.
@@ -57,7 +57,7 @@ Create a sample pool of Windows VMs for test purposes. The pool for this quick e
 
   * **Offer** - WindowsServer
 
-  * **Sku** - 2016-Datacenter
+  * **Sku** - 2012-R2-Datacenter
 
   ![Select a pool operating system][pool_os] 
 
