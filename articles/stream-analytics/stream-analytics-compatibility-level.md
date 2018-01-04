@@ -42,31 +42,31 @@ The following major changes are introduced in compatibility level 1.1:
 
 * **Service Bus XML format**  
 
-  * **In previous versions:** Azure Stream Analytics was using DataContractSerializer, so there were XML tags around the message content. For example:
+  * **previous versions:** Azure Stream Analytics used DataContractSerializer, so the message content included XML tags. For example:
     
    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
 
-  * **In current version:** The message content contains the stream directly with no additional tags. For example:
+  * **current version:** The message content contains the stream directly with no additional tags. For example:
   
    { “SensorId”:”1”, “Temperature”:64} 
  
 * **Persisting case-sensitivity for field names**  
 
-  * **In previous versions:** Field names were changed to lower case when processed by the Azure Stream Analytics engine. 
+  * **previous versions:** Field names were changed to lower case when processed by the Azure Stream Analytics engine. 
 
-  * **In current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
+  * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
  
 * **FloatNaNDeserializationDisabled**  
 
-  * **In previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number. For example, Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.
+  * **previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number. For example, Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.
 
-  * **In current version:** CREATE TABLE allows you to specify a strong schema. The Stream Analytics engine validates that the data conforms to this schema. With this model, the command can filter events with NaN values. 
+  * **current version:** CREATE TABLE allows you to specify a strong schema. The Stream Analytics engine validates that the data conforms to this schema. With this model, the command can filter events with NaN values. 
 
 * **Disable automatic upcast for datetime strings in JSON.**  
 
-  * **In previous versions:** The JSON parser would automatically upcast string values with date/time/zone information to DateTime type and then convert it to UTC. This resulted in losing the timezone information.
+  * **previous versions:** The JSON parser would automatically upcast string values with date/time/zone information to DateTime type and then convert it to UTC. This resulted in losing the timezone information.
 
-  * **In current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone information is kept. 
+  * **current version:** There is no more automatically upcast of string values with date/time/zone information to DateTime type. As a result, timezone information is kept. 
 
 ## Next steps
 * [Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
