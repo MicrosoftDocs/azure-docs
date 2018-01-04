@@ -154,19 +154,16 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 14. Navigate to the **adfv2tutorial/input** folder, and select **inputEmp.txt** file.
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe** character as the **column delimiter**.
+15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe** character as the **column delimiter**. You can preview data in this by clicking **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
-16. Click **Preview data** button to preview data in the source file (inputEmp.txt).Close the **Data Preview** window by clicking the **X** button. 
-    
-    ![Preview data](./media/tutorial-copy-data-portal/preview-data.png)
 17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. 
 
     ![Detect source schema](./media/tutorial-copy-data-portal/detect-source-schema.png)  
 19. Now, switch to the **tab with the pipeline**. 
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab.png)
-20. Confirm that the **SourceBlobDataset** is selected for the Source Dataset field in the properties window. You can preview data in this window too by clicking **Preview data**. 
+20. Confirm that the **SourceBlobDataset** is selected for the Source Dataset field in the properties window. You can preview data in this by clicking **Preview data**. 
     
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 21. Switch to the **Sink** tab, and click **New** to create a sink dataset. 
