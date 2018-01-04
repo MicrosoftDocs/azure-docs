@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
@@ -169,8 +169,8 @@ To grant permission, assign the `Application Insights Snapshot Debugger` role to
 1. Click the Save button to add the user to the role.
 
 
-[!IMPORTANT]
-    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+> [!IMPORTANT]
+> Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal
 
