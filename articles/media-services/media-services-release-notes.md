@@ -560,7 +560,7 @@ The following functionality was new in the November release of the SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady License Template Overview]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming Storage Encrypted Content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Dynamic Packaging]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's Blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protecting Smooth Stream with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
