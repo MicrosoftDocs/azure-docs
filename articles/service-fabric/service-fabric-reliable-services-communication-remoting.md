@@ -219,21 +219,21 @@ Following example uses Json Serialization with Remoting V2.
         public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType,
             IEnumerable<Type> requestBodyTypes)
         {
-            return new ServiceRemotingRequestJsonMessageBodySerializer(serviceInterfaceType, requestBodyTypes);
+            return new ServiceRemotingRequestJsonMessageBodySerializer();
         }
-
+    
         public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType,
             IEnumerable<Type> responseBodyTypes)
         {
-            return new ServiceRemotingResponseJsonMessageBodySerializer(serviceInterfaceType, responseBodyTypes);
+            return new ServiceRemotingResponseJsonMessageBodySerializer();
         }
-
+    
         public IServiceRemotingMessageBodyFactory CreateMessageBodyFactory()
         {
             return new JsonMessageFactory();
         }
     }
-
+    
     class JsonMessageFactory : IServiceRemotingMessageBodyFactory
     {
         public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName,
@@ -241,68 +241,58 @@ Following example uses Json Serialization with Remoting V2.
         {
             return new JsonRemotingRequestBody();
         }
-
+    
         public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName)
         {
             return new JsonRemotingResponseBody();
         }
     }
-
+    
     class ServiceRemotingRequestJsonMessageBodySerializer : IServiceRemotingRequestMessageBodySerializer
     {
-        public ServiceRemotingRequestJsonMessageBodySerializer(Type serviceInterfaceType,
-            IEnumerable<Type> parameterInfo)
-        {
-        }
-
         public OutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
         {
             if (serviceRemotingRequestMessageBody == null)
             {
                 return null;
             }
-
-            var writeStream = new MemoryStream();
-            var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream));
-
-            var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+    
+            using (var writeStream = new MemoryStream())
+            using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
             {
-                TypeNameHandling = TypeNameHandling.All
-            });
-            serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
-
-            jsonWriter.Flush();
-            var segment = new ArraySegment<byte>(writeStream.ToArray());
-            var segments = new List<ArraySegment<byte>> { segment };
-            return new OutgoingMessageBody(segments);
+                var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                });
+                serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
+    
+                jsonWriter.Flush();
+                var segment = new ArraySegment<byte>(writeStream.ToArray());
+                var segments = new List<ArraySegment<byte>> { segment };
+                return new OutgoingMessageBody(segments);
+             }
         }
-
+    
         public IServiceRemotingRequestMessageBody Deserialize(IncomingMessageBody messageBody)
         {
             using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
             using (JsonReader reader = new JsonTextReader(sr))
             {
                 var serializer = JsonSerializer.Create(new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All
                 });
-
+    
                 return serializer.Deserialize<JsonRemotingRequestBody>(reader);
             }
         }
     }
-
+    
     class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
     {
-        public ServiceRemotingResponseJsonMessageBodySerializer(Type serviceInterfaceType,
-            IEnumerable<Type> parameterInfo)
+        public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody serviceRemotingResponseMessageBody)
         {
-        }
-
-        public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
-        {
-            var json = JsonConvert.SerializeObject(responseMessageBody, new JsonSerializerSettings()
+            var json = JsonConvert.SerializeObject(serviceRemotingResponseMessageBody, new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.All
             });
@@ -311,50 +301,59 @@ Following example uses Json Serialization with Remoting V2.
             var list = new List<ArraySegment<byte>> { segment };
             return new OutgoingMessageBody(list);
         }
-
+    
         public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
         {
             using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
             using (var reader = new JsonTextReader(sr))
             {
                 var serializer = JsonSerializer.Create(new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All
                 });
-
+    
                 return serializer.Deserialize<JsonRemotingResponseBody>(reader);
             }
         }
     }
-
-    internal class JsonRemotingResponseBody : IServiceRemotingResponseMessageBody
+    
+    class JsonRemotingResponseBody : IServiceRemotingResponseMessageBody
     {
-        public object Value;
-
+        public string Value { get; set; }
+    
         public void Set(object response)
         {
-            this.Value = response;
+            Value = JsonConvert.SerializeObject(response);
         }
-
+    
         public object Get(Type paramType)
         {
-            return this.Value;
+            if (Value == null)
+            {
+                return null;
+            }
+    
+            return JsonConvert.DeserializeObject(Value, paramType);
         }
     }
-
+      
     class JsonRemotingRequestBody : IServiceRemotingRequestMessageBody
     {
-        public readonly Dictionary<string, object> parameters = new Dictionary<string, object>();        
-
+        public readonly Dictionary<string, string> Parameters = new Dictionary<string, string>();
+    
         public void SetParameter(int position, string parameName, object parameter)
         {
-            this.parameters[parameName] = parameter;
+            Parameters[parameName] = JsonConvert.SerializeObject(parameter);
         }
-
+    
         public object GetParameter(int position, string parameName, Type paramType)
         {
-            return this.parameters[parameName];
+            if (Parameters[parameName] == null)
+            {
+                return null;
+            }
+    
+            return JsonConvert.DeserializeObject(Parameters[parameName], paramType);
         }
     }
  ```
@@ -369,7 +368,7 @@ Following example uses Json Serialization with Remoting V2.
            new ServiceInstanceListener((c) =>
            {
                return new FabricTransportServiceRemotingListener(c, this,
-                   new ServiceRemotingJsonSerializationProvider());
+                   serializationProvider: new ServiceRemotingJsonSerializationProvider());
            })
        };
    }
