@@ -308,8 +308,8 @@ You can publish the code associated with your data factory artifacts to a Visual
     ![Commit and sync your changes](./media/tutorial-copy-data-portal/commit-and-sync.png)
 9. In the Sync your changes window, do the following actions: 
 
-    1. Notice that the **CopyPipeline** is shown in the updated pipelines list.
-    2. Notice that the **Publish changes after sync** is selected. If you uncheck this option, you only sync your changes in the your branch with the master branch, but don't publish them to the Data Factory service. You can publish them later by using the Publish button. If you check this option, the changes are synced to the master first and then they are published to the Data Factory service.
+    1. Confirm that **CopyPipeline** is shown in the updated pipelines list.
+    2. Confirm that **Publish changes after sync** is selected. If you uncheck this option, you only sync your changes in your branch with the master branch, but don't publish them to the Data Factory service. You can publish them later by using the Publish button. If you check this option, the changes are synced to the master first and then they are published to the Data Factory service.
     3. Click **Sync**. 
 
     ![Sync your changes window](./media/tutorial-copy-data-portal/sync-your-changes.png)
