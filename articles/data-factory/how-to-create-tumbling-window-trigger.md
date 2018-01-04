@@ -16,7 +16,7 @@ ms.date: 01/03/2018
 ms.author: shlo
 ---
 
-# How to create a trigger that runs a pipeline on a tumbling window trigger
+# How to create a trigger that runs a pipeline on a tumbling window
 This article provides steps to create, start, and monitor a trigger. For conceptual information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
@@ -34,14 +34,14 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
         "typeProperties": {
             "frequency": "<<Minute/Hour>>",
             "interval": <<int>>,
-            "startTime": "<<datetime – optional, default: Utc.now – interval - delay>>",
-            "delay": "<<timespan – optional, need value of: "00:00:01">>",
+            "startTime": "<<datetime>>",
+            "endTime: "<<datetime – optional>>"",
+            "delay": "<<timespan – optional>>",
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count":  <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
-            },
-            "timeout": "<<timespan - optional, default: PT7D>>"
+            }
         },
         "pipeline":
             {
@@ -73,8 +73,8 @@ The following table provides a high-level overview of the major elements related
 | **runtimeState** | <readOnly> Possible Values: Started, Stopped, Disabled | String | Yes, readOnly |
 | **frequency** |The *frequency* string representing the frequency unit at which the trigger recurs. Supported values are "minute" and "hour." If the start time has date parts that are more granular than the frequency, they will be taken into consideration to compute the window boundaries. For ex: if the frequency is hourly and the start time is 2016-04-01T10:10:10Z, the first window is (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z.)  | String. Supported types "minute," "hour" | Yes |
 | **interval** |The *interval* is a positive integer and denotes the interval for the *frequency* that determines how often the trigger will run. For example, if *interval* is 3 and *frequency* is "hour", the trigger recurs every 3 hours. | Integer | Yes |
-| **startTime**|*startTime* is a Date-Time. *startTime* is the first occurrence and can be in the past. The first trigger interval will be (startTime – interval - delay, startTime - delay). | DateTime | Yes |
-| **endTime**|*endTime* is a Date-Time. *endTime* is the last occurrence and can be in the past. The final trigger interval will be (startTime – interval - delay, startTime - delay). | DateTime | Yes |
+| **startTime**|*startTime* is a Date-Time. *startTime* is the first occurrence and can be in the past. The first trigger interval will be (startTime, startTime + interval). | DateTime | Yes |
+| **endTime**|*endTime* is a Date-Time. *endTime* is the last occurrence and can be in the past. | DateTime | Yes |
 | **delay** | Specify the delay before data processing of the window starts. The pipeline run is started after the expected execution time + delay. Delay defines the how long the trigger waits past due time before triggering new run. It doesn’t alter window start time. | Timespan (Example: 00:10:00, implies delay of 10 mins) |  No. Default is "00:00:00" |
 | **max concurrency** | Number of simultaneous trigger runs that are fired for windows that are ready. Example: if we are trying to backfill hourly for yesterday, that would be 24 windows. If concurrency = 10, trigger events are fired only for the first 10 windows (00:00-01:00 - 09:00-10:00). After the first 10 triggered pipeline runs are complete, trigger runs are fired for the next 10 (10:00-11:00 - 19:00-20:00). Continuing with example of concurrency = 10, if there are 10 windows ready, there will be 10 pipeline runs. If there is only 1 window ready, there will only be 1 pipeline run. | Integer | Yes. Possible values 1-50 |
 | **retryPolicy: Count** | The number of retries before the pipeline run is marked as "Failed"  | Integer |  No. Default is 0 retries |
