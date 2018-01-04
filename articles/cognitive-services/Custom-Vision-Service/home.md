@@ -37,6 +37,10 @@ Custom Vision Service is designed to make it easy to start building your classif
 - UX tweaks, including the ability to see which domain was used to train an iteration.
 - Updated [C# SDK and sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows).
 
+## Known issues
+
+- 1/3/2018: The new "Retail - compact" domain model export to iOS (CoreML) generates a faulty model which will not run and generates a validation error. The cloud service and Android export should work. A fix is on the way. 
+
 ## Next steps
 
 [Build a Classifier](getting-started-build-a-classifier.md)
