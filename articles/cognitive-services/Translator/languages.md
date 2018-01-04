@@ -82,7 +82,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 
 ## Neural Machine Translation systems
 
-The following languages are supported for Neural Machine Translation. The neural system can be used by adding "generalnn" to the category parameter of the API call. You may use the "generalnn" category for any of the above languages, even if there is no neural translation system handling it. 
+The following languages are supported for Neural Machine Translation. The neural system can be used by adding "generalnn" to the category parameter of the API call. You may use the "generalnn" category for any of the supported languages, even if there is no neural translation system handling it. 
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -116,19 +116,19 @@ You can access the list of supported languages programmatically using the Langua
 The Languages resource returns the list of supported languages for text and speech translation. The Languages resource 
 does not require authentication.
 
-To access the list, in the 'Scope' parameter of the method of the Languages resource reference page, add 'text'. After you have entered the scope parameter, select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible in the 'Response Body' section. 
+To access the list, add 'text' in the 'Scope' parameter of the Languages resource reference page. After you have entered the scope parameter, select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible in the 'Response Body' section. 
 
 [Visit the API reference to try out the languages method](http://docs.microsofttranslator.com/languages.html)
 
 ## Access the list on the Microsoft Translator website
 
-For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists available in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
+For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs. This list does not include developer-specific information such as language codes.
 
 [See the list of languages](https://www.microsoft.com/translator/languages.aspx)
 
 ## Languages detected by the Detect() method
 
-The following languages can be detected by the Detect() method. Note that Detect () may detect languages that Microsoft Translator cannot translate. 
+The following languages can be detected by the Detect() method. Detect () may detect languages that Microsoft Translator cannot translate. 
 
 | Language    | 
 |:----------- |
