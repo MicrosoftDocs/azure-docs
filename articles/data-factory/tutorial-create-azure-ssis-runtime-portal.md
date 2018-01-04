@@ -108,7 +108,7 @@ In this tutorial, you do the following steps:
 7. In the **Connections** window, switch to **Integration Runtimes** if needed. Click **Refresh** to refresh the status. 
 
     ![Creation status](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
-8. Use the links under **Actions** column to monitor, stop/start, edit, or delete the integration runtime. 
+8. Use the links under **Actions** column to monitor, stop/start, edit, or delete the integration runtime. Use the last link to view JSON code for the integration runtime. The edit and delete buttons are enabled only when the IR is stopped. 
 
     ![Azure SSIS IR - actions](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
 9. Click **Monitor** link under **Actions**.  
@@ -119,14 +119,16 @@ In this tutorial, you do the following steps:
 
 ## Azure SSIS integration runtimes in the portal
 
-1. In the Data Integration Application, switch to the **Edit** tab, click **Connections**, and then switch to **Integration Runtimes** tab. 
+1. In the Data Integration Application, switch to the **Edit** tab, click **Connections**, and then switch to **Integration Runtimes** tab to view existing integration runtimes in your data factory. 
+    ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+1. Click **New** to create a new Azure-SSIS IR. 
 
     ![Integration runtime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 2. To create an Azure-SSIS integration runtime, click **New** as shown in the image. 
 3. In the Integration Runtime Setup window, select **Lift-and-shift existing SSIS packages to execute in Azure**, and then click **Next**.
 
     ![Specify the type of integration runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
-4. See the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section for the steps to configure integration runtime. 
+4. See the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section for the remaining steps to set up an Azure-SSIS IR. 
 
     
 ## Deploy SSIS packages
