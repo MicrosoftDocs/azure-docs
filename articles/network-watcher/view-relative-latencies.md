@@ -22,29 +22,6 @@ ms.custom:
 # View relative latency to Azure regions from specific locations
 
 In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers’ connections to Azure.  
-
-## Register for the preview 
-
-> [!NOTE]
-> This tutorial utilizes features that are currently in preview release. Features in preview release do not have the same availability and reliability as features in general release.
-
-Install and configure [PowerShell](/powershell/azure/install-azurerm-ps?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Ensure you have version 5.1.1 or higher of the AzureRm module installed. You can check your currently installed version by entering the `Get-Module -ListAvailable AzureRM` command. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). 
-
-In a PowerShell session, log in to Azure with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#account) using the `login-azurermaccount` command. Register for the preview by entering the following commands:
-    
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherAzureReachabilityReport -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-``` 
-
-Confirm that you are registered for the preview by entering the following command:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherAzureReachabilityReport -ProviderNamespace Microsoft.Network
-```
-
-> [!WARNING]
-> Registration can take up to an hour to complete. Do not continue with the remaining steps until *Registered* appears for **RegistrationState** in the output returned from the previous command. If you continue before you're registered, remaining steps fail.
         
 ## Create a network watcher
 
