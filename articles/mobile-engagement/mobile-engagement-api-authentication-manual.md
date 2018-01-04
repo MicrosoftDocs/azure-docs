@@ -24,7 +24,7 @@ It describes an alternate way to do the One-time setup for setting up your authe
 > [!NOTE]
 > The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. So refer to it if you want to understand the steps below in detail.
 
-1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
+1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com/).
 2. Select **Active Directory** from the left pane.
      ![select Active Directory][1]
 3. To view the applications in your directory, click on **App registrations**.
