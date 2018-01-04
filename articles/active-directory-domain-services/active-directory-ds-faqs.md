@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
 
 ---
@@ -28,7 +28,7 @@ Refer to the [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
-Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. This functionality is currently in preview.
+Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer supported for creating new managed domains.
 
 #### Can I migrate my existing managed domain from a classic virtual network to a Resource Manager virtual network?
 Not currently. Microsoft will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.

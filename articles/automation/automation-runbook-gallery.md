@@ -23,23 +23,14 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop.
 
 ## Runbooks in Runbook Gallery
-The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery, which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery from either the Azure classic portal or Azure portal.
+The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery, which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery in the Azure portal.
 
-You can only import directly from the Runbook Gallery using the Azure classic portal or Azure portal. You cannot perform this function using Windows PowerShell.
+You can only import directly from the Runbook Gallery using the Azure portal. You cannot perform this function using Windows PowerShell.
 
 > [!NOTE]
 > You should validate the contents of any runbooks that you get from the Runbook Gallery and use extreme caution in installing and running them in a production environment.|
 > 
 > 
-
-### To import a runbook from the Runbook Gallery with the Azure classic portal
-1. In the Azure portal, click, **New**, **App Services**, **Automation**, **Runbook**, **From Gallery**.
-2. Select a category to view related runbooks, and select a runbook to view its details. When you select the runbook you want, click the right arrow button.
-   
-    ![Runbook gallery](media/automation-runbook-gallery/runbook-gallery.png)
-3. Review the contents of the runbook and note any requirements in the description. Click the right arrow button when you’re done.
-4. Enter the runbook details and then click the checkmark button. The runbook name is already filled in.
-5. The runbook appears on the **Runbooks** tab for the Automation Account.
 
 ### To import a runbook from the Runbook Gallery with the Azure portal
 1. In the Azure portal, open your Automation account.
@@ -81,7 +72,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 * Automation updates the Gallery once an hour, so you won’t see your contributions immediately.
 
 ## Modules in PowerShell Gallery
-PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  You cannot install the modules directly from the Azure classic portal, but you can download them install them as you would any other module.
+PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  
 
 ### To import a module from the Automation Module Gallery with the Azure portal
 1. In the Azure portal, open your Automation account.
