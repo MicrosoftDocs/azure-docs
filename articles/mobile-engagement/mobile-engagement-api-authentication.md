@@ -21,7 +21,7 @@ ms.author: wesmc;ricksal
 
 ## Overview
 
-This document describes how to get a valid AAD Oauth token to authenticate with the Mobile Engagement REST APIs.
+This document describes how to get a valid Azure AD Oauth token to authenticate with the Mobile Engagement REST APIs.
 
 It is assumed that you have a valid Azure subscription and you have created a Mobile Engagement app using one of our [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
