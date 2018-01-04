@@ -1,8 +1,8 @@
 ---
-title: Translator Text API Dynamic Dictionary | Microsoft Docs
+title: Microsoft Translator Text API Dynamic Dictionary | Microsoft Docs
 description: How to use the dynamic dictionary feature of the Microsoft Translator Text API.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
