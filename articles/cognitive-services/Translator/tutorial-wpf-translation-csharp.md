@@ -1,5 +1,5 @@
 ---
-title: Translator Text Tutorial (C#) | Microsoft Docs
+title: Microsoft Translator Text API Tutorial (C#) | Microsoft Docs
 description: Learn how to use the Translator text service to translate text, get a localized list of supported languages, and more.
 services: cognitive-services
 author: jerrykindall
