@@ -59,98 +59,111 @@ In this application we use a Spark ML pipeline to perform a document classificat
    
     ![Provide a notebook name for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-notebook-name.png "Provide a notebook name for Spark machine learning example")
 5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
-   
-        from pyspark.ml import Pipeline
-        from pyspark.ml.classification import LogisticRegression
-        from pyspark.ml.feature import HashingTF, Tokenizer
-        from pyspark.sql import Row
-   
-        import os
-        import sys
-        from pyspark.sql.types import *
-   
-        from pyspark.mllib.classification import LogisticRegressionWithSGD
-        from pyspark.mllib.regression import LabeledPoint
-        from numpy import array
+
+    ```PySpark
+    from pyspark.ml import Pipeline
+    from pyspark.ml.classification import LogisticRegression
+    from pyspark.ml.feature import HashingTF, Tokenizer
+    from pyspark.sql import Row
+
+    import os
+    import sys
+    from pyspark.sql.types import *
+
+    from pyspark.mllib.classification import LogisticRegressionWithSGD
+    from pyspark.mllib.regression import LabeledPoint
+    from numpy import array
+    ```
 6. You must now load the data (hvac.csv), parse it, and use it to train the model. For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. If the actual temperature is lesser, the building is cold, denoted by the value **0.0**. 
    
     Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
-        # List the structure of data for better understanding. Because the data will be
-        # loaded as an array, this structure makes it easy to understand what each element
-        # in the array corresponds to
+    ```PySpark
+    # List the structure of data for better understanding. Because the data will be
+    # loaded as an array, this structure makes it easy to understand what each element
+    # in the array corresponds to
 
-        # 0 Date
-        # 1 Time
-        # 2 TargetTemp
-        # 3 ActualTemp
-        # 4 System
-        # 5 SystemAge
-        # 6 BuildingID
+    # 0 Date
+    # 1 Time
+    # 2 TargetTemp
+    # 3 ActualTemp
+    # 4 System
+    # 5 SystemAge
+    # 6 BuildingID
 
-        LabeledDocument = Row("BuildingID", "SystemInfo", "label")
+    LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
-        # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+    # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
 
-        def parseDocument(line):
-            values = [str(x) for x in line.split(',')]
-            if (values[3] > values[2]):
-                hot = 1.0
-            else:
-                hot = 0.0        
+    def parseDocument(line):
+        values = [str(x) for x in line.split(',')]
+        if (values[3] > values[2]):
+            hot = 1.0
+        else:
+            hot = 0.0        
 
-            textValue = str(values[4]) + " " + str(values[5])
+        textValue = str(values[4]) + " " + str(values[5])
 
-            return LabeledDocument((values[6]), textValue, hot)
+        return LabeledDocument((values[6]), textValue, hot)
 
-        # Load the raw HVAC.csv file, parse it using the function
-        data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    # Load the raw HVAC.csv file, parse it using the function
+    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-        documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
-        training = documents.toDF()
-
+    documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
+    training = documents.toDF()
+    ```
 
 1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr. For more information about what is a pipeline and how it works see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
    
     Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
-   
-        tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
-        hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
-        lr = LogisticRegression(maxIter=10, regParam=0.01)
-        pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
+
+    ```PySpark
+    tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
+    hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
+    lr = LogisticRegression(maxIter=10, regParam=0.01)
+    pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
+    ```
+
 2. Fit the pipeline to the training document. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
    
-        model = pipeline.fit(training)
+    ```PySpark
+    model = pipeline.fit(training)
+    ```
+
 3. Verify the training document to checkpoint your progress with the application. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
    
-        training.show()
+    ```PySpark
+    training.show()
+    ```
    
     This should give the output similar to the following:
-   
-        +----------+----------+-----+
-        |BuildingID|SystemInfo|label|
-        +----------+----------+-----+
-        |         4|     13 20|  0.0|
-        |        17|      3 20|  0.0|
-        |        18|     17 20|  1.0|
-        |        15|      2 23|  0.0|
-        |         3|      16 9|  1.0|
-        |         4|     13 28|  0.0|
-        |         2|     12 24|  0.0|
-        |        16|     20 26|  1.0|
-        |         9|      16 9|  1.0|
-        |        12|       6 5|  0.0|
-        |        15|     10 17|  1.0|
-        |         7|      2 11|  0.0|
-        |        15|      14 2|  1.0|
-        |         6|       3 2|  0.0|
-        |        20|     19 22|  0.0|
-        |         8|     19 11|  0.0|
-        |         6|      15 7|  0.0|
-        |        13|      12 5|  0.0|
-        |         4|      8 22|  0.0|
-        |         7|      17 5|  0.0|
-        +----------+----------+-----+
+
+    ```
+    +----------+----------+-----+
+    |BuildingID|SystemInfo|label|
+    +----------+----------+-----+
+    |         4|     13 20|  0.0|
+    |        17|      3 20|  0.0|
+    |        18|     17 20|  1.0|
+    |        15|      2 23|  0.0|
+    |         3|      16 9|  1.0|
+    |         4|     13 28|  0.0|
+    |         2|     12 24|  0.0|
+    |        16|     20 26|  1.0|
+    |         9|      16 9|  1.0|
+    |        12|       6 5|  0.0|
+    |        15|     10 17|  1.0|
+    |         7|      2 11|  0.0|
+    |        15|      14 2|  1.0|
+    |         6|       3 2|  0.0|
+    |        20|     19 22|  0.0|
+    |         8|     19 11|  0.0|
+    |         6|      15 7|  0.0|
+    |        13|      12 5|  0.0|
+    |         4|      8 22|  0.0|
+    |         7|      17 5|  0.0|
+    +----------+----------+-----+
+    ```
 
     Go back and verify the output against the raw CSV file. For example, the first row the CSV file has this data:
 
@@ -161,31 +174,38 @@ In this application we use a Spark ML pipeline to perform a document classificat
 1. Prepare a data set to run the trained model against. To do so, we would pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).
    
    Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
-   
-       # SystemInfo here is a combination of system ID followed by system age
-       Document = Row("id", "SystemInfo")
-       test = sc.parallelize([(1L, "20 25"),
-                     (2L, "4 15"),
-                     (3L, "16 9"),
-                     (4L, "9 22"),
-                     (5L, "17 10"),
-                     (6L, "7 22")]) \
-           .map(lambda x: Document(*x)).toDF() 
+
+    ```PySpark   
+    # SystemInfo here is a combination of system ID followed by system age
+    Document = Row("id", "SystemInfo")
+    test = sc.parallelize([(1L, "20 25"),
+                    (2L, "4 15"),
+                    (3L, "16 9"),
+                    (4L, "9 22"),
+                    (5L, "17 10"),
+                    (6L, "7 22")]) \
+        .map(lambda x: Document(*x)).toDF() 
+    ```
 2. Finally, make predictions on the test data. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
    
-        # Make predictions on test documents and print columns of interest
-        prediction = model.transform(test)
-        selected = prediction.select("SystemInfo", "prediction", "probability")
-        for row in selected.collect():
-            print row
+    ```PySpark
+    # Make predictions on test documents and print columns of interest
+    prediction = model.transform(test)
+    selected = prediction.select("SystemInfo", "prediction", "probability")
+    for row in selected.collect():
+        print row
+    ```
+
 3. You should see an output similar to the following:
-   
-       Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
-       Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
-       Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
-       Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
-       Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
-       Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
+
+    ```   
+    Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
+    Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
+    Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
+    Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
+    Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
+    Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
+    ```
    
    From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
 4. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
