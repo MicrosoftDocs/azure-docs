@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: iainfou
 
 ---
@@ -31,13 +31,13 @@ To use Availability Zones, your scale set must be created in a [supported Azure 
 
 
 ## Single-zone and zone-redundant scale sets
-When you deploy a virtual machine scale set, you can choose to use a single Availability Zone within a region, or multiple zones.
+When you deploy a virtual machine scale set, you can choose to use a single Availability Zone in a region, or multiple zones.
 
-When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and can autoscale within that zone. The following diagram shows an example of how you can create multiple zonal scale sets with a zone-redundant load balancer that distributes traffic:
+When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and autoscales only within that zone. The following diagram shows an example of how you can create multiple zonal scale sets with a zone-redundant load balancer that distributes traffic:
 
 ![Zonal scale set deployment with zone-redundant load balancer](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
 
-A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones. The following diagram shows an example of a single scale set that is deployed across zones:
+A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones. The following diagram shows an example of a single scale set that is deployed across multiple zones:
 
 ![Zonal-redundant scale set deployment and load balancer](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
 
@@ -76,7 +76,7 @@ az vmss create \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --zones 1,2,3
+    --zones {1,2,3}
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify.
@@ -96,7 +96,7 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Zone "1"
 ```
 
-To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1,2,3*:
+To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set config named *myScaleSet* across *East US 2* zones *1,2,3*:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
