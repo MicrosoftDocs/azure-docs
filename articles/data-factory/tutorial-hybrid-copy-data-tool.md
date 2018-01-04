@@ -19,7 +19,7 @@ ms.author: jingwang
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](tutorial-hybrid-copy-data-tool.md)
 
-In this tutorial, you use Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premsies SQL Server database to an Azure blob storage.
+In this tutorial, you use Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premises SQL Server database to an Azure blob storage.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -69,7 +69,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
     GO
     ```
 ### Azure Storage account
-In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
+In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
 
 #### Get storage account name and account key
 You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following: 
@@ -163,19 +163,19 @@ In this section, you create a blob container named **adftutorial** in your Azure
 6. Click **Launch express setup on this computer**. This action installs the integration runtime on your machine and registers it with the Data Factory service. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime. 
 
     ![Create integration runtime link](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
-7. Run the downloded application. You see the **status** of the express setup in the window. 
+7. Run the downloaded application. You see the **status** of the express setup in the window. 
 
     ![Express setup status](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 8. Confirm that the **TutorialIntegrationRuntime** is selected for the **Integration Runtime** field.
 
     ![Integration runtime selected](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
-9. In the **Specify the on-premsies SQL Server database**, do the following steps: 
+9. In the **Specify the on-premises SQL Server database**, do the following steps: 
 
     1. Enter **OnPremSqlLinkedService** for **Connection name**.
     2. Enter the name of your on-premises SQL Server for **Server name**.
     3. Enter the name of your on-premises database for **Database name**. 
     4. Select appropriate authentication for **Authentication type**.
-    5. Enter the name of user with access to on-premsies SQL Server for **User name**.
+    5. Enter the name of user with access to on-premises SQL Server for **User name**.
     6. Enter the **password** of the user. 
         
         ![Specify on-prem SQL database values](./media/tutorial-hybrid-copy-data-tool/specify-onprem-sql-database.png)
@@ -194,7 +194,7 @@ In this section, you create a blob container named **adftutorial** in your Azure
         ![Select Azure Blob Storage](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 13. In the **Choose the output file or folder** page, do the following steps: 
     
-    1. Enter **adftutorial/fromonprem ** for **Folder path**. You created the **adftutorial** container as part of the prerequisites. If the output folder does not exist, the Data Factory service automatically creates it. You can also use the **Browse** button to navigate the blob storage and its containers/folders. Notice that the name of the output file is set to **dbo.emp** by default.
+    1. Enter **adftutorial/fromonprem** for **Folder path**. You created the **adftutorial** container as part of the prerequisites. If the output folder does not exist, the Data Factory service automatically creates it. You can also use the **Browse** button to navigate the blob storage and its containers/folders. Notice that the name of the output file is set to **dbo.emp** by default.
         
         ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 14. In the **File format settings** page, click **Next**. 
