@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
 ---
 
@@ -64,6 +64,8 @@ Browse to **Azure Active Directory** > **Sign-ins** in the [Azure Active Directo
 Use the following checklist to troubleshoot Seamless SSO problems:
 
 - Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
+- If you have both [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO enabled, ensure that the issue is not with Azure AD Join first. This is because SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined.
+  - Note: If you see an Azure AD user sign-in tile that says "Connected to Windows", the SSO is from Azure AD Join and not Seamless SSO. 
 - Ensure that both of these Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are part of the user's Intranet zone settings.
 - Ensure that the corporate device is joined to the Active Directory domain.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
