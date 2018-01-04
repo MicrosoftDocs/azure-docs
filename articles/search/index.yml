@@ -38,7 +38,11 @@ sections:
       text: Azure portal
       href: https://docs.microsoft.com/azure/search/search-create-service-portal
     - image: 
-        src: https://docs.microsoft.com/azure/search/media/index/rest.svg
+        src: /azure/search/media/index/rest.svg
+      text: REST
+      href: https://docs.microsoft.com/azure/search/search-fiddler
+    - image: 
+        src: /azure/search/media/index/logo_rest.svg
       text: REST
       href: https://docs.microsoft.com/azure/search/search-fiddler
     - image: 
