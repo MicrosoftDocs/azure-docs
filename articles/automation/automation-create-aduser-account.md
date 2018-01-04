@@ -27,7 +27,7 @@ This article describes the steps you must perform to configure an Azure AD User 
 3. Enter details for the user, like **Name** and **User name**.  
 4. Note the user’s full name and temporary password.
 5. Select **Directory role**.
-6. Assign an admin role.
+6. Assign role Global or Limited Administrator.
 7. Log out of Azure and then log back in with the account you just created. You are prompted to change the user’s password.
 
 ## Create an Automation account in the Azure portal
