@@ -14,7 +14,7 @@ ms.author: v-jansko
 
 # How to use the dynamic dictionary feature of the Microsoft Translator Text API
 
-To use the dynamic dictionary feature, if you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names. 
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names. 
 
 **Syntax:** 
 
@@ -29,5 +29,5 @@ Target output: Sofortige Wörterbuch: Wort "wordomatic" ist einen Wörterbuchein
 
 This feature works the same way with and without HTML mode. 
 
-The feature should be used sparringly. The appropriate and far better way of customizing translation is by using the Microsoft Translator Hub. The Hub makes full use of context and statistical probabilities. If you have or can afford creating training data that shows your work or phrase in context, you will get much better results. You can find more information about the hub at [http://hub.microsofttranslator.com](http://hub.microsofttranslator.com).
+The feature should be used sparingly. The appropriate and far better way of customizing translation is by using the Microsoft Translator Hub. The Hub makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. You can find more information about the hub at [http://hub.microsofttranslator.com](http://hub.microsofttranslator.com).
 
