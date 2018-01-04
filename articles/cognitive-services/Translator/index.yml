@@ -49,7 +49,7 @@ sections:
   - type: paragraph
     text: 'Learn how to develop applications using the Translator Text API:'
   - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a> | <a href="tutorial-wpf-translation-csharp-source.md">Source code</a>
+    text: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a>
 - title: Reference
   items:
   - type: list
