@@ -24,7 +24,7 @@ Learn how to customize OS Security Configuration assessments in Azure Security C
 
 ## What are OS Security Configurations?
 
-Azure Security Center monitors security configurations using a set of 150+ recommended rules for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, a security recommendation is generated.
+Azure Security Center monitors security configurations using a set of over 150 recommended rules for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, a security recommendation is generated.
 
 Customization of the rules can help organizations to control which configuration options are more appropriated for their environment. This feature enables users to set a customized assessment policy and apply it on all applicable machines in the subscription.
 
@@ -39,10 +39,10 @@ How to customize OS Security Configuration rules?
 
 You can customize the OS Security Configuration rules by enabling and disabling a specific rule, changing the desired setting for an existing rule, and adding a new rule based on the supported rule types (registry, audit policy, security policy). Currently, the desired setting must be an exact value.
 
-New rules will have to be in the same format and structure as other existing rules of the same type.
+New rules have to be in the same format and structure as other existing rules of the same type.
 
 > [!NOTE]
-> To customize OS security configurations, you need the one of the following roles: Subscription Owner, Subscription Contributor or Security Admin.
+> To customize OS security configurations, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 >
 >
 
@@ -52,15 +52,15 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 
 1.  Open **Security Center** dashboard.
 
-2.  Click **Security Policy** tile located under **Overview** section.
+2.  Click **Security Policy** located under **Overview** section.
 
-3.  In the **Security policy** blade, click the subscription that you want to perform the customization for, and click **Security Policy**; makes sure it is “on”
+3.  Under **Security policy**, click the subscription that you want to perform the customization for, and click **Security Policy**; makes sure it is “on”.
 
 4.  Click **Edit** option
 
     ![](media/security-center-customize-os-security-config/show-recommendations.png)
 
-5.  The **Edit OS Security Configuration rules** blade opens, and follow the three steps highlighted in the screen to download, edit, and upload the modified file.
+5.  **Edit OS Security Configuration rules** opens. Follow the three steps highlighted in the screen to download, edit, and upload the modified file.
 
     ![](media/security-center-customize-os-security-config/edit-os-configuration-rules.png)
 
@@ -69,11 +69,11 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 >
 >
 
-6.  After successfully saving the file, the configuration will be applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Click **Save** to commit the change, otherwise the policy will not be stored.
+6.  After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Click **Save** to commit the change, otherwise the policy will not be stored.
 
     ![](media/security-center-customize-os-security-config/save-after-change.png)
 
-At any point, you can reset the current policy configuration to the default policy state by using the **Reset** option in the **Edit OS Security Configuration rules** blade. If you choose this option, you will receive the following pop up alert, click **Yes** to confirm.
+At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop up alert. Click **Yes** to confirm.
 
 ![](media/security-center-customize-os-security-config/edit-alert.jpg)
 
@@ -112,13 +112,13 @@ Each category has its own set of attributes, and for existing rules you can make
         -   List of allowed user groups, for example: “Administrators, Backup
             Operators”
 
--   state: string that may contain the options “Disabled” or “Enabled” . For this private preview release, the string is case sensitive.
+-   state: string that may contain the options “Disabled” or “Enabled”. For this private preview release, the string is case sensitive.
 
-These are the only fields that can be configured, and if you violate the file format or size you won’t be able to save the change. The example that follows has the error message that  happens when the file can’t be processed:
+These are the only fields that can be configured, and if you violate the file format or size you won’t be able to save the change. The example that follows has the error message that happens when the file can’t be processed:
 
 ![](media/security-center-customize-os-security-config/error-message.png)
 
-Please refer to the section below for list of potential errors.
+Refer to the section below for list of potential errors.
 
 Below you have some examples of these rules, and the attributes that can be changed in bold:
 
@@ -266,7 +266,7 @@ Below you have an example of a new custom rule:
 
 ## File upload failures
 
-If the submitted configuration file is invalid due to errors in values, formatting, etc. a failure error will be shown and a link to the detailed errors csv file will be available for you to download and use to remediate and fix errors before resubmitting a corrected configuration file.
+If the submitted configuration file is invalid due to errors in values, formatting, etc. a failure error is shown and a link to the detailed errors csv file is available for you to download and use to remediate and fix errors before resubmitting a corrected configuration file.
 
 ![](media/security-center-customize-os-security-config/config-file.jpg)
 
