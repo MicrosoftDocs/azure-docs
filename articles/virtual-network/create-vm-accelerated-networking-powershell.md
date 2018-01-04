@@ -39,7 +39,7 @@ Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016.
 
 ## Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with four or more physical cores. Hyperthreaded cores on instances like D/DSv3 only count as .5 of a physical core.  Supported series are:
-D/DSv2, D/DSv3, E/ESv3, F/FS, and Ms/Mms. 
+D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2, and Ms/Mms. 
 
 For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
