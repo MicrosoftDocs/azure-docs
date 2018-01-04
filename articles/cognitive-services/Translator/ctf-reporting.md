@@ -15,12 +15,12 @@ ms.author: v-jansko
 # How to use Collaborative Translation Framework (CTF) reporting
 
 > [!NOTE]
-> The Collaborative Translations Framework (CTF) will be deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2017, these two functions will not accept new sentence submissions, and you will receive an error message. These functions are being retired and will not be replaced. Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> The Collaborative Translations Framework (CTF) will be deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions will not accept new sentence submissions, and you will receive an error message. These functions are being retired and will not be replaced. Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it:
-*Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
-*Returns the translated content and its total count without requiring a match of the source sentence.
-*Does not return the automatic translation (machine translation).
+* Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
+* Returns the translated content and its total count without requiring a match of the source sentence.
+* Does not return the automatic translation (machine translation).
 
 ## Endpoint
 The endpoint of the CTF Reporting API is
@@ -34,35 +34,36 @@ http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
 | GetUserTranslations Method | Retrieves the translations that are created by the user. |
 
 These methods enable you to:
-*Retrieve the complete set of user translations and corrections under your account ID for download.
-*Obtain the list of the frequent contributors. Ensure that the correct user name is provided in AddTranslation().
-*Build a user interface (UI) that allows your trusted users to see all available candidates, if necessary restricted to a portion of your site, based on the URI prefix.
+* Retrieve the complete set of user translations and corrections under your account ID for download.
+* Obtain the list of the frequent contributors. Ensure that the correct user name is provided in AddTranslation().
+* Build a user interface (UI) that allows your trusted users to see all available candidates, if necessary restricted to a portion of your site, based on the URI prefix.
 
 > [!NOTE]
 > Both the methods are relatively slow and expensive. It is recommended to use them sparingly.
 
-## GetUserTranslationCounts Method
+## GetUserTranslationCounts method
 
 This method gets the count of translations that are created by the user. It provides the list of translation counts grouped by the uriPrefix, from, to, user, minRating, and maxRating request parameters.
 
 **Syntax**
 
-| C# |
-|:---|
-| UserTranslationCount[]GetUserTranslationCounts(
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user, 
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take); |
-			
+> [!div class="tabbedCodeSnippets"]
+```cs
+UserTranslationCount[]GetUserTranslationCounts(
+           string appId,
+           string uriPrefix,
+           string from,
+           string to,
+           int? minRating,
+           int? maxRating,
+           string user, 
+           string category
+           DateTime? minDateUtc,
+           DateTime? maxDateUtc,
+           int? skip,
+           int? take);
+```
+
 **Parameters**
 
 | Parameter	| Description |
@@ -101,27 +102,25 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 | Exception	| Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
-| TranslateApiException | IP is over the quota.| * The limit for the number of requests per minute is reached.
-* The request size remains limited at 10000 characters.
-* An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.|
+| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|
 | TranslateApiException | AppId is over the quota.| The application ID exceeded the hourly or daily quota.|
 
 > [!NOTE]
 > The quota will adjust to ensure fairness among all users of the service.
 
-**View Code examples on GitHib**
+**View code examples on GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
-## GetUserTranslations Method
+## GetUserTranslations method
 
 This method retrieves the translations that are created by the user. It provides the translations grouped by the uriPrefix, from, to, user, and minrating and maxRating request parameters.
 
 **Syntax**
 
-| C# |
-|:---|
-| UserTranslation[] GetUserTranslations (
+> [!div class="tabbedCodeSnippets"]
+```cs
+UserTranslation[] GetUserTranslations (
             string appId,
             string uriPrefix,
             string from,
@@ -133,8 +132,9 @@ This method retrieves the translations that are created by the user. It provides
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); |
-			
+            int? take); 
+```
+
 **Parameters**
 
 | Parameter	| Description |
@@ -156,6 +156,7 @@ This method retrieves the translations that are created by the user. It provides
 > The skip and take request parameters enable pagination for a large number of result records.
 
 **Return value**
+
 The result set contains array of the **UserTranslation**. Each UserTranslation has the following elements:
 
 | Field	| Description |
@@ -174,15 +175,13 @@ The result set contains array of the **UserTranslation**. Each UserTranslation h
 | Exception	| Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
-| TranslateApiException | IP is over the quota.| * The limit for the number of requests per minute is reached.
-* The request size remains limited at 10000 characters.
-* An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.|
+| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|
 | TranslateApiException | AppId is over the quota.| The application ID exceeded the hourly or daily quota.|
 
 > [!NOTE]
 > The quota will adjust to ensure fairness among all users of the service.
 
-**View Code examples on GitHib**
+**View code examples on GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
 
