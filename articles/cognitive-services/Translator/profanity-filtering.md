@@ -1,8 +1,8 @@
 ---
-title: Profanity filtering with the Translator Text API | Microsoft Docs
+title: Profanity filtering with the Microsoft Translator Text API | Microsoft Docs
 description: Use profanity filtering in the Microsoft Translator Text API.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
