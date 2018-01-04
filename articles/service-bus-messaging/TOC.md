@@ -14,7 +14,6 @@
 
 # How-to guides
 ## [Create a namespace](service-bus-create-namespace-portal.md)
-### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -34,6 +33,7 @@
 # Concepts
 ## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus architecture](service-bus-architecture.md)
+### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
 ## [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ## [Premium messaging](service-bus-premium-messaging.md)
