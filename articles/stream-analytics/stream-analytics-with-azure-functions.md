@@ -109,7 +109,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    ```
 
-When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to Functions. In your function, use the following code to check that Stream Analytics doesn’t send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
+   When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to Functions. In your function, use the following code to check that Stream Analytics doesn’t send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
    ```c#
    if (dataArray.ToString().Length > 262144)
@@ -134,7 +134,7 @@ When Stream Analytics receives the "HTTP Request Entity Too Large" exception fro
 
    ```
  
-4. Go back to the Azure portal. From the **Platform features** tab, browse to your Azure function. Under **Development Tools**, select **App Service Editor**. 
+4. Go back to the Azure portal. From the **Platform features** tab, browse to your function. Under **Development Tools**, select **App Service Editor**. 
  
    ![Screenshot of App Service Editor](./media/stream-analytics-with-azure-functions/image3.png)
 
