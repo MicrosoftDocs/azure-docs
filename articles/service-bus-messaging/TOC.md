@@ -6,8 +6,8 @@
 
 # Quickstarts
 ## [Create namespace and queue using PowerShell](service-bus-quickstart-powershell.md)
-## [Create namespace and queue using Azure portal](service-bus-quickstart-powershell.md)
-## [Create namespace and queue using Azure CLI](service-bus-quickstart-powershell.md)
+## [Create namespace and queue using Azure portal](service-bus-quickstart-portal.md)
+## [Create namespace and queue using Azure CLI](service-bus-quickstart-cli.md)
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
