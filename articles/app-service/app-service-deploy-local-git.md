@@ -140,7 +140,7 @@ git push azure master
 git push azure master
 ```
 - - -
-**Symptom**: RPC failed; result=22, HTTP code = 502.
+**Symptom**: RPC failed; result=22, HTTP code = 5xx.
 
 **Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
 
