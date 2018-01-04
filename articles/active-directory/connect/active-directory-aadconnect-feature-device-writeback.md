@@ -92,8 +92,11 @@ Device writeback should now be working properly. Be aware that it can take up to
 
 1. Launch Active Directory Administrative Center.
 2. Expand RegisteredDevices, within the domain that was configured in [Part 2](#part-2-prepare-active-directory).  
+
    ![Active Directory Admin Center Registered Devices](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
+   
 3. Current registered devices will be listed there.  
+
    ![Active Directory Admin Center Registered Devices List](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
 
 ## Enable conditional access
@@ -113,6 +116,7 @@ First things first:
   * Find the Connector with type Active Directory Domain Services and select it.
   * Under **Actions**, select **Properties**.
   * Go to **Connect to Active Directory Forest**. Verify that the domain and user name specified on this screen match the account provided to the script.  
+  
     ![Connector account in Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Verify configuration in Active Directory:
