@@ -2,7 +2,7 @@
 title: Supported languages in the Microsoft Translator API | Microsoft Docs
 description: View languages supported by the Microsoft Translator Text API.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
