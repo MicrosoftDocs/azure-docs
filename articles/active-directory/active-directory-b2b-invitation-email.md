@@ -35,7 +35,7 @@ You're invited to the &lt;tenantname&gt; organization
 
 ### From address
 We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
