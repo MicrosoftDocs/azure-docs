@@ -1,8 +1,8 @@
 ---
-title: Collaborative Translation Framework (CTF) Reporting | Microsoft Docs
+title: Microsoft Translator Collaborative Translation Framework (CTF) Reporting
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: chriswendt1
 
 ms.service: cognitive-services
