@@ -21,7 +21,7 @@ ms.author: alkarche
 This article shows how to manipulate files from different SaaS providers (such as Dropbox or Google Drive) in Azure Functions. Azure Functions supports trigger, input, and output bindings for external file. These bindings create API connections to SaaS providers, or use existing API connections from your Function App's resource group.
 
 > [!IMPORTANT]
-> The External File bindings are experimental and might never reach Generally Available (GA) status. They are included only in Azure Functions 1.x, and there are no plans to add them to Azure Functions 2.x. For scenarios that require access to data in SaaS providers, consider using [logic apps that call into functions](functions-twitter-email.md).
+> The External File bindings are experimental and might never reach Generally Available (GA) status. They are included only in Azure Functions 1.x, and there are no plans to add them to Azure Functions 2.x. For scenarios that require access to data in SaaS providers, consider using [logic apps that call into functions](functions-twitter-email.md). See the [Logic Apps File System connector](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
