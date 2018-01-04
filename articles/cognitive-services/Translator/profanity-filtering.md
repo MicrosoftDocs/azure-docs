@@ -14,18 +14,18 @@ ms.author: v-jansko
 
 # How to add profanity filtering with the Microsoft Translator Text API
 
-Normally the Translator service will retain profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language may be amplified or reduced.
+Normally the Translator service retains profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures. As a result the degree of profanity in the target language may be amplified or reduced.
 
-If you want to avoid seeing profanity in the translation regardless of the presence of profanity in the source text, you can use the profanity filtering option in the TranslateArray() method. The option allows you to choose whether you want to see profanity deleted or marked with appropriate tags, or no action taken.
+If you want to avoid seeing profanity in the translation (regardless of the presence of profanity in the source text), you can use the profanity filtering option in the TranslateArray() method. The option allows you to choose whether you want to see profanity deleted or marked with appropriate tags, or no action taken.
 
 The TranslateArray method takes an “options” parameter, which contains the new element “ProfanityAction”. The accepted values of ProfanityAction are “NoAction”, “Marked” and “Deleted”.
 
 ## Accepted values of ProfanityAction and examples
 |ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|
 | :---|:---|:---|:---|
-| NoAction | Default. Same as not setting the option. Profanity will pass from source to target. | 彼はジャッカスです。 | He is a jackass. |
-| Marked | Profane words will be surrounded by XML tags \<profanity> … \</profanity>. | 彼はジャッカスです。 | He is a \<profanity>jackass\</profanity>. |
-| Deleted | Profane words will be removed from the output without replacement. | 彼はジャッカスです。 | He is a. |
+| NoAction | Default. Same as not setting the option. Profanity passes from source to target. | 彼はジャッカスです。 | He is a jackass. |
+| Marked | Profane words are surrounded by XML tags \<profanity> … \</profanity>. | 彼はジャッカスです。 | He is a \<profanity>jackass\</profanity>. |
+| Deleted | Profane words are removed from the output without replacement. | 彼はジャッカスです。 | He is a. |
 
 ## Next steps
 > [!div class="nextstepaction"]
