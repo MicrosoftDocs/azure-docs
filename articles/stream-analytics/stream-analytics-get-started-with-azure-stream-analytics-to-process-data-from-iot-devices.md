@@ -65,7 +65,7 @@ For ease of use, this getting started guide provides a sample data file, which w
    
     ![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### Create an Azure Stream Analytics query
+## Create an Azure Stream Analytics query
 After your job is created it's time to open it and build a query. You can easily access your job by clicking the tile for it.
 
 ![Job tile](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
