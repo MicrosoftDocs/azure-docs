@@ -24,25 +24,6 @@ This article provides steps to create, start, and monitor a trigger. For concept
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping and contiguous time intervals. A tumbling window trigger is a 1:1 relationship with a pipeline and can only reference a singular pipeline.
 
-## Tumbling Window Trigger vs. Scheduler Trigger
-Given the tumbling window trigger and the scheduler trigger both operate on time heartbeats, what makes them different?
-For the tumbling window trigger:
-* **Backfill scenarios**: will be supported, being able to schedule runs for windows in the past. More details under header *Notes on Backfill*
-* **Reliability:** It will schedule pipeline runs for all windows from a start date without gaps with 100% reliability
-* **Retry**: Failed pipeline runs have a default retry policy of 0 or one specified by user as part of the trigger definition. More details here with *Tumbling Window Type Properties* on how to specify custom retry policies. It will also retry automatically on instances when runs fail because of concurrency/server/throttling limits i.e. this includes status code 400 (User Error), 429 (Too many requests), 500 (Internal Server error).
-* **Concurrency**: Users can explicitly set concurrency limits for the trigger (1-50 max concurrent triggered pipeline runs)
-* **Window Start & Window End Variables**: Users can access triggerOutputs().windowStartTime and triggerOutputs().windowEndTime as trigger system variables in the trigger definition, that will be the window start and window end times, respectively. See *Using WindowStart and WindowEnd* for more details on using the system variables. For example, if you have a tumbling window trigger running every hour, for the window 1am-2am, the triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z and triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
-* **Pipeline to Trigger Relationship**: Scheduler triggers have a n:m relationship with pipelines. A scheduler trigger can trigger multiple pipelines. Tumbling Window triggers have a 1:1 relationship with pipelines. A tumbling window trigger can only trigger one pipeline.
-
-# Use Azure PowerShell
-This section shows you how to use Azure PowerShell to create, start, and monitor a trigger. If you want to see this sample working, first go through the [quickstart: create a data factory using Azure PowerShell](quickstart-create-data-factory-powershell.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline (**Adfv2QuickStartPipeline**) that you create as part of the quickstart.
-
-1. Create a JSON file named MyTrigger.json in the C:\ADFv2QuickStartPSH\ folder with the following content:
-
-    > [!IMPORTANT]
-    > Set **startTime** to the current UTC time and **endTime** to one hour past the current UTC time before saving the JSON file.
-
-
 ## Tumbling Window Trigger Type Properties
 ```  
 {
