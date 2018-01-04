@@ -20,9 +20,10 @@
 
 # Tutorials
 
-## [1 - Use Azure Search with Azure blobs](search-semi-structured-data.md)
-## [2 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
-## [3 - Portal walkthrough for indexing and query testing](search-get-started-portal.md)
+## [1 - Search over Azure SQL Database](search-indexer-tutorial)
+## [2 - Search over Azure blobs](search-semi-structured-data.md)
+## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
+## [4 - Portal walkthrough for indexing and query testing](search-get-started-portal.md)
 
 # Samples
 ## [Azure code samples](https://azure.microsoft.com/resources/samples/?service=search)
@@ -50,7 +51,12 @@
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 ### [Performance and optimization](search-performance-optimization.md)
 
-## Develop
+## Security
+### [Data & operational security](search-security-overview.md)
+### [Secure with identity filters](search-security-trimming-for-azure-search.md)
+### [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+
+## Development
 ### [API versions](search-api-versions.md)
 ### [Develop in .NET](search-howto-dotnet-sdk.md)
 ### [Develop in Node.js](search-get-started-nodejs.md)
@@ -80,7 +86,6 @@
 #### [Lucene syntax query examples](search-query-lucene-examples.md)
 ## Filters
 ### [Facet filters](search-filters-facets.md)
-### [Security filters](search-security-trimming-for-azure-search.md)
 ### [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 
 ## Monitor & manage

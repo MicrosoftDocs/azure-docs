@@ -42,7 +42,7 @@ sections:
       text: .NET
       href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
     - image: 
-        src: https://docs.microsoft.com/azure/search/media/index/rest-http3.svg
+        src: https://docs.microsoft.com/azure/search/media/index/rest.svg
       text: REST
       href: https://docs.microsoft.com/azure/search/search-create-index-rest-api
 - title: Step-by-Step Tutorials
