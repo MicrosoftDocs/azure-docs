@@ -35,8 +35,8 @@ More details about the various levels of customization, based on available data,
 
 > [!NOTE]
 > As of February 1, 2018, AddTranslation() and AddTranslationArray() will fail and nothing will be written.
-SImilar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
+Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
 
-## Next Steps
+## Next steps
 > [!div class="nextstepaction"]
 > [Set up a customized language system using the Microsoft Translator Hub](https://hub.microsofttranslator.com)
