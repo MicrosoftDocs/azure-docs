@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/search/search-howto-index-documentdb.md",
+        "redirect_url": "/azure/search/search-howto-index-cosmosdb",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
         "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
         "redirect_document_id": true
@@ -38,7 +43,7 @@
     {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
-        "redirect_document_id": false 
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
@@ -429,13 +434,13 @@
             "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
-        },            
-        {    
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
-        },           
-        {    
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
@@ -480,11 +485,11 @@
             "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/managed-applications/publish-marketplace-app.md", 
-            "redirect_url": "/azure/managed-applications/overview", 
-            "redirect_document_id": false 
-        }, 
+        {
+            "source_path": "articles/managed-applications/publish-marketplace-app.md",
+            "redirect_url": "/azure/managed-applications/overview",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
@@ -9053,7 +9058,7 @@
             "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
             "redirect_url": "msi-how-to-use-vm-msi-token",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
             "redirect_url": "/azure/virtual-machines/windows/error-messages",
@@ -13990,6 +13995,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-instances/container-instances-region-availability.md",
+            "redirect_url": "/azure/container-instances/container-instances-quotas",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
@@ -15957,6 +15967,21 @@
       {
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/azure/stream-analytics/",
         "redirect_document_id": false
       }
     ]
