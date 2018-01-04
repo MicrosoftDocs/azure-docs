@@ -29,14 +29,13 @@ The Access Panel requires a browser that supports JavaScript and has CSS enabled
 
 For password-based SSO, the end user’s browsers can be:
 
--   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
-
 -   Edge on Windows 10 Anniversary Edition or later 
 
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 
 -   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
+-   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (limited support)
 ## How to install the Access Panel Browser extension
 
 To install the Access Panel Browser extension, follow the steps below:
@@ -61,6 +60,31 @@ You may also download the extension for Chrome and Edge from the direct links be
 
 -   [Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## How do I use the My Apps Secure Sign-in Extension?
+Changing the My Apps default URL for the extension
+
+If you are using a different My Apps URL than https://myapps.microsoft.com then you must configure your default URL though the following steps:
+1. While not signed into the extension, **right click** the extension icon.
+2. Click on **Select My Apps URL** from the menu.
+3. **Select** your default URL.
+4. Click on the extension icon.
+5. Sign-in to the extension by selecting **Sign in to get started**.
+
+Sign in directly into an app from the browser
+1. After installing the extension, sign-in to the extension by selecting **Sign in to get started**.
+2. Navigate to the **sign-on URL** of the app you would like to sign in to, this is typically the URL of the app that displays the login form.
+3. The extension should change state and let you know a password is available, click on the **extension icon** to sign in.
+
+Launch an app from the extension
+1. After installing the extension, sign-in to the extension by selecting **Sign in to get started**.
+2. Click on the extension icon to open its **menu**.
+3. **Search** for an app available in the My Apps portal.
+4. Click on the app from the **search results** to launch it.
+5. The last three apps launched will also show up in the **Recently Used** shortcut list
+
+> [!NOTE]
+> These options are only available for Edge, Chrome, Firefox.
+
 ## Setting up a group policy for Internet Explorer
 
 You can setup a group policy that allow you to remotely install the Access Panel extension for Internet Explorer on your users' machines.
@@ -73,9 +97,12 @@ The prerequisites include:
 
 Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md) for step by step instructions on how to configure the group policy and deploy it to users.
 
-## Troubleshoot the Access Panel in Internet Explorer
+## Troubleshoot the Access Panel Extension in Internet Explorer
 
 Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
+
+> [!NOTE]
+> IE is on limited support and no longer receives new software updates. Edge is the recommended browser.
 
 ## If these troubleshooting steps do not resolve the issue
 
