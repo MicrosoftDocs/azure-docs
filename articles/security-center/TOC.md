@@ -42,18 +42,18 @@
 ### [Update OS version](security-center-update-os-version.md)
 ### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 
-## Network security(security-center-network-recommendations.md)
+## [Network security](security-center-network-recommendations.md)
 ### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
 ### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
 ### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
 ### [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
-## Storage & data security(security-center-sql-service-recommendations.md)
+## [Storage & data security](security-center-sql-service-recommendations.md)
 ### [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md)
 ### [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md)
 ### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
 
-## Application security(security-center-application-recommendations.md)
+## [Application security](security-center-application-recommendations.md)
 ### [Add a web application firewall](security-center-add-web-application-firewall.md)
 ### [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)
 
