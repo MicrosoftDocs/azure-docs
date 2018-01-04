@@ -26,9 +26,10 @@
     href: tutorial-deploy-function.md
 - name: How-to guides
   items:
-  - name: Create a transparent gateway
-    href: how-to-create-transparent-gateway.md
+  - name: Create gateways
     items:
+    - name: Create a transparent gateway
+      href: how-to-create-transparent-gateway.md
     - name: Modbus gateway
       href: deploy-modbus-gateway.md
   - name: Deploy and monitor at scale

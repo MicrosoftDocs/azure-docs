@@ -26,7 +26,7 @@ If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Az
 
 This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway. 
 
-Currently the Modbus module only supports Modbus TCP and RTU protocols. 
+This article assumes that you're using Modbus TCP protocol. For more information about how to configure the module to support Modbus RTU, refer to the [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on Github. 
 
 ## Prerequisites
 * An Azure IoT Edge device. For a walkthrough on how to set up one, see [Deploy Azure IoT Edge on a simulated device in Windows](tutorial-simulate-device-windows.md) or [Linux](tutorial-simulate-device-linux.md). 
@@ -58,7 +58,7 @@ If you want to create your own module and customize it for your environment, the
       ```JSON
       {  
         "properties.desired":{  
-          "Interval":"2000",
+          "PublishInterval":"2000",
           "SlaveConfigs":{  
             "Slave01":{  
               "SlaveConnection":"<IPV4 address>",
