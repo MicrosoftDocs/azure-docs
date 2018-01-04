@@ -143,6 +143,10 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot query performance
+      href: howto-troubleshoot-query-performance.md
 - name: Reference
   items:
   - name: Azure CLI
