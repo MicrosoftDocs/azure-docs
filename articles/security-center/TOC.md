@@ -21,6 +21,7 @@
 ### [Security policy using Azure policy](security-center-azure-policy.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
 ### [Pricing tier](security-center-pricing.md)
+### [Security configurations](security-center-customize-os-security-config.md)
 
 ## [Onboarding](security-center-onboarding.md)
 ## [Events](security-center-events-dashboard.md)
