@@ -21,7 +21,7 @@ You get started with Content Moderator in the following ways:
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
-The rest of this article assumes that you chose the review tool sign up option.
+The rest of this article assumes that you chose the review tool option.
 
 ## Sign up for the review tool
 You can either sign up with your Microsoft account or create an account on the Content Moderator web site.
