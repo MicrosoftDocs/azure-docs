@@ -22,12 +22,12 @@ There is a maximum number of connections, compute units, and storage in each ser
 | | |
 | :------------------------- | :---------------- |
 | **Max connections**        |                   |
-| Basic 50 Compute Units     | 50 connections    |
-| Basic 100 Compute Units    | 100 connections   |
-| Standard 100 Compute Units | 145 connections   |
-| Standard 200 Compute Units | 245 connections   |
-| Standard 400 Compute Units | 475 connections   |
-| Standard 800 Compute Units | 945 connections   |
+| Basic 50 Compute Units     | 55 connections    |
+| Basic 100 Compute Units    | 105 connections   |
+| Standard 100 Compute Units | 150 connections   |
+| Standard 200 Compute Units | 250 connections   |
+| Standard 400 Compute Units | 480 connections   |
+| Standard 800 Compute Units | 950 connections   |
 | **Max Compute Units**      |                   |
 | Basic service tier         | 100 Compute Units |
 | Standard service tier      | 800 Compute Units |
