@@ -9,7 +9,13 @@
 ## [Send and receive messages using Azure portal](service-bus-quickstart-portal.md)
 ## [Send and receive messages using Azure CLI](service-bus-quickstart-cli.md)
 
-# Get Started
+# Tutorials
+## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+
+# Samples
+## [Service Bus samples](service-bus-samples.md)
+
+# How-to guides
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
@@ -27,20 +33,16 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-# How To
-## Plan and design
-### [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
-### [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
-### [Premium messaging](service-bus-premium-messaging.md)
-### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Optimize performance](service-bus-performance-improvements.md)
-### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
-### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
-### [Handling outages and disasters](service-bus-outages-disasters.md)
-
-## Develop
+# Concepts
+## [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
+## [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
+## [Premium messaging](service-bus-premium-messaging.md)
+## [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [Optimize performance](service-bus-performance-improvements.md)
+## [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
+## [Asynchronous messaging and high availability](service-bus-async-messaging.md)
+## [Handling outages and disasters](service-bus-outages-disasters.md)
 ### Message handling
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
@@ -102,7 +104,6 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Pricing details](service-bus-pricing-billing.md)
-## [Samples](service-bus-samples.md)
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
