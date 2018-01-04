@@ -347,8 +347,3 @@ In this tutorial, you learned about how to:
 > * Download rendered output
 
 For more information about rendering options with Batch, see the [Batch Rendering](batch-rendering-service.md) article. For example, you can also use the [BatchLabs](https://github.com/Azure/BatchLabs) desktop application or the [Batch Template CLI (Preview)](batch-cli-templates.md) for rendering workloads.
-
-Advance to the next tutorial to learn about how to run a parallel R simulation with Batch.  
-
-> [!div class="nextstepaction"]
-> [Run a parallel R simulation](tutorial-r-doazureparallel.md)

@@ -40,7 +40,8 @@ cd quickstart_dotnet
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-Open the solution in Visual Studio, and update the following strings in `program.cs`:
+Open the solution in Visual Studio, and update the credential strings in `program.cs` with the values unique to your accounts. For example:
+
 ```csharp
 // Batch account credentials
 private const string BatchAccountName = "mybatchaccount";
@@ -226,7 +227,7 @@ foreach (CloudTask task in completedtasks)
 
 The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted.
 
-When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
+When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 
