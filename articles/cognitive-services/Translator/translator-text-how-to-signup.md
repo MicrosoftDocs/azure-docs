@@ -28,16 +28,16 @@ ms.author: v-jansko
 - Fill out the rest of the form, and select the Create button
 - The subscription is ready for immediate use
 
-### 3: Authentication Key 	
+### 3: Authentication key 	
 - Retrieve your authentication key by going to the menu All Resources > click on your subscription
 - The Key value is used for authentication, keep the Key value confidential. You need the key value when you develop your app
 
-### 4: Learn, Test & Get Support 	
+### 4: Learn, test, and get support 	
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator Support Forum](http://www.aka.ms/TranslatorForum)
 
 
-## Pricing Options
+## Pricing options
 - [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
