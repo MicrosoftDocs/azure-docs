@@ -59,6 +59,6 @@ Users can connect to Azure using the built-in Windows VPN client, which does sup
 
 Azure supports only Windows and Mac for P2S VPN.
 
-### I already have an Azure VPN Gateway deployed. Can I enabled RADIUS and/or IKEv2 VPN on it?
+### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
 Yes, you can enable these new features on already deployed gateways, both through Powershell and the Azure portal.
