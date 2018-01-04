@@ -62,7 +62,6 @@ After some time, it may take up to 30 minutes, the new Linux computer will appea
 Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation.
 
   ![Compute blade][7]
-
 There are two types of icons represented on the **Compute** blade:
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure computer.

@@ -65,7 +65,7 @@ Now that you’ve upgraded to the Standard tier, you have access to additional S
 
   ![Security alerts][7]
 
-## Turn on data collection
+## Automate data collection
 Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
 
 When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
@@ -80,7 +80,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 
   ![Enable automatic provisioning][6]
 
-With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, as well as generate additional Security alerts.
+With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
 
   ![Recommendations][8]
 

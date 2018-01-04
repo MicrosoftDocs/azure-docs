@@ -41,7 +41,7 @@ Security Center automatically creates a default security policy for each of your
 
 Wait until Security Center processes these policies and generates recommendations. Some configurations, such as system updates and OS configurations can take up to 12 hours, while network security groups and encryption configurations can be assessed almost instantly. Once you see recommendations in the Security Center dashboard, you can proceed to the next step.
 
-## Assess the security of your resources
+## Assess security of resources
 1. According to the security policies that were enabled, Security Center will provide a set of security recommendations as needed. You should start by reviewing the virtual machine and computers recommendations. On the Security Center dashboard, click **Overview**, and click **Compute**.
 
   ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
@@ -66,12 +66,32 @@ Wait until Security Center processes these policies and generates recommendation
 
   The **Applications** page contains recommendations for web application firewall deployment, and general guidelines for application hardening. If you don’t have virtual machine or computers with web applications running on Internet Information Service (IIS), you will not see these recommendations.
 
+## Clean up resources
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+
+1. Return to the Security Center main menu and select **Security Policy**.
+2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
+3. Under **POLICY COMPONENTS**, select **Pricing tier**.
+4. Select **Free** to change subscription from Standard tier to Free tier.
+5. Select **Save**.
+
+If you wish to disable automatic provisioning:
+
+1. Return to the Security Center main menu and select **Security policy**.
+2. Select the subscription that you wish to disable automatic provisioning.
+3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+4. Select **Save**.
+
+>[!NOTE]
+> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+>
+
 ## Next steps
 In this tutorial, you learned about basic policy definition and security assessment of your workload with Security Center, such as:
 
 > [!div class="checklist"]
-> * Security policy configuration
-> * Security assessment for compute, networking, SQL & storage, and applications
+> * Security policy configuration to ensure compliance with your company or regulatory security requirements
+> * Security assessment for your compute, networking, SQL & storage, and application resources
 
 Advance to the next tutorial to learn how to use Security Center to protect your resources.
 

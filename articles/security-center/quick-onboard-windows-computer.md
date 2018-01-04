@@ -75,7 +75,6 @@ For further information on installing and configuring the agent, see [Connect Wi
 Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation.
 
   ![Compute blade][6]
-
 There are two types of icons represented on the **Compute** blade:
 
   ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Non-Azure computer.

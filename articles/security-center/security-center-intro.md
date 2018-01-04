@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
 # What is Azure Security Center?
-Azure Security Center provides unified security management to help you prevent, detect, and respond to threats. Security Center provides you increased visibility into, and control over, the security state of your workloads running in Azure, on-premises, and in other clouds. It provides integrated security monitoring and policy management, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Azure Security Center Standard provides unified security management and threat protection across your hybrid cloud workloads. Security Center helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using security analytics and intelligence, and respond quickly when under attack.
 
 Why use Security Center?
 

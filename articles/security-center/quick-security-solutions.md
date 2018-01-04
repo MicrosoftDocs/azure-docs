@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Quick Start - Connect Security Solutions | Microsoft Docs
-description: Azure Security Center Quick Start - Connect Security Solutions
+title: Azure Security Center Quick Start - Connect security solutions | Microsoft Docs
+description: Azure Security Center Quick Start - Connect security solutions
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -18,9 +18,9 @@ ms.author: yurid
 ms.custom: mvc
 ---
 
-# Quickstart: Connect Security Solutions to Security Center
+# Quickstart: Connect security solutions to Security Center
 
-In addition to collecting security data from your computers, you can integrate security data from a variety of other security solutions, including any that support Common Event Format (CEF). CEF is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms.
+In addition to collecting security data from your computers, you can integrate security data from a variety of other security solutions, including any that support Common Event Format (CEF). CEF is an industry standard format on top of Syslog messages, used by many security vendors to allow event integration among different platforms.
 
 This quickstart shows you how to:
 - Connect a security solution to Security Center using CEF Logs
@@ -66,6 +66,27 @@ Before you proceed to the steps below, you will need to wait until the syslog st
 2.	Select the workspace that the Syslog (Linux Machine) is connected to.
 3.	Type *CommonSecurityLog* and click the **Search** button.
 
+	![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
+
+## Clean up resources
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+
+1. Return to the Security Center main menu and select **Security Policy**.
+2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
+3. Under **POLICY COMPONENTS**, select **Pricing tier**.
+4. Select **Free** to change subscription from Standard tier to Free tier.
+5. Select **Save**.
+
+If you wish to disable automatic provisioning:
+
+1. Return to the Security Center main menu and select **Security policy**.
+2. Select the subscription that you wish to disable automatic provisioning.
+3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+4. Select **Save**.
+
+>[!NOTE]
+> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+>
 
 ## Next steps
 In this quick start, you learned how to connect a Linux Syslog solution to Security Center using CEF. By connecting your CEF logs to Security Center, you can take advantage of search & custom alert rules, and threat intelligence enrichment for each log. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
