@@ -14,7 +14,7 @@ metadata:
   ms.date: 10/30/2017
   ms.author: v-jansko
 abstract:
-  description: Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href=”languages”>Supported languages</a>.
+  description: Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href=”languages.md”>Supported languages</a>.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -48,10 +48,8 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to develop applications using the Translator Text API:'
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a> | <a href="tutorial-wpf-translation-csharp-source.md">Source code</a>
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a> | <a href="tutorial-wpf-translation-csharp-source.md">Source code</a>
 - title: Reference
   items:
   - type: list
