@@ -119,6 +119,8 @@ cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+> [!NOTE]
+> If you are experiencing this exception: `javax.xml.bind.JAXBException` with Java 9, please see the workaround from [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
 You see this output when the function is running:
 
