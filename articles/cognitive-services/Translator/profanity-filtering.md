@@ -20,14 +20,14 @@ If you want to avoid seeing profanity in the translation regardless of the prese
 
 The TranslateArray method takes an “options” parameter, which contains the new element “ProfanityAction”. The accepted values of ProfanityAction are “NoAction”, “Marked” and “Deleted”.
 
-## Accepted values of ProfanityAction and Examples
+## Accepted values of ProfanityAction and examples
 |ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|
 | :---|:---|:---|:---|
 | NoAction | Default. Same as not setting the option. Profanity will pass from source to target. | 彼はジャッカスです。 | He is a jackass. |
 | Marked | Profane words will be surrounded by XML tags \<profanity> … \</profanity>. | 彼はジャッカスです。 | He is a \<profanity>jackass\</profanity>. |
 | Deleted | Profane words will be removed from the output without replacement. | 彼はジャッカスです。 | He is a. |
 
-## Next Steps
+## Next steps
 > [!div class="nextstepaction"]
 > [Apply profanity filtering with your Translator API call](https://docs.microsofttranslator.com/text-translate.html)
 
