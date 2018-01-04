@@ -156,13 +156,13 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Set up the Service Fabric CLI](service-fabric-cli.md)
 
-### Plan and prepare
+## Plan and prepare
 ### [Plan cluster capacity](service-fabric-cluster-capacity.md)
 ### [Plan for standalone cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 ### [Prepare for disaster recovery](service-fabric-disaster-recovery.md)
 ### [Plan application capacity](service-fabric-capacity-planning.md)
 
-### Create your first...
+## Create your first...
 ### [C# application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### [Windows container application](service-fabric-get-started-containers.md)
 ### [Linux container application](service-fabric-get-started-containers-linux.md)

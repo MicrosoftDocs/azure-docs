@@ -1,6 +1,7 @@
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Cheat sheet](cheat-sheet.md)
 
 # Quickstarts
 
@@ -90,11 +91,11 @@
 
 ## Load & move data
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

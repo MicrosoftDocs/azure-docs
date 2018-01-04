@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
+ms.author: markgal;trinadhk;sogup;
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
@@ -60,6 +60,7 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backup data doesn't include network mounted drives attached to a VM.
 * Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 * Cross-region backup and restore are not supported.
+* Backup and restore of storage ACLed VMs is not supported as of now. Backup of VMs is not supported if you have enabled storage on VNET feature which allows storage accounts to be accessed only from certain VNETs/Subnets and/or IPs.
 * You can back up virtual machines in all public regions of Azure. (See the [checklist](https://azure.microsoft.com/regions/#services) of supported regions.) If the region that you're looking for is unsupported today, it will not appear in the drop-down list during vault creation.
 * Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. To learn more, see [Restoring a multi-DC domain controller](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created through the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

@@ -76,21 +76,19 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
 
-| Name | Azure Government endpoint |
-| --- | --- |
-| Portal | https://portal.azure.us |
-| Active Directory Endpoint  | https://login-us.microsoftonline.com/ |
-| Active Directory Authority  | https://login.microsoftonline.us |
-| Active Directory Graph API | https://graph.windows.net/ |
-| Azure API | https://management.usgovcloudapi.net/ | 
-| SQL Database DNS Suffix | *.database.usgovcloudapi.net |
-| Storage Endpoint Suffix | *.core.usgovcloudapi.net |
-| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net |
-| Key Vault DNS Suffix | *.vault.usgovcloudapi.net |
-| *Classic* Portal | https://manage.windowsazure.us |
-| Gallery Url | https://gallery.usgovcloudapi.net/ |
-| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ |
-| Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
+| Name | Azure Government endpoint | Azure Commercial endpoint |
+| --- | --- | --- |
+| Portal | https://portal.azure.us | https://portal.azure.com |
+| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
+| Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
+| Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
+| SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
+| Storage Endpoint Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
+| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
+| Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
+| Gallery Url | https://gallery.usgovcloudapi.net/ | https://gallery.azure.com/ |
+| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
+| Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index | https://manage.windowsazure.com/publishsettings/index |
 
 ## Next steps
 For more information about Azure Government, see the following resources:

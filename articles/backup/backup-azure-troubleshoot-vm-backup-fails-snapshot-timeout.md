@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
+ms.author: genli;markgal;sogup;
 ---
 
 # Troubleshoot Azure Backup failure: Issues with agent and/or extension
@@ -63,6 +63,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
+##### Cause 6: [Backup service does not have permission to delete the old restore points due to Resource Group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## The specified Disk configuration is not supported
 
@@ -97,7 +98,7 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#network-connectivity).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 In case you are using Managed Disks, you may need an additional port (8443) opening up on the firewalls.
 
@@ -202,4 +203,30 @@ After installing VM guest agent, launch Azure PowerShell <br>
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
 5. Try initiating the backup. <br>
 
+### Backup service does not have permission to delete the old restore points due to Resource Group lock
+This issue is specific to managed VMs where user locks the Resource Group and Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend.
+
+#### Solution
+
+To resolve the issue, please use the following steps to remove the restore point collection: <br>
+ 
+1. Remove the Resource Group lock in which the VM resides 
+	 
+2. Install ARMClient using Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+	 
+3. Login to ARMClient <br>
+		  	 `.\armclient.exe login`
+		 
+4. Get Restore Point collection corresponding to the VM <br>
+   	`.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Example: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+			 
+5. Delete the Restore Point Collection <br>
+		  	`.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Next scheduled backup will automatically create restore point collection and new restore points 
+ 
+7. The problem will re-appear if you lock the Resource Group again as there is only a limit of 18 restore points after which the backups start failing 
 

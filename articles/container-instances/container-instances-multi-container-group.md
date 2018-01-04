@@ -190,9 +190,10 @@ As you can see, the sidecar is periodically making an HTTP request to the main w
 This article covered the steps needed for deploying a multi-container Azure container instance. For an end-to-end Azure Container Instances experience, see the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial]: container-instances-tutorial-prepare-app.md
+> [Azure Container Instances tutorial][aci-tutorial]
 
 <!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
