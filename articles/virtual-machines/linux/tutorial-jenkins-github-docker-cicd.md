@@ -143,7 +143,7 @@ In your Jenkins website, select **Create new jobs** from the home page:
 - Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in to command window.
+- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.
 - Select **Save** at the bottom of the jobs window.
 
 
@@ -158,7 +158,7 @@ response.end("Hello World!");
 
 To commit your changes, select the **Commit changes** button at the bottom.
 
-In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand size. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Testing` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and trigger a new build in this way.
+In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand side. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Testing` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and triggers a new build in this way.
 
 
 ## Define Docker build image
@@ -170,7 +170,7 @@ From the SSH connection to your VM, change to the Jenkins workspace directory na
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Create a file with in this workspace directory with `sudo sensible-editor Dockerfile` and paste the following contents. Make sure that the whole Dockerfile is copied correctly, especially the first line:
+Create a file in this workspace directory with `sudo sensible-editor Dockerfile` and paste the following contents. Make sure that the whole Dockerfile is copied correctly, especially the first line:
 
 ```yaml
 FROM node:alpine
