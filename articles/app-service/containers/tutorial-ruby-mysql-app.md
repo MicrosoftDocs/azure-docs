@@ -80,7 +80,7 @@ git clone https://github.com/Azure-Samples/rubyrails-tasks.git
 `cd` to your cloned directory. Install the required packages.
 
 ```bash
-cd rails-tasks
+cd rubyrails-tasks
 bundle install --path vendor/bundle
 ```
 
@@ -136,7 +136,7 @@ Create a server in Azure Database for MySQL (Preview) with the [az mysql server 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.mysql.database.azure.com`), it needs to be globally unique.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password $tr0ngPa$w0rd!
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -174,7 +174,7 @@ In the terminal window, connect to the MySQL server in Azure. Use the value you 
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
-When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database server.
+When prompted for a password, use _My5up3r$tr0ngPa$w0rd!_, which you specified when you created the database server.
 
 ### Create a production database
 
@@ -404,7 +404,7 @@ Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
 ![Ruby on Rails app running in Azure App Service](./media/tutorial-ruby-mysql-app/ruby-mysql-in-azure.png)
 
-Congratulations, you're running a data-driven PHP app in Azure App Service.
+Congratulations, you're running a data-driven Ruby on Rails app in Azure App Service.
 
 ## Update model locally and redeploy
 
@@ -513,7 +513,7 @@ git push azure master
 
 Once the `git push` is complete, navigate to the Azure web app and test the new functionality.
 
-![Model and database changes published to Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
+![Model and database changes published to Azure](media/tutorial-ruby-mysql-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
@@ -541,7 +541,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database in Azure
-> * Connect a PHP app to MySQL
+> * Connect a Ruby on Rails app to MySQL
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
