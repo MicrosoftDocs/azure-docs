@@ -21,7 +21,7 @@ ms.custom:
 ---
 # View relative latency to Azure regions from specific locations
 
-In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to determine relative network latencies between physical locations and Azure regions, across different Internet service providers, over specified timeframes.
+In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers’ connections to Azure.  
 
 ## Register for the preview 
 
@@ -62,7 +62,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 
 ## Compare relative network latencies to a single Azure region from a specific location
 
-View the relative Internet service provider latencies from a specific location to Azure regions. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
+Evaluate service providers, or troubleshoot a user reporting an issue such as “the site was slow,” from a specific location to the azure region where a service is deployed. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -125,7 +125,7 @@ In the returned output, the value for **Score** is the relative latency across r
 
 ## Compare relative network latencies across Azure regions from a specific location
 
-If, instead of specifying the relative latencies between a specific location and a specific Azure region using `-Location`, you wanted to determine the relative latencies to all Azure regions from a specific physical location, you can do that too. For example, the following command returns the relative network latencies to all Azure regions between December 13-15, 2017 for the Comcast Internet service provider:
+If, instead of specifying the relative latencies between a specific location and a specific Azure region using `-Location`, you wanted to determine the relative latencies to all Azure regions from a specific physical location, you can do that too. For example, the following command helps you evaluate what azure region to deploy a service in if your primary users are Comcast users located in Washington state:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
