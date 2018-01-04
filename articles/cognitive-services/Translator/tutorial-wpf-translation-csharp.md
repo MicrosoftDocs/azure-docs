@@ -360,9 +360,6 @@ This file defines the user interface for the application, a WPF form. If you wan
                 VerticalAlignment="Top" 
                 Width="175" FontSize="14" TabIndex="2">
 
-
-
-
         </ComboBox>
         <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
         <ComboBox x:Name="FromLanguageComboBox" 
