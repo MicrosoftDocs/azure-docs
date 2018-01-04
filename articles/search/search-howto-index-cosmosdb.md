@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
+robot: noindex
 
 ---
 # Connecting Cosmos DB with Azure Search using indexers
