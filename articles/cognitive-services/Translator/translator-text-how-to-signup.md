@@ -1,8 +1,8 @@
 ---
-title: Translator Text API Sign up
+title: Microsoft Translator Text API Sign up | Microsoft Docs
 description: How to sign up for the Microsoft Translator Text API.
 services: cognitive-services
-author: jann-skotdal
+author: Jann-Skotdal
 manager: olivierf
 
 ms.service: cognitive-services
