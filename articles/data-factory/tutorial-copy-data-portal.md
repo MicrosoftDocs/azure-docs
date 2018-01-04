@@ -266,6 +266,10 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
         }
     }
     ```
+13. Click **Publish** to publish artifacts to Azure Data Factory.
+
+    ![Publish button](./media/tutorial-copy-data-portal/publish.png)
+
 ## Configure code repository
 You can publish the code associated with your data factory artifacts to a Visual Studio Team System (VSTS) code repository. In this step, you create the code repository. 
 
@@ -276,11 +280,42 @@ You can publish the code associated with your data factory artifacts to a Visual
     1. Select **Visual Studio Team Services Git** for the **Repository Type** field.
     2. Select your VSTS account for the **Visual Studio Team Services Account** field.
     3. Select a project in your VSTS account for the **Project Name** field.
-    4. Enter a **name for the Git repository** to be associated with your data factory. 
-    5. Click **Save** to save the settings. 
+    4. Enter **Tutorial2** for the **name of the Git repository** to be associated with your data factory. 
+    5. Confirm that **Import existing Data Factory resources to repository** option is selected. 
+    6. Click **Save** to save the settings. 
 
         ![Repository settings](./media/tutorial-copy-data-portal/repository-settings.png)
-3. 
+3. Confirm that **VSTS GIT** is selected for the repository.
+
+    ![VSTS GIT selected](./media/tutorial-copy-data-portal/vsts-git-selected.png)
+4. In a separate tab in the web browser, navigate to the **Tutorial2** repository, you see two branches: **master** and **adf_publish**.
+
+    ![Master and adf_publish branches](./media/tutorial-copy-data-portal/initial-branches-vsts-git.png)
+5. Verify that the **JSON files** for the Data Factory entities are in the **master** branch.
+
+    ![Files in the master branch](./media/tutorial-copy-data-portal/master-branch-files.png)
+6. Verify that the **JSON files** are not in the **adf_publish** branch yet. 
+
+    ![Files in the adf_publish branch](./media/tutorial-copy-data-portal/adf-publish-files.png)
+7. Add **description** for the **pipeline**, and click **Save** button on the toolbar. 
+
+    ![Add description for the pipeline](./media/tutorial-copy-data-portal/pipeline-description.png)
+8. Now, you should see a **branch** with your user name in the **Tutorial2** repository. The change you made is in your own branch, not in the master branch. You can only publish entities from the master branch.
+
+    ![Your branch](./media/tutorial-copy-data-portal/your-branch.png)
+9. Move the move over the **Sync** button (don't click yet), select **Commit Changes** option, and click **Sync** button to sync your changes with the **master** branch. 
+
+    ![Commit and sync your changes](./media/tutorial-copy-data-portal/commit-and-sync.png)
+9. In the Sync your changes window, do the following actions: 
+
+    1. Notice that the **CopyPipeline** is shown in the updated pipelines list.
+    2. Notice that the **Publish changes after sync** is selected. If you uncheck this option, you only sync your changes in the your branch with the master branch, but don't publish them to the Data Factory service. You can publish them later by using the Publish button. If you check this option, the changes are synced to the master first and then they are published to the Data Factory service.
+    3. Click **Sync**. 
+
+    ![Sync your changes window](./media/tutorial-copy-data-portal/sync-your-changes.png)
+10. Now, you can see files in the **adf_publish** branch of the **Tutorial2** repository. You can also find the Azure Resource Manager template (ARM) template for your Data Factory solution in this branch.  
+
+    ![Files in the adf_publish branch](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
 
 ## Test run the pipeline
 
