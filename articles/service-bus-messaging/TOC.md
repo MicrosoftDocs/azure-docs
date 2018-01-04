@@ -5,9 +5,9 @@
 ## [FAQ](service-bus-faq.md)
 
 # Quickstarts
-## [Create namespace and queue using PowerShell](service-bus-quickstart-powershell.md)
-## [Create namespace and queue using Azure portal](service-bus-quickstart-portal.md)
-## [Create namespace and queue using Azure CLI](service-bus-quickstart-cli.md)
+## [Send and receive messages using PowerShell](service-bus-quickstart-powershell.md)
+## [Send and receive messages using Azure portal](service-bus-quickstart-portal.md)
+## [Send and receive messages using Azure CLI](service-bus-quickstart-cli.md)
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
