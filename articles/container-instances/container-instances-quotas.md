@@ -27,10 +27,13 @@ Azure Container Instances is available in the following regions with the specifi
 | West Europe, West US, East US | Linux | 4 | 14 |
 | West Europe, West US, East US | Windows | 4 | 14 |
 
-Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances.
+Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
 
-To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time. For more information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
+For more information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 
 ## Next steps
 
-Certain default limits and quotas can be increased. To request an increase of one or more items that support such an increase, please submit an [Azure support request](../azure-supportability/how-to-create-azure-support-request.md).
+Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select *Quota* for **Issue type**).
+
+<!-- LINKS - External -->
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
