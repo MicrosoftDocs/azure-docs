@@ -33,7 +33,7 @@ This sample creates an Azure Function app and deploys function code from Visual 
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, documentdb and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, storage account, function app, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
