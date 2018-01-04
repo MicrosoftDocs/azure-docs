@@ -73,7 +73,7 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 
 7. After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Select **Save** to commit the change, otherwise the policy will not be stored.
 
-    ![](media/security-center-customize-os-security-config/save-sucessfully.png)
+    ![](media/security-center-customize-os-security-config/save-successfully.png)
 
 At any point, you can reset the current policy configuration to the default policy state by selecting the **Reset** option in **Edit OS Security Configuration rules**. If you choose this option, you receive the following pop-up alert. Select **Yes** to confirm.
 

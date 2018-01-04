@@ -20,10 +20,7 @@ ms.author: terrylan
 # Remediate security configurations mismatch in Azure Security Center
 Azure Security Center analyzes daily the operating system (OS) of your virtual machines (VMs) and computers for a configuration that could make the VMs and computers more vulnerable to attack. Security Center recommends that you resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules and recommends configuration changes to address these vulnerabilities.
 
-> [!NOTE]
-> See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) for more information.
->
->
+See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) for more information.
 
 ## Implement the recommendation
 Remediate security configurations mismatch is presented as a recommendation in Security Center. This recommendation will be displayed under **Recommendations** and under **Compute**.
@@ -87,7 +84,9 @@ In this example, we will look at the **Remediate security configurations mismatc
   ![Filtered for that computer][6]
 
 ## Next steps
-This article showed you how to implement the Security Center recommendation "Security configurations mismatch." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
+This article showed you how to implement the Security Center recommendation "Security configurations mismatch." See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) for more information.
+
+You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
 
 To learn more about Security Center, see the following resources:
 
