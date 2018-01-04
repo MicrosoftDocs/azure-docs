@@ -127,7 +127,7 @@ See [Quickstart: create a data factory using .NET](quickstart-create-data-factor
 > You can use the .NET API to invoke Data Factory pipelines from Azure Functions, your own web services, etc.
 
 ## Triggers
-Triggers provide the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports a trigger that invokes a pipeline on a wall-clock schedule. It's called **Scheduler Trigger**. Currently, Data Factory does not support event-based triggers such as a trigger of a pipeline run on the event of a file-arrival.
+Triggers provide the second way of executing a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, Data Factory supports two types of triggers: 1)**Scheduler Trigger**, a trigger that invokes a pipeline on a wall-clock schedule 2)**Tumbling Window Trigger**: for triggers that operate on a periodic interval while retaining state. Currently, Data Factory does not support event-based triggers such as a trigger of a pipeline run on the event of a file-arrival.
 
 Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline or a single trigger can kick off multiple pipelines. In the following JSON definition of a trigger, the **pipelines** property refers to a list of the pipelines that are triggered by the particular trigger, and values for pipeline parameters.
 
