@@ -1,5 +1,5 @@
 ---
-title: Transform Text with the Microsoft Translator Text API | Microsoft Docs
+title: Transform text with the Microsoft Translator Text API | Microsoft Docs
 description: Transform text using the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
@@ -12,7 +12,7 @@ ms.date: 12/14/2017
 ms.author: v-jansko
 ---
 
-# How to Use the TransformText Method
+# How to use the TransformText method
 
 The TransformText method is a text normalization function for social media, which returns a normalized form of the input. The method can be used as a preprocessing step in machine translation or other applications which expect clean input text that is not typically found in social media or user-generated content. The function currently works only with English input. 
 
@@ -31,14 +31,15 @@ The method is a RESTful service using GET over HTTP. It supports simple XML and 
 
 The return value provides the transformed sentence.
 
-| JSON |
-|:---|
-| GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
+> [!div class="tabbedCodeSnippets"]
+```json
+GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
 string em;         // A descriptive error message 
 string sentence;   // transformed text
-} |
+}
+```
 
 ## Example 
 
