@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
@@ -27,7 +27,7 @@ Integrating Box with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Box (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.box.com`
 
-	b. Check **Show advanced URL settings**.
+	b. In the **Identifier** textbox, type a URL as: `https://sso.services.box.net/sp/ACS.saml2`
 
-    c. In the **Identifier** textbox, type a URL as: `https://sso.services.box.net/sp/ACS.saml2`
+    c. In the **Reply URL** textbox, type a URL as: `https://sso.services.box.net/sp/ACS.saml2`
 	 
 	> [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-on URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get this value. 
