@@ -31,7 +31,8 @@ This example container group:
 * Consists of two containers. One container listens on port 80, while the other listens on port 5000.
 * Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
 
-Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find the current limitations in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> [!NOTE]
+> Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ### Networking
 

@@ -42,7 +42,7 @@ To retrieve and persist state with Azure Container Instances, we offer direct [m
 
 With Azure Container Instances, you can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md).
 
-There are currently some features supported only by Linux containers. While we are working to bring all features to Windows containers, you can find the current differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+Some features are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## Co-scheduled groups
 
