@@ -15,7 +15,7 @@ ms.date: 01/04/2018
 This article describes how you can create users in an Azure Database for PostgreSQL server.
 
 ## The server admin account
-When you first created your Azure Database for PostgreSQL, you provided a server admin user name and password. For more information, you can follow the [Quickstart](quickstart-create-server-database-portal.md) to see the step-by-step approach. Since the server admin user name is a customized name, you can locate the chosen server admin user name from the Azure portal.
+When you first created your Azure Database for PostgreSQL, you provided a server admin user name and password. For more information, you can follow the [Quickstart](quickstart-create-server-database-portal.md) to see the step-by-step approach. Since the server admin user name is a custom name, you can locate the chosen server admin user name from the Azure portal.
 
 The Azure Database for PostgreSQL server is created with the 3 default roles defined. You can see these roles by running the command: `SELECT rolname FROM pg_roles;`
 - azure_pg_admin

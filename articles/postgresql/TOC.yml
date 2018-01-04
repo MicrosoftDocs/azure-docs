@@ -77,7 +77,9 @@
       href: concepts-connection-libraries.md
 - name: How-to guides
   items:
-  - name: Firewall rules
+  - name: Create users 
+      href: howto-create-users.md
+  - name: Manage firewall
     items:
     - name: Azure portal
       href: howto-manage-firewall-using-portal.md
