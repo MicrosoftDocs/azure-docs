@@ -1,5 +1,5 @@
 ---
-title: Node.JS Quickstart for Azure Cognitive Services, Microsoft Translator Text API | Microsoft Docs
+title: Node.js Quickstart for Azure Cognitive Services, Microsoft Translator Text API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.date: 09/14/2017
 ms.author: v-jaswel
 
 ---
-# Quickstart for Microsoft Translator Text API with Node.JS 
+# Quickstart for Microsoft Translator Text API with Node.js
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/NodeJS).
@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code translates source text from one language to another, using the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method.
 
-1. Create a new Node.JS project in your favorite IDE.
+1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
