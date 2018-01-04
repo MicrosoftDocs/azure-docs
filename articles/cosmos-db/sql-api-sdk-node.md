@@ -61,11 +61,11 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.14.2"/>1.14.2</a>
-* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB
-* Added Support for proxyUrl setting in ConnectionPolicy
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
+* Added Support for proxyUrl setting in ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Minor fix for case sensitive file systems
+* Minor fix for case sensitive file systems.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Adds support for Session Consistency.
