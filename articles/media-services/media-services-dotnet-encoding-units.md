@@ -33,7 +33,7 @@ ms.author: juliako;milangada;
 
 ## Overview
 > [!IMPORTANT]
-> Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+> Make sure to review the [Overview](media-services-scale-media-processing-overview.md) to get more information about scaling media processing.
 > 
 > 
 
@@ -53,7 +53,7 @@ To change the reserved unit type and the number of encoding reserved units using
 By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
 ### Open a support ticket
-In the Azure portal, go to [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If you are not logged in to Azure, you will be prompted to enter your credentials.
+In the Azure portal, go to [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If you are not logged in to Azure, you are prompted to enter your credentials.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
