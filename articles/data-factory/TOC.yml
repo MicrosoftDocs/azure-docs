@@ -11,6 +11,10 @@
   items:
   - name: Create data factory
     items:
+    - name: Azure portal   
+      href: quickstart-create-data-factory-portal.md      
+    - name: Copy Data tool   
+      href: quickstart-create-data-factory-copy-data-tool.md            
     - name: PowerShell
       href: quickstart-create-data-factory-powershell.md    
     - name: .NET
@@ -19,8 +23,6 @@
       href: quickstart-create-data-factory-python.md      
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
-    - name: Portal   
-      href: quickstart-create-data-factory-portal.md  
     - name: Resource Manager template   
       href: quickstart-create-data-factory-resource-manager-template.md          
 - name: Tutorials
