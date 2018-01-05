@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/05/2018
 ms.author: andredm
 
 ---
@@ -63,7 +63,6 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - New user experience when creating items from the Marketplace.
 - Test-AzureStack cmdlet to validate Azure Stack Cloud available via privileged endpoint
-- Implement certificate rotation orchestration for Encryption and Identity certs
 - Ability to register a disconnected deployment of Azure Stack
 - Monitoring alerts for certificate and user account expiration
 - Added Update-BMCCredential cmdlet in PEP for BMC password rotation
