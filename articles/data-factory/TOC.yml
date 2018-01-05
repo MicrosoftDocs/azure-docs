@@ -61,7 +61,11 @@
   - name: 6 - Transform data in cloud
     href: tutorial-transform-data-spark-powershell.md
   - name: 7 - Transform data in virtual network
-    href: tutorial-transform-data-hive-virtual-network.md       
+    items: 
+    - name: Azure portal
+      href: tutorial-transform-data-hive-virtual-network-portal.md          
+    - name: PowerShell
+      href: tutorial-transform-data-hive-virtual-network.md       
   - name: 8 - Control flow
     href: tutorial-control-flow.md    
 - name: Samples
