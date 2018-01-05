@@ -3,7 +3,7 @@ title: Integrate an Azure storage account with Azure CDN | Microsoft Docs
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
+author: zhangmanling dksimpson
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/04/2017
 ms.author: mazha
 
 ---
@@ -36,15 +36,15 @@ administrator or a co-administrator for the associated subscription.
 **To create a storage account for an Azure subscription**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
+2. In the upper left corner, select **Create a resource**. In the **New** blade, select **Storage**, then click **Storage account - blob, file, table, queue**.
 	
 	The **Create storage account** blade appears.   
 
     ![Create storage account](./media/cdn-create-a-storage-account-with-cdn/cdn-create-new-storage-account.png)
 
-3. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
+3. In the **Name** box, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you entered in the **Enter a URL** box:
+    This value becomes the host name within the URI that is used to address blob, queue, or table resources for the subscription. To address a container resource in the Blob service, use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you entered in the **Enter a URL** box:
    
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
    
@@ -53,9 +53,13 @@ administrator or a co-administrator for the associated subscription.
    
     This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 4. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
+    
 5. Select the **Subscription** to use with the storage account.
-6. Select or create a **Resource Group**. For more information on Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
-7. Select a location for your storage account.
+    
+6. Select or create a **Resource group**. For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+    
+7. Select a location for your storage account from the **Location** list.
+    
 8. Click **Create**. The process of creating the storage account might take several minutes to complete.
 
 ## Step 2: Enable CDN for the storage account
@@ -101,7 +105,7 @@ To access cached content on the CDN, use the CDN URL provided in the portal. The
 http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
-> Once you enable CDN access to a storage account, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+> After you enable CDN access to a storage account, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content after the cached content time-to-live period expires.
 
 ## Step 5: Remove content from the CDN
 If you no longer want to cache an object in the Azure CDN, follow one of these steps:
