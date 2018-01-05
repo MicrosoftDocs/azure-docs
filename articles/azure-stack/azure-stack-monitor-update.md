@@ -1,4 +1,4 @@
-Note---
+---
 title: Monitor updates in Azure Stack using the privileged endpoint | Microsoft Docs
 description: Learn how to use the privileged endpoint to monitor update status for Azure Stack integrated systems.
 services: azure-stack
