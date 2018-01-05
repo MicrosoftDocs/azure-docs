@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -43,7 +43,7 @@ When a collection meets the [partitioning prerequisites](#prerequisites), the ac
 
 ## How does partitioning work
 
-How does partitioning work? Each item must have a partition key and a row key, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across partitions. Remember that a logical partition can span multiple physical partitions, but the physical partition management is managed by Azure Cosmos DB. 
+How does partitioning work? Each item must have a partition key and a row key, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across physical partitions. Remember that the data for a single logical partition must reside inside a single 10 GB physical partition, but physical partition management is managed by Azure Cosmos DB. 
 
 In brief, here's how partitioning works in Azure Cosmos DB:
 
