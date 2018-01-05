@@ -13,11 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/20/2017
+ms.date: 01/04/2018
 ms.author: jimdial
 
 ---
 # Create a Windows virtual machine with Accelerated Networking
+
+> [!IMPORTANT] 
+> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. YOu can follow the steps below to enable accelerated networking
+>   1. Delete the virtual machine
+>   2. Recreate the virtual machine with accelerated networking enabled
+>
 
 In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
