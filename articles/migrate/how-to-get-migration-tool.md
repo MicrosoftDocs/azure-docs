@@ -1,21 +1,13 @@
 ---
 title: Migrate machines after assessment with Azure Migrate | Microsoft Docs
 description: Describes how to get recommendations for migrating machines after you run an assessment with the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 809c6e85-0928-45e2-a7c7-6824d860e134
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
 ---
+
 
 # Migrate machines after assessment
 

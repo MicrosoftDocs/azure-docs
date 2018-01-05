@@ -3,8 +3,8 @@ title: Using the administrator portal in Azure Stack | Microsoft Docs
 description: As an Azure Stack operator, learn how to use the administrator portal.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Using the administrator portal in Azure Stack

@@ -13,8 +13,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create .NET app
+  - name: Create .NET Core app
     href: app-service-web-get-started-dotnet.md
+  - name: Create .NET Framework app
+    href: app-service-web-get-started-dotnet-framework.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
   - name: Create PHP app
@@ -87,6 +89,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Deploy ZIP file
+        href: app-service-deploy-zip.md
       - name: Deploy via FTP
         href: app-service-deploy-ftp.md
       - name: Deploy via cloud sync

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
 
 ---
@@ -23,7 +23,7 @@ The **Azure Media Video Thumbnails** media processor (MP) enables you to create 
 
 The **Azure Media Video Thumbnail** MP is currently in Preview.
 
-This topic gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET.
+This article gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET.
 
 ## Limitations
 
@@ -74,7 +74,7 @@ The following JSON sets available parameters.
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset. 
+2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset: 
    
         {                
             "version": "1.0",
@@ -106,16 +106,24 @@ Set up your development environment and populate the app.config file with connec
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

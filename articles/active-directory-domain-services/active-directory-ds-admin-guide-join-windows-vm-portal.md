@@ -4,7 +4,7 @@ description: Join a Windows Server virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e

@@ -32,7 +32,7 @@ This article summarizes supported configurations and components for Azure Site R
 --- | --- | ---
 **Azure portal** | On-premises VMware VMs to Azure storage, with Azure Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs  to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only.
-**PowerShell** | Not currently supported. | Supported
+**PowerShell** | Supported | Supported
 
 
 ## Support for datacenter management servers
@@ -191,6 +191,7 @@ Encryption at rest(SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
 Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks) configured on target storage account or cache storage account used for storing replication data | No | No
+General purpose V2 storage accounts (Both Hot and Cool tier) | No | No
 
 
 ## Support for Azure compute configuration

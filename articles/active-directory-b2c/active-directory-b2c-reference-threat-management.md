@@ -4,7 +4,7 @@ description: Learn about detection and mitigation techniques for denial-of-servi
 services: active-directory-b2c
 documentationcenter: ''
 author: vigunase
-manager: Ajith Alexander
+manager: mtillman
 editor: ''
 
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e

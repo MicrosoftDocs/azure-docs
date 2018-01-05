@@ -1,23 +1,15 @@
 ---
-title: Service principal for Azure Kubernetes cluster | Microsoft Docs
+title: Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
 
 # Set up an Azure AD service principal for a Kubernetes cluster in Container Service
@@ -36,11 +28,11 @@ This article shows different options to set up a service principal for your Kube
 
 You can use an existing Azure AD service principal that meets the following requirements, or create a new one.
 
-* **Scope**: the resource group used to deploy the cluster.
+* **Scope**: Resource group
 
-* **Role**: **Contributor**
+* **Role**: Contributor
 
-* **Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
+* **Client secret**: Must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT]
 > To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +51,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Output is similar to the following (shown here redacted):
@@ -126,11 +118,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
 
-* On the master and agent VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
+* On the master and agent VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 
-* When you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
+* When you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
 
 * When you use the `az acs create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../../container-registry/container-registry-intro.md) created in the same subscription.
+
+* Service principal credentials can expire, causing your cluster nodes to enter a **NotReady** state. See the [Credential expiration](#credential-expiration) section for mitigation information.
+
+## Credential expiration
+
+Unless you specify a custom validity window with the `--years` parameter when you create a service principal, its credentials are valid for 1 year from time of creation. When the credential expires, your cluster nodes might enter a **NotReady** state.
+
+To check the expiration date of a service principal, execute the [az ad app show](/cli/azure/ad/app#az_ad_app_show) command with the `--debug` parameter, and look for the `endDate` value of `passwordCredentials` near the bottom of the output:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Output (shown here truncated):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) command to update the credentials:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Output:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Then, update `/etc/kubernetes/azure.json` with the new credentials on all cluster nodes, and restart the nodes.
 
 ## Next steps
 

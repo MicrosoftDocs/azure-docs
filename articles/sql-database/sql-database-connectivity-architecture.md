@@ -158,7 +158,7 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## Script to change connection settings via Azure CLI 2.0
 
 > [!IMPORTANT]
-> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> This script requires the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 The following CLI script shows how to change the connection policy.

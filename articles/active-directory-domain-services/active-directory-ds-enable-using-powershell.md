@@ -4,7 +4,7 @@ description: Enable Azure Active Directory Domain Services using PowerShell
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: maheshu
 
 ---
@@ -59,7 +59,7 @@ $UserObjectId = Get-AzureADUser `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
-Add-AzureADGroupMember -ObjectId $GroupObjectId -RefObjectId $UserObjectId
+Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
 ## Task 4: Register the Azure AD Domain Services resource provider

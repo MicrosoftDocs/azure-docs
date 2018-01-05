@@ -4,7 +4,7 @@ description: With Conditional access control, Azure Active Directory checks the 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c

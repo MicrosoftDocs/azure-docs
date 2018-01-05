@@ -3,7 +3,7 @@ title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 tags: top-support-issue

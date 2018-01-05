@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template

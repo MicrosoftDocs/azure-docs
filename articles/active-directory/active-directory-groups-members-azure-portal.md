@@ -5,7 +5,7 @@ description: How to add or remove users and devices from a group in Azure Active
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b

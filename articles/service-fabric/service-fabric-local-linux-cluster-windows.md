@@ -80,7 +80,7 @@ To set up a local Docker container and have a service fabric cluster running on 
     > The Eclipse plugin is currently not supported on Windows. 
 
 ## Next steps
-* Get started with [Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Get started with [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Check out other [Java samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

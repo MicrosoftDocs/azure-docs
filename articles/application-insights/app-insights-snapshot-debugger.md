@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
@@ -25,6 +25,16 @@ Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
 * .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
 
+The following environments are supported:
+* Azure App Service.
+* Azure Cloud Service running OS family 4 or later.
+* Azure Service Fabric services running on Windows Server 2012 R2 or later.
+* Azure Virtual Machines running Windows Server 2012 R2 or later.
+* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+
+> [!NOTE]
+> Client applications (for example, WPF, Windows Forms or UWP) are not supported.
+
 ### Configure snapshot collection for ASP.NET applications
 
 1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
@@ -49,8 +59,6 @@ Snapshot collection is available for:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -161,8 +169,8 @@ To grant permission, assign the `Application Insights Snapshot Debugger` role to
 1. Click the Save button to add the user to the role.
 
 
-[!IMPORTANT]
-    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+> [!IMPORTANT]
+> Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal
 
@@ -264,6 +272,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
+For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files. In that case, you can specify an alternative folder via the TempFolder property in ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### Use Application Insights search to find exceptions with snapshots
 
 When a snapshot is created, the throwing exception is tagged with a snapshot ID. When the exception telemetry is reported to Application Insights, that snapshot ID is included as a custom property. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
@@ -286,6 +305,6 @@ If you still don't see an exception with that snapshot ID, then the exception te
 
 ## Next steps
 
-* [Set snappoints in your code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
+* [Set snappoints in your code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.

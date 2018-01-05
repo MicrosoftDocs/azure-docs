@@ -20,7 +20,7 @@ ms.custom: mvc
 
 # Create a scheduled backup for a web app
 
-This sample script creates a web app in App Service with its related resources, and then creates a one-time backup for it. 
+This sample script creates a web app in App Service with its related resources, and then creates a scheduled backup for it. 
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. 
 
@@ -45,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Creates a Storage account. |
 | [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Creates an Azure storage container. |
-| [New-AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Generates an SAS token for an Azure storage container. |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Creates an App Service plan. |
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Creates a web app. |
 | [Edit-AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Edits the backup configuration for web app. |

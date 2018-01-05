@@ -4,7 +4,7 @@ description: Networking considerations for Azure Active Directory Domain Service
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
@@ -25,10 +25,6 @@ The following guidelines help you select a virtual network to use with Azure AD 
 * **Resource Manager virtual networks**: Azure AD Domain Services can be enabled in virtual networks created using Azure Resource Manager.
 * You cannot enable Azure AD Domain Services in a classic Azure virtual network.
 * You can connect other virtual networks to the virtual network in which Azure AD Domain Services is enabled. For more information, see the [Network connectivity](active-directory-ds-networking.md#network-connectivity) section.
-* **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
-
-  * Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
-  * To use Azure AD Domain Services, [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ### Azure region for the virtual network
 * Your Azure AD Domain Services managed domain is deployed in the same Azure region as the virtual network you choose to enable the service in.

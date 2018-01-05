@@ -4,7 +4,7 @@ description: Written for the IT Pro, this article provides guidelines for integr
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb

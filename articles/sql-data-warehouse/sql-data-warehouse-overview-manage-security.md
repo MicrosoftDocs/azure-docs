@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
 
 ---
@@ -32,7 +32,7 @@ This article walks through the basics of securing your Azure SQL Data Warehouse 
 ## Connection security
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule], and [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 Connections to your SQL Data Warehouse are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
@@ -70,13 +70,19 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 The server admin account you are connecting with is a member of db_owner, which has authority to do anything within the database. Save this account for deploying schema upgrades and other management operations. Use the "ApplicationUser" account with more limited permissions to connect from your application to the database with the least privileges needed by your application.
 
-There are ways to further limit what a user can do with Azure SQL Database:
+There are ways to further limit what a user can do with Azure SQL Data Warehouse:
 
-* Granular [Permissions][Permissions] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
+* Granular [Permissions][Permissions] let you control which operations you can do on individual columns, tables, views, schemas, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
 * [Database roles][Database roles] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 * [Stored procedures][Stored procedures] can be used to limit the actions that can be taken on the database.
 
-Managing databases and logical servers from the Azure Classic Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
+Below is an example of granting read access to a user-defined schema.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
+
+Managing databases and logical servers from the Azure portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
 
 ## Encryption
 Azure SQL Data Warehouse Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest.  When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used by SQL Data Warehouse is AES-256. For a general description of TDE, see [Transparent Data Encryption][Transparent Data Encryption].

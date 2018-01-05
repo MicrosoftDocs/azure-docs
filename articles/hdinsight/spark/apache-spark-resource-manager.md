@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/05/2018
 ms.author: jgao
 
 ---
 # Manage resources for Apache Spark cluster on Azure HDInsight 
 
-In this article you learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You also learn about how to tune the cluster configuration for optimal performance.
+Learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster, and how to tune the cluster configuration for optimal performance.
 
 **Prerequisites:**
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## Open the Ambari Web UI?
 
-See [Manage Hadoop clusters in HDInsight by using the Azure portal]()
+See [Manage Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
 
 ## Open the Spark History Server?
+
 1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**. In the **Cluster Dashboard** blade, click **Spark History Server**.
 
@@ -40,7 +40,7 @@ See [Manage Hadoop clusters in HDInsight by using the Azure portal]()
 
     When prompted, enter the admin credentials for the Spark cluster.
 
-## Open the Yarn UI?
+## Open the Yarn UI
 You can use the YARN UI to monitor applications that are currently running on the Spark cluster.
 
 1. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.

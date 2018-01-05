@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: anhoh
 
 ---
@@ -42,9 +42,9 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 
 **Enterprise grade**: Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
-Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Kirill Gavrylyuk.
+Learn more in this video with Azure Cosmos DB Senior Program Manager, Aleksey Savateyev.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
 
 ## How to get started
