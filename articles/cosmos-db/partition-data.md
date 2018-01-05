@@ -33,9 +33,9 @@ In Azure Cosmos DB, you can store and query schema-less data with order-of-milli
 
 Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Azure Cosmos DB based on the storage size and the provisioned throughput of the container. 
 
-A physical partition is a fixed amount of reserved SSD-backed storage, with a 10 GB max. Each physical partition is replicated for high availability. One or more physical partitions make up a container. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
+A physical partition is a fixed amount of reserved SSD-backed storage. Each physical partition is replicated for high availability. One or more physical partitions make up a container. Physical partition management is fully managed by Azure Cosmos DB, and you don't have to write complex code or manage your partitions. Azure Cosmos DB containers are unlimited in terms of storage and throughput. 
 
-A logical partition is a partition within a physical partition, that stores all the data associated with a single partition key value. In the following diagram, a single container has three logical partitions. Each logical partition stores the data for one partition key, LAX, AMS, and MEL respectively. Each of the LAX, AMS, and MEL logical partitions cannot grow beyond the maximum physical partition limit of 10 GB. 
+A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. A logical partition has a 10 GB max. In the following diagram, a single container has three logical partitions. Each logical partition stores the data for one partition key, LAX, AMS, and MEL respectively. Each of the LAX, AMS, and MEL logical partitions cannot grow beyond the maximum logical partition limit of 10 GB. 
 
 ![Resource partitioning](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -43,7 +43,7 @@ When a collection meets the [partitioning prerequisites](#prerequisites), the ac
 
 ## How does partitioning work
 
-How does partitioning work? Each item must have a partition key and a row key, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across physical partitions. Remember that the data for a single logical partition must reside inside a single 10 GB physical partition, but physical partition management is managed by Azure Cosmos DB. 
+How does partitioning work? Each item must have a partition key and a row key, which uniquely identify it. Your partition key acts as a logical partition for your data and provides Azure Cosmos DB with a natural boundary for distributing data across physical partitions. Remember that the data for a single logical partition must reside inside a single physical partition, but physical partition management is managed by Azure Cosmos DB. 
 
 In brief, here's how partitioning works in Azure Cosmos DB:
 
