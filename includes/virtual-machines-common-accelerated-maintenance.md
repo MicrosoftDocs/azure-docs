@@ -24,7 +24,7 @@ Most reboots are taking approximately **30 minutes**.
 
 ## Does the guest OS need to be updated? 
 
-This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available here.
+This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available [here](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002).
 
 ## Will there be a performance impact as a result of resolving this update?
 
