@@ -25,7 +25,7 @@ In this tutorial, you learn how to create a Windows virtual machine (VM) with Ac
 
 Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
 
-With accelerated networking, network traffic arrives at the VM's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies without accelerated networking are offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
+With accelerated networking, network traffic arrives at the VM's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
 
 The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
 
@@ -34,14 +34,22 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 * **Reduced jitter:** Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches.
 * **Decreased CPU utilization:** Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic.
 
+## Supported operating systems
+Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016.
+
+## Supported VM instances
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 4 or more vCPUs. On instances such as D/DSv3 or E/ESv3 that support hyperthreading, Accelerated Networking is supported on VM instances with 8 or more vCPUs. Supported series are: D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2, and Ms/Mms.
+
+For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## Regions
+Available in all public Azure regions and Azure Government Cloud. 
+
 ## Limitations
 The following limitations exist when using this capability:
 
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM. If adding the VM to an existing availability set, all VMs in the availability set must also have accelerated networking enabled.
-* **Regions:** Available in most Azure regions. 
-* **Supported operating systems:** Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016
-* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
 ## Create a virtual network
