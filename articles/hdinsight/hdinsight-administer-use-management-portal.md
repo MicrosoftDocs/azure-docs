@@ -41,7 +41,7 @@ Before you begin this article, you must have the following:
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
 2. After you open the portal, you can:
 
-   * Click **New** from the left menu to create a new cluster:
+   * Click **Create a resource** from the left menu to create a new cluster:
 
        ![new HDInsight cluster button](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Click **HDInsight Clusters** from the left menu.

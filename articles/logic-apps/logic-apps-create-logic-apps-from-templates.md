@@ -45,7 +45,7 @@ If you don't have an Azure subscription,
 [Azure portal](https://portal.azure.com "Azure portal").
 
 2. From the main Azure menu, choose 
-**New** > **Enterprise Integration** > **Logic App**.
+**Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Azure portal, New, Enterprise Integration, Logic App](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
