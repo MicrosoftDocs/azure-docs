@@ -57,6 +57,8 @@ After you have saved the Resource Manager template, you must update the paramete
 
 ![Customize parameters using a JSON file](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
+The Resource Manager template is now ready to use to [create a VM](devtest-lab-create-environment-from-arm.md).
+
 ### Next steps
 * Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 * [Deploy a Resource Manager template to create a VM](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
