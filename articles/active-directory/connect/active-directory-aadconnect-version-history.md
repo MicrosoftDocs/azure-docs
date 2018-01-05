@@ -47,7 +47,7 @@ An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) 
 - For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
 
 >[!NOTE]
->This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you should ensure that this vulnerability does not exist.
 
 #### <a name="lock"></a> Lock down access to the AD DS account
 Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  

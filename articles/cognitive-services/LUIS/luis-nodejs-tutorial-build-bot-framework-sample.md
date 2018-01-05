@@ -233,12 +233,41 @@ bot.dialog('CancelDialog',
 > [!TIP] 
 > You can also find the sample code described in this article in the [HomeAutomation bot sample][IoTBotSample].
 -->
+## Add a default message handler
+
+Remove this line of code.
+
+```javascript
+var bot = new builder.UniversalBot(connector);
+```
+
+Replace it with the following code that creates the bot with a default message handler.
+
+```javascript
+// Create your bot with a function to receive messages from the user
+// This default message handler is invoked if the user's utterance doesn't
+// match any intents handled by other dialogs.
+var bot = new builder.UniversalBot(connector, function (session, args) {
+    session.send('You reached the default message handler. You said \'%s\'.', session.message.text);
+});
+```
 
 ## Add dialogs to handle the HomeAutomation intents
 
-Now that the notes recognizer is set up to point to the LUIS app, you can add code for the dialogs. 
+Find line of code that creates a `LuisRecognizer`. 
 
-First, delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
+```javascript
+// Create a recognizer that gets intents from LUIS
+var recognizer = new builder.LuisRecognizer(LuisModelUrl);
+```
+
+Add this line of code right after it, to add the recognizer to the bot.
+```javascript
+// Add the recognizer to the bot
+bot.recognizer(recognizer); 
+```
+
+Delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
 
 ```javascript
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
