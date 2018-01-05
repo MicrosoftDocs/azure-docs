@@ -211,7 +211,16 @@ You have used a credential in a configuration but didn’t provide proper **Conf
 
 * Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration mentioned in the configuration. For more information, refer to [assets in Azure Automation DSC](automation-dsc-compile.md#assets).
 
+## Common errors when onboarding solutions
+
+When onboarding solutions you may encounter errors. The following is a listing of the common errors you may run across.
+
+### ComputerGroupQueryFormatError
+
+This error code means that the saved search computer group query used to target the solution was not formatted correctly. You may have altered the query on their own, or it may have been altered by the system. You can delete the query for this solution, and re-onboard their solution, which will re-create the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled the **MicrosoftDefaultComputerGroup** will show multiple times under **Saved Searches**.
+
 ## Next steps
+
 If you have followed the troubleshooting steps above and can't find the answer, you can review the additional support options below.
 
 * Get help from Azure experts. Submit your issue to the [MSDN Azure or Stack Overflow forums.](https://azure.microsoft.com/support/forums/).
