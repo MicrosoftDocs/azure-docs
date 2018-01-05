@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/04/2018
   ms.author: heidist
 abstract:
-  description: Add enterprise search over private, heterogenous content using Azure Search - fully managed, secure, and highly available from Microsoft. With Azure Search, you can consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of search scenarios. 
+  description: Create an enterprise search solution over private, heterogenous content using Azure Search - fully managed, secure, and highly available from Microsoft. With Azure Search, you can consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of search scenarios. 
   aside:
     image:
       alt: 
@@ -63,12 +63,12 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Azure Search & Cognitive Services Text Analytics API
+    - title: Intelligent search using Cognitive Services Text Analytics API with Azure Search
       href: https://www.youtube.com/watch?v=hZgXSMWnACs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
         href: https://www.youtube.com/watch?v=hZgXSMWnACs
-    - title: Performance and scale drill-down (Azure Search)
+    - title: Performance and scale, from indexing to geo-distributed search
       href: https://www.youtube.com/watch?v=RYwc62oAXIs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
