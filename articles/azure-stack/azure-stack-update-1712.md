@@ -156,12 +156,6 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 You can download the Azure Stack 1712 update package from [here](https://aka.ms/azurestackupdatedownload).
 
-## More information
-
-Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1712.
-
-- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
-
 ## See also
 
 - See [Manage updates in Azure Stack overview](azure-stack-updates.md) for an overview of the update management in Azure Stack.
