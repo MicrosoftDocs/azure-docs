@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
 
 ---
@@ -141,7 +141,6 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Suspicious document credentials**: This alert indicates a suspicious, common precomputed password hash used by malware being used to execute a file.
 * **Dynamic PS script construction**: This alert indicates a PowerShell script being constructed dynamically. Attackers use this technique to progressively build a script in order to evade IDS systems.
 * **Metaploit indicators**: This alert indicates activity associated with the Metasploit framework, which provides a range of attacker capabilities and tools.
-* **SENSE tampering**: This alert indicates an attempt to disable SENSE, Windows Defender ATP's security monitoring service.
 * **Suspicious account activity**: This alert indicates an attempt to connect to a machine using an account that was recently compromised.
 * **Possible suspicious scheduling tasks access**: This alert indicates that a cron job was executed, which can be used by attackers to execute malicious programs on a scheduled basis.
 * **Possible suspicious command history file access**: This alert indicates abnormal access to commands history file.

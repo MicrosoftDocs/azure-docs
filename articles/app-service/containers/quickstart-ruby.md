@@ -165,4 +165,5 @@ http://<app name>.azurewebsites.net
 
 ## Next steps
 
-[Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)
+> [!div class="nextstepaction"]
+> [Ruby on Rails with MySQL](tutorial-ruby-mysql-app.md)
