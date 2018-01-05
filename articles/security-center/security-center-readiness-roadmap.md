@@ -18,16 +18,16 @@ ms.author: yurid
 
 ---
 # Azure Security Center Readiness Roadmap
-This document provides you a list of resources to ramp up on Azure Security Center.
+This document provides you a readiness roadmap that will assist you to get started with Azure Security Center.
 
 ## Understanding Security Center
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. 
 
-Use the resources below to get started with Security Center.
+Use the following resources to get started with Security Center.
 
 Articles
 * [Introduction to Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Azure Security Center quick start guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+* [Azure Security Center quickstart guide](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 Videos
 * [Quick Introduction Video](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -36,7 +36,7 @@ Videos
 ## Planning and operations
 To take full advantage of Security Center, it is important to understand how different individuals or teams in your organization use the service to meet secure operations, monitoring, governance, and incident response needs.
 
-Use the resources below to assist you during the planning and operations processes.
+Use the following resources to assist you during the planning and operations processes.
 
 
 Article
@@ -48,7 +48,7 @@ Video
 ### Onboarding computers to Security Center
 Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
 
-Use the resources below to assist you during the onboarding processes.
+Use the following resources to assist you during the onboarding processes.
 
 Article
 * [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
@@ -59,7 +59,7 @@ Video
 ## Mitigating security issues using Security Center
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives.
 
-Use the resources below to assist you to manage security alerts and protect your resources.
+Use the following resources to assist you to manage security alerts and protect your resources.
 
 Articles	
 * [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
@@ -72,10 +72,10 @@ Articles
 Video	
 * [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
-### Security Center for Incident Response
+### Security Center for incident response
 To reduce costs and damage, it’s important to have an incident response plan in place before an attack takes place. You can use Azure Security Center in different stages of an incident response.
 
-Use the resources below to understand how Security Center can be incorporated in your incident response process.
+Use the following resources to understand how Security Center can be incorporated in your incident response process.
 
 Videos	
 * [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
@@ -87,9 +87,9 @@ Articles
 
 ## Advanced cloud defense
 
-Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities includes Just in time virtual machine (VM) access, and adaptive application controls.
+Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities include just in time virtual machine (VM) access, and adaptive application controls.
 
-Use the resources below to learn how to use these capabilities in Security Center.
+Use the following resources to learn how to use these capabilities in Security Center.
 
 Video	
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
@@ -98,12 +98,12 @@ Articles
 * [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
-## Hands-on Activities
+## Hands-on activities
 
 * [Security Center hands-on lab](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
 
-## Additional Resources
+## Additional resources
 * [Security Center Documentation Page](https://docs.microsoft.com/azure/security-center/)
 * [Security Center REST API Documentation Page](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Azure Security Center frequently asked questions (FAQ)](https://docs.microsoft.com/azure/security-center/security-center-faq)
