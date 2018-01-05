@@ -8,7 +8,7 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ---
 
 # Create users in Azure Database for PostgreSQL server 
@@ -39,7 +39,7 @@ The server admin user account can be used to create additional users and grant t
 3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password. 
 
    ```sql
-   CREATE USER <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE ROLE <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
    GRANT azure_pg_admin TO <new_user>;
    ```
@@ -51,19 +51,19 @@ The server admin user account can be used to create additional users and grant t
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
 
-3. Edit and run the following SQL code. Replace the placeholder value `<db_user>` with your intended new user name, and placeholder value `<newdb>` with your own database name.
+3. Edit and run the following SQL code. Replace the placeholder value `<db_user>` with your intended new user name, and placeholder value `<newdb>` with your own database name. Replace the placeholder password with your own strong password. 
 
    This sql code syntax creates a new database named testdb, for example purposes. Then it creates a new user in the PostgreSQL service, and grants connect privileges to the new database for that user. 
 
    ```sql
    CREATE DATABASE <newdb>;
    
-   CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
    GRANT CONNECT ON DATABASE testdb TO <db_user>;
    ```
 
-4. Using an admin account, you may need to grant additional privileges to secure the objects in the database. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/ddl-priv.html) for further details on database roles and privileges. 
+4. Using an admin account, you may need to grant additional privileges to secure the objects in the database. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/ddl-priv.html) for further details on database roles and privileges. For example: 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
@@ -71,7 +71,7 @@ The server admin user account can be used to create additional users and grant t
 5. Log in to your server, specifying the designated database, using the new user name and password. This example shows the psql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 
    ```azurecli-interactive
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=db_user@myserver --dbname=newdb
+   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=db_user@mypgserver-20170401 --dbname=newdb
    ```
 
 ## Next steps
