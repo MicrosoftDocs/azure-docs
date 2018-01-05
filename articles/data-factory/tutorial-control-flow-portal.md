@@ -182,7 +182,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![Drag-drop copy activity](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. In the **Properties** window for the **Copy** activity at the bottom, switch to the **Source** tab, and click **+ New**. You create a source dataset for the copy activity in this step. 
 
-   ![Source dataset](./media/tutorial-control-flow-portal/new-source-dataset-button)
+   ![Source dataset](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**. 
 
    ![Select Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
