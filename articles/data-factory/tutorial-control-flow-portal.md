@@ -58,7 +58,7 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
     3. Upload **input.txt** file to the container.
 
 ## Create email workflow endpoints
-To trigger sending an email from the pipelien, you use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
+To trigger sending an email from the pipeline, you use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
 
 ### Success email workflow 
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
@@ -86,9 +86,8 @@ For your request trigger, fill in the `Request Body JSON Schema` with the follow
     "type": "object"
 }
 ```
-This aligns with the **EmailRequest** class you created in the previous section. 
 
-Your Request should look like this in the Logic App Designer:
+The Request in the Logic App Designer should look like the following image: 
 
 ![Logic App designer - request](media/tutorial-control-flow-portal/logic-app-designer-request.png)
 
@@ -104,7 +103,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## Fail email workflow 
-Clone your **CopySuccessEmail** and create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Simply change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
+Clone your **CopySuccessEmail** and create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
 ![Logic App designer - fail email workflow](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -115,7 +114,7 @@ Save the workflow. Make a note of your HTTP Post request URL for your failure em
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 
-You should now have two workflow URL’s:
+You should now have two workflow URLs:
 
 ```
 //Success Request Url
@@ -162,7 +161,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
 - Parameters for the pipeline that are access by datasets. 
 - Web activity to invoke logic apps workflows to send success/failure emails. 
-- Connecting one activity with another activity (on sucess and failure)
+- Connecting one activity with another activity (on success and failure)
 - Using output from an activity as an input to the subsequent activity
 
 1. In the **Get started page**, click **Create a pipeline** tile, or switch to the **Edit** tab on the left. 
@@ -218,7 +217,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     1. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
        ![Sink dataset settings](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
-17. Switch to the **pipeline** tab at the top, and drag-drop a **Web** activity from the Activities toolbox to the pipeline desginer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
+17. Switch to the **pipeline** tab at the top, and drag-drop a **Web** activity from the Activities toolbox to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. 
 
    ![Drag-drop first Web activity](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Switch to the **Settings** tab from the **General** tab, and do the following steps: 
@@ -276,14 +275,14 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 23. Drag the **red** button next to the Copy activity to the second Web activity **SendFailureEmailActivity**. You can move the activities around so that the pipeline looks like in the following image: 
 
     ![Full pipeline with all activities](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Click **Validate** button on the toolbar to validate the pipeline. Close the **Pipeilne Validation Output** window by clicking the **>>** button.
+24. To validate the pipeline, click **Validate** button on the toolbar. Close the **Pipeline Validation Output** window by clicking the **>>** button.
 
     ![Validate pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, click **Publish**. Wait until you see the **Successfully published** message.
 
     ![Publish](./media/tutorial-control-flow-portal/publish-button.png)
  
-## Trigger a successful pipeline run
+## Trigger a pipeline run that succeeds
 1. To **trigger** a pipeline run, click **Trigger** on the toolbar, and click **Trigger Now**. 
 
     ![Trigger a pipeline run](./media/tutorial-control-flow-portal/trigger-now-menu.png)
@@ -301,11 +300,11 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 1. To monitor the pipeline run, switch to the **Monitor** tab on the left. You see the pipeline run that was triggered manually by you. Use the **Refresh** button to refresh the list. 
     
     ![Successful pipeline run](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
-2. Click the first link in the **Actions** column to **view activity runs** associated with this pipeline run. You can switch back to the previous view by clicking **Pipelines** at the top. Use the **Refresh** button to refresh the list. 
+2. To **view activity runs** associated with this pipeline run, click the first link in the **Actions** column. You can switch back to the previous view by clicking **Pipelines** at the top. Use the **Refresh** button to refresh the list. 
 
     ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
-## Trigger a failure pipeline run
+## Trigger a pipeline run that fails
 1. Switch to the **Edit** tab on the left. 
 2. To **trigger** a pipeline run, click **Trigger** on the toolbar, and click **Trigger Now**. 
 3. In the **Pipeline Run** window, do the following steps: 
@@ -315,7 +314,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     3. Enter an **email address** of the **receiver**. 
     4. Click **Finish**.
 
-## Monitor the failure pipeline run
+## Monitor the failed pipeline run
 
 1. To monitor the pipeline run, switch to the **Monitor** tab on the left. You see the pipeline run that was triggered manually by you. Use the **Refresh** button to refresh the list. 
     
@@ -323,7 +322,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 2. Click **Error** link for the pipeline run to see details about the error. 
 
     ![Pipeline error](./media/tutorial-control-flow-portal/pipeline-error-message.png)
-2. Click the first link in the **Actions** column to **view activity runs** associated with this pipeline run. Use the **Refresh** button to refresh the list. Notice that the Copy activity in the pipeline failed. The Web activity succeeded to send the failure email to the specified receiver. 
+2. To **view activity runs** associated with this pipeline run ,click the first link in the **Actions** column. Use the **Refresh** button to refresh the list. Notice that the Copy activity in the pipeline failed. The Web activity succeeded to send the failure email to the specified receiver. 
 
     ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-failure.png)
 4. Click link in the **Error** column to see details about the error. 
