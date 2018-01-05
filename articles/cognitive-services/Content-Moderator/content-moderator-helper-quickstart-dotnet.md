@@ -2,7 +2,7 @@
 title: Azure Content Moderator SDK for .NET helper method | Microsoft Docs
 description: How to return a Content Moderator client using Azure Content Moderator SDK for .NET
 services: cognitive-services
-author: sajagtap
+author: sanjeev3
 manager: mikemcca
 
 ms.service: cognitive-services
