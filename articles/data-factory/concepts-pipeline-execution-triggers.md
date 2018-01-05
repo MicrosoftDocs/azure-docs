@@ -166,15 +166,15 @@ For more specific information about Schedule Triggers and an examples, see [How 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping and contiguous time intervals.
 For more specific information about Tumbling Window triggers and examples, see [How to: Create a Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md)
 
-## Tumbling Window Trigger vs. Scheduler Trigger
+## Tumbling Window Trigger vs. Schedule Trigger
 Given the tumbling window trigger and the schedule trigger both operate on time heartbeats, what makes them different?
 For the tumbling window trigger:
-* **Backfill scenarios**: will be supported, being able to schedule runs for windows in the past. More details under header *Notes on Backfill*
-* **Reliability:** It will schedule pipeline runs for all windows from a start date without gaps with 100% reliability
-* **Retry**: Failed pipeline runs have a default retry policy of 0 or one specified by user as part of the trigger definition. More details here with *Tumbling Window Type Properties* on how to specify custom retry policies. It will also retry automatically on instances when runs fail because of concurrency/server/throttling limits i.e. this includes status code 400 (User Error), 429 (Too many requests), 500 (Internal Server error).
-* **Concurrency**: Users can explicitly set concurrency limits for the trigger (1-50 max concurrent triggered pipeline runs)
-* **Window Start & Window End Variables**: Users can access triggerOutputs().windowStartTime and triggerOutputs().windowEndTime as trigger system variables in the trigger definition, that will be the window start and window end times, respectively. See *Using WindowStart and WindowEnd* for more details on using the system variables. For example, if you have a tumbling window trigger running every hour, for the window 1am-2am, the triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z and triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
-* **Pipeline to Trigger Relationship**: Scheduler triggers have a n:m relationship with pipelines. A scheduler trigger can trigger multiple pipelines. Tumbling Window triggers have a 1:1 relationship with pipelines. A tumbling window trigger can only trigger one pipeline.
+* **Backfill scenarios**: Tumbling window triggers support backfill scenarios, being able to schedule runs for windows in the past. Schedule Trigger can only run on time periods from the present forward.
+* **Reliability:** Tumbling window triggers will schedule pipeline runs for all windows from a start date without gaps with 100% reliability.
+* **Retry**: Tumbling window triggers have retry capability. Failed pipeline runs have a default retry policy of 0 or one specified by user as part of the trigger definition. It will also retry automatically on instances when runs fail because of concurrency/server/throttling limits i.e. this includes status code 400 (User Error), 429 (Too many requests), 500 (Internal Server error).
+* **Concurrency**: Tumbling window triggers allow users to explicitly set concurrency limits for the trigger (1-50 max concurrent triggered pipeline runs)
+* **Window Start & Window End Variables**: For tumbling window triggers, users can access triggerOutputs().windowStartTime and triggerOutputs().windowEndTime as trigger system variables in the trigger definition, that will be the window start and window end times, respectively. For example, if you have a tumbling window trigger running every hour, for the window 1am-2am, the triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z and triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
+* **Pipeline to Trigger Relationship**: Schedule triggers have a n:m relationship with pipelines. A schedule trigger can trigger multiple pipelines. Tumbling Window triggers have a 1:1 relationship with pipelines. A tumbling window trigger can only trigger one pipeline.
 
 ## Next steps
 See the following tutorials:
