@@ -66,7 +66,8 @@ Before you proceed to the steps below, you will need to wait until the syslog st
 2.	Select the workspace that the Syslog (Linux Machine) is connected to.
 3.	Type *CommonSecurityLog* and click the **Search** button.
 
-	![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
+The following example shows the result of these steps:
+![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
 
 ## Clean up resources
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
