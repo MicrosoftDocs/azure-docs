@@ -17,7 +17,7 @@ This article shows how to use an Azure Resource Manager template to create Event
 
 ## Subscribe to resource group events
 
-When subscribing to resource group events, use **Microsoft.EventGrid/eventSubscriptions** for the resource type. For **eventpointType**, use either **WebHook** or **EventHub**.
+When subscribing to resource group events, use `Microsoft.EventGrid/eventSubscriptions` for the resource type. For event point type, use either `WebHook` or `EventHub`.
 
 ```json
 {
@@ -52,7 +52,7 @@ When you deploy this template to a resource group, you subscribe to events for t
 
 ## Subscribe to resource events
 
-When subscribing to resource events, you associate the subscription to the correct resource by including the resource type and name in the subscription definition. For the resource type, use **<provider-namespace>/<resource-type>/providers/eventSubscriptions**. For the name, use **<resource-name>/Microsoft.EventGrid/<subscription-name>**. For **eventpointType**, use either **WebHook** or **EventHub**.
+When subscribing to resource events, you associate the subscription to the correct resource by including the resource type and name in the subscription definition. For the resource type, use `<provider-namespace>/<resource-type>/providers/eventSubscriptions`. For the name, use `<resource-name>/Microsoft.EventGrid/<subscription-name>`. For event point type, use either `WebHook` or `EventHub`.
 
 The following example shows how to subscribe to Blob storage events.
 

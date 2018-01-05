@@ -36,7 +36,7 @@
   items:
   - name: Stream data from Event Hubs to data warehouse
     href: event-grid-event-hubs-integration.md
-  - name: Use templates for event subscriptions
+  - name: Templates for event subscriptions
     href: event-subscription-template.md
 - name: Reference
   items:
