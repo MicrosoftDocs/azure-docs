@@ -47,13 +47,13 @@ grant_type=password
 &scope=openid
 ```
 
-  *grant_type*
+  **grant_type**
   This is the type of authentication scheme you will using. In this example the value is:
   ```
   password
   ```
 
-  *resource*
+  **resource**
 
   The resource the token will be used to access. This can be found by querying the Azure Stack management metatdata endpoint and looking at the "audiences" section
 
@@ -85,7 +85,7 @@ grant_type=password
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-  *client_id*
+  **client_id**
 
   This value is hardcoded to a default value:
   ```
@@ -93,22 +93,25 @@ grant_type=password
   ```
 
   Alternative options are available for specific scenarios:
+  
   ---
+  
   Application: ApplicationID
   LegacyPowerShell: 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417
   PowerShell: 1950a258-227b-4e31-a9cf-717495945fc2
   WindowsAzureActiveDirectory: 00000002-0000-0000-c000-000000000000
   VisualStudio: 872cd9fa-d31f-45e0-9eab-6e460a02d1f1
   AzureCLI: 04b07795-8ddb-461a-bbee-02f9e1bf7b46
+  
   ---
 
-  *username*
+  **username**
   The Azure Stack AAD account, for example:
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-  *password*
+  **password**
 
   The Azure Stack AAD admin password.
   
