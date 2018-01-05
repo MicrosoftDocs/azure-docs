@@ -11,9 +11,10 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
+ms.custom: mvc
 ---
 
 # What is API Management?

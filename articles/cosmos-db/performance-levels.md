@@ -92,7 +92,7 @@ Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East re
 
 ## What if I need more than 10 GB of storage?
 
-Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection, all of which have 10 GB of storage available, you can use the Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](documentdb-partition-data.md). 
+Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection, all of which have 10 GB of storage available, you can use the Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -131,7 +131,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 4. Click **Save** to save your changes.
 
-    If you determine that you need more throughput (greater than 10,000 RU/s) or more storage (greater than 10 GB) you can create a partitioned collection. To migrate a single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data.md#migrating-from-single-partition).
+    If you determine that you need more throughput (greater than 10,000 RU/s) or more storage (greater than 10 GB) you can create a partitioned collection. To migrate a single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Changing from S1, S2, or S3 to Standard may take up to two minutes.
@@ -140,7 +140,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 **To migrate to single partition collections using the .NET SDK**
 
-Another option for changing your collections' performance levels is through the Azure Cosmos DB SDKs. This section only covers changing a collection's performance level using the [SQL .NET API](documentdb-sdk-dotnet.md), but the process is similar for our other SDKs.
+Another option for changing your collections' performance levels is through the Azure Cosmos DB SDKs. This section only covers changing a collection's performance level using the [SQL .NET API](sql-api-sdk-dotnet.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     
@@ -174,6 +174,6 @@ EA customers will be price protected until the end of their current contract.
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
 
-1.	[Partitioning data in Cosmos DB](documentdb-partition-data.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
+1.	[Partitioning data in Cosmos DB](sql-api-partition-data.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
 2.	[Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.

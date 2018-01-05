@@ -103,7 +103,7 @@ JSON, a format supported by Cosmos DB, is an effective format to represent UI la
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/personalization.png)
 
 ## Next steps
-To get started with Azure Cosmos DB, follow our [quick starts](create-documentdb-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
+To get started with Azure Cosmos DB, follow our [quick starts](create-sql-api-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
 
 Or, if you'd like to read more about customers using Cosmos DB, the following customer stories are available:
 

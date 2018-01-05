@@ -206,7 +206,7 @@ When Swaggerize asks for a project name, use *ContactList*.
 
 In this section, you use the Azure CLI 2.0 to create the resources to host the API on Azure App Service. 
 
-1.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+1.  Log in to your Azure subscription with the [az login](/cli/azure/?view=azure-cli-latest#az_login) command and follow the on-screen directions.
 
     ```azurecli-interactive
     az login

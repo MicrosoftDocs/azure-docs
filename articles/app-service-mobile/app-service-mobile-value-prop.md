@@ -3,7 +3,7 @@ title: About Mobile Apps in Azure App Service
 description: Learn about the advantages that App Service brings to your enterprise mobile apps.
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
@@ -86,7 +86,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [getting started]: app-service-mobile-ios-get-started.md
 [Azure Table storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
 [push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md

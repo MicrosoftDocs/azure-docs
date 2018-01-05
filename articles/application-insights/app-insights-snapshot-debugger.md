@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
@@ -59,8 +59,6 @@ The following environments are supported:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -171,8 +169,8 @@ To grant permission, assign the `Application Insights Snapshot Debugger` role to
 1. Click the Save button to add the user to the role.
 
 
-[!IMPORTANT]
-    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+> [!IMPORTANT]
+> Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal
 
@@ -273,6 +271,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 ```
 
 For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+
+For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files. In that case, you can specify an alternative folder via the TempFolder property in ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
 
 ### Use Application Insights search to find exceptions with snapshots
 

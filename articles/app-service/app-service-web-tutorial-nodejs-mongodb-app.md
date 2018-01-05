@@ -19,6 +19,10 @@ ms.custom: mvc
 ---
 # Build a Node.js and MongoDB web app in Azure
 
+> [!NOTE]
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a Node.js and MongoDB web app in Azure App Service on Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
+
 Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js web app in Azure and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
@@ -39,6 +43,7 @@ To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
 1. [Install Node.js and NPM](https://nodejs.org/)
+1. [Install Bower](https://bower.io/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -122,7 +127,7 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 ### Create a Cosmos DB account
 
-In the Cloud Shell, create a Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
+In the Cloud Shell, create a Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) command.
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
 
@@ -156,7 +161,7 @@ In this step, you connect your MEAN.js sample application to the Cosmos DB datab
 
 ### Retrieve the database key
 
-To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +257,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command in the Cloud Shell. 
+To set app settings, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
@@ -456,7 +461,7 @@ If you added any articles earlier, you still can see them. Existing data in your
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log#tail) command in the Cloud Shell.
+To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

@@ -6,10 +6,10 @@ author: neilpeterson
 manager: timlt
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
-ms.custom:
+ms.custom: mvc
 ---
 
 # Deploy Docker Swarm cluster
