@@ -64,9 +64,9 @@ Now you can monitor your Azure VMs and non-Azure computers in one place. Under *
   ![Compute blade][7]
 There are two types of icons represented on the **Compute** blade:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure computer.
+  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure computer
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM.
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Linux computer.
