@@ -132,4 +132,4 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).  
-To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md). This topic also provides examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This topic also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
