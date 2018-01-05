@@ -20,11 +20,11 @@ ms.author: garye
 # Use the sample datasets in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure Azure AI Gallery](http://gallery.cortanaintelligence.com/). Others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure AI Gallery](http://gallery.cortanaintelligence.com/). Others are included as examples of various types of data typically used in machine learning.
 
 Some of these datasets are available in Azure Blob storage. For these datasets, the following table provides a direct link. You can use these datasets in your experiments by using the [Import Data][import-data] module.
 
-The rest of these sample datasets are available in your workspace under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in Machine Learning Studio.
+The rest of these sample datasets are available in your workspace under **Saved Datasets**. You can find this in the module palette to the left of the experiment canvas in Machine Learning Studio.
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
 
@@ -54,7 +54,7 @@ U.S. airport codes.<p> </p>This dataset contains one row for each U.S. airport, 
 <tr>
   <td valign=top>Automobile price data (Raw)</td>
   <td valign=top>
-Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<p> </p>The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<p> </p><b>Usage:</b> Predict the risk score by features, using regression or multivariate classification. <p> </p><b>Related Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<p> </p>The risk score is initially associated with auto price. It is then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<p> </p><b>Usage:</b> Predict the risk score by features, using regression or multivariate classification. <p> </p><b>Related Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -104,7 +104,7 @@ The dataset contains information for 102K suspicious regions (candidates) of X-r
 <tr ID=breast-cancer-info>
   <td valign=top>Breast Cancer Info</td>
   <td valign=top>
-The dataset contains additional information for each suspicious region of X-ray image. Each example provides information (e.g., label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset. Each patient has a number of examples. For patients who have a cancer, some examples are positive and some are negative. For patients who don't have a cancer, all examples are negative. The dataset has 102K examples. The dataset is biased, 0.6% of the points are positive, the rest are negative. The dataset was made available by Siemens Healthcare.
+The dataset contains additional information for each suspicious region of X-ray image. Each example provides information (for example, label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset. Each patient has a number of examples. For patients who have a cancer, some examples are positive and some are negative. For patients who don't have a cancer, all examples are negative. The dataset has 102K examples. The dataset is biased, 0.6% of the points are positive, the rest are negative. The dataset was made available by Siemens Healthcare.
   </td>
 </tr>
 
@@ -137,9 +137,9 @@ Labels from the KDD Cup 2009 customer relationship prediction challenge (<a href
 </tr>
 
 <tr>
-  <td valign=top>Energy Efficiency Regression data</td>
+  <td valign=top>Energy-Efficiency Regression data</td>
   <td valign=top>
-A collection of simulated energy profiles, based on 12 different building shapes. The buildings are differentiated by 8 features, such as glazing area, the glazing area distribution, and orientation.<p> </p><b>Usage:</b> Use either regression or classification to predict the energy-efficiency rating based as one of two real valued responses. For multi-class classification, is round the response variable to the nearest integer. <p> </p><b>Related Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+A collection of simulated energy profiles, based on 12 different building shapes. The buildings are differentiated by eight features. This includes glazing area, the glazing area distribution, and orientation.<p> </p><b>Usage:</b> Use either regression or classification to predict the energy-efficiency rating based as one of two real valued responses. For multi-class classification, is round the response variable to the nearest integer. <p> </p><b>Related Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -160,7 +160,7 @@ Records of airplane flight arrivals and departures within United States from Oct
 <tr>
   <td valign=top>Forest fires data</td>
   <td valign=top>
-Contains weather data, such as temperature and humidity indices and wind speed, from an area of northeast Portugal, combined with records of forest fires.<p> </p><b>Usage:</b> This is a difficult regression task, where the aim is to predict the burned area of forest fires. <p> </p><b>Related Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+Contains weather data, such as temperature and humidity indices and wind speed. The data is taken from an area of northeast Portugal, combined with records of forest fires.<p> </p><b>Usage:</b> This is a difficult regression task, where the aim is to predict the burned area of forest fires. <p> </p><b>Related Research:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -195,7 +195,7 @@ The dataset is an extended version of the Movie Tweetings dataset. The dataset h
 <tr>
   <td valign=top>MPG data for various automobiles</td>
   <td valign=top>
-This dataset is a slightly modified version of the dataset provided by the StatLib library of Carnegie Mellon University. The dataset was used in the 1983 American Statistical Association Exposition.<p> </p>The data lists fuel consumption for various automobiles in miles per gallon, along with information such the number of cylinders, engine displacement, horsepower, total weight, and acceleration.<p> </p><b>Usage:</b> Predict fuel economy based on 3 multivalued discrete attributes and 5 continuous attributes. <p> </p><b>Related Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+This dataset is a slightly modified version of the dataset provided by the StatLib library of Carnegie Mellon University. The dataset was used in the 1983 American Statistical Association Exposition.<p> </p>The data lists fuel consumption for various automobiles in miles per gallon. It also includes information such as the number of cylinders, engine displacement, horsepower, total weight, and acceleration.<p> </p><b>Usage:</b> Predict fuel economy based on three multivalued discrete attributes and five continuous attributes. <p> </p><b>Related Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -230,14 +230,14 @@ Contains ratings given by users to restaurants on a scale from 0 to 2.<p> </p><b
 <tr>
   <td valign=top>Steel Annealing multi-class dataset</td>
   <td valign=top>
-This dataset contains a series of records from steel annealing trials with the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.<p> </p><b>Usage:</b> Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.<p> </p>Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. <p> </p><b>Related Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>A useful guide to steel grades can be found here: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+This dataset contains a series of records from steel annealing trials. It contains the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.<p> </p><b>Usage:</b> Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.<p> </p>Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. <p> </p><b>Related Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>A useful guide to steel grades can be found here: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
   <td valign=top>Telescope data</td>
   <td valign=top>
-Records of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.<p> </p>The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes, using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).<p> </p>The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center. The characteristics of this ellipse (often called Hillas parameters) are among the image parameters that can be used for discrimination.<p> </p><b>Usage:</b> Predict whether image of a shower represents signal or background noise.<p> </p><b>Notes:</b> Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background. For comparison of different classifiers the ROC graph should be used. The probability of accepting a background event as signal must be below one of the following thresholds: 0.01 , 0.02 , 0.05 , 0.1 , or 0.2.<p> </p>Also, note that the number of background events (h, for hadronic showers) is underestimated, whereas in real measurements, the h or noise class represents the majority of events. <p> </p><b>Related Research:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information
+Record of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.<p> </p>The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes. This is done by using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).<p> </p>The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center. The characteristics of this ellipse (often called Hillas parameters) are among the image parameters that can be used for discrimination.<p> </p><b>Usage:</b> Predict whether image of a shower represents signal or background noise.<p> </p><b>Notes:</b> Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background. For comparison of different classifiers, the ROC graph should be used. The probability of accepting a background event as signal must be below one of the following thresholds: 0.01, 0.02, 0.05, 0.1, or 0.2.<p> </p>Also, note that the number of background events (h, for hadronic showers) is underestimated. In real measurements, the h or noise class represents the majority of events. <p> </p><b>Related Research:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information
   </td>
 </tr>
 
@@ -262,7 +262,7 @@ Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.w
 <tr ID=direct-marketing>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td valign=top>
-The dataset contains customer data and indications about their response to a direct mailing campaign. Each row represents a customer. The dataset contains 9 features about user demographics and past behavior, and 3 label columns (visit, conversion, and spend).  Visit is a binary column that indicates that a customer visited after the marketing campaign, conversion indicates a customer purchased something, and spend is the amount that was spent.  The dataset was made available by Kevin Hillstrom for MineThatData E-Mail Analytics And Data Mining Challenge.
+The dataset contains customer data and indications about their response to a direct mailing campaign. Each row represents a customer. The dataset contains nine features about user demographics and past behavior, and three label columns (visit, conversion, and spend).  Visit is a binary column that indicates that a customer visited after the marketing campaign. Conversion indicates a customer purchased something. Spend is the amount that was spent.  The dataset was made available by Kevin Hillstrom for MineThatData E-Mail Analytics And Data Mining Challenge.
   </td>
 </tr>
 
