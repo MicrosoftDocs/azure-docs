@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/04/2018
   ms.author: heidist
 abstract:
-  description: Add enterprise search over heterogenous content in custom apps using Azure Search, a fully managed cloud service from Microsoft. Consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of search scenarios. Add self-directed navigation and intuitive behaviors through synonyms, typeahead queries, faceted navigation, filters, paging controls and hit-highlighting.
+  description: Add enterprise search over private, heterogenous content using Azure Search - fully managed, secure, and highly available from Microsoft. With Azure Search, you can consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of search scenarios. 
   aside:
     image:
       alt: 
@@ -34,29 +34,21 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/search/media/index/portal.svg
+        src: /azure/search/media/index/portal.svg
       text: Azure portal
       href: https://docs.microsoft.com/azure/search/search-create-service-portal
+    - image: 
+        src: /azure/search/media/index/logo_Csharp.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
     - image: 
         src: /azure/search/media/index/rest.svg
       text: REST
       href: https://docs.microsoft.com/azure/search/search-fiddler
-    - image: 
-        src: /azure/search/media/index/logo_rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-    - image: 
-        src: /azure/data-factory/media/index/logo_rest.svg
-      text: REST
-      href: /azure/search/search-fiddler
-    - image: 
-        src: https://docs.microsoft.com/azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Develop apps that offer a rich search experience
+    text: Code in .NET, REST, or try the portal for quick concept testing
   - type: list
     style: ordered
     items:
@@ -65,22 +57,22 @@ sections:
     - html: <a href="/azure/search/search-semi-structured-data">Index content from Azure SQL Database with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure blob storage with REST</a>
     - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a>
-- title: Recommended Videos
+- title: Featured Videos
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: Add search capabilities to business apps (Microsoft)
-      href: https://www.bing.com/videos/search?q=Full+Text+Search+Azure&&view=detail&mid=916E43FC3327B404A475916E43FC3327B404A475&FORM=VRDGAR
+    - title: Azure Search & Cognitive Services Text Analytics API
+      href: https://www.youtube.com/watch?v=hZgXSMWnACs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
-        href: https://www.bing.com/videos/search?q=Full+Text+Search+Azure&&view=detail&mid=916E43FC3327B404A475916E43FC3327B404A475&FORM=VRDGAR
-    - title: Use Azure Search in mobile andweb apps (Microsoft)
-      href: https://azure.microsoft.com/resources/videos/build-2015-using-azure-search-to-build-great-search-experiences-in-mobile-and-web-apps/
+        href: https://www.youtube.com/watch?v=hZgXSMWnACs
+    - title: Performance and scale drill-down (Azure Search)
+      href: https://www.youtube.com/watch?v=RYwc62oAXIs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
-        href: https://azure.microsoft.com/resources/videos/build-2015-using-azure-search-to-build-great-search-experiences-in-mobile-and-web-apps/
+        href: https://www.youtube.com/watch?v=RYwc62oAXIs
 - title: Reference
   items:
   - type: list
