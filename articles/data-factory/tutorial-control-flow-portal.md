@@ -102,8 +102,8 @@ Save the workflow. Make a note of your HTTP Post request URL for your success em
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 
-## Fail email workflow 
-Clone your **CopySuccessEmail** and create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
+### Fail email workflow 
+Follow the same steps to create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
 ![Logic App designer - fail email workflow](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
