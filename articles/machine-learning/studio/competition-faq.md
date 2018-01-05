@@ -33,7 +33,7 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the [Competitions](https://gallery.cortanaintelligence.com/competitions) home page in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), or go to [http://aka.ms/CIComp](http://aka.ms/CIComp). The home page lists all competitions that are currently running. Each competition has detailed instructions and participation rules, prizes, and duration on its sign-up page.
+Access the [Competitions](https://gallery.cortanaintelligence.com/competitions) home page in the [Azure AI Gallery](https://gallery.cortanaintelligence.com/), or go to [http://aka.ms/CIComp](http://aka.ms/CIComp). The home page lists all competitions that are currently running. Each competition has detailed instructions and participation rules, prizes, and duration on its sign-up page.
 
 1. Find the competition you’d like to participate in, read all the instructions and watch the tutorial video, then click the **Enter Competition** button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You'll likely spend the majority of your time in this step.   
 
@@ -41,7 +41,7 @@ Access the [Competitions](https://gallery.cortanaintelligence.com/competitions) 
 
 3. Deploy a web service out of your Predictive Experiment. Test your web service using the **Test** button or the Excel template automatically created for you to ensure it's working properly.   
 
-4. Submit your web service as the competition entry and see your public score in the Cortana Intelligence Gallery competition page. And celebrate if you make it onto the leaderboard!  
+4. Submit your web service as the competition entry and see your public score in the Azure AI Gallery competition page. And celebrate if you make it onto the leaderboard!  
 
 After you successfully submit an entry, you can go back to your copied Starter Experiment, iterate, and update your Predictive Experiment, update the web service, and submit a new entry.   
 

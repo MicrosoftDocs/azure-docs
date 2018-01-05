@@ -34,7 +34,7 @@ Fortunately, we can accomplish this by using the [Azure Machine Learning retrain
 > 
 
 ## Set up the training experiment
-We're going to use an example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that we've already created in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
+We're going to use an example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that we've already created in the [Azure AI Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
 
 > [!NOTE]
 > In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. We'll be creating one endpoint for each customer - for a total of 10 endpoints - and that will require a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just modify the scripts below to allow for only 3 locations.
