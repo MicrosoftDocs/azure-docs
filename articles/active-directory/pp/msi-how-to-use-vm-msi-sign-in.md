@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -48,7 +48,7 @@ The following script demonstrates how to:
 2. Call Azure Resource Manager and get the Azure region location for a VM. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your VM name for `<VM NAME>`, and user-assigned MSI resource id for `<MSI ID>`. The MSI resource id is returned in the `id` property during creation of a user-assigned MSI (see [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) for examples of the `az identity create` command).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation
