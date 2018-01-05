@@ -219,11 +219,11 @@ When onboarding solutions you may encounter errors. The following is a listing o
 
 **Reason for the error:**
 
-This error code means that the saved search computer group query used to target the solution was not formatted correctly. You may have altered the query on their own, or it may have been altered by the system.
+This error code means that the saved search computer group query used to target the solution was not formatted correctly. You may have altered the query, or it may have been altered by the system.
 
 **Troubleshooting tips:**
 
-You can delete the query for this solution, and reonboard their solution, which re-creates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
+You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
 
 ## Next steps
 
