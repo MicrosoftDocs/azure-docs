@@ -43,7 +43,7 @@ When the **Deployment succeeded** message appears, go to the Batch account in th
 
 ## Create a Batch pool
 
-Create a sample pool of Windows VMs for test purposes. The pool for this quick example consists of 2 size A1 nodes running Windows Server 2012 R2 Datacenter from the Azure Marketplace. 
+Create a sample pool of Windows VMs for test purposes. The pool for this quick example consists of 2 size *Standard_A1* nodes running Windows Server 2012 R2 Datacenter from the Azure Marketplace. 
 
 
 1. In the Batch account, click **Pools** > **Add**.
@@ -57,7 +57,7 @@ Create a sample pool of Windows VMs for test purposes. The pool for this quick e
 
   * **Offer** - WindowsServer
 
-  * **Sku** - 2016-Datacenter
+  * **Sku** - 2012-R2-Datacenter
 
   ![Select a pool operating system][pool_os] 
 
@@ -119,7 +119,7 @@ The contents show the Azure Batch environment variables that are set on the node
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and click **Delete**.
+When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 

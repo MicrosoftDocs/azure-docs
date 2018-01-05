@@ -15953,6 +15953,11 @@
       "source_path": "articles/storage/blobs/storage-account-options.md",
       "redirect_url": "/azure/storage/common/storage-account-options",
       "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
+        "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": false
       }
     ]
 }

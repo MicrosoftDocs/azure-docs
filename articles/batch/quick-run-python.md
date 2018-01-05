@@ -8,7 +8,7 @@ manager: timlt
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/03/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
-* An Azure Batch account and an Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* An Azure Batch account and a linked general-purpose Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Download the sample
 
@@ -48,7 +48,7 @@ pip install azure.storage
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 
-Open the file `python_quickstart_client.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts.
+Open the file `python_quickstart_client.py` in a text editor. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
@@ -64,7 +64,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 To see the Batch workflow in action, run the application. After running the application, go to the walkthrough to learn what each part of the application does. 
 
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
 ```
 Sample start: 12/4/2017 4:02:54 PM
@@ -76,23 +76,22 @@ Uploading file taskdata2.txt to container [input]...
 Creating pool [PythonQuickstartPool]...
 Creating job [PythonQuickstartJob]...
 Adding 3 tasks to job [PythonQuickstartJob]...
-Awaiting task completion, timeout in 00:30:00...
+Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 ```
 
 After tasks complete, you see output similar to the following for each task:
 
 ```
-Printing task output.
-Task Task0
-Node tvm-2850684224_3-20171205t000401z
-stdout:
+Printing task output...
+Task: Task0
+Node: tvm-2850684224_3-20171205t000401z
+Standard out:
 Processing file taskdata0.txt in task Task0:
 Batch processing began with mainframe computers and punch cards. Today it still plays a central role in business, engineering, science, and other pursuits that require running lots of automated tasks....
-stderr:
 ...
 ```
 
-Typical execution time is approximately 3 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
+Typical execution time is approximately 3 minutes when you run the application in its default configuration. Initial pool setup takes the most time.
 
 ## Walkthrough
 
@@ -151,11 +150,11 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
-             offer="UbuntuServer",
-             sku="16.04.0-LTS",
-             version="latest"
+            offer="UbuntuServer",
+            sku="16.04.0-LTS",
+            version="latest"
             ),
-    node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT
 )
@@ -183,7 +182,7 @@ except batchmodels.batch_error.BatchErrorException as err:
 
 ### Create tasks
 
-The app creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the `command_line` runs the bash shell `cat` command to display the text file. This is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of task objects using the [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) method. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the `command_line` runs the bash shell `cat` command to display the text file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
 Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) method, which queues them to run on the compute nodes. 
 
@@ -191,21 +190,23 @@ Then, the app adds tasks to the job with the [task.add_collection](/python/api/a
 tasks = list()
 
 for idx, input_file in enumerate(input_files): 
-    command = "/bin/bash -c \"echo \'Processing file {} in task {}\'; cat {}\"".format(input_file.file_path, idx, input_file.file_path)
+    command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
-            id='Task{}'.format(idx),
-            command_line=command,
-            resource_files=[input_file]
-            )
-     )
+        id='Task{}'.format(idx),
+        command_line=command,
+        resource_files=[input_file]
+    )
+)
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
 ### View task output
 
-The app monitors task state to make sure the tasks complete. Then, the app displays the stdout.txt and stderr.txt files generated by each completed task. When the task runs successfully, the output of the task command is written to stdout.txt, and stderr.txt is an empty file:
+The app monitors task state to make sure the tasks complete. Then, the app displays the `stdout.txt` file generated by each completed task. When the task runs successfully, the output of the task command is written to `stdout.txt`:
 
 ```python
+
+tasks = batch_service_client.task.list(job_id)
 
 tasks = batch_service_client.task.list(job_id)
 
@@ -214,35 +215,23 @@ task_ids = [task.id for task in tasks]
 for task_id in task_ids:
     
     node_id = batch_service_client.task.get(job_id, task_id).node_info.node_id
-    print("Task {}".format(task_id))
-    print("Node {}".format(node_id))
+    print("Task: {}".format(task_id))
+    print("Node: {}".format(node_id))
 
     stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,
         encoding)
-    print("{} content for task {}: ".format(
-        _STANDARD_OUT_FILE_NAME,
-        task_id))
-    print(file_text)
-
-    stream = batch_service_client.file.get_from_task(job_id, task_id, _STANDARD_ERROR_FILE_NAME)
-
-    file_text = _read_stream_as_string(
-        stream,
-        encoding)
-    print("{} content for task {}: ".format(
-        _STANDARD_ERROR_FILE_NAME,
-        task_id))
+    print("Standard output:")
     print(file_text)
 ```
 
 ## Clean up resources
 
-The app automatically deletes the storage container it creates, and by default deletes the Batch pool and job it runs. When you delete the pool, all task output on the nodes is deleted.
+The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. When you delete the pool, all task output on the nodes is deleted. 
 
-When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete**.
+When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 
