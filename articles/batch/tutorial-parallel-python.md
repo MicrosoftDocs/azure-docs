@@ -42,8 +42,8 @@ cd src
 Install the required packages using `pip`.
 
 ```bash
-pip install azure.batch
-pip install azure.storage
+pip install azure-batch
+pip install azure-storage
 ```
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
