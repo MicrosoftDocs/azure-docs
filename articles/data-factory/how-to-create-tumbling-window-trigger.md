@@ -124,10 +124,10 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 1. Create a JSON file named MyTrigger.json in the C:\ADFv2QuickStartPSH\ folder with the following content:
 
-        > [!IMPORTANT]
-        > Set **startTime** to the current UTC time and **endTime** to one hour past the current UTC time before saving the JSON file.
+   > [!IMPORTANT]
+   > Set **startTime** to the current UTC time and **endTime** to one hour past the current UTC time before saving the JSON file.
 
-        ```json   
+    ```json   
     {
       "name": "PerfTWTrigger",
       "properties": {
