@@ -2,7 +2,7 @@
 title: Azure Content Moderator - Moderate text using .NET | Microsoft Docs
 description: How to moderate text using Azure Content Moderator SDK for .NET
 services: cognitive-services
-author: sajagtap
+author: sanjeev3
 manager: mikemcca
 
 ms.service: cognitive-services
