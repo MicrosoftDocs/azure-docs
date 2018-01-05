@@ -12,7 +12,7 @@ ms.date: 12/13/2017
 ms.author: cahann
 ---
 
-# Manage Versions
+# Manage versions
 
 You can build different versions of your application. Versioning allows you to create a model definition that can be managed, changed, cloned, or exported. 
 
