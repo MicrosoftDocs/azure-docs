@@ -97,7 +97,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    ![Edit tab](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## Create self-hosted integration runtime
-As the Hadoop cluster is inside a virtual network, you need to install a self-hosted integration runtime (IR) in the same virtual network. In this section, you create a new VM, join it to the same virtual network, and install self-hosted IR on it. The self-hosted IR allows Data Factory service to dispatch processing requests to a compute service such as HDInsight inside a virtual network. It also allows you move data to/from data stores inside a virtual network to Azure. You use a self-hosted IR when the data store or compute is in an on-premises environment as well. 
+As the Hadoop cluster is inside a virtual network, you need to install a self-hosted integration runtime (IR) in the same virtual network. In this section, you create a new VM, join it to the same virtual network, and install self-hosted IR on it. The self-hosted IR allows Data Factory service to dispatch processing requests to a compute service such as HDInsight inside a virtual network. It also allows you to move data to/from data stores inside a virtual network to Azure. You use a self-hosted IR when the data store or compute is in an on-premises environment as well. 
 
 1. In the Azure Data Factory UI, click **Connections** at the bottom of the window, switch to the **Integration Runtimes** tab, and click **+ New** button on the toolbar. 
 
@@ -141,7 +141,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 ## Author linked services
 
 You author and deploy two Linked Services in this section:
-- An **Azure Storage Linked Service** that links an Azure Storage account to the data factory. This storage is the primary storage used by your HDInsight cluster. In this case, we also use this Azure Storage account to keep the Hive script and output of the script.
+- An **Azure Storage Linked Service** that links an Azure Storage account to the data factory. This storage is the primary storage used by your HDInsight cluster. In this case, you use this Azure Storage account to store the Hive script and output of the script.
 - An **HDInsight Linked Service**. Azure Data Factory submits the Hive script to this HDInsight cluster for execution.​
 
 ### Create Azure Storage linked service
@@ -183,7 +183,7 @@ You author and deploy two Linked Services in this section:
 This article assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at `https://clustername.azurehdinsight.net`. This address uses the public gateway, which is not available if you have used network security groups (NSGs) or user-defined routes (UDRs) to restrict access from the internet. For Data Factory to be able to submit jobs to HDInsight cluster in Azure Virtual Network, you need to configure your Azure Virtual Network such a way that the URL can be resolved to the private IP address of gateway used by HDInsight.
 
 1. From Azure portal, open the Virtual Network the HDInsight is in. Open the network interface with name starting with `nic-gateway-0`. Note down its private IP address. For example, 10.6.0.15. 
-2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. This is the recommended approach. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily work around this by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry like this: 
+2. If your Azure Virtual Network has DNS server, update the DNS record so the HDInsight cluster URL `https://<clustername>.azurehdinsight.net` can be resolved to `10.6.0.15`. If you don’t have a DNS server in your Azure Virtual Network, you can temporarily work around by editing the hosts file (C:\Windows\System32\drivers\etc) of all VMs that registered as self-hosted integration runtime nodes by adding an entry similar to the following one: 
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
@@ -204,7 +204,7 @@ Note the following points:
 3. In the properties window, switch to the **HDI Cluster** tab, and select **AzureHDInsightLinkedService** for **HDInsight Linked Service**.
 
     ![Select HDInsight linked service](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight-linked-service.png)
-4. Switch to the **Scripts** tab, and do the following: 
+4. Switch to the **Scripts** tab, and do the following steps: 
 
     1. Select **AzureStorageLinkedService** for **Script Linked Service**. 
     2. For **File Path**, click **Browse Storage**. 
