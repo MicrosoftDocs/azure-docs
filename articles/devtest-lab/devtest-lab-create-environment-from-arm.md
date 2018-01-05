@@ -137,17 +137,17 @@ After you have saved a Resource Manager template and customized it for your need
 
 Consider these limitations when using a Resource Manager template in DevTest Labs:
 
-1. By default, only a lab admin can deploy Resource Manager templates. 
+- By default, only a lab admin can deploy Resource Manager templates. 
 
-1. Any Resource Manager template you create cannot refer to existing resources; it can only refer to new resources. In addition, if you have an existing Resource Manager template that you typically deploy outside of DevTest Labs and it contains references to existing resources, it can't be used in the lab.
+- Any Resource Manager template you create cannot refer to existing resources; it can only refer to new resources. In addition, if you have an existing Resource Manager template that you typically deploy outside of DevTest Labs and it contains references to existing resources, it can't be used in the lab.
 
    The only exception to this is that you **can** reference an existing virtual network. 
 
-1. Formulas can't be created from lab VMs that were created from an Resource Manager template. 
+- Formulas can't be created from lab VMs that were created from an Resource Manager template. 
 
-1. Custom images can't be created from lab VMs that were created from an Resource Manager template. 
+- Custom images can't be created from lab VMs that were created from an Resource Manager template. 
 
-1. Most policies are not evaluated when you deploy Resource Manager templates.
+- Most policies are not evaluated when you deploy Resource Manager templates.
 
    For example, you might have a lab policy specifying that a user can only create five VMs. However, if the user deploys an Resource Manager template that creates dozens of VMs, that is allowed. Policies that are not evaluated include:
 
