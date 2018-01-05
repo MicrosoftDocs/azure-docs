@@ -25,11 +25,11 @@ ms.reviewer: dhanyahk
 
 
 
-> Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to our [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Stay up to date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
-Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this topic provides you with information about:
+Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 -	The latest releases
 -	Known issues
@@ -37,7 +37,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Deprecated functionality
 -	Plans for changes
 
-Please revisit this page regularly. It's updated monthly.
+ This page is updated monthly, so revisit it regularly.
 
 
 ## December 2017
@@ -72,7 +72,7 @@ For more information, see the [Azure AD terms of use feature (preview)](https://
 **Service category:** Azure AD  
 **Product capability:** User authentication
  
-The Azure AD and Microsoft account identity system user interfaces were redesigned so that they have a consistent look and feel. In addition, the Azure AD sign-in page collects the user name first, followed by the credential on a second screen.
+The Azure AD and Microsoft account identity system UIs were redesigned so that they have a consistent look and feel. In addition, the Azure AD sign-in page collects the user name first, followed by the credential on a second screen.
 
 For more information, see [The new Azure AD sign-in experience is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
  
@@ -87,7 +87,7 @@ For more information, see [The new Azure AD sign-in experience is now in public 
  
 The **Keep me signed in** check box on the Azure AD sign-in page was replaced with a new prompt that shows up after you successfully authenticate. 
 
-If you respond **Yes** to this prompt, the service gives you a persistent refresh token. This is the same behavior as when you selected the **Keep me signed in** check box in the old experience. For federated tenants, this prompt shows after you successfully authenticate with the federated service.
+If you respond **Yes** to this prompt, the service gives you a persistent refresh token. This behavior is the same as when you selected the **Keep me signed in** check box in the old experience. For federated tenants, this prompt shows after you successfully authenticate with the federated service.
 
 For more information, see [Fewer sign-in prompts: The new "keep me signed in" experience for Azure AD is in preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
 
@@ -160,7 +160,7 @@ In December 2017, the following new apps with federation support were added in t
  
 Approval workflow for Azure AD directory roles is generally available.
 
-With approval workflow, privileged-role administrators can require eligible-role members to request role activation before they can use the privileged role. Multiple users and groups can be delegated approval responsibilities Eligible role members receive notifications when approval is finished and their role is active.
+With approval workflow, privileged-role administrators can require eligible-role members to request role activation before they can use the privileged role. Multiple users and groups can be delegated approval responsibilities. Eligible role members receive notifications when approval is finished and their role is active.
 
 ---
  
@@ -208,7 +208,7 @@ For more information, see [Privileged Identity Management for Azure resources (p
 **Product capability:** Access Control service 
 
 
- Azure Active Directory Access Control (also known as the Access Control service) will be retired in late 2018. More information that includes a detailed schedule and high-level migration guidance will be provided in the next few weeks. You can leave comments on this page with any questions about the Access Control service, and a member of our team will answer them.
+ Azure Active Directory Access Control (also known as the Access Control service) will be retired in late 2018. More information that includes a detailed schedule and high-level migration guidance will be provided in the next few weeks. You can leave comments on this page with any questions about the Access Control service, and a team member will answer them.
 
 ---
 
@@ -359,7 +359,7 @@ For more information, see [Azure AD app-based conditional access](active-directo
 You now can find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release, you can:
 
 - View all your devices that are available for conditional access in Azure AD.
-- View properties, which includes your hybrid Azure AD-joined devices.
+- View properties, which include your hybrid Azure AD-joined devices.
 - Find BitLocker keys for your Azure AD-joined devices, manage your device with Intune, and more.
 - Manage Azure AD device-related settings.
 
@@ -404,7 +404,7 @@ For more information, see:
 
 
 
-The Network Policy Server extension for Azure Multi-Factor Authentication adds cloud-based multi-factor authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
+The Network Policy Server extension for Azure Multi-Factor Authentication adds cloud-based multi-factor authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers. 
 
 This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
