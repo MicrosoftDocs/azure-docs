@@ -14,8 +14,8 @@ ms.author: sajagtap
 
 # Match against custom images using .NET
 
-This article provides information and code samples to help you quickly get started using 
-the Content Moderator SDK with C# to 
+This article provides information and code samples to help you get started using 
+the Content Moderator SDK for .NET to:
 - Create a custom image list
 - Add and remove images from the list
 - Get the IDs of all images in the list
@@ -601,9 +601,9 @@ Moderator service.
 
 ## Run the program and review the output
 
-The following is sample output for the program, as written to the log file.
+The log file written by the program has the following output.
 
-The list ID and the image content IDs will be different each time you run the application.
+The list ID and the image content IDs are different each time you run the application.
 
 	Creating list MyList.
 	Response:
