@@ -67,7 +67,7 @@ This error appears when there are no other System Center DPM / Azure Backup Serv
 - If there are other System Center DPM / Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job uploads the metadata for all the protected backups to cloud. The data is available for recovery.
 
 ## The encryption passphrase provided does not match with passphrase associated with the following server
-[!NOTE] If you forgot/lost the encryption passphrase, then there is no option to recover the data. Your only option is to regenerate the passphrase and use to encrypting future backup data.
+> [!NOTE]If you forgot/lost the encryption passphrase, then there is no option to recover the data. Your only option is to regenerate the passphrase and use to encrypting future backup data.
 
 This error appears when the encryption passphrase used in the process of encrypting the data from the System Center DPM / Azure Backup Server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails. Follow these steps to resolve this issue:
 - Provide the exact same encryption passphrase associated with the System Center DPM / Azure Backup Server whose data is being recovered. 
