@@ -96,6 +96,7 @@ grant_type=password
   Alternative options are available for specific scenarios:
   
   | Application | ApplicationID |
+  | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
   | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
