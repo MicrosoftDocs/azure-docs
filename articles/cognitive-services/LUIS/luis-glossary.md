@@ -48,7 +48,7 @@ The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) is where you submit LUIS 
 
 #### <a name="features"></a>Features
 
-In machine learning, a [feature](luis-concept-feature) is a distinguishing trait or attribute of data that your system observes.
+In machine learning, a [feature](luis-concept-feature.md) is a distinguishing trait or attribute of data that your system observes.
 
 ## G
 
@@ -100,7 +100,7 @@ The programmatic key is a [free tier (F0) key](https://aka.ms/luis-price-tier).
 
 #### <a name="publish"></a>Publish
 
-Publishing means making a LUIS [active version](#active-version) available on either the staging or production [endpoint](endpoint).  
+Publishing means making a LUIS [active version](#active-version) available on either the staging or production [endpoint](#endpoint).  
 
 ## Q
 
