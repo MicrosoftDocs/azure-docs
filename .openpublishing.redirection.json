@@ -16091,7 +16091,7 @@
       },
       {
         "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
-        "redirect_url": "/azure/stream-analytics/",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
         "redirect_document_id": false
       }
     ]
