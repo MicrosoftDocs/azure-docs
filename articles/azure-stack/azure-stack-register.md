@@ -33,7 +33,7 @@ Before registering Azure Stack with Azure, you must have:
 
 - The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the **Subscription ID**. China, Germany, and US government cloud subscriptions are not currently supported.
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported).
-- *Not required beginning with Azure Stack 1712 update:*   The Azure Active Directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal.
+- *Not required beginning with Azure Stack 1712 update version (1.0.180103.2):*   The Azure Active Directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal.
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
@@ -62,9 +62,9 @@ If you don’t have an Azure subscription that meets these requirements, you can
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Delete any existing versions of the Powershell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
+5. Delete any existing versions of the PowerShell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
 
-6. From the "AzureStack-Tools-master" directory that is created in the preceding step, navigates to the "Registration" folder and import the ".\RegisterWithAzure.psm1" module:  
+6. From the "AzureStack-Tools-master" directory that is created in the preceding step, navigate to the "Registration" folder and import the ".\RegisterWithAzure.psm1" module:  
 
    ```powershell
    Import-Module .\RegisterWithAzure.psm1
@@ -107,7 +107,7 @@ If you don’t have an Azure subscription that meets these requirements, you can
 ## Modify the registration
 
 ### Change the subscription you use
-If you would like to change the subscription you use, you must first run Remove-AzsRegistration, ensure you are logged in to the correct Azure Powershell context, and then run Set-AzsRegistration with any changed parameters.
+If you would like to change the subscription you use, you must first run Remove-AzsRegistration, ensure you are logged in to the correct Azure PowerShell context, and then run Set-AzsRegistration with any changed parameters.
 
   ```Powershell   
   Remove-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
@@ -123,7 +123,7 @@ If you would like to change the billing model or syndication features for your i
 
 
 ## Disconnected registration
-*The information in this section applies beginning with the Azure Stack 1712 update version and is not supported with earlier versions.*
+*The information in this section applies beginning with the Azure Stack 1712 update version (1.0.180103.2) and is not supported with earlier versions.*
 
 If you are registering Azure Stack in a disconnected environment, you need to get a registration token from the Azure Stack environment and then use that token on a machine that can connect to Azure for registration.  
 
@@ -141,16 +141,26 @@ If you are registering Azure Stack in a disconnected environment, you need to ge
 
 
 ### Connect to Azure and register
-  1. On a machine that can connect to Azure, copy [RegisterWithAzure.psm1](https://go.microsoft.com/fwlink/?linkid=842959) to a folder, like *C:\Temp*.
+Run the steps for this procedure on a machine that can connect to Azure.
 
-  2. Start PowerShell ISE as an Administrator and then import the RegisterWithAzure module.  
+  1. [Download the latest PowerShell modules that correspond to registration from GitHub](azure-stack-powershell-download.md).  
 
-  3. Ensure you are logged into the correct Azure PowerShell context that you want to use to register your Azure Stack environment:  
+  2. From the "AzureStack-Tools-master" directory that is created in the preceding step, navigate to the "Registration" folder and import the ".\RegisterWithAzure.psm1" module:  
+
+     ```powershell
+     Import-Module .\RegisterWithAzure.psm1
+     ```
+
+  3. Copy [RegisterWithAzure.psm1](https://go.microsoft.com/fwlink/?linkid=842959) to a folder, like *C:\Temp*.
+
+  4. Start PowerShell ISE as an Administrator and then import the RegisterWithAzure module.  
+
+  5. Ensure you are logged into the correct Azure PowerShell context that you want to use to register your Azure Stack environment:  
 
      ```Powershell
         Set-AzureRmContext -SubscriptionId $YourAzureSubscriptionId   
      ```
-  4. Specify the registration token to register with Azure:
+  6. Specify the registration token to register with Azure:
 
      ```Powershell  
        $registrationToken = "*Your Registration Token*"
