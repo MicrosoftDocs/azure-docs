@@ -1,6 +1,6 @@
 ---
-title: Content Moderator get started | Microsoft Docs
-description: Sign up for the review tool to get started with automated moderation and see results in your browser.
+title: Azure Content Moderator get started | Microsoft Docs
+description: How to get started with Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -14,9 +14,16 @@ ms.author: sajagtap
 
 # Get started with Content Moderator
 
-There are a few things you need to do before you can try out Content Moderator tools. You first need to sign up for Content Moderator, then create a review team. After that, you can upload images or submit simple text to try the automated moderation and human review capabilities without writing any code.
+You get started with Content Moderator in the following ways:
 
-## Sign up for Content Moderator
+- In the Azure portal, [subscribe to the Content Moderator APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
+- Sign up for the [Content Moderator Review tool](http://contentmoderator.cognitive.microsoft.com/) to interactively explore the content moderation and review tool.
+
+Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
+
+The rest of this article assumes that you chose the review tool option.
+
+## Sign up for the review tool
 You can either sign up with your Microsoft account or create an account on the Content Moderator web site.
 Navigate to the [Content Moderator sign up](http://contentmoderator.cognitive.microsoft.com/) page. Click **Sign Up**.
 
@@ -43,4 +50,4 @@ As your business application calls the Moderator APIs, the tagged content starts
 ![Review results](images/reviewresults.png)
 
 ## Next steps: Use the APIs
-Once you have explored the review tool, [test drive the Content Moderator APIs](try-image-api.md) to scan your images, text, and videos in bulk and optionally, create reviews for human moderators.
+Once you have explored the review tool, test drive the [Content Moderator APIs](api-reference.md), starting with the [Image moderation API](try-image-api.md) to scan your images, text, and videos in bulk and optionally, create reviews for human moderators.
