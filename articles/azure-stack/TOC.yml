@@ -247,7 +247,7 @@
     - name: Diagnostics in Azure Stack
       href: azure-stack-diagnostics.md
     - name: Run a validation test in Azure Stack
-      href: azure-stack-diagnostics-test.md
+      href: azure-stack-diagnostic-test.md
     - name: Redeploy Azure Stack Development Kit
       href: azure-stack-redeploy.md
 - name: Reference

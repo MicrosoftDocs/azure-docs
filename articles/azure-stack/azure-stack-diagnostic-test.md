@@ -72,7 +72,7 @@ The following table summarizes the validation tests run by Test-AzureStack.
 | Azure Stack Cloud Hosting Infrastructure Utilization                                                                              | Write the description. |
 | Azure Stack Infrastructure Capacity                                                                                               | Write the description. |
 | Azure Stack Portal and API Summary                                                                                                | Write the description. |
-| Azure Stack ARM Certificate Summary                                                                                               | Write the description. |
+| Azure Stack Azure Resource Manager Certificate Summary                                                                                               | Write the description. |
 | Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Roles          | Write the description. |
 | Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Role Instances | Write the description. |
 | Azure Stack Infrastructure Role summary                                                                                           | Write the description. |
