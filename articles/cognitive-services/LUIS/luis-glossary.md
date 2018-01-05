@@ -118,7 +118,7 @@ Same as [programmatic key](#programmatic-key).
 
 #### <a name="subscription-key"></a>Subscription key
 
-The subscription key is the key associated with the LUIS service [you created in Azure](azureibizasubscription.md). This key is not the free tier (programmatic key)[#programmatic-key]. If you have a subscription key, it should be used for any endpoint requests instead of the programmatic key. You can see your current subscription key inside the endpoint URL at the bottom of [**Publish App** page](publishapp.md) in [LUIS.ai](https://www.luis.ai). It is the value of **subscription-key** name/value pair. 
+The subscription key is the key associated with the LUIS service [you created in Azure](azureibizasubscription.md). This key is not the free tier [programmatic key](#programmatic-key). If you have a subscription key, it should be used for any endpoint requests instead of the programmatic key. You can see your current subscription key inside the endpoint URL at the bottom of [**Publish App** page](publishapp.md) in [LUIS.ai](https://www.luis.ai). It is the value of **subscription-key** name/value pair. 
 
 ## T
 
