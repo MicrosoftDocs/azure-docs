@@ -37,7 +37,7 @@
 
 # How-to guides
 
-## Plan and design
+## Plan & design
 ### [Choose a SKU](search-sku-tier.md)
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
@@ -88,7 +88,7 @@
 ### [Facet filters](search-filters-facets.md)
 ### [OData expression syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 
-## Administration & Analytics
+## Administration & analytics
 ### [Administration (portal)](search-manage.md)
 ### [PowerShell (Azure Search)](search-manage-powershell.md)
 ### [Monitor usage and statistics](search-monitor-usage.md)
