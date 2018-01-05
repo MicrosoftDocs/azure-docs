@@ -48,6 +48,7 @@ grant_type=password
 ```
 
   **grant_type**
+  
   This is the type of authentication scheme you will using. In this example the value is:
   ```
   password
@@ -94,18 +95,15 @@ grant_type=password
 
   Alternative options are available for specific scenarios:
   
-  ---
-  
-  Application: ApplicationID
-  LegacyPowerShell: 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417
-  PowerShell: 1950a258-227b-4e31-a9cf-717495945fc2
-  WindowsAzureActiveDirectory: 00000002-0000-0000-c000-000000000000
-  VisualStudio: 872cd9fa-d31f-45e0-9eab-6e460a02d1f1
-  AzureCLI: 04b07795-8ddb-461a-bbee-02f9e1bf7b46
-  
-  ---
+  | Application | ApplicationID |
+  | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
+  | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
+  | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
+  | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
   **username**
+  
   The Azure Stack AAD account, for example:
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -163,18 +161,26 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 ```
 
 ## URL structure and query Syntax
+```
 Generic   request URI, consists of:  {URI-scheme} :// {URI-host} / {resource-path} ? {query-string}
+```
 
-*URI scheme:* Indicates the protocol used to transmit the request. For example, http or https.
-*URI host:* Specifies the domain name or IP address of the server where the REST service endpoint is hosted, such as graph.microsoft.com or adminmanagement.local.azurestack.external
-*Resource path:* Specifies the resource or resource collection, which may include multiple segments used by the service in determining the selection of those resources. For example: beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners can be used to query the list a specific application's owners within the applications collection.
-*Query string:* Provides additional simple parameters, such as the API version or resource selection criteria.
+- **URI scheme:** Indicates the protocol used to transmit the request. For example, http or https.
+- **URI host:** Specifies the domain name or IP address of the server where the REST service endpoint is hosted, such as graph.microsoft.com or adminmanagement.local.azurestack.external
+- **Resource path:** Specifies the resource or resource collection, which may include multiple segments used by the service in determining the selection of those resources. For example: beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners can be used to query the list a specific application's owners within the applications collection.
+- **Query string:** Provides additional simple parameters, such as the API version or resource selection criteria.
 
 ## Azure Stack request URI Construct:
+```
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version} 
+```
 
 ## URI Syntax:
+```
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version} 
+```
 
 ## Query URI Example:
+```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
+```
