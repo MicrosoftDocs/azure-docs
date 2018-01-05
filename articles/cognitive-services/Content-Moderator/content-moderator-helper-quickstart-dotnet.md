@@ -47,9 +47,9 @@ Install the following NuGet packages:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### Add code to create your client
+### Create the Content Moderator client
 
-Replace the contents of the ModeratorHelper.cs file with the following:
+Replace the contents of the ModeratorHelper.cs file with the following code:
 
 	using Microsoft.CognitiveServices.ContentModerator;
 
