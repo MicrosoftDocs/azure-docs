@@ -20,6 +20,8 @@
       href: try-image-list-api.md
     - name: Text - API console
       href: try-text-api.md
+    - name: Text - .NET
+      href: text-moderation-quickstart-dotnet.md
     - name: Custom terms - API console
       href: try-terms-list-api.md
     - name: Videos - .NET
