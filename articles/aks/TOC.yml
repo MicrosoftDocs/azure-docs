@@ -45,7 +45,7 @@
     href: kubernetes-dashboard.md
   - name: Create service principal
     href: kubernetes-service-principal.md
-  - name: Data Storage
+  - name: Configure data volumes
     items:
     - name: Persistent Volume - Azure Files
       href: azure-files-dynamic-pv.md
