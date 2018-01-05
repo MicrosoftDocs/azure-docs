@@ -9,24 +9,28 @@
   - name: Review tool
     href: quick-start.md
   - name: Moderation APIs
-    items: 
-    - name: Images
+    items:
+    - name: Helper library - .NET
+      href: content-moderator-helper-quickstart-dotnet.md
+    - name: Images - API console
       href: try-image-api.md
-    - name: Custom images
+    - name: Images - .NET
+      href: image-moderation-quickstart-dotnet.md
+    - name: Custom images - API console
       href: try-image-list-api.md
-    - name: Text
+    - name: Text - API console
       href: try-text-api.md
-    - name: Custom terms
+    - name: Custom terms - API console
       href: try-terms-list-api.md
-    - name: Videos
+    - name: Videos - .NET
       href: video-moderation-api.md
   - name: Review APIs
     items: 
-    - name: Jobs
+    - name: Jobs - API console
       href: try-review-api-job.md
-    - name: Reviews
+    - name: Reviews - API console
       href: try-review-api-review.md
-    - name: Workflows
+    - name: Workflows - API console
       href: try-review-api-workflow.md
 - name: Concepts
   items: 
