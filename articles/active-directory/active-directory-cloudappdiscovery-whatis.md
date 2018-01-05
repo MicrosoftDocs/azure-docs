@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/05/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -21,10 +21,10 @@ ms.reviewer: nigu
 # Find unmanaged cloud applications with Cloud App Discovery
 ## Summary
 
-Cloud App Discovery in Azure Active Directory now provides an enhanced agentless discovery experience powered by [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/). Just sign in with your Azure AD Premium P1 credentials. This update is available at no additional cost to all Azure AD Premium P1 customers. Get started with the article [Set up Cloud App Discovery in Azure AD](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started).
+Cloud App Discovery in Azure Active Directory now provides an enhanced agentless discovery experience powered by Microsoft Cloud App Security. To use Cloud App Discovery, just sign in with your Azure AD Premium P1 credentials. This update is available at no additional cost to all Azure AD Premium P1 customers. Get started with the article [Set up Cloud App Discovery in Azure AD](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started), then try out [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/).
 
 > [!IMPORTANT] 
-> The current Azure AD Cloud App Discovery experience with agent-based discovery is to be turned off on March 5, 2018, after which the agents are disabled and their data deleted. Take action before March 4 to get up and running on the new experience to avoid disruption of service.  
+> The current Azure AD Cloud App Discovery experience with agent-based discovery is to be turned off on March 5, 2018, after which the agents will be disabled and data deleted. Please take action before March 5th to get up and running on the new experience to avoid disruption of service.  
  
 **With Cloud App Discovery, you can:**
 
