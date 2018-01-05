@@ -90,6 +90,7 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Security Center Readiness Roadmap](security-center-readiness-roadmap.md)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)

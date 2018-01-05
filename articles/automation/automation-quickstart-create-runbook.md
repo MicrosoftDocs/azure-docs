@@ -67,7 +67,7 @@ Once the runbook is created, you test the runbook to validate that it works.
 
 1. In the **Edit PowerShell Runbook** page, click **Publish** to publish the runbook as the official version of the runbook in the account.
 
-   ![Runbook overview](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## Run the runbook
 
@@ -79,11 +79,11 @@ Once the runbook is published, the overview page is shown.
 
 1. Leave **Name** blank, so that the default value is used, and click **OK**. The runbook job is submitted, and the job page appears.
 
-   ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Runbook test job](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. When the **Job status** is **Running** or **Completed**, click **Output** to open the **Output** pane and view the runbook output.
 
-    ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## Clean up resources
 
