@@ -15968,6 +15968,11 @@
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
         "redirect_document_id": false
+      }, 
+      { 
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md", 
+      "redirect_url": "/azure/active-directory/license-users-groups", 
+      "redirect_document_id": false 
       },
       {
         "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
@@ -15981,7 +15986,7 @@
       },
       {
         "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
-        "redirect_url": "/azure/stream-analytics/",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
         "redirect_document_id": false
       }
     ]
