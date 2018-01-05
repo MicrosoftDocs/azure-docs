@@ -20,6 +20,8 @@ ms.author: glenga
 ---
 # Azure Functions C# developer reference
 
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
+
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
@@ -103,9 +105,7 @@ The *function.json* file generation is performed by the NuGet package [Microsoft
 
 ## Supported types for bindings
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
-Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, or a `CloudBlockBlob` parameter. The supported types are documented in the reference article for each binding; for an example, see [Trigger usage](functions-bindings-storage-blob.md#trigger---usage) in the **Blob storage binding reference** article.
+Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -130,8 +130,6 @@ public static class ReturnValueOutputBinding
 
 ## Writing multiple output values
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
 This example writes multiple queue messages into the same queue using `ICollector`:
@@ -153,8 +151,6 @@ public static class ICollectorExample
 ```
 
 ## Logging
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
 
@@ -178,8 +174,6 @@ public static class SimpleExample
 
 ## Async
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 To make a function asynchronous, use the `async` keyword and return a `Task` object.
 
 ```csharp
@@ -200,8 +194,6 @@ public static class AsyncExample
 
 ## Cancellation tokens
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 Some operations require graceful shutdown. While it's always best to write code that can handle crashing, in cases where you want to handle shutdown requests, define a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` is provided to signal that a host shutdown is triggered.
 
 ```csharp
@@ -219,8 +211,6 @@ public static class CancellationTokenExample
 ```
 
 ## Environment variables
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
 
@@ -244,8 +234,6 @@ public static class EnvironmentVariablesExample
 ```
 
 ## Binding at runtime
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 In C# and other .NET languages, you can use an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) binding pattern, as opposed to the [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) bindings in attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. With this pattern, you can bind to supported input and output bindings on-the-fly in your function code.
 

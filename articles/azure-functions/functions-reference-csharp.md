@@ -20,6 +20,8 @@ ms.author: glenga
 ---
 # Azure Functions C# script (.csx) developer reference
 
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
+
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in a Visual Studio class library project](functions-develop-vs.md), see [C# developer reference](functions-dotnet-class-library.md).
@@ -31,6 +33,8 @@ This article assumes that you've already read the [Azure Functions developers gu
 The C# script experience for Azure Functions is based on the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Data flows into your C# function via method arguments. Argument names are specified in a `function.json` file, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
 The *.csx* format allows you to write less "boilerplate" and focus on writing just a C# function. Instead of wrapping everything in a namespace and class, just define a `Run` method. Include any assembly references and namespaces at the beginning of the file as usual.
+
+A function app's *.csx* files are compiled when an instance is initialized. This compilation step means things like cold start may take longer for C# script functions compared to C# class libraries. This compilation step is also why C# script functions are editable in the Azure Portal, while C# class libraries are not.
 
 ## Binding to arguments
 
@@ -67,9 +71,7 @@ The `#r` statement is explained [later in this article](#referencing-external-as
 
 ## Supported types for bindings
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
-Each binding has its own supported types; for instance, a blob trigger can support a string, a POCO, or a `CloudBlockBlob`. The supported types are documented in the reference article for each binding; for an example, see the [Trigger usage](functions-bindings-storage-blob.md#trigger---usage) in the **Blob storage binding reference** article.
+Each binding has its own supported types; for instance, a blob trigger can be used with a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types for blob triggers. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -215,8 +217,6 @@ public static string Run(string input, TraceWriter log)
 
 ## Writing multiple output values
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
 This example writes multiple queue messages into the same queue using `ICollector`:
@@ -230,8 +230,6 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ```
 
 ## Logging
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
 
@@ -249,8 +247,6 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 To make a function asynchronous, use the `async` keyword and return a `Task` object.
 
 ```csharp
@@ -264,8 +260,6 @@ public async static Task ProcessQueueMessageAsync(
 ```
 
 ## Cancellation tokens
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 Some operations require graceful shutdown. While it's always best to write code that can handle crashing, in cases where you want to handle shutdown requests, define a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` is provided to signal that a host shutdown is triggered.
 
@@ -399,8 +393,6 @@ To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Fun
 
 ## Environment variables
 
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
-
 To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
 
 ```csharp
@@ -421,8 +413,6 @@ public static string GetEnvironmentVariable(string name)
 <a name="imperative-bindings"></a> 
 
 ## Binding at runtime
-
-<!-- This section is similar in the other C# doc: when updating here, update there too. -->
 
 In C# and other .NET languages, you can use an [imperative](https://en.wikipedia.org/wiki/Imperative_programming) binding pattern, as opposed to the [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) bindings in *function.json*. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. With this pattern, you can bind to supported input and output bindings on-the-fly in your function code.
 
