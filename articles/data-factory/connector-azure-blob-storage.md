@@ -8,7 +8,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -80,7 +80,11 @@ A Shared Access Signature (SAS) provides delegated access to resources in your s
 
 > [!IMPORTANT]
 > Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct. The SAS URL generated from Azure portal or Storage Explorer is an Account SAS, which is not supported.
->
+
+> [!TIP]
+> You can execute below PowerShell commands to generate a Service SAS for your storage account (replace below place-holders and grant the needed permission):
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 To use Service SAS authentication, the following properties are supported:
 
