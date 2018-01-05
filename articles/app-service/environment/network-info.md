@@ -160,7 +160,7 @@ All the items shown in the following outbound rules are needed, except for the l
 
 ![Outbound security rules][5]
 
-After your NSGs are defined, assign them to the subnet that your ASE is on. If you don’t remember the ASE VNet or subnet, you can see it from the ASE management portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
+After your NSGs are defined, assign them to the subnet that your ASE is on. If you don’t remember the ASE VNet or subnet, you can see it from the ASE portal page. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 
 ## Routes ##
 

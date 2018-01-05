@@ -5,8 +5,8 @@ keywords:
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
-editor: yossib
+manager: mtillman
+ms.reviewer: richagi
 
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -35,7 +35,7 @@ The following table describes the differences between three versions of multi-fa
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
 | Multi-Factor Authentication for Azure Administrators | Global administrators of Azure tenants can enable two-step verification for their global admin accounts at no additional cost.|
-| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure classic portal](https://manage.windowsazure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is included in [Azure Active Directory Premium plans](https://www.microsoft.com/cloud-platform/azure-active-directory-features) and [Enterprise Mobility + Security plans](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), and can be deployed either in the cloud or on-premises. |
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is included in [Azure Active Directory Premium plans](https://www.microsoft.com/cloud-platform/azure-active-directory-features) and [Enterprise Mobility + Security plans](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), and can be deployed either in the cloud or on-premises. |
 
 ## Feature comparison of versions
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
@@ -52,7 +52,7 @@ The following table provides a list of the features that are available in the va
 | SMS as a second factor |● |● |● |
 | App passwords for clients that don't support MFA |● |● |● |
 | Admin control over verification methods |● |● |● |
-| Protect non-admin accounts with MFA | | |● |
+| Protect non-admin accounts with MFA |● (Only for Office 365 applications) | |● |
 | PIN mode | | |● |
 | Fraud alert | | |● |
 | MFA Reports | | |● |
@@ -61,7 +61,7 @@ The following table provides a list of the features that are available in the va
 | Custom caller ID for phone calls | | |● |
 | Trusted IPs | | |● |
 | Remember MFA for trusted devices |● |● |● |
-| MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
+| MFA SDK | | |● (Deprecated) | 
 | MFA for on-premises applications | | |● |
 
 ## How to get Azure Multi-Factor Authentication

@@ -7,7 +7,7 @@ description: Using the Team Data Science Process for an end-to-end scenario empl
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -16,10 +16,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-
-ms.date: 01/29/2017
-
-ms.author: hangzh;bradsev
+ms.date: 11/29/2017
+ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters

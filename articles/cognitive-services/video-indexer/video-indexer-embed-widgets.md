@@ -51,6 +51,7 @@ The **Cognitive Insights** widget can interact with a video on your application.
 
 ### Cross-origin communications
 
+
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
 - Uses the cross-origin communication HTML5 method **postMessage** and 
@@ -85,6 +86,7 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 
 2. Instantiate Azure Media Player with the Video Indexer plugin.
+
 		// Init Source
 		function initSource() {
 		    var tracks = [{
@@ -205,7 +207,8 @@ Notice that this option is relevant only in cases when you need to open the insi
 If you embed Video Indexer player you can choose the size of the player by specifying the size of the iframe.
 
 For example :
-<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
 
 By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
 

@@ -358,7 +358,7 @@ To write to HBase from the Storm cluster, you must provide the HBase bolt with t
     > [!NOTE]
     > Replace `your_HDInsight_cluster_name with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight admin login.
     >
-    > This example requires Azure PowerShell. For more information on using Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
+    > This example requires Azure PowerShell. For more information on using Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
     The information returned by these examples is similar to the following text:
 

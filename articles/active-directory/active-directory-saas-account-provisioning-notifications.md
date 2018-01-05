@@ -4,7 +4,7 @@ description: Learn how to ensure that you are notified of issues related to user
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: a637aac7-f06b-48ef-a66d-639835a8edec
 ms.service: active-directory

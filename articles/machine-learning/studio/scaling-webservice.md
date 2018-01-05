@@ -24,11 +24,11 @@ ms.author: neerajkh
 > 
 > 
 
-By default, each published Web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. While the Azure classic portal provides a way to set this value, Azure Machine Learning automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored. 
+By default, each published Web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. Azure Machine Learning automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored. 
 
 If you plan to call the API with a higher load than a Max Concurrent Calls value of 200 will support, you should create multiple endpoints on the same Web service. You can then randomly distribute your load across all of them.
 
-The scaling of a Web service is a common task. Some reasons to scale are to support more than 200 concurrent requests, increase availability through multiple endpoints, or provide separate endpoints for the web service. You can increase the scale by adding additional endpoints for the same Web service through [Azure classic portal](https://manage.windowsazure.com/) or the [Azure Machine Learning Web Service](https://services.azureml.net/) portal.
+The scaling of a Web service is a common task. Some reasons to scale are to support more than 200 concurrent requests, increase availability through multiple endpoints, or provide separate endpoints for the web service. You can increase the scale by adding additional endpoints for the same Web service through the [Azure Machine Learning Web Service](https://services.azureml.net/) portal.
 
 For more information on adding new endpoints, see [Creating Endpoints](create-endpoint.md).
 

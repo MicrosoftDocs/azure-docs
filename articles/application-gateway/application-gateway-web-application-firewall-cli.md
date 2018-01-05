@@ -44,7 +44,7 @@ This article shows how to [add a web application firewall to an existing applica
 
 ## Prerequisite: Install the Azure CLI 2.0
 
-To perform the steps in this article, you need to [install the Azure command-line interface (Azure CLI) for Mac, Linux, and Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure command-line interface (Azure CLI) for Mac, Linux, and Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## WAF configuration differences
 

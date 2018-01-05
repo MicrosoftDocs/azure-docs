@@ -56,7 +56,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    > [!NOTE]
    > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure portal](http://portal.azure.com).
 
-5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../../../xplat-cli-connect.md).
+5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > In the Azure portal, log in to the portal.

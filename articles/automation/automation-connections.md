@@ -3,7 +3,7 @@ title: Connection assets in Azure Automation | Microsoft Docs
 description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 
@@ -68,14 +68,6 @@ The function in the following table is used to access connections in a Python2 r
 3. Click **Add a connection** at the top of the blade.
 4. In the **Type** dropdown, select the type of connection you want to create. The form will present the properties for that particular type.
 5. Complete the form and click **Create** to save the new connection.
-
-### To create a new connection with the Azure classic portal
-
-1. From your automation account, click **Assets** at the top of the window.
-2. At the bottom of the window, click **Add Setting**.
-3. Click **Add Connection**.
-4. In the **Connection Type** dropdown, select the type of connection you want to create.  The wizard will present the properties for that particular type.
-5. Complete the wizard and click the checkbox to save the new connection.
 
 ### To create a new connection with Windows PowerShell
 

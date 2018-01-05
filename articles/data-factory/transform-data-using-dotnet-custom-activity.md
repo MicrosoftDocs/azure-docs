@@ -305,14 +305,30 @@ If you would like to consume the content of stdout.txt in downstream activities,
 
   With the changes introduced in Azure Data Factory V2 Custom Activity, you are free to write your custom code logic in your preferred language and execute them on Windows and Linux Operation Systems supported by Azure Batch. 
 
+  The following table describes the differences between Data Factory V2 Custom Activity and Data Factory V1 (Custom) DotNet Activity: 
+
+
+|Differences      |ADFv2 Custom Activity      |ADFv1 (Custom) DotNet Activity      |
+| ---- | ---- | ---- |
+|How custom logic is defined      |By running any executable (existing or implementing your own executable)      |By implementing a .Net DLL      |
+|Execution enviornment of the custom logic      |Windows or Linux      |Windows (.Net Framework 4.5.2)      |
+|Executing scripts      |Support executing scripts directly (for example "cmd /c echo hello world" on Windows VM)      |Requires implementation in the .Net DLL      |
+|Dataset required      |Optional      |Required to chain activities and pass information      |
+|Pass information from activity to custom logic      |Through ReferenceObjects (LinkedServices and Datasets) and ExtendedProperties (custom properties) and      |Through ExtendedProperties (custom properties), Input and Output Datasets      |
+|Retrieve information in custom logic      |Parse activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .Net SDK (.Net Frame 4.5.2)      |
+|Logging      |Writes directly to STDOUT      |Implemeting Logger in .Net DLL      |
+
+
   If you have existing .Net code written for V1 (Custom) DotNet Activity, you need to modify your code for them to work with V2 Custom Activity with the following high-level guidelines:  
 
-  > - Change the project from a .Net Class Library to a Console App. 
-  > - Start your application with the Main method, the Execute method of the IDotNetActivity interface is no longer required. 
-  > - Read and parse the Linked Services, Datasets and Activity with JSON serializer instead of as strong typed objects, and pass the values of required properties to your main custom code logic. Refer to preceding SampleApp.exe code as a sample. 
-  > - Logger object is no longer supported, executeable outputs can be print to console and is saved to stdout.txt. 
-  > - Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
-  > - Compile your code, upload executable and dependencies to Azure Storage and define the path in folderPath property. 
+   - Change the project from a .Net Class Library to a Console App. 
+   - Start your application with the Main method, the Execute method of the IDotNetActivity interface is no longer required. 
+   - Read and parse the Linked Services, Datasets and Activity with JSON serializer instead of as strong typed objects, and pass the values of required properties to your main custom code logic. Refer to preceding SampleApp.exe code as a sample. 
+   - Logger object is no longer supported, executeable outputs can be print to console and is saved to stdout.txt. 
+   - Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
+   - Compile your code, upload executable and dependencies to Azure Storage and define the path in folderPath property. 
+
+For a complete sample of how the end to end DLL and pipeline sample described in Data Factory V1 document [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) can be rewrite into Data Factory V2 Custom Activity style. Refer to a [Data Factory V2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## Auto-scaling of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks. 

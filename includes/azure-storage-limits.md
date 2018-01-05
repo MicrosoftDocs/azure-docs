@@ -3,6 +3,7 @@
 | Number of storage accounts per subscription | 200<sup>1</sup> |
 | Max storage account capacity | 500 TiB<sup>2</sup> |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
+| Maximum request rate per storage account | 20,000 requests per second<sup>2</sup> |
 | Max ingress<sup>3</sup> per storage account (US Regions) | 10 Gbps if GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS<sup>2</sup> |
 | Max egress<sup>3</sup> per storage account (US Regions) | 20 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS<sup>2</sup> |
 | Max ingress<sup>3</sup> per storage account (Non-US regions) | 5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS<sup>2</sup> |

@@ -160,7 +160,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 * [MongoDB Sharding Cluster on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
+> Deploying this complex MongoDB sharded cluster requires more than 20 vCPUs, which is typically the default vCPU count per region for a subscription. Open an Azure support request to increase your vCPU count.
 
 The following example creates a resource group with the name *myResourceGroup* in the *eastus* region. Enter your own values as follows:
 

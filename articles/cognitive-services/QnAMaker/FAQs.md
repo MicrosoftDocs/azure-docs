@@ -37,11 +37,17 @@ No, you don’t. However, QnA Maker is offered as one of several templates in [A
 
 Bots scale based on demand. You pay for only the resources that you consume.
 
+### How can I create a bot with QnAMaker?
+QnAMaker provides a REST endpoint that you can call from any bot code. However, if you'd like a quick way to set up a QnAMaker bot, you can use the [Azure Bot Service](https://docs.microsoft.com/en-us/bot-framework/bot-service-overview-introduction). Follow the instructions [here](https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart) and choose the "Question and Answer" bot template. Once the bot is created, you will need to do the following steps to complete setup.
+1. In Azure portal, open the newly created Web App Bot resource.
+2. Click on "Application Settings" and in the App Settings list, add QnASubscriptionKey and QnAKnowledgebaseId. The corresponding values can be obtained from the KB Settings page in http://qnamaker.ai.
+3. The QnAMaker-enabled Azure bot service app is now ready to use. To try it out click on "Test in Web Chat" to chat with your QnA bot.
+
 ### How do I embed the QnA Maker service in my website?
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 1. Create your knowledge base from the [QnA Maker webpage](https://qnamaker.ai).
 2. Create your bot as shown in [Create a bot with the Azure Bot Service](https://docs.botframework.com/en-us/azure-bots/build/first-bot/#navtitle). 
-3. Look for the Question and Answer bot template. Select the knowledge base ID that you created in step 1.
+3. Look for the Question and Answer bot template.
 4. Enable the bot on the Web Chat channel. Get the embed keys.
 5. Embed the web chat as shown in [Connect a bot to Web Chat](https://docs.botframework.com/en-us/support/embed-chat-control2/#navtitle).
 
@@ -82,7 +88,7 @@ The new service doesn't include the test URL. The reason is that all calls are m
 However, it's still easy to share your knowledge base and use it in chats. Check out the Azure Bot Service template for the [Question and Answer bot](https://blog.botframework.com/2016/12/13/More-Ways-to-Make-Smart-Bots/). You can create the Question and Answer bot in Skype in a few clicks, and then share it with anyone.
 
 ### How can I increase the transaction limits?
-Current transaction limits are 10 calls per minute and 1,000 calls per month. If you require higher limits, a free premium tier is available with limits of 1,000 calls per minute and 500,000 calls per month. To sign up for this option, fill in the [request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yh9o_uvdhPnJy8sn_XBGRUMktKRFNYME1VUkVRRVkwV0hDWUNWMVVNRC4u). Note that these tiers are subject to change when the tool goes to general availability.
+Current transaction limits are 10 calls per minute and 10,000 calls per month. If you require higher limits, a free premium tier is available with limits of 1,000 calls per minute and 500,000 calls per month. To sign up for this option, fill in the [request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yh9o_uvdhPnJy8sn_XBGRUMktKRFNYME1VUkVRRVkwV0hDWUNWMVVNRC4u). Note that these tiers are subject to change when the tool goes to general availability.
 
 ### How can I change the default message when no good match is found?
 If QnA Maker doesn't match any of the questions, it shows a default "Sorry, no match found" message. You can change this default message in the code-behind by using the `QnAMakerDialog` object. For more information, see [Create a bot using the Question and Answer template](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle).
@@ -93,3 +99,6 @@ The tool parses only public URLs and does not support authenticated data sources
 ### How can I integrate LUIS with QnA Maker?
 There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. 
 [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/blob/master/Node/samples/QnAWithLUIS/).
+
+### How can I report issues or contact support for QnAMaker?
+QnAMaker is currently in free Preview and does not have support SLAs. If you want to report an issue or provide feedback, you do so on UserVoice through the "Feedback" button in the top navigation bar.

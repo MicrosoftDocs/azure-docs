@@ -4,7 +4,7 @@ description: Provide sign-up and sign-in to consumers with QQ accounts in your a
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 
 ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
