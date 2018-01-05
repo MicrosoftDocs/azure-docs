@@ -17,7 +17,7 @@ For customers who acquire your add-in via AppSource, the following details are s
 - Email Address
 
 > [!NOTE]
-> Leads support for acquisitions made via the Office Store and in-client experiences are coming soon.
+> Leads support for acquisitions made via the AppSource and in-client experiences are coming soon.
 
 ## Add lead management information to the Seller Dashboard
 
@@ -144,7 +144,7 @@ After you have completed the fields in the Seller Dashboard, select **Next**.
 If you get an error message, make sure that your details are correct or try again later. 
 
 > [!NOTE]
-> If your add-in is already in the Store, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
+> If your add-in is already in the AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
 
 ## Communication guidelines
@@ -153,10 +153,10 @@ Make sure that any correspondence you send to customers includes an option to un
 
 ## See also
 
-- [Upload your package to the Office Store](upload-package.md)
-- [Create your Office Store listing](office-store-listing.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Upload your package to the AppSource](upload-package.md)
+- [Create your AppSource listing](office-store-listing.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
-- [Office Store submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)

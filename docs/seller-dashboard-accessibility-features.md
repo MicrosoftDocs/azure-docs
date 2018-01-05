@@ -105,7 +105,7 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
 
 - [Disability Answer Desk](https://support.microsoft.com/en-us/accessibility/disability-answer-desk)
 - [Microsoft Accessibility website](https://www.microsoft.com/en-us/accessibility)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
     
  
 

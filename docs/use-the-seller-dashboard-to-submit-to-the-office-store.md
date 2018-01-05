@@ -1,18 +1,18 @@
 ---
-title: Use the Seller Dashboard to submit your solution to the Office Store
-description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the Seller Dashboard for approval.
+title: Use the Seller Dashboard to submit your solution to the AppSource
+description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the AppSource, you need to submit it to the Seller Dashboard for approval.
 ms.date: 12/04-2017
 ---
 
-# Use the Seller Dashboard to submit your solution to the Office Store
+# Use the Seller Dashboard to submit your solution to the AppSource
 
-If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [Office Store validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
+If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the AppSource, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
 
-If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
+If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The AppSource currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
 
-For information about the Office Store approval process, see [Submit to the Office Store](submit-to-the-office-store.md).
+For information about the AppSource approval process, see [Submit to the AppSource](submit-to-the-office-store.md).
 
 ## Submission checklist
 
@@ -20,7 +20,7 @@ This section lists the information that you need to provide when you submit your
 
 ### Add a new app
 
-Select **Add a new app**. On the **Listing type** page, select the type of solution that you are submitting to the store:
+Select **Add a new app**. On the **Listing type** page, select the type of solution that you are submitting to the AppSource:
 
 - Azure AD web app
 - Office Add-in
@@ -56,7 +56,7 @@ Select **Add a new app**. On the **Listing type** page, select the type of solut
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Create your Office Store listing](office-store-listing.md).
+For more information, see [Create your AppSource listing](office-store-listing.md).
 
 ### Block access page
 
@@ -104,16 +104,16 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Upload your package to the Office Store](upload-package.md)
-- [Create your Office Store listing](office-store-listing.md)
+- [Upload your package to the AppSource](upload-package.md)
+- [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
-- [Office Store submission FAQ](office-store-submission-faq.md)
-- [Create effective Office Store listings](create-effective-office-store-listings.md)
+- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Create effective AppSource listings](create-effective-office-store-listings.md)
 - [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
 - [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
-- [Publish Power BI custom visuals to the Office store](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)  
+- [Publish Power BI custom visuals to the AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)  
  
 

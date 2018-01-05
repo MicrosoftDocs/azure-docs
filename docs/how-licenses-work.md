@@ -10,7 +10,7 @@ The licensing framework for Office and SharePoint Add-ins gives you a way to inc
 
 The add-in license itself is a digital set of *verifiable information* stating usage rights of an Office or SharePoint Add-in:
 
-- The information is verifiable in that you can query the Office Store to check on the validity of an add-in license.
+- The information is verifiable in that you can query the AppSource to check on the validity of an add-in license.
 
 - These usage rights include whether an add-in is for purchase or free, whether the add-in is available on a Per-User or Site basis, and whether the add-in is a trial or full version.
 
@@ -19,7 +19,7 @@ To include code in your add-ins that performs licensing checks, see [License you
 <a name="bk_what"> </a>
 ## Types of add-in licenses
 
-The add-in license categories used by the Office Store are based on how or whether you pay for them, and on their scope. Payment categories include: Free, Paid (with or without a trial offer), and Subscription (again, with or without a trial offer). Scope categories include Per-User or Site. 
+The add-in license categories used by the AppSource are based on how or whether you pay for them, and on their scope. Payment categories include: Free, Paid (with or without a trial offer), and Subscription (again, with or without a trial offer). Scope categories include Per-User or Site. 
 
 - Task pane and content add-ins can be Free, Paid, or Subscription priced, and are offered on a Per-User basis only.
     
@@ -33,9 +33,9 @@ The add-in license categories used by the Office Store are based on how or wheth
     > [!NOTE]
     > SharePoint 2013 does not support subscription licensing.
      
-SharePoint maps the license categories used by the Office Store to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by the Office Store.
+SharePoint maps the license categories used by the AppSource to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by the AppSource.
 
-|**SharePoint license type**|**Office Store license category**|**License applies to**|**Duration**|**Users**|**Cost**|
+|**SharePoint license type**|**AppSource license category**|**License applies to**|**Duration**|**Users**|**Cost**|
 |:-----|:-----|:-----|:-----|:-----|:-----|
 |Perpetual all user|Free PaidSite|All users of a SharePoint deployment,<br/>with no expiration.|Perpetual|Unlimited|Free or paid|
 |Perpetual multiuser|Paid|Per user, with no expiration.|Perpetual|N (per user)|Paid|
@@ -47,15 +47,15 @@ SharePoint maps the license categories used by the Office Store to add-in licens
 
 When a user acquires an add-in—either paid, free, or as a trial—that user is also acquiring the add-in's license. 
 
-To get an add-in, a user browses the Office Store, selects the add-in, and then signs in to the Office Store using their Microsoft account. When the purchaser gets the add-in—whether for free, payment, or as a trial—the Office Store generates the appropriate add-in license and downloads a token that represents the license to the purchaser's environment. 
+To get an add-in, a user browses the AppSource, selects the add-in, and then signs in to the AppSource using their Microsoft account. When the purchaser gets the add-in—whether for free, payment, or as a trial—the AppSource generates the appropriate add-in license and downloads a token that represents the license to the purchaser's environment. 
 
-- For content and task pane add-ins, the Office Store downloads the license token and stores it in the purchaser's Office client application. The purchaser can then access and use the add-in.
+- For content and task pane add-ins, the AppSource downloads the license token and stores it in the purchaser's Office client application. The purchaser can then access and use the add-in.
     
   Task pane and content add-ins allow anonymous access. For more information, see [Add-in license tokens and anonymous access](license-your-add-ins.md#bk_anonymous).
  
 - Outlook add-in license tokens are downloaded to the appropriate Exchange mailbox. For Outlook add-ins with a Per-User license, the token is downloaded to the user's personal mailbox. For Outlook add-ins with a Site license, the token is downloaded to a special organization mailbox for the Exchange deployment.
     
-  For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the Office Store, and no license token is downloaded to Exchange.
+  For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the AppSource, and no license token is downloaded to Exchange.
 
 - For SharePoint Add-ins, the license token is downloaded and stored in the purchaser's SharePoint deployment.
     
@@ -63,20 +63,20 @@ To get an add-in, a user browses the Office Store, selects the add-in, and then 
     
   The add-in's purchaser can then manage the license, assign those licenses to other users within their deployment, and enable other users to manage the licenses. A user who is assigned an add-in license can access and use the add-in.
 
-The Office Store retains a record of each add-in license for verification and disaster recovery purposes.
+The AppSource retains a record of each add-in license for verification and disaster recovery purposes.
 
-### Acquiring an add-in license from the Office Store
+### Acquiring an add-in license from the AppSource
 
-Figure 1 shows the add-in license acquisition process for content and task pane Office Add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the Office application. The user can then access the add-in.
+Figure 1 shows the add-in license acquisition process for content and task pane Office Add-ins when the add-in is acquired directly from the AppSource. When the user acquires the add-in, the AppSource generates an add-in license, which it retains, and downloads a corresponding add-in license token to the Office application. The user can then access the add-in.
 
-*Figure 1. Add-in purchase process from Office Store*
+*Figure 1. Add-in purchase process from AppSource*
 
-![Add-in purchase process from Office Store](images/sp15-add-in-license-purchase-office.png)
+![Add-in purchase process from AppSource](images/sp15-add-in-license-purchase-office.png)
  
 
 ### Acquiring an add-in license from an add-in catalog
  
-Figure 2 shows the add-in license acquisition process for Office Add-ins; this time the user acquires the add-in from an add-in catalog hosted on SharePoint. When the user acquires the add-in, the add-in catalog contacts the Office Store for the appropriate add-in license. The Office Store generates the add-in license, which it retains, and returns a corresponding add-in license token, which the add-in catalog downloads to the Office application. The user can then access the add-in.
+Figure 2 shows the add-in license acquisition process for Office Add-ins; this time the user acquires the add-in from an add-in catalog hosted on SharePoint. When the user acquires the add-in, the add-in catalog contacts the AppSource for the appropriate add-in license. The AppSource generates the add-in license, which it retains, and returns a corresponding add-in license token, which the add-in catalog downloads to the Office application. The user can then access the add-in.
 
 *Figure 2. Office add-in purchase process from corporate catalog*
 
@@ -85,26 +85,26 @@ Figure 2 shows the add-in license acquisition process for Office Add-ins; this t
 
 ### Acquiring an add-in license for an Outlook add-in
  
-Figure 3 shows the add-in license acquisition process for Outlook add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the user's Exchange deployment. 
+Figure 3 shows the add-in license acquisition process for Outlook add-ins when the add-in is acquired directly from the AppSource. When the user acquires the add-in, the AppSource generates an add-in license, which it retains, and downloads a corresponding add-in license token to the user's Exchange deployment. 
 
 For Outlook add-ins with a Per-User license, the token is downloaded to the personal mailbox of the person acquiring the add-in. 
 
 For Outlook add-ins with a Site license, the token is downloaded to the organization mailbox of the Exchange deployment. 
 
-For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the Office Store, so no license token is downloaded to Exchange. The user can then use the add-in.
+For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the AppSource, so no license token is downloaded to Exchange. The user can then use the add-in.
 
-*Figure 3. Mail add-in purchase from the Office Store*
+*Figure 3. Mail add-in purchase from the AppSource*
 
-![Mail add-in purchase from the Office Store](images/office15-add-in-license-purchase-mail.png)
+![Mail add-in purchase from the AppSource](images/office15-add-in-license-purchase-mail.png)
  
 
 ### Acquiring an add-in license for a SharePoint Add-in
 
-Figure 4 shows the add-in license acquisition and assignment process for SharePoint Add-ins. A user, who might or might not be one of the people who will use the add-in, acquires the add-in, either directly from the Office Store or from a SharePoint add-in catalog. The Office Store generates the appropriate add-in license, which it contains, and downloads a corresponding add-in license token to the SharePoint deployment from which the add-in was acquired. The user can then manage and assign the license to one or more users, based on the license type.
+Figure 4 shows the add-in license acquisition and assignment process for SharePoint Add-ins. A user, who might or might not be one of the people who will use the add-in, acquires the add-in, either directly from the AppSource or from a SharePoint add-in catalog. The AppSource generates the appropriate add-in license, which it contains, and downloads a corresponding add-in license token to the SharePoint deployment from which the add-in was acquired. The user can then manage and assign the license to one or more users, based on the license type.
  
-*Figure 4. SharePoint add-in purchase from Office Store*
+*Figure 4. SharePoint add-in purchase from AppSource*
 
-![SharePoint add-in purchase from Office Store](images/sp15-add-in-license-purchase-sharepoint.png)
+![SharePoint add-in purchase from AppSource](images/sp15-add-in-license-purchase-sharepoint.png)
 
 <a name="bk_details"> </a>
 ## Add-in license tokens, duration, and scope
@@ -113,9 +113,9 @@ Add-in licenses vary in duration, depending on their type. Also, add-in licenses
 
 ### Add-in license duration and token expiration
 
-When you acquire an add-in license from the Office Store, the Office Store downloads a version of that add-in license—an *add-in license token* —to your SharePoint installation, Exchange deployment, or Office application, as applicable. For security reasons, add-in license tokens expire and must be renewed periodically.
+When you acquire an add-in license from the AppSource, the AppSource downloads a version of that add-in license—an *add-in license token* —to your SharePoint installation, Exchange deployment, or Office application, as applicable. For security reasons, add-in license tokens expire and must be renewed periodically.
 
-The expiration of the add-in license, stored in the Office Store, is determined by the terms of the add-in acquisition. For example, add-ins with a perpetual license type do not expire. Trial add-ins, however, do expire if they have a specified expiration date. 
+The expiration of the add-in license, stored in the AppSource, is determined by the terms of the add-in acquisition. For example, add-ins with a perpetual license type do not expire. Trial add-ins, however, do expire if they have a specified expiration date. 
 
 - For content and task pane Office Add-ins, the Office application checks the license token each time the user launches the add-in, and renews the token if needed.
 
@@ -125,7 +125,7 @@ The expiration of the add-in license, stored in the Office Store, is determined 
 
 ### License scope in content and task pane add-ins
 
-Each add-in license applies to the specific user for that specific add-in. For Office Add-ins, this means that a licensed user can access and use the add-in in any Office application instance that it applies to. For example, the user can use the add-in across multiple computers, each with a separate instance of the applicable Office application installed. When a user launches an Office application, and signs in with their Microsoft account, the Office application queries the Office Store for a list of the add-ins that user is licensed to use.
+Each add-in license applies to the specific user for that specific add-in. For Office Add-ins, this means that a licensed user can access and use the add-in in any Office application instance that it applies to. For example, the user can use the add-in across multiple computers, each with a separate instance of the applicable Office application installed. When a user launches an Office application, and signs in with their Microsoft account, the Office application queries the AppSource for a list of the add-ins that user is licensed to use.
 
 ### License scope in Outlook add-ins
 
@@ -139,7 +139,7 @@ For SharePoint Add-ins, each add-in license applies to a specific add-in for a s
 
 Deployment scope can vary, however, based on the configuration of the on-premises SharePoint installation. Add-in license tokens are stored in the Add-in Management Shared Service; therefore, the actual scope of an add-in license is determined by the configuration of the Add-in Management Shared Service. A given SharePoint installation could contain multiple web applications using different instances of the Add-in Management Shared Service, and possibly using a federated service. In addition, an on-premises SharePoint installation might be configured for multitenancy, is which case a single instance of the Add-in Management Shared Service might have multiple deployment IDs.
 
-The deployment ID of the SharePoint installation to which an add-in license applies is included in each add-in license. The deployment ID is a GUID generated by SharePoint and recorded by the Office Store the first time anyone from a specific SharePoint installation visits the Office Store site.
+The deployment ID of the SharePoint installation to which an add-in license applies is included in each add-in license. The deployment ID is a GUID generated by SharePoint and recorded by the AppSource the first time anyone from a specific SharePoint installation visits the AppSource site.
 
 For on-premises SharePoint installations, you can set the deployment ID via Windows PowerShell, for disaster recovery or test/production environment scenarios. 
 
@@ -161,7 +161,7 @@ Apply the following best practices when you create and enforce add-in licenses a
 </tr>
 <tr>
 <td>Minimize access to code that performs add-in license checks.</td>
-<td>For security reasons, we strongly recommended that you place the code that performs the license check somewhere outside the reach of potential tampering. For example, you can limit your add-in's security exposure by using server-side code to query the Office Store verification web service, instead of performing the license check client-side.<br /><ul><li>For Office Add-ins, you are required to use server-side code to query the Office Store verification web service. </li><li>For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you only use server-side code to query the Office Store verification web service.</li></ul></td></tr>
+<td>For security reasons, we strongly recommended that you place the code that performs the license check somewhere outside the reach of potential tampering. For example, you can limit your add-in's security exposure by using server-side code to query the AppSource verification web service, instead of performing the license check client-side.<br /><ul><li>For Office Add-ins, you are required to use server-side code to query the AppSource verification web service. </li><li>For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the AppSource verification service. However, for security reasons we strongly recommend that you only use server-side code to query the AppSource verification web service.</li></ul></td></tr>
 <tr>
 <td>Add license checks only as needed.</td>
 <td>Add license checks only at those points in your add-in where you want to take some action based on whether the user has a valid license or other license information. For example, when the user launches the add-in, or when the user attempts to access certain add-in features that you want to control based on add-in license information.<br /><br />For SharePoint Add-ins, do not perform add-in license checks on every page of your add-in. Constant querying of the SharePoint deployment for the add-in license token is rarely necessary, and can lead to your add-in performance being throttled.</td>
@@ -179,9 +179,9 @@ Apply the following best practices when you create and enforce add-in licenses a
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
     

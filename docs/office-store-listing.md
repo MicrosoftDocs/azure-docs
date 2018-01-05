@@ -1,23 +1,23 @@
 ---
-title: Create your Office Store listing
+title: Create your AppSource listing
 description: Communicate to customers what your solution does and how it provides value to them by including its name, description, screenshots, and regional availability.
 ms.date: 12/04-2017
 ---
 
-# Create your Office Store listing
+# Create your AppSource listing
 
-You enter the Store listing information on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
+You enter the AppSource listing information on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
 > [!NOTE]
-> We recommend that you follow the guidelines in [Create effective Office Store listings](create-effective-office-store-listings.md) when you create your Office Store listing.
+> We recommend that you follow the guidelines in [Create effective AppSource listings](create-effective-office-store-listings.md) when you create your AppSource listing.
 
 
 ## App name
-In the **App name** field, specify the title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
+In the **App name** field, specify the title that will be displayed in the AppSource. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
 
 ## Short description and long description
 
-Both the short description and long description appear in the Office Store listing. The short description appears when a user browses or searches within the Store. The long description appears on the details page.
+Both the short description and long description appear in the AppSource listing. The short description appears when a user browses or searches within the AppSource. The long description appears on the details page.
 
 **Guidelines for title and description length**
 
@@ -31,7 +31,7 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 ## Screenshots
 
-Your screenshots appear on the Store details page and can help draw in potential customers.
+Your screenshots appear on the AppSource details page and can help draw in potential customers.
 
 At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screenshot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
@@ -54,10 +54,10 @@ On the **Block access** page, if you don't want your app or add-in to be listed 
 
 ## See also
 
-- [Upload your package to the Office Store](upload-package.md)
+- [Upload your package to the AppSource](upload-package.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
-- [Office Store submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)

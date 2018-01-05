@@ -6,7 +6,7 @@ ms.date: 12/04-2017
 
 # Add license checks to Office and SharePoint Add-ins
 
-You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the Office Store, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
+You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the AppSource, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
  
 To create a test token: 
 
@@ -14,7 +14,7 @@ To create a test token:
 - Change the appropriate attributes, such as Product ID.
 - Make sure the test attribute is present and set equal to **true**.
     
-The Office Store verification web service, which you use to verify add-in license tokens, does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. You can edit your test tokens directly and use them to test add-in behavior code based on different attribute values.
+The AppSource verification web service, which you use to verify add-in license tokens, does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. You can edit your test tokens directly and use them to test add-in behavior code based on different attribute values.
  
 For Word, Excel, and PowerPoint add-ins: 
 
@@ -81,19 +81,19 @@ For task pane and content add-ins, your code should first test for the presence 
 For more information, see [add-in license tokens and anonymous access for Office Add-ins](license-your-add-ins.md#bk_anonymous).
 
 > [!IMPORTANT]
-> Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and therefore causes the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service causes the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
+> Do not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and therefore causes the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service causes the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
 
-When the add-in needs to perform a license check, pass the license token to the Office Store license verification web service for validation. The verification service is located at the following URL:
+When the add-in needs to perform a license check, pass the license token to the AppSource license verification web service for validation. The verification service is located at the following URL:
 
  `https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
 
 The verification service has a single method [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) that takes the license token as a parameter and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid. Other properties, such as [ProductId](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
 
-The Office Store license verification web service also supports verifying add-in license tokens by using REST calls. To validate an add-in license by using REST, use the following syntax, where `{token}` is the add-in license token, encoded by a method that complies with RFC 2396; for example, the **encodeURIComponent()** function in JavaScript, or the **Uri.EscapeDataString** method in the .NET Framework:
+The AppSource license verification web service also supports verifying add-in license tokens by using REST calls. To validate an add-in license by using REST, use the following syntax, where `{token}` is the add-in license token, encoded by a method that complies with RFC 2396; for example, the **encodeURIComponent()** function in JavaScript, or the **Uri.EscapeDataString** method in the .NET Framework:
 
  `https://verificationservice.officeapps.live.com/ova/verificationagent.svc/rest/verify?token={token}`
 
-Calling the Office Store verification service from client-side code is not supported. You must use server-side code to query the Office Store verification web service.
+Calling the AppSource verification service from client-side code is not supported. You must use server-side code to query the AppSource verification web service.
 
 <a name="bk_take"> </a>
 ## Add code for the action the Office Add-in takes, based on its license
@@ -116,7 +116,7 @@ The following example shows the basic logic flow of retrieving and validating th
 
 1. The code retrieves the URL query string parameter, `et`, which contains the encoded license token. 
 
-2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the Office Store verification service accepts.
+2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the AppSource verification service accepts.
     
     > [!NOTE]
     > For Outlook add-ins, the *et* query parameter string is only URL-encoded, and **not** base-64 encoded. To use this example with an Outlook add-in, remove the code that converts the token from base-64 encoding.
@@ -179,7 +179,7 @@ The Office and SharePoint Add-ins licensing model gives you a way to include cod
 - The Visual Studio project for your add-in.
 - The file system by using the Developer Registry provider.
 
-Both methods allow an add-in to get the license the same way it would if it were launched from the Office Store or a SharePoint add-in catalog. However, test licenses aren't treated the same way by the Office and SharePoint Add-ins runtime. They are not tested for expiration or the entitlement type, and therefore won't trigger a token refresh or raise an error in the UI.
+Both methods allow an add-in to get the license the same way it would if it were launched from the AppSource or a SharePoint add-in catalog. However, test licenses aren't treated the same way by the Office and SharePoint Add-ins runtime. They are not tested for expiration or the entitlement type, and therefore won't trigger a token refresh or raise an error in the UI.
 
 ### Load a test license from your Visual Studio project
 
@@ -334,7 +334,7 @@ using (ClientContext ctx = new ClientContext(webUrl))
         contentMarket: "en-US", // Replace this with whatever content market you want
         billingMarket8; "US", // Replace this with whatever billing market you want
         appName: "add-in Name", // Replace this with the name of the app
-        iconUrl: "http://www.office.com", // Replace this with the URL of the icon of the add-in (as it appears on Office Store),
+        iconUrl: "http://www.office.com", // Replace this with the URL of the icon of the add-in (as it appears on AppSource),
 // Or you can simply leave the URL blank.
         providerName: "Provider Name"); // Replace this with the name of the provider of the app
 
@@ -346,7 +346,7 @@ using (ClientContext ctx = new ClientContext(webUrl))
 <a name="SP15Implementlicense_bk_implement"> </a>
 ### Implement add-in license checks in your SharePoint Add-in code
 
-Identify where in your add-in you want to check for a valid license or other license information; for example, when the add-in launches, or when the user goes to a specific page or accesses certain features. Add code at these points that queries your SharePoint deployment for the license token, and then passes that token to the Office Store verification web service for validation.
+Identify where in your add-in you want to check for a valid license or other license information; for example, when the add-in launches, or when the user goes to a specific page or accesses certain features. Add code at these points that queries your SharePoint deployment for the license token, and then passes that token to the AppSource verification web service for validation.
 
 To retrieve the license token from SharePoint, use the [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method. This method returns all licenses for the specified add-in that apply to the user, based on the add-in product ID in the manifest file.
 
@@ -357,7 +357,7 @@ If multiple licenses are purchased for the same add-in by using different Micros
 - Unexpired Trial
 - Expired Trial
      
-The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to the Office Store.
+The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to the AppSource.
 
 #### Code example: Retrieve add-in license tokens
 
@@ -384,24 +384,24 @@ using(ClientContext ctx = new ClientContext(webUrl))
 By the end of this example, `licensecollection` includes all the add-in licenses for the current user as a collection of [AppLicense](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.aspx) objects. You can use the [RawXMLLicenseToken](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.rawxmllicensetoken.aspx) property to access the license token XML. So, for example, to access the license token for the first add-in license token in the collection, you use `licensecollection.Value[0].RawXMLLicenseToken`.
 
 > [!IMPORTANT]
-> Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail. 
+> Do not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail. 
 
 ### Validate the add-in license token
 
-After you retrieve the appropriate add-in license token, pass that token to the Office Store verification web service for validation. The verification service is located at the following URL:
+After you retrieve the appropriate add-in license token, pass that token to the AppSource verification web service for validation. The verification service is located at the following URL:
 
 `https://verificationservice.officeapps.live.com/ova/verificationagent.svc`
 
 The verification service has a single method, [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx), which takes the add-in license token as a parameter and returns a  [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object that contains the properties of the license. The [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property specifies whether the license token is valid, and other properties, such as [ProductId](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.productid.aspx) and [EntitlementType](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.entitlementtype.aspx), contain information about the various license attributes.
 
-The Office Store license verification web service also supports verifying add-in license tokens by using REST calls. To verify an add-in license by using REST, use the following syntax:
+The AppSource license verification web service also supports verifying add-in license tokens by using REST calls. To verify an add-in license by using REST, use the following syntax:
 
 `https://verificationservice.officeapps.live.com/ova/verificationagent.svc/rest/verify?token={token}`
 
-Where `{token}` is the add-in license token, encoded by a method that complies with RFC 2396; for example, the **encodeURIComponent()** function in JavaScript, or the **Uri.EscapeDataString** method in the .NET Framework. The Office Store verification service does not support being called from client-side code.
+Where `{token}` is the add-in license token, encoded by a method that complies with RFC 2396; for example, the **encodeURIComponent()** function in JavaScript, or the **Uri.EscapeDataString** method in the .NET Framework. The AppSource verification service does not support being called from client-side code.
 
 > [!NOTE]
-> If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you use only server-side code to query the Office Store verification web service.
+> If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the AppSource verification service. However, for security reasons we strongly recommend that you use only server-side code to query the AppSource verification web service.
 
 > [!WARNING]
 > Do not store the license token by using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service causes the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
@@ -421,15 +421,15 @@ After you pass the license token to the verification service's [VerifyEntitlemen
 <a name="bk_example"> </a>
 #### Code example: SharePoint Add-ins licensing checking
 
-The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the Office Store verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial. 
+The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the AppSource verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial. 
 
-This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.aspx), and a web service reference to the Office Store verification service.
+This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.aspx), and a web service reference to the AppSource verification service.
 
 ```csharp
 //Get the license token XML from SharePoint.
 this.rawToken = GetLicenseTokenFromSP(this.productId, this.clientcontext);
 
-//Call the Office Store verification service.
+//Call the AppSource verification service.
 VerifyLicenseToken(this.rawToken);
 
 private string GetLicenseTokenFromSP(Guid productId, ClientContext clientContext)
@@ -518,6 +518,6 @@ private void VerifyLicenseToken(string rawLicenseToken)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
 
 

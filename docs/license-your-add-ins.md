@@ -10,11 +10,11 @@ The licensing framework for Office and SharePoint Add-ins gives you a way to inc
 
 The add-in license framework itself does not enforce add-in licenses. It's a structure in which you can add code to your add-ins to retrieve and then act on license information.
 
-The add-in license framework applies only to add-ins acquired directly from the Office Store or add-ins from the Office Store that are made available in an add-in catalog hosted on SharePoint. Add-ins made available in other ways—such as from a file system location, or uploaded directly to an add-in catalog hosted on SharePoint—cannot use the add-in license framework.
+The add-in license framework applies only to add-ins acquired directly from the AppSource or add-ins from the AppSource that are made available in an add-in catalog hosted on SharePoint. Add-ins made available in other ways—such as from a file system location, or uploaded directly to an add-in catalog hosted on SharePoint—cannot use the add-in license framework.
 
 The Office and SharePoint add-in license framework includes:
 
-- The Office Store—a site where users can acquire licensed Office and SharePoint Add-ins. The Office Store handles payment and issues licenses.
+- The AppSource—a site where users can acquire licensed Office and SharePoint Add-ins. The AppSource handles payment and issues licenses.
 - Storage of licenses, and renewal of add-in license tokens.
 - APIs you can use to get license information.
 - A web service you can use to verify whether a license is valid.
@@ -52,24 +52,24 @@ Your license checking code should determine if the add-in license token is prese
 
 To help maximize the reach and adoption of your add-ins, as of Office 2013, Service Pack 1, Microsoft no longer requires that a user be signed in to Office with their Microsoft account to activate Office Add-ins. As of Office 2013, Service Pack 1, the add-in license token is passed as part of the initial HTTP request only if the user is signed in with their Microsoft account.
 
-If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. Therefore, you must include code in your add-in that determines whether the license token is present on each HTTP request for the app's home page. If it is not, your add-in can treat the request as coming from an anonymous user, and present the UI and functionality that you decide is appropriate. Use the add-in licensing framework to customize what your add-in presents to users who are not signed into their Microsoft accounts. For example, your add-in could present UI that provides more information about your add-in, a link to your add-in's Office Store listing, a reduced set of functionality, or other relevant material. 
+If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. Therefore, you must include code in your add-in that determines whether the license token is present on each HTTP request for the app's home page. If it is not, your add-in can treat the request as coming from an anonymous user, and present the UI and functionality that you decide is appropriate. Use the add-in licensing framework to customize what your add-in presents to users who are not signed into their Microsoft accounts. For example, your add-in could present UI that provides more information about your add-in, a link to your add-in's AppSource listing, a reduced set of functionality, or other relevant material. 
 
 |**Add-in license type**|**Recommended UX when the user is anonymous (license token is not present)**|
 |:-----|:-----|
 |Free|No change in behavior; add-in can function the same. However, if you rely on the license token to determine user identity<br/>of your free add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account<br/>to get the full benefits of your add-in.|
 |Trial|Provide the same trial add-in experience when the user is anonymous. If you rely on the license token to determine user identity<br/>of your trial add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account<br/>to get the full benefits of your add-in.|
-|Paid|If your add-in supports only paid licenses (that is, it doesn't provide a trial experience), you should present the user with<br/>information about your add-in, rather than a functional add-in, along with a hyperlink to your add-in's Office Store listing page.<br/>This way users are aware of your add-in and encouraged to purchase it.|
+|Paid|If your add-in supports only paid licenses (that is, it doesn't provide a trial experience), you should present the user with<br/>information about your add-in, rather than a functional add-in, along with a hyperlink to your add-in's AppSource listing page.<br/>This way users are aware of your add-in and encouraged to purchase it.|
 
 By default, if your add-in task pane or content add-in does not perform this licensing check, your add-in presents the same UI and functionality to anonymous users as it does to licensed users.
 
 ### Validate the license
 
-After the add-in receives the add-in license token, the add-in must pass it to the Office Store verification web service to determine that the license is valid and the information it contains is accurate. The verification service returns whether the license is valid and the license attribute values. The add-in code can then take appropriate action, based on whether the license is valid and on the license information.
+After the add-in receives the add-in license token, the add-in must pass it to the AppSource verification web service to determine that the license is valid and the information it contains is accurate. The verification service returns whether the license is valid and the license attribute values. The add-in code can then take appropriate action, based on whether the license is valid and on the license information.
 
-The Office Store verification service does not support being called from client-side code.
+The AppSource verification service does not support being called from client-side code.
 
-- For Office Add-ins, you are required to use server-side code to query the Office Store verification web service.
-- For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons, we strongly recommend that you only use server-side code to query the Office Store verification web service.
+- For Office Add-ins, you are required to use server-side code to query the AppSource verification web service.
+- For SharePoint Add-ins, if you are hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the AppSource verification service. However, for security reasons, we strongly recommend that you only use server-side code to query the AppSource verification web service.
 
 ### Take action based on license properties
 
@@ -92,7 +92,7 @@ Figure 1 shows the add-in license query and validation process for Office Add-in
 2. The Office application that hosts the add-in requests the home page.
 3. The Office application appends the add-in license token to the HTTP request as a query string parameter.
 4. The add-in code extracts and caches the license token.
-5. When the add-in needs to verify the license token, it uses server-side code to pass the token to the Office Store verification service.
+5. When the add-in needs to verify the license token, it uses server-side code to pass the token to the AppSource verification service.
 6. The verification service returns whether the license token is valid, and if it is, also returns the license properties.
 7. The add-in can then take action, based on the validity of the license and its properties.
 
@@ -107,7 +107,7 @@ Figure 2 shows the add-in license query and validation process for SharePoint Ad
 1. The user launches the add-in from within SharePoint.
 2. This launches the add-in code in the cloud.
 3. When the add-in needs to verify a user's add-in license, it uses server-side code to query SharePoint, via the client object model, for the add-in license token.
-4. It then passes that token to the Office Store verification service.
+4. It then passes that token to the AppSource verification service.
 5. The verification service returns whether the license token is valid, and if it is, also returns the license properties.
 6. The add-in can then take action, based on the validity of the license and its properties.
 
@@ -117,8 +117,8 @@ Figure 2 shows the add-in license query and validation process for SharePoint Ad
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
 - [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
     

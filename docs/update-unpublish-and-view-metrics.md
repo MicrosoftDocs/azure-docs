@@ -6,7 +6,7 @@ ms.date: 12/04-2017
 
 # Update, unpublish, and view metrics in the Seller Dashboard
 
-After you submit your solution to the Seller Dashboard, you might want to update them or remove (unpublish) them from Office Store listings. You can also delete your submissions from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your solutions are performing.
+After you submit your solution to the Seller Dashboard, you might want to update them or remove (unpublish) them from AppSource listings. You can also delete your submissions from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your solutions are performing.
 
 <a name="BKMK_Edit"> </a>
 ## Update your submission
@@ -30,9 +30,9 @@ You can edit your saved draft and approved submissions in the Seller Dashboard. 
     
  
 <a name="BKMK_delist"> </a>
-## Unpublish your submission from Office Store listings
+## Unpublish your submission from AppSource listings
 
-When you unpublish a submission, the system removes it from Office Store listings within a few days.
+When you unpublish a submission, the system removes it from AppSource listings within a few days.
  
 ### To unpublish your submission
 
@@ -60,13 +60,13 @@ You can delete draft submissions or items that you have unpublished. You cannot 
 <a name="BKMK_Metrics"> </a>
 ## View metrics
 
-After your submission is approved and listed in the Office Store, you can view up to four weeks of data for it on the **Metrics** page in the Seller Dashboard, including:
+After your submission is approved and listed in the AppSource, you can view up to four weeks of data for it on the **Metrics** page in the Seller Dashboard, including:
 
--  **Browser hits** - The number of times your listing has been viewed in the Office Store.
+-  **Browser hits** - The number of times your listing has been viewed in the AppSource.
 
--  **Downloads** - The number of times the solution has been downloaded from the Office Store.
+-  **Downloads** - The number of times the solution has been downloaded from the AppSource.
 
--  **Trial downloads** - The number of times the solution has been acquired for free from the Office Store.
+-  **Trial downloads** - The number of times the solution has been acquired for free from the AppSource.
 
 -  **Trial conversions** - The number of times a customer who acquired a trial made a purchase.
 
@@ -117,5 +117,5 @@ For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows
 
 ## See also
 
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
 

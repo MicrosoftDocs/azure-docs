@@ -1,18 +1,18 @@
 ---
-title: Submit your solutions to the Office Store
-description: Upload Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps to the Office Store.
+title: Submit your solutions to the AppSource
+description: Upload Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps to the AppSource.
 ms.date: 12/04-2017
 ---
 
 
-# Submit your solutions to the Office Store
+# Submit your solutions to the AppSource
 
-The Office Store provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. To include your solution in the Office Store, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
+The AppSource provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. To include your solution in the AppSource, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
 - [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
-- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md).
+- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
-For information about how to submit Power BI custom visuals to the Office Store, see [Publish custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
+For information about how to submit Power BI custom visuals to the AppSource, see [Publish custom visuals to the AppSource](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
 
 <a name="bk_approval"> </a>
 ## Approval process
@@ -27,14 +27,14 @@ In order for your submission to be approved:
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in a regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
 
-For more details about Office Store requirements, see [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
+For more details about AppSource requirements, see [Validation policies for apps and add-ins submitted to the AppSource](validation-policies.md).
 
 <a name="bk_Validation"> </a>
 ## Validation process
 
 After you submit your app or add-in:
 
-1. Your submission goes through a series of automated checks to ensure that it complies with the [Office Store validation policies](validation-policies.md).
+1. Your submission goes through a series of automated checks to ensure that it complies with the [AppSource validation policies](validation-policies.md).
 
 2. The Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
 
@@ -58,25 +58,25 @@ After you submit your app or add-in:
       - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
         
         > [!NOTE]
-        > After your submission is approved in the Seller Dashboard, there might be a delay before it is published to the Store. After approval, a submission typically appears in the Store within 24 hours.
+        > After your submission is approved in the Seller Dashboard, there might be a delay before it is published to the AppSource. After approval, a submission typically appears in the AppSource within 24 hours.
 
       - If the status is **changes requested**, your submission needs changes to be approved. Choose your submission, and then on the summary page, select **View the add-in report** for details about the required changes.
 
 If you make changes after your submission is approved, it must go through the approval process again.
 
-If you have questions about policies or requirements in your report, you can engage with the Office Store Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
+If you have questions about policies or requirements in your report, you can engage with the AppSource Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
 
 ## Topics in this section
 
-- [Optimize the Office Store placement and ranking of your Office Add-in](optimize-for-store-discovery.md)
+- [Optimize the AppSource placement and ranking of your Office Add-in](optimize-for-store-discovery.md)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Create effective Office Store listings](create-effective-office-store-listings.md)
+- [Create effective AppSource listings](create-effective-office-store-listings.md)
 - [Prepare localized apps and add-ins](prepare-localized-apps-and-add-ins.md)
-- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md)
 - [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md)
 - [Validation policies](validation-policies.md)
-- [Promote your Office Store solution](promote-your-office-store-solution.md)
+- [Promote your AppSource solution](promote-your-office-store-solution.md)
 - [Seller Dashboard accessibility features](seller-dashboard-accessibility-features.md)
 
 ## See also

@@ -8,9 +8,9 @@ ms.date: 12/04-2017
 
 If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
 
-Use the [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the Office Store verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
+Use the [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method of the AppSource verification web service to determine if an add-in license is valid. The [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method takes an add-in license token as a parameter, and returns a [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) that contains the license token properties, including whether or not the license token is valid.
 
-To support add-in license testing, the Office Store verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. However, the service does interpret the token, and all the properties of the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
+To support add-in license testing, the AppSource verification web service does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. However, the service does interpret the token, and all the properties of the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by the service can be read.
 
 ```xml
 <r>
@@ -52,7 +52,7 @@ Required. Contains attributes that represent various properties of the add-in li
 </tr>
 <tr>
 <td>aid</td>
-<td>Required text. The asset ID assigned to this add-in by the Office Store.</td>
+<td>Required text. The asset ID assigned to this add-in by the AppSource.</td>
 </tr>
 <tr>
 <td>pid</td>
@@ -149,7 +149,7 @@ Present UI in your add-in alerting the user of the problem with billing, so that
 <td><strong>Canceled</strong><p/>
 The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <p/>
 <strong>Recommended user experience:</strong><p/>
-Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app’s Office Store listing page, so they are encouraged to renew their subscription. </td>
+Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app’s AppSource listing page, so they are encouraged to renew their subscription. </td>
 </tr>
 <tr>
 <td>4</td>
@@ -166,16 +166,16 @@ Full add-in experience. Additionally, you may want to present contextual UI to a
 
 **d**
 
-Required. Encryption token used by the Office Store verification service to determine whether the add-in license token is valid. This is an encrypted signature derived from the literal string contained in the `<t>` element.
+Required. Encryption token used by the AppSource verification service to determine whether the add-in license token is valid. This is an encrypted signature derived from the literal string contained in the `<t>` element.
  
-When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element.
+When you submit a test add-in license token to the AppSource verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element.
 
 ## Remarks
 
 > [!IMPORTANT]
-> When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., changes the literal value of the `<t>` element and therefore causes the license verification check to fail.
+> When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., changes the literal value of the `<t>` element and therefore causes the license verification check to fail.
 
-> When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting or generating the encryption signature for the `<d>` element.
+> When you submit a test add-in license token to the AppSource verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting or generating the encryption signature for the `<d>` element.
 
 <a name="SP15applicense_example"> </a>
 ## Example: Add-in license XML for a SharePoint Add-in
@@ -227,10 +227,10 @@ The following example shows the add-in license for a user who is signed in with 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
-- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
 
 
 
