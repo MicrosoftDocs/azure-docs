@@ -88,8 +88,8 @@ This update includes the following improvements and fixes for Azure Stack.
 This section contains known issues that you may encounter during the 1712 update installation.
 
 1. **Symptom:** Azure Stack operators may see the following error during the update process: *"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for -ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c."*
-	2. **Cause:**  This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
-	3. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+	1. **Cause:**  This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
+	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
 <br><br>
 2. **Symptom:** Azure Stack operators may see the following error during the update process:*"Enabling the seed ring VM failed on node Host-Node03 with an error: [Host-Node03] Connecting to remote server Host-Node03 failed with the following error message : The WinRM client received an HTTP server error status (500), but the remote service did not include any other information about the cause of the failure."*
 	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates. 
@@ -141,7 +141,7 @@ This section contains post-installation known issues with build **180103.2**.
 #### SQL/MySQL
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
- 
+
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
 
