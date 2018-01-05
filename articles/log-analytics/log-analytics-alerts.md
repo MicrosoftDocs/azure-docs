@@ -39,7 +39,7 @@ Because there is an anticipated latency with the ingestion of log data, the abso
 Alert Rules are defined by the following details:
 
 - **Log search**.  The query that runs every time the alert rule fires.  The records returned by this query is used to determine whether an alert is created.
-- **Time window**.  Specifies the time range for the query.  The query returns only records that were created within this range of the current time.  This can be any value between 5 minutes and 24 hours. The range needs to be wide enough to accommodate reasonable delays in  ingestion. The time window needs to be two times the length of the longest delay you want to be able to handle.<br> For instance, if you want alerts to be reliable for 30 minute delays, then the range needs to be one hour.  
+- **Time window**.  Specifies the time range for the query.  The query returns only records that were created within this range of the current time.  This can be any value between five minutes and 24 hours. The range needs to be wide enough to accommodate reasonable delays in ingestion. The time window needs to be two times the length of the longest delay you want to be able to handle.<br> For instance, if you want alerts to be reliable for 30 minute delays, then the range needs to be one hour.  
 
     There are two symptoms you could experience if the time range is too small.
 
