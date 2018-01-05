@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 1/03/2018
+ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -16,11 +16,11 @@ ms.custom: mvc
 
 A persistent volume represents a piece of storage that has been provisioned for use in a Kubernetes cluster. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume. 
+This document details dynamic provisioning of an Azure file share as a Kubernetes persistent volume in an AKS cluster. 
 
 ## Prerequisites
 
-When dynamically provisioning an Azure File share as a Kubernetes volume, any existing storage account can be used as long as it is contained in the same resource group as the AKS cluster. If needed, create a storage account in the AKS resource group. 
+When dynamically provisioning an Azure file share as a Kubernetes volume, any storage account can be used as long as it is contained in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster. 
 
 To identify the proper resource group, use the [az group list][az-group-list] command.
 
@@ -28,7 +28,7 @@ To identify the proper resource group, use the [az group list][az-group-list] co
 az group list --output table
 ```
 
-The following output shows two resource group associated with an AKS cluster. The resource group with a name like **MC_myAKSCluster_myAKSCluster_eastus** contains the AKS cluster resources, and is where the storage account needs to be created. 
+The following example output shows the resource groups, both associated with an AKS cluster. The resource group with a name like *MC_myAKSCluster_myAKSCluster_eastus* contains the AKS cluster resources, and is where the storage account needs to be created. 
 
 ```
 Name                                 Location    Status
@@ -47,7 +47,7 @@ az storage account create --resource-group  MC_myAKSCluster_myAKSCluster_eastus 
 
 A storage class is used to define how a dynamically created persistent volume is configured. Items such as the Azure storage account name, SKU, and region are defined in the storage class object. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-The following example specifies that any storage account of sku type `Standard_LRS` in the `eastus` region can be used when requesting storage. 
+The following example specifies that any storage account of SKU type `Standard_LRS` in the `eastus` region can be used when requesting storage. 
 
 ```yaml
 kind: StorageClass
@@ -59,7 +59,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-To use a specific storage account, the `storageAccount` property can be used. In this configuration, the `skuName` and `location` properties are ignored.
+To use a specific storage account, the `storageAccount` parameter can be used.
 
 ```yaml
 kind: StorageClass
@@ -73,7 +73,10 @@ parameters:
 
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using Azure Files, a file share is created in the storage account selected or specified in the storage class object.
+A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Files, an Azure file share is created in the storage account selected or specified in the storage class object.
+
+>  [!NOTE]
+>	Make sure a suitable storage account has been pre-created in the same resource group as the AKS cluster. The persistent volume claim will fail to provision the Azure file share if a storage account is not available. 
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
@@ -93,7 +96,7 @@ spec:
 
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure File share on the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/var/www/html` path. 
 
 ```yaml
 kind: Pod
@@ -143,48 +146,6 @@ parameters:
 ```
 
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the `runAsUser` value set to `0`. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
-
-## Troubleshooting
-
-If a storage account cannot be found, the persistent volume claim creation fails. To get information about the persistent volume claim, used the [kubectl describe][kubectl-describe] command.
-
-First, get the name of the persistent volume claim.
-
-```
-kubectl get pvc
-```
-
-Output:
-
-```
-NAME        STATUS    VOLUME    CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-azurefile   Pending                                       azurefile      1m
-```
-
-Use [kubectl describe][kubectl-describe] to pull information about the current state including any issues.
-
-```
-kubectl describe pvc azurefile
-```
-
-As can be seen in the output, a suitable storage account was not found. Refer to the prerequisites section of this document for instructions on creating a storage account.
-
-```
-Name:          azurefile
-Namespace:     default
-StorageClass:  azurefile
-Status:        Pending
-Volume:        
-Labels:        <none>
-Annotations:   volume.beta.kubernetes.io/storage-provisioner=kubernetes.io/azure-file
-Finalizers:    []
-Capacity:      
-Access Modes:  
-Events:
-  Type     Reason              Age               From                         Message
-  ----     ------              ----              ----                         -------
-  Warning  ProvisioningFailed  2s (x11 over 2m)  persistentvolume-controller  Failed to provision volume with StorageClass "azurefile": failed to find a matching storage account
-```
 
 ## Next steps
 
