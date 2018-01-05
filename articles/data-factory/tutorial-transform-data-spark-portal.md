@@ -136,7 +136,7 @@ You author two Linked Services in this section:
 
     1. Enter **AzureHDInsightLinkedService** for **Name**.
     2. Confirm that **On-demand HDInsight** is selected for **Type**.
-    3. Select **AzureStorage1** for **Azure Storage Linked Service**. This is the linked service you created in the previous section. If you used a different name, specify the right name for this field. 
+    3. Select **AzureStorage1** for **Azure Storage Linked Service**. You created this linked service earlier. If you used a different name, specify the right name for this field. 
     4. Select **spark** for **Cluster type**.
     5. Enter the **ID of the service principal** that has permission to create a HDInsight cluster. This service principal needs to be a member of the Contributor role of the subscription or the resource Group in which the cluster is created. See [create Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) for details.
     6. Enter the **Service principal key**. 
@@ -172,7 +172,7 @@ You author two Linked Services in this section:
     3. Navigate to the **adftutorial/spark/script folder**, select **WordCount_Spark.py**, and click **Finish**.      
 
     ![Specify Spark script](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
-6. Click **Validate** button on the toolbar to validate the pipeline. Click the **right-arrow** (>>) button to close the validation window. 
+6. To validate the pipeline, click **Validate** button on the toolbar. Click the **right-arrow** (>>) button to close the validation window. 
     
     ![Validate button](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Click **Publish** artifacts to Data Factory. 
@@ -189,8 +189,8 @@ Click **Trigger** on the toolbar, and click **Trigger Now**.
     ![Monitor pipeline runs](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
 2. Click **Refresh** periodically to check the status of the pipeline run. 
 
-    ![Pipeline run succeeded](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png)
-3. Click **View Activity Runs** action in the Actions column to see activity runs associated with the pipeline run. You can switch back to the pipeline runs view by clicking the **Pipelines** link at the top.
+    ![Pipeline run status](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png)
+1. To see activity runs associated with the pipeline run, click **View Activity Runs** action in the Actions column. You can switch back to the pipeline runs view by clicking the **Pipelines** link at the top.
 
     ![Activity Runs view](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -199,7 +199,7 @@ Verify that the output file is created in the spark/otuputfiles/wordcount folder
 
 ![Verify output](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-The file should have each word from the input text file and the number of times the word appeard in the file. For example: 
+The file should have each word from the input text file and the number of times the word appeared in the file. For example: 
 
 ```
 (u'This', 1)
