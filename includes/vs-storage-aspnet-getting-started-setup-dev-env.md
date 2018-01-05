@@ -8,23 +8,25 @@ This section walks through setting up the development environment. This includes
 
 1. From the main menu, select **File** > **New** > **Project**.
 
-1. On the **New Project** dialog box, select **Web** > **ASP.NET Web Application (.NET Framework)**. In the **Name** field, specify **StorageAspNet**. Select **OK**.
+1. In the **New Project** dialog box, select **Web** > **ASP.NET Web Application (.NET Framework)**. In the **Name** field, specify **StorageAspNet**. Select **OK**.
 
 	![Screenshot of New Project dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. On the **New ASP.NET Web Application** dialog box, select **MVC**, and then select **OK**.
+1. In the **New ASP.NET Web Application** dialog box, select **MVC**, and then select **OK**.
 
 	![Screenshot of New ASP.NET Web Application dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
 ### Use connected services to connect to an Azure storage account
 
-1. In **Solution Explorer**, right-click the project. From the context menu, select **Add** > **Connected Service**.
+1. In **Solution Explorer**, right-click the project.
 
-1. On the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
+2. From the context menu, select **Add** > **Connected Service**.
+
+1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
 
 	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. On the **Azure Storage** dialog box, select the Azure Storage account to be used for this tutorial. To create a new Azure Storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
+1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
 
 > [!TIP]
 > To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).

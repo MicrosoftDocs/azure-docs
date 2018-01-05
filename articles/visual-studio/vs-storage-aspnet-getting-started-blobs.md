@@ -41,15 +41,17 @@ include creating a blob container, and uploading, listing, downloading, and dele
 
 ## Create an MVC controller 
 
-1. In **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add** > **Controller**.
+1. In **Solution Explorer**, right-click **Controllers**.
+
+2. From the context menu, select **Add** > **Controller**.
 
 	![Screenshot of Solution Explorer, with Add and Controller highlighted](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
-1. On the **Add Scaffold** dialog box, select **MVC 5 Controller - Empty**, and select **Add**.
+1. In the **Add Scaffold** dialog box, select **MVC 5 Controller - Empty**, and select **Add**.
 
 	![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
 
-1. On the **Add Controller** dialog box, name the controller *BlobsController*, and select **Add**.
+1. In the **Add Controller** dialog box, name the controller *BlobsController*, and select **Add**.
 
 	![Screenshot of Add Controller dialog box](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
@@ -112,7 +114,7 @@ The following steps illustrate how to create a blob container:
 	ViewBag.Success = container.CreateIfNotExists();
     ```
 
-1. Update the `ViewBag` with the name of the blob container.
+1. Update `ViewBag` with the name of the blob container.
 
     ```csharp
 	ViewBag.BlobContainerName = container.Name;
@@ -131,11 +133,15 @@ The following steps illustrate how to create a blob container:
     }
     ```
 
-1. In **Solution Explorer**, right-click the **Views** folder, and from the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
- 
-1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**. From the context menu, select **Add** > **View**.
+1. In **Solution Explorer**, right-click the **Views** folder.
 
-1. On the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
+2. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
+ 
+1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
+
+4. From the context menu, select **Add** > **View**.
+
+1. In the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
 
 1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following code snippet:
 
@@ -227,7 +233,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
 	<li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. Run the application, and select **Upload blob**.  The word *success!* should display.
+1. Run the application, and select **Upload blob**.  The word *success!* should appear.
     
     ![Screenshot of success verification](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
   
@@ -336,9 +342,11 @@ This section illustrates how to list the blobs in a blob container. The sample c
     }
     ```
 
-1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**. From the context menu, select **Add** > **View**.
+1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
 
-1. On the **Add View** dialog box, enter `ListBlobs` for the view name, and select **Add**.
+2. From the context menu, select **Add** > **View**.
+
+1. In the **Add View** dialog box, enter `ListBlobs` for the view name, and select **Add**.
 
 1. Open `ListBlobs.cshtml`, and replace the contents with the following code:
 
@@ -399,7 +407,7 @@ This section illustrates how to download a blob. You can either persist it to lo
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. To download a blob, use the `CloudBlockBlob.DownloadToStream` method. The following code transfers a blob's contents to a stream object. That object is then persisted to a local file (change *&lt;local-file-name>* to the fully qualified file name representing where the blob is to be downloaded): 
+1. To download a blob, use the `CloudBlockBlob.DownloadToStream` method. The following code transfers a blob's contents to a stream object. That object is then persisted to a local file. (Change *&lt;local-file-name>* to the fully qualified file name representing where the blob is to be downloaded.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -431,7 +439,7 @@ This section illustrates how to download a blob. You can either persist it to lo
 	<li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
-1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call.  The text *success!* should display in the browser. 
+1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call.  The text *success!* should appear in the browser. 
 
 ## Delete blobs
 
@@ -494,5 +502,5 @@ The following steps illustrate how to delete a blob:
 
 In this tutorial, you learned how to store, list, and retrieve blobs in Azure Storage by using ASP.NET. View more feature guides to learn about additional options for storing data in Azure.
 
-  * [Get started with Azure table storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Get started with Azure queue storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Get started with Azure Table storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Get started with Azure Queue storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

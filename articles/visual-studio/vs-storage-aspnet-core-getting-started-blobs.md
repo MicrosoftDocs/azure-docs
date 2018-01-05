@@ -44,23 +44,25 @@ This section walks through setting up the development environment. This includes
 
 1. From the main menu, select **File** > **New** > **Project**.
 
-1. On the **New Project** dialog box, select **Web** > **ASP.NET Core Web Application** > **AspNetCoreStorage**. Then select **OK**.
+1. In the **New Project** dialog box, select **Web** > **ASP.NET Core Web Application** > **AspNetCoreStorage**. Then select **OK**.
 
 	![Screenshot of Visual Studio New Project dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. On the **New ASP.NET Core Web Application** dialog box, select **.NET Core** > **ASP.NET Core 2.0** > **Web Application (Model-View-Controller)**. Then select **OK**.
+1. In the **New ASP.NET Core Web Application** dialog box, select **.NET Core** > **ASP.NET Core 2.0** > **Web Application (Model-View-Controller)**. Then select **OK**.
 
 	![Screenshot of New ASP.NET Core Web Application dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
-### Use connected services to connect to an Azure Storage account
+### Use connected services to connect to an Azure storage account
 
-1. In **Solution Explorer**, right-click the project, and from the context menu, select **Add** > **Connected Service**.
+1. In **Solution Explorer**, right-click the project.
 
-1. On the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
+2. From the context menu, select **Add** > **Connected Service**.
+
+1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
 
 	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
 
-1. On the **Azure Storage** dialog box, select the Azure Storage account to be used for this tutorial. To create a new Azure Storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage, and a storage connection string to **appsettings.json**.
+1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage, and a storage connection string to **appsettings.json**.
 
 > [!TIP]
 > To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -70,15 +72,17 @@ This section walks through setting up the development environment. This includes
 
 ### Create an MVC controller 
 
-1. In **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add** > **Controller**.
+1. In **Solution Explorer**, right-click **Controllers**.
+
+2. From the context menu, select **Add** > **Controller**.
 
 	![Screenshot of Solution Explorer](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
 
-1. On the **Add Scaffold** dialog box, select **MVC Controller - Empty**, and select **Add**.
+1. In the **Add Scaffold** dialog box, select **MVC Controller - Empty**, and select **Add**.
 
 	![Screenshot of Add Scaffold dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
-1. On the **Add Empty MVC Controller** dialog box, name the controller *BlobsController*, and select **Add**.
+1. In the **Add Empty MVC Controller** dialog box, name the controller *BlobsController*, and select **Add**.
 
 	![Screenshot of Add Empty MVC Controller dialog box](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
@@ -146,7 +150,7 @@ The following steps illustrate how to create a blob container:
     ViewBag.Success = container.CreateIfNotExistsAsync().Result;
     ```
 
-1. Update the `ViewBag` with the name of the blob container.
+1. Update `ViewBag` with the name of the blob container.
 
     ```csharp
 	ViewBag.BlobContainerName = container.Name;
@@ -165,11 +169,15 @@ The following steps illustrate how to create a blob container:
     }
     ```
 
-1. In **Solution Explorer**, right-click the **Views** folder, and from the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
+1. In **Solution Explorer**, right-click the **Views** folder.
 
-1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**. From the context menu, select **Add** > **View**.
+2. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
 
-1. On the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
+1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
+
+4. From the context menu, select **Add** > **View**.
+
+1. In the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
 
 1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following code snippet:
 
@@ -261,7 +269,7 @@ When the [blob container is created](#create-a-blob-container), upload files int
 	<li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
-1. Run the application, and select **Upload blob**. The word *success!* should display.
+1. Run the application, and select **Upload blob**. The word *success!* should appear.
     
     ![Screenshot of success verification](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
@@ -344,9 +352,11 @@ This section illustrates how to list the blobs in a blob container. The sample c
     }
     ```
 
-1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**. From the context menu, select **Add** > **View**.
+1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
 
-1. On the **Add View** dialog box, enter `ListBlobs` for the view name, and select **Add**.
+2. From the context menu, select **Add** > **View**.
+
+1. In the **Add View** dialog box, enter `ListBlobs` for the view name, and select **Add**.
 
 1. Open `ListBlobs.cshtml`, and replace the contents with the following code:
 
@@ -407,7 +417,7 @@ This section illustrates how to download a blob. You can either persist it to lo
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. To download a blob, use the `CloudBlockBlob.DownloadToStream` method. The following code transfers a blob's contents to a stream object. That object is then persisted to a local file (change *&lt;local-file-name>* to the fully qualified file name representing where the blob is to be downloaded): 
+1. To download a blob, use the `CloudBlockBlob.DownloadToStream` method. The following code transfers a blob's contents to a stream object. That object is then persisted to a local file. (Change *&lt;local-file-name>* to the fully qualified file name representing where the blob is to be downloaded.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -439,7 +449,7 @@ This section illustrates how to download a blob. You can either persist it to lo
 	<li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call. The text *success!* should display in the browser. 
+1. Run the application, and select **Download blob** to download the blob. The blob specified in the `CloudBlobContainer.GetBlockBlobReference` method call downloads to the location specified in the `File.OpenWrite` method call. The text *success!* should appear in the browser. 
 
 ## Delete blobs
 
@@ -502,5 +512,5 @@ The following steps illustrate how to delete a blob:
 
 In this tutorial, you learned how to store, list, and retrieve blobs in Azure Storage by using ASP.NET Core. View more feature guides to learn about additional options for storing data in Azure.
 
-  * [Get started with Azure table storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Get started with Azure queue storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Get started with Azure Table storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Get started with Azure Queue storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
