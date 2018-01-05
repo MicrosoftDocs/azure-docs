@@ -26,11 +26,11 @@ This article explains how to work with tabular data on SaaS providers, such as S
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## API Connections
+## API connections
 
-Table bindings leverage external API connections to authenticate with 3rd party SaaS providers. 
+Table bindings leverage external API connections to authenticate with third-party SaaS providers. 
 
-When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group
+When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group.
 
 ### Available API connections (tables)
 
@@ -74,7 +74,7 @@ When assigning a binding you can either create a new API connection or use an ex
 
 1. Select **Integrate > External Table**.
 
-   Configure the connection to use your target table. These settings will vary between SaaS providers. Examples are included in the following section.
+1. Configure the connection to use your target table. These settings will vary between SaaS providers. Examples are included in the following section.
 
 ## Example
 
