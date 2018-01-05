@@ -109,8 +109,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.box.com`
 
 	b. In the **Identifier** textbox, type a URL as: `https://sso.services.box.net/sp/ACS.saml2`
-
-    c. In the **Reply URL** textbox, type a URL as: `https://sso.services.box.net/sp/ACS.saml2`
 	 
 	> [!NOTE] 
 	> This value is not real. Update the value with the actual Sign-on URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get this value. 
