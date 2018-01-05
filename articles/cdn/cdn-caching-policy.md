@@ -29,12 +29,12 @@ Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updat
 > [!IMPORTANT]
 >Azure Media Services has complete integration with Azure CDN. With a single click you can integrate all the available Azure CDN providers (Akamai and Verizon) to your streaming endpoint including CDN Standard and Premium products. For more information, see this [announcement](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> Data charges from streaming endpoint to CDN only gets disabled if the CDN is enabled over streaming endpoint APIs or using Azure management portal's streaming endpoint section. Manual integration or directly creating a CDN endpoint using CDN APIs or portal section will not disable the data charges.
+> Data charges from streaming endpoint to CDN only gets disabled if the CDN is enabled over streaming endpoint APIs or using Azure portal's streaming endpoint section. Manual integration or directly creating a CDN endpoint using CDN APIs or portal section will not disable the data charges.
 
 ## Configuring cache headers with Azure Media Services
-You can use Azure Management portal or Azure Media Services APIs to configure cache header values.
+You can use Azure portal or Azure Media Services APIs to configure cache header values.
 
-1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
+1. To configure cache headers using Azure portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
 2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
 
