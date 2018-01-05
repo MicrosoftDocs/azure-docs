@@ -145,8 +145,8 @@
       tocHref: /azure/cognitive-services/custom-speech-service/
       topicHref: /azure/cognitive-services/custom-speech-service/
     - name: Custom Vision Service
-      tocHref: /azure/cognitive-services/custom-vision-service/
-      topicHref: /azure/cognitive-services/custom-vision-service/
+      tocHref: /azure/cognitive-services/custom-vision-service/home
+      topicHref: /azure/cognitive-services/custom-vision-service/home
     - name: Face
       tocHref: /azure/cognitive-services/face/
       topicHref: /azure/cognitive-services/face/
