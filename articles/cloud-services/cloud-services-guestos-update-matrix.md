@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,12 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **January 4, 2018**
+The January Guest OS has been released for OS Families 4 (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) and contains important security patches.  
+
+###### **January 4, 2018**
+December Guest OS has released.
+
 ###### **December 14, 2017**
 November Guest OS has released.
 
@@ -66,12 +72,6 @@ June Guest OS has released.
 ###### **June 16, 2017**
 June Guest OS rollout is starting June 16 and has a projected release of July 11.
 
-###### **June 5, 2017**
-May Guest OS has released.
-
-###### **May 17, 2017**
-Due to a security bug, we are disabling the following December 2016 and January 2017 OS Releases that do not have the [fix] from the portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## Releases
 ## Family 5 releases
@@ -87,8 +87,10 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |January 4, 2018 |Post 5.17 |TBD |
+| WA-GUEST-OS-5.14_201712-01 |January 4, 2018 |Post 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |December 14, 2017 |Post 5.15 |TBD |
-| WA-GUEST-OS-5.12_201710-02 |November 8, 2017 |Post 5.14 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
@@ -110,8 +112,10 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |January 4, 2018 |Post 4.52 |TBD |
+| WA-GUEST-OS-4.49_201712-01 |January 4, 2018 |Post 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |December 14, 2017 |Post 4.50 |TBD |
-| WA-GUEST-OS-4.47_201710-02 |November 8, 2017 |Post 4.49 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
@@ -133,8 +137,9 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.56_201712-01 |January 4, 2018 |Post 3.58 |TBD |
 | WA-GUEST-OS-3.55_201711-01 |December 14, 2017 |Post 3.57 |TBD |
-| WA-GUEST-OS-3.54_201710-02 |November 8, 2017 |Post 3.56 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
@@ -156,8 +161,9 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.69_201712-01 |January 4, 2018 |Post 2.71 |TBD |
 | WA-GUEST-OS-2.68_201711-01 |December 14, 2017 |Post 2.70 |TBD |
-| WA-GUEST-OS-2.67_201710-02 |November 8, 2017 |Post 2.69 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
