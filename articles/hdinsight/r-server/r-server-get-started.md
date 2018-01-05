@@ -37,7 +37,7 @@ Azure HDInsight includes an R Server option to be integrated into your HDInsight
 
 You can automate the creation of HDInsight R Servers by using Azure Resource Manager templates, the SDK, and PowerShell.
 
-* To create an R Server by using an Azure Resource Management template, see [Deploy an R server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* To create an R Server by using an Azure Resource Manager template, see [Deploy an R server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * To create an R Server by using the .NET SDK, see [create Linux-based clusters in HDInsight using the .NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
 * To deploy R Server by using powershell, see the article on [creating an R Server on HDInsight with PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
@@ -705,11 +705,11 @@ When your data modeling is complete, you can operationalize the model to make pr
 	rxSparkConnect(reset = TRUE)
 
 
-At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on edge node and start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web-services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login. The following sections explain how to set up this tunnel.
+At this stage, the configuration for operationalization is complete. Now you can use the mrsdeploy package on R Client to connect to the operationalization on the edge node. You can then start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you might need to set up port forward tunneling through an SSH login.
 
-### RServer Cluster on virtual network
+### R Server cluster on a virtual network
 
-Make sure you allow traffic through port 12800 to the edge node. That way, you can use the edge node to connect to the Operationalization feature.
+Make sure that you allow traffic through port 12800 to the edge node. That way, you can use the edge node to connect to the operationalization feature.
 
 
 	library(mrsdeploy)
@@ -721,19 +721,19 @@ Make sure you allow traffic through port 12800 to the edge node. That way, you c
 	)
 
 
-If the `remoteLogin()` cannot connect to the edge node, but you can SSH to the edge node, then you need to verify whether the rule to allow traffic on port 12800 has been set properly or not. If you continue to face the issue, you can work around it by setting up port forward tunneling through SSH. For instructions, see the following section.
+If `remoteLogin()` cannot connect to the edge node, but you can use SSH to connect to the edge node, then you need to check whether the rule to allow traffic on port 12800 has been set properly. If you continue to face the issue, you can work around it by setting up port forward tunneling through SSH. For instructions, see the following section.
 
-### RServer Cluster not set up on virtual network
+### R Server cluster not set up on a virtual network
 
-If your cluster is not set up on vnet or if you are having troubles with connectivity through vnet, you can use SSH port forward tunneling:
+If your cluster is not set up on a virtual network, or if you're having trouble with connectivity through a virtual network, you can use SSH port forward tunneling:
 
 	ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-On PuTTY, you can set it up as well.
+You can also set it up on PuTTY:
 
 ![PuTTY SSH connection](./media/r-server-get-started/putty.png)
 
-After your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs in to the edge node’s operationalization through port forwarding.
+After your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through the SSH session. Make sure that you use `127.0.0.1:12800` in your `remoteLogin()` method. This method logs in to the edge node’s operationalization through port forwarding.
 
 
 	library(mrsdeploy)
@@ -749,45 +749,45 @@ After your SSH session is active, the traffic from your machine’s port 12800 i
 
 ### Decommission the worker nodes
 
-Microsoft R Server is currently not managed through Yarn. If the worker nodes are not decommissioned, the Yarn Resource Manager will not work as expected because it will not be aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
+Microsoft R Server is currently not managed through Yarn. If the worker nodes are not decommissioned, the Yarn ResourceManager will not work as expected because it will not be aware of the resources that the server is using. To avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
-Steps to decommissioning worker nodes:
+To decommission worker nodes:
 
-* Log in to HDI cluster's Ambari console and click on "hosts" tab
-* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in the following image we have selected wn3 and wn4 to decommission.  
+1. Log in to HDI cluster's Ambari console and select the **Hosts** tab.
+2. Select worker nodes to be decommissioned, and then select **Actions** > **Selected Hosts** > **Hosts** > **Turn On Maintenance Mode**. For example, in the following image, we have selected wn3 and wn4 to decommission.  
 
-   ![decommission worker nodes](./media/r-server-get-started/get-started-operationalization.png)  
+   ![Screenshot of the commands for turning on maintenance mode](./media/r-server-get-started/get-started-operationalization.png)  
 
-* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Decommission**
-* Select **Actions** > **Selected Hosts** > **NodeManagers** > click **Decommission**
-* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Stop**
-* Select **Actions** > **Selected Hosts** > **NodeManagers** > click on **Stop**
-* Select **Actions** > **Selected Hosts** > **Hosts** > click **Stop All Components**
-* Unselect the worker nodes and select the head nodes
-* Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**
+3. Select **Actions** > **Selected Hosts** > **DataNodes** > **Decommission**.
+4. Select **Actions** > **Selected Hosts** > **NodeManagers** > **Decommission**.
+5. Select **Actions** > **Selected Hosts** > **DataNodes** > **Stop**.
+6. Select **Actions** > **Selected Hosts** > **NodeManagers** > **Stop**.
+7. Select **Actions** > **Selected Hosts** > **Hosts** > **Stop All Components**.
+8. Unselect the worker nodes and select the head nodes.
+9. Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**.
 
 ###	Configure compute nodes on each decommissioned worker node
 
-1. SSH into each decommissioned worker node.
+1. Use SSH to connet to each decommissioned worker node.
 2. Run an admin utility by using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
-3. Enter "1" to select option "Configure R Server for Operationalization".
-4. Enter "c" to select option "C. Compute node". This configures the compute node on the worker node.
-5. Exit the Admin Utility.
+3. Enter **1** to select the option **Configure R Server for Operationalization**.
+4. Enter **c** to select option **C. Compute node**. This step configures the compute node on the worker node.
+5. Exit the admin utility.
 
-### Add compute nodes details on the web node
+### Add compute nodes' details on the web node
 
-After all decommissioned worker nodes have been configured to run compute node, come back on the edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
+After all decommissioned worker nodes are configured to run on the compute node, go back to the edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
 
-* SSH into the edge node.
-* Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
-* Look for the "URIs" section, and add worker node's IP and port details.
+1. Use SSH to connect to the edge node.
+2. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+3. Look for the `URIs` section, and add the worker node's IP and port details.
 
-	![decommission worker nodes cmdline](./media/r-server-get-started/get-started-op-cmd.png)
+	![Command line for the edge node](./media/r-server-get-started/get-started-op-cmd.png)
 
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you have problems with creating HDInsight clusters, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
 ## Next steps
