@@ -88,7 +88,7 @@ You can quickly assess the scope and impact of an attack with a visual, interact
 
 See [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) for more information.
 
-## Integrate your security solutions into Security Center
+## Integrate your security solutions
 You can collect, search, and analyze security data from a variety of sources, including connected partner solutions like network firewalls and other Microsoft services, in Security Center.
 
 ![Integrate security solutions][8]

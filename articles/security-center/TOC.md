@@ -8,7 +8,7 @@
 ## [Connect security solutions](quick-security-solutions.md)
 
 # Tutorials
-## [Define and assess security policies](tutorial-security-policy.md)
+## [Define security policies](tutorial-security-policy.md)
 ## [Protect your resources](tutorial-protect-resources.md)
 ## [Respond to security incidents](tutorial-security-incident.md)
 

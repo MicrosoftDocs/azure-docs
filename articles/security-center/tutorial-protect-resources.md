@@ -42,11 +42,11 @@ Management ports do not need to be open at all times. They only need to be open 
 
   ![Just in time VM access][1]
 
-**Just in time VM access** provides information on the state of your VMs:
+  **Just in time VM access** provides information on the state of your VMs:
 
-- **Configured** - VMs that have been configured to support just in time VM access.
-- **Recommended** - VMs that can support just in time VM access but have not been configured to.
-- **No recommendation** - Reasons that can cause a VM not to be recommended are:
+  - **Configured** - VMs that have been configured to support just in time VM access.
+  - **Recommended** - VMs that can support just in time VM access but have not been configured to.
+  - **No recommendation** - Reasons that can cause a VM not to be recommended are:
 
     - Missing NSG - The just in time solution requires an NSG to be in place.
     - Classic VM - Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager.
@@ -54,16 +54,16 @@ Management ports do not need to be open at all times. They only need to be open 
 
 2. Select a recommended VM and click **Enable JIT on 1 VM** to configure a just in time policy for that VM:
 
-You can save the default ports that Security Center recommends or you can add and configure a new port on which you want to enable the just in time solution. In this tutorial, let’s add a port by selecting **Add**.
+  You can save the default ports that Security Center recommends or you can add and configure a new port on which you want to enable the just in time solution. In this tutorial, let’s add a port by selecting **Add**.
 
-   ![Add port configuration][2]
+  ![Add port configuration][2]
 
 3. Under **Add port configuration**, you identify:
 
-- The port
-- The protocol type
-- Allowed source IPs - IP ranges allowed to get access upon an approved request
-- Maximum request time - maximum time window that a specific port can be opened
+  - The port
+  - The protocol type
+  - Allowed source IPs - IP ranges allowed to get access upon an approved request
+  - Maximum request time - maximum time window that a specific port can be opened
 
 4. Select **OK** to save.
 
@@ -76,11 +76,11 @@ Adaptive application controls is in preview. This feature is only available for 
 
    ![Adaptive application controls][3]
 
-The **Resource groups** section contains three tabs:
+  The **Resource groups** section contains three tabs:
 
-- **Configured**: list of resource groups containing the VMs that were configured with application control.
-- **Recommended**: list of resource groups for which application control is recommended.
-- **No recommendation**: list of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
+  - **Configured**: list of resource groups containing the VMs that were configured with application control.
+  - **Recommended**: list of resource groups for which application control is recommended.
+  - **No recommendation**: list of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
 
 2. Select the **Recommended** tab for a list of resource groups with application control recommendations.
 
@@ -88,10 +88,10 @@ The **Resource groups** section contains three tabs:
 
 3. Select a resource group to open the **Create application control rules** option. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications, and uncheck any you do not want to apply. The list includes:
 
-- **NAME**: the full application path
-- **PROCESSES**: how many applications reside within every path
-- **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group
-- **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
+  - **NAME**: the full application path
+  - **PROCESSES**: how many applications reside within every path
+  - **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group
+  - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
 
 4. Once you finish your selections, select **Create**.
 
