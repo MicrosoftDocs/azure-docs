@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/04/2018
   ms.author: heidist
 abstract:
-  description: Create an enterprise search solution over private, heterogenous content using Azure Search - fully managed, secure, and highly available from Microsoft. With Azure Search, you can consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of search scenarios. 
+  description: Create an enterprise search solution over private, heterogenous content using Azure Search - fully managed, secure, and highly available from Microsoft. With Azure Search, you can consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios. 
   aside:
     image:
       alt: 
@@ -29,7 +29,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Create a search service in the portal, then define, load, and query indexes in C# or REST:'
+    text: 'Start with a search service in the portal, then define, load, and query indexes in C# or REST:'
   - type: list
     style: icon48
     items: 
@@ -54,7 +54,7 @@ sections:
     items:
     - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
     - html: <a href="/azure/search/search-get-started-portal">How to use the portal for indexing and query testing</a> 
-    - html: <a href="/azure/search/search-semi-structured-data">Index content from Azure SQL Database with .NET</a>
+    - html: <a href="/azure/search/search-indexer-tutorial">Index content from Azure SQL Database with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure blob storage with REST</a>
     - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a>
 - title: Featured Videos
@@ -68,7 +68,7 @@ sections:
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
         href: https://www.youtube.com/watch?v=hZgXSMWnACs
-    - title: Performance and scale, from indexing to geo-distributed search
+    - title: Performance and scale, from indexing to geo-distributed search implementations
       href: https://www.youtube.com/watch?v=RYwc62oAXIs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg
