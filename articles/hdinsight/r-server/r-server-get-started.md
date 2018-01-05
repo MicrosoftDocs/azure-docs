@@ -556,7 +556,7 @@ If you are still using the Spark or MapReduce context, this command returns the 
 
 A feature available in R Server 9.1 allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.  
 
-The following code provides some sample code on use of the new functions:
+The following code provides some examples of how to use the new functions:
 
     #Create a Spark compute context:
     myHadoopCluster <- rxSparkConnect(reset = TRUE)
@@ -589,102 +589,109 @@ The following code provides some sample code on use of the new functions:
     rxSparkDisconnect(myHadoopCluster)
 
 
-For additional info on use of these new functions see the online help in R Server through use of the `?RxHivedata` and `?RxParquetData` commands.  
+For more information about these new functions, see the online help in R Server through use of the `?RxHivedata` and `?RxParquetData` commands.  
 
 
 ## Install additional R packages on the edge node
 
-If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the edge node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
+If you want to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the edge node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a script action.
 
-Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. To install additional packages by using a Script Action, use the following steps:
+Script actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. To install additional packages by using a script action, use the following steps.
 
 > [!IMPORTANT]
-> Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on R Server being completely installed and configured.
+> You can use script actions to install additional R packages only after the cluster has been created. Do not use this procedure during cluster creation, because the script relies on R Server being completely installed and configured.
 >
 >
 
 1. From the [Azure portal](https://portal.azure.com), select your R Server on HDInsight cluster.
 
-2. From the **Settings** blade, select **Script Actions** and then **Submit New** to submit a new Script Action.
+2. From the **Settings** pane, select **Script Actions** > **Submit New** to submit a new script action.
 
-   ![Image of script actions blade](./media/r-server-get-started/scriptaction.png)
+   ![Image of script actions pane](./media/r-server-get-started/scriptaction.png)
 
-3. From the **Submit script action** blade, provide the following information:
+3. From the **Submit script action** pane, provide the following information:
 
-   * **Name**: A friendly name to identify this script
+   * **Name**: A friendly name to identify this script.
 
    * **Bash script URI**: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
 
-   * **Head**: This item should be **unchecked**
+   * **Head**: This item should be cleared.
 
-   * **Worker**: This item should be **checked**
+   * **Worker**: This item should be cleared.
 
-   * **Edge nodes**: This item should be **unchecked**.
+   * **Edge nodes**: This item should be selected.
 
-   * **Zookeeper**: This item should be **unchecked**
+   * **Zookeeper**: This item should be cleared.
 
-   * **Parameters**: The R packages to be installed. For example, `bitops stringr arules`
+   * **Parameters**: The R packages to be installed--for example, `bitops stringr arules`.
 
-   * **Persist this script...**: This item should be **Checked**  
+   * **Persist this script**: This item should be selected.  
 
    > [!NOTE]
-   > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed. If you want to install newer versions of packages, then there is some risk of incompatibility. However this kind of install is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
-   > 2. Some R packages require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-   >    For more information on developing Script Actions, see [Script Action development](../hdinsight-hadoop-script-actions-linux.md).  
+   > By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed. If you want to install newer versions of packages, there is some risk of incompatibility. However, this kind of installaton is possible if you specify `useCRAN` as the first element of the package list--for example, `useCRAN bitops, stringr, arules`.  
+   > 
+   > Some R packages require additional Linux system libraries. For convenience, we have pre-installed the dependencies that the 100 most popular R packages need. If the R packages that you install require libraries beyond these, you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure Storage and use the modified script to install the packages.
+   >
+   > For more information on developing script actions, see [Script action development](../hdinsight-hadoop-script-actions-linux.md).  
    >
    >
 
    ![Adding a script action](./media/r-server-get-started/submitscriptaction.png)
 
-4. Select **Create** to run the script. Once the script completes, the R packages are available on all worker nodes.
+4. Select **Create** to run the script. After the script finishes, the R packages are available on all worker nodes.
 
 
-## Using Microsoft R Server Operationalization
+## Configure Microsoft R Server operationalization
 
-When your data modeling is complete, you can operationalize the model to make predictions. To configure for Microsoft R Server operationalization, perform the following steps:
+When your data modeling is complete, you can operationalize the model to make predictions. To configure Microsoft R Server operationalization, perform the following steps:
 
-First, ssh into the Edge node. For example, 
+1. Use the `ssh` command for the edge node--for example: 
 
 	ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-After using ssh, change directory for the relevant version and sudo the dotnet dll: 
+2. Change directory for the relevant version and use the `sudo dotnet` command for the .dll file. 
 
-- For Microsoft R Server 9.1:
+   For Microsoft R Server 9.1:
 
-	cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
-	sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+       cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
+	   sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
 
-- For Microsoft R Server 9.0:
+   For Microsoft R Server 9.0:
 
-	cd /usr/lib64/microsoft-deployr/9.0.1
-	sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
+       cd /usr/lib64/microsoft-deployr/9.0.1
+       sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-To configure Microsoft R Server operationalization with a One-box configuration do the following:
+3. To configure Microsoft R Server operationalization with a one-box configuration, do the following:
 
-1. Select “Configure R Server for Operationalization”
-2. Select “A. One-box (web + compute nodes)”
-3. Enter a password for the **admin** user
+   a. Select `Configure R Server for Operationalization`.
 
-![one box op](./media/r-server-get-started/admin-util-one-box-.png)
+   b. Select `A. One-box (web + compute nodes)`.
 
-As an optional step you can perform Diagnostic checks by running a diagnostic test as follows:
+   c. Enter a password for the `admin` user.
 
-1. Select “6. Run diagnostic tests”
-2. Select “A. Test configuration”
-3. Enter Username = “admin” and password from previous configuration step
-4. Confirm Overall Health = pass
-5. Exit the Admin Utility
-6. Exit SSH
+   ![One-box operationalization](./media/r-server-get-started/admin-util-one-box-.png)
 
-![Diagnostic for op](./media/r-server-get-started/admin-util-diagnostics.png)
+4. As an optional step, you can perform a diagnostic test as follows:
+
+   a. Select `6. Run diagnostic tests`.
+
+   b. Select `A. Test configuration`.
+
+   c. Enter `admin`for the username and the password from the previous configuration step.
+
+   d. Confirm `Overall Health = pass`.
+
+   e. Exit the admin utility.
+
+   f. Exit SSH.
+
+   ![Diagnostic for op](./media/r-server-get-started/admin-util-diagnostics.png)
 
 
 >[!NOTE]
->**Long delays when consuming web service on Spark**
->
->If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service through mrsdeploy functions. To work around this issue:
+>If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you might need to add some missing folders. The Spark application belongs to a user called *rserve2* whenever it's invoked from a web service through mrsdeploy functions. To work around this issue:
 
-	# Create these required folders for user 'rserve2' in local and hdfs:
+	# Create these required folders for user rserve2 in local and HDFS:
 
 	hadoop fs -mkdir /user/RevoShare/rserve2
 	hadoop fs -chmod 777 /user/RevoShare/rserve2
@@ -726,7 +733,7 @@ On PuTTY, you can set it up as well.
 
 ![PuTTY SSH connection](./media/r-server-get-started/putty.png)
 
-Once your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs in to the edge node’s operationalization through port forwarding.
+After your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs in to the edge node’s operationalization through port forwarding.
 
 
 	library(mrsdeploy)
@@ -738,9 +745,9 @@ Once your SSH session is active, the traffic from your machine’s port 12800 is
 	)
 
 
-## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes
+## Scale Microsoft R Server operationalization compute nodes on HDInsight worker nodes
 
-### Decommission the worker node(s)
+### Decommission the worker nodes
 
 Microsoft R Server is currently not managed through Yarn. If the worker nodes are not decommissioned, the Yarn Resource Manager will not work as expected because it will not be aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
@@ -759,7 +766,7 @@ Steps to decommissioning worker nodes:
 * Unselect the worker nodes and select the head nodes
 * Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**
 
-###	Configure Compute nodes on each decommissioned worker node(s)
+###	Configure compute nodes on each decommissioned worker node
 
 1. SSH into each decommissioned worker node.
 2. Run an admin utility by using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
@@ -767,9 +774,9 @@ Steps to decommissioning worker nodes:
 4. Enter "c" to select option "C. Compute node". This configures the compute node on the worker node.
 5. Exit the Admin Utility.
 
-### Add compute nodes details on Web Node
+### Add compute nodes details on the web node
 
-Once all decommissioned worker nodes have been configured to run compute node, come back on the edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
+After all decommissioned worker nodes have been configured to run compute node, come back on the edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
 
 * SSH into the edge node.
 * Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
@@ -780,12 +787,12 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 
 ## Next steps
 
-Now you should understand how to create a new HDInsight cluster that includes the R Server and the basics of using the R console from an SSH session. The following topics explain other ways of managing and working with R Server on HDInsight:
+Now you should understand how to create a new HDInsight cluster that includes R Server and the basics of using the R console from an SSH session. The following topics explain other ways of managing and working with R Server on HDInsight:
 
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md)
