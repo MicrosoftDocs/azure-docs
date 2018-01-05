@@ -35,7 +35,7 @@ The Azure Stack 1712 update build number is **180103.2**.
 
 > [!WARNING]
 > If you’re currently in an active interactive PEP remote session, you need to exit the session before initiating the Azure Stack update installation process. You can type **exit** in the remote console to exit the session.
-> You can check if there’s any existing PEP remote sessions by running two PowerShell commands, first **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. Here's the PowerShell command sample:
+> You can check if there’s any existing PEP remote sessions by running two PowerShell commands, first **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. The PowerShell commands have to be run from any machine used to create PEP remote sessions in the Azure Stack environment. Here's the PowerShell command sample:
 ```
 Get-PSSession | Remove-PSSession
 ```
@@ -61,23 +61,22 @@ This update includes the following improvements and fixes for Azure Stack.
 
 #### New features
 
-- New user experience when creating items from the Marketplace.
+- New user experience when creating items from the Marketplace
 - Test-AzureStack cmdlet to validate Azure Stack Cloud available via privileged endpoint
 - Ability to register a disconnected deployment of Azure Stack
 - Monitoring alerts for certificate and user account expiration
 - Added Update-BMCCredential cmdlet in PEP for BMC password rotation
-- Network logging updates to support on-demand logging.
+- Network logging updates to support on-demand logging
 - Support reimage operation for Virtual Machine Scales Sets (VMSS)
 - Enable kiosk mode on ERCS VM for CloudAdmin login
-- TimeSource and Defender privileged endpoint module bug fixes
 - Tenants can activate Windows VMs automatically
 
 #### Fixes
 
 - Fix to show Node Operational Status in maintenance while running repair
 - Fix to correct Public IP usage records time/date stamp
-- Various other performance, stability and security fixes.
-
+- Various other performance, stability and security fixes
+- TimeSource and Defender privileged endpoint module bug fixes
 
 #### Windows Server 2016 new features and fixes
 
@@ -94,7 +93,7 @@ This section contains known issues that you may encounter during the 1712 update
 <br><br>
 2. **Symptom:** Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \SU1FileServer\SU1_Public\DefenderUpdates\x64{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262" *
 	1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
-	2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
+	2. **Resolution:** Please attempt to resume the update after at least 8 hours have passed since the first update try.
 <br><br>
 3. **Symptom:** Azure Stack operators may see the following error during the update process:*"Enabling the seed ring VM failed on node Host-Node03 with an error: [Host-Node03] Connecting to remote server Host-Node03 failed with the following error message : The WinRM client received an HTTP server error status (500), but the remote service did not include any other information about the cause of the failure."*
 	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates. 
