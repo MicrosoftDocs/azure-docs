@@ -28,7 +28,7 @@ Perform an on-demand backup on Azure-Stack with backup in place. If you need to 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
 
    ```powershell
-   Start-AzSBackup -Location $location
+   Start-AzSBackup -Location $location.Name
    ```
 
 ## Confirm backup completed in the administration portal
