@@ -1,10 +1,10 @@
 ## Download, install, and register the Azure Backup agent
-After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
+After creating the Recovery Services vault, install the Backup agent on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) used to back up data to Azure.
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **Recovery Services**, then select the backup vault that you want to register with a server. The Quick Start page for that backup vault appears.
-   
-    ![Quick start](./media/backup-install-agent/quickstart.png)
+1. Open your subscription in the [Azure Portal](https://ms.portal.azure.com/).
+2. On the left-hand menu, select **All services** and in the services list, type **Recovery Services**. Click **Recovery Services vaults**.
+
+   ![open Recovery Services vault](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. On the Quick Start page, click the **For Windows Server or System Center Data Protection Manager or Windows client** option under **Download Agent**. Click **Save** to copy it to the local machine.
    
     ![Save agent](./media/backup-install-agent/agent.png)
