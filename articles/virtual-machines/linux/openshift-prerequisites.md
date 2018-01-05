@@ -91,7 +91,7 @@ For more information on SSH keys on Windows, see [How to create SSH keys on Wind
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault by using the following command:
 
 ```azurecli
-az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## Create a service principal 
