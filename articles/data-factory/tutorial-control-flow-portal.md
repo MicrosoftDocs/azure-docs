@@ -227,14 +227,14 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     4. Add a header **Content-Type** and set it to **application/json**. 
     5. Specify the following JSON for **Body**. 
 
-            ```json
-            {
-            	"message": "@{activity('Copy1').output.dataWritten}",
-            	"dataFactoryName": "@{pipeline().DataFactory}",
-            	"pipelineName": "@{pipeline().Pipeline}",
-            	"receiver": "@pipeline().parameters.receiver"
-            }
-            ```
+        ```json
+        {
+            "message": "@{activity('Copy1').output.dataWritten}",
+            "dataFactoryName": "@{pipeline().DataFactory}",
+            "pipelineName": "@{pipeline().Pipeline}",
+            "receiver": "@pipeline().parameters.receiver"
+        }
+        ```
         The message body contains the following properties:
 
         - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
@@ -258,14 +258,14 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     4. Add a header **Content-Type** and set it to **application/json**. 
     5. Specify the following JSON for **Body**. 
 
-            ```json
-            {
-                "message": "@{activity('Copy1').error.message}",
-                "dataFactoryName": "@{pipeline().DataFactory}",
-                "pipelineName": "@{pipeline().Pipeline}",
-                "receiver": "@pipeline().parameters.receiver"
-            }
-            ```
+        ```json
+        {
+            "message": "@{activity('Copy1').error.message}",
+            "dataFactoryName": "@{pipeline().DataFactory}",
+            "pipelineName": "@{pipeline().Pipeline}",
+            "receiver": "@pipeline().parameters.receiver"
+        }
+        ```
     6. The **Settings** should look like the following image: 
     
         ![Settings for the second Web activity](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
