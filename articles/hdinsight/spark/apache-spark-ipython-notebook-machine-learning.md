@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/05/2018
 ms.author: nitinme
 
 ---
@@ -30,35 +30,21 @@ You must have the following:
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="data"></a>Understand the data set
-Before we start building the application, let us understand the structure of the data for which we build the application and the kind of analysis we will do on the data. 
 
-In this article, we use the sample **HVAC.csv** data file that is available in the Azure Storage account that you associated with the HDInsight cluster. Within the storage account, the file is at **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Download and open the CSV file to get a snapshot of the data.  
+The following screenshot shows a snapshot of the data that is used in this tutorial. The data is used to predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.
 
 ![Snapshot of data used for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Snapshot of data used for Spark machine learning example")
 
-The data shows the target temperature and the actual temperature of a building that has HVAC systems installed. Let's assume the **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building.
+The data shows the target temperature and the actual temperature of a building that has HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building.
 
-We use this data to predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.
+The data file, **HVAC.csv**, is located at **\HdiSamples\HdiSamples\SensorSampleData\hvac** on all HDInsight clusters.
+
 
 ## <a name="app"></a>Write a Spark machine learning application using Spark MLlib
-In this application we use a Spark ML pipeline to perform a document classification. In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
+In this application, you use a Spark ML pipeline to perform a document classification. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Perform the following steps to create the application.
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
-2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-   
-   > [!NOTE]
-   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
-3. Create a new notebook. Click **New**, and then click **PySpark**.
-   
-    ![Create a Jupyter notebook for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-create-notebook.png "Create a Jupyter notebook for Spark machine learning example")
-4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
-   
-    ![Provide a notebook name for Spark machine learning example](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-notebook-name.png "Provide a notebook name for Spark machine learning example")
-5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
+1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+2. Import the types required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -74,9 +60,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
-6. You must now load the data (hvac.csv), parse it, and use it to train the model. For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. If the actual temperature is lesser, the building is cold, denoted by the value **0.0**. 
-   
-    Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+3. Load the data (hvac.csv), parse it, and use it to train the model. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
     ```PySpark
     # List the structure of data for better understanding. Because the data will be
@@ -113,9 +97,10 @@ In this application we use a Spark ML pipeline to perform a document classificat
     training = documents.toDF()
     ```
 
-1. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr. For more information about what is a pipeline and how it works see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
-   
-    Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+    In the code snippet, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. Otherwise the building is cold, denoted by the value **0.0**. 
+
+
+4. Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -123,6 +108,8 @@ In this application we use a Spark ML pipeline to perform a document classificat
     lr = LogisticRegression(maxIter=10, regParam=0.01)
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
+
+    For more information about what is a pipeline and how it works see <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a>.
 
 2. Fit the pipeline to the training document. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
    
@@ -171,7 +158,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
     Notice how the actual temperature is less than the target temperature suggesting the building is cold. Hence in the training output, the value for **label** in the first row is **0.0**, which means the building is not hot.
 
-1. Prepare a data set to run the trained model against. To do so, we would pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).
+4. Prepare a data set to run the trained model against. To do so, you pass on a system ID and system age (denoted as **SystemInfo** in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).
    
    Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
@@ -186,7 +173,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
                     (6L, "7 22")]) \
         .map(lambda x: Document(*x)).toDF() 
     ```
-2. Finally, make predictions on the test data. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
+5. Finally, make predictions on the test data. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
    
     ```PySpark
     # Make predictions on test documents and print columns of interest
