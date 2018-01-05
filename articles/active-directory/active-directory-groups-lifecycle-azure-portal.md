@@ -28,7 +28,7 @@ You can now manage the lifecycle of Office 365 groups by setting expiration feat
 -	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
 
 > [!NOTE]
-> Setting expiration for Office 365 groups requires an Azure AD Premium license or an Azure AD Basic EDU license for all members of the groups to which expiration settings are applied.
+> Setting expiration for Office 365 groups requires an Azure AD Premium license for all members of the groups to which expiration settings are applied.
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
