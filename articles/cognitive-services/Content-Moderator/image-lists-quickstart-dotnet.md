@@ -601,9 +601,8 @@ Moderator service.
 
 ## Run the program and review the output
 
-The log file written by the program has the following output.
-
 The list ID and the image content IDs are different each time you run the application.
+The log file written by the program has the following output:
 
 	Creating list MyList.
 	Response:
