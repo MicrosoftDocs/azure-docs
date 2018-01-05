@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -54,7 +54,7 @@ The following properties are supported for Oracle linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Oracle** | Yes |
-| connectionString | Specify information needed to connect to the Oracle Database instance. Mark this field as a SecureString. | Yes |
+| connectionString | Specify information needed to connect to the Oracle Database instance. Mark this field as a SecureString.<br><br>**Supported connection type**: you can choose to use Oracle SID or Oracle Service Name to identify your database:<br>- Using SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`;<br>- Using Service Name: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
