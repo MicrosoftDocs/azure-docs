@@ -23,7 +23,7 @@ ms.author: mabrigg
 
 Enable the Infrastructure Back Service through the administration portal so that Azure Stack can generate backups. You can use these backs ups to restore your environment in the event of a failure.
 
-> [!Warning]  
+> [!Note]  
 > Before enable the backup through the console, you need to configure the backup service. You can configure the backup service using PowerShell. For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## Enable backup
