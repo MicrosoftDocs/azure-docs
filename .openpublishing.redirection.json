@@ -6641,6 +6641,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
