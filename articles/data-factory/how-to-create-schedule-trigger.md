@@ -22,7 +22,7 @@ This article provides information about the schedule trigger and steps to create
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-### Scheduler trigger JSON definition
+### Schedule trigger JSON definition
 When you create a schedule trigger, you can specify scheduling and recurrence using JSON as shown in the example in this section.
 
 To have your schedule trigger kick off a pipeline run, include a pipeline reference of the particular pipeline in the trigger definition. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
