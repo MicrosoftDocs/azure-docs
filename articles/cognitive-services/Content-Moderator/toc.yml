@@ -18,6 +18,8 @@
       href: image-moderation-quickstart-dotnet.md
     - name: Custom images - API console
       href: try-image-list-api.md
+    - name: Custom images - .NET
+      href: image-lists-quickstart-dotnet.md
     - name: Text - API console
       href: try-text-api.md
     - name: Text - .NET
