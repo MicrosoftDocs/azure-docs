@@ -172,7 +172,7 @@ To have your scheduler trigger kick off a pipeline run, include a pipeline refer
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -267,7 +267,7 @@ JSON name | Value type | Required? | Default value | Valid values | Example
 --------- | ---------- | --------- | ------------- | ------------ | -------
 startTime | String | Yes | None | ISO-8601 Date-Times | ```"startTime" : "2013-01-09T09:30:00-08:00"```
 recurrence | Object | Yes | None | Recurrence object | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | Number | No | 1 | 1 to 1000. | ```"interval":10```
+interval | Number | Yes | None | 1 to 1000. | ```"interval":10```
 endTime | String | Yes | None | Date-Time value representing a time in the future | `"endTime" : "2013-02-09T09:30:00-08:00"`
 schedule | Object | No | None | Schedule object | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
@@ -299,11 +299,11 @@ The following table describes schedule elements in detail:
 
 JSON name | Description | Valid Values
 --------- | ----------- | ------------
-minutes | Minutes of the hour at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
-hours | Hours of the day at which the trigger runs. | <ul><li>Integer</li><li>Array of integers</li></ul>
-weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</li><li>Array of any of the values (max array size 7)</li></p>Not case-sensitive</p>
+minutes | Minutes of the hour at which the trigger runs. | <ul><li>Array of integers</li></ul>
+hours | Hours of the day at which the trigger runs. | <ul><li>Array of integers</li></ul>
+weekDays | Days of the week the trigger runs. Can only be specified with a weekly frequency. | <ul><li>Array of any of below values (max array size 7)<ul><li>Monday</li><li>Tuesday</li><li>Wednesday</li><li>Thursday</li><li>Friday</li><li>Saturday</li><li>Sunday</li></ul></li></p>Not case-sensitive</p>
 monthlyOccurrences | Determines which days of the month the trigger runs. Can only be specified with a monthly frequency. | Array of monthlyOccurence objects: `{ "day": day,  "occurrence": occurence }`. <p> The day is the day of the week the trigger runs, for example, `{Sunday}` is every Sunday of the month. Required.<p>Occurrence is occurrence of the day during the month, for example, `{Sunday, -1}` is the last Sunday of the month. Optional.
-monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>An array of values</li>
+monthDays | Day of the month the trigger runs. Can only be specified with a monthly frequency. | <ul><li>An array of below values</li><ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li></ul></ul> |
 
 
 ## Examples: recurrence schedules
