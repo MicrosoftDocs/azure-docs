@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery competitions | Microsoft Docs
-description: Discover competitions in the Cortana Intelligence Gallery.
+title: Azure AI Gallery competitions | Microsoft Docs
+description: Discover competitions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -17,7 +17,7 @@ ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
-# Discover competitions in the Cortana Intelligence Gallery
+# Discover competitions in the Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Cortana Intelligence Competitions
