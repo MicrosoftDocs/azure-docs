@@ -18,7 +18,7 @@ ms.author: v-craic
 
 ---
 
-# Use a virtual machine's Azure Resource Manager template
+# Use a virtual machine's Azure Resource Manager template to create more VMs
 
 When you are creating a virtual machine (VM) in DevTest Labs through the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), you can view the Azure Resource Manager template before you save the VM. The template can then be used as a basis to create more lab VMs with the same settings.
 
