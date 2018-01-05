@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/search/search-howto-index-documentdb.md",
+        "redirect_url": "/azure/search/search-howto-index-cosmosdb",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
         "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
         "redirect_document_id": true
@@ -15962,6 +15967,26 @@
       {
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": false
+      }, 
+      { 
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md", 
+      "redirect_url": "/azure/active-directory/license-users-groups", 
+      "redirect_document_id": false 
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/azure/stream-analytics/",
         "redirect_document_id": false
       }
     ]
