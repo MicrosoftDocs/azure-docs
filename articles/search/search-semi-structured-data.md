@@ -13,19 +13,19 @@ ms.custom: mvc
 
 # Part 2: Search semi-structured data in cloud storage
 
-In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search cover unstructured data, but also included important prerequisites like creating the storage account. 
+In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
 
-In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It differs from structured data in that it is not formally structured according to a data model, such as a relational database schema.
+In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be indexed wholistically, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
 
 In Part 2, learn how to:
 
 > [!div class="checklist"]
 > * Configure an Azure Search data source for an Azure blob container
 > * Create and populate an Azure Search index and indexer to crawl the container and extract searchable content
-> * Search your index
+> * Search the index you just created
 
 > [!NOTE]
-> "JSON array support is a preview feature in Azure Search. It is not currently available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API."
+> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
 
 ## Prerequisites
 
