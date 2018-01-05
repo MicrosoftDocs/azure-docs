@@ -71,7 +71,11 @@
     - name: PowerShell
       href: tutorial-transform-data-hive-virtual-network.md       
   - name: 8 - Control flow
-    href: tutorial-control-flow.md    
+    items:
+    - name: Azure portal
+      href: tutorial-control-flow-portal.md    
+    - name: PowerShell
+      href: tutorial-control-flow.md    
 - name: Samples
   items:
   - name: Code samples
