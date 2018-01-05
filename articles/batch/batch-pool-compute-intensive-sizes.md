@@ -4,7 +4,7 @@ description: How to take advantage of RDMA-capable or GPU-enabled VM sizes in Az
 services: batch
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
 
 
@@ -48,10 +48,10 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivers | N/A | 
+| [NC, NCv2, ND series*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 drivers | N/A | 
 | [NV series](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS-based 7.3<br/>(Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
 
-*RDMA connectivity on NC24r VMs is supported on Ubuntu 16.04 LTS or CentOS-based 7.3 HPC (from Azure Marketplace) with Intel MPI.
+*RDMA connectivity on NC24r, NC24r_v2, and ND24r VMs is supported on Ubuntu 16.04 LTS or CentOS-based 7.3 HPC (from Azure Marketplace) with Intel MPI.
 
 
 
@@ -60,7 +60,7 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
-| [NC series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 9.0 drivers| N/A | 
+| [NC, NCv2, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit 9.1 drivers| N/A | 
 | [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA GRID 4.3 drivers | N/A |
 
 *RDMA connectivity on NC24r VMs is supported on Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
