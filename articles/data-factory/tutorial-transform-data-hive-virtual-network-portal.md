@@ -20,9 +20,12 @@ In this tutorial, you use Azure portal to create a Data Factory pipeline that tr
 
 > [!div class="checklist"]
 > * Create a data factory. 
+> * Create a self-hosted integration runtime
+> * Create Azure Storage and Azure HDInsight linked services
 > * Create a pipeline with Hive activity.
 > * Trigger a pipeline run.
 > * Monitor the pipeline run 
+> * Verify the output
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -96,7 +99,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
    ![Edit tab](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
-## Create self-hosted integration runtime
+## Create a self-hosted integration runtime
 As the Hadoop cluster is inside a virtual network, you need to install a self-hosted integration runtime (IR) in the same virtual network. In this section, you create a new VM, join it to the same virtual network, and install self-hosted IR on it. The self-hosted IR allows Data Factory service to dispatch processing requests to a compute service such as HDInsight inside a virtual network. It also allows you to move data to/from data stores inside a virtual network to Azure. You use a self-hosted IR when the data store or compute is in an on-premises environment as well. 
 
 1. In the Azure Data Factory UI, click **Connections** at the bottom of the window, switch to the **Integration Runtimes** tab, and click **+ New** button on the toolbar. 
@@ -138,7 +141,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
    ![Self-hosted IR in the list](./media/tutorial-transform-data-using-hive-in-vnet-portal/self-hosted-ir-in-list.png)
 
 
-## Author linked services
+## Create linked services
 
 You author and deploy two Linked Services in this section:
 - An **Azure Storage Linked Service** that links an Azure Storage account to the data factory. This storage is the primary storage used by your HDInsight cluster. In this case, you use this Azure Storage account to store the Hive script and output of the script.
@@ -242,22 +245,25 @@ Note the following points:
 2. To refresh the list, click **Refresh**.
 4. To view activity runs associated with the pipeline runs, click **View activity runs** in the **Action** column. Other action links are for stopping/rerunning the pipeline. 
 
-    ![View activity runs](/media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs-link.png)
+    ![View activity runs](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs-link.png)
 5. You see only one activity run since there is only one activity in the pipeline of type **HDInsightHive**. To switch back to the previous view, click **Pipelines** link at the top.
 
-    ![Activity runs](/media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs.png)
+    ![Activity runs](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs.png)
 6. Confirm that you see an output file in the **outputfolder** of the **adftutorial** container. 
 
-    ![Output file](/media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
+    ![Output file](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## Next steps
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
 > * Create a data factory. 
+> * Create a self-hosted integration runtime
+> * Create Azure Storage and Azure HDInsight linked services
 > * Create a pipeline with Hive activity.
 > * Trigger a pipeline run.
-> * Monitor the pipeline run  
+> * Monitor the pipeline run 
+> * Verify the output
 
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
