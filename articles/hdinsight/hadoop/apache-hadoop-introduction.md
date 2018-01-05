@@ -1,6 +1,6 @@
 ---
-title: What are HDInsight, the Hadoop and Spark technology stack? - Azure | Microsoft Docs
-description: An introduction to HDInsight, the Hadoop and Spark technology stack and components, including Kafka, Hive, Storm, HBase for big data analysis.
+title: What are HDInsight and the Hadoop and Spark technology stack? - Azure | Microsoft Docs
+description: An introduction to HDInsight, and to the Hadoop and Spark technology stack and components, including Kafka, Hive, Storm, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 12/13/2017
 ms.author: cgronlun
 
 ---
-# Introduction to Azure HDInsight, the Hadoop and Spark technology stack
+# Introduction to Azure HDInsight and the Hadoop and Spark technology stack
 This article provides an introduction to Azure HDInsight, a fully managed, full spectrum open source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
@@ -31,11 +31,11 @@ This article provides an introduction to Azure HDInsight, a fully managed, full 
 <a href="https://ms.portal.azure.com/#create/Microsoft.HDInsightCluster" target="_blank"><img src="./media/apache-hadoop-introduction/deploy-to-azure.png" alt="Deploy an Azure HDInsight cluster"></a>
 
 ## What is HDInsight and the Hadoop technology stack? 
-Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/).  Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more to enable a broad range of scenarios such as extract, transform, and load (ETL); data warehousing; machine learning; and IoT.
+Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/).  Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more to enable a broad range of scenarios such as extract, transform, and load (ETL), data warehousing, machine learning, and IoT.
 
 ## What is big data?
 
-Big data is being collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical (meaning stored) or real time (meaning streamed from the source). See [Scenarios for using HDInsight](#scenarios-for-using-hdinsight) to learn about the most common use cases for big data.
+Big data is  collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical (meaning stored) or real-time (meaning streamed from the source). See [Scenarios for using HDInsight](#scenarios-for-using-hdinsight) to learn about the most common use cases for big data.
 
 ## Why should I use HDInsight?
 
@@ -45,16 +45,16 @@ This section lists the capabilities of Azure HDInsight.
 |Capability  |Description  |
 |---------|---------|
 |Cloud native     |     Azure HDInsight enables you to create optimized clusters for [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md), and [R Server](../r-server/r-server-get-started.md) on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
-|Low-cost and scalable     | HDInsight enables you to [scale](../hdinsight-administer-use-portal-linux.md) workloads up or down. You can reduce cost by [creating clusters on demand](../hdinsight-hadoop-create-linux-clusters-adf.md) and pay only for what you use. You can also build data pipelines to operationalize your jobs. Decoupled compute and storage provide better performance and flexibility. |
-|Secure and compliant    | HDInsight enables you to protect your enterprise data assets using [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).        |
-|Monitoring    | Azure HDInsight integrates with [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to provide a single interface to monitor all you clusters.        |
-|Global availability | HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany that allows you to meet your enterprise needs in key sovereign areas. |  
+|Low-cost and scalable     | HDInsight enables you to [scale](../hdinsight-administer-use-portal-linux.md) workloads up or down. You can reduce cost by [creating clusters on demand](../hdinsight-hadoop-create-linux-clusters-adf.md) and paying only for what you use. You can also build data pipelines to operationalize your jobs. Decoupled compute and storage provide better performance and flexibility. |
+|Secure and compliant    | HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).        |
+|Monitoring    | Azure HDInsight integrates with [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to provide a single interface with which you can monitor all your clusters.        |
+|Global availability | HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas. |  
 |Productivity     |  Azure HDInsight enables you to use rich productive tools for Hadoop and Spark with your preferred development environment such as [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md), and [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) for Scala, Python, R, Java, and .NET support. Data scientists can also collaborate using popular notebooks such as [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) and [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
-|Extensibility     |  You can extend the HDInsight clusters by installing components (Hue, Presto, etc.) using [script actions](../hdinsight-hadoop-customize-cluster-linux.md), by [adding edge nodes](../hdinsight-apps-use-edge-node.md), or by [integrating with other big data certified applications](../hdinsight-apps-install-applications.md). HDInsight enables seamless integration with the most popular big data solutions with a [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployment.|
+|Extensibility     |  You can extend the HDInsight clusters by installing components by using [script actions](../hdinsight-hadoop-customize-cluster-linux.md) (Hue, Presto, and so on), by [adding edge nodes](../hdinsight-apps-use-edge-node.md), or by [integrating with other big data certified applications](../hdinsight-apps-install-applications.md). HDInsight enables seamless integration with the most popular big data solutions with a [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployment.|
 
 ## Scenarios for using HDInsight
 
-Azure HDInsight can be used for a variety of use cases for Big data processing. Big data is being collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical data(data already collected and stored) or real-time data (data directly streamed from the source). The use cases for processing such data can be summarized in the following categories: 
+Azure HDInsight can be used for a variety of use cases for big data processing. Big data is being collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical data (data already collected and stored) or real-time data (data directly streamed from the source). The use cases for processing such data can be summarized in the following categories: 
 
 ### Batch processing (ETL)
 
@@ -62,7 +62,7 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 ### Internet of Things (IoT)
 
-You can use HDInsight to process streaming data received at real time from a variety of devices. For more information, [read this blog](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+You can use HDInsight to process streaming data received in real time from a variety of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 ![HDInsight architecture: Internet of Things](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png) 
 
