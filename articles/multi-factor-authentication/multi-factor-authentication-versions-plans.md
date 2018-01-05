@@ -46,7 +46,7 @@ The following table provides a list of the features that are available in the va
 
 | Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
-| Protect AAD admin accounts with MFA |● |● (AAD Global Administrator accounts only) |● |
+| Protect Azure AD admin accounts with MFA |● |● (Azure AD Global Administrator accounts only) |● |
 | Mobile app as a second factor |● |● |● |
 | Phone call as a second factor |● |● |● |
 | SMS as a second factor |● |● |● |
