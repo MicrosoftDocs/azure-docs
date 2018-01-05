@@ -34,8 +34,8 @@ The Azure Stack 1712 update build number is **180103.2**.
 ## Before you begin
 
 > [!WARNING]
-> If you’re currently in an active interactive remote session to the PEP, you need to exit the session before initiating the Azure Stack update process. You can type **exit** in the remote console to exit the session.
-> You can check if there’s any existing sessions by running the following PowerShell command **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. PowerShell command sample:
+> If you’re currently in an active interactive PEP remote session, you need to exit the session before initiating the Azure Stack update installation process. You can type **exit** in the remote console to exit the session.
+> You can check if there’s any existing PEP remote sessions by running two PowerShell commands, first **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. Here's the PowerShell command sample:
 ```
 Get-PSSession | Remove-PSSession
 ```
