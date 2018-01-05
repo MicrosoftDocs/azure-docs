@@ -1,6 +1,6 @@
 ---
 title: What are HDInsight and the Hadoop and Spark technology stack? - Azure | Microsoft Docs
-description: An introduction to HDInsight, and to the Hadoop and Spark technology stack and components, including Kafka, Hive, Storm, HBase for big data analysis.
+description: An introduction to HDInsight, and to the Hadoop and Spark technology stack and components, including Kafka, Hive, Storm, and HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
 documentationcenter: ''
@@ -20,13 +20,13 @@ ms.author: cgronlun
 
 ---
 # Introduction to Azure HDInsight and the Hadoop and Spark technology stack
-This article provides an introduction to Azure HDInsight, a fully managed, full-spectrum open source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
+This article provides an introduction to Azure HDInsight, a fully managed, full-spectrum, open-source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 [Apache Hadoop](http://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight][component-versioning]. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-[Apache Spark](http://spark.apache.org) is an open-source, parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. To read more about Spark in HDInsight,see the [Introduction to Spark on Azure HDInsight](../spark/apache-spark-overview.md). 
+[Apache Spark](http://spark.apache.org) is an open-source, parallel-processing framework that supports in-memory processing to boost the performance of big-data analytic applications. To read more about Spark in HDInsight, see the [Introduction to Spark on Azure HDInsight](../spark/apache-spark-overview.md). 
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.HDInsightCluster" target="_blank"><img src="./media/apache-hadoop-introduction/deploy-to-azure.png" alt="Deploy an Azure HDInsight cluster"></a>
 
