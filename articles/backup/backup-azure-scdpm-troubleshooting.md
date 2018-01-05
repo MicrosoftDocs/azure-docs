@@ -18,6 +18,7 @@ ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
 
 ---
+
 # Troubleshoot System Center Data Protection Manager
 
 You can find the latest Release Notes for SC DPM [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016).
