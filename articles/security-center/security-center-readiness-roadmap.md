@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: yurid
 
 ---
@@ -62,14 +62,61 @@ Security Center automatically collects, analyzes, and integrates log data from y
 Use the resources below to assist you to manage security alerts and protect your resources.
 
 Articles	
-* Security health monitoring in Azure Security Center
-* Protecting your virtual machines in Azure Security Center
-* Protecting your network in Azure Security Center
-* Protecting your applications in Azure Security Center
-* Protecting Azure SQL service and data in Azure Security Center
+* [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+* [Protecting your virtual machines in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Protecting your applications in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
+* [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 Video	
-* Mitigating Security Issues using Azure Security Center
+* [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+
+### Security Center for Incident Response
+To reduce costs and damage, it’s important to have an incident response plan in place before an attack takes place. You can use Azure Security Center in different stages of an incident response.
+
+Use the resources below to understand how Security Center can be incorporated in your incident response process.
+
+Videos	
+* [Azure Security Center in Incident Response](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
+* [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
+
+Articles	
+* [Using Azure Security Center for an incident response](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
+* [Automate response with security playbook](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+
+## Advanced cloud defense
+
+Azure VMs can take advantage of advanced cloud defense capabilities in Security Center. These capabilities includes Just in time virtual machine (VM) access, and adaptive application controls.
+
+Use the resources below to learn how to use these capabilities in Security Center.
+
+Video	
+* [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
+
+Articles	
+* [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+
+## Hands-on Activities
+
+* [Security Center hands-on lab](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
+* [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+
+## Additional Resources
+* [Security Center Documentation Page](https://docs.microsoft.com/azure/security-center/)
+* [Security Center REST API Documentation Page](https://msdn.microsoft.com/library/mt704034.aspx)
+* [Azure Security Center frequently asked questions (FAQ)](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Security Center Pricing Page](https://azure.microsoft.com/pricing/details/security-center/)
+* [Identity security best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Network security best practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Compliance](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+
+##Community Resources
+
+* [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
+* [Security Center community forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)
+
 
 
