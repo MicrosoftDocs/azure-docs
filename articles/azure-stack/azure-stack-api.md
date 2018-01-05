@@ -60,14 +60,18 @@ grant_type=password
 
   The Azure Stack Management endpoint:
   ```
+  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+  ```
+  **NOTE:** If you are an admin trying to access the tenant API then you must make sure to the tenant endpoint, e.g.
+  ```
   https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
   ```
   
   For example with the ASDK:
   ```
-  curl 'https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
   ```
-  
+ 
   response:
   ```
   {
