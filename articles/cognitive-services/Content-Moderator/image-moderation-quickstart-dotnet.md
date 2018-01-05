@@ -84,7 +84,7 @@ Add the following static fields to the **Program** class in Program.cs.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## Create a class to store the analysis results
+## Store the analysis results
 
 Add the following class to the **Program** class. Use an instance 
 of this class to record the moderation results for the reviewed images.
@@ -116,14 +116,14 @@ of this class to record the moderation results for the reviewed images.
     	public FoundFaces FaceDetection;
 	}
 
-## Create a method to evaluate an individual image
+## Evaluate an individual image
 
 Add the following method to the **Program** class. This method evaluates a
-single image and return the evaluation results.
+single image and returns the evaluation results.
 
 > [!NOTE]
 > Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK will throw an exception with a 429 error code. 
+> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code. 
 >
 > A free tier key has a one RPS rate limit.
 
