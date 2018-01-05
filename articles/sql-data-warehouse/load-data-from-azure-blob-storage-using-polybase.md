@@ -52,7 +52,7 @@ An Azure SQL data warehouse is created with a defined set of [compute resources]
 
 Follow these steps to create a blank SQL data warehouse. 
 
-1. Click the **New** button in the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 

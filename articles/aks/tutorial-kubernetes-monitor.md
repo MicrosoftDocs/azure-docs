@@ -33,7 +33,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Configure the monitoring solution
 
-In the Azure portal, select **New** and search for `Container Monitoring Solution`. Once located, select **Create**.
+In the Azure portal, select **Create a resource** and search for `Container Monitoring Solution`. Once located, select **Create**.
 
 ![Add solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
