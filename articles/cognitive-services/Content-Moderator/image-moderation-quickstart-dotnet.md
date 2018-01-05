@@ -31,7 +31,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
-   In the sample code, we named the project **ImageModeration**.
+   In the sample code, name the project **ImageModeration**.
 
 1. Select this project as the single startup project for the solution.
 
@@ -80,13 +80,13 @@ Add the following static fields to the **Program** class in Program.cs.
 
 
 > [!NOTE]
-> We used the following URLs to generate the output for this quickstart.
+> The sample uses the following images to generate the output for this quickstart.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ## Create a class to store the analysis results
 
-Add the following class to the **Program** class. We will use an instance 
+Add the following class to the **Program** class. Use an instance 
 of this class to record the moderation results for the reviewed images.
 
 	/// <summary>
@@ -118,15 +118,14 @@ of this class to record the moderation results for the reviewed images.
 
 ## Create a method to evaluate an individual image
 
-Add the following method to the **Program** class. This method will evaluate a
+Add the following method to the **Program** class. This method evaluates a
 single image and return the evaluation results.
 
 > [!NOTE]
-> Your Content Moderator service key will have a requests per second (RPS)
-> rate limit, and the SDK will throw an exception with a 429 error code 
-> if you exceed that limit. 
+> Your Content Moderator service key has a requests per second (RPS)
+> rate limit, and if you exceed the limit, the SDK will throw an exception with a 429 error code. 
 >
-> A free tier key has a 1 RPS rate limit.
+> A free tier key has a one RPS rate limit.
 
 
 	/// <summary>
@@ -176,7 +175,7 @@ The return value contains the object returned from the API call.
 The **FindFacesUrlInput** method is a wrapper for the Image Find Faces REST API.
 The return value contains the object returned from the API call.
 
-## Add code to process the image URLs
+## Process the image URLs in your code
 
 Add the following code to the **Main** method.
 
