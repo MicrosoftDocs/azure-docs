@@ -20,7 +20,7 @@ ms.author: garye
 # Use the sample datasets in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/). Others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure Azure AI Gallery](http://gallery.cortanaintelligence.com/). Others are included as examples of various types of data typically used in machine learning.
 
 Some of these datasets are available in Azure Blob storage. For these datasets, the following table provides a direct link. You can use these datasets in your experiments by using the [Import Data][import-data] module.
 

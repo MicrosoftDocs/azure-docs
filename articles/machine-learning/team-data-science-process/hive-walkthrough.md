@@ -814,7 +814,7 @@ b. For regression problems, we measure the accuracies of our prediction by looki
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Azure AI Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 > 
 > 
 
