@@ -17,7 +17,7 @@ ms.author: sajagtap
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
 - Detect potential profanity in text
-- Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses and US mailing addresses.
+- Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
 - Normalize text and autocorrect typos
 
 This article assumes that you are already familiar with Visual Studio and C#.
@@ -31,7 +31,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
-   In the sample code, I named the project **TextModeration**.
+   In the sample code, name the project **TextModeration**.
 
 1. Select this project as the single startup project for the solution.
 
@@ -111,15 +111,14 @@ Add the following code to the **Main** method.
 	}
 
 > [!NOTE]
-> Your Content Moderator service key will have a requests per second (RPS)
-> rate limit, and the SDK will throw an exception with a 429 error code 
-> if you exceed that limit. 
+> Your Content Moderator service key has a requests per second (RPS)
+> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code.
 >
-> A free tier key has a 1 RPS rate limit.
+> A free tier key has a one RPS rate limit.
 
 ## Run the program and review the output
 
-The following is sample output for the program, as written to the log file.
+The sample output for the program, as written to the log file, is:
 
 	Normalize text and autocorrect typos.
 	{
