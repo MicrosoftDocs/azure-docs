@@ -22,7 +22,7 @@ After creating the Recovery Services vault, install the Backup agent on each of 
    
     Ensure the setup application can access the vault credentials file. If you encounter access-related errors, copy the vault credentials file to a temporary location on the local machine and retry the operation.
    
-    If you encounter an invalid vault credential error such as “Invalid vault credentials provided", the vault credentials file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen when a user clicks the **Download vault credential** option in the Azure portal, in quick succession. When this happes, only the second vault credential file is valid.
+    If you encounter an invalid vault credential error such as “Invalid vault credentials provided", the vault credentials file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen when a user clicks the **Download vault credential** option in the Azure portal, in quick succession. When this happens, only the second vault credential file is valid.
 9. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
    
     ![Encryption](./media/backup-install-agent/encryption.png)
