@@ -1,4 +1,4 @@
-o﻿---
+﻿---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
