@@ -32,7 +32,7 @@ Table bindings leverage external API connections to authenticate with 3rd party 
 
 When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group
 
-### Supported API Connections (Table)s
+### Available API connections (tables)
 
 |Connector|Trigger|Input|Output|
 |:-----|:---:|:---:|:---:|
