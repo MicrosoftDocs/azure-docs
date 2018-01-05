@@ -146,7 +146,7 @@ If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified
 
 ## Troubleshooting
 
-If a storage account cannot be found, the persistent volume claim will fail. To get information about the persistent volume claim, used the [kubectl describe][kubectl-describe] command.
+If a storage account cannot be found, the persistent volume claim creation fails. To get information about the persistent volume claim, used the [kubectl describe][kubectl-describe] command.
 
 First, get the name of the persistent volume claim.
 
