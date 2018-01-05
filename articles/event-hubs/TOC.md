@@ -9,8 +9,8 @@
 # Tutorials
 
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
-## [Code samples](event-hubs-samples.md)
+## [Azure code gallery samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Code samples overview](event-hubs-samples.md)
 
 # Concepts
 ## [Programming guide](event-hubs-programming-guide.md)
