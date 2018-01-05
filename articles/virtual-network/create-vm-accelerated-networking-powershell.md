@@ -1,4 +1,4 @@
-﻿---
+o﻿---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
@@ -20,7 +20,7 @@ ms.author: jimdial
 # Create a Windows virtual machine with Accelerated Networking
 
 > [!IMPORTANT] 
-> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. YOu can follow the steps below to enable accelerated networking
+> Virtual machines must be created with Accelerated Networking enabled. This feature cannot be enabled on existing virtual machines. You can follow the steps below to enable accelerated networking
 >   1. Delete the virtual machine
 >   2. Recreate the virtual machine with accelerated networking enabled
 >
