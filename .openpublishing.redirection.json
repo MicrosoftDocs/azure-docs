@@ -13707,7 +13707,7 @@
         }, 
 	{
             "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
-            "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+            "redirect_url": "/azure/articles/cognitive-services/Translator/ctf-reporting.md",
             "redirect_document_id": false
 	},
 	{
@@ -13717,12 +13717,12 @@
 	},
 	{
             "source_path": "articles/cognitive-services/Translator/text-overview.md",
-            "redirect_url": "articles/cognitive-services/Translator/index.yml",
+            "redirect_url": "/azure/articles/cognitive-services/Translator/index.yml",
             "redirect_document_id": false
 	},
 	{
             "source_path": "articles/cognitive-services/Translator/translator-hub-overview.md",
-            "redirect_url": "articles/cognitive-services/Translator/customization.md",
+            "redirect_url": "/azure/articles/cognitive-services/Translator/customization.md",
             "redirect_document_id": false
 	},
 	    {
