@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
 
@@ -222,11 +222,7 @@ Backup vaults, which are based on Azure Service Manager, were the first version 
 
 > [!IMPORTANT]
 > You can upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After **November 30, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/>
-By November 30, 2017:
-- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
-- You won't be able to access backup data in the Classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
-
-
+By November 30, 2017, all remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Azure Backup and Azure Site Recovery are related in that both services back up data and can restore that data. However, these services serve different purposes in providing business continuity and disaster recovery in your business. Use Azure Backup to protect and restore data at a more granular level. For example, if a presentation on a laptop became corrupted, you would use Azure Backup to restore the presentation. If you wanted to replicate the configuration and data on a VM across another datacenter, use Azure Site Recovery.
