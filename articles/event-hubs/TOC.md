@@ -1,31 +1,20 @@
 # Overview
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs features](event-hubs-features.md)
-## [FAQ](event-hubs-faq.md)
 
 # Quickstarts
 ## [Create namespace and event hub using the portal](event-hubs-quickstart-namespace-portal.md)
 ## [Create namespace and event hub using PowerShell](event-hubs-quickstart-namespace-powershell.md)
 ## [Create namespace and event hub using Azure CLI](event-hubs-quickstart-namespace-cli.md)
 
-# Get Started
-## [Create an event hub](event-hubs-create.md)
-## Send events
-### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-### [Java](event-hubs-java-get-started-send.md)
-### [C](event-hubs-c-getstarted-send.md)
-## Receive events
-### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-### [Java](event-hubs-java-get-started-receive-eph.md)
-### [Apache Storm](event-hubs-storm-getstarted-receive.md)
-## Capture events
-### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
-### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
-## [Programming guide](event-hubs-programming-guide.md)
+# Tutorials
 
-# How to
+# Samples
+## [Azure code gallery samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Code samples overview](event-hubs-samples.md)
+
+# Concepts
+## [Programming guide](event-hubs-programming-guide.md)
+## [Event Hubs features](event-hubs-features.md)
 ## Plan and design
 ### [Managed Service Identity (preview)](event-hubs-managed-service-identity.md)
 ### [Role-Based Access Control (preview)](event-hubs-role-based-access-control.md)
@@ -50,8 +39,23 @@
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
+# How-to guides
+## [Create an event hub](event-hubs-create.md)
+## Send events
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Receive events
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## Capture events
+### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -66,8 +70,8 @@
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
+## [FAQ](event-hubs-faq.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
-## [Code samples](event-hubs-samples.md)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
