@@ -27,6 +27,14 @@ For the process of creating alert rules, see the following articles:
 - Create alert rules using [Resource Manager template](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 - Create alert rules using [REST API](log-analytics-api-alerts.md)
 
+## Considerations
+
+Details about the data collection frequency for various solutions and data type are available in the [Data collection details](log-analytics-add-solutions.md#data-collection-details) of the Solutions overview article. As noted in this article, collection frequency can be as infrequent as once every seven days to **on notification**. It is important to understand and consider the data collection frequency before setting up an alert. 
+
+- The collection frequency determines how often the OMS agent on machines will send data to Log Analytics. For instance, if the collection frequency is 10 minutes and there are no other delays in the system, then time stamps of the transmitted data may be anywhere between zero and 10 minutes old before being added to the repository and is searchable in Log Analytics.
+
+- Before an alert can be triggered, the data must be written to the repository so that it is available when queried. Because of the latency described above, the collection frequency is not the same as the time the data is available to queries. For instance, while the data may be collected precisely every 10 min, the data will be available in the data repository at irregular intervals. Hypothetically, data collected at zero, 10, and 20 minute intervals might be available for search at 25, 28, and 35 minutes respectively, or at some other irregular interval influenced by ingestion latency. The worst case for these delays is documented in the [SLA for Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), which does not include a delay introduced by the collection frequency or network latency between the computer and Log Analytics service.
+
 
 ## Alert rules
 
@@ -35,6 +43,8 @@ Alerts are created by alert rules that automatically run log searches at regular
 ![Log Analytics alerts](media/log-analytics-alerts/overview.png)
 
 Because there is an anticipated latency with the ingestion of log data, the absolute time between indexing data and when it is available to search can be unpredictable.  Alerts need to be configured to accommodate for the near-real-time behavior of the service.   
+
+There is a trade-off between reliability of alerts and the responsiveness of alerts. You can choose to configure alert parameters to minimize false alerts and missing alerts, or you can choose alert parameters to respond quickly to the conditions that are being monitored, but will occasionally generate false or missed alerts.
 
 Alert Rules are defined by the following details:
 
@@ -64,10 +74,6 @@ The differences between alert rule types are as follows.
 
 - **Number of results** alert rule will always create a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
 - **Number of results** alert rules create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
-
-There is a trade off between reliability of alerts and the responsiveness of alerts. You can choose to configure alert parameters to minimize false alerts and missing alerts, or you can choose alert parameters to respond quickly to the conditions that are being monitored, but will occasionally generate false or missed alerts.
-
-
 
 ## Number of results alert rules
 **Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold.
