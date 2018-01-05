@@ -23,6 +23,7 @@ This article helps you find troubleshooting information about common problems re
 ## Known problems
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
+- If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
 - Edge browser support is not available.
 - Starting Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users. Users must enter their usernames frequently, but not their passwords.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, SharePoint and OneDrive mapping scenarios don't work.
@@ -71,7 +72,8 @@ Use the following checklist to troubleshoot Seamless SSO problems:
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
 - Ensure that the device is connected to the corporate network.
 - Ensure that the device's time is synchronized with the time in both Active Directory and the domain controllers, and that they are within five minutes of each other.
-- List the existing Kerberos tickets on the device by using the `klist` command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You might have different settings in Active Directory.
+- List the existing Kerberos tickets on the device by using the `klist` command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 10 hours. You might have different settings in Active Directory.
+- If you disabled and re-enabled Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets have expired.
 - Purge existing Kerberos tickets from the device by using the `klist purge` command, and try again.
 - To determine if there are JavaScript-related problems, review the console logs of the browser (under **Developer Tools**).
 - Review the [domain controller logs](#domain-controller-logs).
