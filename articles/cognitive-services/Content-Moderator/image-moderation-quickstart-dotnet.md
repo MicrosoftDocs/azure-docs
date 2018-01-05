@@ -15,7 +15,7 @@ ms.author: sajagtap
 # Moderate images using .NET
 
 This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to 
+the Content Moderator SDK for .NET to: 
 - Check an image for adult or racy content
 - Detect and extract text from an image
 - Detect faces in an image
