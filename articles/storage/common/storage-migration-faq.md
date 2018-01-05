@@ -331,7 +331,7 @@ If you want only to download data without having to use Storage Explorer or a si
 
 **How do I migrate Blobs from one storage account to another?**
 
- You can do this using our blob migration script.
+ You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## Need help? Contact support.
 
