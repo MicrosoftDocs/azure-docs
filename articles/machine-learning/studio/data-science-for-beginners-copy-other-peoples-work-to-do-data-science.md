@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/05/2018
 ms.author: cgronlun
 
 ---
@@ -89,7 +89,7 @@ There are other experiments in the [Azure AI Gallery](https://gallery.cortanaint
 
 [Azure AI Gallery](https://gallery.cortanaintelligence.com) is a place to find working experiments that you can use as a starting point for your own solutions.
 
-Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 ## Next steps
 * [Try your first data science experiment with Azure Machine Learning](create-experiment.md)
