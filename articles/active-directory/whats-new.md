@@ -37,7 +37,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 -	Deprecated functionality
 -	Plans for changes
 
-Please revisit this page regularly. It's updated on a monthly basis.
+Please revisit this page regularly. It's updated monthly.
 
 
 ## December 2017
@@ -57,11 +57,11 @@ Follow these steps:
 
 2. In the upper-right corner, select your name, and then select **Profile** from the list. 
 
-3. On your Profile, select **Review terms of use**. 
+3. On your **Profile**, select **Review terms of use**. 
 
 4. Now you can review the terms of use you accepted. 
 
-For more information, see the [Azure Active Directory Terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
  
 ---
  
@@ -115,7 +115,7 @@ For more information, see the [Azure AD terms of use feature (preview)](active-d
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-You can use scoped activation to activate eligible Azure resource role assignments with less autonomy than the original assignment defaults. An example is if you're assigned as the owner of a subscription in your tenant. With scoped activation, you can activate the owner role for up to five resources contained within the subscription (such as Resource Groups, Virtual Machines). Scoping your activation might reduce the possibility of executing unwanted changes to critical Azure resources.
+You can use scoped activation to activate eligible Azure resource role assignments with less autonomy than the original assignment defaults. An example is if you're assigned as the owner of a subscription in your tenant. With scoped activation, you can activate the owner role for up to five resources contained within the subscription (such as resource groups and virtual machines). Scoping your activation might reduce the possibility of executing unwanted changes to critical Azure resources.
 
 For more information, see [What is Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
  
@@ -132,16 +132,16 @@ In December 2017, the following new apps with federation support were added in t
 
 |Name|Integration type|Description|
 |:-- |----------------|:----------|
-|EFI Digital StoreFront|SAML 2.0|[Web 2 Print application](https://go.microsoft.com/fwlink/?linkid=861685).|
-|Vodeclic|SAML 2.0|[Use Azure AD to manage user access and enable single sign-on with Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Requires an existing Vodeclic account.|
-|Accredible|SAML 2.0|[Create, manage, and deliver certificates, badges, and blockchain credentials](https://go.microsoft.com/fwlink/?linkid=863523).|
-|FactSet|SAML 2.0|[Single sign-on to FactSet's FDSWeb application](https://go.microsoft.com/fwlink/?linkid=863525).|
-|MobileIron Azure AD integration|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) enables modern enterprises to secure and manage information as it moves to mobile and to the cloud while preserving privacy and trust.|
+|EFI Digital StoreFront|SAML 2.0|[Web 2 Print](https://go.microsoft.com/fwlink/?linkid=861685) application.|
+|Vodeclic|SAML 2.0|Use Azure AD to manage user access and enable single sign-on with [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Requires an existing Vodeclic account.|
+|Accredible|SAML 2.0|Use [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) to create, manage, and deliver certificates, badges, and blockchain credentials.|
+|FactSet|SAML 2.0|Single sign-on to the [FactSet FDSWeb application](https://go.microsoft.com/fwlink/?linkid=863525).|
+|MobileIron Azure AD integration|SAML 2.0|Modern enterprises can use [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) to secure and manage information as it moves to mobile and the cloud while they preserve privacy and trust.|
 |IMAGE WORKS|SAML 2.0|Use Azure AD to manage user access, provision user accounts, and enable single sign-on with [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Requires an existing IMAGE WORKS subscription.|
 |SAML SSO for Bitbucket by resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegates authentication to Azure AD. Users already signed in to Azure AD can access Bitbucket directly. Users can be created and updated on the fly with data from SAML attributes.|
 |SAML SSO for Bamboo by resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) delegates authentication to Azure AD. Users already signed in to Azure AD can access Bamboo directly.|
 |Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is a modern, fully featured social intranet software that supports employees and business.|
-|MOBI|SAML 2.0|[Centralize, comprehend, and control your entire device ecosystem](https://go.microsoft.com/fwlink/?linkid=863521).|
+|MOBI|SAML 2.0|Use [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) to centralize, comprehend, and control your entire device ecosystem.|
 |Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is a modern platform for performance management, real-time feedback, and goal setting. |
 |CybSafe|OpenID Connect & OAuth|This GCHQ-certified cyber-awareness platform uses advanced technology and data analytics to reduce the human aspect of cyber security and data protection risk.|
 |WebHR|OpenID Connect & OAuth|This social human resources software is trusted by over 20,000 companies in 197 countries.|
@@ -160,7 +160,7 @@ In December 2017, the following new apps with federation support were added in t
  
 Approval workflow for Azure AD directory roles is generally available.
 
-With approval workflow, privileged-role administrators can require eligible-role members to request role activation before they can use the privileged role. Multiple users and groups can be delegated approval responsibilities Eligible role members receive notifications when approval is complete and their role is active.
+With approval workflow, privileged-role administrators can require eligible-role members to request role activation before they can use the privileged role. Multiple users and groups can be delegated approval responsibilities Eligible role members receive notifications when approval is finished and their role is active.
 
 ---
  
@@ -172,7 +172,7 @@ With approval workflow, privileged-role administrators can require eligible-role
 **Product capability:** User authentication
 
 
-Pass-through authentication now supports user sign-ins to Skype for Business client applications that support modern authentication, including online and hybrid topologies. 
+Pass-through authentication now supports user sign-ins to Skype for Business client applications that support modern authentication, which includes online and hybrid topologies. 
 
 For more information, see [Skype for Business topologies supported with modern authentication](https://technet.microsoft.com/library/mt803262.aspx).
  
@@ -185,7 +185,7 @@ For more information, see [Skype for Business topologies supported with modern a
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
  
-With the Public Preview Refresh of Azure AD Privileged Identity Management (PIM) for Azure Role-Based Access Control (RBAC), you can now:
+With the public preview refresh of Azure AD Privileged Identity Management (PIM) for Azure Role-Based Access Control (RBAC), you can now:
 
 * Use Just Enough Administration.
 * Require approval to activate resource roles.
@@ -199,7 +199,7 @@ For more information, see [Privileged Identity Management for Azure resources (p
  
 ## November 2017
  
-### Retiring the Access Control service
+### Access Control service retirement
 
 
 
@@ -208,7 +208,7 @@ For more information, see [Privileged Identity Management for Azure resources (p
 **Product capability:** Access Control service 
 
 
- Azure Active Directory Access Control (also known as the Access Control service) will be retired in late 2018. More information that includes a detailed schedule and high-level migration guidance will be provided in the next few weeks. Leave comments on this page with any questions in regard to the Access Control service, and a member of our team will answer them.
+ Azure Active Directory Access Control (also known as the Access Control service) will be retired in late 2018. More information that includes a detailed schedule and high-level migration guidance will be provided in the next few weeks. You can leave comments on this page with any questions about the Access Control service, and a member of our team will answer them.
 
 ---
 
@@ -224,7 +224,7 @@ For more information, see [Privileged Identity Management for Azure resources (p
 
 You can restrict browser access to Office 365 and other Azure AD-connected cloud apps by using the Intune Managed Browser as an approved app. 
 
-This change allows you to configure the following condition for application-based conditional access:
+You now can configure the following condition for application-based conditional access:
 
 **Client apps:** Browser
 
@@ -292,7 +292,7 @@ Administrators now can create new terms of use that contain multiple PDF documen
 
  
 
-You now can review the status of your on-premises password writeback client. This option is available in the "On-premises integration" section of the [Password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) page. 
+You now can review the status of your on-premises password writeback client. This option is available in the **On-premises integration** section of the [Password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) page. 
 
 If there are issues with your connection to your on-premises writeback client, you see an error message that provides you with:
 
@@ -381,9 +381,9 @@ For more information, see [Manage devices by using the Azure portal](device-mana
 
 You now can include (or exclude) macOS as a device platform condition in your Azure AD conditional access policy. With the addition of macOS to the supported device platforms, you can:
 
-- **Enroll and manage macOS devices by using Intune:** Similar to other platforms like iOS and Android, a company portal application is available for macOS to do unified enrollments. The new company portal app for macOS enables you to enroll a device with Intune and register it with Azure AD.
-- **Ensure macOS devices adhere to your organization's compliance policies defined in Intune:** In Intune on the Azure portal, you now can set up compliance policies for macOS devices. 
-- **Restrict access to applications in Azure AD to only compliant macOS devices:** Conditional access policy authoring has macOS as a separate device platform option. This option enables you to author macOS-specific conditional access policies for the targeted application set in Azure.
+- **Enroll and manage macOS devices by using Intune.** Similar to other platforms like iOS and Android, a company portal application is available for macOS to do unified enrollments. The new company portal app for macOS enables you to enroll a device with Intune and register it with Azure AD.
+- **Ensure macOS devices adhere to your organization's compliance policies defined in Intune.** In Intune on the Azure portal, you now can set up compliance policies for macOS devices. 
+- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific conditional access policies for the targeted application set in Azure.
 
 For more information, see:
 
@@ -394,11 +394,11 @@ For more information, see:
  
 ---
 
-### Network Policy Server extension for Azure MFA 
+### Network Policy Server extension for Azure Multi-Factor Authentication 
 
 
 **Type:** New feature    
-**Service category:** MFA  
+**Service category:**  Multi-factor authentication  
 **Product capability:** User authentication
 
 
@@ -431,7 +431,7 @@ In the Azure AD admin center, you can now:
 
 **To try it out:**
 
-1. In the Azure AD admin center, select [**All users**](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All users) in the **Manage** section. 
+1. In the Azure AD admin center, select [All users](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) in the **Manage** section. 
 
 2. From the **Show** list, select **Recently deleted users**. 
 
@@ -466,7 +466,7 @@ For more information, see:
 
 
 **Type:** Changed feature    
-**Service category:** Conditional Access  
+**Service category:** Conditional access  
 **Product capability:** Identity security and protection
 
  
@@ -513,7 +513,7 @@ The Azure portal provides you with:
 - A new Azure AD administration console.
 - New APIs for activity and security reports.
  
-Due to these new capabilities, the report APIs under the **/reports** endpoint were retired on December 10, 2017. 
+Due to these new capabilities, the report APIs under the /reports endpoint were retired on December 10, 2017. 
 
 ---
 
@@ -528,7 +528,7 @@ Due to these new capabilities, the report APIs under the **/reports** endpoint w
 
 Azure AD supports automatic sign-in field detection for applications that render an HTML user name and password field. These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, enter a web URL, and then save the page.
  
-Due to a service issue, this functionality was temporarily disabled for a period of time. The issue was resolved, and the automatic sign-in field detection is available again.
+Due to a service issue, this functionality was temporarily disabled. The issue was resolved, and the automatic sign-in field detection is available again.
 
 ---
 
@@ -546,9 +546,9 @@ Multi-factor authentication (MFA) is an essential part of protecting your organi
 - Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to MFA results.
 - The MFA configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.
 
-With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. You now can manage the MFA management portal functionality within the Azure AD experience.
+With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience. Now you can manage the MFA management portal functionality within the Azure AD experience.
 
-For more information, see [Reference for multi-factor authentication reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md) 
+For more information, see [Reference for MFA reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md) 
 
 
 ---
@@ -576,7 +576,7 @@ For more information, see [Azure AD terms of use](active-directory-tou.md).
 
 ---
 
-### Enhancements to privileged identity management
+### Enhancements to Privileged Identity Management
 
 
 **Type:** New feature  
@@ -584,7 +584,7 @@ For more information, see [Azure AD terms of use](active-directory-tou.md).
 **Product capability:** Privileged Identity Management  
 
 
-With Azure AD Privileged Identity Management, you now can manage, control, and monitor access to Azure Resources (preview) within your organization to:
+With Azure AD Privileged Identity Management, you can manage, control, and monitor access to Azure resources (preview) within your organization to:
 
 - Subscriptions
 - Resource groups
@@ -628,33 +628,33 @@ For more information, see [Azure AD access reviews](active-directory-azure-ad-co
 
 
 
-You now can better manage apps that show up on your users' portals through a new **hide app** property. You can hide apps to help in cases where app tiles show up for back-end services or duplicate tiles and clutter users' app launchers. The toggle is located on the properties section of the third-party app and is labeled **Visible to user?** You also can hide an app programmatically through PowerShell. 
+You now can better manage apps that show up on your users' portals through a new **hide app** property. You can hide apps to help in cases where app tiles show up for back-end services or duplicate tiles and clutter users' app launchers. The toggle is in the **Properties** section of the third-party app and is labeled **Visible to user?** You also can hide an app programmatically through PowerShell. 
 
 For more information, see [Hide a third-party application from a user's experience in Azure AD](active-directory-coreapps-hide-third-party-app.md). 
 
 
 **What's available?**
 
- As part of the transition to the new admin console, two new APIs for retrieving Azure AD activity logs are available. The new set of APIs provides richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports now can be accessed through the Identity Protection risk events API in Microsoft Graph.
+ As part of the transition to the new admin console, two new APIs for retrieving Azure AD activity logs are available. The new set of APIs provides richer filtering and sorting functionality in addition to providing richer audit and sign-in activities. The data previously available through the security reports now can be accessed through the Identity Protection Risk Events API in Microsoft Graph.
 
 
 ## September 2017
 
-### Hotfix for Microsoft Identity Manager
+### Hotfix for Identity Manager
 
 
 **Type:** Changed feature  
-**Service category:** Microsoft Identity Manager  
+**Service category:** Identity Manager  
 **Product capability:** Identity lifecycle management  
 
 
 
-A hotfix roll-up package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager 2016 Service Pack 1. This roll-up package:
+A hotfix roll-up package (build 4.4.1642.0) is available as of September 25, 2017, for Identity Manager 2016 Service Pack 1. This roll-up package:
 
 - Resolves issues and adds improvements.
-- Is a cumulative update that replaces all Microsoft Identity Manager 2016 Service Pack 1 updates up to build 4.4.1459.0 for Microsoft Identity Manager 2016. 
-- Requires you to have Microsoft Identity Manager 2016 build 4.4.1302.0. 
+- Is a cumulative update that replaces all Identity Manager 2016 Service Pack 1 updates up to build 4.4.1459.0 for Identity Manager 2016. 
+- Requires you to have Identity Manager 2016 build 4.4.1302.0. 
 
-For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 Service Pack 1](https://support.microsoft.com/help/4021562). 
+For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Identity Manager 2016 Service Pack 1](https://support.microsoft.com/help/4021562). 
 
 ---
