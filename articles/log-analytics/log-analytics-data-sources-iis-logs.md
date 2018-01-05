@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: bwren
 
 ---
@@ -66,17 +66,6 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 The following table provides different examples of log queries that retrieve IIS log records.
 
 | Query | Description |
-|:--- |:--- |
-| Type=W3CIISLog |All IIS log records. |
-| Type=W3CIISLog scStatus=500 |All IIS log records with a return status of 500. |
-| Type=W3CIISLog &#124; Measure count() by cIP |Count of IIS log entries by client IP address. |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Count of IIS log entries by URL for the host www.contoso.com. |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total bytes received by each IIS computer. |
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
 |:--- |:--- |
 | W3CIISLog |All IIS log records. |
 | W3CIISLog &#124; where scStatus==500 |All IIS log records with a return status of 500. |

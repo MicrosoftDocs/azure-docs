@@ -5,7 +5,7 @@
 ## [FAQ](faq.md)
 
 # Get Started
-## [Create a Linux VM with the portal](createportal.md)
+## [Create a Linux VM with Azure portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 ## [Create SSH keys](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
-### [Create a Docker host using the portal](portal-use-docker.md)
+### [Create a Docker host using Azure portal](portal-use-docker.md)
 ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Use Storage
@@ -67,14 +67,14 @@
 ### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates)
-## [Compute REST](/rest/api/compute)
-## [Network REST](/rest/api)
-## [Storage REST](/rest/api/storageservices)
+## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Storage REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Resources

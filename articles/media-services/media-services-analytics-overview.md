@@ -4,7 +4,7 @@ description: Overview of public preview of Media Analytics, a collection of spee
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c

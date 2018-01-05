@@ -4,7 +4,7 @@ description: How to configure an custom non-gallery application for secure passw
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

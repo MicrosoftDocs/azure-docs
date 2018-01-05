@@ -3,8 +3,8 @@ title: Automate resource deployment for a function app in Azure Functions | Micr
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
 services: Functions
 documtationcenter: na
-author: lindydonna
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: ''
 tags: ''
 keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
@@ -34,7 +34,7 @@ For sample templates, see:
 
 A function app requires these resources:
 
-* An [Azure Storage](../storage/index.md) account
+* An [Azure Storage](../storage/index.yml) account
 * A hosting plan (Consumption plan or App Service plan)
 * A function app 
 

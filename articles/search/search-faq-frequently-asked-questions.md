@@ -27,7 +27,7 @@ Azure Search supports multiple data sources, [linguistic analysis for many langu
 When comparing search technologies, customers frequently ask for specifics on how Azure Search compares with Elasticsearch. Customers who choose Azure Search over Elasticsearch for their search application projects typically do so because we've made a key task easier or they need the built-in integration with other Microsoft technologies:
 
 + Azure Search is a fully-managed cloud service with 99.9% service level agreements (SLA) when provisioned with sufficient redundancy (2 replicas for read access, 3 replicas for read-write).
-+ Microsoft's [Natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) offer leading edge inguistic analysis.  
++ Microsoft's [Natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) offer leading edge linguistic analysis.  
 + [Azure Search indexers](search-indexer-overview.md) can crawl a variety of Azure data sources for initial and incremental indexing.
 + If you need rapid response to fluctuations in query or indexing volumes, you can use [slider controls](search-manage.md#scale-up-or-down) in the Azure portal, or run a [PowerShell script](search-manage-powershell.md), bypassing shard management directly.  
 + [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide. 

@@ -19,12 +19,6 @@ ms.author: markgal;trinadhk;
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-configure-vault.md)
-> * [Classic portal](backup-configure-vault-classic.md)
->
->
-
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
@@ -183,7 +177,7 @@ If your machine/proxy has limited internet access, ensure that firewall settings
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 
 ## Create the backup policy

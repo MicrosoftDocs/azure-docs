@@ -6,7 +6,7 @@
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: ''
 
   ms.assetid:
@@ -50,6 +50,10 @@ Here are the main features of group-based licensing:
 - In some cases, licenses cannot be assigned to a user. For example, there might not be enough available licenses in the tenant, or conflicting services might have been assigned at the same time. Administrators have access to information about users for whom Azure AD could not fully process group licenses. They can then take corrective action based on that information.
 
 - During public preview, a paid or trial subscription for Azure AD Basic or Premium editions is required in the tenant to use group-based license management.
+
+## Your feedback is welcome!
+
+If you have feedback or feature requests, please share them with us using [this forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
 
 ## Next steps
 

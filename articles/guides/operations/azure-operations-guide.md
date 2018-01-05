@@ -85,8 +85,6 @@ Services for hosting and running application workload:
 
 -   Azure Batch (for large-scale parallel and batch compute jobs)
 
--   Azure RemoteApp
-
 -   Azure Service Fabric
 
 -   Azure Container Service
@@ -99,7 +97,7 @@ Services for storing and managing data:
 
 -   Azure SQL Database
 
--   Azure DocumentDB
+-   Azure Cosmos DB
 
 -   Microsoft Azure StorSimple
 

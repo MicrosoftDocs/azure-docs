@@ -49,9 +49,9 @@ Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#create) | Creates an application.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#set) | Updates properties of an application.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#create) | Adds an application package to the specified application.  |
+| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Creates an application.  |
+| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Updates properties of an application.  |
+| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Adds an application package to the specified application.  |
 
 ## Next steps
 

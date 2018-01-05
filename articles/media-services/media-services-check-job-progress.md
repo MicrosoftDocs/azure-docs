@@ -4,7 +4,7 @@ description: Learn how to use event handler code to track job progress and send 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e

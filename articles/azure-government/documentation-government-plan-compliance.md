@@ -36,7 +36,7 @@ For example, control AC-1 requires documented access control policies and proced
 
 The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, the DISA Cloud Computing SRG L4 and L5 baselines, and the NIST Cybersecurity Framework (CSF).
 
-To request a copy of the Azure Blueprint CRM or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
+The Azure Blueprint Program CRM is available for download from the [Service Trust Portal](https://servicetrust.microsoft.com/Documents/TrustDocuments) under Trust Documents.
 
 ## Blueprint System Security Plan
 
@@ -44,14 +44,14 @@ The Azure Blueprint System Security Plan (SSP) template is customer-focused and 
 
 The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines. 
 
-To request a copy of the Azure Blueprint SSP or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
+The Azure Blueprint Program SSP is available for download from the [Service Trust Portal](https://servicetrust.microsoft.com/Documents/TrustDocuments) under Trust Documents.
 
 ## Azure Blueprint implementation guidance
 
 Azure Blueprint implementation guidance is designed to help cloud solution architects and security personnel understand how Azure Government services and features can be deployed to implement a subset of customer-responsibility FedRAMP and DoD security controls. 
 An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This implementation guidance addresses how these resources can be deployed in ways that help meet security control implementation requirements.
 
-To request a copy of the Azure Blueprint NIST SP 800-53 Implementation Guidance or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
+The Azure Blueprint Program NIST SP 800-53 implementation guidance is available for download from the [Service Trust Portal](https://servicetrust.microsoft.com/Documents/TrustDocuments) under Trust Documents > Compliance Guides.
 
 ## Next steps
 

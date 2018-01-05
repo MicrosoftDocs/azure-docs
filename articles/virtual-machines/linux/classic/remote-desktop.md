@@ -46,18 +46,23 @@ Connect to your Linux VM through `putty`, and install `Gnome Desktop`.
 
 For Ubuntu, use:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 For OpenSUSE, use:
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## Install xrdp
 For Ubuntu, use:
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 For OpenSUSE, use:
 
@@ -66,39 +71,49 @@ For OpenSUSE, use:
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## Start xrdp and set xdrp service at boot-up
 For OpenSUSE, use:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
-For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
+For Ubuntu, xrdp will be started and enabled at boot-up automatically after installation.
 
 ## Using xfce if you are using an Ubuntu version later than Ubuntu 12.04LTS
 Because the current version of xrdp does not support Gnome Desktop for  Ubuntu versions later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
 
 To install `xfce`, use this command:
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 Then enable `xfce` using this command:
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Edit the config file `/etc/xrdp/startwm.sh`:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 Add the line `xfce4-session` before the line `/etc/X11/Xsession`.
 
 To restart the xrdp service, use this:
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## Connect your Linux VM from a Windows machine
 In a Windows machine, start the Remote Desktop client and input your Linux VM DNS name. Or go to the Dashboard of your VM in the Azure portal and click `Connect` to connect your Linux VM. In that case, you see the login window:

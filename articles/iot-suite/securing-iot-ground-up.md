@@ -45,7 +45,7 @@ Our systems provide continuous intrusion detection and prevention, service attac
 
 The Microsoft Azure IoT Suite takes advantage of the security and privacy built into the Azure platform along with our SDL and OSA processes for secure development and operation of all Microsoft software. These procedures provide infrastructure protection, network protection, and identity and management features fundamental to the security of any solution. 
 
-The [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) within the [IoT Suite](iot-suite-what-is-azure-iot.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
+The [Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) within the [IoT Suite](iot-suite-what-is-azure-iot.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
 
 To best communicate security and privacy features built into the Azure IoT Suite, we’ve broken down the suite into the three primary security areas. 
 
@@ -86,7 +86,7 @@ to the Azure IoT Suite.
 
 Once data is in the cloud, it can be processed and stored in any user-defined workflow. Access to each part of the data is controlled with Azure Active Directory, depending on the storage service used.
 
-All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be re-provisioned. Data can be stored in [Azure Cosmos DB](../documentdb/documentdb-introduction.md) or in [SQL databases](../sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
+All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be re-provisioned. Data can be stored in [Azure Cosmos DB](../cosmos-db/introduction.md) or in [SQL databases](../sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
 
 ## Conclusion
 The Internet of Things starts with your things—the things that matter most to businesses. IoT can deliver amazing value to a business by reducing costs, increasing revenue, and transforming business. Success of this transformation largely depends on choosing the right IoT software and service provider. That means finding a provider that not only catalyzes this transformation by understanding business needs and requirements, but also provides services and software built with security, privacy, transparency, and compliance as major design considerations. Microsoft has extensive experience with developing and deploying secure software and services and continues to be a leader in this new age of Internet of Things. 

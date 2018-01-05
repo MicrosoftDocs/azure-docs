@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 
 ---
@@ -315,6 +315,8 @@ To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) f
 `http://<your-cluster-endpoint>:19080/Explorer`
 
 The full URL is also available in the cluster essentials pane of the Azure portal.
+
+For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to tehe certificate location on disk.
 
 ### Connect to a secure cluster using Azure Active Directory
 

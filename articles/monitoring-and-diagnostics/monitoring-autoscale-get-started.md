@@ -124,7 +124,7 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 [1]:https://portal.azure.com
 [2]: ./media/monitoring-autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/monitoring-autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet
+[4]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
 [5]: ./media/monitoring-autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/monitoring-autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/monitoring-autoscale-get-started/scale-in-recommendation.png

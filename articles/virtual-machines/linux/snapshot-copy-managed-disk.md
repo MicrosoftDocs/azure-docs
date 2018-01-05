@@ -1,8 +1,8 @@
 ---
-title: Copy an Azure Managed Disk for Back up | Microsoft Docs
-description: Learn how to create a copy of an Azure Managed Disk to use for back up or troubleshooting disk issues.
+title: Create a snapshot of a VHD in Azure | Microsoft Docs
+description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
 documentationcenter: ''
-author: squillace
+author: cynthn
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -11,23 +11,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-ms.author: rasquill
+ms.date: 10/09/2017
+ms.author: cynthn
 
 ---
-# Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
-Take a snapshot of a Managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. 
+# Create a snapshot 
 
-For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
-
-Use either the Azure portal or the Azure CLI 2.0 to take a snapshot of the Managed Disk.
+Take a snapshot of an OS or data disk VHD for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
 ## Use Azure CLI 2.0 to take a snapshot
 
-> [!NOTE] 
-> The following example requires the Azure CLI 2.0 installed and logged into your Azure account.
+The following example requires the Azure CLI 2.0 installed and logged into your Azure account. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-The following steps show how to obtain and take a snapshot of a managed OS disk using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` created with a managed OS disk in the `myResourceGroup` resource group.
+The following steps show how to take a snapshot using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` created with a managed OS disk in the `myResourceGroup` resource group.
 
 ```azure-cli
 # take the disk id with which to create a snapshot
@@ -76,4 +72,8 @@ The output should look something like:
 
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
 
+
+## Next steps
+
+ Create a virtual machine from a snapshot by creating a managed disk from the snapshot and then attaching the new managed disk as the OS disk. For more information, see the [Create a VM from a snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script.
 

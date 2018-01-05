@@ -161,7 +161,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## Parameters and variables
 
@@ -279,7 +279,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 - [size](sizes.md)
 - [name](/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
-- [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics
 
 ## Disks and images

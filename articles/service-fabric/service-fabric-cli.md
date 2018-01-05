@@ -1,46 +1,132 @@
 ---
-title: Get started with Azure Service Fabric CLI (sfctl)
-description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster, and how to manage applications.
+title: Get started with Azure Service Fabric CLI 
+description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
 services: service-fabric
 author: samedder
 manager: timlt
 
 ms.service: service-fabric
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 10/20/2017
 ms.author: edwardsa
 
 ---
-# Azure Service Fabric command line
+# Azure Service Fabric CLI
 
-The Azure Service Fabric CLI (sfctl) is a command-line utility for interacting and managing Azure Service
-Fabric entities. Sfctl can be used with either Windows or Linux clusters. Sfctl runs on any platform where
-python is supported.
+The Azure Service Fabric command-line interface (CLI) is a command-line utility for interacting with and managing Service Fabric entities. The Service Fabric CLI can be used with either Windows or Linux clusters. The Service Fabric CLI runs on any platform where Python is supported.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## Prerequisites
 
-Prior to installation, make sure your environment has both python and pip installed. For more information,
-take a look at the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/), and official
-[python install documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
+Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-While both python 2.7 and 3.6 are supported, it is recommended to use python 3.6.
+The CLI supports Python versions 2.7, 3.5 and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
 
-## Install
+### Service Fabric target runtime
 
-The Azure Service Fabric CLI (sfctl) is packaged as a python package. To install the latest version run:
+The Service Fabric CLI is meant to support the latest runtime version of the Service Fabric SDK. Use the following table to determine which version of CLI to install:
 
-```bash
-pip install sfctl
+| CLI version   | supported runtime version |
+|---------------|---------------------------|
+| Latest (~=3)  | Latest (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
+
+```
+pip install -I sfctl==1.1.0
 ```
 
-After installation, run `sfctl -h` to get information about available commands.
+Replace the following `pip install` command with the previously mentioned command when necessary.
+
+For more information on Service Fabric CLI releases, see the [GitHub documentation](https://github.com/Azure/service-fabric-cli/releases).
+
+## Install pip, Python, and the Service Fabric CLI
+
+There are many ways to install pip and Python on your platform. Here are some steps to get major operating systems set up quickly with Python 3 and pip.
+
+### Windows
+
+For Windows 10, Windows Server 2016, and Windows Server 2012 R2, use the standard official installation instructions. The Python installer also installs pip by default.
+
+1. Go to the official [Python downloads page](https://www.python.org/downloads/), and download the latest release of Python 3.6.
+
+2. Start the installer.
+
+3. At the bottom of the prompt, select **Add Python 3.6 to PATH**.
+
+4. Select **Install Now**, and finish the installation.
+
+Now you can open a new command window and get the version of both Python and pip.
+
+```bat
+python --version
+pip --version
+```
+
+Then run the following command to install the Service Fabric CLI:
+
+```bat
+pip install sfctl
+sfctl -h
+```
+
+### Ubuntu and Windows subsystem for Linux
+
+To install the Service Fabric CLI, run the following commands:
+
+```bash
+sudo apt-get install python3
+sudo apt-get install python3-pip
+pip3 install sfctl
+```
+
+Then you can test the installation with:
+
+```bash
+sfctl -h
+```
+
+If you receive a command not found error such as:
+
+`sfctl: command not found`
+
+Be sure that `~/.local/bin` is accessible from the `$PATH`:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
+If the installation on Windows subsystem for Linux fails with incorrect folder permissions, it may be necessary to try again with elevated permissions:
+
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
+### MacOS
+
+For MacOS, we recommend that you use the [HomeBrew package manager](https://brew.sh). If HomeBrew is not already installed, install it by running the following command:
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Then from the terminal, install Python 3.6, pip, and the Service Fabric CLI by running the following commands:
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
 
 ## CLI syntax
 
-Commands are prefixed always with `sfctl`. For general information about all commands you can use, use `sfctl -h`. For
-help with a single command, use `sfctl <command> -h`.
+Commands are always prefixed with `sfctl`. For general information about all the commands you can use, use `sfctl -h`. For help with a single command, use `sfctl <command> -h`.
 
-Commands follow a repeatable structure, with the target of the command preceding the verb or action:
+Commands follow a repeatable structure, with the target of the command preceding the verb or the action.
 
 ```azurecli
 sfctl <object> <action>
@@ -50,8 +136,7 @@ In this example, `<object>` is the target for `<action>`.
 
 ## Select a cluster
 
-Before you perform any operations, you must select a cluster to connect to. For example, run the following to select
-and connect to the cluster with the name `testcluster.com`.
+Before you perform any operations, you must select a cluster to connect to. For example, to select and connect to the cluster with the name `testcluster.com`, run the following command:
 
 > [!WARNING]
 > Do not use unsecured Service Fabric clusters in a production environment.
@@ -60,14 +145,12 @@ and connect to the cluster with the name `testcluster.com`.
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
-The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and
-address are the same as the Service Fabric Explorer URL.
+The cluster endpoint must be prefixed by `http` or `https`. It must include the port for the HTTP gateway. The port and address are the same as the Service Fabric Explorer URL.
 
-For clusters that are secured with a certificate, you can specify a PEM encoded certificate. The certificate can be
-specified as a single file or cert and key pair.
+For clusters that are secured with a certificate, you can specify a PEM-encoded certificate. The certificate can be specified as a single file or as a cert and a key pair. If it is a self-signed certificate that is not CA signed, you can pass the `--no-verify` option to bypass CA verification.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 For more information, see
@@ -75,8 +158,7 @@ For more information, see
 
 ## Basic operations
 
-Cluster connection information persists across multiple sfctl sessions. After you select a Service Fabric cluster,
-you can run any Service Fabric command on the cluster.
+Cluster connection information persists across multiple Service Fabric CLI sessions. After you select a Service Fabric cluster, you can run any Service Fabric command on the cluster.
 
 For example, to get the Service Fabric cluster health state, use the following command:
 
@@ -111,46 +193,57 @@ The command results in the following output:
 
 ## Tips and troubleshooting
 
-Some suggestions and tips for solving common issues.
+Here are some suggestions and tips for solving common problems.
 
 ### Convert a certificate from PFX to PEM format
 
-The Service Fabric CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from
-Windows, you must convert those certificates to PEM format. To convert a PFX file to a PEM file, use the
-following command:
+The Service Fabric CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from Windows, you must convert those certificates to PEM format. To convert a PFX file to a PEM file, use the following command:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Similarly, to convert from a PEM file to a PFX file, you can use the following command (no password is being provided here):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 For more information, see the [OpenSSL documentation](https://www.openssl.org/docs/).
 
-### Connection issues
+### Connection problems
 
 Some operations might generate the following message:
 
 `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-Verify that the specified cluster endpoint is available and listening. Also, verify that the Service Fabric Explorer
-UI is available at that host and port. To update the endpoint, use `sfctl cluster select`.
+Verify that the specified cluster endpoint is available and listening. Also, verify that the Service Fabric Explorer UI is available at that host and port. To update the endpoint, use `sfctl cluster select`.
 
 ### Detailed logs
 
-Detailed logs often are helpful when you debug or report an issue. There is a global `--debug` flag that
-increases the verbosity of log files.
+Detailed logs often are helpful when you debug or report a problem. A global `--debug` flag increases the verbosity of log files.
 
 ### Command help and syntax
 
-For help with a specific command or a group of commands, use the `-h` flag:
+For help with a specific command or a group of commands, use the `-h` flag.
 
 ```azurecli
 sfctl application -h
 ```
 
-Another example:
+Here is another example:
 
 ```azurecli
 sfctl application create -h
+```
+
+## Updating the Service Fabric CLI 
+
+To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
+
+```bash
+pip uninstall sfctl
+pip install sfctl
 ```
 
 ## Next steps

@@ -19,7 +19,7 @@ ms.author: "nateko"
 
 Synonyms in search engines associate equivalent terms that implicitly expand the scope of a query, without the user having to actually provide the term. For example, given the term "dog" and synonym associations of "canine" and "puppy", any documents containing "dog", "canine" or "puppy" will fall within the scope of the query.
 
-In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a  **synonymMaps** property to a field definition without having to rebuild the index. For more information, see [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index).
+In Azure Search, synonym expansion is done at query time. You can add synonym maps to a service with no disruption to existing operations. You can add a  **synonymMaps** property to a field definition without having to rebuild the index.
 
 ## Feature availability
 
@@ -74,14 +74,14 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 
 The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
 
 Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left hand side of "=>" will be replaced with the alternatives on the right hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### List synonym maps under your service.
@@ -156,7 +156,7 @@ Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and reg
 
 - You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
 
-## Next Steps
+## Next steps
 
 - If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
 

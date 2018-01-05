@@ -8,14 +8,14 @@ manager: lwelicki
 editor: ''
 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
-
+ms.custom: accessibility
 ---
 # Keyboard shortcuts in the Azure portal
 This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.

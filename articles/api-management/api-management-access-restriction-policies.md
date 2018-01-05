@@ -3,7 +3,7 @@ title: Azure API Management access restriction policies | Microsoft Docs
 description: Learn about the access restriction policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management access restriction policies
@@ -22,17 +22,11 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="AccessRestrictionPolicies"></a> Access restriction policies  
   
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.  
-  
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.  
-  
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.  
-  
 -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.  
-  
 -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  
-  
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.  
-  
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.  
   
 ##  <a name="CheckHTTPHeader"></a> Check HTTP header  
@@ -231,7 +225,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ##  <a name="SetUsageQuota"></a> Set usage quota by subscription  
@@ -287,7 +280,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
@@ -348,7 +340,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ##  <a name="ValidateJWT"></a> Validate JWT  
@@ -382,7 +373,7 @@ This topic provides a reference for the following API Management policies. For i
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -512,14 +503,20 @@ This topic provides a reference for the following API Management policies. For i
 |require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
+|separator|String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.|No|N/A| 
 |url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** global, product, API, operation  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

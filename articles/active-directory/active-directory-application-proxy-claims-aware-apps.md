@@ -3,8 +3,8 @@ title: Claims-aware apps - Azure AD App Proxy | Microsoft Docs
 description: How to publish on-premises ASP.NET applications that accept ADFS claims for secure remote access by your users. 
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 editor: harshja
 
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 
 ---
 # Working with claims-aware apps in Application Proxy
@@ -35,7 +35,7 @@ You can configure ADFS for claims-aware apps in one of two ways. The first is by
 
 ### Option 1: Custom domains
 
-If all the internal URLs for your applications are fully qualified domain names (FQDNs), then you can configure [custom domains](active-directory-application-proxy-custom-domains.md) for your applications. Use the custom domains to create external URLs that are the same as the internal URLs. With this configuration, the redirects that the STS creates work the same whether your users are on-premises or remote. 
+If all the internal URLs for your applications are fully qualified domain names (FQDNs), then you can configure [custom domains](active-directory-application-proxy-custom-domains.md) for your applications. Use the custom domains to create external URLs that are the same as the internal URLs. When your external URLs match your internal URLs, then the STS redirections work whether your users are on-premises or remote. 
 
 ### Option 2: WS-Federation
 

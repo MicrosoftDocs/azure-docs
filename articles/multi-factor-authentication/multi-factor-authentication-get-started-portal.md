@@ -4,7 +4,7 @@ description: This is the Azure Multi-factor authentication page that describes h
 services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # User portal for the Azure Multi-Factor Authentication Server
@@ -41,7 +41,7 @@ In either scenario, if the Azure Multi-Factor Authentication Web Service SDK is 
 3. Complete the install using the defaults unless you need to change them for some reason.
 4. Bind an SSL Certificate to the site in IIS.
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the SSL connection.
 
@@ -69,7 +69,7 @@ To deploy the user portal, follow these steps:
 
 ![MFA Server User Portal installation](./media/multi-factor-authentication-get-started-portal/install.png)
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## Deploy the user portal on a separate server
 
@@ -106,7 +106,7 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
 
 6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## Configure user portal settings in the Azure Multi-Factor Authentication Server
 
@@ -144,7 +144,7 @@ These settings become visible to the user in the portal once they are enabled an
 
 ![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### Self-Service User Enrollment
+### Self-service user enrollment
 
 If you want your users to sign in and enroll, you must select the **Allow users to log in** and **Allow user enrollment** options under the Settings tab. Remember that the settings you select affect the user sign-in experience.
 
@@ -175,6 +175,6 @@ If the administrators have configured the Azure Multi-Factor Authentication Serv
 
 The user self-enrollment is now complete and the user is signed in to the user portal. Users can sign back in to the user portal at any time in the future to change their phone numbers, PINs, authentication methods, and security questions if changing their methods is allowed by their administrators.
 
-## Next Steps
+## Next steps
 
 - [Deploy the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)

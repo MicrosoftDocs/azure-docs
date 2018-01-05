@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -94,28 +94,22 @@ In your environment, you should avoid the following configurations:
 - **Block access** - This configuration blocks your entire organization, which is definitely not a good idea.
 
 
-## Common scenarios
 
-### Requiring multi-factor authentication for apps
+## Policy migration
 
-Many environments have apps requiring a higher level of protection than the others.
-This is, for example, the case for apps that have access to sensitive data.
-If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
+You should consider migrating the policies you have not created in the Azure portal because:
 
+- You can now address scenarios you could not handle before.
 
-### Requiring multi-factor authentication for access from networks that are not trusted
+- You can reduce the number of policies you have to manage by consolidating them.   
 
-This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
-However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
-In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
+- You can manage all your conditional access policies in one central location.
+
+- The Azure classic portal will be retired.   
 
 
-### Only trusted devices can access Office 365 services
+For more information, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
 
-If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
-
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access.
 
 ## Next steps
 
