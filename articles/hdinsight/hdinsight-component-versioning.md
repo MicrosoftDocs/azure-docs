@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
  
 
@@ -81,11 +81,11 @@ The following table lists the versions of HDInsight that are currently available
 
 | HDInsight version | HDP version | VM OS | High availability | Release date | Availability on the Azure portal | Support expiration date | Retirement date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Yes |April 4, 2017 |Yes | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Yes |September 30, 2016 |Yes |September 5, 2017 |May 31, 2018 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |March 29, 2016 |Yes |December 29, 2016 |January 9, 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2017 |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |Yes |April 4, 2017 |Yes | | |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |Yes |September 30, 2016 |Yes |September 5, 2017 |May 31, 2018 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |March 29, 2016 |No |December 29, 2016 |January 9, 2018 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |December 2, 2015 |No |June 27, 2016 |July 31, 2018 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |December 2, 2015 |No |June 27, 2016 |July 31, 2017 |
 | HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012 R2 |Yes |February 18, 2015 |No |March 1, 2016 |April 1, 2017 |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Yes |June 24, 2014 |No |May 18, 2015 |June 30, 2016 |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
