@@ -81,7 +81,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
                 ![Validation generator](./media/tutorial-group-enrollments/validation-generator.png)
 
             - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-            - Select the **_X509validation.pem_** file in the Azure portal. Click **Verfiy**.
+            - Select the **_X509validation.pem_** file in the Azure portal. Click **Verify**.
 
             ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
@@ -98,7 +98,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     
         1. Copy the **Primary key connection string**. 
 
-            ![Get the provisioning connection string from portal](./media/tutorial-group-enrollment/provisioning-string.png)  
+            ![Get the provisioning connection string from portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
         1. In the sample code file **_ServiceEnrollmentGroupSample.java_**, replace the `[Provisioning Connection String]` with the **Primary key connection string**.
 
