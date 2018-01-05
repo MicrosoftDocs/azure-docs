@@ -39,6 +39,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **January 4, 2018**
+The January Guest OS has been released for OS Families 4 (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) and contains important security patches.  
 
 ###### **January 4, 2018**
 December Guest OS has released.
@@ -85,6 +87,7 @@ June Guest OS rollout is starting June 16 and has a projected release of July 11
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |January 4, 2018 |Post 5.17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |January 4, 2018 |Post 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |December 14, 2017 |Post 5.15 |TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
@@ -109,6 +112,7 @@ June Guest OS rollout is starting June 16 and has a projected release of July 11
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |January 4, 2018 |Post 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |January 4, 2018 |Post 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |December 14, 2017 |Post 4.50 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
