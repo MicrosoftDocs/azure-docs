@@ -29,33 +29,33 @@ Azure HDInsight includes an R Server option to be integrated into your HDInsight
 * **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * **SSH keys (optional)**: You can secure the SSH account that's used to connect to the cluster by using either a password or a public key. Using a password is easier, and it enables you to get started without having to create a public/private key pair. However, using a key is more secure.
 
-> [!NOTE]
-> The steps in this article assume that you are using a password.
+  > [!NOTE]
+  > The steps in this article assume that you are using a password.
 
 
 ## Automated cluster creation
 
-You can automate the creation of HDInsight R Servers by using Azure Resource Manager templates, the SDK, and PowerShell.
+You can automate the creation of HDInsight R Server instances by using Azure Resource Manager templates, the SDK, and PowerShell.
 
-* To create an R Server by using an Azure Resource Manager template, see [Deploy an R server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
-* To create an R Server by using the .NET SDK, see [create Linux-based clusters in HDInsight using the .NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
-* To deploy R Server by using powershell, see the article on [creating an R Server on HDInsight with PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* To create an R Server instance by using an Azure Resource Manager template, see [Deploy an R server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* To create an R Server instance by using the .NET SDK, see [Create Linux-based clusters in HDInsight using the .NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* To deploy R Server by using PowerShell, see [Create Linux-based clusters in HDInsight using Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
-## Create the cluster by using the Azure portal
+## Create a cluster by using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **NEW** > **Intelligence + Analytics** > **HDInsight**.
+2. Select **New** > **Intelligence + analytics** > **HDInsight**.
 
     ![Image of creating a new cluster](./media/r-server-get-started/newcluster.png)
 
-3. In the **Quick create** experience, enter a name for the cluster in the **Cluster Name** box. If you have multiple Azure subscriptions, use the **Subscription** box to select the one that you want to use.
+3. In the **Quick create** experience, enter a name for the cluster in the **Cluster name** box. If you have multiple Azure subscriptions, use the **Subscription** box to select the one that you want to use.
 
     ![Cluster name and subscription selections](./media/r-server-get-started/clustername.png)
 
-4. Select **Cluster type** to open the **Cluster configuration** pane. In the **Cluster Configuration** pane, select the following options:
+4. Select **Cluster type** to open the **Cluster configuration** pane. In the **Cluster configuration** pane, select the following options:
 
    	* **Cluster type**: Select **R Server**.
    	* **Version**: Select the version of R Server to install on the cluster. The version currently available is **R Server 9.1 (HDI 3.6)**. Release notes for the available versions of R Server are available on [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
@@ -64,12 +64,12 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
 
    		![Cluster type blade screenshot](./media/r-server-get-started/clustertypeconfig.png)
 
-5. In the **Basics** pane, In the **Cluster login username** and **Cluster login password** boxes, enter a username and a password (respectively) for the cluster.
+5. In the **Basics** pane, in the **Cluster login username** and **Cluster login password** boxes, enter a username and a password (respectively) for the cluster.
 
 6. In the **Secure Shell (SSH) username** box, specify the SSH username. SSH is used to remotely connect to the cluster by using an SSH client. You can specify the SSH user in this box or after the cluster is created (on the **Configuration** tab for the cluster).
    
    > [!NOTE] 
-   > R Server is configured to expect an SSH username of “remoteuser.”If you use a different username, you must perform an additional step after the cluster is created.
+   > R Server is configured to expect an SSH username of “remoteuser.” If you use a different username, you must perform an additional step after the cluster is created.
 
 7. Leave the **Use same password as cluster login** check box selected to use **PASSWORD** as the authentication type, unless you prefer to use a public key. You need a public/private key pair to access R Server on the cluster via a remote client, such as R Tools for Visual Studio, RStudio, or another desktop IDE. If you install the RStudio Server community edition, you need to choose an SSH password.     
 
@@ -81,15 +81,15 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
 
    b. Follow the prompt to name a key file and then enter a passphrase for added security. Your screen should look something like the following image:
 
-   		![SSH command line in Windows](./media/r-server-get-started/sshcmdline.png)
+      ![SSH command line in Windows](./media/r-server-get-started/sshcmdline.png)
 
-   	  This command creates a private key file and a public key file under the name <private-key-filename>.pub, for example furiosa and furiosa.pub.
+   	  This command creates a private key file and a public key file under the name <private-key-filename>.pub. In this example, the files are furiosa and furiosa.pub:
 
-   		![SSH dir](./media/r-server-get-started/dir.png)
+      ![Example result of dir command](./media/r-server-get-started/dir.png)
 
-   	c. Specify the public key file (&#42;.pub) when assigning HDI cluster credentials. Confirm your resource group and region, and select **Next**.
+   c. Specify the public key file (&#42;.pub) when assigning HDI cluster credentials. Confirm your resource group and region, and select **Next**.
 
-   		![Credentials blade](./media/r-server-get-started/publickeyfile.png)  
+      ![Credentials blade](./media/r-server-get-started/publickeyfile.png)  
 
    d. Change permissions on the private key file on your laptop:
 
@@ -99,16 +99,16 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
 
 		ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-   	  Or, as use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark).
+   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark).
 
-8. The quick create transitions you to the **Storage** pane. There, you select the storage account settings to be used for the primary location of the Hadoop Distributed File System (HDFS) file system used by the cluster. Select either a new or existing Azure storage account or an existing Azure Data Lake Store account.
+8. The quick create transitions you to the **Storage** pane. There, you select the storage account settings to be used for the primary location of the HDFS file system that the cluster uses. Select a new or existing Azure storage account, or select an existing Azure Data Lake Store account.
 
-	- If you select an Azure storage account, you can choose an existing account by selecting **Select a storage account** and then selecting the relevant account. Create a new account by using the **Create New** link in the **Select a storage account** section.
+	- If you select an Azure storage account, you can choose an existing account by selecting **Select a storage account** and then selecting the relevant account. Create a new account by using the **Create new** link in the **Select a storage account** section.
 
       > [!NOTE]
       > If you select **New**, you must enter a name for the new storage account. A green check appears if the name is accepted.
 
-      **Default Container** defaults to the name of the cluster. Leave this default as the value.
+      **Default container** defaults to the name of the cluster. Leave this default as the value.
 
       If you selected a new storage account, use **Location** in the prompt to select a region for it.  
 
@@ -122,12 +122,12 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
    	Use the **Select** button to save the data source configuration.
 
 
-7. The **Summary** pane then appears so you can validate all your settings. Here you can change your cluster size to modify the number of servers in your cluster. You can also specify any script actions that you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of **4**. The blade also shows the estimated cost of the cluster.
+9. The **Summary** pane then appears so you can validate all your settings. Here you can change your cluster size to modify the number of servers in your cluster. You can also specify any script actions that you want to run. Unless you know that you need a larger cluster, leave the number of worker nodes at the default of **4**. The pane also shows the estimated cost of the cluster.
 
    	![Cluster summary](./media/r-server-get-started/clustersummary.png)
 
    > [!NOTE]
-   > If needed, you can resize your cluster later through the portal (**Cluster** > **Settings** > **Scale Cluster**) to increase or decrease the number of worker nodes. This resizing can be useful for idling down the cluster when it's not in use, or for adding capacity to meet the needs of larger tasks.
+   > If needed, you can resize your cluster later through the portal (**Cluster** > **Settings** > **Scale cluster**) to increase or decrease the number of worker nodes. This resizing can be useful for idling down the cluster when it's not in use, or for adding capacity to meet the needs of larger tasks.
    >
    >
 
@@ -137,12 +137,12 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
 
    * The performance of R Server analyses is linear in the size of data being analyzed. For example:  
 
-     * For small to modest data, performance is best when analyzed in a local compute context on the edge node. For more information on the scenarios under which the local and Spark compute contexts work best, see [Compute context options for R Server on HDInsight](r-server-compute-contexts.md).<br>
-     * If you log in to the edge node and run your R script, then all but the ScaleR rx-functions are executed *locally* on the edge node. So the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
+     * For small to modest data, performance is best when the data is analyzed in a local compute context on the edge node. For more information on the scenarios under which the local and Spark compute contexts work best, see [Compute context options for R Server on HDInsight](r-server-compute-contexts.md).<br>
+     * If you log in to the edge node and run your R script, all but the ScaleR rx-functions are executed *locally* on the edge node. So the memory and number of cores on the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
 
-     ![Pane for node pricing tiers](./media/r-server-get-started/pricingtier.png)
+   Use the **Select** button to save the node pricing configuration.
 
-     Use the **Select** button to save the node pricing configuration.
+   ![Pane for node pricing tiers](./media/r-server-get-started/pricingtier.png)
 
    There is also a link for **Download template and parameters**. Select this link to display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure portal entry for your cluster after it's created.
 
@@ -154,20 +154,20 @@ You can automate the creation of HDInsight R Servers by using Azure Resource Man
 <a name="connect-to-rstudio-server"></a>
 ## Connect to RStudio Server
 
-If you’ve chosen to include RStudio Server community edition in your installation, you can access the RStudio login via two methods:
+If you chose to include RStudio Server community edition in your installation, you can access the RStudio login via two methods:
 
-- Go to the following URL (where *CLUSTERNAME* is the name of the cluster you've created):
+- Go to the following URL (where *CLUSTERNAME* is the name of the cluster that you created):
 
     https://*CLUSTERNAME*.azurehdinsight.net/rstudio/
 
-- Open the entry for your cluster in the Azure portal, select the **R Server Dashboards** quick link, and then select **R Studio Dashboard**:
+- Open the entry for your cluster in the Azure portal, select the **R Server dashboards** quick link, and then select **R Studio dashboard**:
 
-     ![Access the RStudio dashboard](./media/r-server-get-started/rstudiodashboard1.png)
+  ![Access the RStudio dashboard](./media/r-server-get-started/rstudiodashboard1.png)
 
-     ![Access the RStudio dashboard](./media/r-server-get-started/rstudiodashboard2.png)
+  ![Access the RStudio dashboard](./media/r-server-get-started/rstudiodashboard2.png)
 
-   > [!IMPORTANT]
-   > Regardless of the method used, the first time you log in, you need to authenticate twice. At the first authentication, provide the cluster admin user ID and password. At the second prompt, provide the SSH user ID and password. Subsequent logins require only the SSH user ID and password.
+> [!IMPORTANT]
+> Regardless of the method used, the first time you log in, you need to authenticate twice. At the first authentication, provide the cluster admin user ID and password. At the second prompt, provide the SSH user ID and password. Subsequent logins require only the SSH user ID and password.
 
 <a name="connect-to-edge-node"></a>
 ## Connect to the R Server edge node
@@ -202,22 +202,22 @@ When you create an HDInsight cluster, you must provide two users: an HTTP user a
 
 ![Entering credentials for the cluster user and the SSH user](./media/r-server-get-started/concurrent-users-1.png)
 
-- **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters that you created. This HTTP user is used to access the Ambari UI, the YARN UI, and other UI components.
-- **Secure Shell (SSH) username**: an SSH user to access the cluster through Secure Shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use SSH to access any of the nodes in a remote cluster.
+- **Cluster login username**: An HTTP user for authentication through the HDInsight gateway that's used to protect the HDInsight clusters that you created. This HTTP user is used to access the Ambari UI, the YARN UI, and other UI components.
+- **Secure Shell (SSH) username**: An SSH user to access the cluster through Secure Shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use SSH to access any of the nodes in a remote cluster.
 
-The R Studio Server community version used in the Microsoft R Server on HDInsight type cluster accepts only the Linux username and password as a login mechanism. It does not support passing tokens. So if you have created a new cluster and want to use R Studio to access it, you need to log in twice.
+The RStudio Server community version used in the Microsoft R Server on HDInsight type cluster accepts only the Linux username and password as a login mechanism. It does not support passing tokens. So if you have created a new cluster and want to use RStudio to access it, you need to log in twice.
 
 1. Log in by using the HTTP user credentials through the HDInsight gateway: 
 
 	![Entering HTTP user credentials](./media/r-server-get-started/concurrent-users-2a.png)
 
-2. Use the SSH user credentials to log in to RStudio:
+2. Use the SSH user credentials to sign in to RStudio:
   
 	![Entering SSH user credentials](./media/r-server-get-started/concurrent-users-2b.png)
 
 Currently, you can create only one SSH user account when provisioning an HDInsight cluster. To enable multiple users to access Microsoft R Server on HDInsight clusters, you need to create additional users in the Linux system.
 
-Because RStudio Server Community is running on the cluster’s edge node, there are three steps here:
+Because RStudio Server community version is running on the cluster’s edge node, there are three steps here:
 
 1. Use the created SSH user to log in to the edge node.
 2. Add more Linux users to the edge node.
@@ -226,12 +226,12 @@ Because RStudio Server Community is running on the cluster’s edge node, there 
 ### Use the created SSH user to log in to the edge node
 
 Download any SSH tool (such as PuTTY) and use the existing SSH user to log in. Then follow the instructions provided in [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for the R Server on HDInsight cluster is:
-*clustername-ed-ssh.azurehdinsight.net*
+**clustername-ed-ssh.azurehdinsight.net**
 
 
 ### Add more Linux users to the edge node
 
-To add a user to the edge node, execute these commands:
+To add a user to the edge node, run these commands:
 
 	sudo useradd yournewusername -m
 	sudo passwd yourusername
@@ -240,20 +240,20 @@ You should see the following items returned:
 
 ![Output of sudo commands](./media/r-server-get-started/concurrent-users-3.png)
 
-When prompted for the current Kerberos password, just select the Enter key to ignore it. The `-m` option in the `useradd` command indicates that the system will create a home folder for the user, which is required for the RStudio community version.
+When you're prompted for the current Kerberos password, just select the Enter key to ignore it. The `-m` option in the `useradd` command indicates that the system will create a home folder for the user. This folder is required for the RStudio community version.
 
 
 ### Use the RStudio community version with the created user
 
-Use the created user to log in to RStudio:
+Use the created user to sign in to RStudio:
 
 ![RStudio sign-in page](./media/r-server-get-started/concurrent-users-4.png)
 
-Notice that RStudio indicates that you are using the new user (here, for example, *sshuser6*) to log in to the cluster: 
+Notice that RStudio indicates that you are using the new user (here, for example, **sshuser6**) to log in to the cluster: 
 
 ![Location of the new user on the RStudio command bar](./media/r-server-get-started/concurrent-users-5.png)
 
-You can also log in by using the original credentials (by default, it is *sshuser*) concurrently from another browser window.
+You can also log in by using the original credentials (by default, it's **sshuser**) concurrently from another browser window.
 
 You can submit a job by using ScaleR functions. Here is an example of the commands for running a job:
 
