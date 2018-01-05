@@ -322,7 +322,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 2. Click **Error** link for the pipeline run to see details about the error. 
 
     ![Pipeline error](./media/tutorial-control-flow-portal/pipeline-error-message.png)
-2. To **view activity runs** associated with this pipeline run ,click the first link in the **Actions** column. Use the **Refresh** button to refresh the list. Notice that the Copy activity in the pipeline failed. The Web activity succeeded to send the failure email to the specified receiver. 
+2. To **view activity runs** associated with this pipeline run, click the first link in the **Actions** column. Use the **Refresh** button to refresh the list. Notice that the Copy activity in the pipeline failed. The Web activity succeeded to send the failure email to the specified receiver. 
 
     ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-failure.png)
 4. Click link in the **Error** column to see details about the error. 
