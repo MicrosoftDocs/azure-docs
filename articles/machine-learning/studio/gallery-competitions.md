@@ -27,17 +27,14 @@ provide an exciting opportunity to compete with the community of data scientists
 For answers to frequently-asked questions about Competitions, see [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
 
 ## Discover
-  To browse for
- competitions
-  in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com), point your mouse to **More** at the top of the Gallery home page, and select
-**Competitions**.
+The
+**[Competitions](https://gallery.cortanaintelligence.com/competitions)**
+ page ([aka.ms/CIComp](http://aka.ms/CIComp)) displays a list of the most popular
+competitions.
 
 ![Select Competitions from the Gallery home page](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- The
-**[Competitions](https://gallery.cortanaintelligence.com/competitions)**
- page displays a list of the most popular
-competitions.
+ 
  Click **See all** to view all
 competitions.
  From this page, you can browse all the
