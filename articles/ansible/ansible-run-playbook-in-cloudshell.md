@@ -52,7 +52,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
 
 1. If you do not have a virtual machine to use, enter the following commands into the Cloud Shell to create a virtual machine with which to test:
 
-  ```cli
+  ```azurecli-interactive
   az group create --resource-group ansible-test-rg --location eastus
 
   az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
@@ -60,19 +60,19 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
-  ```cli
+  ```azurecli-interactive
   wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
   ```
 
 1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
-  ```cli
+  ```azurecli-interactive
   chmod +x azure_rm.py
   ```
 
 1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your virtual machine: 
 
-  ```cli
+  ```azurecli-interactive
   ansible -i azure_rm.py ansible-test-vm -m ping
   ```
 
@@ -115,7 +115,7 @@ In this section, you learn how to create and run an Ansible playbook that create
 
 1. Use the `ansible-playbook` command to run the `rg.yml` playbook:
 
-  ```cli
+  ```azurecli-interactive
   ansible-playbook rg.yml
   ```
 
@@ -136,7 +136,7 @@ In this section, you learn how to create and run an Ansible playbook that create
 
 1. Verify the deployment:
 
-  ```cli
+  ```azurecli-interactive
   az group show -n demoresourcegroup
   ```
 
@@ -161,7 +161,7 @@ In this section, you learn how to create and run an Ansible playbook that create
 
 1. Use the `ansible-playbook` command to run the `rg2.yml` playbook:
 
-  ```cli
+  ```azurecli-interactive
   ansible-playbook rg.yml
   ```
 
