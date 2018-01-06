@@ -61,7 +61,7 @@ You cannot retrieve the value for encrypted variables or the password field of c
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 
 ### DSC configurations
-You can export your configurations to script files using either the Azure Management Portal or the 
+You can export your configurations to script files using either the Azure portal or the 
 [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet in Windows PowerShell. These configurations can be imported and used in another automation account.
 
 ## Geo-replication in Azure Automation
