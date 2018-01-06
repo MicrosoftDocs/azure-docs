@@ -1,18 +1,18 @@
 ---
-title: Create a Function App and deploy function code from Visual Studio Team Services | Microsoft Docs 
+title: Create a function in Azure that is deployed from Visual Studio Team Services | Microsoft Docs 
 description: Create a Function App and deploy function code from Visual Studio Team Services
 services: functions 
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/04/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
 ---
-# Create an App Service
+# Create a function in Azure that is deployed from Visual Studio Team Services
 
-In this scenario you will learn how to create a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and continuously deploys your function code from a Visual Studio Team Services (VSTS) repository. In this sample, you will need:
+This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Visual Studio Team Services (VSTS) repository. To complete this topic, you must have:
 
 * A VSTS repository with functions code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
@@ -21,7 +21,7 @@ In this scenario you will learn how to create a function app using the [consumpt
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you rather use the CLI locally, you must install and use Azure CLI version 2.0 or a later version. To determine theAzure CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 

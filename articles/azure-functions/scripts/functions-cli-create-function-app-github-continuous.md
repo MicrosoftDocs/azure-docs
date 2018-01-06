@@ -1,5 +1,5 @@
 ---
-title: Create a Function App and deploy function code from GitHub | Microsoft Docs 
+title: Create an Azure Function that is deployed from GitHub | Microsoft Docs 
 description: Create a Function App and deploy function code from GitHub
 services: functions 
 ms.service: functions
@@ -8,11 +8,11 @@ ms.devlang: azurecli
 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/27/2017
+ms.date: 01/04/2018
 ms.topic: sample
 ms.custom: mvc
 ---
-# Create an App Service
+# Create an Azure Function that is deployed from GitHub
 
 This sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and continuously deploys your function code from a GitHub repository. In this sample, you need:
 
