@@ -3,7 +3,7 @@ title: Integrate an Azure storage account with Azure CDN | Microsoft Docs
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
-author: zhangmanling, dksimpson
+author: zhangmanling
 manager: erikre
 editor: ''
 
