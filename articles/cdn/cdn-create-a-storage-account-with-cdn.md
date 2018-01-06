@@ -3,7 +3,7 @@ title: Integrate an Azure storage account with Azure CDN | Microsoft Docs
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
-author: zhangmanling dksimpson
+author: zhangmanling, dksimpson
 manager: erikre
 editor: ''
 
@@ -44,15 +44,16 @@ administrator or a co-administrator for the associated subscription.
 
 3. In the **Name** box, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
    
-    This value becomes the host name within the URI that is used to address blob, queue, or table resources for the subscription. To address a container resource in the Blob service, use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you entered in the **Enter a URL** box:
+    This value becomes the host name within the URI that is used to address blob, queue, or table resources for the subscription. For example, to address a container resource for the Blob service, use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you entered in the **Name** box:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    `http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*`
    
     > [!IMPORTANT]    
     > The URL label forms the subdomain of the storage account URI and must be unique among all Azure hosted services.
    
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
+    This value is also used as the name of the storage account in the Azure portal, or when accessing the account programmatically.
+    
+4. Use the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
     
 5. Select the **Subscription** to use with the storage account.
     
@@ -64,30 +65,30 @@ administrator or a co-administrator for the associated subscription.
 
 ## Step 2: Enable CDN for the storage account
 
-With the newest integration, you can now enable CDN for your storage account without leaving your storage portal extension. 
+You can enable CDN for your storage account from the storage blad. 
 
-1. Select the storage account, search for "CDN" or scroll down from the left navigation menu, then click **Azure CDN**.
+1. Select a storage account from the dashboard, then select **Azure CDN**.
 	
 	The **Azure CDN** blade appears.
 
-	![cdn enable navigation][cdn-enable-navigation]
+	![Create CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
 	
 2. Create a new endpoint by entering the required information
-	- **CDN Profile**: You can create a new or use an existing profile.
-	- **Pricing tier**: You only need to select a pricing tier if you create a new CDN profile.
-	- **CDN endpoint name**: Enter an endpoint name per your choice.
+	- **CDN Profile**: Create a new CDN profile or use an existing CDN profile.
+	- **Pricing tier**: Select a pricing tier only if you are creating a CDN profile.
+	- **CDN endpoint name**: Enter an CDN endpoint name.
 
 	> [!TIP]
-   	> The created CDN endpoint uses the hostname of your storage account as origin by default.
+   	> By default, a new CDN endpoint uses the hostname of your storage account as the origin server.
 
 	![cdn new endpoint creation][cdn-new-endpoint-creation]
 
-3. After creation, the new endpoint will be displayed in the endpoint list.
+3. After the endpoint is created, it is displayed in the endpoint list.
 
 	![cdn storage new endpoint][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> You can also go to Azure CDN extension to enable CDN.[Tutorial](#Tutorial-cdn-create-profile).
+> Alternatively, you can use the [Azure CDN portal](cdn-create-new-endpoint.md) to enable Azure CDN.
 > 
 > 
 
