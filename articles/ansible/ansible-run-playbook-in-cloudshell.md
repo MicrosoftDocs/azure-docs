@@ -45,7 +45,7 @@ If you have never used Cloud Shell, the following steps guide you through settin
 >
 >
 
-## Use Ansible to connect to your Azure virtual machine
+## Use Ansible to connect to an Azure virtual machine
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
 1. Open the Azure Cloud Shell.
@@ -89,6 +89,13 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   }
   ```
 
+1. If you created a resource group and virtual machine in this section
+
+  ```azurecli-interactive
+  az group delete -n <resourceGroup>
+  ```
+
+
 ## Run an Ansible playbook in CloudShell
 In this section, you learn how to create and run an Ansible playbook that creates an Azure resource group.
 
@@ -111,7 +118,7 @@ In this section, you learn how to create and run an Ansible playbook that create
           location: eastus
   ```
 
-1. Save and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
+1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
 
 1. Use the `ansible-playbook` command to run the `rg.yml` playbook:
 
@@ -158,6 +165,8 @@ In this section, you learn how to create and run an Ansible playbook that create
           name: demoresourcegroup
           state: absent
   ```
+
+1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
 
 1. Use the `ansible-playbook` command to run the `rg2.yml` playbook:
 
