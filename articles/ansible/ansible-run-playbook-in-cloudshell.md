@@ -20,7 +20,7 @@ In this tutorial, you learn how to perform various Ansible tasks in the Azure Cl
 
 ## Configure Cloud Shell
 
-If you have never used Cloud Shell, the following steps will guide you through setting it up the first time you use it:
+If you have never used Cloud Shell, the following steps guides you through setting it up the first time you use it:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -36,7 +36,7 @@ If you have never used Cloud Shell, the following steps will guide you through s
 
   ![Cloud Shell requires an Azure file share to persist files.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-create-storage.png)
 
-1. You should now see results similar to the following:
+1. You should now see results similar to the following output:
 
   ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-started.png)
 
@@ -76,7 +76,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   ansible -i azure_rm.py ansible-test-vm -m ping
   ```
 
-  Once connected, you should see output similar to the following:
+  Once connected, you should see results similar to the output:
 
   ```Output
   The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
@@ -119,19 +119,19 @@ In this section, you learn how to create and run an Ansible playbook that create
   ansible-playbook rg.yml
   ```
 
-1. You should see results similar to the following:
+1. You should see results similar to the following output:
 
   ```Output
-  PLAY [My first Ansible Playbook] *************************************************************************************************
+  PLAY [My first Ansible Playbook] **********
 
-  TASK [Gathering Facts] ***********************************************************************************************************
+  TASK [Gathering Facts] **********
   ok: [localhost]
 
-  TASK [Create a resource group] ***************************************************************************************************
+  TASK [Create a resource group] **********
   changed: [localhost]
 
-  PLAY RECAP ***********************************************************************************************************************
-  localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  PLAY RECAP **********
+  localhost : ok=2 changed=1 unreachable=0 failed=0
   ```
 
 1. Verify the deployment:
@@ -165,20 +165,20 @@ In this section, you learn how to create and run an Ansible playbook that create
   ansible-playbook rg.yml
   ```
 
-1. You should see results similar to the following:
+1. You should see results similar to the following output:
 
   ```Output
   The output is as following. 
-  PLAY [My second Ansible Playbook] **************************************************************************************************************************
+  PLAY [My second Ansible Playbook] **********
 
-  TASK [Gathering Facts] *************************************************************************************************************************************
+  TASK [Gathering Facts] **********
   ok: [localhost]
 
-  TASK [Delete a resource group] *****************************************************************************************************************************
+  TASK [Delete a resource group] **********
   changed: [localhost]
 
-  PLAY RECAP *************************************************************************************************************************************************
-  localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  PLAY RECAP **********
+  localhost : ok=2 changed=1 unreachable=0 failed=0
   ```
 
 ## Next steps
