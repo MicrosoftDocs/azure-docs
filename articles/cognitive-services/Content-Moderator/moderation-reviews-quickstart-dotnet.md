@@ -132,9 +132,13 @@ our internal content ID for the item.
 
 Update these values to contain information specific to your subscription and team.
 
-Normally, you will have some business logic for identifying incoming images, text,
-or video that needs to be reviewed. However, here we are just using a fixed list
-of images.
+> [!NOTE]
+> You will need to set the TeamName constant to the name you used when you
+> created your Content Moderator subscription. You can retrieve this from the
+> [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Once you log in, select **Credentials** from the **Settings** (gear) menu.
+>
+> Your team name is the value of the **Id** field in the **API** section.
 
     /// <summary>
     /// The name of the team to assign the review to.
@@ -218,6 +222,10 @@ Add the following method to the **Program** class.
 	}
 
 ## Create a method to create a set of reviews
+
+Normally, you will have some business logic for identifying incoming images, text,
+or video that needs to be reviewed. However, here we are just using a fixed list
+of images.
 
 Add the following method to the **Program** class.
 
@@ -447,7 +455,7 @@ the `reviewerResultTags` field reflects how the reviewer tagged the item.
 		"callbackEndpoint": "{callbackUrl}"
 	}
 
-## Examine the response received by your callback Url
+## Your callback Url if provided, receives this response
 
 You see a response like the following example:
 
