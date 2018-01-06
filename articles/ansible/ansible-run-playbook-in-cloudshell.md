@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/03/2018
+ms.date: 01/06/2018
 ms.topic: quickstart
 ---
 
@@ -18,9 +18,11 @@ In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud 
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Azure virtual machine** - You need to connect to an Azure virtual machine to complete this QuickStart. The article, [Create a complete Linux virtual machine environment in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-complete-vm), illustrates the steps to use Ansible to create a virtual machine.
+- **Azure virtual machine** - You need to connect to an Azure virtual machine to complete this QuickStart. If you do not have an Azure virtual machine, refer to the article, [Create a complete Linux virtual machine environment in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-complete-vm).
 
 ## Configure Cloud Shell
+
+If you have never used Cloud Shell, the following steps will guide you through setting it up the first time you use it:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -28,19 +30,17 @@ In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud 
 
   ![Select the Cloud Shell icon to run Bash commands against Azure from your favorite browser.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-icon.png)
 
-1. (First time use only) This step is only applicable if this is the first time you're running Cloud Shell. Otherwise, skip to the next step.
+1. Select the **Bash** option.
 
-  1. Select the **Bash** option.
+  ![Cloud Shell supports both Bash or PowerShell.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-select-env.png)
 
-    ![Cloud Shell supports both Bash or PowerShell.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-select-env.png)
+1. Select a subscription to create a storage account and Microsoft Azure Files share, and select **Create Storage**.
 
-  1. Select a subscription to create a storage account and Microsoft Azure Files share, and select **Create Storage**.
+  ![Cloud Shell requires an Azure file share to persist files.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-create-storage.png)
 
-    ![Cloud Shell requires an Azure file share to persist files.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-create-storage.png)
+1. You should now see results similar to the following:
 
-  1. You should now see results similar to the following:
-
-    ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-started.png)
+  ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-started.png)
 
 ## Set up authentication with Azure
 By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscriptionId> placeholder with your Azure subscription ID):
