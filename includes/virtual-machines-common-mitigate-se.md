@@ -68,6 +68,8 @@ If you are running a Linux Server, please consult with the vendor of your operat
 
 Customers using tools that detect the existence of microcode-based mitigations report that Azure is unpatched. This is incorrect. At the time of this publication, Branch Target Injection Mitigation Support is not exposed from the Azure Hypervisor into Azure Virtual Machines or Azure Cloud Services. This means that Virtual Machines are unaware of the existence of microcode and cannot use its augmented instruction set. This does not mean that Azure is vulnerable to cross-VM speculative execution side channel attacks.
  
+As we work with industry partners more updates may become available.
+
 ## Next steps
 
 To learn more, see [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
