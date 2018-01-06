@@ -29,7 +29,7 @@ For the process of creating alert rules, see the following articles:
 
 ## Considerations
 
-Details about the data collection frequency for various solutions and data type are available in the [Data collection details](log-analytics-add-solutions.md#data-collection-details) of the Solutions overview article. As noted in this article, collection frequency can be as infrequent as once every seven days to **on notification**. It is important to understand and consider the data collection frequency before setting up an alert. 
+Details about the data collection frequency for various solutions and data type are available in the [Data collection details](log-analytics-add-solutions.md#data-collection-details) of the Solutions overview article. As noted in this article, collection frequency can be as infrequent as once every seven days to *on notification*. It is important to understand and consider the data collection frequency before setting up an alert. 
 
 - The collection frequency determines how often the OMS agent on machines will send data to Log Analytics. For instance, if the collection frequency is 10 minutes and there are no other delays in the system, then time stamps of the transmitted data may be anywhere between zero and 10 minutes old before being added to the repository and is searchable in Log Analytics.
 
@@ -42,7 +42,7 @@ Alerts are created by alert rules that automatically run log searches at regular
 
 ![Log Analytics alerts](media/log-analytics-alerts/overview.png)
 
-Because there is an anticipated latency with the ingestion of log data, the absolute time between indexing data and when it is available to search can be unpredictable.  Alerts need to be configured to accommodate for the near-real-time behavior of the service.   
+Because there is an anticipated latency with the ingestion of log data, the absolute time between indexing data and when it is available to search can be unpredictable.  The near-real-time availability of data collected should be taken into consideration while defining alert rules.    
 
 There is a trade-off between reliability of alerts and the responsiveness of alerts. You can choose to configure alert parameters to minimize false alerts and missing alerts, or you can choose alert parameters to respond quickly to the conditions that are being monitored, but will occasionally generate false or missed alerts.
 
