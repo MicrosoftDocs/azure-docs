@@ -42,25 +42,45 @@ If you have never used Cloud Shell, the following steps will guide you through s
 
   ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-started.png)
 
-## Set up authentication with Azure
-By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscriptionId> placeholder with your Azure subscription ID):
+## Ansible authentication in Azure and specifying the active Azure subscription
+By default, Ansible is installed in the Bash environment of Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. 
 
-```cli
-az account set --subscription <YourAzureSubscriptionId>
-```
+If you want to change the subscription being used when you run Ansible commands in Cloud Shell, the following steps illustrate how to:
+
+- Determine the default Azure subscription
+- Show all of your Azure subscriptions
+- Change the current active Azure subscription
+
+1. Enter the following command into the Cloud Shell to display the active Azure subscription:
+
+  ```cli
+  az account show
+  ```
+
+1. Enter the following command into the Cloud Shell to display all of your Azure subscriptions (in a table format):
+
+  ```cli
+  az account list --output table
+  ```
+
+1. Using either the subscription name or the subscription ID, enter the following command into the Cloud Shell to set the active Azure subscription:
+
+  ```cli
+  az account set --subscription "<YourAzureSubscriptionId>"
+  ```
 
 ## Use Ansible to connect to your Azure virtual machine
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
 1. Open the Azure Cloud Shell.
 
-1. Use the GNU wget command to retrieve the `azure_rm.py` script by typing the following into the Cloud Shell prompt:
+1. Use the GNU `wget` command to retrieve the `azure_rm.py` script by typing the following into the Cloud Shell prompt:
 
   ```cli
   wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
   ```
 
-1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script by entering the following into the Cloud Shell prompt:
+1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
   ```cli
   chmod +x azure_rm.py
@@ -71,6 +91,11 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   ```cli
   ansible -i azure_rm.py &lt;YourVMName> -m ping
   ```
+
+
+
+
+
 
 The output is as following. 
 The authenticity of host '52.168.52.51 (52.168.52.51)' can't be established.
