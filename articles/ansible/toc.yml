@@ -14,7 +14,7 @@
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
     - name: Run a playbook in Cloud Shell
-      href: ./run-ansible-playbook-in-azure-cloudshell.md
+      href: ./ansible-run-playbook-in-cloudshell.md
       maintainContext: true
 - name: Tutorials 
   items:
