@@ -1,74 +1,43 @@
 
- 
-The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity. 
+**Last document update**: January 6, 3:00 PM.
 
- 
-## Azure infrastructure
+The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
-The issues described in the vulnerability disclosure could be used to bypass a hypervisor boundary and allow disclosure of memory between two co-hosted virtual machines. As reported in an earlier [blog post](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/), Azure has applied mitigations to protect customers against this vulnerability.  Microsoft always recommends that customers apply security best practices for your VM images including installing all security updates from their operating system vendor.
+The infrastructure that runs Azure and isolates customer workloads from each other is protected.  This means that other customers running on Azure cannot attack your application using these vulnerabilities.
 
-## PaaS Services on Azure
-Azure PaaS offerings have mitigations deployed by default. No action is required by customers. See below for Azure Cloud Services exception.  
+## Keeping your Operating Systems up to date
 
+While an OS update is not required to isolate your applications running on Azure from other customers running on Azure, it is always a best practice to keep your OS versions up to date. 
 
-## Azure Cloud Services
+In the following offerings, here are our recommended actions to update your Operating System: 
 
-[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) with auto update enabled automatically receive a version of the Guest OS that includes mitigations to these vulnerabilities. 
+|Offering	| Recommended Action |
+|-----------|--------------------|
+| Azure Cloud Services	| Enable auto update or ensure you are running the newest Guest OS. |
+| Azure Linux Virtual Machines | Install updates from your operating system provider when available. |
+| Azure Windows Virtual Machines	| - Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. 
+| | - Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). |
+| Other Azure PaaS Services	| There is no action needed for customers using these services. Azure automatically keeps your OS versions up to date. |
 
-The following Guest OS releases include updates with protections against speculative execution side channel vulnerabilities:
+## Additional guidance if you are running untrusted code 
 
-* WA-GUEST-OS-5.15_201801-01
-* WA-GUEST-OS-4.50_201801-01
-
-
-A small number of customers using Azure Cloud Services to host untrusted code should also enable [Kernel Virtual Address Shadowing](#enabling-kernel-virtual-address-shadowing-on-windows-server) in addition to updating the Guest OS. This provides additional protection against speculative execution side-channel vulnerabilities. This can be accomplished via a startup task. More information about which customers and usage scenarios require this feature and how to enable it, is provided below.
-
-
-## Azure Virtual Machines (Windows & Linux)
-
-Microsoft always recommends that customers install all security updates. 
-
-The January 2018 security rollup contains fixes for these vulnerabilities and more. Verify that you are running a supported antivirus application before you install OS updates. Contact the antivirus software vendor for compatibility information. 
-
-To address speculative execution vulnerabilities, updates to the Linux kernel will be required and can be obtained from your distribution provider when available. 
-
-A small number of customers using Azure Virtual Machines (Windows) to host untrusted code should also enable [Kernel Virtual Address Shadowing](#enabling-kernel-virtual-address-shadowing-on-windows-server) which provides additional protection against speculative execution side-channel vulnerabilities.  More information about which customers and usage scenarios require this feature and how to enable it is provided below.
+No additional customer action is needed unless you are running untrusted code. If you allow code that you do not trust (for example, you allow one of your customers to upload a binary or code-snippet that you then execute in the cloud within your application), then the following additional steps should be taken.  
 
 
-## Enabling Kernel Virtual Address Shadowing on Windows Server
-
-Customers who use Windows Server to execute untrusted code should enable a feature called Kernel Virtual Address Shadowing which provides protection for systems where untrusted code is executing with low user privileges.
-
-This additional protection may affect performance and is turned off by default. Kernel Virtual Address Shadowing protects against process-to-process and kernel-to-process information disclosure.
-
-Your VMs, Cloud Services, or on-premises servers are at risk if they fall into one of the following categories:
-
-* Azure nested virtualization Hyper-V Hosts
-* Remote Desktop Services Hosts (RDSH)
-* Virtual machines or cloud services that are running untrusted code such as containers or untrusted extensions for database, untrusted web content or workloads that run code that is provided from external sources.
-
-An example of a scenario where Kernel Virtual Address Shadowing is necessary: 
-
-|     |
-|-----|
-|An Azure virtual machine runs a service where untrusted users can submit JavaScript code which is executed with limited privileges. On the same VM, there exists a highly privileged process which contains secret data that should not be accessible to those users. In this situation, Kernel Virtual Address Shadowing is necessary to provide protection against disclosure between the two.|
-|     | 
-
-Specific instructions on enabling Kernel Virtual Address Shadowing are available through [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution).
+### Windows 
+If you are using Windows and hosting untrusted code, you should also enable a Windows feature called Kernel Virtual Address (KVA) Shadowing which provides additional protection against speculative execution side-channel vulnerabilities. This feature is turned off by default and may impact performance if enabled. 
+Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructions for Enabling Protections on the Server. If you are running Azure Cloud Services, verify that you are running WA-GUEST-OS-5.15_201801-01 or WA-GUEST-OS-4.50_201801-01 (available starting on January 10th) and enable the registry key via a startup task.
 
 
-> [!NOTE]
-> At the time of publication, Kernel Virtual Address Shadowing is only available in Windows Server 2016, Windows Server 2012 R2, and Windows Server 2008 R2.  
->
->
+### Linux
+If you are using Linux and hosting untrusted code, you should also update Linux to a more recent version that implements kernel page-table isolation (KPTI) which separates the page tables used by the kernel from those belonging to user space. These mitigations require a Linux OS update and can be obtained from your distribution provider when available. Your OS provider will be able to tell you whether protections are enabled or disabled by default.
 
-If you are running a Linux Server, please consult with the vendor of your operating systems for updates and instructions.
 
-## Branch Target Injection Mitigation Support (Microcode)
 
-Customers using tools that detect the existence of microcode-based mitigations report that Azure is unpatched. This is incorrect. At the time of this publication, Branch Target Injection Mitigation Support is not exposed from the Azure Hypervisor into Azure Virtual Machines or Azure Cloud Services. This means that Virtual Machines are unaware of the existence of microcode and cannot use its augmented instruction set. This does not mean that Azure is vulnerable to cross-VM speculative execution side channel attacks.
- 
-As we work with industry partners more updates may become available.
+
+
+
+
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Best practices for mitigating speculative execution in Azure | Microsoft Docs
-description: Best practices for mitigating speculative execution side-channel vulnerabilities in Azure.
+title: Guidance for mitigating speculative execution in Azure | Microsoft Docs
+description: Guidance for mitigating speculative execution side-channel vulnerabilities in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -20,6 +20,6 @@ ms.author: cynthn
 
 
 
-# Best practices for mitigating speculative execution side-channel vulnerabilities
+# Guidance for mitigating speculative execution side-channel vulnerabilities
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
