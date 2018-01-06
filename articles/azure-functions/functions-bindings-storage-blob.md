@@ -207,10 +207,12 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
-In C# and C# script, access the blob data by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+In C# and C# script, access the blob data by using a method parameter such as `T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)
@@ -487,7 +489,7 @@ The following table explains the binding configuration properties that you set i
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Must be set to `blob`. |
-|**direction** | n/a | Must be set to `in` for an input binding or out for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
+|**direction** | n/a | Must be set to `in` for an input binding or `out` for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob. | 
 |**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
@@ -499,10 +501,16 @@ The following table explains the binding configuration properties that you set i
 
 In C# class libraries and C# script, access the blob by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader` (input only)
+* `string` (input only)
+* `Byte[]` (input only)
+* `TextWriter` (output only)
+* `out string` (output only)
+* `out Byte[]` (output only)
+*  `CloudBlobStream` (output only)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)

@@ -89,8 +89,6 @@ You can enable CDN for your storage account from the storage blad.
 
 > [!NOTE]
 > Alternatively, you can use the [Azure CDN portal](cdn-create-new-endpoint.md) to enable Azure CDN.
-> 
-> 
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
 
