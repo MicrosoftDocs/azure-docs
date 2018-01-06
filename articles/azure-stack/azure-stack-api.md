@@ -3,7 +3,7 @@ title: Connecting to the Azure Stack API
 description: Learn how to retrieve a authentication from Azure to make API requests to Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: Chris Black and charliejlewellyn
+author: cblackuk and charliejllewellyn
 manager: ''
 editor: ''
 
