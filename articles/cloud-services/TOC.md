@@ -44,6 +44,7 @@
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
+### [Mitigating speculative execution](mitigate-se.md]
 ### [Common management tasks](cloud-services-how-to-manage-portal.md)
 ### [Configure Cloud Service](cloud-services-how-to-configure-portal.md)
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
