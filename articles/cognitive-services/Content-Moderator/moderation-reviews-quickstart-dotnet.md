@@ -133,10 +133,9 @@ our internal content ID for the item.
 Update these values to contain information specific to your subscription and team.
 
 > [!NOTE]
-> You will need to set the TeamName constant to the name you used when you
-> created your Content Moderator subscription. You can retrieve this from the
-> [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
-> Once you log in, select **Credentials** from the **Settings** (gear) menu.
+> You set the TeamName constant to the name you used when you
+> created your [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) subscription. 
+> You can retrieve this from the **Credentials** section in the **Settings** (gear) menu.
 >
 > Your team name is the value of the **Id** field in the **API** section.
 
