@@ -1,5 +1,5 @@
 
-**Last document update**: January 6, 3:00 PM.
+**Last document update**: January 6, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
