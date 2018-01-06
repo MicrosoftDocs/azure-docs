@@ -283,18 +283,7 @@ ranges|May contain one or more [ranges](#ranges).
 
 ## ranges
 
-### audioEffectInstances
-
 **ranges** that appear under **audioEffectInstances**, describe audio effects in those ranges.
-
-Attribute | Description 
----|---
-type|
-ranges|May contain one or more [ranges](#ranges).
-
-### faces
-
-**ranges** that appear under **faces**, describe faces in those ranges.
 
 Attribute | Description 
 ---|---
