@@ -20,7 +20,7 @@ In this tutorial, you learn how to perform various Ansible tasks in the Azure Cl
 
 ## Configure Cloud Shell
 
-If you have never used Cloud Shell, the following steps guides you through setting it up the first time you use it:
+If you have never used Cloud Shell, the following steps guide you through setting it up the first time you use it:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -64,7 +64,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
   ```
 
-1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
+1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
   ```cli
   chmod +x azure_rm.py
