@@ -1,5 +1,5 @@
 ---
-title: Using Ansible in the Azure Cloud Shell
+title: Use Ansible in the Azure Cloud Shell
 description: Learn how to perform various Ansible tasks in the Azure Cloud Shell
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook
@@ -10,7 +10,7 @@ ms.date: 01/06/2018
 ms.topic: article
 ---
 
-# Using Ansible in the Azure Cloud Shell
+# Use Ansible in the Azure Cloud Shell
 
 In this tutorial, you learn how to perform various Ansible tasks in the Azure Cloud Shell. These tasks include connecting to a virtual machine, and creating Ansible playbooks to create and delete an Azure resource group.
 
