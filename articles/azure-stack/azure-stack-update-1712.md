@@ -122,7 +122,7 @@ This section contains post-installation known issues with build **180103.2**.
 - If you reboot an infrastructure role instance, you may receive a message indicating that the reboot failed. However, the reboot actually succeeded.
 
 #### Marketplace
-- When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
+- Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
 
 #### Compute
@@ -141,6 +141,9 @@ This section contains post-installation known issues with build **180103.2**.
 #### SQL/MySQL
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
+
+	> [!NOTE]
+	> You should not have impact to your existing SQL or MySQL resource provider users when updating your Azure Stack Integrated Systems to the 1712 version. You can continue to use your current SQL or MySQL resource provider builds until a new Azure Stack update is available.
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
