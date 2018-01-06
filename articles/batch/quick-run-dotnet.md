@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Run your first Batch job using the .NET API
 
-This quickstart runs an Azure Batch job from an application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
+This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads some input data files to Azure storage and creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool. 
 
 Each sample task displays the contents of the file downloaded to the compute node. This example is basic but introduces key concepts of the Batch service. 
 
@@ -30,17 +30,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download the sample
 
-[Download or clone the sample solution](https://github.com/dlepow/batchmvc) from GitHub.
+[Download or clone the sample solution](https://github.com/Azure-Samples/batch-dotnet-quickstart) from GitHub.
 
 Change to the directory that contains the Visual Studio solution:
 
 ```
-cd quickstart_dotnet
+cd BatchDotnetQuickstart
 ```
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-Open the solution in Visual Studio, and update the credential strings in `program.cs` with the values unique to your accounts. For example:
+Open the `BatchDotNetQuickstart.sln` solution file in Visual Studio, and update the credential strings in `program.cs` with the values unique to your accounts. For example:
 
 ```csharp
 // Batch account credentials

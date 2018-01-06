@@ -30,19 +30,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download the sample
 
-[Download or clone the sample application](https://github.com/dlepow/batchmvc) from GitHub. 
+[Download or clone the sample application](https://github.com/Azure-Samples/batch-python-quickstart) from GitHub. 
 
 Change to the directory that contains the sample code:
 
 ```bash
-cd quickstart_python
+cd src
 ```
 
 Install the required packages using `pip`.
 
 ```bash
-pip install azure.batch
-pip install azure.storage
+pip install azure-batch
+pip install azure-storage
 ```
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
@@ -99,7 +99,7 @@ The Python app in this quickstart does the following:
 
 * Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
 * Creates a pool of two compute nodes running Ubuntu 16.04 LTS.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a bash shell command line.
+* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
 * Displays files returned by each task.
 
 See the file `python_quickstart_client.py` and the following sections for details. 
