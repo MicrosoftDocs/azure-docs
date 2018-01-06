@@ -27,7 +27,7 @@ Creating data-science projects with the _TDSP template_ provides the standardize
 
 ## Twitter sentiment polarity sample
 
-This article uses a sample to show you how to instantiate and execute a Machine Learning project. The sample uses the TDSP structure and templates in Azure Machine Learning Workbench. The complete sample is provided in this [walkthrough](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). The modeling task predicts sentiment polarity (positive or negative) by using the text from tweets. This article outlines the data-modeling tasks that are described in the walkthrough. The walkthrough covers the following tasks:
+This article uses a sample to show you how to instantiate and execute a Machine Learning project. The sample uses the TDSP structure and templates in Azure Machine Learning Workbench. The complete sample is provided in [this walkthrough](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). The modeling task predicts sentiment polarity (positive or negative) by using the text from tweets. This article outlines the data-modeling tasks that are described in the walkthrough. The walkthrough covers the following tasks:
 
 - Data exploration, training, and deployment of a machine learning model that address the prediction problem that's described in the use case overview. [Twitter sentiment data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) is used for these tasks.
 - Execution of the project by using the TDSP template from Azure Machine Learning for this project. For project execution and reporting, the TDSP lifecycle is used.
@@ -44,7 +44,7 @@ To execute this sample, you use the TDSP project structure and documentation tem
 
 ![TDSP lifecycle](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-The TDSP project is created in Azure Machine Learning Workbench based on these [instructions](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), as shown in the following figure:
+The TDSP project is created in Azure Machine Learning Workbench based on [these instructions](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), as shown in the following figure:
 
 ![Create TDSP in Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
