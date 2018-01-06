@@ -56,11 +56,11 @@ This section lists the capabilities of Azure HDInsight.
 
 ## Scenarios for using HDInsight
 
-Azure HDInsight can be used for a variety of use cases for big data processing. Big data is being collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical data (data that's already collected and stored) or real-time data (data directly streamed from the source). The use cases for processing such data can be summarized in the following categories: 
+Azure HDInsight can be used for a variety of scenarios in big data processing. Big data is being collected in escalating volumes, at higher velocities, and in a greater variety of formats. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following categories: 
 
 ### Batch processing (ETL)
 
-Extract, transform, and load (ETL) is a process where unstructured or structured data is extracted from heterogeneous data sources, transformed into a structured format, and loaded into a data store. The transformed data can be used for data science or data warehousing.
+Extract, transform, and load (ETL) is a process where unstructured or structured data is extracted from heterogeneous data sources. It's then transformed into a structured format and loaded into a data store. You can use the transformed data for data science or data warehousing.
 
 ### Internet of Things (IoT)
 
@@ -104,7 +104,7 @@ HDInsight offers the following cluster types:
 
 * **[Apache Interactive Query preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Query in HDInsight](../interactive-query/apache-interactive-query-get-started.md).
 
-* **[Apache Kafka](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](../kafka/apache-kafka-introduction.md).
+* **[Apache Kafka](https://kafka.apache.org/)**: An open-source platform that's used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](../kafka/apache-kafka-introduction.md).
 
 ## Open-source components in HDInsight
 
@@ -112,7 +112,7 @@ Azure HDInsight enables you to create clusters with open-source frameworks such 
 
 
 ## Programming languages in HDInsight
-HDInsight clusters, including Spark, HBase, Kafka, Hadoop, and others, support many programming languages. Some programming languages aren't installed by default, however. For libraries, modules, or packages that are not installed by default, [use a script action to install the component](../hdinsight-hadoop-script-actions-linux.md). 
+HDInsight clusters, including Spark, HBase, Kafka, Hadoop, and others, support many programming languages. Some programming languages aren't installed by default. For libraries, modules, or packages that are not installed by default, [use a script action to install the component](../hdinsight-hadoop-script-actions-linux.md). 
 
 ### Default programming language support
 By default, HDInsight clusters support:
@@ -120,10 +120,10 @@ By default, HDInsight clusters support:
 * Java
 * Python
 
-Additional languages can be installed using [script actions](../hdinsight-hadoop-script-actions-linux.md).
+You can install additional languages by using [script actions](../hdinsight-hadoop-script-actions-linux.md).
 
 ### Java virtual machine (JVM) languages
-Many languages other than Java can run on a Java virtual machine (JVM). However, running some of these languages might require that additional components are installed on the cluster.
+Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, they might require that you install additional components on the cluster.
 
 The following JVM-based languages are supported on HDInsight clusters:
 
@@ -146,7 +146,7 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
-* [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md): Learn how to use Microsoft Power Query for Excel to connect Excel to the Azure Storage account that stores the data from your HDInsight cluster. Windows workstation required. 
+* [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md): Learn how to use Microsoft Power Query for Excel to connect Excel to the Azure Storage account that stores the data from your HDInsight cluster. Windows Workstation is required. 
 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. 
 
