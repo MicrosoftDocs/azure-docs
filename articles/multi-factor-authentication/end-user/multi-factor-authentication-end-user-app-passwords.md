@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
 experimental: true
@@ -54,11 +54,11 @@ During your initial sign-in you are given an app password that you can use.  Add
 If you use two-step verification with Azure, you want to create app passwords through the Azure portal.
 
 ### To create app passwords in the Azure portal
-1. Sign in to the Azure classic portal.
-2. At the top, right-click your user name and select Additional Security Verification.
-3. On the proofup page, at the top, select app passwords
-4. Click **Create**.
-5. Enter a name for the app password and click **Next**
+1. Sign in to the Azure portal.
+2. At the top, click your user name and select **Change password**.
+3. On the proofup page, at the top, select **App passwords**.
+4. Select **Create**.
+5. Enter a name for the app password and select **Next**.
 6. Copy the app password to the clipboard and paste it into your app.
 
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
