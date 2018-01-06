@@ -193,4 +193,4 @@ This section walks you through using the Cloud Shell to create and execute two p
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Create a Linux VM](/azure/virtual-machines/linux/ansible-create-vm)
+> [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
