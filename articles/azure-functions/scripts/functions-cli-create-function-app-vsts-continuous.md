@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 01/04/2018
+ms.date: 01/06/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
