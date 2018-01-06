@@ -54,7 +54,9 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
 
   ```azurecli-interactive
   az group create --resource-group ansible-test-rg --location eastus
+  ```
 
+  ```azurecli-interactive
   az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
   ```
 
