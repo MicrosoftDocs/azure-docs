@@ -103,7 +103,7 @@ This section walks you through using the Cloud Shell to create and execute two p
 
 1. Create a file named `rg.yml` as follows:
 
-  ```bash
+  ```azurecli-interactive
   vi rg.yml
   ```
 
@@ -151,7 +151,7 @@ This section walks you through using the Cloud Shell to create and execute two p
 
 1. Now that you've created the resource group, create a second Ansible playbook to delete the resource group:
 
-  ```bash
+  ```azurecli-interactive
   vi rg2.yml
   ```
 
