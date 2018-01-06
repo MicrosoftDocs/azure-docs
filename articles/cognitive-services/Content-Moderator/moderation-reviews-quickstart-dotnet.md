@@ -38,7 +38,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
-   In the sample code, I named the project **CreateReviews**.
+   In the sample code, name the project **CreateReviews**.
 
 1. Select this project as the single startup project for the solution.
 
