@@ -1,6 +1,6 @@
 ---
-title: Remediate security configurations mismatch in Azure Security Center | Microsoft Docs
-description: This document shows you how to implement the Azure Security Center recommendation **Remediate security configurations mismatch**.
+title: Remediate security configurations in Azure Security Center | Microsoft Docs
+description: This document shows you how to implement the Azure Security Center recommendation **Remediate security configurations**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -17,22 +17,22 @@ ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
-# Remediate security configurations mismatch in Azure Security Center
+# Remediate security configurations in Azure Security Center
 Azure Security Center analyzes daily the operating system (OS) of your virtual machines (VMs) and computers for a configuration that could make the VMs and computers more vulnerable to attack. Security Center recommends that you resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules and recommends configuration changes to address these vulnerabilities.
 
-See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) for more information.
+For more information on the specific configurations being monitored, see the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) to learn how to customize security configuration assessments in Security Center.
 
 ## Implement the recommendation
 Remediate security configurations mismatch is presented as a recommendation in Security Center. This recommendation will be displayed under **Recommendations** and under **Compute**.
 
-In this example, we will look at the **Remediate security configurations mismatch** recommendation under **Compute**.
+In this example, we will look at the **Remediate security configurations** recommendation under **Compute**.
 1. Select **Compute** under the Security Center main menu.
 
-   ![Remediate security configurations mismatch][1]
+   ![Remediate security configurations][1]
 
-2. Under **Compute**, select **Remediate security configurations mismatch**. **Security configurations mismatch** opens.
+2. Under **Compute**, select **Remediate security configurations**. **Security configurations** opens.
 
-   ![Security configurations mismatch][2]
+   ![Security configurations][2]
 
   The top of the dashboard provides:
 
@@ -84,7 +84,7 @@ In this example, we will look at the **Remediate security configurations mismatc
   ![Filtered for that computer][6]
 
 ## Next steps
-This article showed you how to implement the Security Center recommendation "Security configurations mismatch." See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) for more information.
+This article showed you how to implement the Security Center recommendation "Remediate security configurations." See [Customizing OS Security Configurations](security-center-customize-os-security-config.md) to learn how to customize security configuration assessments in Security Center.
 
 You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
 

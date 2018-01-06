@@ -30,7 +30,7 @@ Customization of the rules can help organizations to control which configuration
 
 > [!NOTE]
 > - Currently OS Security Configuration customization is available for Windows Server 2008, 2008R2, 2012, 2012R2 operating systems only.
-- The configuration will apply to all VMs and computers connected to all workspaces under the selected subscription.
+- The configuration applies to all VMs and computers connected to all workspaces under the selected subscription.
 - OS Security Configuration customization is available only on Security Center's Standard tier.
 >
 >
@@ -48,7 +48,7 @@ New rules have to be in the same format and structure as other existing rules of
 
 ## Configure OS Security Configuration customization
 
-Follow the steps below to customize the default OS Security Configuration in Security Center:
+To customize the default OS Security Configuration in Security Center:
 
 1.  Open **Security Center** dashboard.
 
@@ -56,7 +56,7 @@ Follow the steps below to customize the default OS Security Configuration in Sec
 
 3.  Select the subscription that you want to perform the customization for.
 
-4. Under **POLICY COMPONENTS**, select **Security Policy**; make sure the rule is “on”.
+4. Under **POLICY COMPONENTS**, select **Security Policy** and make sure the rule is “on”.
 
 5.  Select **Edit** next to the rule.
 
@@ -71,7 +71,7 @@ Follow the steps below to customize the default OS Security Configuration in Sec
   >[Customize the configuration file](#customize-the-configuration-file).
   >
 
-7. After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Select **Save** to commit the change, otherwise the policy will not be stored.
+7. After successfully saving the file, the configuration is applied to all VMs and computers connected to all workspace(s) under the selected subscription. This process might take some time, usually a few minutes but can it can take longer since it depends on the infrastructure size. Select **Save** to commit the change, otherwise the policy is not stored.
 
     ![](media/security-center-customize-os-security-config/save-successfully.png)
 
@@ -318,5 +318,8 @@ If you don’t have sufficient permissions, you may get a general failure error 
 ![](media/security-center-customize-os-security-config/general-failure-error.png)
 
 ## Next steps
+This article showed you how to customize OS Security Configuration assessments in Security Center. To learn more about the configuration rules and remediation, see:
 
-TBD
+- [Security Center Common Configuration Identifiers and Baseline Rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+- Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/config/cce/index) site for more information.
+- [Remediate security configurations](security-center-remediate-os-vulnerabilities.md) shows you how to resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules.
