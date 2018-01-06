@@ -34,9 +34,22 @@ The usage analytics tools don't currently support counting users or sessions bas
 ## Naming Events
 **My app has thousands of different page view and custom event names. It's hard to distinguish between them, and the usage analytics tools often become unresponsive. How can I fix this?**
 
-Page view and custom event names are used throughout the usage analytics tools, and naming events carefully is critical to getting value from these tools. Naming events is an art, finding a balance between having too few, overly generic names ("Button clicked") and having too many, overly specific names ("Edit button clicked on http://www.contoso.com/index").
+Page view and custom event names are used throughout the usage analytics tools. Naming events well is critical to getting value from these tools. The goal is a balance between having too few, overly generic names ("Button clicked") and having too many, overly specific names ("Edit button clicked on http://www.contoso.com/index").
 
-If your app is sending too many event names, the solution is to change the event names in your app's source code. However, be aware that **all telemetry data in Application Insights is stored for 90 days and cannot be deleted**, so changes you make to reduce the number of unique event names will take 90 days to fully manifest.
+To make any changes to the page view and custom event names your app is sending, you'll need to change your app's source code and re-deploy. Be aware that **all telemetry data in Application Insights is stored for 90 days and cannot be deleted**, so changes you make to event names will take 90 days to fully manifest. For the 90 days after making name changes, both the old and new event names will show up in your telemetry, so adjust queries and communicate within your teams, accordingly.
+
+If your app is sending too many page view names, check whether these page view names are specified manually in code or if they're being sent automatically by the Application Insights JavaScript SDK:
+
+* If the page view names are manually specified in code using the [`trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), change the name to be less specific. Avoid common mistakes like putting the URL in the name of the page view. Instead, use the URL parameter of the `trackPageView` API. Move other details from the page view name into custom properties.
+
+* If the Application Insights JavaScript SDK is automatically sending page views names, you can either change your pages' titles or switch to manually sending page view names. The SDK sends the [title](https://developer.mozilla.org/docs/Web/HTML/Element/title) of each page as the page view name, by default. You could change your titles to be more general, but be mindful of SEO and other impacts this could have. Manually specifying page view names with the `trackPageView` API overrides the automatically collected names, so you could send more general names in telemetry without changing page titles.   
+
+If your app is sending too many custom event names, change the name in code to be less specific. Again, avoid putting URLs and other per-page or dynamic information in the custom event names directly. Instead, move these details into custom properties of the custom event with the `trackEvent` API.
+
+TBD guidance list:
+- Urls
+- Dynamic stuff
+- Using custom properties
 
 ## Next steps
 
