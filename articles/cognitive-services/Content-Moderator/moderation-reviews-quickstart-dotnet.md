@@ -362,7 +362,7 @@ You see the following sample output:
 	Getting review details:
 	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
-Perform manual reviews on the Content Moderator site.
+Sign into the Content Moderator review tool to see the pending image. Use the **Next** button to submit your review.
 
 ![Image review for human moderators](images/moderation-reviews-quickstart-dotnet.PNG)
 
