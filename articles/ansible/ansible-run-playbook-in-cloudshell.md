@@ -28,19 +28,19 @@ If you have never used Cloud Shell, the following steps will guide you through s
 
 1. Select the Cloud Shell icon from the top navigation of the Azure portal.
 
-  ![Select the Cloud Shell icon to run Bash commands against Azure from your favorite browser.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-icon.png)
+  ![Select the Cloud Shell icon to run Bash commands against Azure from your favorite browser.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-icon.png)
 
 1. Select the **Bash** option.
 
-  ![Cloud Shell supports both Bash or PowerShell.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-select-env.png)
+  ![Cloud Shell supports both Bash or PowerShell.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-select-env.png)
 
 1. Select a subscription to create a storage account and Microsoft Azure Files share, and select **Create Storage**.
 
-  ![Cloud Shell requires an Azure file share to persist files.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-create-storage.png)
+  ![Cloud Shell requires an Azure file share to persist files.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-create-storage.png)
 
 1. You should now see results similar to the following:
 
-  ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/run-ansible-playbook-in-azure-cloudshell/cloud-shell-first-time-started.png)
+  ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-started.png)
 
 ## Set up authentication with Azure
 By default, Ansible is installed in Bash in Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. If you want to change the subscription being used when you run Ansible commands in Cloud Shell, enter the following in the Cloud Shell prompt (replacing the &lt;YourAzureSubscriptionId> placeholder with your Azure subscription ID):
