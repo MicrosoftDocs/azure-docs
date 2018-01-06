@@ -1,24 +1,22 @@
 ---
-title: Run Ansible playbook in CloudShell
-description: Run Ansible playbook in CloudShell
+title: Using Ansible in the Azure Cloud Shell
+description: Learn how to perform various Ansible tasks in the Azure Cloud Shell
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell
+keywords: ansible, azure, devops, bash, cloudshell, playbook
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 01/06/2018
-ms.topic: quickstart
+ms.topic: article
 ---
 
-# Run Ansible playbook in CloudShell
+# Using Ansible in the Azure Cloud Shell
 
-In this quickstart, you learn how to run an Ansible playbook in the Azure Cloud Shell.
+In this tutorial, you learn how to perform various Ansible tasks in the Azure Cloud Shell. These tasks include connecting to a virtual machine, and creating Ansible playbooks to create and delete an Azure resource group.
 
 ## Prerequisites
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- **Azure virtual machine** - You need to connect to an Azure virtual machine to complete this QuickStart. If you do not have an Azure virtual machine, refer to the article, [Create a complete Linux virtual machine environment in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-complete-vm).
 
 ## Configure Cloud Shell
 
@@ -42,39 +40,25 @@ If you have never used Cloud Shell, the following steps will guide you through s
 
   ![Once Cloud Shell has started, you can enter commands for your chosen environment.](./media/ansible-run-playbook-in-cloudshell/cloud-shell-first-time-started.png)
 
-## Ansible authentication in Azure and specifying the active Azure subscription
-By default, Ansible is installed in the Bash environment of Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates your default Azure subscription to deploy resources through the Ansible Azure modules. 
-
-If you want to change the subscription being used when you run Ansible commands in Cloud Shell, the following steps illustrate how to:
-
-- Determine the default Azure subscription
-- Show all of your Azure subscriptions
-- Change the current active Azure subscription
-
-1. Enter the following command into the Cloud Shell to display the active Azure subscription:
-
-  ```cli
-  az account show
-  ```
-
-1. Enter the following command into the Cloud Shell to display all of your Azure subscriptions (in a table format):
-
-  ```cli
-  az account list --output table
-  ```
-
-1. Using either the subscription name or the subscription ID, enter the following command into the Cloud Shell to set the active Azure subscription:
-
-  ```cli
-  az account set --subscription "<YourAzureSubscriptionId>"
-  ```
+> [!NOTE]
+> By default, Ansible is installed in the Bash environment of Cloud Shell. As using Azure Resource Manager modules requires authenticating with the Azure API, Cloud Shell automatically authenticates the active Azure subscription to deploy resources through the Ansible Azure modules.
+>
+>
 
 ## Use Ansible to connect to your Azure virtual machine
 Ansible has created a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to an Azure virtual machine:
 
 1. Open the Azure Cloud Shell.
 
-1. Use the GNU `wget` command to retrieve the `azure_rm.py` script by typing the following into the Cloud Shell prompt:
+1. If you do not have a virtual machine to use, enter the following commands into the Cloud Shell to create a virtual machine with which to test:
+
+  ```cli
+  az group create --resource-group ansible-test-rg --location eastus
+
+  az vm create --resource-group ansible-test-rg --name ansible-test-vm --image UbuntuLTS --generate-ssh-keys
+  ```
+
+1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
   ```cli
   wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
@@ -86,93 +70,118 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   chmod +x azure_rm.py
   ```
 
-1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to ping your virtual machine - to ensure that it can be contacted - by entering the following command into the Cloud Shell: 
+1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your virtual machine: 
 
   ```cli
-  ansible -i azure_rm.py &lt;YourVMName> -m ping
+  ansible -i azure_rm.py ansible-test-vm -m ping
   ```
 
+  Once connected, you should see output similar to the following:
 
+  ```Output
+  The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
+  ECDSA key fingerprint is SHA256:<some value>.
+  Are you sure you want to continue connecting (yes/no)? yes
+  test-ansible-vm | SUCCESS => {
+      "changed": false,
+      "failed": false,
+      "ping": "pong"
+  }
+  ```
 
+## Run an Ansible playbook in CloudShell
+In this section, you learn how to create and run an Ansible playbook that creates an Azure resource group.
 
+1. Create a file named `rg.yml` as follows:
 
+  ```bash
+  vi rg.yml
+  ```
 
-The output is as following. 
-The authenticity of host '52.168.52.51 (52.168.52.51)' can't be established.
-ECDSA key fingerprint is SHA256:8694cdz+AX2IVa4zmjD6RuKlL6m8qt6v0QvIzVaDnJ8.
-Are you sure you want to continue connecting (yes/no)? yes
-myfirstVM | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
+1. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
 
-The other example is as following. 
-ansible -i azure_rm.py myfirstVM -m shell -a 'hostname'
+  ```yml
+  - name: My first Ansible Playbook
+    hosts: localhost
+    connection: local
+    tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+          name: demoresourcegroup
+          location: eastus
+  ```
 
-## Run Ansible playbook in CloudShell
-Create a Resource Group
-Below is an example of an Ansible Playbook to create a resource group. You could run below command to create a rg.yml and copy below example to rg.yml. 
-azcliinteractive Copy 
-vi rg.yml
-- name: My first Ansible Playbook
-  hosts: localhost
-  connection: local
-  tasks:
-  - name: Create a resource group
-    azure_rm_resourcegroup:
-        name: demoresourcegroup
-        location: eastus
+1. Save and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
 
-Run above playbook through the command ansible-playbook as following.
-azcliinteractive Copy 
-ansible-playbook rg.yml
+1. Use the `ansible-playbook` command to run the `rg.yml` playbook:
 
- The output is as following. 
-PLAY [My first Ansible Playbook] *************************************************************************************************
+  ```cli
+  ansible-playbook rg.yml
+  ```
 
-TASK [Gathering Facts] ***********************************************************************************************************
-ok: [localhost]
+1. You should see results similar to the following:
 
-TASK [Create a resource group] ***************************************************************************************************
-changed: [localhost]
+  ```Output
+  PLAY [My first Ansible Playbook] *************************************************************************************************
 
-PLAY RECAP ***********************************************************************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0
-Verify deployment with Azure CLI 2.0
-Run below command to verify the resource has succeeded provisioning. 
-azcliinteractive Copy 
-az group show -n demoresourcegroup
+  TASK [Gathering Facts] ***********************************************************************************************************
+  ok: [localhost]
 
-Delete the resource group
-Let us use a playbook to delete created resource group. You could run below command to create a rg2.yml and copy below example to rg2.yml. 
-azcliinteractive Copy 
-vi rg2.yml
+  TASK [Create a resource group] ***************************************************************************************************
+  changed: [localhost]
 
-- name: My second Ansible Playbook
-  hosts: localhost
-  connection: local
-  tasks:
-  - name: Delete a resource group
-    azure_rm_resourcegroup:
-        name: demoresourcegroup
-        state: absent
+  PLAY RECAP ***********************************************************************************************************************
+  localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
 
-Run above playbook through the command ansible-playbook as following.
-azcliinteractive Copy 
-ansible-playbook rg2.yml
+1. Verify the deployment:
 
-The output is as following. 
-PLAY [My second Ansible Playbook] **************************************************************************************************************************
+  ```cli
+  az group show -n demoresourcegroup
+  ```
 
-TASK [Gathering Facts] *************************************************************************************************************************************
-ok: [localhost]
+1. Now that you've created the resource group, create a second Ansible playbook to delete the resource group:
 
-TASK [Delete a resource group] *****************************************************************************************************************************
-changed: [localhost]
+  ```bash
+  vi rg2.yml
+  ```
 
-PLAY RECAP *************************************************************************************************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0
+1. Copy the following contents into the Cloud Shell window (now hosting an instance of the VI editor):
 
+  ```yml
+  - name: My second Ansible Playbook
+    hosts: localhost
+    connection: local
+    tasks:
+    - name: Delete a resource group
+      azure_rm_resourcegroup:
+          name: demoresourcegroup
+          state: absent
+  ```
+
+1. Use the `ansible-playbook` command to run the `rg2.yml` playbook:
+
+  ```cli
+  ansible-playbook rg.yml
+  ```
+
+1. You should see results similar to the following:
+
+  ```Output
+  The output is as following. 
+  PLAY [My second Ansible Playbook] **************************************************************************************************************************
+
+  TASK [Gathering Facts] *************************************************************************************************************************************
+  ok: [localhost]
+
+  TASK [Delete a resource group] *****************************************************************************************************************************
+  changed: [localhost]
+
+  PLAY RECAP *************************************************************************************************************************************************
+  localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
 
 ## Next steps
+
+> [!div class="nextstepaction"] 
+> [Create a Linux VM](/azure/virtual-machines/linux/ansible-create-vm)
