@@ -15988,6 +15988,17 @@
         "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
         "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
+        "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
+        "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+        "redirect_document_id": false
       }
+
     ]
 }
