@@ -5,7 +5,7 @@ The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msr
  
 ## Azure infrastructure
 
-Many of the issues described in the vulnerability disclosure could be used to bypass a hypervisor boundary and allow disclosure of memory between two co-hosted virtual machines. As reported in our earlier [blog](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/), Azure has applied mitigations to protect customers against this vulnerability.  Microsoft always recommends that our customers apply security best practices for your VM images including installing all security updates from their operating system vendor.
+Many of the issues described in the vulnerability disclosure could be used to bypass a hypervisor boundary and allow disclosure of memory between two co-hosted virtual machines. As reported in an earlier [blog post](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/), Azure has applied mitigations to protect customers against this vulnerability.  Microsoft always recommends that customers apply security best practices for your VM images including installing all security updates from their operating system vendor.
 
 ## PaaS Services on Azure
 
@@ -13,24 +13,24 @@ Azure PaaS offerings have mitigations deployed by default, with the exception of
 
 ## Azure Cloud Services
 
-[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) with auto update enabled will automatically receive a version of the Guest OS which includes mitigations to these vulnerabilities. The following Guest OS releases include those updates with protections against speculative execution side channel vulnerabilities:
+[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) with auto update enabled automatically receive a version of the Guest OS that includes mitigations to these vulnerabilities. The following Guest OS releases include updates with protections against speculative execution side channel vulnerabilities:
 
 * WA-GUEST-OS-5.15_201801-01
 * WA-GUEST-OS-4.50_201801-01
 
 
-For the vast majority of our customers this update provides sufficient protection. 
+For the vast majority of customers, this update provides sufficient protection. 
 
 A small number of customers using Azure Cloud Services to host untrusted code should also enable Kernel Virtual Address Shadowing in addition to updating the Guest OS. This provides additional protection against speculative execution side-channel vulnerabilities. This can be accomplished via a startup task. More information about which customers and usage scenarios require this feature and how to enable it, is provided below.
 
 
 ## Azure Virtual Machines (Windows & Linux)
 
-Microsoft always recommends that our customers install all security updates. The January 2018 security rollup contains fixes for these vulnerabilities and more. Please note that you must update your antivirus product before installing the January 2018 rollup for the update to be successful.
+Microsoft always recommends that customers install all security updates. The January 2018 security rollup contains fixes for these vulnerabilities and more. Please note that you must update your antivirus product before installing the January 2018 rollup for the update to be successful.
 
-To address speculative execution vulnerabilities, updates to the Linux kernel will be required and can be obtained from your distribution provider when available. 
+To address speculative execution vulnerabilities, updates to the Linux kernel are required and can be obtained from your distribution provider when available. 
 
-For the vast majority of our customers these updates provide sufficient protection. 
+For the vast majority of customers, these updates provide sufficient protection. 
 
 A small number of customers using Azure Virtual Machines (Windows) to host untrusted code should also enable Kernel Virtual Address Shadowing which provides additional protection against speculative execution side-channel vulnerabilities.  More information about which customers and usage scenarios require this feature and how to enable it is provided below.
 
