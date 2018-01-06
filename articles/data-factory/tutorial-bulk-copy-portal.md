@@ -34,7 +34,7 @@ At a high level, this tutorial involves following steps:
 This tutorial uses Azure portal. To learn about using other tools/SDKs to create a data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md). 
 
 ## End-to-end workflow
-In this scenario, we have a number of tables in Azure SQL Database that we want to copy to SQL Data Warehouse. Here is the logical sequence of steps in the workflow that happens in pipelines:
+In this scenario, you have a number of tables in Azure SQL Database that you want to copy to SQL Data Warehouse. Here is the logical sequence of steps in the workflow that happens in pipelines:
 
 ![Workflow](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
@@ -168,7 +168,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
 4. Switch to the **Connection** tab, and do the following steps: 
 
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-    2. Select any table for **Table**. This is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database.
+    2. Select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database.
 
     ![Source dataset connection page](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
@@ -205,7 +205,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 2. In the Properties window, change the name of the pipeline to **IterateAndCopySQLTables**. 
 
     ![Pipeline name](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
-3. Switch to the **Parameters** tab, and do the following: 
+3. Switch to the **Parameters** tab, and do the following actions: 
 
     1. Click **+ New**. 
     2. Enter **tableList** for the parameter **name**.
@@ -275,7 +275,7 @@ This pipeline performs two steps:
 3. Drag-and-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
     1. Enter **LookupTableList** for **Name**. 
-    2. Enter **Retrieve the table list from Azure SQL dataabse** for **Description**.
+    2. Enter **Retrieve the table list from Azure SQL database** for **Description**.
 
         ![Lookup activity - general page](./media/tutorial-bulk-copy-portal/lookup-general-page.png)
 4. Switch to the **Settings** page, and do the following steps:
@@ -296,7 +296,7 @@ This pipeline performs two steps:
 
     1. Select **IterateAndCopySQLTables** for **Invoked pipeline**. 
     2. Click **+ New** in the **Parameters** section. 
-    3. Enter **tableList** for paramter **name**.
+    3. Enter **tableList** for parameter **name**.
     4. Enter `@activity('LookupTableList').output.value` for parameter **value**.
 
         ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
