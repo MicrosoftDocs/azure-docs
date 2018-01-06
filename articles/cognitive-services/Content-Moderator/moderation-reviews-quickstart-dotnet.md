@@ -363,6 +363,9 @@ You see the following sample output:
 	Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
 Perform manual reviews on the Content Moderator site.
+
+![Image review for human moderators](images/moderation-reviews-quickstart-dotnet.PNG)
+
 Then, press any key to continue.
 
 	Waiting 45 seconds for results to propagate.
