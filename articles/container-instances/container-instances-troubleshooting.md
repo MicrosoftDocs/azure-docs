@@ -200,7 +200,7 @@ Due to varying regional resource load in Azure, you might receive the following 
 
 This error indicates that due to heavy load in the region in which you are attempting to deploy, the resources specified for your container can't be allocated at that time. Use one or more of the following mitigation steps to help resolve your issue.
 
-* Verify your container deployment settings fall within the parameters defined in [Region availability for Azure Container Instances](container-instances-region-availability.md)
+* Verify your container deployment settings fall within the parameters defined in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md#region-availability)
 * Specify lower CPU and memory settings for the container
 * Deploy to a different Azure region
 * Deploy at a later time
