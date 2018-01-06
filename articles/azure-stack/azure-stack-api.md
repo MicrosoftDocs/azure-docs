@@ -22,6 +22,10 @@ The Azure Stack API can be used to automate operational actions against the plat
 
 The process requires authentication against the Microsoft Azure login endpoint to obtain a token which is then provided in the headers of every request sent to the Azure Stack API.
 
+This guide provides simple examples specific to Azure Stack using curl to show the process of retrieving a token to acces the Azure Stack API. Most languages provide oauth libraries which have robust token management, handling tasks like token refreshing. It is expected that most developers will choose to use these, however there is value in understanding the underlying requests being made.
+
+This guide also doesn't explore all the options avaialble for retrieving tokens such as interactive login or creating dedicated app IDs, for more information see https://docs.microsoft.com/en-us/rest/api/.
+
 # Retrieve a token from Azure
 
 In order to obtain an Access Token you will need to create a request *body* formatted using the content type x-www-form-urlencoded and POST it to the Azure REST Authentication/Login Endpoint.
