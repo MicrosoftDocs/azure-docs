@@ -20,7 +20,7 @@ ms.author: bradsev
 ---
 # Get started with R Server on HDInsight
 
-Azure HDInsight includes an R Server option to be integrated into your HDInsight cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an R Server on HDInsight cluster and then run an R script that demonstrates using Spark for distributed R computations.
+Azure HDInsight includes an R Server option to be integrated into your HDInsight cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an R Server on HDInsight cluster. You then learn how to run an R script that demonstrates using Spark for distributed R computations.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ Azure HDInsight includes an R Server option to be integrated into your HDInsight
   > The steps in this article assume that you are using a password.
 
 
-## Automated cluster creation
+## Automate cluster creation
 
 You can automate the creation of HDInsight R Server instances by using Azure Resource Manager templates, the SDK, and PowerShell.
 
@@ -62,7 +62,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
    	* **R Studio community edition for R Server**: This browser-based IDE is installed by default on the edge node. If you prefer to not have it installed, clear the check box. If you choose to have it installed, the URL for accessing the RStudio Server login will be in a portal application pane for your cluster after it’s created.
    	* Leave the other options at the default values, and use the **Select** button to save the cluster type.
 
-   		![Cluster type blade screenshot](./media/r-server-get-started/clustertypeconfig.png)
+   		![Screenshot of "Cluster type" pane](./media/r-server-get-started/clustertypeconfig.png)
 
 5. In the **Basics** pane, in the **Cluster login username** and **Cluster login password** boxes, enter a username and a password (respectively) for the cluster.
 
@@ -89,7 +89,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
    c. Specify the public key file (&#42;.pub) when assigning HDI cluster credentials. Confirm your resource group and region, and select **Next**.
 
-      ![Credentials blade](./media/r-server-get-started/publickeyfile.png)  
+      ![Credentials pane](./media/r-server-get-started/publickeyfile.png)  
 
    d. Change permissions on the private key file on your laptop:
 
@@ -189,7 +189,7 @@ If you used a password to help secure your SSH user account, you are prompted to
 
 For more information, see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-After you're connected, you arrive at a prompt similar to the following:
+After you're connected, you arrive at a prompt that's similar to the following:
 
 	sername@ed00-myrser:~$
 
@@ -257,14 +257,14 @@ You can also log in by using the original credentials (by default, it's **sshuse
 
 You can submit a job by using ScaleR functions. Here is an example of the commands for running a job:
 
-	# Set the HDFS (Azure Blob storage) location of example data.
+	# Set the HDFS (Azure Blob storage) location of example data
 	bigDataDirRoot <- "/example/data"
 
-	# Create a local folder for storing data temporarily.
+	# Create a local folder for storing data temporarily
 	source <- "/tmp/AirOnTimeCSV2012"
 	dir.create(source)
 
-	# Download data to the tmp folder.
+	# Download data to the tmp folder
 	remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
 	download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
 	download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
@@ -279,19 +279,19 @@ You can submit a job by using ScaleR functions. Here is an example of the comman
 	download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
 	download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
 
-	# Set the directory in bigDataDirRoot to load the data.
+	# Set the directory in bigDataDirRoot to load the data
 	inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
 
-	# Create the directory.
+	# Create the directory
 	rxHadoopMakeDir(inputDir)
 
-	# Copy the data from source to input.
+	# Copy the data from source to input
 	rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-	# Define the HDFS (Blob storage) file system.
+	# Define the HDFS (Blob storage) file system
 	hdfsFS <- RxHdfsFileSystem()
 
-	# Create an info list for the airline data.
+	# Create an info list for the airline data
 	airlineColInfo <- list(
 	DAY_OF_WEEK = list(type = "factor"),
 	ORIGIN = list(type = "factor"),
@@ -299,30 +299,30 @@ You can submit a job by using ScaleR functions. Here is an example of the comman
 	DEP_TIME = list(type = "integer"),
 	ARR_DEL15 = list(type = "logical"))
 
-	# Get all the column names.
+	# Get all the column names
 	varNames <- names(airlineColInfo)
 
-	# Define the text data source in HDFS.
+	# Define the text data source in HDFS
 	airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
 
-	# Define the text data source in the local system.
+	# Define the text data source in the local system
 	airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
 
-	# Specify the formula to use.
+	# Specify the formula to use
 	formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
 
-	# Define the Spark compute context.
+	# Define the Spark compute context
 	mySparkCluster <- RxSpark()
 
-	# Set the compute context.
+	# Set the compute context
 	rxSetComputeContext(mySparkCluster)
 
-	# Run a logistic regression.
+	# Run a logistic regression
 	system.time(
 		modelSpark <- rxLogit(formula, data = airOnTimeData)
 	)
 
-	# Display a summary.
+	# Display a summary
 	summary(modelSpark)
 
 
@@ -628,7 +628,7 @@ Script actions are Bash scripts that are used to make configuration changes to t
    * **Persist this script**: This item should be selected.  
 
    > [!NOTE]
-   > By default, all R packages are installed from a snapshot of the Microsoft R Application Network repository consistent with the version of R Server that has been installed. If you want to install newer versions of packages, there is some risk of incompatibility. However, this kind of installation is possible if you specify `useCRAN` as the first element of the package list--for example, `useCRAN bitops, stringr, arules`.  
+   > By default, all R packages are installed from a snapshot of the Microsoft R Application Network repository that's consistent with the installed version of R Server. If you want to install newer versions of packages, there is some risk of incompatibility. However, this kind of installation is possible if you specify `useCRAN` as the first element of the package list--for example, `useCRAN bitops, stringr, arules`.  
    > 
    > Some R packages require additional Linux system libraries. For convenience, we have pre-installed the dependencies that the 100 most popular R packages need. If the R packages that you install require libraries beyond these, you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure Storage and use the modified script to install the packages.
    >
@@ -719,7 +719,7 @@ Make sure that you allow traffic through port 12800 to the edge node. That way, 
 	)
 
 
-If `remoteLogin()` cannot connect to the edge node, but you can use SSH to connect to the edge node, you need to check whether the rule to allow traffic on port 12800 has been set properly. If you continue to face the issue, you can work around it by setting up port forward tunneling through SSH. For instructions, see the following section.
+If `remoteLogin()` cannot connect to the edge node, but you can use SSH to connect to the edge node, you need to check whether the rule to allow traffic on port 12800 is set properly. If you continue to face the issue, you can work around it by setting up port forward tunneling through SSH. For instructions, see the following section.
 
 ### R Server cluster not set up on a virtual network
 
