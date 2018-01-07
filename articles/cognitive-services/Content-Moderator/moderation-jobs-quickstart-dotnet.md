@@ -29,6 +29,13 @@ This article assumes that you are already familiar with Visual Studio and C#.
 Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
 Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 
+## Define a custom moderation workflow
+
+A moderation job scans your content using the APIs and uses a **workflow** to determine whether to create reviews or not.
+While the review tool contains a default workflow, let's [define a custom workflow](review-tool-user-guide/workflows.md) for this quickstart.
+
+You use the name of the workflow in your code that starts the moderation job.
+
 ## Create your Visual Studio project
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
@@ -73,6 +80,13 @@ Add the following constants and static fields to the **Program** class in Progra
 >
 > Your team name is the value of the **Id** field in the **API** section.
 
+
+	/// <summary>
+    /// The moderation job will use this workflow that you defined earlier.
+    /// See the quickstart article to learn how to setup custom workflows.
+    /// </summary>
+    private const string WorkflowName = "OCR";
+	
 	/// <summary>
 	/// The name of the team to assign the job to.
 	/// </summary>
@@ -123,10 +137,10 @@ Start by adding the following code to the **Main** method.
         	writer.WriteLine("Create review job for an image.");
         	var content = new Content(ImageUrl);
 		
-		// The workflowName contains the nameof the workflow defined in the online review tool.
-                // In this case, we use the "OCR" workflow that we configured earlier. See the article.
-        	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
-            	TeamName, "image", String.Empty, "OCR", "application/json", content, CallbackEndpoint);
+			// The WorkflowName contains the nameof the workflow defined in the online review tool.
+            // See the quickstart article to learn more.
+            var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
+            	TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
 
         	// Record the job ID.
         	var jobId = jobResult.Result.Body.JobIdProperty;
