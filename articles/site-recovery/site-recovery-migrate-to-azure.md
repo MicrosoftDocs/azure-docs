@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: raynew
 
 ---
 # About migration
 
-Read this article for a quick overview of how the [Azure Site Recovery](../site-recovery-overview.md) service helps you to migrate machines. 
+Read this article for a quick overview of how the [Azure Site Recovery](site-recovery-overview.md) service helps you to migrate machines. 
 
 Here's what you can migrate using Site Recovery:
 
