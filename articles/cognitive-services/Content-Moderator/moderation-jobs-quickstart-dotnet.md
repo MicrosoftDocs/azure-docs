@@ -32,7 +32,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 ## Define a custom moderation workflow
 
 A moderation job scans your content using the APIs and uses a **workflow** to determine whether to create reviews or not.
-While the review tool contains a default workflow, let's [define a custom workflow](review-tool-user-guide/workflows.md) for this quickstart.
+While the review tool contains a default workflow, let's [define a custom workflow](Review-Tool-User-Guide/Workflows.md) for this quickstart.
 
 You use the name of the workflow in your code that starts the moderation job.
 
