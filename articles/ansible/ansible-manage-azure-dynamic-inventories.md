@@ -36,17 +36,24 @@ Ansible can be used to pull inventory information from various sources (includin
     - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
         ```azurecli-interactive
-        az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm1 --image UbuntuLTS --generate-ssh-keys
+        az vm create --resource-group ansible-inventory-test-rg \
+                     --name ansible-inventory-test-vm1 \
+                     --image UbuntuLTS --generate-ssh-keys
         ```
 
         ```azurecli-interactive
-        az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm2 --image UbuntuLTS --generate-ssh-keys
+        az vm create --resource-group ansible-inventory-test-rg \
+                     --name ansible-inventory-test-vm2 \
+                     --image UbuntuLTS --generate-ssh-keys
         ```
 
 ## Tag a virtual machine
+You can [use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli) to logically organize them by user-defined categories.
 
-Below are examples. More refer to https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli. 
+```
 az resource tag --tags hello=tag --id /subscriptions/<your subscription id>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+```
+
 If you don’t know your subscription ID, you could run
 az account list
 
