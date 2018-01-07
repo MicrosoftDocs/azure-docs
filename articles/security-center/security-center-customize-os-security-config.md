@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 01/08/2018
 ms.author: terrylan
 
 ---
@@ -26,7 +26,7 @@ Learn how to customize OS Security Configuration assessments in Azure Security C
 
 Azure Security Center monitors security configurations using a set of over 150 recommended rules for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, a security recommendation is generated.
 
-Customization of the rules can help organizations to control which configuration options are more appropriated for their environment. This feature enables users to set a customized assessment policy and apply it on all applicable machines in the subscription.
+Customization of the rules can help organizations to control which configuration options are more appropriate for their environment. This feature enables users to set a customized assessment policy and apply it on all applicable machines in the subscription.
 
 > [!NOTE]
 > - Currently OS Security Configuration customization is available for Windows Server 2008, 2008R2, 2012, 2012R2 operating systems only.
@@ -37,7 +37,7 @@ Customization of the rules can help organizations to control which configuration
 
 How to customize OS Security Configuration rules?
 
-You can customize the OS Security Configuration rules by enabling and disabling a specific rule, changing the desired setting for an existing rule, and adding a new rule based on the supported rule types (registry, audit policy, security policy). Currently, the desired setting must be an exact value.
+You can customize the OS Security Configuration rules by enabling and disabling a specific rule, changing the desired setting for an existing rule, and adding a new rule based on the supported rule types (registry, audit policy, and security policy). Currently, the desired setting must be an exact value.
 
 New rules have to be in the same format and structure as other existing rules of the same type.
 
@@ -46,7 +46,7 @@ New rules have to be in the same format and structure as other existing rules of
 >
 >
 
-## Configure OS Security Configuration customization
+## Customize Security Configuration
 
 To customize the default OS Security Configuration in Security Center:
 
@@ -62,7 +62,7 @@ To customize the default OS Security Configuration in Security Center:
 
     ![](media/security-center-customize-os-security-config/show-recommendations.png)
 
-6.  **Edit OS Security Configuration rules** opens. Follow the steps highlighted in the screen to download, edit, and upload the modified file.
+6.  **Edit security configurations** opens. Follow the steps highlighted in the screen to download, edit, and upload the modified file.
 
     ![](media/security-center-customize-os-security-config/blade.png)
 
@@ -81,7 +81,7 @@ At any point, you can reset the current policy configuration to the default poli
 
 ## Customize the configuration file
 
-In the customization, file each supported OS version has a set of rules (ruleset). Each set of rules has its own name and unique ID, as shown in the following example:
+In the customization file each supported OS version has a set of rules (ruleset). Each set of rules has its own name and unique ID, as shown in the following example:
 
 ![](media/security-center-customize-os-security-config/custom-file.png)
 
@@ -98,9 +98,9 @@ Each category has its own set of attributes. For existing rules, you can make ch
 
 - expectedValue: this attribute’s field data type must match the supported values per each Rule Type, for example:
 
-  - BaselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85) defined in that rule.
+  - baselineRegistryRules: the value should match the [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884(v=vs.85) defined in that rule.
 
-  - BaselineAuditPolicyRules: the value should be a string value, one of the following:
+  - baselineAuditPolicyRules: the value should be a string value, one of the following:
 
     - Success and Failure
 
@@ -199,17 +199,17 @@ New custom rules are marked with a new custom Source (!= "Microsoft"). The *rule
 
 -   *originalId* - may be null or empty. If *originalId* is not empty, it should be a valid GUID.
 
--   *cceId* - may be null or empty. If *cceId* is not, it has to be unique.
+-   *cceId* - may be null or empty. If *cceId* is not empty, it must be unique.
 
--   *ruleType* - one of: Registry, AuditPolicy, SecurityPolicy.
+-   *ruleType* - one of: Registry, AuditPolicy, or SecurityPolicy.
 
--   *Severity* - one of: Unknown, Critical, Warning, Informational.
+-   *Severity* - one of: Unknown, Critical, Warning, or Informational.
 
 -   *analyzeOperation* - must be Equals.
 
 -   *auditPolicyId* - must be valid GUID.
 
--   *regValueType* - must be one of: Int, Long, String, MultipleString.
+-   *regValueType* - must be one of: Int, Long, String, or MultipleString.
 
 > [!NOTE]
 > Hive must be *LocalMachine*.
@@ -235,7 +235,7 @@ Example of a new custom rule:
     "state": "Enabled"
    }
 ```
-**Security Policy**:
+**Security policy**:
 ```
 {
 
@@ -313,7 +313,7 @@ The list below has all potential errors:
 | InvalidBaselineConfigurationGeneralError | The given baseline configuration was found with one or more type validation errors.                                                          |
 | ViewConversionError                      | View is older version that workspace supported. View conversion failed: {0}                                                                 |
 
-If you don’t have sufficient permissions, you may get a general failure error (see below).
+If you don’t have sufficient permissions, you may get a general failure error:
 
 ![](media/security-center-customize-os-security-config/general-failure-error.png)
 
