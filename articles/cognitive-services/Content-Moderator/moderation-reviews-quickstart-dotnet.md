@@ -294,7 +294,7 @@ Add the following method to the **Program** class.
 Add the following method to the **Program** class. 
 
 > [!Note]
-> In practice, you would set the callback URL `CallbackEndpoint` to the the URL
+> In practice, you would set the callback URL `CallbackEndpoint` to the URL
 > that would receive the results of the manual review (via an HTTP POST request).
 > You could modify this method to check on the status of pending reviews.
 
