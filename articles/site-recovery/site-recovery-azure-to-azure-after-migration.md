@@ -26,11 +26,11 @@ Before you set up disaster recovery, make sure that migration has completed as e
 
 ## Install the Azure VM agent
 
-The Azure [VM agent](../../virtual-machines/windows/agent-user-guide.md) must be installed on the VM, so that the Site Recovery can replicate it.
+The Azure [VM agent](../virtual-machines/windows/agent-user-guide.md) must be installed on the VM, so that the Site Recovery can replicate it.
 
 
 1. To install the VM agent on VMs running Windows, download and run the [agent installer](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need admin privileges on the VM to complete the installation.
-2. To install the VM agent on VMs running Linux, install the latest [Linux agent](../../virtual-machines/linux/agent-user-guide.md). You need administrator privileges to complete the installation. We recommend you install from your distribution repository. We don't recommend installing the Linux VM agent directly from GitHub. 
+2. To install the VM agent on VMs running Linux, install the latest [Linux agent](../virtual-machines/linux/agent-user-guide.md). You need administrator privileges to complete the installation. We recommend you install from your distribution repository. We don't recommend installing the Linux VM agent directly from GitHub. 
 
 
 ## Validate the installation on Windows VMs
