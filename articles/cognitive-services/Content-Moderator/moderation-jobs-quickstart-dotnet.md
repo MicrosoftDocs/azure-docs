@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Start moderation jobs using .NET
 
-This article provides information and code samples to help you quickly get started using 
+This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
  
 - Start a moderation job to scan and create reviews for human moderators
@@ -66,8 +66,8 @@ Modify the program's using statements.
 Add the following constants and static fields to the **Program** class in Program.cs.
 
 > [!NOTE]
-> You will need to set the TeamName constant to the name you used when you
-> created your Content Moderator subscription. You can retrieve this from the
+> You set the TeamName constant to the name you used when you
+> created your Content Moderator subscription. You retrieve this from the
 > [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
@@ -108,7 +108,7 @@ Add the following constants and static fields to the **Program** class in Progra
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
 
-## Add code to auto-moderate and create a review, and get pending job details
+## Add code to auto-moderate, create a review, and get the pending job details
 
 > [!Note]
 > In practice, you set the callback URL **CallbackEndpoint** to the URL
@@ -181,7 +181,7 @@ You see the following sample output in the console:
 	Perform manual reviews on the Content Moderator site.
 	Then, press any key to continue.
 
-Sign into the Content Moderator review tool to see the pending image review with the **a** label set to **true**.
+Sign into the Content Moderator review tool to see the pending image review.
 
 Use the **Next** button to submit.
 
@@ -194,9 +194,8 @@ Then, press any key to continue. The program waits and gets the final job status
 ## Open the log file to see the sample output
 
 > [!NOTE]
-> In your output file, the strings "\{teamname}" and "\{callbackUrl}" will 
-> reflect the values you used
-> for the `TeamName` and `CallbackEndpoint` fields, respectively.
+> In your output file, the strings "\{teamname}" and "\{callbackUrl}"
+> reflect the values you used for the `TeamName` and `CallbackEndpoint` fields, respectively.
 
 	Create moderation job for an image.
 	{
