@@ -82,7 +82,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
 
   ```Output
   The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
-  ECDSA key fingerprint is SHA256:<some value>.
+  ECDSA key fingerprint is SHA256:&lt;some value>.
   Are you sure you want to continue connecting (yes/no)? yes
   test-ansible-vm | SUCCESS => {
       "changed": false,

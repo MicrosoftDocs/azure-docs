@@ -48,129 +48,52 @@ Ansible can be used to pull inventory information from various sources (includin
         ```
 
 ## Tag a virtual machine
-You can [use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli) to logically organize them by user-defined categories.
+You can [use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
 
+Enter the following [az tag command](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
+
+```azurecli-interactive
+az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-az resource tag --tags hello=tag --id /subscriptions/<your subscription id>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
-```
-
-If you don’t know your subscription ID, you could run
-az account list
-
-Then you will get something like
-  {
-    "cloudName": "AzureCloud",
-    "id": "76907309-9f00-4b15-xxxx-xxxxx",
-    "isDefault": true,
-    "name": " PM",
-    "state": "Enabled",
-………..
-    }
 
 ## Generate a dynamic inventory of your Azure resources
+Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machine:
 
-wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
-chmod +x azure_rm.py
-Let us have a quick test. Execute /bin/uname on all instances in the “myresourcegroup” resource group:
-ansible -i azure_rm.py myresourcegroup -m ping 
-You will see output from all instances in the “myresourgroup” resource group. 
-The authenticity of host '52.224.179.16 (52.224.179.16)' can't be established.
-ECDSA key fingerprint is SHA256:RU2rM+dQsj5oUHr2Yt3q7JsLE1KjBYRFhl4awJqraqI.
-Are you sure you want to continue connecting (yes/no)? yes
-myVM | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
-myVM2 | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
+1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
-## Enable the virtual machine tag 
+    ```azurecli-interactive
+    wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
+    ```
 
-export AZURE_TAGS=hello:tag
-Let us run the quick test again. This time execute /bin/uname on tagged instance:
-ansible -i azure_rm.py myresourcegroup -m ping 
+1. Use the `chmod` command to change the access permissions to the `azure_rm.py` script. The following command uses the `+x` parameter to allow for execution (running) of the specified file (`azure_rm.py`):
 
-You will see output from tagged instance:
-myVM | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
-And you also could use the inventory script to print instance specific information. 
-python azure_rm.py --tags hello:tag –pretty
+    ```azurecli-interactive
+    chmod +x azure_rm.py
+    ```
 
-You will get below information as follows:
+1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your resource group: 
 
-{
-  "_meta": {
-    "hostvars": {
-      "myVM": {
-        "ansible_host": "52.224.178.251",
-        "computer_name": "myVM",
-        "fqdn": null,
-        "id": "/subscriptions/70e47246-282b-4a50-a3bb-bab25036156e/resourceGroups/MYRESOURCEGROUP/                                                                              providers/Microsoft.Compute/virtualMachines/myVM",
-        "image": {
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        },
-  ……
+    ```azurecli-interactive
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
+    ```
 
+1. Once connected, you should see results similar to the output:
 
-## Set up Nginx on the tagged virtual machine
-Below is a playbook of nginx.yml for Ubuntu platform. 
----
-- name: install and start nginx on azure vm
-  hosts: azure
-  become: yes
-  tasks:
-  - name: install nginx
-    apt: pkg=nginx state=installed
-    notify:
-     - start nginx
+    ```Output
+    The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
+    ECDSA key fingerprint is SHA256:&lt;some value>.
 
-  handlers:
-  - name: start nginx
-    service: name=nginx state=started
-
-Now let us start to use the inventory script with above ansible playbook to install Nginx on tagged VM. 
-ansible-playbook -i azure_rm.py nginx.yml
-
-Then you will get output as follows:
-PLAY [install and start nginx on azure vm] ********************************************************************************************
-
-TASK [Gathering Facts] ****************************************************************************************************************
-ok: [myVM]
-
-TASK [install nginx] ******************************************************************************************************************
-changed: [myVM]
-
-RUNNING HANDLER [start nginx] *********************************************************************************************************
-ok: [myVM]
-
-PLAY RECAP ****************************************************************************************************************************
-myVM                       : ok=3    changed=1    unreachable=0    failed=0
-
-You could check status with inventory script. 
-ansible -i azure_rm.py -m shell -a "service nginx status"
-
-Then you will get output as follows:
-myVM | SUCCESS | rc=0 >>
-● nginx.service - A high performance web server and a reverse proxy server
-   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2017-12-26 07:02:07 UTC; 35s ago
- Main PID: 23068 (nginx)
-   CGroup: /system.slice/nginx.service
-           ├─23068 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
-           └─23070 nginx: worker process
-
-Dec 26 07:02:07 myVM systemd[1]: Starting A high performance web server and a reverse proxy server...
-Dec 26 07:02:07 myVM systemd[1]: nginx.service: Failed to read PID from file /run/nginx.pid: Invalid argument
-Dec 26 07:02:07 myVM systemd[1]: Started A high performance web server and a reverse proxy server.
+    Are you sure you want to continue connecting (yes/no)? yes
+    ansible-inventory-test-vm1 | SUCCESS => {
+        "changed": false,
+        "failed": false,
+        "ping": "pong"
+    }
+    ansible-inventory-test-vm2 | SUCCESS => {
+        "changed": false,
+        "failed": false,
+        "ping": "pong"
+    }
+    ```
 
 ## Next steps
