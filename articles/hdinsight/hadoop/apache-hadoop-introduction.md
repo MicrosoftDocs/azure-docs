@@ -123,7 +123,7 @@ By default, HDInsight clusters support:
 You can install additional languages by using [script actions](../hdinsight-hadoop-script-actions-linux.md).
 
 ### Java virtual machine (JVM) languages
-Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, they might require that you install additional components on the cluster.
+Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install additional components on the cluster.
 
 The following JVM-based languages are supported on HDInsight clusters:
 
@@ -148,11 +148,12 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md): Learn how to use Microsoft Power Query for Excel to connect Excel to the Azure Storage account that stores the data from your HDInsight cluster. Windows Workstation is required. 
 
-* [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. 
+* [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows Workstation is required. 
 
 * [Microsoft Cloud Platform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
 
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx)
+
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
