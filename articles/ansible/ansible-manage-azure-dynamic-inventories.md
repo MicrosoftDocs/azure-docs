@@ -11,7 +11,7 @@ ms.topic: article
 ---
 
 # Use Ansible manage your Azure dynamic inventories
-Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines. One of those virtual machines will be tagged and have Nginx installed.
+Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one those virtual machines, and install Nginx on the tagged virtual machine.
 
 ## Prerequisites
 
@@ -21,9 +21,9 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open Cloud Shell. If this is the first time you're using Cloud Shell, refer to the article [Use Ansible in the Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md#configure-cloud-shell) to open and configure your Cloud Shell environment.
+1. Open Cloud Shell. If you are using Cloud Shell for the first time, refer to the article [Use Ansible in the Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md#configure-cloud-shell) to open and configure your Cloud Shell environment.
 
-1. Create an Azure resource group that will contain the virtual machines used in this tutorial.
+1. Create an Azure resource group to hold the virtual machines for this tutorial.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
