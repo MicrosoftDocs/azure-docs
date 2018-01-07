@@ -58,7 +58,7 @@
       href: tutorial-incremental-copy-multiple-tables-powershell.md
     - name: 5.3 - Use change tracking feature 
       items:
-      - name: PowerShell
+      - name: Azure portal
         href: tutorial-incremental-copy-change-tracking-feature-portal.md      
       - name: PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
