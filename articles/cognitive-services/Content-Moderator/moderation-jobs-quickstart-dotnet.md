@@ -137,10 +137,10 @@ Start by adding the following code to the **Main** method.
         	writer.WriteLine("Create review job for an image.");
         	var content = new Content(ImageUrl);
 		
-			// The WorkflowName contains the nameof the workflow defined in the online review tool.
-            // See the quickstart article to learn more.
-            var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
-            	TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
+		// The WorkflowName contains the nameof the workflow defined in the online review tool.
+            	// See the quickstart article to learn more.
+            	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
+            		TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
 
         	// Record the job ID.
         	var jobId = jobResult.Result.Body.JobIdProperty;
@@ -154,33 +154,33 @@ Start by adding the following code to the **Main** method.
 
         	writer.WriteLine("Get review job status.");
         	var jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
-            	TeamName, jobId);
+            		TeamName, jobId);
 
         	// Log just the response body from the returned task.
         	writer.WriteLine(JsonConvert.SerializeObject(
-            	jobDetails.Result.Body, Formatting.Indented));
+            		jobDetails.Result.Body, Formatting.Indented));
 
-			// Continue writing code from the following section...
+		// Continue writing code from the following section...
 
 ## Add the code to wait for human review and get the final job status
 
-			Console.WriteLine();
-            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            Console.WriteLine("Then, press any key to continue.");
-            Console.ReadKey();
+		Console.WriteLine();
+            	Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+            	Console.WriteLine("Then, press any key to continue.");
+            	Console.ReadKey();
 
-            Console.WriteLine();
-            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
-            Thread.Sleep(latencyDelay * 1000);
+            	Console.WriteLine();
+            	Console.WriteLine($"Waiting {latencyDelay} seconds for results to propagate.");
+           	 Thread.Sleep(latencyDelay * 1000);
 
-            writer.WriteLine("Get job status after review.");
-            jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
+            	writer.WriteLine("Get job status after review.");
+            	jobDetails = client.Reviews.GetJobDetailsWithHttpMessagesAsync(
             	TeamName, jobId);
 
-            // Log just the response body from the returned task.
-            writer.WriteLine(JsonConvert.SerializeObject(
-            jobDetails.Result.Body, Formatting.Indented));
-		}
+            	// Log just the response body from the returned task.
+            	writer.WriteLine(JsonConvert.SerializeObject(
+            	jobDetails.Result.Body, Formatting.Indented));
+	}
         writer.Flush();
         writer.Close();
 	}
