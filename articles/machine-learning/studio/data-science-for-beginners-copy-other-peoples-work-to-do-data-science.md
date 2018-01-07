@@ -49,7 +49,7 @@ In this one, you’ll discover a place to find examples that you can borrow from
 
 One of the trade secrets of data science is getting other people to do your work for you.
 
-## Find examples in the Azure AI Intelligence Gallery
+## Find examples in the Azure AI Gallery
 
 Microsoft has a cloud-based service called [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
