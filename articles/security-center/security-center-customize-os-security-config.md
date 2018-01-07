@@ -56,11 +56,9 @@ To customize the default OS Security Configuration in Security Center:
 
 3.  Select the subscription that you want to perform the customization for.
 
-4. Under **POLICY COMPONENTS**, select **Security Policy** and make sure the rule is “on”.
+    ![](media/security-center-customize-os-security-config/open-security-policy.png)
 
-5.  Select **Edit** next to the rule.
-
-    ![](media/security-center-customize-os-security-config/show-recommendations.png)
+4. Under **POLICY COMPONENTS**, select **Edit security configurations**.
 
 6.  **Edit security configurations** opens. Follow the steps highlighted in the screen to download, edit, and upload the modified file.
 
