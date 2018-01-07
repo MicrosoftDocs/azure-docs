@@ -5,7 +5,7 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: ponatara
 ---
 
@@ -14,7 +14,7 @@ ms.author: ponatara
 >[!NOTE]
 > Disaster recovery for Azure VMs using Azure Site Recovery is currently in preview.
 
-Use this article after you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](../site-recovery-overview.md) service. This article prepares the Azure VMs for disaster recovery to a secondary Azure region.
+Use this article after you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service. This article prepares the Azure VMs for disaster recovery to a secondary Azure region.
 
 
 
@@ -26,7 +26,7 @@ Before you set up disaster recovery, make sure that migration has completed as e
 
 ## Install the Azure VM agent
 
-The Azure [VM agent](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) must be installed on the VM, so that the Site Recovery can replicate it.
+The Azure [VM agent](../../virtual-machines/windows/agent-user-guide.md) must be installed on the VM, so that the Site Recovery can replicate it.
 
 
 1. To install the VM agent on VMs running Windows, download and run the [agent installer](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need admin privileges on the VM to complete the installation.
@@ -60,4 +60,4 @@ If you migrate on-premises VMware VMs (or physical servers) to Azure, note that:
 
 ## Next steps
 
-[Quickly replicate](../azure-to-azure-quickstart.md) an Azure VM to a secondary region.
+[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
