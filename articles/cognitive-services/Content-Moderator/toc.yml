@@ -32,6 +32,8 @@
     items: 
     - name: Jobs - API console
       href: try-review-api-job.md
+    - name: Jobs - .NET
+      href: moderation-jobs-quickstart-dotnet.md
     - name: Reviews - API console
       href: try-review-api-review.md
     - name: Reviews - .NET
