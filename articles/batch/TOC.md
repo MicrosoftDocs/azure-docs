@@ -57,7 +57,7 @@
 ### [Persist output with File Conventions library](batch-task-output-file-conventions.md)
 
 ## Run workloads
-### [Run MPI jobs](batch-mpi.md)
+### [MPI jobs](batch-mpi.md)
 ### [Container workloads](batch-docker-container-workloads.md)
 ### [Rendering](batch-rendering-service.md)
 ### [Data processing with Batch and Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
