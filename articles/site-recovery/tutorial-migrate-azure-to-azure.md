@@ -120,9 +120,6 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 1. In **Settings** > **Replicated items**, click the machine, and then click **Failover**.
 2. In **Failover**, select **Latest**. The encryption key setting isn't relevant for this scenario.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
-
-    ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
-
 4. Check that the Azure VM appears in Azure as expected.
 5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, and stops replication for the VM.
 
