@@ -185,7 +185,7 @@ Sign into the Content Moderator review tool to see the pending image review with
 
 Use the **Next** button to submit.
 
-![Image review for human moderators](images/ocr-sample-image.png)
+![Image review for human moderators](images/ocr-sample-image.PNG)
 
 Then, press any key to continue. The program waits and gets the final job status before exiting.
 
