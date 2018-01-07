@@ -1,5 +1,5 @@
 
-**Last document update**: January 6, 3:00 PM PST.
+**Last document update**: January 6, 6:30 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -11,13 +11,23 @@ While an OS update is not required to isolate your applications running on Azure
 
 In the following offerings, here are our recommended actions to update your Operating System: 
 
-|Offering	| Recommended Action |
-|-----------|--------------------|
-| Azure Cloud Services	| Enable auto update or ensure you are running the newest Guest OS. |
-| Azure Linux Virtual Machines | Install updates from your operating system provider when available. |
-| Azure Windows Virtual Machines	| - Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. 
-| | - Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). |
-| Other Azure PaaS Services	| There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
+<table>
+<tr>
+<th>Offering</th> <th>Recommended Action </th>
+</tr>
+<tr>
+<td>Azure Cloud Services </td>	<td>Enable auto update or ensure you are running the newest Guest OS.</td>
+</tr>
+<tr>
+<td>Azure Linux Virtual Machines</td> <td>Install updates from your operating system provider when available. </td>
+</tr>
+<tr>
+<td>Azure Windows Virtual Machines </td> <td><ul><li>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. </li> <li> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+</tr>
+<tr>
+<td>Other Azure PaaS Services</td> <td>There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. </td>
+</tr>
+</table>
 
 ## Additional guidance if you are running untrusted code 
 
