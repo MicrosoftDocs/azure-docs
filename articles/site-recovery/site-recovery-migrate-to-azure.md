@@ -20,7 +20,7 @@ Here's what you can migrate using Site Recovery:
 - **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
 
 
-## What do we mean by migrate?
+## What do we mean by migration?
 
 In addition to using Site Recovery for disaster recovery of on-premises and Azure VMs, you can use the Site Recovery service to migrate them. What's the difference?
 
