@@ -23,10 +23,10 @@ An encoding job is associated with an input asset (or assets) on which you want 
 
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer.  
 
-This topic discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
+This article discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> You can find the complete schema code and XML example at the end of this topic.  
+> You can find the complete schema code and XML example at the end of this article.  
 >
 >
 
@@ -52,7 +52,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | Name | Description |
 | --- | --- |
 | **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Sources element
@@ -63,7 +63,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
+| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information, see [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Source element
 An input/source file used when generating this asset.  
@@ -76,7 +76,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **Name**<br/><br/> Required |**xs:string** |Input source file name. |
 
 ## <a name="VideoTracks "></a> VideoTracks element
-Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks.  
+Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. This is the collection of all those video tracks.  
 
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
@@ -507,7 +507,8 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 
 
 ## <a name="xml"></a> XML example
- The following is an example of the Output metadata file.  
+
+The following XML is an example of the Output metadata file.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

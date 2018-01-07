@@ -22,17 +22,17 @@ An encoding job is associated with an input asset (or assets) on which you want 
 
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file  [Using the Media Services .NET SDK Extensions](media-services-dotnet-get-started.md).  
 
-This topic discusses the elements and types of the XML schema on which the input metada (&lt;asset_id&gt;_metadata.xml) is based.  For information about the file that contains metadata about the output asset, see [Output Metadata](media-services-output-metadata-schema.md).  
+This article discusses the elements and types of the XML schema on which the input metada (&lt;asset_id&gt;_metadata.xml) is based.  For information about the file that contains metadata about the output asset, see [Output Metadata](media-services-output-metadata-schema.md).  
 
 > [!NOTE]
-> You can find the [Schema Code](media-services-input-metadata-schema.md#code) an [XML example](media-services-input-metadata-schema.md#xml) at the end of this topic.  
+> You can find the [Schema Code](media-services-input-metadata-schema.md#code) an [XML example](media-services-input-metadata-schema.md#xml) at the end of this article.  
 > 
 > 
 
 ## <a name="AssetFiles"></a> AssetFiles element (root element)
 Contains a collection of [AssetFile element](media-services-input-metadata-schema.md#AssetFile)s for the encoding job.  
 
-See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 | Name | Description |
 | --- | --- |
@@ -41,7 +41,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 ## <a name="AssetFile"></a> AssetFile element
  Contains attributes and elements that describe an asset file.  
 
- See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+ See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -56,7 +56,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 | **OverallBitRate** |**xs:int** |Average bitrate of the asset file in kbps. |
 
 > [!NOTE]
-> The following 4 child elements must appear in a sequence.  
+> The following four child elements must appear in a sequence.  
 > 
 > 
 
@@ -64,12 +64,12 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 | Name | Type | Description |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |Collection of all [Programs element](media-services-input-metadata-schema.md#Programs) when the asset file is in MPEG-TS format. |
-| **VideoTracks**<br /><br /> minOccurs="0" | |Each physical asset file can contain zero or more video tracks interleaved into an appropriate container format. This element contains a collection of all [VideoTracks element](media-services-input-metadata-schema.md#VideoTracks) that are part of the asset file. |
-| **AudioTracks**<br /><br /> minOccurs="0" | |Each physical asset file can contain zero or more audio tracks interleaved into an appropriate container format. This element contains a collection of all [AudioTracks element](media-services-input-metadata-schema.md#AudioTracks) that are part of the asset file. |
+| **VideoTracks**<br /><br /> minOccurs="0" | |Each physical asset file can contain zero or more videos tracks interleaved into an appropriate container format. This element contains a collection of all [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) that are part of the asset file. |
+| **AudioTracks**<br /><br /> minOccurs="0" | |Each physical asset file can contain zero or more audio tracks interleaved into an appropriate container format. This element contains a collection of all [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) that are part of the asset file. |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Asset file’s metadata represented as key\value strings. For example:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
-See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -98,7 +98,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 
  The type represents a specific audio track in the asset file.  
 
- See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+ See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -115,7 +115,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 
 The type represents a specific video track in the asset file.  
 
-See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -139,7 +139,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 ## <a name="MetadataType"></a> MetadataType
 **MetadataType** is a global complex type that describes metadata of an asset file as key/value strings. For example, key=”language”, and value=”eng”.  
 
-See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -163,7 +163,7 @@ See an XML example at the end of this topic: [XML example](media-services-input-
 ## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** is a global complex type that describes the stream.  
 
-See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -191,7 +191,7 @@ Wrapper element holding multiple **Program** elements.
 ## <a name="VideoTracks"></a> VideoTracks element
  Wrapper element holding multiple **VideoTrack** elements.  
 
- See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+ See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### Child elements
 | Name | Type | Description |
@@ -201,7 +201,7 @@ Wrapper element holding multiple **Program** elements.
 ## <a name="AudioTracks"></a> AudioTracks element
  Wrapper element holding multiple **AudioTrack** elements.  
 
- See an XML example at the end of this topic: [XML example](media-services-input-metadata-schema.md#xml).  
+ See an XML example at the end of this article: [XML example](media-services-input-metadata-schema.md#xml).  
 
 ### elements
 | Name | Type | Description |
