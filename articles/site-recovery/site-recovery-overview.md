@@ -50,11 +50,11 @@ Site Recovery can manage replication for:
 
 **Supported** | **Details**
 --- | ---
-**Supported replication** | Azure VMs between Azure regions.<br/><br/>  On-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure.<br/><br/> On-premises VMware VMs, Hyper-V VMs, physical servers to Virtual Machine Manager (VMM).
-**Supported regions** | [Supported regions](https://azure.microsoft.com/regions/services/) |
-**Supported replicated machines** | Learn more about the replication requirements for [Azure VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [on-premises VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and [physical servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
-**Support VMware servers/hosts** | VMware VMs can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-**Supported workloads** | You can replicate any workload running on a machine that's supported for replication. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
+**Replication scenarion** | Replicate Azure VMs from one Azure region to another.<br/><br/>  Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux) to Azure.<br/><br/> Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
+**Regions** | Review [supported regions](https://azure.microsoft.com/regions/services/) for Site Recovery. |
+**Replicated machines** | Review the replication requirements for [Azure VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [on-premises VMs](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), and [physical servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+**VMware servers/hosts** | VMware VMs you want to replicate can be located on [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+**Workloads** | You can replicate any workload running on a machine that's supported for replication. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 
 
 
