@@ -69,7 +69,7 @@ Modify the program's using statements.
 ## Create a class to associate internal content information with a review ID
 
 Add the following class to the **Program** class.
-Use this to associate the review ID to 
+Use this class to associate the review ID to 
 your internal content ID for the item.
 
 	/// <summary>
@@ -383,7 +383,7 @@ Then, press any key to continue.
 
 	Press any key to exit...
 
-## Open the log file to see the following output.
+## Check out the following output in the log file.
 
 > [!NOTE]
 > In your output file, the strings "\{teamname}" and "\{callbackUrl}" reflect the 
