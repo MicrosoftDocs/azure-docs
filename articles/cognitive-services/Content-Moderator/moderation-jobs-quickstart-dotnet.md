@@ -1,6 +1,6 @@
 ---
-title: Azure Content Moderator - Create moderation jobs using .NET | Microsoft Docs
-description: How to create moderation jobs using Azure Content Moderator SDK for .NET
+title: Azure Content Moderator - Start moderation jobs using .NET | Microsoft Docs
+description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 01/06/2018
 ms.author: sajagtap
 ---
 
-# Start and monitor moderation jobs using .NET
+# Start moderation jobs using .NET
 
 This article provides information and code samples to help you quickly get started using 
 the Content Moderator SDK for .NET to:
