@@ -3,7 +3,7 @@ title: About Mobile Apps in Azure App Service
 description: Learn about the advantages that App Service brings to your enterprise mobile apps.
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service

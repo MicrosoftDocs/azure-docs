@@ -200,7 +200,7 @@ If you want to add another layer of protection to these apps, you can configure 
 
 This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
 However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
+While the focus of the previous scenario was on apps with access to sensitive data, the focus of this scenario is on trusted locations.  
 In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
 
 
@@ -209,6 +209,9 @@ In other words, you might have a requirement for multi-factor authentication if 
 If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
 
 Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with Conditional Access.
+
+### Switching a device from corporate-owned to Bring Your Own Device (BYOD)
+If you want to block enrolled devices by changing the device ownership from corporate to personal, you can accomplish this using Azure Active Directory (AAD) conditional access. You must first create a conditional access policy where **Block access** is selected from the access controls **Grant** blade. Next, create a **Dynamic Device** group by setting the **deviceOwnership** property to **Personal**. Then, target the above policy to the new group.
 
 ## Next steps
 

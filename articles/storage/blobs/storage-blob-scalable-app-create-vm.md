@@ -114,7 +114,7 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.
 
 ```azurepowershell-interactive
-# Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
+# Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `

@@ -18,8 +18,10 @@
     href: export-your-model.md
 - name: Tutorials
   items:
-  - name: C# Tutorial
+  - name: C# tutorial
     href: csharp-tutorial.md
+  - name: Python tutorial
+    href: python-tutorial.md
 - name: Reference
   items:
   - name: Custom Vision Prediction API Reference 

@@ -3,7 +3,7 @@ title: How to provide secure remote access to on-premises apps
 description: Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: daveba
 manager: mtillman
 
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
