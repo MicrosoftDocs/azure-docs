@@ -29,20 +29,21 @@ Ansible can be used to pull inventory information from various sources (includin
     az group create --resource-group ansible-inventory-test-rg --location eastus
     ```
 
-1. Create the two virtual machines.
+1. Create two Linux virtual machines on Azure using one of the following techniques:
 
-    ```azurecli-interactive
-    az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm1 --image UbuntuLTS --generate-ssh-keys
-    ```
+    - **Ansible playbook** - The article, [Create a basic virtual machine in Azure with Ansible](https://review.docs.microsoft.com/en-us/azure/virtual-machines/linux/ansible-create-vm?branch=pr-en-us-30287) illustrates how to create a virtual machine from an Ansible playbook. If you use a playbook to define one or both of the virtual machines, ensure that the SSH connection is used instead of a password.
 
-    ```azurecli-interactive
-    az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm2 --image UbuntuLTS --generate-ssh-keys
-    ```
+    - **Azure CLI** - Issue each of the following commands in the Cloud Shell to create the two virtual machines:
 
+        ```azurecli-interactive
+        az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm1 --image UbuntuLTS --generate-ssh-keys
+        ```
 
+        ```azurecli-interactive
+        az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm2 --image UbuntuLTS --generate-ssh-keys
+        ```
 
-Note: You also could use Ansible playbook to create 2 VMs but ensure SSH connection is used instead of password for following steps. 
-2.	Tag one VM.
+1.  Tag one of the virtual machines. 
 Below are examples. More refer to https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli. 
 az resource tag --tags hello=tag --id /subscriptions/<your subscription id>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
 If you don’t know your subscription ID, you could run
