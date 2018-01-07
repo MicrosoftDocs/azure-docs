@@ -17,7 +17,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Create 
+## Create the test virtual machines
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -43,7 +43,8 @@ Ansible can be used to pull inventory information from various sources (includin
         az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm2 --image UbuntuLTS --generate-ssh-keys
         ```
 
-1.  Tag one of the virtual machines. 
+## Tag a virtual machine
+
 Below are examples. More refer to https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags#azure-cli. 
 az resource tag --tags hello=tag --id /subscriptions/<your subscription id>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
 If you don’t know your subscription ID, you could run
@@ -59,7 +60,8 @@ Then you will get something like
 ………..
     }
 
-3.	Download Inventory Script.
+## Generate a dynamic inventory of your Azure resources
+
 wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
 chmod +x azure_rm.py
 Let us have a quick test. Execute /bin/uname on all instances in the “myresourcegroup” resource group:
@@ -78,7 +80,8 @@ myVM2 | SUCCESS => {
     "failed": false,
     "ping": "pong"
 }
-4.	Enable tag 
+
+## Enable the virtual machine tag 
 
 export AZURE_TAGS=hello:tag
 Let us run the quick test again. This time execute /bin/uname on tagged instance:
@@ -112,7 +115,7 @@ You will get below information as follows:
   ……
 
 
-5.	Set up Nginx on tagged instance
+## Set up Nginx on the tagged virtual machine
 Below is a playbook of nginx.yml for Ubuntu platform. 
 ---
 - name: install and start nginx on azure vm
