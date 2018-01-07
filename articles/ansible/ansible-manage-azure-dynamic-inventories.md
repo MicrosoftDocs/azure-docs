@@ -21,7 +21,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. If this is the first time you're using Cloud Shell, refer to the article [Use Ansible in the Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md#configure-cloud-shell) to configure your Cloud Shell environment.
+1. Open Cloud Shell. If this is the first time you're using Cloud Shell, refer to the article [Use Ansible in the Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md#configure-cloud-shell) to open and configure your Cloud Shell environment.
 
 1. Create an Azure resource group that will contain the virtual machines used in this tutorial.
 
@@ -29,9 +29,17 @@ Ansible can be used to pull inventory information from various sources (includin
     az group create --resource-group ansible-inventory-test-rg --location eastus
     ```
 
+1. Create the two virtual machines.
 
-az vm create --resource-group myresourcegroup --name myVM --image UbuntuLTS --generate-ssh-keys
-az vm create --resource-group myresourcegroup --name myVM2 --image UbuntuLTS --generate-ssh-keys
+    ```azurecli-interactive
+    az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm1 --image UbuntuLTS --generate-ssh-keys
+    ```
+
+    ```azurecli-interactive
+    az vm create --resource-group ansible-inventory-test-rg --name ansible-inventory-test-vm2 --image UbuntuLTS --generate-ssh-keys
+    ```
+
+
 
 Note: You also could use Ansible playbook to create 2 VMs but ensure SSH connection is used instead of password for following steps. 
 2.	Tag one VM.
