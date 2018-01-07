@@ -122,8 +122,11 @@ Start by adding the following code to the **Main** method.
     	{
         	writer.WriteLine("Create review job for an image.");
         	var content = new Content(ImageUrl);
+		
+		// The workflowName contains the nameof the workflow defined in the online review tool.
+                // In this case, we use the "OCR" workflow that we configured earlier. See the article.
         	var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
-            	TeamName, "image", String.Empty, "default", "application/json", content, CallbackEndpoint);
+            	TeamName, "image", String.Empty, "OCR", "application/json", content, CallbackEndpoint);
 
         	// Record the job ID.
         	var jobId = jobResult.Result.Body.JobIdProperty;
@@ -194,8 +197,8 @@ Then, press any key to continue. The program waits and gets the final job status
 ## See the sample output in the log file
 
 > [!NOTE]
-> In your output file, the strings "\{teamname}" and "\{callbackUrl}"
-> reflect the values you used for the `TeamName` and `CallbackEndpoint` fields, respectively.
+> In your output file, the strings **Teamname**, **ContentId**, **CallBackEndpoint**, and **WorkflowId**
+> reflect the values you used earlier.
 
 	Create moderation job for an image.
 	{
@@ -205,11 +208,11 @@ Then, press any key to continue. The program waits and gets the final job status
 	Get job status before review.
 	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "testreview6",
+		"TeamName": "some team name",
 		"Status": "InProgress",
 		"WorkflowId": "OCR",
 		"Type": "Image",
-		"CallBackEndpoint": "https://requestb.in/vxke1mvx",
+		"CallBackEndpoint": "",
 		"ReviewId": "",
 		"ResultMetaData": [],
 		"JobExecutionReport": [
@@ -231,11 +234,11 @@ Then, press any key to continue. The program waits and gets the final job status
 	Get job status after review.
 	{
 		"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-		"TeamName": "testreview6",
+		"TeamName": "some team name",
 		"Status": "Complete",
 		"WorkflowId": "OCR",
 		"Type": "Image",
-		"CallBackEndpoint": "https://requestb.in/vxke1mvx",
+		"CallBackEndpoint": "",
 		"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
 		"ResultMetaData": [
     	{
@@ -279,6 +282,10 @@ Then, press any key to continue. The program waits and gets the final job status
 ## Your callback Url if provided, receives this response.
 
 You see a response like the following example:
+
+> [!NOTE]
+> In your callback response, the strings **ContentId** and **WorkflowId**
+> reflect the values you used earlier.
 
 	{
 		"JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
