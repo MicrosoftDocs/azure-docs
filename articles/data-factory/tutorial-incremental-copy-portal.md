@@ -33,6 +33,12 @@ You perform the following steps in this tutorial:
 > * Create a pipeline.
 > * Run the pipeline.
 > * Monitor the pipeline run. 
+> * Review results
+> * Add more data to the source.
+> * Run the pipeline again.
+> * Monitor the second pipeline run
+> * Review results from the second run
+
 
 ## Overview
 Here is the high-level solution diagram: 
@@ -44,8 +50,7 @@ Here are the important steps to create this solution:
 1. **Select the watermark column**.
 	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
-2. **Prepare a data store to store the watermark value**.   
-	In this tutorial, you store the watermark value in a SQL database.
+2. **Prepare a data store to store the watermark value. In this tutorial, you store the watermark value in a SQL database.
 	
 3. **Create a pipeline with the following workflow**: 
 	
@@ -292,7 +297,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 29. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
     
     ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Select **Storage Procedure Activity** in the pipeine designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
+24. Select **Storage Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Switch to the **SQL Account** tab, and select *AzureSqlDatabaseLinkedService** for **Linked service**. 
@@ -419,20 +424,23 @@ PersonID | Name | LastModifytime
 	| data_source_table | 2017-09-07 09:01:00.000 |
 
 
-
-
      
 ## Next steps
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
-> * Prepare the data store to store the watermark value. 
+> * Prepare the data store to store the watermark value.
 > * Create a data factory.
 > * Create linked services. 
 > * Create source, sink, and watermark datasets.
 > * Create a pipeline.
 > * Run the pipeline.
 > * Monitor the pipeline run. 
+> * Review results
+> * Add more data to the source.
+> * Run the pipeline again.
+> * Monitor the second pipeline run
+> * Review results from the second run
 
 In this tutorial, the pipeline copied data from a single table in a SQL database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in an on-premises SQL Server database to a SQL database. 
 
