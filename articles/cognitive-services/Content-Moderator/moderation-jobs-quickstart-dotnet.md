@@ -67,7 +67,7 @@ Add the following constants and static fields to the **Program** class in Progra
 
 > [!NOTE]
 > You set the TeamName constant to the name you used when you
-> created your Content Moderator subscription. You retrieve this from the
+> created your Content Moderator subscription. You retrieve TeamName from the
 > [Content Moderator web site](https://westus.contentmoderator.cognitive.microsoft.com/).
 > Once you log in, select **Credentials** from the **Settings** (gear) menu.
 >
@@ -191,7 +191,7 @@ Then, press any key to continue. The program waits and gets the final job status
 
 	Waiting 45 seconds for results to propagate.
 
-## Open the log file to see the sample output
+## See the sample output in the log file
 
 > [!NOTE]
 > In your output file, the strings "\{teamname}" and "\{callbackUrl}"
