@@ -4,7 +4,7 @@ description: Overview of Service Bus client diagnostics and end-to-end tracing
 services: service-bus-messaging
 documentationcenter: ''
 author: lmolkova
-manager: bfung
+manager: timlt
 editor: ''
 
 ms.service: service-bus-messaging
