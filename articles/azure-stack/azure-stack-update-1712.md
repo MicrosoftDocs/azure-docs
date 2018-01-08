@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
 
 ---
@@ -29,7 +29,7 @@ This article describes the improvements and fixes in this update package, known 
 
 ## Build reference
 
-The Azure Stack 1712 update build number is **180103.2**.
+The Azure Stack 1712 update build number is **180106.1**. If a customer has deployed **180103.2** previously, you do not need to apply **180106.1**.
 
 ## Before you begin
 
@@ -98,7 +98,7 @@ This section contains known issues that you may encounter during the 1712 update
 
 ### Known issues (post-installation)
 
-This section contains post-installation known issues with build **180103.2**.
+This section contains post-installation known issues with build **180106.1** and build **180103.2**.
 
 #### Portal
 
