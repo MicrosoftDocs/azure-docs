@@ -103,7 +103,7 @@ If you wish to disable automatic provisioning:
 >
 
 ## Next steps
-In this quick start you upgraded to Standard tier and provisioned the Microsoft Monitoring Agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
+In this quickstart you upgraded to Standard tier and provisioned the Microsoft Monitoring Agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)

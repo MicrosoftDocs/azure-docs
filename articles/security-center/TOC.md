@@ -91,7 +91,7 @@
 ## [Troubleshoot](security-center-troubleshooting-guide.md)
 
 # Reference
-## [REST APIs](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST APIs](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)
 
 # Resources
 ## [FAQ](security-center-faq.md)
@@ -107,5 +107,4 @@
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 ## [Pricing](https://azure.microsoft.com/pricing/details/security-center/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)

@@ -29,7 +29,7 @@ Why use Security Center?
 - **Prioritized alerts and incidents** - Focus on the most critical threats first with prioritized security alerts and incidents.
 - **Integrated security solutions** - Collect, search, and analyze security data from a variety of sources, including connected partner solutions.
 
-The **Security Center - Overview** provides a quick view into the security posture of your Azure and non-Azure workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Built in dashboard provides instant insights into security alerts and vulnerabilities that require attention.
+The **Security Center - Overview** provides a quick view into the security posture of your Azure and non-Azure workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. The built-in dashboard provides instant insights into security alerts and vulnerabilities that require attention.
 
 ![Overview][1]
 

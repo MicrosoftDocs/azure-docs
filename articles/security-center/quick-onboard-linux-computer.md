@@ -18,14 +18,14 @@ ms.author: terrylan
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
-After you Onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Linux Agent.
+After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Linux Agent.
 
 This quickstart shows you how to install the Linux Agent on a Linux computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-You must be on Security Center’s Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center’s Standard at no cost for the first 60 day.
+You must be on Security Center’s Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center’s Standard at no cost for the first 60 days.
 
 ## Add new Linux computer
 
@@ -74,7 +74,7 @@ When no longer needed, you can remove the agent from the Linux computer.
 To remove the agent:
 
 1. Download the Linux agent [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) to the computer.
-2. Run the bundle .sh file w the *--purge* argument on the computer, which completely removes the agent and its configuration.
+2. Run the bundle .sh file with the *--purge* argument on the computer, which completely removes the agent and its configuration.
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 

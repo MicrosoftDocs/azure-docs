@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Quick Start - Connect security solutions | Microsoft Docs
-description: Azure Security Center Quick Start - Connect security solutions
+title: Azure Security Center Quickstart - Connect security solutions | Microsoft Docs
+description: Azure Security Center Quickstart - Connect security solutions
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -90,7 +90,7 @@ If you wish to disable automatic provisioning:
 >
 
 ## Next steps
-In this quick start, you learned how to connect a Linux Syslog solution to Security Center using CEF. By connecting your CEF logs to Security Center, you can take advantage of search & custom alert rules, and threat intelligence enrichment for each log. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you learned how to connect a Linux Syslog solution to Security Center using CEF. By connecting your CEF logs to Security Center, you can take advantage of search & custom alert rules, and threat intelligence enrichment for each log. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](./tutorial-security-policy.md)

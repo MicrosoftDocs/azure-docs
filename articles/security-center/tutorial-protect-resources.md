@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: terrylan
 
 ---
@@ -78,9 +78,9 @@ Adaptive application controls is in preview. This feature is only available for 
 
   The **Resource groups** section contains three tabs:
 
-  - **Configured**: list of resource groups containing the VMs that were configured with application control.
-  - **Recommended**: list of resource groups for which application control is recommended.
-  - **No recommendation**: list of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
+  - **Configured**: List of resource groups containing the VMs that were configured with application control.
+  - **Recommended**: List of resource groups for which application control is recommended.
+  - **No recommendation**: List of resource groups containing VMs without any application control recommendations. For example, VMs on which applications are always changing, and haven’t reached a steady state.
 
 2. Select the **Recommended** tab for a list of resource groups with application control recommendations.
 
@@ -88,10 +88,10 @@ Adaptive application controls is in preview. This feature is only available for 
 
 3. Select a resource group to open the **Create application control rules** option. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. In the **Select processes for whitelisting rules**, review the list of recommended applications, and uncheck any you do not want to apply. The list includes:
 
-  - **NAME**: the full application path
-  - **PROCESSES**: how many applications reside within every path
+  - **NAME**: The full application path
+  - **PROCESSES**: How many applications reside within every path
   - **COMMON**: "Yes" indicates that these processes have been executed on most VMs in this resource group
-  - **EXPLOITABLE**: a warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
+  - **EXPLOITABLE**: A warning icon indicates if the applications could be used by an attacker to bypass application whitelisting. It is recommended to review these applications prior to their approval.
 
 4. Once you finish your selections, select **Create**.
 

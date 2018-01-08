@@ -35,7 +35,7 @@ To step through the features covered in this tutorial, you must be on Security C
 Security Center provides a unified view of all security alerts. Security alerts are ranked based on the severity and when possible related alerts are combined into a security incident. When triaging alerts and incidents, you should:
 
 - Dismiss alerts for which no additional action is required, for example if the alert is a false positive
-- Act to remediate know attacks, for example blocking network traffic from a malicious IP address
+- Act to remediate known attacks, for example blocking network traffic from a malicious IP address
 - Determine alerts that require further investigation
 
 
