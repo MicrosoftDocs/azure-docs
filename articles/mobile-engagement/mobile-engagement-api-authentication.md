@@ -23,7 +23,7 @@ ms.author: wesmc;ricksal
 
 This document describes how to get a valid Azure AD Oauth token to authenticate with the Mobile Engagement REST APIs.
 
-This procedures assumes that you have a valid Azure subscription and have created a Mobile Engagement app by using one of the [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
+This procedure assumes that you have a valid Azure subscription and have created a Mobile Engagement app by using one of the [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentication
 
@@ -42,11 +42,11 @@ There are several ways to get a token. Because the APIs are called from a cloud 
 
 ### One-time setup (using script)
 
-Take the steps in the following instructions to perform the setup by using a PowerShell script. A PowerShell script requires the least amount of time for setup but uses the most permissible defaults. 
+To perform the setup by using a PowerShell script, take the steps in the following instructions. A PowerShell script requires the least amount of time for setup but uses the most permissible defaults. 
 
-Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly, which allows for finer configuration.
+Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. Setting up from the Azure portal allows for more detailed configuration.
 
-1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information about the download instructions, see  see this [link](/powershell/azure/overview).
+1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information about the download instructions, see  this [link](/powershell/azure/overview).
 
 2. After PowerShell is installed, use the following commands to ensure that you have the **Azure module** installed:
 
@@ -139,12 +139,12 @@ Now that you have a valid token, you are ready to make the API calls.
 
 1. In each API request, you need to pass a valid, unexpired token. You obtained the unexpired token in the previous section.
 
-2. You need to plug in some parameters to the request URI that identifies your application. The request URI looks like the following:
+2. Plug in some parameters to the request URI that identifies your application. The request URI looks like the following code:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    To get the parameters, select your application name. Then select  **Dashboard**, and you see a page like the following with all three parameters:
+    To get the parameters, select your application name. Then select  **Dashboard**, and you see a page with all three parameters, as follows:
    
    * **1** `{subscription-id}`
    * **2** `{app-collection}`
@@ -154,8 +154,8 @@ Now that you have a valid token, you are ready to make the API calls.
 > [!NOTE]
 > <br/>
 > 
-> 1. Ignore the API root address, since this was for the previous APIs.<br/>
-> 2. If you created the app by using the Azure portal, then you need to use the Application Resource name, which is different than the Application name itself. If you created the app in the Azure portal, then you should use the App Name itself (there is no differentiation between the Application Resource Name and the App Name for apps that are created in the new portal).  
+> 1. Ignore the API root address, since it was for the previous APIs.<br/>
+> 2. If you created the app by using the Azure portal, then you need to use the Application Resource name, which is different than the Application name itself. If you created the app in the Azure portal, then you should use the App Name itself. (There is no differentiation between the Application Resource Name and the App Name for apps that are created in the new portal.)
 > 
 > 
 
