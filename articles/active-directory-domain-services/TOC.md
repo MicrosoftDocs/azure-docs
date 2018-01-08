@@ -42,9 +42,12 @@
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)
+### [Troubleshooting alerts](active-directory-ds-troubleshooting-alerts.md)
+#### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)
+#### [Restore missing service principals ](active-directory-ds-troubleshoot-service-principals.md)
+#### [Secure LDAP Errors](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolve mismatched tenant errors](active-directory-ds-mismatched-tenant-error.md)
-### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-ldaps.md)
-### [Restore missing service principals ](active-directory-ds-troubleshoot-service-principals.md)
+
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

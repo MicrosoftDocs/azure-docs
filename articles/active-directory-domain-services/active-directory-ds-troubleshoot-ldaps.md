@@ -21,7 +21,7 @@ ms.author: ergreenl
 
 This article provides resolutions for common issues when [configuring secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) for Azure AD Domain Services.
 
-## Vulnerable Network Security Group Configuration
+## Secure LDAP Network Security Group Configuration
 
 **Alert ID:** AADDS101
 
