@@ -18,7 +18,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
- 
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
