@@ -12,7 +12,7 @@ ms.date: 01/08/2017
 ms.author: v-geberr
 ---
 
-# Azure Subscription Keys
+# Manage Azure subscription keys
 
 For authoring, testing and prototype only, use the programmatic free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
 
