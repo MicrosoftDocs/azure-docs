@@ -37,7 +37,7 @@ To verify the status of the extension, perform the following steps from the Azur
 
 ## Troubleshooting Azure Windows VM extension
 
-If the *Microsoft Monitoring Agent* VM extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
+If the *Microsoft Monitoring Agent* VM extension is not installing or reporting, you can perform the following steps to troubleshoot the issue.
 
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
@@ -54,10 +54,10 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting 
 6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-For more information, refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines/windows/extensions-oms.md).
+For more information, see [troubleshooting Windows extensions](../virtual-machines/virtual-machines/windows/extensions-oms.md).
 
 ## Troubleshooting Linux VM extension
-If the *OMS Agent for Linux* VM extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
+If the *OMS Agent for Linux* VM extension is not installing or reporting, you can perform the following steps to troubleshoot the issue.
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`
    * If the log does not exist, the VM agent is not installed.
@@ -65,8 +65,8 @@ If the *OMS Agent for Linux* VM extension is not installing or reporting you can
 2. For other unhealthy statuses, review the OMS Agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-For more information, refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines/linux/extensions-oms.md).
+For more information, see [troubleshooting Linux extensions](../virtual-machines/virtual-machines/linux/extensions-oms.md).
 
 ## Next steps
 
-For additional troubleshooting guidance related to the OMS Agent for Linux hosted on computers outside of Azure, please see [Troubleshoot Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  
+For additional troubleshooting guidance related to the OMS Agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  
