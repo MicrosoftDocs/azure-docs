@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
@@ -132,7 +132,7 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-3. If your graph database account was created on or after December 20th, 2017, change `graphs.azure.com` in the client name to `gremlin.cosmosdb.azure.com`.
+3. Change `graphs.azure.com` in the client name to `gremlin.cosmosdb.azure.com`. (If your graph database account was created before December 20th, 2017, make no change and go to the next step.)
 
 4. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
 

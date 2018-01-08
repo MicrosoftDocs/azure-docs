@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
@@ -126,11 +126,11 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. If you created your graph database account after December 20th, 2017, change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. If you created your graph database account before December 20th, 2017, make no additional changes to the endpoint value.
+3. Change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20th, 2017, make no changes to the endpoint value and continue to the next step.)
 
     The endpoint value should now look like this:
-    * Accounts created before December 20th, 2017: `"endpoint": "https://testgraphacct.graphs.azure.com:443/"`
-    * Accounts created on or after December 20th, 2017: `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
 
 4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
 

@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
@@ -126,7 +126,7 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-nodejs/gremlin-uri.png)
 
-   If the **Gremlin URI** value is blank, you can generate the value from the **Keys** page in the portal. Use the **URI** value, remove https://, and change documents to graphs (if your graph account was created before December 20th, 2017) or change documents to gremlin.cosmosdb (if your graph account was created on or after December 20th, 2017).
+   If the **Gremlin URI** value is blank, you can generate the value from the **Keys** page in the portal. Use the **URI** value, remove https://, and change documents to gremlin.cosmosdb. If your graph account was created before December 20th, 2017, change documents to graphs. 
 
    The Gremlin endpoint must be only the host name without the protocol/port number, like `mygraphdb.gremlin.cosmosdb.azure.com` (not `https://mygraphdb.gremlin.cosmosdb.azure.com` or `mygraphdb.gremlin.cosmosdb.azure.com:433`).
 
