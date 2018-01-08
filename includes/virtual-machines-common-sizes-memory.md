@@ -62,7 +62,7 @@ ACU: 160-180
 
 <sup>1</sup> M-series VM’s feature Intel® Hyper-Threading Technology
 
-<sup>2</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1 
+<sup>2</sup> More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux, CentOS 7.3 or Oracle Linux 7.3 with LIS 4.2.1 
 
 <sup>3</sup> Constrained core sizes available.
 

@@ -3,8 +3,8 @@ title: I use Mobile Services, how does App Service help?
 description: Learn what advantages does App Service bring to your existing Mobile Services projects.
 services: app-service\mobile
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?

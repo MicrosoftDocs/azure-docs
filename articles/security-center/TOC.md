@@ -21,6 +21,7 @@
 ### [Security policy using Azure policy](security-center-azure-policy.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
 ### [Pricing tier](security-center-pricing.md)
+### [Security configurations](security-center-customize-os-security-config.md)
 
 ## [Onboarding](security-center-onboarding.md)
 ## [Events](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [Enable VM Agent](security-center-enable-vm-agent.md)
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
+#### [Remediate security configurations](security-center-remediate-os-vulnerabilities.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitor security health](security-center-monitoring.md)
@@ -90,6 +91,7 @@
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Readiness Roadmap](security-center-readiness-roadmap.md)
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service overview](https://azure.microsoft.com/services/security-center/)
