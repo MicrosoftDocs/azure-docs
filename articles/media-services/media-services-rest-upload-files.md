@@ -1,5 +1,5 @@
 ---
-title: Upload files into a Media Services account using REST  | Microsoft Docs
+title: Upload files into an Azure Media Services account using REST  | Microsoft Docs
 description: Learn how to get media content into Media Services by creating and uploading assets.
 services: media-services
 documentationcenter: ''
@@ -206,7 +206,7 @@ The file should be uploaded and its metadata set.
 
 To validate that the file has been uploaded successfully, you might want to query the [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) and compare the **ContentFileSize** (or other details) to what you expect to see in the new asset. 
 
-For example, the following request brings file data for your asset file (in or case, the BigBuckBunny.mp4 file). The query is using the [environment variables](postman-environment.md) that you set earlier.
+For example, the following **GET** operation brings file data for your asset file (in or case, the BigBuckBunny.mp4 file). The query is using the [environment variables](postman-environment.md) that you set earlier.
 
     {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
 
