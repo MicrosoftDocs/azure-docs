@@ -48,19 +48,19 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 > [!Note]  
 > Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
 
-    ```Powershell
-    Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
-    ```
+    ````PowerShell
+      Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
+    ````
 
-| Parameter               | Value           | Required | Default | Description    |
-| ---                     | ---             | ---      | ---     | ---            |
-| ServiceAdminCredentials | PSCredential    | No       | FALSE   | Need to write. |
-| DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   | Need to write. |
-| AdminCredential         | PSCredential    | No       | NA      | Need to write. |
-| StorageConnectionString | String          | No       | NA      | Need to write. |
-| List                    | SwitchParameter | No       | FALSE   | Need to write. |
-| Ignore                  | String          | No       | NA      | Need to write. |
-| Include                 | String          | No       | NA      | Need to write. |
+| Parameter               | Value           | Required | Default |
+| ---                     | ---             | ---      | ---     |
+| ServiceAdminCredentials | PSCredential    | No       | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   |
+| AdminCredential         | PSCredential    | No       | NA      |
+| StorageConnectionString | String          | No       | NA      |
+| List                    | SwitchParameter | No       | FALSE   |
+| Ignore                  | String          | No       | NA      |
+| Include                 | String          | No       | NA      |
 
 The Test-AzureStack cmdlet supports the common parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
@@ -72,9 +72,9 @@ The following examples assume you're signed in as **CloudAdmin** and accessing t
 
 In a PEP session, run:
 
-    ```Powershell
-    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack
-    ```
+    ````PowerShell
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack
+    ````
 
 #### Run Test-AzureStack with cloud scenarios
 
@@ -95,60 +95,60 @@ Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicr
 
 In a PEP session, run:
 
-    ```Powershell
-    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
-    ```
+    ````PowerShell
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
+    ````
 
 #### Run Test-AzureStack without cloud scenarios
 
 In a PEP session, run:
 
-    ```Powershell
-    $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
-    ```
+    ````PowerShell
+      $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
+    ````
 
 To list available test scenarios:
 
-    ```Powershell
-    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -List
-    ```
+    ````PowerShell
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -List
+    ````
 
 #### Run a specified test
 
 In a PEP session, run:
 
-    ```Powershell
-    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Include AzsSFRoleSummary,AzsInfraCapacity
-    ```
+    ````PowerShell
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Include AzsSFRoleSummary,AzsInfraCapacity
+    ````
 
 To exclude specific tests:
 
-    ```Powershell
-    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Ignore AzsInfraPerformance
-    ```
+    ````PowerShell
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Ignore AzsInfraPerformance
+    ````
 
 ### Validation test
 
 The following table summarizes the validation tests run by Test-AzureStack.
 
-| Name                                                                                                                              | Description           |
+| Name                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Azure Stack Cloud Hosting Infrastructure Summary                                                                                  | Write the description. |
-| Azure Stack Storage Services Summary                                                                                              | Write the description. |
-| Azure Stack Infrastructure Role Instance Summary                                                                                  | Write the description. |
-| Azure Stack Cloud Hosting Infrastructure Utilization                                                                              | Write the description. |
-| Azure Stack Infrastructure Capacity                                                                                               | Write the description. |
-| Azure Stack Portal and API Summary                                                                                                | Write the description. |
-| Azure Stack Azure Resource Manager Certificate Summary                                                                                               | Write the description. |
-| Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Roles          | Write the description. |
-| Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Role Instances | Write the description. |
-| Azure Stack Infrastructure Role summary                                                                                           | Write the description. |
-| Azure Stack Cloud Service Fabric Services                                                                                         | Write the description. |
-| Azure Stack Infrastructure Role Instance Performance                                                                              | Write the description. |
-| Azure Stack Cloud Host Performance Summary                                                                                        | Write the description. |
-| Azure Stack Service Resource Consumption Summary                                                                                  | Write the description. |
-| Azure Stack Scale Unit Critical Events (Last 8 hours)                                                                             | Write the description. |
-| Azure Stack Storage Services Physical Disks Summary                                                                               | Write the description. |
+| Azure Stack Cloud Hosting Infrastructure Summary                                                                                  |
+| Azure Stack Storage Services Summary                                                                                              |
+| Azure Stack Infrastructure Role Instance Summary                                                                                  |
+| Azure Stack Cloud Hosting Infrastructure Utilization                                                                              |
+| Azure Stack Infrastructure Capacity                                                                                               |
+| Azure Stack Portal and API Summary                                                                                                |
+| Azure Stack Azure Resource Manager Certificate Summary                                                                                               |
+| Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Roles          |
+| Infrastructure management controller, Network controller, Storage services, and Privileged endpoint Infrastructure Role Instances |
+| Azure Stack Infrastructure Role summary                                                                                           |
+| Azure Stack Cloud Service Fabric Services                                                                                         |
+| Azure Stack Infrastructure Role Instance Performance                                                                              |
+| Azure Stack Cloud Host Performance Summary                                                                                        |
+| Azure Stack Service Resource Consumption Summary                                                                                  |
+| Azure Stack Scale Unit Critical Events (Last 8 hours)                                                                             |
+| Azure Stack Storage Services Physical Disks Summary                                                                               |
 
 ## Next steps
 
