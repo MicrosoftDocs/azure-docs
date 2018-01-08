@@ -221,7 +221,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 6. To add a child activity to the **ForEach** activity, click the **Edit (pencil icon)** as shown in the following image: 
 
     ![ForEach activity name](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. Drag-drop **Copy** activity into the pipeline designer surface, and change the name in the Properties window to **Copy Data**. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. 
+7. Drag-drop **Copy** activity into the pipeline designer surface, and change the name in the Properties window to **CopyData**. Notice the breadcrumb menu at the top. The IterateAndCopySQLTable is the pipeline name and IterateSQLTables is the ForEach activity name. The designer is in the activity scope. 
 
     ![Copy in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 8. Switch to the **Source** tab, and do the following steps:
@@ -295,9 +295,10 @@ This pipeline performs two steps:
 6. Switch to the **Settings** page, and do the following steps: 
 
     1. Select **IterateAndCopySQLTables** for **Invoked pipeline**. 
-    2. Click **+ New** in the **Parameters** section. 
-    3. Enter **tableList** for parameter **name**.
-    4. Enter `@activity('LookupTableList').output.value` for parameter **value**.
+    2. Expand the **Advanced** section. 
+    3. Click **+ New** in the **Parameters** section. 
+    4. Enter **tableList** for parameter **name**.
+    5. Enter `@activity('LookupTableList').output.value` for parameter **value**.
 
         ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Connect** the **Lookup** activity to the **Execute Pipeline** activity by dragging the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
