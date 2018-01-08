@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
@@ -126,13 +126,19 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
+3. Change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20th, 2017, make no changes to the endpoint value and continue to the next step.)
+
+    The endpoint value should now look like this:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
 
     Line 4 of remote.yaml should now look similar to 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Change line 3 of remote.yaml from
+5. Change line 3 of remote.yaml from
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -140,7 +146,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Save the remote.yaml file.
+6. Save the remote.yaml file.
 
 ## Run the console app
 
