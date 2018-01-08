@@ -118,15 +118,15 @@ You now see only one virtual machine (the one whose tag matches the value export
     ```
 
 ## Set up Nginx on the tagged virtual machine
-The purpoose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
+The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
 
-1. Create a file (that will serve as your playbook) named `nginx.yml` as follows:
+1. Create a file (to contain your playbook) named `nginx.yml` as follows:
 
   ```azurecli-interactive
   vi nginx.yml
   ```
 
-1. Insert the following into the newly created `nginx.yml` file:
+1. Insert the following code into the newly created `nginx.yml` file:
 
     ```yml
     - name: Install and start Nginx on an Azure virtual machine
