@@ -22,6 +22,12 @@ ms.author: mabrigg
  
 You can validate the status of your Azure Stack. When you have an issue, contact Microsoft Customer Services Support. Support asks you to run Test-AzureStack from your management node. The validation test isolates the failure. Support can then analyze the detailed logs, focus on the area where the error occurred, and work with you in resolving the issue.
 
+Test formatting for PowerShell:
+
+      ````PowerShell
+        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+      ````
+
 ## Run Test-AzureStack
 
 When you have an issue, contact Microsoft Customer Services Support and then run **Run Test-AzureStack**.
