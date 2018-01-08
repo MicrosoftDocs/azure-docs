@@ -113,3 +113,26 @@ There are 3 typical Trial scenarios:
     |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer
       |
 |**Interactive Demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period     |
+
+#### Free Trial
+
+Use a **Free Trial** when the solution or app offers a free-to-try, SaaS-based trial. This option drives high quality leads from interested customers, helping you start your business flywheel. Free Trials can be presented as limited use or limited duration trial accounts and should include a call-to-action to accelerate conversion to paid use of your software.
+
+#### Test Drive
+
+Use a **Test Drive** when the solution is deployed via one or more Virtual Machines via IaaS or SaaS Apps. The benefit of this approach is the automated provisioning of a virtual appliance or entire solution environment couched in a partner-hosted “guided tour” of the solution for customer evaluation at no additional cost to the customer. The customer does not need to be an existing Azure customer, helping to generate higher quality leads.
+
+There are additional benefits to a **Test Drive**:
+
+- 27% of search results are refined to only show offers with test drives 
+- Offers with test drives generate 38% more leads than offers without 
+- 36% of new customer acquisitions on Azure Marketplace come from customers that took a test drive 
+- Enable Microsoft field sellers to better understand your product for Co-Sell efforts
+
+#### Interactive Demo
+
+Take your customers through a guided experience of your product with an **Interactive Demo**. The benefit of this option is that you can provide a trial experience without complicated provisioning for complex solutions. This option provides a customer with a look around the solution and allows the publisher to begin receiving leads that can be nurtured into foundational deals to start your business flywheel. 
+
+### TRANSACT
+
+In Azure Marketplace, use a **Virtual Machine** when the solution is deployed as a virtual appliance into the customer’s subscription. Virtual machines are fully commerce enabled via Pay-as-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer’s preferred payment relationship with Microsoft, including the Enterprise Agreement. (Note: At this time, an Enterprise Agreement’s Monetary Commitments can be used against the virtual appliance’s Azure usage, but not against the publisher’s software license fees.)
