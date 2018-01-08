@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
 ---
 
@@ -80,21 +80,21 @@ Check that the OVA file is secure before you deploy it:
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Make sure that the generated hash matches the following settings.
  
-    For the OVA version 1.0.8.38:
+    For OVA version 1.0.8.49
+
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
     For the OVA version 1.0.8.40:
+
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
-
 
 ## Create the collector VM
 
@@ -165,9 +165,6 @@ For each discovery that you need to perform, you run the collector to discover V
     - Specify the name (FQDN) or IP address of vCenter Server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in vCenter Server.
     - In **Select scope**, select a scope for VM discovery. The collector can discover only VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1,000 VMs. 
-    - In **vCenter tag category for grouping**, select **None**.
-
-    ![Select scope](./media/how-to-scale-assessment/select-scope.png)
 
 6. In **Specify migration project**, specify the ID and key for the project. If you didn't copy them, open the Azure portal from the collector VM. On the project's **Overview** page, select **Discover Machines** and copy the values.  
 7. In **View collection progress**, monitor the discovery process and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.

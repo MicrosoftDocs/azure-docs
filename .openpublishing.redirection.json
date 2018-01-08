@@ -7697,6 +7697,11 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/migrate/how-to-tag-v-center.md",
+            "redirect_url": "how-to-create-a-group",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
             "redirect_url": "tutorial-vmware-to-vmware",
             "redirect_document_id": false
@@ -14985,6 +14990,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
             "redirect_url": "/azure/hdinsight/spark/apache-spark-resource-manager",
             "redirect_document_id": true
@@ -15965,6 +15975,126 @@
       "redirect_document_id": false
       },
       {
+          "source_path": "articles/virtual-machines/linux/classic/about-images.md",
+          "redirect_url": "/azure/virtual-machines/linux/endorsed-distros",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/agents-and-extensions.md",
+          "redirect_url": "/azure/virtual-machines/linux/extensions-features ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/configure-availability.md",
+          "redirect_url": "/azure/virtual-machines/linux/manage-availability ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/faq.md",
+          "redirect_url": "/azure/virtual-machines/linux/faq ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/createportal.md",
+          "redirect_url": "/azure/virtual-machines/linux/quick-create-portal",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/create-custom.md",
+          "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/capture-image.md",
+          "redirect_url": "/azure/virtual-machines/linux/capture-image",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/remote-desktop.md",
+          "redirect_url": "/azure/virtual-machines/linux/use-remote-desktop",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/manage-extensions.md",
+          "redirect_url": "/azure/virtual-machines/linux/extensions-features ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/manage-visual-studio.md",
+          "redirect_url": "/azure/virtual-machines/windows/csharp",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/inject-custom-data.md",
+          "redirect_url": "/azure/virtual-machines/linux/tutorial-automate-vm-deployment",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/reset-access.md",
+          "redirect_url": "/azure/virtual-machines/linux/reset-password ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/planned-maintenance-schedule.md",
+          "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
+          "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
+          "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/attach-disk.md",
+          "redirect_url": "/azure/virtual-machines/linux/add-disk ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/detach-disk.md",
+          "redirect_url": "/azure/virtual-machines/linux/detach-disk ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/connect-vms.md",
+          "redirect_url": "/azure/virtual-machines/linux/mac-create-ssh-keys ",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/create-upload-vhd.md",
+          "redirect_url": "/azure/virtual-machines/linux/create-upload-generic",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/freebsd-create-upload-vhd.md",
+          "redirect_url": "/azure/virtual-machines/linux/freebsd-intro-on-azure",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/oracle-images.md",
+          "redirect_url": "/azure/virtual-machines/linux/oracle-create-upload-vhd",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/sap-get-started.md",
+          "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/lamp-script.md",
+          "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+          "redirect_document_id": true
+      },
+      {
+          "source_path": "articles/virtual-machines/linux/classic/web-app-visual-studio.md",
+          "redirect_url": "/azure/app-service/",
+          "redirect_document_id": true
+      },
+      {
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
         "redirect_document_id": false
@@ -15999,6 +16129,5 @@
         "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
         "redirect_document_id": false
       }
-
     ]
 }
