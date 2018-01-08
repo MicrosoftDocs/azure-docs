@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Start **Windows PowerShell ISE** with administrative privileges. 
 
 ## Create variables
-Copy and pate the following script: Specify values for the variables. For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
+Copy and paste the following script: Specify values for the variables. For a list of supported **pricing tiers** for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
 # Azure Data Factory version 2 information 

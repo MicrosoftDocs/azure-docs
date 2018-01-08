@@ -58,7 +58,7 @@ sections:
         - href:
         - href: luis-quickstart-cs-add-utterance
         - href: luis-quickstart-java-add-utterance
-        - href: 
+        - href: luis-quickstart-javascript-add-utterance
         - href: luis-quickstart-node-add-utterance
         - href: luis-quickstart-python-add-utterance
         - href: luis-quickstart-php-add-utterance

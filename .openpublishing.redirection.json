@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/search/search-howto-index-documentdb.md",
+        "redirect_url": "/azure/search/search-howto-index-cosmosdb",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
         "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
         "redirect_document_id": true
@@ -31,9 +36,14 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
         "redirect_url": "/azure/media-services/media-services-content-protection-overview",
-        "redirect_document_id": false 
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
@@ -424,13 +434,13 @@
             "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
-        },            
-        {    
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
-        },           
-        {    
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
             "redirect_url": "/azure/azure-resource-manager/resource-manager-templates-resources",
             "redirect_document_id": false
@@ -475,11 +485,11 @@
             "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/managed-applications/publish-marketplace-app.md", 
-            "redirect_url": "/azure/managed-applications/overview", 
-            "redirect_document_id": false 
-        }, 
+        {
+            "source_path": "articles/managed-applications/publish-marketplace-app.md",
+            "redirect_url": "/azure/managed-applications/overview",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
@@ -6571,6 +6581,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storsimple/storsimple-virtual-array-configure-mpio-windows-server.md",
+            "redirect_url": "/azure/storsimple",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storsimple/storsimple-ova-backup.md",
             "redirect_url": "/azure/storsimple/storsimple-virtual-array-backup",
             "redirect_document_id": false
@@ -9043,7 +9058,7 @@
             "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
             "redirect_url": "msi-how-to-use-vm-msi-token",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
             "redirect_url": "/azure/virtual-machines/windows/error-messages",
@@ -13980,6 +13995,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-instances/container-instances-region-availability.md",
+            "redirect_url": "/azure/container-instances/container-instances-quotas",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-managed-get-started-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
             "redirect_document_id": false
@@ -15535,6 +15555,16 @@
           "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
             "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
             "redirect_document_id": false
@@ -15618,7 +15648,7 @@
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false
-          },
+        },
         {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
@@ -15644,7 +15674,7 @@
             "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
             "redirect_document_id": false
         },
-       {
+        {
             "source_path": "articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
             "redirect_document_id": false
@@ -15923,6 +15953,52 @@
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux",
       "redirect_document_id": false
-     }
+     },
+      {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
+      "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
+      "redirect_document_id": false
+      },
+      {
+      "source_path": "articles/storage/blobs/storage-account-options.md",
+      "redirect_url": "/azure/storage/common/storage-account-options",
+      "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
+        "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": false
+      }, 
+      { 
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md", 
+      "redirect_url": "/azure/active-directory/license-users-groups", 
+      "redirect_document_id": false 
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
+        "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
+        "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
+        "redirect_document_id": false
+      }
+
     ]
 }

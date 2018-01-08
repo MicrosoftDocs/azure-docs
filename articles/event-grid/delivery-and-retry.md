@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
 ---
 
@@ -59,7 +59,31 @@ Event Grid adds a small randomization to all retry intervals.
 
 ## Retry duration
 
-During the preview, Azure Event Grid expires all events that are not delivered within two hours. Before General Availability, this time will be increased to 24 hours. 
+During the preview, Azure Event Grid expires all events that are not delivered within two hours.
+
+## Monitoring
+
+You can use the portal to see the status of event deliveries.
+
+To see metrics for an event subscription, search for **Event Subscriptions** in the available services, and select it.
+
+![Search for event subscriptions](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Filter by the type of event, the subscription, and location. Select **Metrics** for the subscription to view.
+
+![Filter event subscriptions](./media/delivery-and-retry/filter-events.png)
+
+View the metrics for the event topic and subscription.
+
+![View event metrics](./media/delivery-and-retry/subscription-metrics.png)
+
+If you have published a custom topic, you can view the metrics for it. Select the resource group containing the topic, and select the topic.
+
+![Select custom topic](./media/delivery-and-retry/select-custom-topic.png)
+
+View the metrics for the custom event topic.
+
+![View event metrics](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## Next steps
 

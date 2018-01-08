@@ -44,7 +44,7 @@ All users have a single home directory that authenticates them, but they can als
 
     ![Screenshot showing the change directory UI](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Click **Change**.
-6. Success! Use the directory switcher to go to the new directory.
+6. Success! Use the directory switcher to go to the new directory. It might take up to 10 minutes for everything to show up properly.
 
     ![Screenshot showing the change directory success notification](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

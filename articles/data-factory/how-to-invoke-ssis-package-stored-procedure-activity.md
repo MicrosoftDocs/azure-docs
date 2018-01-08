@@ -77,10 +77,10 @@ Note the following points:
 ### Create an Azure SQL Database linked service
 Create a linked service to link your Azure SQL database that hosts the SSIS catalog to your data factory. Data Factory uses information in this linked service to connect to SSISDB database, and executes a stored procedure to run an SSIS package. 
 
-1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: (Create the folder ADFv2TutorialBulkCopy if it does not already exist.)
+1. Create a JSON file named **AzureSqlDatabaseLinkedService.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
 
 	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;,&lt;servername&gt;, and &lt;password&gt; with values of your Azure SQL Database before saving the file.
+	> Replace &lt;servername&gt;, &lt;username&gt;, and &lt;password&gt; with values of your Azure SQL Database before saving the file.
 
     ```json
     {
@@ -90,7 +90,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USER ID>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                 }
             }
         }
@@ -160,7 +160,7 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 Use the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
+$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
 ## Monitor the pipeline run
@@ -214,17 +214,17 @@ In the previous step, you invoked the pipeline on-demand. You can also create a 
     }    
     ```
 2. In **Azure PowerShell**, switch to the **C:\ADF\RunSSISPackage** folder.
-3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the trigger. 
+3. Run the **Set-AzureRmDataFactoryV2Trigger** cmdlet to create the trigger. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. By default, the trigger is in stopped state. Start the trigger by running the Start-AzureRmDataFactoryV2Trigger cmdlet. 
+4. By default, the trigger is in stopped state. Start the trigger by running the **Start-AzureRmDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Confirm that the trigger is started by running the Get-AzureRmDataFactoryV2TriggerRun cmdlet. 
+5. Confirm that the trigger is started by running the **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
