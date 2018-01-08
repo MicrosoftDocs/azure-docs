@@ -32,14 +32,14 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 ## Usage for delay
 
-The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for five days.
+The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 10; i++)
     {
         DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
         await context.CreateTimer(deadline, CancellationToken.None);
