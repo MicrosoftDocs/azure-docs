@@ -97,6 +97,8 @@
         href: log-analytics-data-sources-custom-logs.md
       - name: Custom fields
         href: log-analytics-custom-fields.md
+      - name: Data collector API
+        href: log-analytics-data-collector-api.md
   - name: Query data
     items:
     - name: Language documentation
@@ -174,9 +176,13 @@
       href: log-analytics-add-solutions.md
     - name: Target solutions
       href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-    - name: Activity Log Analytics
-      href: log-analytics-activity.md
-    - name: AD Health Check
+    - name: Azure activity logs
+      items:
+      - name: Analytics
+        href: log-analytics-activity.md
+      - name: Collect across subscriptions
+        href: log-analytics-activity-logs-subscriptions.md
+    - name: AD Assessment
       href: log-analytics-ad-assessment.md
     - name: AD Replication Status
       href: log-analytics-ad-replication-status.md
@@ -248,8 +254,6 @@
       href: log-analytics-wire-data.md
   - name: Develop
     items:
-    - name: Data collector API
-      href: log-analytics-data-collector-api.md
     - name: PowerShell cmdlets
       href: log-analytics-powershell-workspace-configuration.md
     - name: Resource Manager templates
