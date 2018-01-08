@@ -99,7 +99,7 @@ The body of the request contains the data source definition, which should includ
 * **dataDeletionDetectionPolicy**: Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.
 
 ### Using queries to shape indexed data
-You can specify a SQL API query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
+You can specify a SQL query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
 
 Example document:
 
