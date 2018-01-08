@@ -89,6 +89,9 @@ If desired, you can add discarded items back to the **Recommendations** list:
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
+> [!NOTE]
+> Please note that discarded index recommendations won’t be applied any longer by the system -- even though the system might find them beneficial to the SQL Database performance. You can revert this behavior by adding discarded items back to the Recommendations list by selecting the Undo Discard option.
+> 
 
 ### Enable automatic tuning
 You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
