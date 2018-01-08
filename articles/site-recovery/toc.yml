@@ -128,7 +128,7 @@
       - name: Run a test failover between VMM clouds
         href: site-recovery-test-failover-vmm-to-vmm.md
       - name: Run a failover and failback for physical servers
-        href: tutorial-vmware-to-azure-failover-failback.md
+        href: physical-to-azure-failover-failback.md
       - name: Run a failover and failback for Hyper-V VMs
         href: tutorial-hyper-v-to-azure-failover-failback.md
       - name: Run a failover and failback between on-premises sites
