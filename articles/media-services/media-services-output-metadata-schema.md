@@ -76,7 +76,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **Name**<br/><br/> Required |**xs:string** |Input source file name. |
 
 ## <a name="VideoTracks "></a> VideoTracks element
-Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. The **VideoTacks** element represents a collection of all the video tracks.  
+Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. The **VideoTracks** element represents a collection of all the video tracks.  
 
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
