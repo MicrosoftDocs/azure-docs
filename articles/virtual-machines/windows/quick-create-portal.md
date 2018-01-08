@@ -35,7 +35,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 
-3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**.
+3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
