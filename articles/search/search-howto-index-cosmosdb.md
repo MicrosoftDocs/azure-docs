@@ -20,7 +20,7 @@ robot: noindex
 ---
 # Connecting Cosmos DB with Azure Search using indexers
 
-[Azure Cosmos DB](~/cosmos-db/introduction.md) is a multi-model database platform that includes [SQL API](~/cosmos-db/sql-api-introduction.md), a schema-less JSON database engine with rich SQL querying capabilities. Azure Search seamlessly integrates with SQL API data models. You can pull JSON documents from Cosmos DB into an Azure Search index using an [Azure Search indexer](search-indexer-overview.md), designed specifically for SQL API data models on Cosmos DB. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is a multi-model database platform that includes [SQL API](../cosmos-db/sql-api-introduction.md), a schema-less JSON database engine with rich SQL querying capabilities. Azure Search seamlessly integrates with SQL API data models. You can pull JSON documents from Cosmos DB into an Azure Search index using an [Azure Search indexer](search-indexer-overview.md), designed specifically for SQL API on Cosmos DB. 
 
 In this article, learn how to:
 
