@@ -22,7 +22,7 @@ In the following offerings, here are our recommended actions to update your Oper
 <td>Azure Linux Virtual Machines</td> <td>Install updates from your operating system provider when available. </td>
 </tr>
 <tr>
-<td>Azure Windows Virtual Machines </td> <td><ul><li>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. </li> <li> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Azure Windows Virtual Machines </td> <td><p>Verify that you are running a supported antivirus application before you install OS updates. Contact your antivirus software vendor for compatibility information. </p> <p> Install the [January security rollup](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Other Azure PaaS Services</td> <td>There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. </td>
