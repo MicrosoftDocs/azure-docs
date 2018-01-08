@@ -14985,6 +14985,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
             "redirect_url": "/azure/hdinsight/spark/apache-spark-resource-manager",
             "redirect_document_id": true
