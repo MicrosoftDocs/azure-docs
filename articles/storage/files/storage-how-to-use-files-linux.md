@@ -93,8 +93,11 @@ ms.author: renash
 3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> Make sure you add the `nofail` option in the `/etc/fstab` entry, otherwise your VM may hang during boot in case of a misconfiguration or or other error while mounting the Azure File share.
 
 > [!Note]  
 > You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.
