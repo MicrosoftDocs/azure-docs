@@ -93,17 +93,13 @@
 ## [REST APIs](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Resources
-<<<<<<< HEAD
 ## [FAQ](security-center-faq.md)
 ## [Supported platforms](security-center-os-coverage.md)
 ## [Platform migration](security-center-platform-migration.md)
 ### [Platform migration FAQ](security-center-platform-migration-faq.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Azure Security](/azure/security/)
-=======
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Security Center Readiness Roadmap](security-center-readiness-roadmap.md)
->>>>>>> 6f8b9912ac3b55849c33c3ddd19d6a44c15a1e6c
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Stack Overflow](https://stackoverflow.com/search?q=security-center )
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
