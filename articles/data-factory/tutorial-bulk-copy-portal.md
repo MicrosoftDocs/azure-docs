@@ -320,7 +320,7 @@ This pipeline performs two steps:
 
 ## Monitor the pipeline run
 
-
+1. Switch to the Monitor tab. 
 
 ## Next steps
 You performed the following steps in this tutorial: 
