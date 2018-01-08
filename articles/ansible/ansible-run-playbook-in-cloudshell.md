@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/06/2018
+ms.date: 01/08/2018
 ms.topic: article
 ---
 
@@ -18,7 +18,7 @@ In this tutorial, you learn how to perform various Ansible tasks in the Azure Cl
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 ## Configure Cloud Shell
 
