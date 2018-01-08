@@ -68,7 +68,7 @@ You can configure your metrics charts for time period and metric type.
 
 ![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
 
-## Creating alert for total transactions threshold
+## Total transactions threshold alert
 If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert. 
 
 ![Default alerts](./media/luis-usage-tiers/alert-default.png)
