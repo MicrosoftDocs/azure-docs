@@ -264,7 +264,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **NICs**: The number of NICs on the VM.
 
-**Boot Type**: It is boot type of the VM. It can be either BIOS or EFI. Currently Azure Site Recovery supports only BIOS boot type. All the virtual machines of EFI boot type are listed in Incompatible VMs worksheet.
+**Boot Type**: Boot type of the VM. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI VMs (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI VMs, Azure Site Recovery mobility service version must be 9.13 or above. Only failover is supported for EFI VMs. Failback is not supported.
 
 **OS Type**:  It is OS type of the VM. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the VM. 
 
@@ -280,9 +280,9 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
-**Source data churn** | **Maximium L    imit**
+**Source data churn** | **Maximium Limit**
 ---|---
-Average data churn per VM| 25 MB/s for average I/O size
+Average data churn per VM| 25 MB/s 
 Peak data churn across all disks on a VM | 54 MB/s
 Maximum data churn per day supported by a Process Server | 2 TB 
 
