@@ -29,7 +29,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Start with a Search service in the portal, then define, load, and query indexes in C# or REST'
+    text: 'Start with a Search service in the portal, then define, load, and query indexes in C# or REST.'
   - type: list
     style: icon48
     items: 
@@ -48,13 +48,13 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Code in .NET, REST, or try the portal for quick concept testing
+    text: Code in .NET or REST, or try the portal for quick concept testing.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
     - html: <a href="/azure/search/search-indexer-tutorial">Index Azure SQL Database content with .NET</a>
-    - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure blob storage with REST</a>
+    - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure Blob storage with REST</a>
     - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a>
     - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
 - title: Featured Videos
@@ -63,7 +63,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Intelligent search using Cognitive Services Text Analytics API with Azure Search
+    - title: Intelligent search using the Cognitive Services Text Analytics API with Azure Search
       href: https://www.youtube.com/watch?v=hZgXSMWnACs
       image: 
         src: https://docs.microsoft.com/azure/search/media/index/video-library.svg

@@ -7,7 +7,7 @@
 ## Portal
 ### [Create an index](search-create-index-portal.md)
 ### [Import data](search-import-data-portal.md)
-### [Search explorer](search-explorer.md)
+### [Search Explorer](search-explorer.md)
 ## .NET
 ### [Create an index](search-create-index-dotnet.md)
 ### [Import data](search-import-data-dotnet.md)
@@ -20,8 +20,8 @@
 
 # Tutorials
 
-## [1 - Indexing Azure SQL Database](search-indexer-tutorial.md)
-## [2 - Indexing Azure blobs](search-semi-structured-data.md)
+## [1 - Index Azure SQL Database](search-indexer-tutorial.md)
+## [2 - Index Azure blobs](search-semi-structured-data.md)
 ## [3 - Add synonyms in .NET](search-synonyms-tutorial-sdk.md)
 ## [4 - Portal walkthrough](search-get-started-portal.md)
 
@@ -42,12 +42,12 @@
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
-### [Performance and optimization](search-performance-optimization.md)
+### [Performance & optimization](search-performance-optimization.md)
 
 ## Security
 ### [Data & operational security](search-security-overview.md)
-### [Secure with identity filters](search-security-trimming-for-azure-search.md)
-### [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+### [Secure by using identity filters](search-security-trimming-for-azure-search.md)
+### [Secure by using Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 
 ## Development
 ### [API versions](search-api-versions.md)
@@ -66,8 +66,8 @@
 
 ## Indexing data
 ### [Indexers overview](search-indexer-overview.md)
-### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
-### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
+### [Azure Blob storage indexer](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 ### [Azure Cosmos DB indexer](search-howto-index-documentdb.md)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
@@ -77,7 +77,7 @@
 ##  Search
 ### [Basic query construction](search-query-overview.md)
 ### [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene query syntax ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+### [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -91,7 +91,7 @@
 ## Administration & analytics
 ### [Administration (portal)](search-manage.md)
 ### [PowerShell (Azure Search)](search-manage-powershell.md)
-### [Monitor usage and statistics](search-monitor-usage.md)
+### [Monitor usage & statistics](search-monitor-usage.md)
 ### [Search traffic analytics](search-traffic-analytics.md)
 
 # Reference
@@ -109,7 +109,7 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
 ## Courseware & tutorials
-### [Videos and tutorials](search-video-demo-tutorial-list.md)
+### [Videos & tutorials](search-video-demo-tutorial-list.md)
 ### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
 ## Demo sites
 ### [Search Analyzer Demo](http://alice.unearth.ai/)
