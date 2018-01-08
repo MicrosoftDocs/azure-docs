@@ -83,6 +83,13 @@ Check that the .OVA file is secure, before you deploy it.
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
+    For the OVA version 1.0.8.49
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
+
 ## Create the collector VM
 
 Import the downloaded file to the vCenter Server.
@@ -120,7 +127,6 @@ will be hosted.
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
-    - In **Tag category for grouping**, select **None**.
 6. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 7. In **View collection progress**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
