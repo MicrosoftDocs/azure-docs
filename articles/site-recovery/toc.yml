@@ -1,9 +1,5 @@
 - name: Site Recovery Documentation
   href: index.yml
-- name: Migration of on-premises machines and Azure VMs
-  href: migrate/tutorial-migrate-on-premises-to-azure.md
-- name: Azure to Azure disaster recovery
-  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Overview
   items:
   - name: What is Site Recovery?
@@ -15,7 +11,7 @@
     href: azure-to-azure-quickstart.md
 - name: Tutorials
   items:
-  - name: Azure VMs to a secondary region
+  - name: Azure VMs
     items:
     - name: Set up disaster recovery for VMware VMs
       href: azure-to-azure-tutorial-enable-replication.md
@@ -23,7 +19,7 @@
       href: azure-to-azure-tutorial-dr-drill.md
     - name: Run failover and failback
       href: azure-to-azure-tutorial-failover-failback.md
-  - name: VMware VMs to Azure
+  - name: VMware VMs
     items:
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
@@ -35,7 +31,7 @@
       href: tutorial-dr-drill-azure.md
     - name: Run failover and failback
       href: tutorial-vmware-to-azure-failover-failback.md
-  - name: Hyper-V VMs to Azure
+  - name: Hyper-V VMs
     items:
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
