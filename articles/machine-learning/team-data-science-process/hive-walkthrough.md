@@ -21,16 +21,16 @@ ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
-In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
+In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
 For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md).
 
 It is also possible to use an IPython notebook to accomplish the tasks presented the walkthrough using the 1 TB dataset. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset description
-The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) files (~48GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) files (~48GB uncompressed). It comprises more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
-1. The 'trip_data' CSV files contain trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
+1. The 'trip_data' CSV files contain trip details. This includes number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ The NYC Taxi Trip data is about 20GB of compressed comma-separated values (CSV) 
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. The 'trip_fare' CSV files contain details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
+2. The 'trip_fare' CSV files contain details of the fare paid for each trip. This includes payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -57,7 +57,7 @@ We describe some more details of the data when we store them into Hive tables sh
 When approaching data, determining the kind of predictions you want to make based on its analysis helps clarify the tasks that you will need to include in your process.
 Here are three examples of prediction problems that we address in this walkthrough whose formulation is based on the *tip\_amount*:
 
-1. **Binary classification**: Predict whether or not a tip was paid for a trip, i.e. a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
+1. **Binary classification**: Predict whether or not a tip was paid for a trip. That is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
@@ -91,9 +91,9 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 > 
 > 
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](move-azure-blob.md) to copy the data to your machine.
+To copy the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](move-azure-blob.md).
 
-Here we describe how use AzCopy to transfer the files containing data. To download and install AzCopy follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).
+Here we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).
 
 1. From a Command Prompt window, issue the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
 
@@ -109,7 +109,7 @@ Here we describe how use AzCopy to transfer the files containing data. To downlo
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***&#60;path_to_data_folder>*** the directory (along with path) on your machine that contain the unzipped data files  
+* ***&#60;path_to_data_folder>*** the directory (along with path) on your machine that contains the unzipped data files  
 * ***&#60;storage account name of Hadoop cluster>*** the storage account associated with your HDInsight cluster
 * ***&#60;default container of Hadoop cluster>*** the default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
 * ***&#60;storage account key>*** the key for the storage account used by your cluster
@@ -126,15 +126,15 @@ This command uploads the fare data to ***nyctaxifareraw*** directory in the defa
 
 The data should now in Azure Blob Storage and ready to be consumed within the HDInsight cluster.
 
-## <a name="#download-hql-files"></a>Log into the head node of Hadoop cluster and and prepare for exploratory data analysis
+## <a name="#download-hql-files"></a>Log into the head node of Hadoop cluster and prepare for exploratory data analysis
 > [!NOTE]
 > This is typically an **Admin** task.
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
+To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
-In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down sample this data to be used within Azure Machine Learning for building models.
+In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down-sample this data to be used within Azure Machine Learning for building models.
 
 To prepare the cluster for exploratory data analysis, we download the .hql files containing the relevant Hive scripts from [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. To do this, open the **Command Prompt** from within the head node of the cluster and issue the following two commands:
 
@@ -142,7 +142,7 @@ To prepare the cluster for exploratory data analysis, we download the .hql files
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-These two commands will download all .hql files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node.
+These two commands download all .hql files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node.
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
 > [!NOTE]
@@ -150,7 +150,7 @@ These two commands will download all .hql files needed in this walkthrough to th
 > 
 > 
 
-We are now ready to create Hive tables for our NYC taxi dataset.
+We are now ready to create Hive tables for the NYC taxi dataset.
 In the head node of the Hadoop cluster, open the ***Hadoop Command Line*** on the desktop of the head node, and enter the Hive directory by entering the command
 
     cd %hive_home%\bin
@@ -164,7 +164,7 @@ From the Hive directory prompt, enter the following command in Hadoop Command Li
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*** file which creates Hive database ***nyctaxidb*** and tables ***trip*** and ***fare***.
+Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*** file that creates Hive database ***nyctaxidb*** and tables ***trip*** and ***fare***.
 
     create database if not exists nyctaxidb;
 
@@ -207,10 +207,10 @@ Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*
 
 This Hive script creates two tables:
 
-* the "trip" table contains trip details of each ride (driver details, pickup time, trip distance and times)
-* the "fare" table contains fare details (fare amount, tip amount, tolls and surcharges).
+* the "trip" table contains trip details of each ride (driver details, pickup time, trip distance, and times)
+* the "fare" table contains fare details (fare amount, tip amount, tolls, and surcharges).
 
-If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](move-hive-tables.md#submit).
+If you need any additional assistance with these procedures or want to investigate alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line](move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Load Data to Hive tables by partitions
 > [!NOTE]
@@ -218,11 +218,11 @@ If you need any additional assistance with these procedures or want to investiga
 > 
 > 
 
-The NYC taxi dataset has a natural partitioning by month, which we use to enable faster processing and query times. The PowerShell commands below (issued from the Hive directory using the **Hadoop Command Line**) load data to the "trip" and "fare" Hive tables partitioned by month.
+The NYC taxi dataset has a natural partitioning by month, which we use to enable faster processing and query times. The following PowerShell commands (issued from the Hive directory using the **Hadoop Command Line**) load data to the "trip" and "fare" Hive tables partitioned by month.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-The *sample\_hive\_load\_data\_by\_partitions.hql* file contains the following **LOAD** commands.
+The *sample\_hive\_load\_data\_by\_partitions.hql* file contains the following **LOAD** commands:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -230,7 +230,7 @@ The *sample\_hive\_load\_data\_by\_partitions.hql* file contains the following *
 Note that a number of Hive queries we use here in the exploration process involve looking at just a single partition or at only a couple of partitions. But these queries could be run across the entire data.
 
 ### <a name="#show-db"></a>Show databases in the HDInsight Hadoop cluster
-To show the databases created in HDInsight Hadoop cluster inside the Hadoop Command Line window, run the following command in Hadoop Command Line:
+To show the databases created in HDInsight Hadoop cluster inside the Hadoop Command-Line window, run the following command in Hadoop Command Line:
 
     hive -e "show databases;"
 
@@ -309,7 +309,7 @@ To get the top 10 records in the table "fare" from the first month:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-It is often useful to save the records to a file for convenient viewing. A small change to the above query accomplishes this:
+It is often useful to save the records to a file for convenient viewing. A small change to the preceding query accomplishes this:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -319,7 +319,7 @@ It is often useful to save the records to a file for convenient viewing. A small
 > 
 > 
 
-Of interest is the how the number of trips varies during the calendar year. Grouping by month allows us to see what this distribution of trips looks like.
+Of interest is how the number of trips varies during the calendar year. Grouping by month allows us to see what this distribution of trips looks like.
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
@@ -341,7 +341,7 @@ This gives us the output:
 
 Here, the first column is the month and the second is the number of trips for that month.
 
-We can also count the total number of records in our trip data set by issuing the following command at the Hive directory prompt.
+We can also count the total number of records in our trip data set by issuing the following command at the Hive directory prompt:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -372,7 +372,7 @@ This gives us the output:
 
 Note that the exact same number of trips per month is returned for both data sets. This provides the first validation that the data has been loaded correctly.
 
-Counting the total number of records in the fare data set can be done using the command below from the Hive directory prompt:
+Counting the total number of records in the fare data set can be done using the following command from the Hive directory prompt:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -413,7 +413,7 @@ Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for i
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-From the Hive directory prompt, issue the command below:
+From the Hive directory prompt, issue the following command:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -423,9 +423,9 @@ From the Hive directory prompt, issue the command below:
 > 
 > 
 
-When exploring a dataset, we frequently want to examine the number of co-occurences of groups of values. This section provide an example of how to do this for cabs and drivers.
+When exploring a dataset, we frequently want to examine the number of co-occurences of groups of values. This section provides an example of how to do this for cabs and drivers.
 
-The *sample\_hive\_trip\_count\_by\_medallion\_license.hql* file groups the fare data set on "medallion" and "hack_license" and returns counts of each combination. Below are its contents.
+The *sample\_hive\_trip\_count\_by\_medallion\_license.hql* file groups the fare data set on "medallion" and "hack_license" and returns counts of each combination. Here are its contents:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -448,7 +448,7 @@ The query results are written to a local file C:\temp\queryoutput.tsv.
 > 
 > 
 
-A common objective of exploratory data analysis is to weed out invalid or bad records. The example in this section determines whether either the longitude or latitude fields contain a value far outside the NYC area. Since it is likely that such records have an erroneous longitude-latitude values, we want to eliminate them from any data that is to be used for modeling.
+A common objective of exploratory data analysis is to weed out invalid or bad records. The example in this section determines whether either the longitude or latitude fields contain a value far outside the NYC area. Since it is likely that such records have an erroneous longitude-latitude value, we want to eliminate them from any data that is to be used for modeling.
 
 Here is the content of *sample\_hive\_quality\_assessment.hql* file for inspection.
 
@@ -477,7 +477,7 @@ For the binary classification problem outlined in the [Examples of prediction ta
 * tip given(Class 1, tip\_amount > $0)  
 * no tip (Class 0, tip\_amount = $0).
 
-The *sample\_hive\_tipped\_frequencies.hql* file shown below does this.
+The following *sample\_hive\_tipped\_frequencies.hql* file does this:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -498,7 +498,7 @@ From the Hive directory prompt, run:
 > 
 > 
 
-For the multiclass classification problem outlined in the [Examples of prediction tasks](hive-walkthrough.md#mltasks) section this data set also lends itself to a natural classification where we would like to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, we use the *sample\_hive\_tip\_range\_frequencies.hql* file. Below are its contents.
+For the multiclass classification problem outlined in the [Examples of prediction tasks](hive-walkthrough.md#mltasks) section, this data set also lends itself to a natural classification where we would like to predict the amount of the tips given. We can use bins to define tip ranges in the query. To get the class distributions for the various tip ranges, we use the *sample\_hive\_tip\_range\_frequencies.hql* file. Here are its contents.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -544,9 +544,9 @@ To see the comparison between actual trip distance and the [Haversine distance](
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-In the query above, R is the radius of the Earth in miles, and pi is converted to radians. Note that the longitude-latitude points are "filtered" to remove values that are far from the NYC area.
+In the preceding query, R is the radius of the Earth in miles, and pi is converted to radians. Note that the longitude-latitude points are "filtered" to remove values that are far from the NYC area.
 
-In this case, we write our results to a directory called "queryoutputdir". The sequence of commands shown below first creates this output directory, and then runs the Hive command.
+In this case, we write the results to a directory called "queryoutputdir". The sequence of commands shown below first creates this output directory, and then runs the Hive command.
 
 From the Hive directory prompt, run:
 
@@ -555,7 +555,7 @@ From the Hive directory prompt, run:
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-The query results are written to 9 Azure blobs ***queryoutputdir/000000\_0*** to  ***queryoutputdir/000008\_0*** under the default container of the Hadoop cluster.
+The query results are written to nine Azure blobs ***queryoutputdir/000000\_0*** to  ***queryoutputdir/000008\_0*** under the default container of the Hadoop cluster.
 
 To see the size of the individual blobs, we run the following command from the Hive directory prompt:
 
@@ -578,18 +578,18 @@ A key advantage of having this data reside in an Azure blob is that we may explo
 > 
 > 
 
-After the exploratory data analysis phase, we are now ready to down sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down sample the data, which is then accessed from the [Import Data][import-data] module in Azure Machine Learning.
+After the exploratory data analysis phase, we are now ready to down-sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down-sample the data. It is then accessed from the [Import Data][import-data] module in Azure Machine Learning.
 
 ### Down sampling the data
 There are two steps in this procedure. First we join the **nyctaxidb.trip** and **nyctaxidb.fare** tables on three keys that are present in all records: "medallion", "hack\_license", and "pickup\_datetime". We then generate a binary classification label **tipped** and a multi-class classification label **tip\_class**.
 
-To be able to use the down sampled data directly from the [Import Data][import-data] module in Azure Machine Learning, it is necessary to store the results of the above query to an internal Hive table. In what follows, we create an internal Hive table and populate its contents with the joined and down sampled data.
+To be able to use the down-sampled data directly from the [Import Data][import-data] module in Azure Machine Learning, it is necessary to store the results of the preceding query to an internal Hive table. In what follows, we create an internal Hive table and populate its contents with the joined and down-sampled data.
 
-The query applies standard Hive functions directly to generate the hour of day, week of year, weekday (1 stands for Monday, and 7 stands for Sunday) from the "pickup\_datetime" field,  and the direct distance between the pickup and dropoff locations. Users can refer to [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) for a complete list of such functions.
+The query applies standard Hive functions directly to generate the hour of day, week of year, weekday (1 stands for Monday, and 7 stands for Sunday) from the "pickup\_datetime" field, and the direct distance between the pickup and dropoff locations. Users can refer to [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) for a complete list of such functions.
 
-The query then down samples the data so that the query results can fit into the Azure Machine Learning Studio. Only about 1% of the original dataset is imported into the Studio.
+The query then down-samples the data so that the query results can fit into the Azure Machine Learning Studio. Only about 1% of the original dataset is imported into the Studio.
 
-Below are the contents of *sample\_hive\_prepare\_for\_aml\_full.hql* file that prepares data for model building in Azure Machine Learning.
+Here are the contents of *sample\_hive\_prepare\_for\_aml\_full.hql* file that prepares data for model building in Azure Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -718,8 +718,8 @@ To run this query, from the Hive directory prompt:
 
 We now have an internal table "nyctaxidb.nyctaxi_downsampled_dataset" which can be accessed using the [Import Data][import-data] module from Azure Machine Learning. Furthermore, we may use this dataset for building Machine Learning models.  
 
-### Use the Import Data module in Azure Machine Learning to access the down sampled data
-As prerequisites for issuing Hive queries in the [Import Data][import-data] module of Azure Machine Learning, we need access to an Azure Machine Learning workspace and access to the credentials of the cluster and its associated storage account.
+### Use the Import Data module in Azure Machine Learning to access the down-sampled data
+As prerequisites for issuing Hive queries in the [Import Data][import-data] module of Azure Machine Learning, we need access to an Azure Machine Learning workspace. We also need access to the credentials of the cluster and its associated storage account.
 
 Some details on the [Import Data][import-data] module and the parameters to input:
 
@@ -750,7 +750,7 @@ Here is a snapshot of the Hive query and the [Import Data][import-data] module:
 
 ![Hive query for Import Data module](./media/hive-walkthrough/1eTYf52.png)
 
-Note that since our down sampled data resides in the default container, the resulting Hive query from Azure Machine Learning is very simple and is just a "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
+Note that since our down-sampled data resides in the default container, the resulting Hive query from Azure Machine Learning is very simple and is just a "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
 
 The dataset may now be used as the starting point for building Machine Learning models.
 
@@ -761,19 +761,19 @@ We are now able to proceed to model building and model deployment in [Azure Mach
 
 **Learner used:** Two-class logistic regression
 
-a. For this problem, our target (or class) label is "tipped". Our original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular: tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Select Columns in Dataset][select-columns] module.
+a. For this problem, the target (or class) label is "tipped". The original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular: tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Select Columns in Dataset][select-columns] module.
 
-The snapshot below shows our experiment to predict whether or not a tip was paid for a given trip.
+The following snapshot shows our experiment to predict whether or not a tip was paid for a given trip:
 
 ![Experiment snapshot](./media/hive-walkthrough/QGxRz5A.png)
 
 b. For this experiment, our target label distributions were roughly 1:1.
 
-The snapshot below shows the distribution of tip class labels for the binary classification problem.
+The following snapshot shows the distribution of tip class labels for the binary classification problem:
 
 ![Distribution of tip class labels](./media/hive-walkthrough/9mM4jlD.png)
 
-As a result, we obtain an AUC of 0.987 as shown in the figure below.
+As a result, we obtain an AUC of 0.987 as shown in the following figure:
 
 ![AUC value](./media/hive-walkthrough/8JDT0F8.png)
 
@@ -783,43 +783,43 @@ As a result, we obtain an AUC of 0.987 as shown in the figure below.
 
 a. For this problem, our target (or class) label is "tip\_class" which can take one of five values (0,1,2,3,4). As in the binary classification case, we have a few columns that are target leaks for this experiment. In particular: tipped, tip\_amount, total\_amount reveal information about the target label that is not available at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
-The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, Class 4: tip > $20)
+The following snapshot shows the experiment to predict in which bin a tip is likely to fall (Class 0: tip = $0, class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, Class 4: tip > $20)
 
 ![Experiment snapshot](./media/hive-walkthrough/5ztv0n0.png)
 
-We now show what our actual test class distribution looks like. We see that while Class 0 and Class 1 are prevalent, the other classes are rare.
+We now show what the actual test class distribution looks like. We see that while Class 0 and Class 1 are prevalent, the other classes are rare.
 
 ![Test class distribution](./media/hive-walkthrough/Vy1FUKa.png)
 
-b. For this experiment, we use a confusion matrix to look at our prediction accuracies. This is shown below.
+b. For this experiment, we use a confusion matrix to look at the prediction accuracies. This is shown here:
 
 ![Confusion matrix](./media/hive-walkthrough/cxFmErM.png)
 
-Note that while our class accuracies on the prevalent classes are quite good, the model does not do a good job of "learning" on the rarer classes.
+Note that while the class accuracies on the prevalent classes are quite good, the model does not do a good job of "learning" on the rarer classes.
 
 **3. Regression task**: To predict the amount of tip paid for a trip.
 
 **Learner used:** Boosted decision tree
 
-a. For this problem, our target (or class) label is "tip\_amount". Our target leaks in this case are: tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
+a. For this problem, the target (or class) label is "tip\_amount". The target leaks in this case are: tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
-The snapshot belows shows our experiment to predict the amount of the given tip.
+The following snapshot shows the experiment to predict the amount of the given tip:
 
 ![Experiment snapshot](./media/hive-walkthrough/11TZWgV.png)
 
-b. For regression problems, we measure the accuracies of our prediction by looking at the squared error in the predictions, the coefficient of determination, and the like. We show these below.
+b. For regression problems, we measure the accuracies of the prediction by looking at the squared error in the predictions, the coefficient of determination, and the like:
 
 ![Prediction statistics](./media/hive-walkthrough/Jat9mrz.png)
 
-We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
+We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by the model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+> To learn more about Azure Machine Learning and how to access and use it, refer to [What's Machine Learning](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Azure AI Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 > 
 > 
 
 ## License Information
-This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
+This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. Check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
 •    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
