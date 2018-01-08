@@ -62,7 +62,7 @@ Azure Search does not have a role-based security model for per-user data access.
 
 The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks terms down to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
 
-Wildcard, fuzzy and regex queries, however, aren't analyzed like regular term or phrase queries and can lead to poor recall if the query does not match the analyzed form of the word in the search index. For more details, please see the documentation on [query architecture](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Wildcard, fuzzy and regex queries, however, aren't analyzed like regular term or phrase queries and can lead to poor recall if the query does not match the analyzed form of the word in the search index. For more information on query parsing and analysis, please  see [query architecture](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
 ### My wildcard searches are slow.
 
