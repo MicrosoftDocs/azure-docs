@@ -77,8 +77,8 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Ubuntu 14.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
