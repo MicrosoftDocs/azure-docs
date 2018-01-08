@@ -7,6 +7,7 @@ author: igalf
 manager: timlt
 editor: ''
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: 619a65ce-f913-4c92-a7ba-2971a839c306
 ms.service: virtual-machines-linux
