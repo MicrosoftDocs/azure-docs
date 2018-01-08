@@ -191,6 +191,8 @@
       href: agent-user-guide.md
     - name: Planned maintenance
       href: maintenance-notifications.md
+    - name: Mitigating speculative execution
+      href: mitigate-se.md
     - name: Accelerated maintenance FAQ
       href: accelerated-maintenance.md
     - name: Scheduled events

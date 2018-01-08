@@ -40,7 +40,7 @@ The Marketplace storefronts are aligned to audiences and Microsoft cloud product
 |Publishing Options     |  Contact Me, Consulting Services Offer, Trial, Virtual Machine, Solution Templates, and Managed Apps       |  Contact Me, Consulting Services Offer, or Trial       |
 |In-App Experience     | Azure Portal and CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
 
-#Leveraging These Storefronts
+## Leveraging These Storefronts
 
 Each storefront serves unique customer needs and enables targeting by role to allow you to offer the right solution or service based on who your customer is.
 
@@ -78,6 +78,38 @@ Consider the additional benefits of each storefront:
 |**Multiple Cloud Types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds including China and Germany      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds     |
 |**In-Context Presentation to Customers**     |  Make your solution available in the Azure in-portal experience for contextual search (Virtual Machines and Solution Templates)       |  Make your solution available in the in-app experience for Microsoft products       |
 
-#Select a Publishing Option
+## Select a Publishing Option
+
+Each storefront supports multiple Publishing Options and Offer Types: List, Trial, and Transact. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing. 
 
 
+|**Publishing Option**  | **Offer Type** | **Storefront**  |
+|---------|---------|---------|
+|**List**    |    Contact Me, Consulting Service     |  Azure Marketplace, AppSource       |
+|**Trial**   |     Free Trial, SaaS Trial, Interactive Demo, Test Drive    |  Azure Marketplace, AppSource       |
+|**Transact**     |   Virtual Machine, Solution Template, Managed Application      |    Azure Marketplace     |
+
+### LIST
+
+Use **Contact Me** when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
+
+When the offer consists primarily of professional services (e.g., assessments, implementations, workshops), use the **Consulting Services** offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on-site.
+
+### TRIAL
+
+Providing a Trial experience increases the engagement level offered to customers and therefore a richer exposure of your solution. A Trial enables customers to explore your solution before buying. With a Trial experience, you will have higher chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements.
+ 
+All Trial options are deployed into your Trial environment and/or Azure Subscription, rather than into the customer’s environment or Azure Subscription. Trials should be customer-led without any additional purchases and minimal, if any, additional configuration to complete a simple use case. Trials must include free support at least for the duration of the trial period. Trial users should be nurtured and monitored along a deliberate evaluation path for best results. Publishers are encouraged to use both Marketplace leads and the publisher’s own in-app intelligence to monitor and manage trial users.
+
+There are 3 typical Trial scenarios:
+
+
+|**Trial Option**  |**Key Benefits**  |**Choose this Option if...**  |
+|---------|---------|---------|
+|**Free Trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid and enables proof of concepts for the customer and joint engagement with Microsoft sales teams
+    |     Your Solution is a Virtual Machine or Solution Template OR Your Solution is a SaaS offering AND You offer a multi-tenant SaaS product, You have a first run experience to get a customer up and running quickly, If you have a single tenant but are adding customers as ‘guest users’
+    |
+|**Test Drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup
+    |   Your solution is a Virtual Machine, Solution Template, or SaaS app with single tenant, or is complicated to provision OR You do not have a method to convert your trial to paid offer
+      |
+|**Interactive Demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period     |

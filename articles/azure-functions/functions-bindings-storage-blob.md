@@ -207,10 +207,12 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
-In C# and C# script, access the blob data by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+In C# and C# script, access the blob data by using a method parameter such as `T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)
@@ -499,10 +501,16 @@ The following table explains the binding configuration properties that you set i
 
 In C# class libraries and C# script, access the blob by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader` (input only)
+* `string` (input only)
+* `Byte[]` (input only)
+* `TextWriter` (output only)
+* `out string` (output only)
+* `out Byte[]` (output only)
+*  `CloudBlobStream` (output only)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)
