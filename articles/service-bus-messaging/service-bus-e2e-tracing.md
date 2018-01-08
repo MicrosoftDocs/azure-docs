@@ -22,10 +22,9 @@ ms.author: lmolkova
 One of the common problems in microservices development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
 
-When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. Perhaps producer emits some telemetry events related to this operation. Consumer, that receives a message presumably emits telemetry.
-They have to stamp it with some trace context that could ensure both correlation and causation for telemetry.
+When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and cosumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry have to stamp every event with a trace context.
 
-Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass trace context.
+Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass such trace context.
 The protocol is based on the [HTTP Correlation protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
 | Property Name        | Description                                                 |
@@ -38,21 +37,22 @@ The protocol is based on the [HTTP Correlation protocol](https://github.com/dotn
 Starting with version 3.0.0 [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) provides tracing instrumentation points that can be hooked by tracing systems, or piece of client code.
 The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done with the [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), message processing is also instrumented
 
-## Service Bus Client Tracing with Microsoft Application Insights
+## Tracing with Microsoft Application Insights
 
 [Microsoft Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
-Depending on your project type, install Application Insights SDK for [ASP.NET](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net) (version 2.5-beta2 or higher) or [ASP.NET Core](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net-core) (version 2.2.0-beta2 or higher). These links provide detailed on installing SDK, creating resources, and configuring SDK (if needed).
+Depending on your project type, install Application Insights SDK:
+- [ASP.NET](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net) version 2.5-beta2 or higher
+- [ASP.NET Core](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net-core) version 2.2.0-beta2 or higher.
+These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) article.
 
-For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) article.
-
-If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. 
+**If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise please refer to the following example for manual message processing tracking.**
 
 ### Trace message processing
 
 If you manually receive and process messages, refer to the following example:
 
-```C#
+```csharp
 private readonly TelemetryClient telemetryClient;
 
 async Task ProcessAsync(Message message)
@@ -84,7 +84,8 @@ Nested traces and exceptions reported during message processing are also stamped
 
 In case you make calls to supported external components during message processing, they are also automagically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md) for manual tracking and correlation.
 
-## Tracking Service Bus calls in .NET applications without tracing system
+## Tracing without tracing system
+In case your tracing system does not support automagical Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -100,7 +101,7 @@ Familiarize yourself with [DiagnosticSource User Guide](https://github.com/dotne
 Let's create a listener for Service Bus events in ASP.NET Core app that writes logs with Microsoft.Extension.Logger.
 It uses [System.Reactive.Core](https://www.nuget.org/packages/System.Reactive.Core) library to subscribe to DiagnosticSource (it's also easy to subscribe to DiagnosticSource without it)
 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory, IApplicationLifetime applicationLifetime)
 {
     // configuration...
@@ -154,26 +155,26 @@ Here is the full list of instrumented operations:
 
 | Operation Name | Tracked API | Specific Payload Properties|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | ISenderClient.SendAsync | IList<Message> Messages - List of messages being sent |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | ISenderClient.ScheduleMessageAsync | Message Message - Message being processed<br/>DateTimeOffset ScheduleEnqueueTimeUtc - Scheduled message offset<br/>long SequenceNumber - Sequence number of scheduled message ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Cancel | ISenderClient.CancelScheduledMessageAsync | long SequenceNumber - Sequence number of te message to be canceled | 
-| Microsoft.Azure.ServiceBus.Receive | MessageReceiver.ReceiveAsync |int RequestedMessageCount - The maximum number of messages that could be received.<br/>IList<Message> Messages -List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Peek | MessageReceiver.PeekAsync | int FromSequenceNumber - The starting point from which to browse a batch of messages.<br/>int RequestedMessageCount - The number of messages to retrieve.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | MessageReceiver.ReceiveDeferredAsync | IEnumerable<long> SequenceNumbers - The list containing the sequence numbers to receive.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Complete | MessageReceiver.CompleteAsync | IList<string> LockTokens - The list containing the lock tokens of the corresponding messages to complete.|
-| Microsoft.Azure.ServiceBus.Abandon | MessageReceiver.AbandonAsync | string LockToken - The lock token of the corresponding message to abandon. |
-| Microsoft.Azure.ServiceBus.Defer | MessageReceiver.DeferAsync | string LockToken - The lock token of the corresponding message to defer. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | MessageReceiver.DeadLetterAsync | string LockToken - The lock token of the corresponding message to dead letter. | 
-| Microsoft.Azure.ServiceBus.RenewLock | MessageReceiver.RenewLockAsync | string LockToken - The lock token of the corresponding message to renew lock on.<br/>DateTime LockedUntilUtc - New lock token expiry date and time in UTC format. ('Stop' event payload)|
-| Microsoft.Azure.ServiceBus.Process | Message Handler lambda | Message Message - Message being processed. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Message Session Handler lambda | Message Message - Message being processed.<br/>IMessageSession Session - Session being processed |
-| Microsoft.Azure.ServiceBus.AddRule | SubscriptionClient.AddRuleAsync | RuleDescription Rule - The rule description that provides the rule to add. |
-| Microsoft.Azure.ServiceBus.RemoveRule | SubscriptionClient.RemoveRuleAsync | string RuleName - Name of the rule to remove. |
-| Microsoft.Azure.ServiceBus.GetRules | SubscriptionClient.GetRulesAsync | IEnumerable<RuleDescription> Rules- All rules associated with the subscription. ('Stop' payload only) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | SessionClient.AcceptMessageSessionAsync | string SessionId - The sessionId present in the messages. |
-| Microsoft.Azure.ServiceBus.GetSessionState | MessageSession.GetSessionStateAsync | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.SetSessionState | MessageSession.SetSessionStateAsync | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | MessageSession.RenewSessionLockAsync| string SessionId - The sessionId present in the messages. |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> Messages - List of messages being sent |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Message Message - Message being processed<br/>DateTimeOffset ScheduleEnqueueTimeUtc - Scheduled message offset<br/>long SequenceNumber - Sequence number of scheduled message ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | long SequenceNumber - Sequence number of te message to be canceled | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount - The maximum number of messages that could be received.<br/>IList<Message> Messages -List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - The starting point from which to browse a batch of messages.<br/>int RequestedMessageCount - The number of messages to retrieve.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - The list containing the sequence numbers to receive.<br/>IList<Message> Messages - List of received messages ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - The list containing the lock tokens of the corresponding messages to complete.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | string LockToken - The lock token of the corresponding message to abandon. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | string LockToken - The lock token of the corresponding message to defer. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | string LockToken - The lock token of the corresponding message to dead letter. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | string LockToken - The lock token of the corresponding message to renew lock on.<br/>DateTime LockedUntilUtc - New lock token expiry date and time in UTC format. ('Stop' event payload)|
+| Microsoft.Azure.ServiceBus.Process | Message Handler lambda function provided in [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Message Message - Message being processed. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Message Session Handler lambda function provided in [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Message Message - Message being processed.<br/>IMessageSession Session - Session being processed |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription Rule - The rule description that provides the rule to add. |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | string RuleName - Name of the rule to remove. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> Rules- All rules associated with the subscription. ('Stop' payload only) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | string SessionId - The sessionId present in the messages. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state ('Stop' event payload) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | string SessionId - The sessionId present in the messages.<br/>byte [] State - Session state |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | string SessionId - The sessionId present in the messages. |
 | Microsoft.Azure.ServiceBus.Exception | any instrumented API| Exception Exception - Exception instance |
 
 In every event, you can access `Activity.Current` that holds current operation context.
@@ -188,7 +189,7 @@ Such operation may result in several unrelated messages to be received. Also, th
 
 Efficient way to log Tags is to iterate over them, so adding Tags to the preceding example looks like 
 
-```C#
+```csharp
 Activity currentActivity = Activity.Current;
 TaskStatus status = (TaskStatus)evnt.Value.GetProperty("Status");
 
