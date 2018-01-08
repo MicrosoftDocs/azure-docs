@@ -48,9 +48,9 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 > [!Note]  
 > Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
 
-    ```powershell  
+    ````PowerShell
     Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
-    ```
+    ````
 
 | Parameter               | Value           | Required | Default | Description    |
 | ---                     | ---             | ---      | ---     | ---            |
@@ -72,9 +72,9 @@ The following examples assume you're signed in as **CloudAdmin** and accessing t
 
 In a PEP session, run:
 
-    ```powershell  
+    ````PowerShell
     Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack
-    ```
+    ````
 
 #### Run Test-AzureStack with cloud scenarios
 
@@ -95,17 +95,17 @@ Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicr
 
 In a PEP session, run:
 
-    ```powershell  
+    ````PowerShell
     Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
-    ```
+    ````
 
 #### Run Test-AzureStack without cloud scenarios
 
 In a PEP session, run:
 
-    ```powershell  
+    ````PowerShell
     $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
-    ```
+    ````
 
 To list available test scenarios:
 
@@ -117,15 +117,15 @@ To list available test scenarios:
 
 In a PEP session, run:
 
-    ```powershell  
+    ````PowerShell
     Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Include AzsSFRoleSummary,AzsInfraCapacity
-    ```
+    ````
 
 To exclude specific tests:
 
-    ```powershell  
+    ````PowerShell
     Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Ignore AzsInfraPerformance
-    ```
+    ````
 
 ### Validation test
 
