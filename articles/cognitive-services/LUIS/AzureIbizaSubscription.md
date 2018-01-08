@@ -36,7 +36,9 @@ For authoring, testing and prototype only, use the programmatic free (F0) tier. 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
 
-    > [!Note] In order to use the access keys you created in Azure, you need to log in to your region's [luis.ai](https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/manage-keys?branch=pr-en-us-30967#publishing-regions) and add the new LUIS service as part of [publishing your app](./PublishApp.md). You do not need the key values, you only need your unique LUIS subscription name. 
+    > [!Note] 
+    > * In order to use the access keys you created in Azure, you need to log in to your region's [luis.ai](https://review.docs.microsoft.com/en-us/azure/cognitive-services/luis/manage-keys?branch=pr-en-us-30967#publishing-regions) and add the new LUIS service as part of [publishing your app](./PublishApp.md). 
+    > * You do not need the key values, you only need your unique LUIS subscription name. 
 
 ## Change LUIS pricing tier
 
