@@ -444,7 +444,7 @@ az network nic update \
 
 ### PowerShell
 
-To remove *myNic3* from all application security groups, enter the following command:
+To remove *myNic3* from all application security groups, enter the following commands:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface `
