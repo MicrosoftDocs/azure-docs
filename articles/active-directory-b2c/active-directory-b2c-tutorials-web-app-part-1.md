@@ -71,7 +71,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the Global Administra
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 Make sure you are in your B2C tenant in the upper right drop-down.
 
-[!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
+[!INCLUDE [active-directory-b2c-portal-add-application](../../includes/active-directory-b2c-portal-add-application.md)]
 
 To register your web application, use the settings specified in the table.
 
