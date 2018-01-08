@@ -154,7 +154,6 @@ For each discovery you need to perform, you run the collector to discovery VMs i
     - Specify the name (FQDN) or IP address of the vCenter server.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
-    - In **Tag category for grouping**, select **None**.
 
         ![Select scope](./media/how-to-scale-assessment/select-scope.png)
 
