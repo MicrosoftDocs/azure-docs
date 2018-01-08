@@ -74,7 +74,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - [January, 3rd - 2018—KB4056890 (OS Build 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
 	- This update includes the software fixes for the industry-wide security issue described by [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### Known issues with the update process
 
 This section contains known issues that you may encounter during the 1712 update installation.
@@ -101,7 +101,7 @@ This section contains post-installation known issues with build **180106.1**.
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
 		> [!NOTE]
 		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
@@ -122,16 +122,16 @@ This section contains post-installation known issues with build **180106.1**.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
- 
+
 #### Networking
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
 - Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
- 
+
 #### SQL/MySQL
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
 
 	> [!NOTE]
@@ -156,6 +156,7 @@ You can download the Azure Stack 1712 update package from [here](https://aka.ms/
 Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1712.
 
 - See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## See also
 
 - See [Manage updates in Azure Stack overview](azure-stack-updates.md) for an overview of the update management in Azure Stack.
