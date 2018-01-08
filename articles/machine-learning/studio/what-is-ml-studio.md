@@ -61,9 +61,9 @@ Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. F
 * **SETTINGS** - A collection of settings that you can use to configure your account and resources.
 
 ### Gallery
-Click **Gallery** and you'll be taken to the **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
+Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
-For more information about the Gallery, see [Share and discover solutions in the Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 ## Components of an experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
