@@ -59,7 +59,7 @@ These release notes provide information about improvements, fixes, and known iss
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
  
 #### Marketplace
-- When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
+- Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
  
 #### Compute
@@ -148,6 +148,9 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 #### SQL/MySQL 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
+
+	> [!NOTE]
+	> See the individual [SQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) and [MySQL](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) setup articles for version compatibility guidance.
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
