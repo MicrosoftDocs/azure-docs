@@ -33,14 +33,6 @@ The Azure Stack 1712 update build number is **180106.1**. If a customer has depl
 
 ## Before you begin
 
-> [!WARNING]
-> If you’re currently in an active interactive PEP remote session, you need to exit the session before initiating the Azure Stack update installation process. You can type **exit** in the remote console to exit the session.
-> You can check if there’s any existing PEP remote sessions by running two PowerShell commands, first **Get-PSSession** which lists all active remote sessions, then **Remove-PSSession** to terminate and remove the active remote sessions. The PowerShell commands have to be run from any machine used to create PEP remote sessions in the Azure Stack environment. Here's the PowerShell command sample:
-```
-Get-PSSession | Remove-PSSession
-```
-Additionally, do not create a PEP session even after the Azure Stack update has started.
-
 > [!IMPORTANT]
 > Do not attempt to create virtual machines during the 1712 update installation process. See [manage updates in Azure Stack overview](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) for more details.
 
@@ -98,7 +90,7 @@ This section contains known issues that you may encounter during the 1712 update
 
 ### Known issues (post-installation)
 
-This section contains post-installation known issues with build **180106.1** and build **180103.2**.
+This section contains post-installation known issues with build **180106.1**.
 
 #### Portal
 
@@ -159,6 +151,11 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 You can download the Azure Stack 1712 update package from [here](https://aka.ms/azurestackupdatedownload).
 
+## More information
+
+Microsoft has provided a way to monitor and resume updates using the Privileged End Point (PEP) installed with Update 1712.
+
+- See the [Monitor updates in Azure Stack using the privileged endpoint documentation](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## See also
 
 - See [Manage updates in Azure Stack overview](azure-stack-updates.md) for an overview of the update management in Azure Stack.
