@@ -7696,11 +7696,17 @@
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
             "redirect_document_id": false
         },
-		{
+        {
+            "source_path": "articles/migrate/how-to-tag-v-center.md",
+            "redirect_url": "how-to-create-a-group",
+            "redirect_document_id": false
+        },
+		    {
             "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
             "redirect_url": "tutorial-migrate-azure-to-azure",
             "redirect_document_id": false
         },
+        
 		{
             "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
             "redirect_url": "tutorial-vmware-to-vmware",
@@ -14988,6 +14994,11 @@
             "source_path": "articles/hdinsight/hdinsight-apache-spark-overview.md",
             "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
+            "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
