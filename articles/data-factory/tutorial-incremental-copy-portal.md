@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/06/2018
 ms.author: shlo
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
@@ -50,7 +50,7 @@ Here are the important steps to create this solution:
 1. **Select the watermark column**.
 	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
-2. **Prepare a data store to store the watermark value. In this tutorial, you store the watermark value in a SQL database.
+2. **Prepare a data store to store the watermark value**. In this tutorial, you store the watermark value in a SQL database.
 	
 3. **Create a pipeline with the following workflow**: 
 	
@@ -220,7 +220,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 10. Select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, click **Preview data**.
 
 	![Watermark dataset - connection settings](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-11. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the treeview on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
+11. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
 
 	![Pipeline - old watermark dataset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
 12. Drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
@@ -229,7 +229,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 13. In the properties window for the second **Lookup** activity, switch to the **Settings** tab, and click **New**. You create a dataset to point to the source table that contains the new watermark value (maximum value of LastModifyTime). 
 
     ![Second lookup activity - new dataset](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. You see a new tab opened for this dataset. You also see the dataset in the treeview. 
+14. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. You see a new tab opened for this dataset. You also see the dataset in the tree view. 
 15. In the **General** tab of the properties window, enter **SourceDataset** for **Name**. 
 
     ![Source dataset - name](./media/tutorial-incremental-copy-portal/source-dataset-name.png)
@@ -239,7 +239,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     2. Select **[dbo].[data_source_table]** for Table. You specify a query on this dataset later in the tutorial. The query takes the precedence over the table you specify in this step. 
 
         ![Second lookup activity - new dataset](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
-17. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the treeview on the left. In the properties window for the **Lookup** activity, confirm that **SourceDataset** is selected for the **Source Dataset** field. 
+17. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **SourceDataset** is selected for the **Source Dataset** field. 
 18. Select **Query** for the **Use Query** field, and enter the following query: you are only selecting the maximum value of **LastModifytime** from the **data_source_table**. If you don't have this query, the dataset gets all the rows from the table as you specified the table name (data_source_table) in the dataset definition.
 
     ```sql
@@ -289,11 +289,11 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 27. In the **Connection** tab, do the following steps:
 
     1. Confirm that **AzureStorageLinkedService** is selected for **Linked service**. 
-    2. For **folder** part of the **File path** field, enter **adftutorial/incrementalcopy**. **adftutorial** is the blob container name and **incrementalcopy** is the folder name. This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. Azure Data Factory automatically creates the output folder **incrementalcopy** if it does not exist. You can also use the **Browse** button for File path to navigate to a folder in a blob container. .RunId, '.txt')`.
-    3. Fir **filename** part of the **File path** field, enter `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. The file name is dynamically generated by using the expression. Each pipeline run has a unique ID. The Copy activity uses the run ID to generate the file name. 
+    2. For the **folder** part of the **File path** field, enter **adftutorial/incrementalcopy**. **adftutorial** is the blob container name and **incrementalcopy** is the folder name. This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. Azure Data Factory automatically creates the output folder **incrementalcopy** if it does not exist. You can also use the **Browse** button for the **File path** to navigate to a folder in a blob container. .RunId, '.txt')`.
+    3. Fir the **filename** part of the **File path** field, enter `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. The file name is dynamically generated by using the expression. Each pipeline run has a unique ID. The Copy activity uses the run ID to generate the file name. 
 
         ![Sink Dataset - connection settings](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
-28. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the treeview on the left. 
+28. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. 
 29. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
     
     ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
@@ -388,7 +388,7 @@ PersonID | Name | LastModifytime
 
 
 ## Trigger another pipeline run
-1. Switch to the **Edit** tab. Click the pipeline in the treeview if it's not opened in the designer. 
+1. Switch to the **Edit** tab. Click the pipeline in the tree view if it's not opened in the designer. 
 
     ![Trigger Now button](./media/tutorial-incremental-copy-portal/edit-tab.png)
 2. Click **Trigger** on the toolbar, and click **Trigger Now**. 
