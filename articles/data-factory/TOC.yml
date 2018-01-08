@@ -57,11 +57,19 @@
     href: tutorial-incremental-copy-overview.md
     items:
     - name: 5.1 - Copy from one table
-      href: tutorial-incremental-copy-powershell.md
+      items: 
+      - name: Azure portal
+        href: tutorial-incremental-copy-portal.md      
+      - name: PowerShell
+        href: tutorial-incremental-copy-powershell.md
     - name: 5.2 - Copy from multiple tables 
       href: tutorial-incremental-copy-multiple-tables-powershell.md
     - name: 5.3 - Use change tracking feature 
-      href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      items:
+      - name: Azure portal
+        href: tutorial-incremental-copy-change-tracking-feature-portal.md      
+      - name: PowerShell
+        href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
     items: 
     - name: Azure portal
