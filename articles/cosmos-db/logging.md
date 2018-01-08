@@ -381,7 +381,7 @@ To learn about the meaning of the data returned by each log search, see [Interpr
 * Which operations take longer than 3 milliseconds.
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Which agent is running the operations.
