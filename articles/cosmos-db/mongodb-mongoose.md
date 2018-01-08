@@ -1,5 +1,5 @@
 ---
-title: Connect a Node.js Mongoose app to Azure Cosmos DB | Microsoft Docs
+title: Using the Mongoose framework with Azure Cosmos DB | Microsoft Docs
 description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
@@ -39,6 +39,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 ## Set up your Node.js application
 
+>**Note:** If you'd like to just walkthrough the sample code instead of setup the application itself, clone the [sample](https://github.com/Azure-Samples/Mongoose_CosmosDB) used for this tutorial and build your Node.js Mongoose application on Azure Cosmos DB.
+
 1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt .
 
     ```npm init```
@@ -60,7 +62,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     ```
 
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
-    ```JavaScript```
+
+    ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
@@ -299,7 +302,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Next Steps
 
-* Clone the [sample](https://github.com/romitgirdhar/AzureSamples/tree/master/Mongoose_CosmosDB) used for this tutorial and build your Node.js Mongoose application on Azure Cosmos DB.
+Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB MongoDB API in [MongoDB API support for MongoDB features and syntax](mongodb-feature-support.md)
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
