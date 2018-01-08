@@ -83,7 +83,9 @@ This aggregation is helpful because a single issue may potentially impact multip
 
 ### Infrastructure view
 
+The infrastructure view provides a scenario wise visual representation of the infrastructural components involved in replication and connectivity between the components.
 
+Use the scenario selector switch to select a scenario depending on the one you are implementing with Azure Site Recovery.
 
 ## Monitor and troubleshoot replication issues
 
