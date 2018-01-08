@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2017
+ms.date: 1/8/2017
 ms.author: jeedes
 
 ---
@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Sequr test user
 
-In this section, you create a user called Britta Simon in Sequr. Work with [Sequr Client support team](mailto:mishi@sequr.io) to add the users in the Sequr platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Sequr. Work with [Sequr Client support team](mailto:support@sequr.io) to add the users in the Sequr platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
