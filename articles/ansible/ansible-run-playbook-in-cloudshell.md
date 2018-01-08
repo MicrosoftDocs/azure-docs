@@ -18,6 +18,8 @@ In this tutorial, you learn how to perform various Ansible tasks in the Azure Cl
 
 - **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
+- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
+
 ## Configure Cloud Shell
 
 If you have never used Cloud Shell, the following steps guide you through setting it up the first time you use it:
