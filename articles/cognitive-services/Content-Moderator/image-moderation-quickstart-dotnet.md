@@ -36,7 +36,7 @@ Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
 1. Select this project as the single startup project for the solution.
 
 1. Add a reference to the **ModeratorHelper** project assembly that you created
-   in the Content Moderator client helper quickstart.
+   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### Install required packages
 
