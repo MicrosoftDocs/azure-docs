@@ -90,7 +90,7 @@ ms.author: renash
     mkdir mymountpoint
     ```
 
-3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11+ or not listed explicitly in [Understand SMB client requirements](#smb-client-reqs) we recommend setting `<smb-version>` to `2.1`. 
+3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), we recommend setting `<smb-version>` to `3.0`. For Linux distributions that do not support SMB 3.0 with encryption, we recommend setting `<smb-version>` to `2.1`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -108,7 +108,7 @@ ms.author: renash
     sudo mkdir /mymountpoint
     ```
 
-3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the proper information. If your Linux distribution uses Linux kernel 4.11 or higher, we always recommend setting `<smb-version>` to `3.0`. For Linux distributions not using Linux kernel 4.11+ or not listed explicitly in [Understand SMB client requirements](#smb-client-reqs) we recommend setting `<smb-version>` to `2.1`. 
+3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), we recommend setting `<smb-version>` to `3.0`. For Linux distributions that do not support SMB 3.0 with encryption, we recommend setting `<smb-version>` to `2.1`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
