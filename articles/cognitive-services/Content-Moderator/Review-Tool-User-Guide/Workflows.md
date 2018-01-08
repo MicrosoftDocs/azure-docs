@@ -42,7 +42,7 @@ In the following screenshot, you see the fields and the If-Then-Else selections 
 
   ![Content Moderator - Workflow condition](images/ocr-workflow-step-2-condition.PNG)
 
-After you choose a connector and the output you are interested in, select an Operator and the value for the condition.
+After you choose the connector and its output you are interested in, select an Operator and the value for the condition.
 
 ## Define the action to be taken
 
@@ -54,17 +54,17 @@ Select the action to be taken along with the condition to be met. The example be
 
 Finally, save the workflow and note the **workflow name**. You need the name to start a moderation job using the Review API.
 
-## Test the Workflow
+## Test the workflow
 
 Now that you defined a custom workflow, test it with sample content. 
 
 ### Select the corresponding **Execute Workflow** button.
 
-  ![Content Moderator - Workflow Test](images/workflow-test-1.png)
+  ![Content Moderator - Workflow Test](images/ocr-workflow-step-6-list.PNG)
 
 ### Upload a file (or several).
 
-  ![Content Moderator - Workflow Test - Add File](images/workflow-test-2.png)
+  ![Content Moderator - Workflow Test - Add File](images/ocr-workflow-step-7-upload.PNG)
 
 ### Track the workflow as it is executed.
 
