@@ -14,12 +14,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
 ---
 # Supplemental lesson - Detail Rows
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you use the DAX Editor to define a custom Detail Rows Expression. A Detail Rows Expression is a property on a measure, providing end-users more information about the aggregated results of a measure. 
   
@@ -47,7 +45,7 @@ What we would like to see here is a table containing columns and rows of data th
 
 #### To create a Detail Rows Expression 
   
-1. In SSDT, in the FactInternetSales table's measure grid, click the **InternetTotalSales** measure. 
+1. In the FactInternetSales table's measure grid, click the **InternetTotalSales** measure. 
 
 2. In **Properties** > **Detail Rows Expression**, click the editor button to open the DAX Editor.
 
