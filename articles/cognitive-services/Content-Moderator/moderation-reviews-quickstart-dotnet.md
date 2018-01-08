@@ -12,7 +12,7 @@ ms.date: 01/04/2018
 ms.author: sajagtap
 ---
 
-# Create reviews for human moderation using .NET
+# Create reviews using .NET
 
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
