@@ -24,14 +24,14 @@ In this supplemental lesson, you use the DAX Editor to define a custom Detail Ro
 Estimated time to complete this lesson: **10 minutes**  
   
 ## Prerequisites  
-This supplemental lesson topic is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.  
+This supplemental lesson is part of a tabular modeling tutorial. Before performing the tasks in this supplemental lesson, you should have completed all previous lessons or have a completed Adventure Works Internet Sales sample model project.  
   
-## What do we need to solve?
+## What's the issue?
 Let's look at the details of our InternetTotalSales measure, before adding a Detail Rows Expression.
 
 1.  In SSDT, click the **Model** menu > **Analyze in Excel** to open Excel and create a blank PivotTable.
   
-2.  In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**. Our PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year. 
+2.  In **PivotTable Fields**, add the **InternetTotalSales** measure from the FactInternetSales table to **Values**, **CalendarYear** from the DimDate table to **Columns**, and **EnglishCountryRegionName** to **Rows**. The PivotTable now gives us aggregated results from the InternetTotalSales measure by regions and year. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -75,7 +75,7 @@ What we would like to see here is a table containing columns and rows of data th
 5. Redeploy your model.
 
   
-## See Also  
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
-[Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## See also  
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
+[Supplemental lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
+[Supplemental lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
