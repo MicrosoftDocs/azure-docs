@@ -7,6 +7,7 @@ author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+keywords: spectre,meltdown,specter
 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
