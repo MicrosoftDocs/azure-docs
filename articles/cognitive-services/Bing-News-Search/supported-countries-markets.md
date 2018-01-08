@@ -19,7 +19,7 @@ You can specify a country using the `cc` query parameter. If you specify a count
 
 Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
 
-## Supported markets of news search endpoint
+## Supported markets for news search endpoint
 
 For the `/news/search` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
@@ -70,7 +70,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Sweden|Swedish|sv-SE|  
 |Turkey|Turkish|tr-TR|  
 
-## Supported markets of news endpoint
+## Supported markets for news endpoint
 For the `/news` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
 For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
@@ -93,7 +93,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Portuguese|Brazil|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
-## Supported markets of news trending endpoint
+## Supported markets for news trending endpoint
 For the `/news/trendingtopics` endpoint, the following table lists the market code values that you may use to specify the `mkt` query parameter. Bing returns content for only these markets. The list is subject to change.  
   
 For a list of country codes that you may specify in the `cc` query parameter, see [Country Codes](#countrycodes).  
@@ -155,3 +155,6 @@ The following are the country codes that you may specify in the `cc` query param
 |Turkey|TR|  
 |United Kingdom|GB|  
 |United States|US|
+
+## Next steps
+For more information about the Bing News Search endpoints, see [News Search API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference).

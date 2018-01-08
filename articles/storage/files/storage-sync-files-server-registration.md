@@ -144,9 +144,9 @@ Since Azure File Sync will rarely be the only service running in your datacenter
 > Setting limits too low will impact the performance of Azure File Sync synchronization and recall.
 
 ### Set Azure File Sync network limits
-You can constrain the network utilitization of Azure File Sync by using the 'StorageSyncNetworkLimit` cmdlets. 
+You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets. 
 
-For example, you can create a new network limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
+For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

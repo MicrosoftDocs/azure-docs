@@ -12,8 +12,8 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: skwan
+ms.date: 12/19/2017
+ms.author: bryanla
 
 ---
 

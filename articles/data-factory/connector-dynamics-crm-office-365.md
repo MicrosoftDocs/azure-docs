@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -65,10 +65,10 @@ The following properties are supported for Dynamics linked service:
 | authenticationType | The authentication type to connect to Dynamics server. Specify **"Office365"** for Dynamics Online. | Yes |
 | username | Specify user name to connect to the Dynamics. | Yes |
 | password | Specify password for the user account you specified for the username. You have to put the password in the Azure Key Vault, and configure the password as an "AzureKeyVaultSecret". Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if source linked service doesn't have IR |
 
 >[!IMPORTANT]
->To copy data into Dynamics, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the linked service as the following example.
+>When copying data **into** Dynamics, default Azure Integration Runtime cannot be used to execute copy. In other word, if your source linked service doesn't have a specified IR, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics, and associate in the Dynamics linked service as the following example.
 
 **Example: Dynamics online using Office365 authentication**
 
@@ -334,13 +334,13 @@ Configure the corresponding Data Factory data type in dataset structure based on
 | AttributeType.Lookup | Guid | ✓ |  |
 | AttributeType.ManagedProperty | Boolean | ✓ |  |
 | AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ |  |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | String | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]
