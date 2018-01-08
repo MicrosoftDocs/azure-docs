@@ -30,7 +30,7 @@ ms.author: renash
     * Ubuntu Server 14.04+
     * RHEL 7+
     * CentOS 7+
-    * Debian 8
+    * Debian 8+
     * openSUSE 13.2+
     * SUSE Linux Enterprise Server 12
 
