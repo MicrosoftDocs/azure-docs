@@ -295,7 +295,6 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Cluster provisioning and installation.  [Learn more](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|Backup and restore of unmanaged disks.  [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### Storage analytics data access

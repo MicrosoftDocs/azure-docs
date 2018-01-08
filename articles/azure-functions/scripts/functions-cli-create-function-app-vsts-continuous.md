@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # Create an App Service
 
-In this scenario you will learn how to create a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and continuously deploys your function code from a Visual Studio Team Services (VSTS) repository. In this sample, you will need:
+In this scenario, you learn how to create a function app that uses the [consumption plan](../functions-scale.md#consumption-plan)  and you set up continuous deployment from a Visual Studio Team Services (VSTS) repository. For this sample, you need:
 
 * A VSTS repository with functions code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
@@ -21,7 +21,7 @@ In this scenario you will learn how to create a function app using the [consumpt
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
