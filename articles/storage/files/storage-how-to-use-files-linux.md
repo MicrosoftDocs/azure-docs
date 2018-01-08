@@ -59,7 +59,7 @@ ms.author: renash
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
 * <a id="smb-client-reqs"></a>**Understand SMB client requirements.**  
-    Azure Files can be mounted either via SMB 2.1 and SMB 3.0. To protect your data, Azure Files requires clients mounting outside of the Azure region where the Azure file share is hosted to be using SMB 3.0 with encryption. Additionally, if *secure transfer required* is enabled for a storage account, all connections (even connections originating within the same Azure region as the Azure file share) will require SMB 3.0 with encryption. 
+    Azure Files can be mounted either via SMB 2.1 and SMB 3.0. To protect your data, Azure Files requires clients mounting outside of the Azure region where the Azure file share is hosted to be using SMB 3.0 with encryption. Additionally, if *secure transfer required* is enabled for a storage account, all connections (even connections originating within the same Azure region as the Azure file share) require SMB 3.0 with encryption. 
     
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support this feature:
 
@@ -73,45 +73,45 @@ ms.author: renash
     uname -r
     ```
 
-* **Decide on the directory/file permissions of the mounted share**: In the examples below, we use 0777, to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired. 
+* **Decide on the directory/file permissions of the mounted share**: In the examples below, the permission `0777` is used to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired. 
 
-* **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
+* **Storage account name**: To mount an Azure file share, you need the name of the storage account.
 
-* **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
+* **Storage account key**: To mount an Azure file share, you need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
 ## Mount the Azure file share on-demand with `mount`
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
-2. **Create a folder for the mount point**: This can be done anywhere on the file system.
+2. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. For example:
 
     ```
-    mkdir mymountpoint
+    mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), we recommend setting `<smb-version>` to `3.0`. For Linux distributions that do not support SMB 3.0 with encryption, we recommend setting `<smb-version>` to `2.1`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
+3. **Use the mount command to mount the Azure file share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, and `<mount-point>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use `3.0` for `<smb-version>`. For Linux distributions that do not support SMB 3.0 with encryption, use `2.1` for `<smb-version>`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> When you are done using the Azure file share, you may use `sudo umount ./mymountpoint` to unmount the share.
+> When you are done using the Azure file share, you may use `sudo umount <mount-point>` to unmount the share.
 
 ## Create a persistent mount point for the Azure file share with `/etc/fstab`
 1. **[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.
 
-2. **Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder. The following example creates a folder under root.
+2. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under the `/mnt` folder. Wherever you create this, note the absolute path of the folder. For example, the following command creates a new folder under `/mnt` (the path is an absolute path).
 
     ```
-    sudo mkdir /mymountpoint
+    sudo mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, and `<storage-account-key>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), we recommend setting `<smb-version>` to `3.0`. For Linux distributions that do not support SMB 3.0 with encryption, we recommend setting `<smb-version>` to `2.1`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
+3. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, and `<mount-point>` with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use `3.0` for `<smb-version>`. For Linux distributions that do not support SMB 3.0 with encryption, use `2.1` for `<smb-version>`. Note that an Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0. 
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
@@ -124,8 +124,7 @@ The Azure Files for Linux users' group provides a forum for you to share feedbac
 
 ## Next steps
 See these links for more information about Azure Files.
-* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [How to use AzCopy with Microsoft Azure storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Using the Azure CLI with Azure storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Introduction to Azure Files](storage-files-introduction.md)
+* [Planning for an Azure Files deployment](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md)
