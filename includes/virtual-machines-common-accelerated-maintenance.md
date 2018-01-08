@@ -12,7 +12,7 @@ You can see the status of your VMs, and if the reboot completed, in the [VM list
 
 ## Can I find out exactly when my VMs will be rebooted?
 
-The best way to get an alert about the reboot is to configure [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). This provides a 15 minute notification of the VM going down due to maintenance – it makes an API call to the VM and, in addition, the activity log entry can be used to trigger Azure Monitor to send emails, SMS, or webhooks. It is not possible to provide any earlier notice.
+The best way to get an alert about the reboot is to configure [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). This provides a 15 minute notification of the VM going down due to maintenance.
 
 ## Can I manually redeploy now to perform the required maintenance? 
 
