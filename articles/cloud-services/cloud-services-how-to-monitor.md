@@ -1,6 +1,6 @@
 ---
-title: Monitor a Cloud Service | Microsoft Docs
-description: Learn how to monitor cloud services by using the Azure classic portal.
+title: Monitor an Azure Cloud Service | Microsoft Docs
+description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 services: cloud-services
 documentationcenter: ''
 author: thraka
@@ -82,20 +82,14 @@ This defines a new setting that must be added to every **ServiceConfiguration.cs
   <Role name="WorkerRoleWithSBQueue1">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmsWOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
 
 <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
 -->
 ```
 
+## Next steps
 
-
-
-
-
-
-
-
-
+- [Learn about Application Insights with Cloud Services.](../application-insights/app-insights-cloudservices.md)
 
