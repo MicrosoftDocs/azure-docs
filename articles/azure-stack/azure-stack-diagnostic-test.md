@@ -44,6 +44,11 @@ This section contains an overview for the Test-AzureStack cmdlet and a summary o
 
 Validates the status of Azure Stack.
 
+Test-AzureStack reports the status of your Azure Stack hardware and software. Support staff can use this  report to reduce the time to resolve Azure Stack support cases. 
+
+> [!Note]  
+> Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
+
     ```powershell  
     Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
     ```
