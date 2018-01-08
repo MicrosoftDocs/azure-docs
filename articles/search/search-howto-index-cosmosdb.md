@@ -1,6 +1,6 @@
 ---
-title: Indexing a Cosmos DB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with Cosmos DB as a data source.
+title: Indexing a Cosmos DB SQL API data source for Azure Search | Microsoft Docs
+description: This article shows you how to create an Azure Search indexer with a Cosmos DB (SQL API) data source.
 services: search
 documentationcenter: ''
 author: chaosrealm
@@ -13,28 +13,46 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 08/10/2017
+ms.date: 01/08/2018
 ms.author: eugenesh
 robot: noindex
 
 ---
 # Connecting Cosmos DB with Azure Search using indexers
 
-If you want to implement a great search experience over your Cosmos DB data, you can use an Azure Search indexer to pull data into an Azure Search index. In this article, we show you how to integrate Azure Cosmos DB with Azure Search without having to write any code to maintain indexing infrastructure.
+[Azure Cosmos DB](~/cosmos-db/introduction.md) is a multi-model database platform that includes [SQL API](~/cosmos-db/sql-api-introduction.md), a schema-less JSON database engine with rich SQL querying capabilities. Azure Search seamlessly integrates with SQL API data models. You can pull JSON documents from Cosmos DB into an Azure Search index using an [Azure Search indexer](search-indexer-overview.md), designed specifically for SQL API data models on Cosmos DB. 
+
+In this article, learn how to:
+
+> [!div class="checklist"]
+> * Configure an Azure Search data source for a SQL API data model. Optionally, provide a query to select a subset.
+> * Create a search index with a JSON-compatible data types.
+> * Configure an indexer for on-demand and recurring indexing.
+> * Incrementally refresh the index based on changes in the underlying data.
+
+Only the SQL API is supported. Although connections to other data models typically succeed, there are known issues with indexing operations. To help us prioritize which data sources to support first, please cast your vote:
+
+* [Table API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
+* [Graph API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
+* [MongoDB API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
+* [Apache Cassandra API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
+
+> [!NOTE]
+> Azure Cosmos DB SQL API is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the API and portal. Be sure to specify the `documentdb` syntax as instructed in this article
+
+## Prerequisites
 
 To set up a Cosmos DB indexer, you must have an [Azure Search service](search-create-service-portal.md), and create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
 
-If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources.
-
-> [!NOTE]
-> Azure Cosmos DB is the next generation of DocumentDB. Although the product name is changed, syntax is the same as before. Please continue to specify `documentdb` as directed in this indexer article. 
+If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources, including the index.
 
 > [!TIP]
 > You can launch the **Import data** wizard from the Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
 
 <a name="Concepts"></a>
+
 ## Azure Search indexer concepts
-Azure Search supports the creation and management of data sources (including Cosmos DB) and indexers that operate against those data sources.
+Azure Search supports the creation and management of data sources (including Cosmos DB SQL API) and indexers that operate against those data sources.
 
 A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
@@ -45,6 +63,7 @@ An **indexer** describes how the data flows from your data source into a target 
 * Invoke on-demand updates to an index as needed.
 
 <a name="CreateDataSource"></a>
+
 ## Step 1: Create a data source
 To create a data source, do a POST:
 
@@ -80,7 +99,7 @@ The body of the request contains the data source definition, which should includ
 * **dataDeletionDetectionPolicy**: Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.
 
 ### Using queries to shape indexed data
-You can specify a Cosmos DB query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
+You can specify a Cosmos DB SQL API query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
 
 Example document:
 
@@ -159,6 +178,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 | Other JSON objects |N/A |
 
 <a name="CreateIndexer"></a>
+
 ## Step 3: Create an indexer
 
 Once the index and data source have been created, you're ready to create the indexer:
