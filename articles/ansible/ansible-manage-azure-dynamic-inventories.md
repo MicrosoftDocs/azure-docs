@@ -79,13 +79,9 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
     ```
 
-1. Once connected, you should see results similar to the output:
+1. Once connected, you see results similar to the output:
 
     ```Output
-    The authenticity of host 'nn.nnn.nn.nn (nn.nnn.nn.nn)' can't be established.
-    ECDSA key fingerprint is SHA256:&lt;some value>.
-
-    Are you sure you want to continue connecting (yes/no)? yes
     ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -98,7 +94,75 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     }
     ```
 
-## 
+## Enable the virtual machine tag
+Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `export` via the **export** command:
 
+    ```azurecli-interactive
+    export AZURE_TAGS=nginx
+    ```
 
-## Next steps
+Once the tag has been exported, you can try the `ansible` command again:
+
+    ```azurecli-interactive
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
+    ```
+
+You now see only one virtual machine (the one whose tag matches the value exported into the **AZURE_TAGS** environment variable):
+
+    ```Output
+    ansible-inventory-test-vm1 | SUCCESS => {
+        "changed": false,
+        "failed": false,
+        "ping": "pong"
+    }
+    ```
+
+## Set up Nginx on the tagged virtual machine
+The purpoose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
+
+1. Create a file (that will serve as your playbook) named `nginx.yml` as follows:
+
+  ```azurecli-interactive
+  vi nginx.yml
+  ```
+
+1. Insert the following into the newly created `nginx.yml` file:
+
+    ```yml
+    - name: Install and start Nginx on an Azure virtual machine
+    hosts: azure
+    become: yes
+    tasks:
+    - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
+
+    handlers:
+    - name: start nginx
+        service: name=nginx state=started
+    ```
+
+1. Run the `nginx.yml` playbook:
+
+  ```azurecli-interactive
+  ansible-playbook -i azure_rm.py nginx.yml
+  ```
+
+1. You see results similar to the following output:
+
+    ```Output
+    PLAY [Install and start Nginx on an Azure virtual machine] **********
+
+    TASK [Gathering Facts] **********
+    ok: [ansible-inventory-test-vm1]
+
+    TASK [install nginx] **********
+    changed: [ansible-inventory-test-vm1]
+
+    RUNNING HANDLER [start nginx] **********
+    ok: [ansible-inventory-test-vm1]
+
+    PLAY RECAP **********
+    ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
+    ```
