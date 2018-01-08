@@ -7697,6 +7697,11 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
+            "redirect_url": "tutorial-migrate-azure-to-azure",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
             "redirect_url": "tutorial-vmware-to-vmware",
             "redirect_document_id": false
