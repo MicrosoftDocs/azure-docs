@@ -28,13 +28,14 @@ When you have an issue, contact Microsoft Customer Services Support and then run
 
 1. You have an issue.
 2. Contact Microsoft Customer Services Support.
-3. Run Test-AzureStack.
-    1. Log in as **AzureStack\CloudAdmin** on the host.
-    2. Open a PowerShell window as an administrator.
-    3. Run the **Test-AzureStack** PowerShell cmdlet.
-4. Review the report.
-5. Run Get-AzureStackLog. For more information about diagnostic logs, see [Azure Stack diagnostics tools](azure-stack-diagnostics.md).
-6. Microsoft Customer Services Support works with you to resolve the issue.
+3. Run **Test-AzureStack** from the privileged end point.
+    1. Access the privileged endpoint. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
+    2. Log in as **AzureStack\CloudAdmin** on the management host.
+    3. Open PowerShell as an administrator.
+    4. Run `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`.
+    4. Run `Test-AzureStack`.
+4. If any tests report **Fail**, run `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` to gather logs from Test-AzureStack. For more information about diagnostic logs, see [Azure Stack diagnostics tools](azure-stack-diagnostics.md).
+5. Send the SeedRing logs to Microsoft Customer Services Support. Microsoft Customer Services Support works with you to resolve the issue.
 
 ## Reference for Test-AzureStack
 
@@ -42,9 +43,7 @@ This section contains an overview for the Test-AzureStack cmdlet and a summary o
 
 ### Test-AzureStack
 
-Validates the status of Azure Stack.
-
-Test-AzureStack reports the status of your Azure Stack hardware and software. Support staff can use this  report to reduce the time to resolve Azure Stack support cases. 
+Validates the status of Azure Stack. The cmdlet reports the status of your Azure Stack hardware and software. Support staff can use this  report to reduce the time to resolve Azure Stack support cases.
 
 > [!Note]  
 > Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
@@ -53,17 +52,69 @@ Test-AzureStack reports the status of your Azure Stack hardware and software. Su
     Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
     ```
 
-| Parameter               | Value           | Required | Position | Default | Accept pipeline input | Accept wildcard characters | Description    |
-|-------------------------|-----------------|----------|----------|---------|-----------------------|----------------------------|----------------|
-| ServiceAdminCredentials | PSCredential    | No       | Named    | NA      | FALSE                 | FALSE                      | Need to write. |
-| DoNotDeployTenantVm     | SwitchParameter | No       | Named    | FALSE   | FALSE                 | FALSE                      | Need to write. |
-| AdminCredential         | PSCredential    | No       | Named    | NA      | FALSE                 | FALSE                      | Need to write. |
-| StorageConnectionString | String          | No       | Named    | NA      | FALSE                 | FALSE                      | Need to write. |
-| List                    | SwitchParameter | No       | Named    | FALSE   | FALSE                 | FALSE                      | Need to write. |
-| Ignore                  | String          | No       | Named    | NA      | FALSE                 | FALSE                      | Need to write. |
-| Include                 | String          | No       | Named    | NA      | FALSE                 | FALSE                      | Need to write. |
+| Parameter               | Value           | Required | Default | Description    |
+| ---                     | ---             | ---      | ---     | ---            |
+| ServiceAdminCredentials | PSCredential    | No       | FALSE   | Need to write. |
+| DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   | Need to write. |
+| AdminCredential         | PSCredential    | No       | NA      | Need to write. |
+| StorageConnectionString | String          | No       | NA      | Need to write. |
+| List                    | SwitchParameter | No       | FALSE   | Need to write. |
+| Ignore                  | String          | No       | NA      | Need to write. |
+| Include                 | String          | No       | NA      | Need to write. |
 
 The Test-AzureStack cmdlet supports the common parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216). 
+
+### Examples of Test-AzureStack
+
+The following examples assume you're signed in as **CloudAdmin** and accessing the privileged endpoint (PEP). For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
+
+#### Run Test-AzureStack interactively
+
+In a PEP session, run:
+
+    ```powershell  
+    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack
+    ```
+
+#### Run Test-AzureStack with cloud scenarios
+
+In a PEP session, run:
+
+    ```powershell  
+    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
+    ```
+
+> [!Note]  
+> Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicrosoft.com (AAD) or serviceadmin@domainfqdn (ADFS)
+When prompted, type the password to the cloud administrator account.
+
+#### Run Test-AzureStack without cloud scenarios
+
+In a PEP session, run:
+
+    ```powershell  
+    $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
+    ```
+
+To list available test scenarios:
+
+    ```powershell  
+    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -List
+    ```
+
+#### Run a specified test
+
+In a PEP session, run:
+
+    ```powershell  
+    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Include AzsSFRoleSummary,AzsInfraCapacity
+    ```
+
+To exclude specific tests:
+
+    ```powershell  
+    Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Ignore AzsInfraPerformance
+    ```
 
 ### Validation test
 
