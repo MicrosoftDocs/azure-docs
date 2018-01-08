@@ -78,15 +78,26 @@ In a PEP session, run:
 
 #### Run Test-AzureStack with cloud scenarios
 
+You can use Test-AzureStack to run cloud scenarios against your Azure Stack. These scenarios include:
+
+ - Creating resource groups
+ - Creating plans
+ - Creating offers
+ - Creating storage accounts
+ - Creating a virtual machine
+ - Perform blob operations using the storage account created in the test scenario
+ - Perform queue operations using the storage account created in the test scenario
+ - Perform table operations using the storage account created in the test scenario
+
+The cloud scenarios require cloud administrator credentials. The cloud scenarios cannot be run using Active Directory Federated Services (ADFS) credentials. The Test-AzureStack cmdlet is only accessible via the PEP. But, the PEP doesn't support ADFS credentials.
+
+Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicrosoft.com (AAD). When prompted, type the password to the cloud administrator account.
+
 In a PEP session, run:
 
     ```powershell  
     Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
     ```
-
-> [!Note]  
-> Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicrosoft.com (AAD) or serviceadmin@domainfqdn (ADFS)
-When prompted, type the password to the cloud administrator account.
 
 #### Run Test-AzureStack without cloud scenarios
 
