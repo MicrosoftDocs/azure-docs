@@ -14,7 +14,7 @@ ms.author: ponatara
 >[!NOTE]
 > Disaster recovery for Azure VMs using Azure Site Recovery is currently in preview.
 
-Use this article after you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service. This article prepares the Azure VMs for disaster recovery to a secondary Azure region.
+Use this article after you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service. This article helps you to prepare the Azure VMs for setting up disaster recovery to a secondary Azure region, using Site Recovery.
 
 
 
