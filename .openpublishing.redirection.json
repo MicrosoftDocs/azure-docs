@@ -5686,6 +5686,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
+            "redirect_url": "/azure/mysql/reference-data-in-store-procedures",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/search-get-started-management-api.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/searchmanagement/",
             "redirect_document_id": false

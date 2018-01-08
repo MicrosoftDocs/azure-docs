@@ -1,6 +1,6 @@
 ---
-title: 'Azure Database for MySQL Data Sync Store Procedures | Microsoft Docs'
-description: 'This topic introduce all store procedures relates to Sync Data.'
+title: 'Azure Database for MySQL Data-in Replication Store Procedures | Microsoft Docs'
+description: 'This topic introduce all store procedures relates to Data-in Replication.'
 services: mysql
 author: wuta
 ms.author: wuta
@@ -8,13 +8,14 @@ manager: Jason.M.Anderson
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/02/2018
 ---
-# Azure Database for MySQL Data Sync Store Procedures
-Azure Database for MySQL Data Sync is a service built on Azure Database for MySQL that lets you synchronize the data from an MySQL server that is running locally or in other locations to a server that is running on Azure Database for MySQL.
+# Azure Database for MySQL Data-in Replication Store Procedures
+Azure Database for MySQL Data-in Replication is a service built on Azure Database for MySQL that lets you synchronize the data from an MySQL server that is running locally or in other locations to a server that is running on Azure Database for MySQL.
 
-User should use below store procedure to set up or remove sync data between primary and replica:
+User should use below store procedure to set up or remove Data-in Replication between primary and replica:
 
+> [!div class="mx-tableFixed"]
 |**Store Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
 |-----|-----|-----|-----|
 |*MySql.az_replication_change_primary*|master_host  master_user  master_password  master_port  master_log_file  master_log_pos  master_ssl_ca|Void|If parameter *master_ssl_ca* is 0, it replicas without SSL. If it  
@@ -44,9 +45,9 @@ show slave status ();
 If state of *SLAVE_IO_Running* and *Slave_SQL_Running* are **yes**, that means the replication works well.
 
 ## Next steps 
-For more information about MySQL Data Sync, see:
-- [MySQL Data Sync Concept](./concepts-sync-data.md)
-- Getting Started with Azure Database for MySQL Data Sync
+For more information about MySQL Data-in Replication, see:
+- [MySQL Data-in Replication Concept](./concepts-data-in.md)
+- [Getting Started with Azure Database for MySQL Data-in Replication](./howto-data-in.md)
 
 For more information about Azure Database for MySQL, see:
 - [Azure Database for MySQL Overview](./overview.md)
