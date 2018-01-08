@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/05/2018
 ms.author: lmazuel
 
 ---
@@ -34,7 +34,7 @@ There are several flavors of Python interpreters available - examples include:
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the Java Virtual Machine
 
-**CPython** v2.7 or v3.3+ and PyPy 5.4.0 are tested and supported for the Python Azure SDK.
+**CPython** v2.7 or v3.4+ and PyPy 5.8.0 are tested and supported for the Python Azure SDK.
 
 ## Where to get Python?
 There are several ways to get CPython:
@@ -56,8 +56,8 @@ You may need administrator rights:
 You can install individually each library for each Azure service:
 
 ```console
-   $ pip install azure-batch          # Install the latest Batch runtime library
-   $ pip install azure-mgmt-scheduler # Install the latest Storage management library
+   $ pip install azure-batch        # Install the latest Batch runtime library
+   $ pip install azure-mgmt-storage # Install the latest Storage management library
 ```
 
 Preview packages can be installed using the `--pre` flag:
@@ -81,7 +81,7 @@ Since it's a preview release, you need to use the `--pre` flag:
 or directly
 
 ```console
-   $ pip install azure==2.0.0rc6
+   $ pip install azure==2.0.0
 ```
 
 ## Getting More Packages
@@ -116,7 +116,7 @@ Using Git deployment, you can develop a Python web application and publish it to
 For more information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites](app-service/web-sites-python-configure.md).
 
 ## Additional Software and Resources:
-* [Azure SDK for Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+* [Azure SDK for Python Documentation](http://docs.microsoft.com/python/azure/)
 * [Azure SDK for Python GitHub](https://github.com/Azure/azure-sdk-for-python)
 * [Official Azure samples for Python](https://azure.microsoft.com/documentation/samples/?platform=python)
 * [Continuum Analytics Python Distribution][Continuum Analytics Python Distribution]
