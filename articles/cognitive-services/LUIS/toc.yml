@@ -135,6 +135,8 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Glossary
+    href: luis-glossary.md
   - name: LUIS FAQ
     href: luis-resources-faq.md
   - name: Pricing
