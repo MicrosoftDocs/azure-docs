@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: terrylan
 
 ---
@@ -59,7 +59,7 @@ The logs for the Security Center Agent for Linux can be found at: */var/opt/micr
 
 After some time, it may take up to 30 minutes, the new Linux computer will appear in Security Center.
 
-Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation.
+Now you can monitor your Azure VMs and non-Azure computers in one place. Under **Compute**, you have an overview of all VMs and computers along with recommendations. Each column represents one set of recommendations. The color represents the VM's or computer's current security state for that recommendation. Security Center also surfaces any detections for these computers in Security alerts.
 
   ![Compute blade][7]
 There are two types of icons represented on the **Compute** blade:

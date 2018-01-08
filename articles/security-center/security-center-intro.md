@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 01/07/2018
 ms.author: terrylan
 
 ---
 # What is Azure Security Center?
-Azure Security Center Standard provides unified security management and threat protection across your hybrid cloud workloads. Security Center helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using security analytics and intelligence, and respond quickly when under attack.
+Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. With Security Center, you can apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks.
 
 Why use Security Center?
 
@@ -39,8 +39,8 @@ A security policy defines the desired configuration of your workloads and helps 
 Security Center policies contain the following components:
 
 - **Data collection**: Determines agent provisioning and security [data collection](security-center-enable-data-collection.md) settings.
-- **Security policy**: Determines which controls Security Center monitors and recommends.
-- **Email notifications**: Determines security contacts, and [e-mail notification](security-center-provide-security-contact-details.md) settings.
+- **Security policy**: Determine which controls Security Center monitors and recommends by editing the [security policy](security-center-policies.md).
+- **Email notifications**: Determines security contacts and [e-mail notification](security-center-provide-security-contact-details.md) settings.
 - **Pricing tier**: Defines Free or Standard [pricing selection](security-center-pricing.md). The tier you choose determines which Security Center features are available for resources in scope.
 
 ![Security policy][2]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: terrylan
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
-Azure Security Center’s Standard tier provides unified security management and threat protection across your workloads running in Azure, on-premises, and in other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days.
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days.
 
 In this article, you upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
 
@@ -34,9 +34,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 
  ![Security Center overview][2]
 
-**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk.
-
-Security Center will automatically enable any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds.
+**Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
 You can view and filter the list of subscriptions by clicking the **Subscriptions** menu item. Security Center will now begin assessing the security of these subscriptions to identify security vulnerabilities. To customize the types of assessments, you can modify the security policy. A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements.
 
@@ -45,7 +43,7 @@ Within minutes of launching Security Center the first time, you may see:
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
 - An inventory of **Compute**, **Networking**, **Storage & data**, and **Applications** resources that are now being assessed by Security Center along with the security posture of each.
 
-To enable the full set of assessments, you will need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
+To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
 
 ## Upgrade to the Standard tier
 For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. Your first 60 days are free, and you can return to the Free tier any time.
@@ -61,14 +59,14 @@ For the purpose of the Security Center quickstarts and tutorials you must upgrad
 
   ![Select Standard][5]
 
-Now that you’ve upgraded to the Standard tier, you have access to additional Security Center features, including adaptive application controls, just in time VM access, security alerts, and more. Note that security alerts will only appear when Security Center detects malicious activity.
+Now that you’ve upgraded to the Standard tier, you have access to additional Security Center features, including **adaptive application controls**, **just in time VM access**, **security alerts**, **threat intelligence**, **automation playbooks**, and more. Note that security alerts will only appear when Security Center detects malicious activity.
 
   ![Security alerts][7]
 
 ## Automate data collection
 Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
 
-When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
+When automatic provisioning is enabled, Security Center installs the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 
@@ -115,5 +113,5 @@ In this quick start you upgraded to Standard tier and provisioned the Microsoft 
 [4]: ./media/security-center-get-started/onboarding.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
-[7]: ./media/security-center-get-started/security-alerts.png
+[7]: ./media/security-center-get-started/security-alerts-2.png
 [8]: ./media/security-center-get-started/recommendations.png

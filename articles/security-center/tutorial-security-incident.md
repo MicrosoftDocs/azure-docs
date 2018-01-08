@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: yurid
 ms.custom: mvc
 ---
@@ -39,7 +39,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 - Determine alerts that require further investigation
 
 
-1. Start at the Security Center dashboard, under **Detection**, click **Security alerts**:
+1. On the Security Center main menu under **DETECTION**, select **Security alerts**:
 
   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
@@ -47,7 +47,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
-3. In this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click in the security incident that you want to investigate further to obtain more information.
+3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click in the security incident that you want to investigate further to obtain more information.
 
   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 

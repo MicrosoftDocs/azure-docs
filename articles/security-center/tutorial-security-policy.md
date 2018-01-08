@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: yurid
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ To step through the features covered in this tutorial, you must be on Security C
 ## Configure security policy
 Security Center automatically creates a default security policy for each of your Azure subscriptions. Security policies are comprised of recommendations that you can turn on or turn off according to the security requirements of that subscription. To make changes to the default security policy, you need to be an owner, contributor, or security administrator of the subscription.
 
-1. Start at the Security Center dashboard, on the left navigation pane, click **Security policy**, select the subscription that you want to use, and click **Security policy**:
+1. At the Security Center main menu, select **Security policy**. Select the subscription that you want to use. Under **POLICY COMPONENTS**, select **Security policy**:
 
   ![Security Policy](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 

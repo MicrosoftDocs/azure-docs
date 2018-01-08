@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/07/2018
 ms.author: yurid
 ms.custom: mvc
 ---
@@ -35,12 +35,12 @@ You also need a [Linux machine](https://docs.microsoft.com/azure/log-analytics/l
 
 ## Connect solution using CEF
 
-1. Sign into the Azure portal.
-2. On the **Microsoft Azure** menu, select **Security Center**.
+1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
 	![Select security center](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
 
-3. In the left navigation pane, click **Security Solutions**.
+3. Under the Security Center main menu, select **Security Solutions**.
 4. In the Security Solutions page, under **Add data sources (3)**, click **Add** under **Common Event Format**.
 
 	![Add data source](./media/quick-security-solutions/quick-security-solutions-fig2.png)
