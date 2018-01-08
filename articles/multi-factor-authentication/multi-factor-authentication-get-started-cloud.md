@@ -21,7 +21,7 @@ ms.author: joflore
 This article walks through how to get started using Azure Multi-Factor Authentication in the cloud.
 
 > [!NOTE]
-> The following documentation provides information on how to enable users using the **Azure Classic Portal**. If you are looking for information on how to set up Azure Multi-Factor Authentication for O365 users, see [Set up multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
+> The following documentation provides information on how to enable users using the **Azure portal**. If you are looking for information on how to set up Azure Multi-Factor Authentication for O365 users, see [Set up multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
 
 ![MFA in the Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 

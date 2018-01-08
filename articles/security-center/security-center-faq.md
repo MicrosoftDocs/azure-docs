@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
 
 ---
@@ -128,7 +128,7 @@ This message appears when there is no scan data for a VM. It can take some time 
 ### How often does Security Center scan for operating system vulnerabilities, system updates, and endpoint protection issues?
 The latency in Security Center scans for vulnerabilities, updates, and issues is:
 
-- Operating system vulnerabilities (by Microsoft) – data is updated within 48 hours
+- Operating system security configurations – data is updated within 48 hours
 - System updates – data is updated within 24 hours
 - Endpoint Protection issues – data is updated within 8 hours
 

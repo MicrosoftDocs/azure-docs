@@ -156,7 +156,7 @@ Once the Change tracking and Inventory solution is enabled, you can view the res
 
 From within your VM, select **Change tracking** under **OPERATIONS**.
 
-![Creating an alert on OMS classic portal](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Screenshot that shows the list of changes to the VM](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 The chart shows changes that have occurred over time.
 After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events.
