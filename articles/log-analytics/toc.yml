@@ -162,7 +162,7 @@
       href: log-analytics-manage-cost-storage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
-  - Troubleshoot
+  - name: Troubleshoot
     items:
     - name: Troubleshoot VM Extension
       href: log-analytics-azure-vmext-troubleshoot.md

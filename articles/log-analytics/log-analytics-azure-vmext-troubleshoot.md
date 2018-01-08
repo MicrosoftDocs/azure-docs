@@ -3,7 +3,7 @@ title: Troubleshoot Log Analytics VM Extension | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics VM extension for Windows and Linux Azure VMs.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 
@@ -66,3 +66,7 @@ If the *OMS Agent for Linux* VM extension is not installing or reporting you can
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
 For more information, refer to [troubleshooting Linux extensions](../virtual-machines/virtual-machines/linux/extensions-oms.md).
+
+## Next steps
+
+For additional troubleshooting guidance related to the OMS Agent for Linux hosted on computers outside of Azure, please see [Troubleshoot Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  
