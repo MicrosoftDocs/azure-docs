@@ -113,5 +113,5 @@ In this quick start you upgraded to Standard tier and provisioned the Microsoft 
 [4]: ./media/security-center-get-started/onboarding.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
-[7]: ./media/security-center-get-started/security-alerts-2.png
+[7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
