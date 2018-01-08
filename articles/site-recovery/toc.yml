@@ -115,16 +115,16 @@
       href: tutorial-dr-drill-secondary.md
     - name: VMware VMs with multi-tenant support to Azure
       href: site-recovery-multi-tenant-support-vmware-using-csp.md
-  - name: Failover and failback
+  - name: Fail over and fail back
     items:
     - name: Set up recovery plans
       href: site-recovery-create-recovery-plans.md
+    - name: Add Azure runbooks to recovery plans
+      href: site-recovery-runbook-automation.md
+    - name: Fail over
       items:
-      - name: Add Azure runbooks to recovery plans
-        href: site-recovery-runbook-automation.md
-    - name: Fail over replicated machines
-      href: site-recovery-failover.md
-      items:
+      - name: About failover
+        href: site-recovery-failover.md
       - name: Run a test failover between VMM clouds
         href: site-recovery-test-failover-vmm-to-vmm.md
       - name: Run a failover and failback for physical servers
@@ -189,25 +189,28 @@
         href: site-recovery-prepare-target-vmware-to-azure.md
       - name: Target environment for physical to Azure
         href: site-recovery-prepare-target-physical-to-azure.md
-    - name: Configure replication settings for VMware to Azure
-      href: site-recovery-setup-replication-settings-vmware.md
-    - name: Exclude disks from replication for VMware to Azure
-      href: site-recovery-exclude-disk.md
-    - name: Exclude disks from replication for Hyper-V to Azure
-      href: site-recovery-hyper-v-exclude-disk.md
-    - name: Deploy the Mobility service for VMware replication
-      href: site-recovery-vmware-to-azure-install-mob-svc.md
+    - name: Configure replication settings
       items:
-      - name: Deploy the Mobility service with System Center Configuration Manager
-        href: site-recovery-install-mobility-service-using-sccm.md
-      - name: Deploy the Mobility service with Azure Automation DSC
-        href: site-recovery-automate-mobility-service-install.md
+      - name: Configure replication settings for VMware to Azure
+        href: site-recovery-setup-replication-settings-vmware.md
+      - name: Exclude disks from replication for VMware to Azure
+        href: site-recovery-exclude-disk.md
+      - name: Exclude disks from replication for Hyper-V to Azure
+        href: site-recovery-hyper-v-exclude-disk.md
     - name: Enable replication
       items:
       - name: Enable Azure to Azure replication
         href: site-recovery-replicate-azure-to-azure.md
       - name: Enable VMware to Azure replication
         href: site-recovery-replicate-vmware-to-azure.md
+    - name: Deploy the Mobility service for VMware
+      items:
+      - name: About the Mobility service
+        href: site-recovery-vmware-to-azure-install-mob-svc.md
+      - name: Deploy the Mobility service with System Center Configuration Manager
+        href: site-recovery-install-mobility-service-using-sccm.md
+      - name: Deploy the Mobility service with Azure Automation DSC
+        href: site-recovery-automate-mobility-service-install.md
   - name: Automate
     items:
     - name: Replicate VMware virtual machines to Azure using PowerShell
