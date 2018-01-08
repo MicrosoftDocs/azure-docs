@@ -62,7 +62,7 @@ Consider an App Service plan in the following cases:
 - You need more CPU or memory options than what is provided on the Consumption plan.
 - You need to run longer than the maximum execution time allowed on the Consumption plan (of 10 minutes).
 - You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes. 
-- You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
+- You want to provide a custom image on which to run your functions.
 
 A VM decouples cost from number of executions, execution time, and memory used. As a result, you won't pay more than the cost of the VM instance that you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
