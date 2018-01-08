@@ -92,7 +92,7 @@ HDInsight includes specific cluster types and cluster customization capabilities
 ### Spark, Kafka, Interactive Query, HBase, customized, and other cluster types
 HDInsight offers the following cluster types:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Uses [HDFS](#hdfs), [YARN](#yarn) resource management, and a simple [MapReduce](#mapreduce) programming model to process and analyze batch data in parallel.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: A framework that uses [HDFS](#hdfs), [YARN](#yarn) resource management, and a simple [MapReduce](#mapreduce) programming model to process and analyze batch data in parallel.
 
 * **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications. Spark works for SQL, streaming data, and machine learning. See [What is Apache Spark in HDInsight?](../spark/apache-spark-overview.md)
 
