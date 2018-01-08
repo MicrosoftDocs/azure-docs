@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/05/2018
 ms.author: cgronlun
 
 ---
@@ -23,7 +23,7 @@ ms.author: cgronlun
 One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Azure AI Gallery to use for your own machine learning experiment.
 
 > [!IMPORTANT]
-> Cortana Intelligence Gallery was renamed **Azure AI Gallery**. As a result, text and images in this transcript vary slightly from the video, which uses the former name.
+> **Cortana Intelligence Gallery** was renamed **Azure AI Gallery**. As a result, text and images in this transcript vary slightly from the video, which uses the former name.
 >
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
@@ -49,7 +49,7 @@ In this one, you’ll discover a place to find examples that you can borrow from
 
 One of the trade secrets of data science is getting other people to do your work for you.
 
-## Find examples in the Azure AI Intelligence Gallery
+## Find examples in the Azure AI Gallery
 
 Microsoft has a cloud-based service called [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) that you're welcome to try for free. It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
@@ -89,7 +89,7 @@ There are other experiments in the [Azure AI Gallery](https://gallery.cortanaint
 
 [Azure AI Gallery](https://gallery.cortanaintelligence.com) is a place to find working experiments that you can use as a starting point for your own solutions.
 
-Be sure to check out the other videos in “Data Science for Beginners” from Microsoft Azure Machine Learning.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
 
 ## Next steps
 * [Try your first data science experiment with Azure Machine Learning](create-experiment.md)
