@@ -6,7 +6,7 @@ manager: douge
 ms.service: multiple
 ms.workload: web
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins

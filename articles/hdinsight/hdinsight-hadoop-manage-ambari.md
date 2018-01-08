@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
 
 ---
@@ -29,7 +29,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 
 ## <a id="whatis"></a>What is Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari create, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
 
