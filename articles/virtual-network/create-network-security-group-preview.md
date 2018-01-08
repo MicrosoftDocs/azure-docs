@@ -39,14 +39,14 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 3. Log in to Azure with the `az login` command.
 4. Register for the preview by entering the following commands:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Confirm that you are registered for the preview by entering the following command:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -55,7 +55,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 6. Run the following bash script to create a resource group:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -65,7 +65,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 7. Create three application security groups, one for each server type:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -84,7 +84,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 8. Create a network security group:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -93,7 +93,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 9. Create security rules within the NSG, setting the application security groups as the destination:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -133,7 +133,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 10. Create a virtual network: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -144,7 +144,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 11. Associate the network security group to the subnet in the virtual network:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -154,7 +154,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     
 12. Create three network interfaces, one for each server type: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -184,7 +184,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 13. Create one virtual machine for each server type, attaching the corresponding network interface to each virtual machine. This example creates Windows virtual machines, but you can change *win2016datacenter* to *UbuntuLTS* to create Linux virtual machines instead.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -435,7 +435,7 @@ Once you remove a network interface from an application security group, none of 
 
 To remove *myNic3* from all application security groups, enter the following command:
 
-```azurecli-interactive
+```azurecli
 az network nic update \
   --name myNic3 \
   --resource-group myResourceGroup \
@@ -449,7 +449,8 @@ To remove *myNic3* from all application security groups, enter the following com
 ```powershell
 $nic=Get-AzureRmNetworkInterface `
   -Name myNic3 `
-  -ResourceGroupName myResourceGroup `
+  -ResourceGroupName myResourceGroup
+
 $nic.IpConfigurations[0].ApplicationSecurityGroups = $null
 $nic | Set-AzureRmNetworkInterface 
 ```
@@ -468,7 +469,7 @@ When you finish this tutorial, you might want to delete the resources that you c
 
 In a CLI session, enter the following command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 
