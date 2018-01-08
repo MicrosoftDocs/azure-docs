@@ -13,7 +13,7 @@ ms.author: heidist
 ---
 
 # Azure Search - frequently asked questions (FAQ)
- 
+
  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Search.
 
 ## Platform
@@ -30,17 +30,17 @@ When comparing search technologies, customers frequently ask for specifics on ho
 + Microsoft's [Natural language processors](https://docs.microsoft.com/rest/api/searchservice/language-support) offer leading edge linguistic analysis.  
 + [Azure Search indexers](search-indexer-overview.md) can crawl a variety of Azure data sources for initial and incremental indexing.
 + If you need rapid response to fluctuations in query or indexing volumes, you can use [slider controls](search-manage.md#scale-up-or-down) in the Azure portal, or run a [PowerShell script](search-manage-powershell.md), bypassing shard management directly.  
-+ [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide. 
++ [Scoring and tuning features](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) provide the means for influencing search rank scores beyond what the search engine alone can provide.
 
 ### Can I pause Azure Search service and stop billing?
 
-You cannot pause the service. Computational and storage resources are allocated for your exclusive use when the service is created. It's not possible to release and reclaim those resources on-demand. 
+You cannot pause the service. Computational and storage resources are allocated for your exclusive use when the service is created. It's not possible to release and reclaim those resources on-demand.
 
 ## Indexing Operations
 
 ### Backup and restore (or download and move) indexes or index snapshots?
 
-Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time, there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service. 
+Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time, there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service.
 
 Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
@@ -62,11 +62,15 @@ Azure Search does not have a role-based security model for per-user data access.
 
 The most common case is not knowing that each query type supports different search behaviors and levels of linguistic analyses. Full text search, which is the predominant workload, includes a language analysis phase that breaks terms down to root forms. This aspect of query parsing casts a broader net over possible matches, because the tokenized term matches a greater number of variants.
 
-If you invoke [other query types](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (wildcard search, fuzzy search, proximity search, suggestions, among others), there is no linguistic analysis. Terms are added to the query tree as-is. 
+Wildcard, fuzzy and regex queries, however, aren't analyzed like regular term or phrase queries and can lead to poor recall if the query does not match the analyzed form of the word in the search index. For more details, please see the documentation on [query architecture](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+
+### My wildcard searches are slow.
+
+Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing of scanning the search index adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider a [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### Why is the search rank a constant or equal score of 1.0 for every hit?
 
-By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking. 
+By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking.
 
 For example, suppose an input of "tour*" in a wildcard search produces matches on “tours”, “tourettes”, and “tourmaline”. Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
 
@@ -85,5 +89,3 @@ Is your question about a missing feature or functionality? Request the feature o
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [How full text search works in Azure Search](search-lucene-query-architecture.md)  
  [What is Azure Search?](search-what-is-azure-search.md)
-
- 
