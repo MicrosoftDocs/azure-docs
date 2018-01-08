@@ -50,10 +50,10 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | **Size**<br /><br /> Required |**xs:long** |Size of the asset file in bytes. |
 | **Duration**<br /><br /> Required |**xs:duration** |Content play back duration. Example: Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Required |**xs:int** |Number of streams in the asset file. |
-| **FormatNames**<br /><br /> Required |**xs:string** |Format names. |
-| **FormatVerboseNames**<br /><br /> Required |**xs:string** |Format verbose names. |
+| **FormatNames**<br /><br /> Required |**xs: string** |Format names. |
+| **FormatVerboseNames**<br /><br /> Required |**xs: string** |Format verbose names. |
 | **StartTime** |**xs:duration** |Content start time. Example: StartTime="PT2.669S". |
-| **OverallBitRate** |**xs:int** |Average bitrate of the asset file in kbps. |
+| **OverallBitRate** |**xs: int** |Average bitrate of the asset file in kbps. |
 
 > [!NOTE]
 > The following four child elements must appear in a sequence.  
@@ -76,14 +76,14 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | --- | --- | --- |
 | **Id**<br /><br /> Required |**xs:int** |Zero-based index of this audio or video track.<br /><br /> This is not necessarily that the TrackID as used in an MP4 file. |
 | **Codec** |**xs:string** |Video track codec string. |
-| **CodecLongName** |**xs:string** |Audio or video track codec long name. |
+| **CodecLongName** |**xs: string** |Audio or video track codec long name. |
 | **TimeBase**<br /><br /> Required |**xs:string** |Time base. Example: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |Number of frames (present for video tracks). |
-| **StartTime** |**xs:duration** |Track start time. Example: StartTime="PT2.669S" |
+| **StartTime** |**xs: duration** |Track start time. Example: StartTime="PT2.669S" |
 | **Duration** |**xs:duration** |Track duration. Example: Duration="PTSampleFormat M37.757S". |
 
 > [!NOTE]
-> The following 2 child elements must appear in a sequence.  
+> The following two child elements must appear in a sequence.  
 > 
 > 
 
@@ -104,7 +104,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | Name | Type | Description |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Sample format. |
-| **ChannelLayout** |**xs:string** |Channel layout. |
+| **ChannelLayout** |**xs: string** |Channel layout. |
 | **Channels**<br /><br /> Required |**xs:int** |Number (0 or more) of audio channels. |
 | **SamplingRate**<br /><br /> Required |**xs:int** |Audio sampling rate in samples/sec or Hz. |
 | **Bitrate** |**xs:int** |Average audio bit rate in bits per second, as calculated from the asset file. Only the elementary stream payload is counted, and the packaging overhead is not included in this count. |
@@ -121,19 +121,19 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | Name | Type | Description |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Required |**xs:string** |Video codec FourCC code. |
-| **Profile** |**xs:string** |Video track's profile. |
-| **Level** |**xs:string** |Video track's level. |
-| **PixelFormat** |**xs:string** |Video track's pixel format. |
+| **Profile** |**xs: string** |Video track's profile. |
+| **Level** |**xs: string** |Video track's level. |
+| **PixelFormat** |**xs: string** |Video track's pixel format. |
 | **Width**<br /><br /> Required |**xs:int** |Encoded video width in pixels. |
 | **Height**<br /><br /> Required |**xs:int** |Encoded video height in pixels. |
-| **DisplayAspectRatioNumerator**<br /><br /> Required |**xs:double** |Video display aspect ratio numerator. |
+| **DisplayAspectRatioNumerator**<br /><br /> Required |**xs: double** |Video display aspect ratio numerator. |
 | **DisplayAspectRatioDenominator**<br /><br /> Required |**xs:double** |Video display aspect ratio denominator. |
-| **DisplayAspectRatioDenominator**<br /><br /> Required |**xs:double** |Video sample aspect ratio numerator. |
-| **SampleAspectRatioNumerator** |**xs:double** |Video sample aspect ratio numerator. |
+| **DisplayAspectRatioDenominator**<br /><br /> Required |**xs: double** |Video sample aspect ratio numerator. |
+| **SampleAspectRatioNumerator** |**xs: double** |Video sample aspect ratio numerator. |
 | **SampleAspectRatioNumerator** |**xs:double** |Video sample aspect ratio denominator. |
 | **FrameRate**<br /><br /> Required |**xs:decimal** |Measured video frame rate in .3f format. |
 | **Bitrate** |**xs:int** |Average video bit rate in kilobits per second, as calculated from the asset file. Only the elementary stream payload is counted, and the packaging overhead is not included. |
-| **MaxGOPBitrate** |**xs:int** |Max GOP average bitrate for this video track, in kilobits per second. |
+| **MaxGOPBitrate** |**xs: int** |Max GOP average bitrate for this video track, in kilobits per second. |
 | **HasBFrames** |**xs:int** |Video track number of B frames. |
 
 ## <a name="MetadataType"></a> MetadataType
@@ -156,7 +156,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | **ProgramId**<br /><br /> Required |**xs:int** |Program Id |
 | **NumberOfPrograms**<br /><br /> Required |**xs:int** |Number of programs. |
 | **PmtPid**<br /><br /> Required |**xs:int** |Program Map Tables (PMTs) contain information about programs.  For more information, see [PMt](http://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Required |**xs:int** |Used by decoder. For more information, see [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
+| **PcrPid**<br /><br /> Required |**xs: int** |Used by decoder. For more information, see [PCR](http://en.wikipedia.org/wiki/MPEG_transport_stream#PCR) |
 | **StartPTS** |**xs: long** |Starting presentation time stamp. |
 | **EndPTS** |**xs: long** |Ending presentation time stamp. |
 
@@ -168,17 +168,17 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Default**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the default presentation. |
+| **Default**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this is the default presentation. |
 | **Dub**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the dubbed presentation. |
-| **Original**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the original presentation. |
+| **Original**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this is the original presentation. |
 | **Comment**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track contains commentary. |
 | **Lyrics**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track contains lyrics. |
 | **Karaoke**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this represents the karaoke track (background music, no vocals). |
 | **Forced**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the forced presentation. |
 | **HearingImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the hearing impaired. |
 | **VisualImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the visually impaired. |
-| **CleanEffects**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track has clean effects. |
-| **AttachedPic**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track has pictures. |
+| **CleanEffects**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has clean effects. |
+| **AttachedPic**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has pictures. |
 
 ## <a name="Programs"></a> Programs element
 Wrapper element holding multiple **Program** elements.  
