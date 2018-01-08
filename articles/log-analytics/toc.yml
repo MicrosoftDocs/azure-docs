@@ -73,8 +73,6 @@
         href: log-analytics-sccm.md
       - name: OMS Gateway
         href: log-analytics-oms-gateway.md
-      - name: Troubleshoot Linux agent
-        href: log-analytics-agent-linux-support.md
     - name: Data sources
       items:
       - name: Data sources overview
@@ -164,6 +162,12 @@
       href: log-analytics-manage-cost-storage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
+  - Troubleshoot
+    items:
+    - name: Troubleshoot VM Extension
+      href: log-analytics-azure-vmext-troubleshoot.md
+    - name: Troubleshoot Linux agent
+      href: log-analytics-agent-linux-support.md
   - name: Use solutions
     items:
     - name: Solutions overview
