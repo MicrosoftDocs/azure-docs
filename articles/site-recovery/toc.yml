@@ -13,7 +13,7 @@
   items:
   - name: Azure VMs
     items:
-    - name: Set up disaster recovery for VMware VMs
+    - name: Set up disaster recovery
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
