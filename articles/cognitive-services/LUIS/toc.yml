@@ -51,6 +51,8 @@
     href: luis-csharp-tutorial-build-bot-framework-sample.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Learn synonyms with a phrase list
+    href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -133,6 +135,8 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Glossary
+    href: luis-glossary.md
   - name: LUIS FAQ
     href: luis-resources-faq.md
   - name: Pricing

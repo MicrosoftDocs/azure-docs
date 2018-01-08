@@ -33,14 +33,14 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 
 See the language-specific example:
 
-* [Precompiled C#](#trigger---c-example)
-* [C# script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### Trigger - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that logs a Service Bus queue message.
+The following example shows a [C# function](functions-dotnet-class-library.md) that logs a Service Bus queue message.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -143,7 +143,7 @@ module.exports = function(context, myQueueItem) {
 
 ## Trigger - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a Service Bus trigger:
+In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -170,7 +170,7 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   }
   ```
 
-  For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+  For a complete example, see [Trigger - C# example](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -248,14 +248,14 @@ Use Azure Service Bus output binding to send queue or topic messages.
 
 See the language-specific example:
 
-* [Precompiled C#](#output---c-example)
-* [C# script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -409,7 +409,7 @@ module.exports = function (context, myTimer) {
 
 ## Output - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - configuration](#output---configuration) section. Here's an example that shows the attribute applied to the return value of the function:
 
@@ -433,9 +433,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-For a complete example, see [Output - precompiled C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
 
 ## Output - configuration
 

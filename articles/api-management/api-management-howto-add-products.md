@@ -56,7 +56,7 @@ In this tutorial, you learn how to:
     |Legal terms|You can include the terms of use for the product which subscribers must accept in order to use the product.|
     |APIs|Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/> You can add an existing API during the product creation. You can add an API to the product later, either from the Products **Settings** page or while creating an API.|<br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product.<br/> If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.|
 
-3. Click **Save** to create the new product.
+3. Click **Create** to create the new product.
 
 ### Add more configurations
 

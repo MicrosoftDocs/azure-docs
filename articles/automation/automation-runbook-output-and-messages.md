@@ -203,7 +203,7 @@ You can see from the above screenshot that when you enable Verbose logging and t
 2. Click on the **Runbooks** tile to open the list of runbooks.
 3. On the Runbooks blade, click to select a graphical runbook from your list of runbooks.
 4. On the Settings blade for the selected runbook, click **Logging and Tracing**.
-5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and udner Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
+5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and under Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
    
    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

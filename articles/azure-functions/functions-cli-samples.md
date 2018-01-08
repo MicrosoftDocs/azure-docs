@@ -18,6 +18,7 @@ ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
 ---
+
 # Azure CLI Samples
 
 The following table includes links to bash scripts for Azure Functions that use the Azure CLI.
