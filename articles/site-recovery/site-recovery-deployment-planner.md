@@ -103,9 +103,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:  
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner_v2.0zip
+    E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
