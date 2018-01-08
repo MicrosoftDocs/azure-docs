@@ -95,7 +95,7 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     ```
 
 ## Enable the virtual machine tag
-Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `export` via the **export** command:
+Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
 
     ```azurecli-interactive
     export AZURE_TAGS=nginx
@@ -166,3 +166,7 @@ The purpoose of tags is to enable the ability to quickly and easily work with su
     PLAY RECAP **********
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
+
+## Next steps
+> [!div class="nextstepaction"] 
+> [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
