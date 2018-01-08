@@ -7,6 +7,7 @@ author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: 5b035843-ab6e-4fe3-b034-838dfb9992f7
 ms.service: virtual-machines-windows
@@ -30,4 +31,4 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Next steps 
-You can also [create a custom virtual machine running Linux](../../linux/classic/createportal.md).
+You can also [create a custom virtual machine running Linux](../../linux/classic/createportal-classic.md).

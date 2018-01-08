@@ -7,6 +7,7 @@ author: squillace
 manager: timlt
 editor: ''
 tags: azure-service-management
+ROBOTS: NOINDEX
 
 ms.assetid: 820cdad0-6767-4d9e-9749-6169e76505ad
 ms.service: virtual-machines-windows
