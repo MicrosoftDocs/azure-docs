@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/10/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -162,13 +162,8 @@ listening on port 80
 
 To see the logs for the side-car container, run the same command specifying the second container name.
 
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
-```
-
-Output:
-
-```bash
+```console
+$ az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
