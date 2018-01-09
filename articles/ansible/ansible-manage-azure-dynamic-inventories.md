@@ -208,7 +208,7 @@ To test that Nginx is installed, you can use SSH to connect to the virtual machi
     * nginx-core
     * nginx-extras
     * nginx-full
-    * nginx-lightTry: sudo apt install <selected package>
+    * nginx-lightTry: sudo apt install &lt;selected package>
     tom@ansible-inventory-test-vm2:~$
     ```
 
