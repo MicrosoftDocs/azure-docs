@@ -147,6 +147,11 @@ In order to remove your own custom entity label from an utterance, click the ent
 
 ![Remove Labeling](./media/add-example-utterances/remove-label.png) 
 
+## Intent prediction discrepancy
+An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. 
+
+![Intent prediction discrepancy](./media/add-example-utterances/score-discrepancy.png) 
+
 ## Switch to token view
 Control-E switches between tokens and entities. 
 
