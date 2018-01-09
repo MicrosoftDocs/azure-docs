@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 01/06/2018
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
@@ -14,14 +14,14 @@ ms.custom: mvc
 
 This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from a Visual Studio Team Services (VSTS) repository. To complete this topic, you must have:
 
-* A VSTS repository with functions code, that you have administrative permissions for.
-* A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
+* A VSTS repository that contains your function app project and to which you have administrative permissions.
+* A [personal access token (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) to access your VSTS repository.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you rather use the CLI locally, you must install and use Azure CLI version 2.0 or a later version. To determine theAzure CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you rather use the Azure CLI locally, you must install and use version 2.0 or a later version. To determine the Azure CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
