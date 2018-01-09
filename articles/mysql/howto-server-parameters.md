@@ -40,7 +40,11 @@ The following parameters are not configurable and tied to your [pricing tier](co
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
- Innodb_file_per_table in Basic tier: OFF
+ innodb_file_per_table in Basic tier: OFF
+ innodb_file_per_table in Basic tier: ON
+ innodb_flush_log_at_trx_commit=1
+ sync_binlog=1 
+ innodb_log_file_size=512MB
  
 All other server parameters that are not listed in the previous table are set to their default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
