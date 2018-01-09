@@ -121,10 +121,13 @@ The HTTP Protocol for Correlation also declares the `Correlation-Context` header
 ## Queue instrumentation
 For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
 
-### Service Bus queue
-With the Azure [Service Bus queue](../service-bus-messaging/index.md), you can pass a property bag along with the message. We use it to pass the correlation ID.
+### Service Bus Queue
+Applicaiton Insights tracks Service Bus Messaging calls with the new [Microsoft Azure ServiceBus Client for .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 and higher.
+If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. 
+Please refer to the [Service Bus client tracing with Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) if you manually process messages.
 
-The Service Bus queue uses TCP-based protocols. Application Insights doesn't automatically track queue operations, so we track them manually. The dequeue operation is a push-style API, and we're unable to track it.
+If you use [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) package, please read further - examples below demonstrate how to track (and correlate) calls to the Service Bus as Service Bus queue uses AMQP protocol and Application Insights doesn't automatically track queue operations.
+As Service Bus allows to pass a property bag along with the message, we use it to pass the correlation ID.
 
 #### Enqueue
 
@@ -413,7 +416,7 @@ In this example, we use `telemetryClient.StartOperation` to create `RequestTelem
 
 When the task starts from the background thread that doesn't have any operation (`Activity`) associated with it, `BackgroundTask` doesn't have any parent. However, it can have nested operations. All telemetry items reported from the task are correlated to the `RequestTelemetry` created in `BackgroundTask`.
 
-## Outgoing dependencies tracking
+## Outgoing Dependencies Tracking
 You can track your own dependency kind or an operation that's not supported by Application Insights.
 
 The `Enqueue` method in the Service Bus queue or the Storage queue can serve as examples for such custom tracking.
@@ -425,6 +428,30 @@ The general approach for custom dependency tracking is to:
 - Make a dependency call and wait for it.
 - Stop the operation with `StopOperation` when it's finished.
 - Handle exceptions.
+
+```C#
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+Note that instead of calling `StopOperation`, you can also dispose it.
+
+*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called (or operation from being disposed) that would prevent operations from being tracked.
+
+### Parallel operations processing and tracking
 
 `StopOperation` only stops the operation that was started. If the current running operation doesn't match the one you want to stop, `StopOperation` does nothing. This situation might happen if you start multiple operations in parallel in the same execution context:
 
@@ -438,31 +465,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Make sure you always call `StartOperation` and run your task in its own context:
+Make sure you always call `StartOperation` and process operation in the same async method to isolate operations running in parallel. If operation is syncronous, wrap process and track with `Task.Run`:
+
 ```C#
-public async Task RunMyTaskAsync()
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 
