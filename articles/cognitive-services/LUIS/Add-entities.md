@@ -66,20 +66,7 @@ You can also define relationships between entities by creating composite entitie
 1. Add the prebuilt entity "number". For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
 2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". 
 
-    |Category (hierarchical entity)|
-    |----|
-    |adult|
-    |child|
-    |infant|
-
-
 3. Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
-
-    |TravelClass (hierarchical entity)|
-    |----|
-    |first|
-    |business|
-    |economy|
 
 4. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
 5. On the **Entities** page, click **Create new entity** to create a custom entity.
