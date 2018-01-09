@@ -93,7 +93,7 @@ During profiling, you can optionally pass a storage-account name and key to find
 
 You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled ten VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect.
 
-By default, the tool is configurd to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+By default, the tool is configured to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>

@@ -64,7 +64,7 @@ To complete this tutorial:
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | Select the document database API.  |
+    | **API** | SQL | Select the SQL API. At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only. |
     | **Subscription** | Azure Subscription | Azure Subscription  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
