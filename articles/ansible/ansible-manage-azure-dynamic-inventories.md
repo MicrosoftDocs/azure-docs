@@ -188,7 +188,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     nginx -v
     ```
 
-1. Once you run the `nginx -v` command, you see results similar to the following output:
+1. Once you run the `nginx -v` command, you see the Nginx version (second line) that indicates that Nginx is installed.
 
     ```Output
     tom@ansible-inventory-test-vm1:~$ nginx -v
