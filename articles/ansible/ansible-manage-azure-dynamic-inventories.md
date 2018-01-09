@@ -97,25 +97,25 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
 ## Enable the virtual machine tag
 Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
 
-    ```azurecli-interactive
-    export AZURE_TAGS=nginx
-    ```
+```azurecli-interactive
+export AZURE_TAGS=nginx
+```
 
 Once the tag has been exported, you can try the `ansible` command again:
 
-    ```azurecli-interactive
-    ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-    ```
+```azurecli-interactive
+ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
+```
 
 You now see only one virtual machine (the one whose tag matches the value exported into the **AZURE_TAGS** environment variable):
 
-    ```Output
-    ansible-inventory-test-vm1 | SUCCESS => {
-        "changed": false,
-        "failed": false,
-        "ping": "pong"
-    }
-    ```
+```Output
+ansible-inventory-test-vm1 | SUCCESS => {
+    "changed": false,
+    "failed": false,
+    "ping": "pong"
+}
+```
 
 ## Set up Nginx on the tagged virtual machine
 The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
