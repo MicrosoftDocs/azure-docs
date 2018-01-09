@@ -1,20 +1,16 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Windows VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
-services: storage
-documentationcenter: ''
-author: robinsh
-manager: timlt
-editor: tysonn
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
 
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
+ms.author: iainfou
 
 ---
 # About disks storage for Azure Windows VMs
