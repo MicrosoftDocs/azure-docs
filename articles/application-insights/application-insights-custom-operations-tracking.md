@@ -449,7 +449,7 @@ public async Task RunMyTaskAsync()
 
 Note that instead of calling `StopOperation`, you can also dispose it.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called (or operation from being disposed) that would prevent operations from being tracked.
+*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called (i.e. using block from call `Dispose`). TIn this case operations may not be tracked.
 
 ### Parallel operations processing and tracking
 
