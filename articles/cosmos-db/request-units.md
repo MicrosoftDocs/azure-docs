@@ -207,7 +207,7 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
-### <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
+## <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
 API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
