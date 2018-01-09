@@ -14,9 +14,9 @@ ms.date: 1/02/2018
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for PostgreSQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for PostgreSQL server.
 
-To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNET) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for PostgreSQL:
+To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNet) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for PostgreSQL:
 
-![Example of how a VNET Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
 > For Azure Database for PostgreSQL, this feature is available in Preview in all regions of Azure public cloud.
@@ -29,7 +29,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 
 **Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
 
-**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNET service endpoint it will configure service endpoint traffic for all Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
+**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it will configure service endpoint traffic for all Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 
 
 **Virtual network rule:** A virtual network rule for your Azure Database for PostgreSQL server is a subnet that is listed in the access control list (ACL) of your Azure Database for PostgreSQL server. To be in the ACL for your Azure Database for PostgreSQL server, the subnet must contain the **Microsoft.Sql** type name.
 
@@ -45,7 +45,7 @@ A virtual network rule tells your Azure Database for PostgreSQL server to accept
 
 ## Benefits of a virtual network rule
 
-Until you take action, the VMs on your subnets cannot communicate with your Azure Database for PostgreSQL server. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNET rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
+Until you take action, the VMs on your subnets cannot communicate with your Azure Database for PostgreSQL server. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
 
 #### A. Allow access to Azure services
 
@@ -102,9 +102,9 @@ The roles of Network Admin and Database Admin have more capabilities than are ne
 You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
-> In some cases the Azure Database for PostgreSQL and the VNET-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
-> - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNET-subnet to the given Server.
+> - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
 
 ## Limitations
 
