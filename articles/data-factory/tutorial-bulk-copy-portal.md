@@ -287,6 +287,7 @@ This pipeline performs two steps:
         ```sql
         SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE = 'BASE TABLE' and TABLE_SCHEMA = 'SalesLT' and TABLE_NAME <> 'ProductModel'
         ```
+    4. Clear the checkbox for the **First row only** field.
 
         ![Lookup activity - settings page](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
 5. Drag-and-drop **Execute Pipeline** activity from the Activities toolbox to the pipeline designer surface, and set the name to **TriggerCopy**.
@@ -320,7 +321,71 @@ This pipeline performs two steps:
 
 ## Monitor the pipeline run
 
-1. Switch to the Monitor tab. 
+1. Switch to the **Monitor** tab. Click **Refresh** until you see runs for both the pipelines in your solution. Continue refreshing the list unitl you see the **Succeeded** status. 
+
+    ![Pipeline runs](./media/tutorial-bulk-copy-portal/pipeline-runs.png)
+2. To view activity runs associated with the GetTableListAndTriggerCopyData pipeline, click the first link in the Actions link for that pipeline. You should see two activity runs for this pipeline run. 
+
+    ![Activity runs](./media/tutorial-bulk-copy-portal/activity-runs-1.png)    
+3. To view the output of the **Lookup** activity, click link in the **Output** column for that activity. You can maximize and restore the **Output** window. After reviewing, click **X** to close the **Output** window.
+
+    ```json
+    {
+        "count": 9,
+        "value": [
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "Customer"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "ProductDescription"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "Product"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "ProductModelProductDescription"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "ProductCategory"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "Address"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "CustomerAddress"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "SalesOrderDetail"
+            },
+            {
+                "TABLE_SCHEMA": "SalesLT",
+                "TABLE_NAME": "SalesOrderHeader"
+            }
+        ],
+        "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
+        "effectiveIntegrationRuntimes": [
+            {
+                "name": "DefaultIntegrationRuntime",
+                "type": "Managed",
+                "location": "East US",
+                "billedDuration": 0,
+                "nodes": null
+            }
+        ]
+    }
+    ```    
+4. To switch back to the **Pipeline Runs** view, click **Pipelines** at the top. Click **View Activity Runs** link (first link in the **Actions** column) for the **IterateAndCopySQLTables** pipeline. You should see output as shown in the following image: Notice that there is one **Copy** activity run for each table in the **Lookup** activity output. 
+
+        ![Activity runs](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
+5. Confirm that the data was copied to the target SQL Data Warehouse you used in this tutorial. 
 
 ## Next steps
 You performed the following steps in this tutorial: 
