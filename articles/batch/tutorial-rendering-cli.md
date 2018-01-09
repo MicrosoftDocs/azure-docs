@@ -28,18 +28,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-Download and install [3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) from the Autodesk site onto a Windows computer. Copy or upload the following file to a working directory on the computer where you run the commands for this tutorial:
-
-```
-Scenes\CameraEffects\MotionBlur-DragonFlying.max
-```
-
-A bash script file and JSON configuration files for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene).
+A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is from the [3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) available from the Autodesk site. Use is subject to the Autodesk terms.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 
 
@@ -85,7 +79,7 @@ az batch account login \
 ```
 ## Upload 3ds Max scene to storage
 
-To upload the input scene to storage, you first need to access the storage account and create a destination container for the blobs. To access the Azure storage account, export the `AZURE_STORAGE_KEY` and `AZURE_STORAGE_ACCOUNT` environment variables. The first bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key. After you set these environment variables, your storage commands use this account context.
+To upload the input scene to storage, you first need to access the storage account and create a destination container for the blobs. To access the Azure storage account, export the `AZURE_STORAGE_KEY` and `AZURE_STORAGE_ACCOUNT` environment variables. The first Bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key. After you set these environment variables, your storage commands use this account context.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -101,7 +95,13 @@ az storage container create \
     --name scenefiles
 ```
 
-Upload a 3ds Max scene file (see Prerequisites) from your local working directory to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
+Download the scene `MotionBlur-Dragon-Flying.max` from [GitHub](https://github.com/dlepow/batchmvc/raw/master/Tutorials/Rendering/scenes/MotionBlur-DragonFlying.max) to a local working directory. For example:
+
+```azurecli-interactive
+wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
+```
+
+Upload the scene file from your local working directory to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -157,7 +157,7 @@ az batch pool show \
     --query "allocationState"
 ```
 
-Continue the following steps to create a job and tasks while the pool state is changing. The pool is completely provisioned when the allocation state is `Steady`.  
+Continue the following steps to create a job and tasks while the pool state is changing. The pool is completely provisioned when the allocation state is `steady` and the nodes are running.  
 
 ## Create a blob container for output
 
@@ -188,7 +188,7 @@ se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## Render a single-frame scene
 
-Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. 
+Create a rendering job to run on the pool by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. Initally the job has no tasks.
 
 ```azurecli-interactive
 az batch job create \
@@ -198,7 +198,7 @@ az batch job create \
 
 Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file name *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/myrendertask.json).)
 
-The task specifies an Arnold command line to render a single frame of the 3ds Max scene *MotionBlur-DragonFlying.max*.
+The task specifies a 3ds Max command to render a single frame of the scene *MotionBlur-DragonFlying.max*.
 
 Modify the `blobSource` and `containerURL` elements in the JSON file so that they include the name of your storage account and your SAS token. 
 
