@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 01/09/2018
 ms.author: nitinme
 
 ---
@@ -32,8 +32,6 @@ You can search the [Maven repository](http://search.maven.org/) for the complete
 
 In this article, you will learn how to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
 
-
-
 ## Prerequisites
 You must have the following:
 
@@ -41,6 +39,7 @@ You must have the following:
 
 ## Use external packages with Jupyter notebooks
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
 	> [!NOTE]
@@ -48,8 +47,6 @@ You must have the following:
 	> 
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 	> 
-
-   
 
 3. Create a new notebook. Click **New**, and then click **Spark**.
    
@@ -127,4 +124,3 @@ You must have the following:
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
-
