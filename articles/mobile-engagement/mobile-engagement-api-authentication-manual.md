@@ -18,10 +18,10 @@ ms.author: piyushjo
 
 ---
 # Authenticate with Mobile Engagement REST APIs - manual setup
-This documentation is an appendix to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to understand the context. It also describes an alternate way to do the one-time setup for authentication for the Mobile Engagement REST APIs using the Azure portal.
+This documentation is an appendix to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read that article first to understand the context. It also describes an alternate way to do the one-time authentication setup for the Mobile Engagement REST APIs by using the Azure portal.
 
 > [!NOTE]
-> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. Refer to it if you want to understand the following steps in detail.
+> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for the authentication requirements for Mobile Engagement APIs. Refer to it if you want to understand the following steps in detail.
 
 1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com/).
 2. Select **Active Directory** from the left pane.
@@ -36,11 +36,11 @@ This documentation is an appendix to [Authenticate with Mobile Engagement REST A
 
      ![Add application][4]
 
-5. Fill in the name of the application. Leave the type of application as **Web app/API**, and then select the **Next** button. You can provide any dummy URLs for **SIGN-ON URL**. They are not used for this scenario and the URLs themselves are not validated.
+5. Fill in the name of the application. Leave the type of application as **Web app/API**, and then select the **Next** button. You can provide any dummy URLs for **SIGN-ON URL**. They are not used for this scenario, and the URLs themselves are not validated.
 
-After you finish, you have an Azure AD app with the name you provided. It is your **AD\_APP\_NAME**, so be sure to make a note of it.
+    After you finish, you have an Azure AD app with the name you provided. It is your **AD\_APP\_NAME**, so be sure to make a note of it.
 
-     ![App name][8]
+![App name][8]
 
 7. Select the app name.
 
@@ -52,21 +52,21 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
      ![Configure app][11]
 
-10. Create a new key, and then immediately copy it and save it for use. It is never be shown again.
+10. Create a new key, and then immediately copy it and save it for use. It won't be shown again.
 
      ![Configure app][12]
 
     > [!IMPORTANT]
-    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. Iff you think that this key has been compromised, you can also delete and recreate it .
+    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. If you think that this key has been compromised, you can also delete and recreate it .
     >
     >
-11. Select **Endpoints** button at the top of the page. Then copy the **OAUTH 2.0 TOKEN ENDPOINT**.
+11. Select the **Endpoints** button at the top of the page. Then copy the **OAUTH 2.0 TOKEN ENDPOINT**.
 
     ![][14]
 
 16. This endpoint is in the following form, where the GUID in the URL is your **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-17. Now we  proceed to configure the permissions on this app. To start the process, go to the [Azure portal](https://portal.azure.com).
+17. Next, you configure the permissions on this app. To start the process, go to the [Azure portal](https://portal.azure.com).
 
 18. Select **Resource Groups**, and then find the **Mobile Engagement** resource group.
 
@@ -76,7 +76,7 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
     ![][16]
 
-20. Select **Users** in the **Settings** section, and then select **Add** to add a user.
+20. Select **Users** in the **Settings** section. Then, to add a user, select **Add**.
 
     ![][17]
 
@@ -96,7 +96,7 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
     ![][21]
 
-You have now completed the required Azure AD configuration and you are all set to call the APIs.
+You have now completed the required Azure AD configuration and and are all set to call the APIs.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png
