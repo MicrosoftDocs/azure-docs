@@ -32,10 +32,10 @@ When you have an issue, contact Microsoft Customer Services Support and then run
     1. Access the privileged endpoint. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
     2. Log in as **AzureStack\CloudAdmin** on the management host.
     3. Open PowerShell as an administrator.
-    4. Run `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`.
-    4. Run `Test-AzureStack`.
-4. If any tests report **Fail**, run `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` to gather logs from Test-AzureStack. For more information about diagnostic logs, see [Azure Stack diagnostics tools](azure-stack-diagnostics.md).
-5. Send the SeedRing logs to Microsoft Customer Services Support. Microsoft Customer Services Support works with you to resolve the issue.
+    4. Run: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    5. Run: `Test-AzureStack`
+4. If any tests report fail, run: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` The cmdlet gathers the logs from Test-AzureStack. For more information about diagnostic logs, see [Azure Stack diagnostics tools](azure-stack-diagnostics.md).
+5. Send the **SeedRing** logs to Microsoft Customer Services Support. Microsoft Customer Services Support works with you to resolve the issue.
 
 ## Reference for Test-AzureStack
 
