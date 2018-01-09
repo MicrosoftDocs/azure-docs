@@ -1,22 +1,18 @@
 ---
 title: Configure Azure Active Directory authentication - SQL | Microsoft Docs
-description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
+description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication - after configuring Azure AD.
 services: sql-database
-documentationcenter: ''
-author: BYHAM
-manager: jhubbard
-editor: ''
-tags: ''
-
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: "Active"
 ms.date: 01/09/2018
-ms.author: rickbyh
+ms.author: mireks
 
 ---
 # Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse
@@ -29,7 +25,7 @@ This article shows you how to create and populate Azure AD, and then use Azure A
 ## Create and populate an Azure AD
 Create an Azure AD and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0), and [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](./active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0), and [Hybrid Identity Required Ports and Protocols](./active-directory/active-directory-aadconnect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
