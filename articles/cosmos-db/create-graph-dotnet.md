@@ -119,17 +119,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
 
-3. Change `documents` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20th, 2017, change `documents` to `graphs` in the `endpoint` value and move to the next step.)
-
-    The endpoint value should now look like this:
-
-    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
-
-4. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
+3. Copy your **PRIMARY KEY** value from the portal, and make it the value of the AuthKey key in App.config, then save your changes. 
 
     `"authkey": "FILLME"`
 
-5. Save the appsettings.json file. 
+4. Save the appsettings.json file. 
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
