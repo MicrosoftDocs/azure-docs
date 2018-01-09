@@ -79,7 +79,7 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
     ```
 
-1. Once connected, you see results similar to the output:
+1. Once connected, you see results similar to the following output:
 
     ```Output
     ansible-inventory-test-vm1 | SUCCESS => {
@@ -149,7 +149,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
   ansible-playbook -i azure_rm.py nginx.yml
   ```
 
-1. You see results similar to the following output:
+1. Once you run the playbook, you see results similar to the following output:
 
     ```Output
     PLAY [Install and start Nginx on an Azure virtual machine] **********
@@ -165,6 +165,51 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
     PLAY RECAP **********
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
+    ```
+
+## Test Nginx installation
+To test that Nginx is installed, you can use SSH to connect to the virtual machine, and then run `nginx status`.
+
+1. Use the [az vm list-ip-addresses command](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
+
+    ```azurecli-interactive
+    ssh `az vm list-ip-addresses 
+    -n ansible-inventory-test-vm1 
+    --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
+    ```
+
+    Once connected to the virtual machine, the Cloud Shell prompt changes to include the virtual machine name:
+
+    ![The Cloud Shell prompt changes to include the virtual machine name upon connection](./media/ansible-manage-azure-dynamic-inventories/cloudshell-prompt-change-after-ssh-connect.png)
+    
+1. The [nginx -v command](https://nginx.org/en/docs/switches.html) is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
+
+    ```azurecli-interactive
+    nginx -v
+    ```
+
+1. Once you run the `nginx -v` command, you see results similar to the following output:
+
+    ```Output
+    tom@ansible-inventory-test-vm1:~$ nginx -v
+
+    nginx version: nginx/1.10.3 (Ubuntu)
+    
+    tom@ansible-inventory-test-vm1:~$
+    ```
+
+1. Press the **<Ctrl>D** keyboard combination to disconnect the SSH session.
+
+1. Performing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
+
+    ```Output
+    tom@ansible-inventory-test-vm2:~$ nginx -v
+    The program 'nginx' can be found in the following packages:
+    * nginx-core
+    * nginx-extras
+    * nginx-full
+    * nginx-lightTry: sudo apt install <selected package>
+    tom@ansible-inventory-test-vm2:~$
     ```
 
 ## Next steps
