@@ -198,7 +198,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Press the **<Ctrl>D** keyboard combination to disconnect the SSH session.
+1. Press the **&lt;Ctrl>D** keyboard combination to disconnect the SSH session.
 
 1. Performing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
 
