@@ -34,7 +34,7 @@ To complete this quickstart:
 
 ## <a name="add-binding"></a>Add an output binding
 
-In this section you use the portal UI to add a queue storage output binding to the function you created earlier. This binding will make it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, getting a reference to a queue, or creating a queue if it doesn't already exist. The Azure Functions runtime and queue output binding take care of those tasks for you.
+In this section, you use the portal UI to add a queue storage output binding to the function you created earlier. This binding will make it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
 1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
 
@@ -64,9 +64,9 @@ In this section you use the portal UI to add a queue storage output binding to t
  
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
-## Add code to use the output binding
+## Add code that uses the output binding
 
-In this section you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string.
+In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string.
 
 1. Select your function to display the function code in the editor. 
 
@@ -139,7 +139,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 ### Examine the output queue
 
-4. In Storage Explorer, select the storage account that you just connected.
+4. In Storage Explorer, select the storage account that you're using for this quickstart.
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
