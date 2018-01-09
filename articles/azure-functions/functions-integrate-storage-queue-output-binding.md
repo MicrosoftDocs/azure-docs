@@ -28,7 +28,7 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 To complete this quickstart:
 
-* Follow the directions in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
+* Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
 * Install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
 
@@ -36,7 +36,7 @@ To complete this quickstart:
 
 In this section you use the portal UI to add a queue storage output binding to the function you created earlier. This binding will make it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, getting a reference to a queue, or creating a queue if it doesn't already exist. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
-1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md).
+1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
 
    To open the function app starting from the Azure portal dashboard, select **More services > Function Apps**, and then select your function app.
 
