@@ -39,9 +39,10 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 ## Set up your Node.js application
 
->**Note:** If you'd like to just walkthrough the sample code instead of setup the application itself, clone the [sample](https://github.com/Azure-Samples/Mongoose_CosmosDB) used for this tutorial and build your Node.js Mongoose application on Azure Cosmos DB.
+>[!Note]
+> If you'd like to just walkthrough the sample code instead of setup the application itself, clone the [sample](https://github.com/Azure-Samples/Mongoose_CosmosDB) used for this tutorial and build your Node.js Mongoose application on Azure Cosmos DB.
 
-1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt .
+1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt.
 
     ```npm init```
 
@@ -300,7 +301,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## Next Steps
+## Next steps
 
 Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB MongoDB API in [MongoDB API support for MongoDB features and syntax](mongodb-feature-support.md).
 
