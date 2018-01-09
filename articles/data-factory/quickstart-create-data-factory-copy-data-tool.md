@@ -57,7 +57,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab. 
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab. 
 
 ## Launch Copy Data tool
 

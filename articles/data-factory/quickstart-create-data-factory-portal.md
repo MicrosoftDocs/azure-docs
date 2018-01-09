@@ -55,7 +55,7 @@ This quickstart describes how to use the Azure portal to create and monitor a da
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
     ![Data factory home page](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab. 
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) application in a separate tab. 
 11. In the get started page, click **Create pipeline**, or switch to the **Edit** tab as shown in the following image: 
 
     ![Get started page](./media/quickstart-create-data-factory-portal/get-started-page.png)
