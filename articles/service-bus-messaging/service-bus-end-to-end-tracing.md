@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus End to end tracing and diagnostics | Microsoft Docs
+title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
 description: Overview of Service Bus client diagnostics and end-to-end tracing
 services: service-bus-messaging
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: lmolkova
 
 ---
 
-# Distributed tracing and correlation through the Service Bus Messaging
+## Distributed tracing and correlation through the Service Bus messaging
 
 One of the common problems in microservices development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
@@ -32,25 +32,23 @@ The protocol is based on the [HTTP Correlation protocol](https://github.com/dotn
 |  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |
 |  Correlation-Context | Operation context, which is propagated across all services involved in operation processing. For more information, see [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
-# Service Bus .NET Client auto-tracing
+## Service Bus .NET Client auto-tracing
 
 Starting with version 3.0.0 [Microsoft Azure ServiceBus Client for .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) provides tracing instrumentation points that can be hooked by tracing systems, or piece of client code.
 The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done with the [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), message processing is also instrumented
 
-## Tracking with Microsoft Application Insights
+### Tracking with Azure Application Insights
 
-[Microsoft Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
+[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net) version 2.5-beta2 or higher
-- [ASP.NET Core](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net-core) version 2.2.0-beta2 or higher.
+- [ASP.NET](../application-insights/app-insights-asp-net.md) version 2.5-beta2 or higher
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) version 2.2.0-beta2 or higher.
 These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) article.
 
-**If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.**
+If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
-### Trace message processing
-
-If you manually receive and process messages, refer to the following example:
+#### Trace message processing
 
 ```csharp
 private readonly TelemetryClient telemetryClient;
@@ -79,12 +77,12 @@ async Task ProcessAsync(Message message)
 }
 ```
 
-In above example, `RequestTelemetry` is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties.
-Nested traces and exceptions reported during message processing are also stamped with correlation properties are 'children' of the `RequestTelemetry`.
+In this example, `RequestTelemetry` is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties.
+Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
 In case you make calls to supported external components during message processing, they are also automagically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md) for manual tracking and correlation.
 
-## Tracking without tracing system
+### Tracking without tracing system
 In case your tracing system does not support automagical Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
@@ -138,7 +136,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In this example, listener logs duration, result, unique identifier, and start time for each Service Bus operation.
 
-### Events
+#### Events
 
 For every operation, two events are sent: 'Start' and 'Stop'. 
 Most probably, you are only interested in 'Stop' events. They provide the result of operation, as well as start time and duration as an Activity properties.
@@ -200,7 +198,6 @@ foreach (var tags in currentActivity.Tags)
 }
 
 serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Status={status}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}{tagsList}");
-
 ```
 
 #### Filtering and sampling
