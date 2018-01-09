@@ -35,7 +35,7 @@ This quickstart describes how to use the Azure portal to create and monitor a da
       
      ![New data factory page](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you see the following error associated with the name, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
