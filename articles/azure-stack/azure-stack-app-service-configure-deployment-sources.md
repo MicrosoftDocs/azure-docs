@@ -47,6 +47,7 @@ You must have a GitHub account to complete this task. You might want to use an a
 3. Enter the **Homepage URL**. The Homepage URL must be the Azure Stack Portal address. For example, https://portal.local.azurestack.external.
 4. Enter an **Application Description**.
 5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local.
+<!---Loc Comment: Please, address the query in conversation section--->
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
