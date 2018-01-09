@@ -49,7 +49,7 @@ required to manage Site Recovery operations in a Recovery Services vault.
 Images of replicated machines are held in Azure storage. Azure VMs are created from the storage
 when you fail over from on-premises to Azure.
 
-1. In the [Azure portal](https://portal.azure.com) menu, click **New** -> **Storage** -> **Storage account**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Storage** > **Storage account**.
 2. Enter a name for your storage account. For these tutorials we will use the name **contosovmsacct1910171607**. The name must be unique within Azure, and be between 3 and 24
    characters, with numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
@@ -67,8 +67,7 @@ when you fail over from on-premises to Azure.
 
 ## Create a vault
 
-1. In the Azure portal menu, click **New** > **Monitoring & Management** >
-   **Backup and Site Recovery**.
+1. In the Azure portal, click **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
 2. In **Name**, specify a friendly name to identify the vault. For this tutorial we use **ContosoVMVault**.
 3. Select the existing resource group named **contosoRG**.
 4. Specify the Azure region **West Europe**, that we're using in this set of tutorials.
@@ -82,8 +81,7 @@ when you fail over from on-premises to Azure.
 
 When Azure VMs are created from storage after failover, they're joined to this network.
 
-1. In the [Azure portal](https://portal.azure.com) menu, click **New** > **Networking** >
-   **Virtual network**
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Networking** > **Virtual network**.
 2. Leave **Resource Manager** selected as the deployment model. Resource Manager is the preferred
    deployment model.
    - Specify a network name. The name must be unique within the Azure resource group. We will use
