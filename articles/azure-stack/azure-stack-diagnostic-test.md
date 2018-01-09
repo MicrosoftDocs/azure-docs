@@ -22,12 +22,6 @@ ms.author: mabrigg
  
 You can validate the status of your Azure Stack. When you have an issue, contact Microsoft Customer Services Support. Support asks you to run Test-AzureStack from your management node. The validation test isolates the failure. Support can then analyze the detailed logs, focus on the area where the error occurred, and work with you in resolving the issue.
 
-Test formatting for PowerShell:
-
-````PowerShell
-  winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-````
-
 ## Run Test-AzureStack
 
 When you have an issue, contact Microsoft Customer Services Support and then run **Run Test-AzureStack**.
@@ -54,9 +48,13 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 > [!Note]  
 > Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
 
+#### Syntax
+
 ````PowerShell
   Test-AzureStack
 ````
+
+#### Parameters
 
 | Parameter               | Value           | Required | Default |
 | ---                     | ---             | ---      | ---     |
@@ -105,7 +103,7 @@ Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicr
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
@@ -114,7 +112,7 @@ In a PEP session, run:
 In a PEP session, run:
 
 ````PowerShell
-  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
 ````
 
@@ -123,7 +121,7 @@ In a PEP session, run:
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
   Test-AzureStack -List
 ````
 
@@ -132,14 +130,14 @@ In a PEP session, run:
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
 To exclude specific tests:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
   Test-AzureStack -Ignore AzsInfraPerformance
 ````
 
