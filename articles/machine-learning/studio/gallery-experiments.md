@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery experiments | Microsoft Docs
-description: Discover and share experiments in Cortana Intelligence Gallery.
+title: Azure AI Gallery experiments | Microsoft Docs
+description: Discover and share experiments in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -17,7 +17,7 @@ ms.date: 04/26/2017
 ms.author: roopalik;garye
 
 ---
-# Discover experiments in Cortana Intelligence Gallery
+# Discover experiments in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Experiments for Machine Learning Studio
@@ -42,7 +42,7 @@ You can get more information about an experiment on the experiment details page.
 ## Download
 You can download a copy of any experiment in the Gallery to your Machine Learning Studio workspace. Then, you can modify your copy to create your own solutions.
 
-Cortana Intelligence Gallery offers two ways to import a copy of an experiment:
+Azure AI Gallery offers two ways to import a copy of an experiment:
 
 * **From the Gallery**. If you find an experiment that you like in the Gallery, you can download a copy and then open it in your Machine Learning Studio workspace.
 * **From within Machine Learning Studio**. In Machine Learning Studio, you can use any experiment in the Gallery as a template to create a new experiment.
