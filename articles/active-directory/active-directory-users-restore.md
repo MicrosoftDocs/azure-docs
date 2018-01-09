@@ -30,7 +30,7 @@ The following permissions are sufficient to restore a user.
 Role  | Permissions 
 --------- | ---------
 Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can restore deleted users 
-Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can permenantly delete users
+Company Administrator<p>Partner Tier1 Support<p>Partner Tier2 Support<p>User Account Administrator | Can permanently delete users
 
 ## How to restore a deleted user
 
