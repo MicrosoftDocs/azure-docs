@@ -117,7 +117,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
-1. In the Azure portal, on the function app page, select your function and then select **Integrate**
+1. In the Azure portal, on the function app page, select your function and then select **Integrate**.
 
 1. Select the **Azure Queue storage** output binding that you added in an earlier step.
 
@@ -125,18 +125,17 @@ Skip this section if you have already installed Storage Explorer and connected i
 
    The portal shows credentials that you can use in Storage Explorer to connect to the storage account.
 
+   ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
+
 1. Copy the **Account Name** value from the portal and paste it in the **Account name** box in Storage Explorer.
  
-1. Click the eye icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
+1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
   
 3. Select **Next**.
 
 4. Select **Connect**. 
 
-    ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
-
-
-    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+   ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### Examine the output queue
 

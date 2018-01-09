@@ -12,7 +12,7 @@ You created resources to complete these quickstarts. If you won't need the resou
 
    To get to that page from the dashboard, select **Resource groups**, and then select the resource group that you used for this quickstart.
 
-1. In the **Resource group** page, review the list of included resource, and verify that they are the ones you want to delete.
+1. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
  
 3. Select **Delete resource group**, and follow the instructions.
 
