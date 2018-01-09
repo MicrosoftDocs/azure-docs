@@ -239,7 +239,8 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
     2. Expand **Polybase Settings**, and select **Allow polybase**. 
-    3. Enter the following SQL script for **Cleanup Script**. 
+    3. Select **Use Type default** option. 
+    4. Enter the following SQL script for **Cleanup Script**. 
 
     ```sql
     TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
@@ -384,7 +385,7 @@ This pipeline performs two steps:
     ```    
 4. To switch back to the **Pipeline Runs** view, click **Pipelines** at the top. Click **View Activity Runs** link (first link in the **Actions** column) for the **IterateAndCopySQLTables** pipeline. You should see output as shown in the following image: Notice that there is one **Copy** activity run for each table in the **Lookup** activity output. 
 
-        ![Activity runs](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
+    ![Activity runs](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 5. Confirm that the data was copied to the target SQL Data Warehouse you used in this tutorial. 
 
 ## Next steps
