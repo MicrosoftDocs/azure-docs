@@ -84,7 +84,7 @@ The extension is required for users to sign into password-based single sign-on. 
 - The extension will also show users the last three applications they launched under **Recently Used** section.
 
 > [!NOTE]
-> Additional features are only available for Edge, Chrome, Firefox.
+> Additional features are available only for Edge, Chrome, and Firefox.
 >
 >
 
