@@ -58,7 +58,7 @@ When you publish the Cloud Service from Visual Studio, you are given the option 
 Note that while you can use Application Insights to display the performance counters (and the other settings) you have specified through the Windows Azure Diagnostics extension, you will only get a richer experience by integrating the Application Insights SDK into your worker and web roles.
 
 
-## How to: Add adv. monitoring
+## Add advanced monitoring
 
 First, if you don't have a **classic** storage account, [create one](../storage/common/storage-create-storage-account.md#create-a-storage-account). Make sure the storage account is created with the **Classic deployment model** specified.
 
