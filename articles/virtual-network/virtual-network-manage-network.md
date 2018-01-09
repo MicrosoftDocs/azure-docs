@@ -45,7 +45,7 @@ Before you begin the tasks that are described in this article, complete the foll
 To create a virtual network:
 
 1. Sign in to the [portal](https://portal.azure.com) with an account that is assigned permissions for the Network Contributor role (at a minimum) for your subscription. To learn more about assigning roles and permissions to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
-2. Click **New** > **Networking** > **Virtual network**.
+2. Click **Create a resource** > **Networking** > **Virtual network**.
 3. On the **Virtual network** blade, in the **Select a deployment model** box, leave **Resource Manager** selected, and then click **Create**.
 4. On the **Create virtual network** blade, enter or select values for the following settings, then click **Create**:
 	- **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Following a naming convention can help make it easier to manage multiple virtual networks.

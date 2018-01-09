@@ -73,7 +73,7 @@ A public IP address is added by associating a public IP address resource to eith
 A public IP address is one setting for a public IP address resource. If you have a public IP address resource that is not currently associated to an IP configuration that you want to associate to an IP configuration, skip the following steps and complete the steps in one of the sections that follow, as you require. If you don't have an available public IP address resource, complete the following steps to create one:
 
 1. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
-3. In the portal, click **New** > **Networking** > **Public IP address**.
+3. In the portal, click **Create a resource** > **Networking** > **Public IP address**.
 4. In the **Create public IP address** blade that appears, enter a **Name**, select an **IP address assignment** type, a **Subscription**, a **Resource group**, and a **Location**, then click **Create**, as shown in the following picture:
 
 	![Create a public IP address resource](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
