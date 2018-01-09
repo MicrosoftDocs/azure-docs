@@ -173,8 +173,8 @@ This section illustrates one technique to test that Nginx is installed on your v
 1. Use the [az vm list-ip-addresses command](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
     ```azurecli-interactive
-    ssh `az vm list-ip-addresses 
-    -n ansible-inventory-test-vm1 
+    ssh `az vm list-ip-addresses \
+    -n ansible-inventory-test-vm1 \
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
