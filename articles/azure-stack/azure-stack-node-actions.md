@@ -85,9 +85,9 @@ This action is typically used when a node is in a hung state and no longer respo
 
 To run the power off action through PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 In the unlikely case that the power off action doesn't work, use the BMC web interface instead.
 
@@ -100,9 +100,9 @@ The **Power on** action turns on the node. It’s the same as if you press the p
 
 To run the power on action through PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 In the unlikely case that the power on action doesn't work, use the BMC web interface instead.
 
