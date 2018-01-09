@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
 ---
 
@@ -25,7 +25,14 @@ This article provides troubleshooting steps to help you resolve Backup failures 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## VM Agent unable to communicate with Azure Backup
+
+> [!NOTE]
+> If your Azure Linux VM backups started failing with this error on or after January 4th, 2018, run the following command in the affected VMs and retry the backups
+
+	sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. Follow below troubleshooting steps in the given order and retry your operation.
+
 ##### Cause 1: [The VM has no Internet access](#the-vm-has-no-internet-access)
 ##### Cause 2: [The agent is installed in the VM but is unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
