@@ -62,7 +62,7 @@
 #### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 #### [Transaction processing](service-bus-transactions.md)
 #### [Paired namespace implementation](service-bus-paired-namespaces.md)
-### [End-to-end tracing and diagnostics](service-bus-end-o-end-tracing.md)
+### [End-to-end tracing and diagnostics](service-bus-end-to-end-tracing.md)
 ## Manage
 ### [Monitor Service Bus with Azure Monitoring](service-bus-metrics-azure-monitor.md)
 ### [Service Bus management libraries](service-bus-management-libraries.md)
