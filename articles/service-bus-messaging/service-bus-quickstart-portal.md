@@ -39,6 +39,7 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 5. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
 6. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
 7. In **Location**, choose the country or region in which your namespace should be hosted.
+
    ![Create namespace][create-namespace]
 8. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
