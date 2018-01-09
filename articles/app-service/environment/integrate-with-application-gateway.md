@@ -49,7 +49,7 @@ To integrate your application gateway with your ILB App Service Environment, you
 
 For details on how to create an ILB App Service Environment, see [Creating and using an ILB App Service Environment][ilbase].
 
-This guide assumes that you want an application gateway in the same Azure virtual network where the App Service Environment is deployed. Before you start to create the application gateway, pick or create a subnet that you will use to host the gateway. 
+This article assumes that you want an application gateway in the same Azure virtual network where the App Service Environment is deployed. Before you start to create the application gateway, pick or create a subnet that you will use to host the gateway. 
 
 You should use a subnet that is not the one named GatewaySubnet. If you put the application gateway in GatewaySubnet, you'll be unable to create a virtual network gateway later. 
 
@@ -57,7 +57,7 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
 ## Configuration steps ##
 
-1. In the Azure portal, go to **New > Network > Application Gateway**.
+1. In the Azure portal, go to **New** > **Network** > **Application Gateway**.
 
 2. In the **Basics** area:
 
@@ -95,11 +95,11 @@ You also cannot put the gateway in the subnet that your ILB App Service Environm
 
    ![Configure backend pool][4]
 
-6. After the process of configuring your back-end pool is complete, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
+6. After the process of configuring your back-end pool is completed, select **Health probes**. Create a health probe for the domain name that you want to use for your app. 
 
    ![Configure health probes][5]
 	
-7. After the process of configuring your health probes is complete, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
+7. After the process of configuring your health probes is completed, select **HTTP settings**. Edit the existing settings, select **Use Custom probe**, and pick the probe that you configured.
 
    ![Configure HTTP settings][6]
 	
