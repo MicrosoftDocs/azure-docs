@@ -205,7 +205,6 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 9. Navigate to the **Configure Sign-on URL** section, perform the following steps:
 
-
 	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
                                                               
 	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
