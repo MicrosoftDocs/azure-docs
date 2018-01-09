@@ -112,7 +112,7 @@
     - name: Run a disaster recovery drill to Azure
       href: site-recovery-test-failover-to-azure.md
     - name: Run a disaster recovery drill to a secondary site
-      href: tutorial-dr-drill-secondary.md
+      href: site-recovery-test-failover-vmm-to-vmm.md
     - name: VMware VMs with multi-tenant support to Azure
       href: site-recovery-multi-tenant-support-vmware-using-csp.md
   - name: Fail over and fail back
