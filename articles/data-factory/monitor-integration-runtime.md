@@ -24,6 +24,9 @@ ms.author: spelluru
 - Self-hosted integration runtime
 - Azure-SSIS integration runtime
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
+
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
 ```powershell

@@ -4,7 +4,7 @@ description: Provides an overview of Windows Hello for Business and additional i
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: femila
+manager: mtillman
 editor: ''
 tags: azure-classic-portal
 

@@ -163,5 +163,5 @@ Learn more about the [ServiceConfiguration.cscfg](cloud-services-model-and-packa
 
 Create a [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) package.
 
-Enable [remote desktop](cloud-services-role-enable-remote-desktop.md) for a role.
+Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
 

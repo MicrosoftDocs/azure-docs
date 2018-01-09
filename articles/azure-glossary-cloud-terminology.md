@@ -84,7 +84,7 @@ The pricing, credits, and related terms applicable to an Azure subscription.
 See the [Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## portal
-The secure web portal used to deploy and manage Azure services.  There are two portals: The [Azure portal](http://portal.azure.com/) and the [classic portal](http://manage.windowsazure.com/). Some services are available in both portals, whereas others are only available in one or the other. The [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/) lists which services are available in which portal.
+The secure web portal used to deploy and manage Azure services.
 
 ## region
 An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  

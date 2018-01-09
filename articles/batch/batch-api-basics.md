@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -53,10 +53,8 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 * [Compute node](#compute-node)
 * [Pool](#pool)
 * [Job](#job)
-
   * [Job schedules](#scheduled-jobs)
 * [Task](#task)
-
   * [Start task](#start-task)
   * [Job manager task](#job-manager-task)
   * [Job preparation and release tasks](#job-preparation-and-release-tasks)
@@ -72,7 +70,7 @@ You can create an Azure Batch account using the [Azure portal](batch-account-cre
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
 > [!NOTE]
-> When creating a Batch account, you should generally choose the default **Batch service** mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative **User subscription** mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created.
+> When creating a Batch account, you should generally choose the default **Batch service** mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative **user subscription** mode, which is no longer recommended for most scenarios, Batch VMs and other resources are created directly in your subscription when a pool is created. To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
 >
 
 
@@ -126,7 +124,7 @@ When you create a Batch pool, you can specify the Azure virtual machine configur
 
 - The **Virtual Machine Configuration**, which specifies that the pool is comprised of Azure virtual machines. These VMs may be created from either Linux or Windows images. 
 
-    When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
+    When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs.
 
 - The **Cloud Services Configuration**, which specifies that the pool is comprised of Azure Cloud Services nodes. Cloud Services provide Windows compute nodes *only*.
 
@@ -145,9 +143,13 @@ To use a custom image, you'll need to prepare the image by generalizing it. For 
 
 For detailed requirements and steps, see [Use a custom image to create a pool of virtual machines](batch-custom-images.md).
 
+#### Container support in Virtual Machine pools
 
+When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
 
-### Compute node type and target number of nodes
+For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
+
+## Compute node type and target number of nodes
 
 When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of compute nodes are:
 
@@ -255,6 +257,10 @@ When you create a task, you can specify:
 * The **environment variables** that are required by your application. For more information, see the [Environment settings for tasks](#environment-settings-for-tasks) section.
 * The **constraints** under which the task should execute. For example, constraints include the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 * **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+* A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
+
+> [!NOTE]
+> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
 
 In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
@@ -265,9 +271,9 @@ In addition to tasks you define to perform computation on a node, the following 
 * [Task dependencies](#task-dependencies)
 
 ### Start task
-By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions like installing the applications that your tasks run or starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
+By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions such as installing the applications that your tasks run, or starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
 
-A primary benefit of the start task is that it can contain all of the information that is necessary to configure a compute node and install the applications that are required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count. The start task provides the Batch service the information that is needed to configure the new nodes and get them ready for accepting tasks.
+A primary benefit of the start task is that it can contain all the information necessary to configure a compute node and install the applications required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count. The start task provides the Batch service the information needed to configure the new nodes and get them ready for accepting tasks.
 
 As with any Azure Batch task, you can specify a list of **resource files** in [Azure Storage][azure_storage], in addition to a **command line** to be executed. The Batch service first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
 
@@ -403,7 +409,7 @@ A scaling formula can be based on the following metrics:
 * **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 * **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately, stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
@@ -495,11 +501,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 ## Next steps
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
-* Download and build the [Batch Explorer][github_batchexplorer] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
-
-  * Monitor and manipulate pools, jobs, and tasks within your Batch account
-  * Download `stdout.txt`, `stderr.txt`, and other files from nodes
-  * Create users on nodes and download RDP files for remote login
+* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications. 
 * Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
 * Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
 
@@ -511,7 +513,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

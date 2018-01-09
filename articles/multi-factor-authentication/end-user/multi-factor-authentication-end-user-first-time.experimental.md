@@ -5,8 +5,8 @@ services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 documentationcenter: ''
 author: barlanmsft
-manager: angrobe
-editor: pblachar
+manager: mtillman
+ms.reviewer: richagi
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication

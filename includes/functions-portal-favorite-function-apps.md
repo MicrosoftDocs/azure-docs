@@ -12,6 +12,6 @@ If you haven't already done so, add Function Apps to your favorites in the Azure
 
 3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Function Apps in Favorites](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

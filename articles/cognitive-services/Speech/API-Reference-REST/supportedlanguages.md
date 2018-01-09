@@ -1,9 +1,9 @@
 ---
-title: Supported Languages  | Microsoft Docs
+title: Supported Languages of Microsoft Speech Service | Microsoft Docs
 description: A list of spoken languages that are supported by Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech

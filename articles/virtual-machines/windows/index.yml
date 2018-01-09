@@ -27,7 +27,7 @@ abstract:
     width: 250
 sections:
 - title: 5-Minute Quickstarts
-  items:
+  items: 
   - type: paragraph
     text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
   - type: list
@@ -73,6 +73,7 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Install a SQL\IIS\.NET stack</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Secure a web server with SSL</a>
 - title: Free Pluralsight Video Training
   items:

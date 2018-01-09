@@ -4,7 +4,7 @@ description: This topic describes the security and privacy considerations relate
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory

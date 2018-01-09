@@ -3,7 +3,7 @@ title: Exploring HockeyApp data in Azure Application Insights | Microsoft Docs
 description: Analyze usage and performance of your Azure app with Application Insights.
 services: application-insights
 documentationcenter: windows
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Exploring HockeyApp data in Application Insights
 
 > [!NOTE]
-> Visual Studio Mobile Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with Mobile Center and Application Insights](app-insights-mobile-center-quickstart.md).
+> Visual Studio App Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with App Center and Application Insights](app-insights-mobile-center-quickstart.md).
 > 
 > 
 

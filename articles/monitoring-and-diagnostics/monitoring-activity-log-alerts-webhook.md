@@ -2,8 +2,6 @@
 title: Understand the webhook schema used in activity log alerts | Microsoft Docs
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 author: johnkemnetz
-manager: orenr
-editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 
@@ -87,37 +85,46 @@ The JSON payload contained in the POST operation differs based on the payload's 
 ###ServiceHealth
 ```json
 {
-    "schemaId": "unknown",
+    "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-        "status": "Activated",
-        "context": {
-            "activityLog": {
-                "properties": {
-                    "title": "...",
-                    "service": "...",
-                    "region": "...",
-                    "communication": "...",
-                    "incidentType": "Incident",
-                    "trackingId": "...",
-                    "groupId": "...",
-                    "impactStartTime": "3/29/2017 3:43:21 PM",
-                    "impactMitigationTime": "3/29/2017 3:43:21 PM",
-                    "eventCreationTime": "3/29/2017 3:43:21 PM",
-                    "impactedServices": "[{...}]",
-                    "defaultLanguageTitle": "...",
-                    "defaultLanguageContent": "...",
-                    "stage": "Active",
-                    "communicationId": "...",
-                    "version": "0.1"
-                }
-            }
+    "status": "Activated",
+    "context": {
+        "activityLog": {
+        "channels": "Admin",
+        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "description": "Active: Virtual Machines - Australia East",
+        "eventSource": "ServiceHealth",
+        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+        "level": "Informational",
+        "operationName": "Microsoft.ServiceHealth/incident/action",
+        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "properties": {
+            "title": "Virtual Machines - Australia East",
+            "service": "Virtual Machines",
+            "region": "Australia East",
+            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "incidentType": "Incident",
+            "trackingId": "0NIH-U2O",
+            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+            "defaultLanguageTitle": "Virtual Machines - Australia East",
+            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "stage": "Active",
+            "communicationId": "636439673646212912",
+            "version": "0.1.1"
         },
-        "properties": {}
+        "status": "Active",
+        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        }
+    },
+    "properties": {}
     }
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](monitoring-service-notifications.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](monitoring-service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../service-health/service-health-alert-webhook-guide.md).
 
 For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](monitoring-overview-activity-logs.md).
 

@@ -1,9 +1,9 @@
 ---
-title: Basic Concepts | Microsoft Docs
+title: Concepts | Microsoft Docs
 description: Basic concepts used in Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -277,7 +277,7 @@ The payload format of the `detailed` phrase result:
   "RecognitionStatus": "Success",
   "Offset": "1236645672289",
   "Duration": "1236645672289",
-  "N-Best": [
+  "NBest": [
       {
         "Confidence" : "0.87",
         "Lexical" : "remind me to buy five pencils",

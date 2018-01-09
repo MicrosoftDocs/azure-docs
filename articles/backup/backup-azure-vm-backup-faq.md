@@ -27,7 +27,7 @@ This article has answers to common questions to help you quickly understand the 
 Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
 
 ### What configurations are not supported by Azure VM backup?
-Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs that are:
@@ -48,6 +48,12 @@ Yes, backups work seamlessly and no need to reconfigure backup.
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
 Yes. Even when a machine is shut down backups work and the recovery point is marked as Crash consistent. For more details, see the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
 
+### Can I cancel an in-progress backup job?
+Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**. 
+
+### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
+If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
 Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set. 
@@ -58,6 +64,9 @@ Use restore disks to:
   * Control the naming convention for resources getting created
   * Add VM to availability set
   * For any other configuration which can be achieved only by using PowerShell/a declarative template definition
+  
+### Can I use backups of unmanaged disk VM to restore after I upgrade my disks to managed disks?
+Yes, you can use the backups taken before migrating disks from unmanaged to managed. By default, restore VM job will create a VM with unmanaged disks. You can use restore disks functionality to restore disks and use them to create a VM on managed disks. 
 
 ## Manage VM backups
 ### What happens when I change a backup policy on VM(s)?

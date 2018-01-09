@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create your first Azure Search index in the portal | Microsoft Docs"
-description: In the Azure portal, use predefined sample data to generate an index. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+title: Azure Search tutorial on indexing, query, and filtering using the portal | Microsoft Docs
+description: In the Azure portal, use predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -8,21 +8,21 @@ manager: jhubbard
 editor: ''
 tags: azure-portal
 
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
 
 ---
-# Tutorial: Create your first Azure Search index in the portal
+# Create, query, and filter an Azure Search index in the portal
 
-In the Azure portal, start with a predefined sample dataset to quickly generate an index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
+In the Azure portal, start with a predefined sample dataset to quickly generate an Azure Search index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 
-This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tools are not a substitute for code, tools are useful for these tasks:
+This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tooling is not a substitute for code, you might find it useful for these tasks:
 
 + Hands on learning with minimal ramp-up
 + Prototype an index before you write code in **Import data**
@@ -125,7 +125,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 **`search=seattle`**
 
-+ The `search` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
++ The **search**` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
 + **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. 
 
@@ -133,35 +133,48 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 **`search=seattle&$count=true&$top=100`**
 
-+ The `&` symbol is used to append search parameters, which can be specified in any order. 
++ The **&** symbol is used to append search parameters, which can be specified in any order. 
 
-+  The `$count=true` parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes reported by `$count=true`. 
++  The **$count=true** parameter returns a count for the sum of all documents returned. You can verify filter queries by monitoring changes reported by **$count=true**. 
 
-+ The `$top=100` returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via `$top`.
++ The **$top=100** returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
+## <a name="filter-query"></a> Filter the query
 
-+  `facet` returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
-
-+ `$top=2` brings back two documents, illustrating that you can use `top` to both reduce or increase results.
-
-**`search=seattle&facet=beds`**
-
-+ This query is facet for beds, on a text search for *Seattle*. `"beds"` can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). 
-
-+ Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
+Filters are included in search requests when you append the **$filter** parameter. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ The `filter` parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. 
++ The **$filter** parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. 
 
 + Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Facet the query
+
+Facet filters are included in search requests. You can use the facet parameter to return an aggregated count of documents that match a facet value you provide. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
+
++  **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on the number of cities. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+
++ **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
+
+**`search=seattle&facet=beds`**
+
++ This query is facet for beds, on a text search for *Seattle*. The term *beds* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). 
+
++ Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
+
+## <a name="highlight-query"></a> Add highlighting
+
+Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. 
+
 **`search=granite countertops&highlight=description`**
 
-+ Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. In this case, the formatted phrase `"granite countertops"` is easier to see in the description field.
++ In this example, the formatted phrase *granite countertops* is easier to spot in the description field.
 
 **`search=mice&highlight=description`**
 
@@ -169,25 +182,31 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 
 + Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
+## <a name="fuzzy-search"></a> Use fuzzy search
+
+Misspelled words, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
+
 **`search=samamish`**
 
-+ Misspelled words, like 'samamish' for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
++ This example misspells a neighborhood in the Seattle area.
 
 **`search=samamish~&queryType=full`**
 
-+ Fuzzy search is enabled when you specify the `~` symbol and use the full query parser, which interprets and correctly parses the `~` syntax. 
++ Fuzzy search is enabled when you specify the **~** symbol and use the full query parser, which interprets and correctly parses the **~** syntax. 
 
-+ Fuzzy search is available when you opt in for the full query parser, which occurs when you set `queryType=full`. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Fuzzy search is available when you opt in for the full query parser, which occurs when you set **queryType=full**. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ When `queryType` is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax. 
++ When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax. 
+
+## <a name="geo-search"></a> Try geospatial search
+
+Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. 
 
-+ The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding `$count`, you can see how many results are returned when you change either the distance or the coordinates. 
-
-+ Geospatial search is useful if your search application has a 'find near me' feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
++ Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
 ## Next steps
 

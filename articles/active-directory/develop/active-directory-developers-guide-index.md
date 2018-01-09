@@ -4,7 +4,7 @@ description: A list of all guides and reference articles in the Azure Active Dir
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2

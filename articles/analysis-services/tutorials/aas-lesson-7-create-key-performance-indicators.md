@@ -4,7 +4,7 @@ description: Describes how to create Key Performance Indicators in the Azure Ana
 services: analysis-services
 documentationcenter: ''
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,12 +14,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 01/08/2018
 ms.author: owend
 ---
-# Lesson 7: Create Key Performance Indicators
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# Create Key Performance Indicators
 
 In this lesson, you create Key Performance Indicators (KPIs). KPIs are used to gauge performance of a value defined by a *Base* measure, against a *Target* value also defined by a measure, or by an absolute value. In reporting client applications, KPIs can provide business professionals a quick and easy way to understand a summary of business success or to identify trends. To learn more, see [KPIs](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   

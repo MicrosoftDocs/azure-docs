@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/30/2017
 ms.author: anoopkv
 ---
 
@@ -47,13 +47,16 @@ Complete these prerequisite steps before you manually install Mobility Service o
 
 | Installer file template name| Operating system |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8 (64-bit only) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2 (64-bit only) </br> CentOS 7.0, 7.1, 7.2 (64-bit only)</br> CentOs 7.3 (migration only) |
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) </br> Windows Server 2016 (64-bit) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64-bit only) </br> CentOS 7.0, 7.1, 7.2, 7.3 (64-bit only) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64-bit only)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
 |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (64-bit only)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (64-bit only)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (64-bit only)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (64-bit only)|
 
 
 ## Install Mobility Service manually by using the GUI
@@ -90,7 +93,7 @@ After Mobility Service is installed, in the Azure portal, select the **+Replicat
 
 1. On the Azure portal browse to <Your Vault> -> Replicated Items view.
 2. If the **Configuration server** has already been updated to the latest version, then you should see a notification that reads *New Site recovery replication agent update is available. Click to install*
-   
+
      ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. Click on the notification to open up the virtual machine selection page.
 4. Select the virtual machines you want to upgrade mobility service on & click OK button.
@@ -99,7 +102,7 @@ After Mobility Service is installed, in the Azure portal, select the **+Replicat
 5. This starts the Update Mobility Service job for each of the selected virtual machines.
 
 > [!NOTE]
-> [Read more](site-recovery-vmware-to-azure-manage-configuration-server.md) on how to update the password for the account used to install Mobility Service 
+> [Read more](site-recovery-vmware-to-azure-manage-configuration-server.md) on how to update the password for the account used to install Mobility Service
 
 ## Uninstall Mobility Service on a Windows Server computer
 Use one of the following methods to uninstall Mobility Service on a Windows Server computer.

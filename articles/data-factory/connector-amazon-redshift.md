@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon Redshift connnector in V1](v1/data-factory-amazon-redshift-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from Amazon Redshift to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -127,7 +127,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | type | The type property of the copy activity source must be set to: **AmazonRedshiftSource** | Yes |
 | query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
-| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying an ADF linked service name of "AmazonS3" type. | Yes if using UNLOAD |
+| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying a linked service name of "AmazonS3" type. | Yes if using UNLOAD |
 | bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |
 
 **Example: Amazon Redshift source in copy activity using UNLOAD**
@@ -204,7 +204,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
 
 ## Data type mapping for Amazon Redshift
 
-When copying data from Teradata, the following mappings are used from Teradata data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Amazon Redshift, the following mappings are used from Amazon Redshift data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Amazon Redshift data type | Data factory interim data type |
 |:--- |:--- |

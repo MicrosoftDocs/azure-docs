@@ -125,21 +125,15 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 #### additionalLinkedServiceNames JSON example
 
 ```json
-"additionalLinkedServiceNames": [
-    "otherLinkedServiceName1": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    },
-    "otherLinkedServiceName2": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    }
-]
+"additionalLinkedServiceNames": [{
+    "referenceName": "MyStorageLinkedService2",
+    "type": "LinkedServiceReference"          
+}]
 ```
 
 ### Service principal authentication
 
-The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
+The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key 
@@ -172,58 +166,53 @@ You can also specify the following properties for the granular configuration of 
 
 ```json
 {
-  "name": " HDInsightOnDemandLinkedService",
-  "properties": {
-    "type": "HDInsightOnDemand",
-    "typeProperties": {
-        "clusterSize": 16,
-        "timeToLive": "01:30:00",
-        "hostSubscriptionId": "<subscription ID>",
-        "servicePrincipalId": "<service principal ID>",
-        "servicePrincipalKey": {
-          "value": "<service principal key>",
-          "type": "SecureString"
-        },
-        "tenant": "<tenent id>",
-        "clusterResourceGroup": "<resource group name>",
-        "version": "3.6",
-        "osType": "Linux",
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name": " HDInsightOnDemandLinkedService",
+    "properties": {
+      "type": "HDInsightOnDemand",
+      "typeProperties": {
+          "clusterSize": 16,
+          "timeToLive": "01:30:00",
+          "hostSubscriptionId": "<subscription ID>",
+          "servicePrincipalId": "<service principal ID>",
+          "servicePrincipalKey": {
+            "value": "<service principal key>",
+            "type": "SecureString"
           },
-          "coreConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "hiveConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "mapReduceConfiguration": {
-              "mapreduce.reduce.java.opts": "-Xmx4000m",
-              "mapreduce.map.java.opts": "-Xmx4000m",
-              "mapreduce.map.memory.mb": "5000",
-              "mapreduce.reduce.memory.mb": "5000",
-              "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-          },
-          "yarnConfiguration": {
-              "yarn.app.mapreduce.am.resource.mb": "5000",
-              "mapreduce.map.memory.mb": "5000"
-          },
-          "additionalLinkedServiceNames": [
-              "otherLinkedServiceName1": {
-                  "referenceName": "datafeeds1",
-                  "type": "LinkedServiceReference"
-              },
-              "otherLinkedServiceName2": {
-                  "referenceName": "datafeeds2",
-                  "type": "LinkedServiceReference"
-              }
-          ]}
-  },
-    "connectVia": {
-    "referenceName": "<name of Integration Runtime>",
-    "type": "IntegrationRuntimeReference"
-  }
+          "tenant": "<tenent id>",
+          "clusterResourceGroup": "<resource group name>",
+          "version": "3.6",
+          "osType": "Linux",
+          "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "coreConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "hiveConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "mapReduceConfiguration": {
+                "mapreduce.reduce.java.opts": "-Xmx4000m",
+                "mapreduce.map.java.opts": "-Xmx4000m",
+                "mapreduce.map.memory.mb": "5000",
+                "mapreduce.reduce.memory.mb": "5000",
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+            },
+            "yarnConfiguration": {
+                "yarn.app.mapreduce.am.resource.mb": "5000",
+                "mapreduce.map.memory.mb": "5000"
+            },
+            "additionalLinkedServiceNames": [{
+                "referenceName": "MyStorageLinkedService2",
+                "type": "LinkedServiceReference"          
+            }]
+        }
+    },
+      "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
 }
 ```
 

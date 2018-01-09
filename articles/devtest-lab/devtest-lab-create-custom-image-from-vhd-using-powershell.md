@@ -3,7 +3,7 @@ title: Create an Azure DevTest Labs custom image from a VHD file using PowerShel
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
@@ -117,4 +117,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 
 ##Next steps
 
-- [Add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Add a VM to your lab](devtest-lab-add-vm.md)

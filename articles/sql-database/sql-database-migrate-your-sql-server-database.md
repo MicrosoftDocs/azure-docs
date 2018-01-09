@@ -14,7 +14,7 @@ ms.custom: mvc,migrate
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "Active"
 ms.date: 09/01/2017
 ms.author: carlrab
 

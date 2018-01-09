@@ -46,7 +46,7 @@ The following table describes the connected sources that are supported by this s
 
 | Connected Source | Support | Description |
 |:--- |:--- |:--- |
-| [Windows agents](log-analytics-windows-agents.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
 | [System Center Operations Manager management group](log-analytics-om-agents.md) |Yes |Alerts that are generated on Operations Manager agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  Operations Manager agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
 

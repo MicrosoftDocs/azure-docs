@@ -22,7 +22,7 @@ This monitoring and troubleshooting guide helps you learn how to track replicati
 
 ## Understand the components
 ### VMware virtual machine or physical server site deployment for replication between on-premises and Azure
-To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobile Apps feature of Microsoft Azure App Service. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
+To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobility Service from the chosen Process server if an up-to-date version is not already deployed. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
 
 ![VMware/Physical site deployment for replication between on-premises and Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
@@ -52,7 +52,7 @@ The error details will help you identify a possible cause and recommendation for
 
 ![Dialog box that shows error details for a specific job](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESART** to initiate the operation again.
+In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESTART** to initiate the operation again.
 
 ![The RESTART button in the JOBS tab](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

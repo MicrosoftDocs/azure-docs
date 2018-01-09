@@ -3,8 +3,8 @@ title: Azure MFA Server upgrade | Microsoft Docs
 description: Steps and guidance to upgrade the Azure Multi-Factor Authentication Server to a newer version. 
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 

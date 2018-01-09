@@ -14,9 +14,6 @@ ms.service: storage
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to subscribe to Blob storage events, and trigger the event to view the result. 
 
-> [!IMPORTANT]
-> You must be registered for the Blob storage events preview to complete this tutorial.  Learn more about the preview program [here](storage-blob-event-overview.md#join-the-preview).
-
 Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, we send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
 > [!NOTE]
@@ -31,6 +28,8 @@ When you complete the steps described in this article, you see that the event da
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.14 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+If you are not using Cloud Shell, you must first sign in using `az login`.
 
 ## Create a resource group
 
@@ -51,7 +50,7 @@ To use Azure Storage, you need a storage account.  Blob storage events are curre
 A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
 
 > [!NOTE]
-> For the preview release, Blob storage events are available only for storage accounts in the **westcentralus** location.
+> Event Grid is currently in preview, and available only for storage accounts in the **westcentralus** and **westus2** regions.
 
 Replace `<storage_account_name>` with a unique name for your storage account, and `<resource_group_name>` with the resource group you created earlier.
 
@@ -85,7 +84,7 @@ az eventgrid resource event-subscription create \
 
 ## Trigger an event from Blob storage
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First,let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>` and `<resource_group_name>`  you created earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's configure the name and key for the storage account, then we'll create a container, then create and upload a file. Again, use the values for `<storage_account_name>` and `<resource_group_name>`  you created earlier.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>

@@ -3,9 +3,8 @@ title: Azure CosmosDB Graph API .NET SDK & Resources | Microsoft Docs
 description: Learn all about the Azure CosmosDB Graph API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 documentationcenter: .net
-author: rnagpal
+author: luisbosquez
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: mimig
+ms.date: 10/17/2017
+ms.author: lbosq
 
 ---
 # Azure Cosmos DB Graph .NET API: Download and release notes
@@ -29,6 +28,15 @@ ms.author: mimig
 
 
 ## Release notes
+
+### <a name="0.3.1-preview"/>0.3.1-preview
+
+#### Bug fixes
+* Fix to optionally load `appsettings.json` (`netstandard1.6`)
+
+#### What's new
+* Switch Microsoft.Azure.Graphs to target platform AnyCPU.
+* Remove Mono assembly from `net461` package manifest.
 
 ### <a name="0.3.0-preview"/>0.3.0-preview
 
@@ -72,6 +80,7 @@ Any request to Azure Cosmos DB using a retired SDK will be rejected by the servi
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [0.3.1-preview](#0.3.1-preview) |October 17, 2017 |--- |
 | [0.3.0-preview](#0.3.0-preview) |October 2, 2017 |--- |
 | [0.2.4-preview](#0.2.4-preview) |August 4, 2017 |--- |
 | [0.2.2-preview](#0.2.2-preview) |June 23, 2017 |--- |

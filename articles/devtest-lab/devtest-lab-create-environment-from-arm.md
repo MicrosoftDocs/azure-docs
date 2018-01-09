@@ -3,7 +3,7 @@ title: Create multi-VM environments and PaaS resources with Azure Resource Manag
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal as what they can do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).

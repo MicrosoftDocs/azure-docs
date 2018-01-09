@@ -32,3 +32,9 @@
 | Australia Southeast | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
+|                     |                         |
+| US Gov Virginia     | 2                       |
+| US Gov Texas        | 2                       |
+| US Gov Arizona      | 2                       |
+| US DoD Central      | 2                       |
+| US DoD East         | 2                       |

@@ -125,5 +125,5 @@ To achieve high availability (HA) in BizTalk Services, you use more than one ins
 
 ## Next
 * [What are Logic Apps](logic-apps-what-are-logic-apps.md)
-* [Create your first logic app](logic-apps-create-a-logic-app.md), or quickly get started using a [pre-built template](logic-apps-use-logic-app-templates.md)  
+* [Create your first logic app](logic-apps-create-a-logic-app.md), or quickly get started using a [pre-built template](logic-apps-create-logic-apps-from-templates.md)  
 * [View all the available connectors](../connectors/apis-list.md) you can use in a logic app
