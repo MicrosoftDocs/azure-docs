@@ -18,78 +18,81 @@ ms.author: piyushjo
 
 ---
 # Authenticate with Mobile Engagement REST APIs - manual setup
-This documentation is an appendix documentation to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to get the context.
-It describes an alternate way to do the One-time setup for setting up your authentication for the Mobile Engagement REST APIs using the Azure portal.
+This documentation is an appendix to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to understand the context. It also describes an alternate way to do the one-time setup for authentication for the Mobile Engagement REST APIs using the Azure portal.
 
 > [!NOTE]
-> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. So refer to it if you want to understand the steps below in detail.
+> The following instructions are based on this [Active Directory guide](../azure-resource-manager/resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. Refer to it if you want to understand the following steps in detail.
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com/).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com/).
 2. Select **Active Directory** from the left pane.
 
-     ![select Active Directory][1]
+     ![Select Active Directory][1]
 
-3. To view the applications in your directory, click on **App registrations**.
+3. To view the applications in your directory, select **App registrations**.
 
-     ![view applications][3]
+     ![View applications][3]
 
-4. Click on **New application registration**.
+4. Select **New application registration**.
 
-     ![add application][4]
+     ![Add application][4]
 
-5. Fill in name of the application and leave the type of application as **Web app/API** and click the next button. You can provide any dummy URLs for **SIGN-ON URL**: They are not used for this scenario and the URLs themselves are not validated.
-6. Once done, you have an Azure AD app with the name you provided. It is your **AD\_APP\_NAME**, please make a note of it.
+5. Fill in the name of the application. Leave the type of application as **Web app/API**, and then select the **Next** button. You can provide any dummy URLs for **SIGN-ON URL**. They are not used for this scenario and the URLs themselves are not validated.
 
-     ![app name][8]
+After you finish, you have an Azure AD app with the name you provided. It is your **AD\_APP\_NAME**, so be sure to make a note of it.
 
-7. Click on the app name.
-8. Find **Application ID**, make a note of it, it is be the CLIENT ID that is to be used as **CLIENT\_ID** for your API calls.
+     ![App name][8]
 
-     ![configure app][10]
+7. Select the app name.
+
+8. Find **Application ID** and make a note of it. It is be the CLIENT ID that is to be used as **CLIENT\_ID** for your API calls.
+
+     ![Configure app][10]
 
 9. Find the **Keys** section on the right.
 
-     ![configure app][11]
+     ![Configure app][11]
 
-10. Create a new key and immediately copy it and save it for use. It will never be shown again.
+10. Create a new key, and then immediately copy it and save it for use. It will never be shown again.
 
-     ![configure app][12]
+     ![Configure app][12]
 
     > [!IMPORTANT]
-    > This key expires at the end of the duration that you specified so make sure to renew it when the time comes otherwise your API authentication will not work anymore. You can also delete and recreate this key if you think that it has been compromised.
+    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. You can also delete and recreate this key if you think that it has been compromised.
     >
     >
-11. Click on **Endpoints** button at the top of the page and copy the **OAUTH 2.0 TOKEN ENDPOINT**.
+11. Select **Endpoints** button at the top of the page. Then copy the **OAUTH 2.0 TOKEN ENDPOINT**.
 
     ![][14]
 
-16. This endpoint will be in the following form where the GUID in the URL is your **TENANT_ID** so make a note of it: `https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. Now we will proceed to configure the permissions on this app. For this you will have to open up the [Azure portal](https://portal.azure.com). 
-18. Click on **Resource Groups** and find the **Mobile Engagement** resource group.
+16. This endpoint is in the following form, where the GUID in the URL is your **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
+
+17. Now we  proceed to configure the permissions on this app. For this, you  have to open up the [Azure portal](https://portal.azure.com).
+
+18. Select **Resource Groups**, and then find the **Mobile Engagement** resource group.
 
     ![][15]
 
-19. Click the **Mobile Engagement** resource group and navigate to the **Settings** section here.
+19. Select the **Mobile Engagement** resource group, and then navigate to the **Settings** section.
 
     ![][16]
 
-20. Click on **Users** in the Settings section and then click on **Add** to add a user.
+20. Select **Users** in the **Settings** section, and then select **Add** to add a user.
 
     ![][17]
 
-21. Click on **Select a role**.
+21. Click **Select a role**.
 
     ![][18]
 
-22. Click on **Owner**.
+22. Select **Owner**.
 
     ![][19]
 
-23. Search for the name of your application **AD\_APP\_NAME** in the Search box. You will not see this by default here. Once you find it, select it and click on **Select** at the bottom of the section.
+23. Search for the name of your application, **AD\_APP\_NAME**, in the Search box. You will not see this by default here. After you find it, select it. Then click **Select** at the bottom of the section.
 
     ![][20]
 
-24. On the **Add Access** section, it will show up as **1 user, 0 groups**. Click **OK** on this section to confirm the change.
+24. On the **Add Access** section, it appears as **1 user, 0 groups**. Select **OK** in this section to confirm the change.
 
     ![][21]
 
