@@ -50,7 +50,11 @@
     - name: PowerShell
       href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
-    href: tutorial-bulk-copy.md
+    items:
+    - name: Azure portal
+      href: tutorial-bulk-copy-portal.md    
+    - name: PowerShell
+      href: tutorial-bulk-copy.md
   - name: 5 - Copy data incrementally
     href: tutorial-incremental-copy-overview.md
     items:
