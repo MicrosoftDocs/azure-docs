@@ -12,7 +12,7 @@
 
 # How to
 ## Load and move data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

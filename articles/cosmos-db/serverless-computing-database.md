@@ -31,6 +31,9 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Alternatively, bind an Azure Function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes.
 * Bind a function to an Azure Cosmos DB collection using an **output binding**. Output bindings write data to a container when a function completes.
 
+> [!NOTE]
+> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
+
 The following diagram illustrates each of these three integrations: 
 
 ![How Azure Cosmos DB and Azure Functions integrate](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -39,9 +42,6 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 * An Azure Cosmos DB trigger can be used with an output binding to a different Azure Cosmos DB container. After a function performs an action on an item in the change feed you can write it to another container (writing it to the same container it came from would effectively create a recursive loop). Or, you can use an Azure Cosmos DB trigger to effectively migrate all changed items from one container to a different container, with the use of an output binding.
 * Input bindings and output bindings for Azure Cosmos DB can be used in the same Azure Function. This works well in cases when you want to find certain data with the input binding, modify it in the Azure Function, and then save it to the same container or a different container, after the modification.
 * An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger, and can be used with or without an output binding as well. You could use this combination to apply up-to-date currency exchange information (pulled in with an input binding to an exchange container) to the change feed of new orders in your shopping cart service. The updated shopping cart total, with the current currency conversion applied, can be written to a third container using an output binding.
-
-> [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
 ## Use cases
 

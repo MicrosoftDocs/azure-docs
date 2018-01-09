@@ -191,6 +191,10 @@
       href: agent-user-guide.md
     - name: Planned maintenance
       href: maintenance-notifications.md
+    - name: Mitigating speculative execution
+      href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -304,6 +308,8 @@
       href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use multiple NICs
       href: multiple-nics.md
+    - name: Use accelerated networking
+      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
     - name: DNS resolution
