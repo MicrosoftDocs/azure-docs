@@ -7,6 +7,7 @@ author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+keywords: spectre,meltdown,specter
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -20,6 +21,6 @@ ms.author: cynthn
 
 
 
-# Guidance for mitigating speculative execution side-channel vulnerabilities
+# Guidance for mitigating speculative execution side-channel vulnerabilities in Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
