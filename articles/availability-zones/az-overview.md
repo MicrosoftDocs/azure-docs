@@ -7,9 +7,8 @@ author: markgalioto
 manager: carmonm
 editor:
 tags:
-
 ms.assetid:
-ms.service:
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

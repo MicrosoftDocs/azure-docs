@@ -53,7 +53,6 @@ This update includes the following improvements and fixes for Azure Stack.
 
 #### New features
 
-- New user experience when creating items from the Marketplace
 - Test-AzureStack cmdlet to validate Azure Stack Cloud available via privileged endpoint
 - Ability to register a disconnected deployment of Azure Stack
 - Monitoring alerts for certificate and user account expiration
