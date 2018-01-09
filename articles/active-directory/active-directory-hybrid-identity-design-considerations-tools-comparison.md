@@ -49,6 +49,8 @@ PP = Public Preview
 | Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Supports FIM synchronization rules and connectors for provisioning to on-premises systems. | | | |● |● |
 
+//AADConnect now supports LDAP directories.  Need update to table
+
 ## Cloud to On-Premises Synchronization
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
