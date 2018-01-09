@@ -47,7 +47,7 @@ PP = Public Preview
 | Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Supports FIM synchronization rules and connectors for provisioning to on-premises systems. | | | |● |● |
 &#42; Currently there are two supported options for this.  They are:
-   1. You can use the generic LDAP connector and enable it outside of Azure AD Connect.  This is complex and requires a partner for on-boarding and a premier support agreement to mainatin.  This option can handle both single and multiple LDAP directories.
+   1. You can use the generic LDAP connector and enable it outside of Azure AD Connect.  This is complex and requires a partner for on-boarding and a premier support agreement to maintain.  This option can handle both single and multiple LDAP directories.
    2. You can develop your own solution for moving objects from LDAP to Active Directory.  Then synchronize the objects with Azure AD Connect.  MIM or FIM could be used as a possible solution for moving the objects.
 
 ## Cloud to On-Premises Synchronization
