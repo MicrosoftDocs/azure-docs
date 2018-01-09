@@ -2,14 +2,14 @@
 title: Add example utterances in LUIS apps | Microsoft Docs
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/09/2018
+ms.author: v-geberr
 ---
 
 # Example utterances
