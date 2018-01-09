@@ -57,14 +57,14 @@ To create a data factory, follow these steps:
 
    ![Create blade](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. On **New data factory**, under **Name**, enter **GetStartedDF**.
+3. On the **New data factory** blade, under **Name**, enter **GetStartedDF**.
 
    ![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
    > The name of the data factory must be globally unique. If you receive the error "Data factory name GetStartedDF is not available," change the name of the data factory. For example, use  yournameGetStartedDF, and create the data factory again. For more information on naming rules, see [Data Factory: Naming rules](data-factory-naming-rules.md).
    >
-   > The name of the data factory might be registered as a DNS name in the future, and it might become publically visible.
+   > The name of the data factory might be registered as a DNS name in the future, and it might become publicly visible.
    >
    >
 4. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
@@ -85,7 +85,7 @@ To create a data factory, follow these steps:
 
    ![Deploying Data Factory status](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. After the data factory is created, you see the data factory page, which shows you the contents of the data factory.     
+10. After the data factory is created, you see the **Data factory** page, which shows you the contents of the data factory.     
 
     ![Data Factory blade](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -115,7 +115,7 @@ In this step, you link your storage account to your data factory. In this tutori
 
     ![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   After the linked service is deployed successfully, the **Draft-1** window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
+   After the linked service is deployed successfully, the Draft-1 window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
 
     ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
@@ -126,7 +126,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
     ![New compute](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Copy and paste the following snippet to the **Draft-1** window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
+2. Copy and paste the following snippet to the Draft-1 window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
 
 	```JSON
     {
@@ -180,7 +180,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 
     ![New dataset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Copy and paste the following snippet to the **Draft-1** window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
+2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is in the blob container called **adfgetstarted** and the folder called **inputdata**.
 
 	```JSON
     {
@@ -227,7 +227,7 @@ Now, you create the output dataset to represent the output data stored in the bl
 
 1. In the Data Factory Editor, select **More** > **New dataset** > **Azure Blob storage**.
 
-2. Copy and paste the following snippet to the **Draft-1** window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
+2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced monthly.
 
 	```JSON
     {
@@ -258,13 +258,13 @@ Now, you create the output dataset to represent the output data stored in the bl
     ![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## Create a pipeline
-In this step, you create your first pipeline with an HDInsightHive activity. The input slice is available monthly (frequency: Month, interval: 1). The output slice is produced monthly. The scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, the output dataset is what drives the schedule, so you must create an output dataset even if the activity doesn't produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON snippet are explained at the end of this section.
+In this step, you create your first pipeline with an HDInsight Hive activity. The input slice is available monthly (frequency is Month, interval is 1). The output slice is produced monthly. The scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, the output dataset is what drives the schedule, so you must create an output dataset even if the activity doesn't produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON snippet are explained at the end of this section.
 
 1. In the Data Factory Editor, select **More** > **New pipeline**.
 
     ![New pipeline option](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Copy and paste the following snippet to the **Draft-1** window.
+2. Copy and paste the following snippet to the Draft-1 window.
 
    > [!IMPORTANT]
    > Replace **storageaccountname** with the name of your storage account in the JSON snippet.
@@ -393,7 +393,7 @@ In this step, you create your first pipeline with an HDInsightHive activity. The
 
     ![Data slice information](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. Select an activity run in the **Activity runs** list to see more information about an activity run (a Hive activity in this scenario). The information appears in an **Activity run details** window.   
+11. In the **Activity runs** list, select an activity run to see more information about it. (In this scenario, it's a Hive activity.) The information appears in an **Activity run details** blade.   
 
     ![Activity run details window](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
