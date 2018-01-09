@@ -272,15 +272,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 For applications that are _not_ hosted in App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
-For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files. In that case, you can specify an alternative folder via the TempFolder property in ApplicationInsights.config.
+### Troubleshooting Cloud Services
+For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files, leading to lost snapshots.
+The space needed depends on the total working set of your application and the number of concurrent snapshots.
+The working set of a 32-bit ASP.NET web role is typically between 200 MB and 500 MB.
+You should allow for at least two concurrent snapshots.
+For example, if your application uses 1 GB of total working set, you should ensure that there is at least 2 GB of disk space to store snapshots.
+Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
+1. Add a new local resource to your Cloud Service by editing the Cloud Service definition (.csdf) file. The following example defines a resource called `SnapshotStore` with a size of 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Modify your role's `OnStart` method to add an environment variable that points to the `SnapshotStore` local resource.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Update your role's ApplicationInsights.config file to override the temporary folder location used by `SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### Use Application Insights search to find exceptions with snapshots
