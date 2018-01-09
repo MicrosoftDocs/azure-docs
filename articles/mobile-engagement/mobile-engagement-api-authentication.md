@@ -97,7 +97,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
 
 ### Steps to get a valid token
 
-1. Call the API with the following parameters, and make sure to replace the **TENANT\_ID**, **CLIENT\_ID**, and **CLIENT\_SECRET**:
+1. Call the API with the following parameters, and make sure to replace **TENANT\_ID**, **CLIENT\_ID**, and **CLIENT\_SECRET**:
    
    * **Request URL** as `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
 
