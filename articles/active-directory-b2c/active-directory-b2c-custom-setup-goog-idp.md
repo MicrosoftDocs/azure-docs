@@ -246,8 +246,8 @@ You may want to add the Google+ account identity provider also to your user `Pro
 2.  Select **Identity Experience Framework**.
 3.  Open the **All Policies** blade.
 4.  Select **Upload Policy**.
-5.  Check **Overwrite the policy if it exists** box.
-6.  **Upload** TrustFrameworkExtensions.xml and ensure that it does not fail the validation
+5.  Check the **Overwrite the policy if it exists** box.
+6.  **Upload** TrustFrameworkExtensions.xml and ensure that it does not fail the validation.
 
 ### Test the custom Profile-Edit policy by using Run Now
 
