@@ -38,10 +38,10 @@ The following operating system versions are supported for development:
 * Windows 10
 
 > [!NOTE]
-> Windows 7 Support:
+> Windows 7 support:
 > - Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
-> - Sevrice Fabric Reverse Proxy is not available on Windows 7
-> 
+> - Service Fabric Reverse Proxy is not available on Windows 7.
+>
 
 ## Install the SDK and tools
 ### To use Visual Studio 2017

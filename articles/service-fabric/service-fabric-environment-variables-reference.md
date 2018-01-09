@@ -1,5 +1,5 @@
 ---
-title: Service Fabric environment variables | Microsoft Docs
+title: Azure Service Fabric environment variables | Microsoft Docs
 description: Reference documentation for Service Fabric environment variables
 documentationcenter: .net
 author: mikkelhegn
@@ -19,7 +19,7 @@ ms.author: mikkelhegn
 ---
 # Service Fabric environment variables
 
-Service Fabric has built in environment variables set for each service instance. The full list of environment variables is below:
+Service Fabric has built-in environment variables set for each service instance. The full list of environment variables is below:
 
 | Environment Variable                         | Description                                                            | Example                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|

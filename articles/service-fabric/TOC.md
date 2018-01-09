@@ -96,6 +96,7 @@
 ##### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
 ##### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 ##### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
+#### [Manage applications for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testing apps with fault analysis](service-fabric-testability-overview.md)
 #### [The ImageStoreConnectionString setting](service-fabric-image-store-connection-string.md)
 
@@ -330,7 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Service model XML schema](service-fabric-service-model-schema.md)
-## [Environment Variables](service-fabric-environment-variables-reference.md)
+## [Environment variables](service-fabric-environment-variables-reference.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -1,5 +1,5 @@
 ﻿---
-title: Visualizing your cluster using Service Fabric Explorer | Microsoft Docs
+title: Visualizing your cluster using Azure Service Fabric Explorer | Microsoft Docs
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
@@ -23,7 +23,7 @@ Service Fabric Explorer (SFX) is an open-source tool for inspecting and managing
 
 ## Service Fabric Explorer download
 
-Use the following links to Download Service Fabric Explorer as a desktop application:
+Use the following links to download Service Fabric Explorer as a desktop application:
 
 - Windows
   - https://aka.ms/sfx-windows
@@ -41,10 +41,10 @@ Use the following links to Download Service Fabric Explorer as a desktop applica
 
 Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP management endpoint. To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https://clusterFQDN:19080.
 
-For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer. Look at this article, to [prepare your development environment](service-fabric-get-started.md), 
+For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer. Look at this article to [prepare your development environment](service-fabric-get-started.md).
 
 ## Connect to a Service Fabric cluster
-To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For Example https://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
+To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
 
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
