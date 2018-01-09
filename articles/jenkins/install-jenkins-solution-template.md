@@ -53,7 +53,7 @@ Navigate to your virtual machine (for example, http://jenkins2517454.eastus.clou
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
-Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the name of the virtual machine admin user chosen earlier when setting up the virtual machine from the solution template.
+Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the user name chosen earlier when setting up the virtual machine from the solution template.
 
 ```bash
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
