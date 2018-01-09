@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 09/01/2018
 ms.author: genli;markgal;sogup;
 ---
 
@@ -29,9 +29,7 @@ This article provides troubleshooting steps to help you resolve Backup failures 
 > [!NOTE]
 > If your Azure Linux VM backups started failing with this error on or after January 4th, 2018, run the following command in the affected VMs and retry the backups
 
-	`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
->
->
+	sudo rm -f /var/lib/waagent/*.[0-9]*.xml
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. Follow below troubleshooting steps in the given order and retry your operation.
 
