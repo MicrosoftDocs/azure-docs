@@ -20,17 +20,17 @@ ms.author: sethm
 
 # Send and receive messages from a queue
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates.  
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sale (POS) data to a back office or regional distribution center for replenishment and inventory updates.  
 
 ![service-bus-flow][service-bus-flow]
 
-This quickstart describes how to send and receive messages with Service Bus, using the Azure portal to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
+This quickstart describes how to send and receive messages with Service Bus, using the Azure portal to create a messaging namespace and a queue within that namespace, and obtain authorization credentials on the namespace.
 
-If you do not have an Azure subscription, create a [free account][] before you begin.
+If you do not have an Azure subscription, you can create a [free account][] before you begin.
 
 ## Create a Service Bus messaging namespace
 
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
+A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in your resource group:
 
 1. Log on to the [Azure portal][Azure portal].
 2. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
@@ -52,6 +52,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
    
     ![connection-info][connection-info]
 4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
+
     ![connection-string][connection-string]
 5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
 
@@ -60,7 +61,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
 To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue on the portal:
 
 1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-2. Click the namespace in which you would like to create the queue. In this case, it is **sbnstest1**.
+2. Click the namespace in which you would like to create the queue. In this example, it is **sbnstest1**.
 3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
    
     ![Select Queues][createqueue2]
