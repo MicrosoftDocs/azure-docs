@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: mabrigg
 ---
-# Run a validation test in Azure Stack
+# Run a validation test for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
  
@@ -55,7 +55,7 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 > Test-AzureStack may detect failures that are not resulting in cloud outages, such as a single failed disk or a single physical host node failure.
 
     ````PowerShell
-      Test-AzureStack -DoNotDeployTenantVm -AdminCredential username:password
+      Test-AzureStack
     ````
 
 | Parameter               | Value           | Required | Default |
@@ -74,12 +74,13 @@ The Test-AzureStack cmdlet supports the common parameters: Verbose, Debug, Error
 
 The following examples assume you're signed in as **CloudAdmin** and accessing the privileged endpoint (PEP). For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
 
-#### Run Test-AzureStack interactively
+#### Run Test-AzureStack interactively without cloud scenarios
 
 In a PEP session, run:
 
     ````PowerShell
-      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+      Test-AzureStack
     ````
 
 #### Run Test-AzureStack with cloud scenarios
@@ -95,14 +96,17 @@ You can use Test-AzureStack to run cloud scenarios against your Azure Stack. The
  - Perform queue operations using the storage account created in the test scenario
  - Perform table operations using the storage account created in the test scenario
 
-The cloud scenarios require cloud administrator credentials. The cloud scenarios cannot be run using Active Directory Federated Services (ADFS) credentials. The Test-AzureStack cmdlet is only accessible via the PEP. But, the PEP doesn't support ADFS credentials.
+The cloud scenarios require cloud administrator credentials. 
+> [!Note]  
+> You cannot run the cloud scenarios using Active Directory Federated Services (ADFS) credentials. The **Test-AzureStack** cmdlet is only accessible via the PEP. But, the PEP doesn't support ADFS credentials.
 
 Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicrosoft.com (AAD). When prompted, type the password to the cloud administrator account.
 
 In a PEP session, run:
 
     ````PowerShell
-      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+      Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
     ````
 
 #### Run Test-AzureStack without cloud scenarios
@@ -110,13 +114,17 @@ In a PEP session, run:
 In a PEP session, run:
 
     ````PowerShell
-      $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
+      $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+      Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
     ````
 
-To list available test scenarios:
+#### List available test scenarios:
+
+In a PEP session, run:
 
     ````PowerShell
-      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -List
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+      Test-AzureStack -List
     ````
 
 #### Run a specified test
@@ -124,13 +132,15 @@ To list available test scenarios:
 In a PEP session, run:
 
     ````PowerShell
-      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Include AzsSFRoleSummary,AzsInfraCapacity
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+      Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
     ````
 
 To exclude specific tests:
 
     ````PowerShell
-      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint Test-AzureStack -Ignore AzsInfraPerformance
+      Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint
+      Test-AzureStack -Ignore AzsInfraPerformance
     ````
 
 ### Validation test
