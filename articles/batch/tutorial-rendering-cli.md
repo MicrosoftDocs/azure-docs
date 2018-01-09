@@ -7,37 +7,41 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: tutorial
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Render a 3ds Max scene with Arnold using the Batch Rendering service
+# Render a 3ds Max scene with Batch 
 
 Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a 3ds Max scene with Batch using the Arnold ray-tracing renderer. You learn how to:
 
 > [!div class="checklist"]
-> * Upload scenes to Azure storage
+> * Upload a scene to Azure storage
 > * Create a Batch pool for rendering
-> * Render a single-frame scene with Arnold
+> * Render a single frame with Arnold
 > * Scale the pool, and render a multi-frame scene
 > * Download rendered output
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 ## Prerequisites
 
-This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Download and install [3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) from the Autodesk site onto a Windows computer. Copy or upload the following file to a working directory on the computer where you run the commands for this tutorial:
 
-
-## Download the sample
-
-[Download or clone the sample files](https://github.com/dlepow/batchmvc) from GitHub. 
-
-Change to the directory that contains the sample 3ds Max scene files and Batch configuration files:
-
-```bash
-cd tutorial_rendering
 ```
+Scenes\CameraEffects\MotionBlur-DragonFlying.max
+```
+
+
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+
 
 
 ## Create a Batch account
@@ -79,9 +83,9 @@ az batch account login \
     --resource-group myResourceGroup \
     --shared-key-auth
 ```
-## Upload 3ds Max scenes to storage
+## Upload 3ds Max scene to storage
 
-To upload input scenes to storage, you first need to access the storage account and create a destination container for the blobs. To access the Azure storage account, export the `AZURE_STORAGE_KEY` and `AZURE_STORAGE_ACCOUNT` environment variables. The first bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key. After you set these environment variables, your storage commands use this account context.
+To upload the input scene to storage, you first need to access the storage account and create a destination container for the blobs. To access the Azure storage account, export the `AZURE_STORAGE_KEY` and `AZURE_STORAGE_ACCOUNT` environment variables. The first bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key. After you set these environment variables, your storage commands use this account context.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -97,19 +101,19 @@ az storage container create \
     --name scenefiles
 ```
 
-Upload the scene files from your local working folder to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
+Upload the scene files from the current working folder to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
 
 ```azurecli-interactive
 az storage blob upload-batch \
     --destination scenefiles \
-    --source ./scenes
+    --source ./
 ```
 
 
 
 ## Create a Batch pool
 
-Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file called *mypool.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly.
+Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file called *mypool.json*. Within your current shell, create a file name *mypool.json*, then copy and paste the following contents. Be sure all the text copies correctly.
 
 
 ```json
@@ -125,8 +129,8 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
-  "targetDedicatedNodes": 1,
-  "targetLowPriorityNodes": 0,
+  "targetDedicatedNodes": 0,
+  "targetLowPriorityNodes": 1,
   "enableAutoScale": false,
   "applicationLicenses":[
          "3dsmax",
@@ -135,7 +139,9 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
   "enableInterNodeCommunication": false 
 }
 ```
-The pool specified contains a single dedicated compute node (VM) running a Windows Server image with software for the Batch Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, you scale the pool to a larger number of nodes.
+Batch supports dedicated nodes and [low-priority](batch-low-pri-vms.md) nodes, and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. 
+
+The pool specified contains a single [low-priority](batch-low-pri-vms.md) node running a Windows Server image with software for the Batch Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, you scale the pool to a larger number of nodes.
 
 Create the pool by passing the JSON file to the `az batch pool create` command:
 
@@ -155,7 +161,7 @@ Continue the following steps to create a job and tasks while the pool state is c
 
 ## Create a blob container for output
 
-The rendering job in this tutorial creates an output file for every input file. Before scheduling the job, create a blob container in your storage account as the destination for the output files. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create the *job-myrenderjob* container with public read access. 
+The rendering job in this tutorial creates an output file for every task. Before scheduling the job, create a blob container in your storage account as the destination for the output files. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create the *job-myrenderjob* container with public read access. 
 
 ```azurecli-interactive
 az storage container create \
@@ -192,7 +198,7 @@ az batch job create \
 
 Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file name *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly.
 
-The task specifies an Arnold command line to render a single frame of the 3ds Max scene *Robo_Dummy_Lo_Res.max*.
+The task specifies an Arnold command line to render a single frame of the 3ds Max scene *MotionBlur-DragonFlying.max*.
 
 Modify the `blobSource` and `containerURL` elements in the JSON file so that they include the name of your storage account and your SAS token. 
 
@@ -206,19 +212,16 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
 ```json
 {
   "id": "myrendertask",
-  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"image.jpg\" -w 1600 -h 1200 Robo_Dummy_Lo_Res.max\"",
+  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 Robo_Dummy_Lo_Res.max\"",
   "resourceFiles": [
     {
         "blobSource": "https://mystorageaccount.blob.core.windows.net/maxfile/Robo_Dummy_Lo_Res.max",
         "filePath": "Robo_Dummy_Lo_Res.max"
-    },
-    {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/maxfile/Lo_Res_Diff_Clean_Eyes.jpg",
-        "filePath": "Lo_Res_Diff_Clean_Eyes.jpg"}
-],
+    }
+  ],
     "outputFiles": [
         {
-            "filePattern": "image*.jpg",
+            "filePattern": "dragon*.jpg",
             "destination": {
                 "container": {
                     "containerUrl": "https://mystorageaccount.blob.core.windows.net/job-myrenderjob/myrendertask/$TaskOutput?Add_Your_SAS_Token_Here"
@@ -264,22 +267,22 @@ The task generates *image0001.jpg* on the compute node and uploads it to the *jo
 ```azurecli-interactive
 az storage blob download \
     --container-name job-myrenderjob \
-    --file image.jpg \
-    --name image0001.jpg
+    --file dragon.jpg \
+    --name dragon0001.jpg
 
 ```
 
-Open *image0001.jpg* on your computer. The rendered image looks similar to the following:
+Open *dragon.jpg* on your computer. The rendered image looks similar to the following:
 
-![Rendered dummy](./media/tutorial-rendering-cli/low-res-dummy.png) 
+![Rendered dragon frame 1](./media/tutorial-rendering-cli/dragon-frame.png) 
 
 
 ## Scale the pool
 
-Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling.md) to add or remove nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of nodes in the pool to *6*:
+Now modify the pool to prepare for a larger rendering job, with multiple frames. Batch provides a number of ways to scale the compute resources, including [autoscaling](batch-automatic-scaling.md) to add or remove nodes as task demands change. For this basic example, use the [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) command to increase the number of low-priority nodes in the pool to *6*:
 
 ```azurecli-interactive
-az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 6
+az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
 ```
 
 The pool takes a few minutes to resize. While that process takes place, set up the next tasks to run in the rendering job.
@@ -313,7 +316,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-The tasks generate output files named *dragon000x.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch) command. For example:
+The tasks generate output files named *dragon0002.jpg* - *dragon0007.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch) command. For example:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -321,9 +324,9 @@ az storage blob download-batch \
     --destination .
 ```
 
-Open one of the files on your computer. A rendered image looks similar to the following:
+Open one of the files on your computer. Rendered frame 6 looks similar to the following:
 
-![Rendered dragon frame](./media/tutorial-rendering-cli/dragon-frame.png) 
+![Rendered dragon frame 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
 
