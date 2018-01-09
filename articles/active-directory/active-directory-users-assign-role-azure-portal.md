@@ -41,4 +41,4 @@ This article explains how to assign an administrative role to a user in Azure Ac
 * [Manage user profiles](active-directory-users-profile-azure-portal.md)
 * [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Rextore a deleted user](active-directory-users-assign-role-azure-portal.md)
+* [Restore a deleted user](active-directory-users-restore.md)
