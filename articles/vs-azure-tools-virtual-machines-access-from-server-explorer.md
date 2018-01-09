@@ -1,4 +1,4 @@
----
+test---
 title: Accessing Azure Virtual Machines from Server Explorer | Microsoft Docs
 description: Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.
 services: visual-studio-online
@@ -48,4 +48,4 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
 
 ## Next steps
 To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
-
+test
