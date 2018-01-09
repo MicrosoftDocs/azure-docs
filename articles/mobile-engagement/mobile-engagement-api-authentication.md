@@ -152,8 +152,6 @@ Now that you have a valid token, you are ready to make the API calls.
    * **4** Your Resource Group name is going to be **MobileEngagement** unless you created a new one. 
 
 > [!NOTE]
-> <br/>
-> 
 > 1. Ignore the API root address, since it was for the previous APIs.<br/>
 > 2. If you created the app by using the Azure portal, then you need to use the Application Resource name, which is different than the Application name itself. If you created the app in the Azure portal, then you should use the App Name itself. (There is no differentiation between the Application Resource Name and the App Name for apps that are created in the new portal.)
 > 
