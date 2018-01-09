@@ -208,7 +208,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     * nginx-core
     * nginx-extras
     * nginx-full
-    * nginx-lightTry: sudo apt install &lt;selected package>
+    * nginx-lightTry: sudo apt install <selected package>
     tom@ansible-inventory-test-vm2:~$
     ```
 
