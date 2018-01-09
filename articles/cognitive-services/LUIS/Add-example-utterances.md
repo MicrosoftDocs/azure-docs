@@ -124,6 +124,9 @@ For example, in the following image, only the utterances that contain the search
 
 To cancel the search and restore your full list of utterances, delete the search text you've typed.
 
+## Fuzzy search
+Fuzzy search is the default search method. This search method is the ability to search for letters in order but not necessarily in consecutive order. For example, a fuzzy search of 'fy' returns all utterances such as 'fly' because the 'f' and the 'y' are in non-consecutive, left-to-right order. A non-fuzzy search does not return 'fly' because the letters are not in consecutive order. 
+
 ## Next steps
 
 After labeling utterances in your intents, now your next task is to create a [composite entity](Add-entities.md).

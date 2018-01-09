@@ -103,9 +103,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:  
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner_v2.0zip
+    E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
@@ -118,6 +118,11 @@ If you have previous version of the deployment planner, do either of the followi
  >When you start profiling with the new version, pass the same output directory path so that the tool appends profile data on the existing files. A complete set of profiled data will be used to generate the report. If you pass a different output directory, new files are created, and old profiled data is not used to generate the report.
  >
  >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous folder. You can create and use a new folder.
+
+
+## Version history
+The latest ASR Deployment Planner tool version  is 2.1.
+Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 ## Next steps
 * [Run the deployment planner](site-recovery-vmware-deployment-planner-run.md).

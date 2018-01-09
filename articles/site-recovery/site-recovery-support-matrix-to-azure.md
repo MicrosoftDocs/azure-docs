@@ -191,6 +191,7 @@ Encryption at rest(SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
 Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks) configured on target storage account or cache storage account used for storing replication data | No | No
+General purpose V2 storage accounts (Both Hot and Cool tier) | No | No
 
 
 ## Support for Azure compute configuration

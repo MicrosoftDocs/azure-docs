@@ -6,7 +6,6 @@
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
-### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -26,6 +25,8 @@
 
 # How To
 ## Plan and design
+### [Managed Service Identity (preview)](service-bus-managed-service-identity.md)
+### [Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
@@ -35,6 +36,7 @@
 
 ## Develop
 ### Message handling
+#### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 #### [Message sequencing and timestamps](message-sequencing.md)
