@@ -7706,7 +7706,7 @@
             "redirect_url": "tutorial-migrate-azure-to-azure",
             "redirect_document_id": false
         },
-        
+
 	{
             "source_path": "articles/site-recovery/site-recovery-vmware-to-vmware.md",
             "redirect_url": "tutorial-vmware-to-vmware",
@@ -14023,6 +14023,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-registry/container-registry-headers.md",
+            "redirect_url": "https://github.com/Azure/acr/blob/master/docs/http-headers.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-vnet.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
             "redirect_document_id": false
@@ -15460,7 +15465,7 @@
         {
             "source_path": "articles/hdinsight/hdinsight-add-acls-at-file-folder-levels.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
-            "redirect_document_id": false,
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
@@ -16101,11 +16106,11 @@
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
         "redirect_document_id": false
-      }, 
-      { 
-      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md", 
-      "redirect_url": "/azure/active-directory/license-users-groups", 
-      "redirect_document_id": false 
+      },
+      {
+      "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-assign-licenses.md",
+      "redirect_url": "/azure/active-directory/license-users-groups",
+      "redirect_document_id": false
       },
       {
         "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
