@@ -44,6 +44,7 @@
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
@@ -58,6 +59,7 @@
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -265,6 +267,7 @@
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
+### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)

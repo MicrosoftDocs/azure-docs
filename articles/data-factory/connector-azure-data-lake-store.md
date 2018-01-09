@@ -67,8 +67,8 @@ To use service principal authentication, register an application entity in Azure
 
 >[!IMPORTANT]
 > Make sure you grant the service principal proper permission in Azure Data Lake Store:
->- As source, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
->- As sink, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
+>- **As source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
+>- **As sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
 
 The following properties are supported:
 
@@ -114,8 +114,8 @@ To use managed service identity (MSI) authentication:
 
 >[!IMPORTANT]
 > Make sure you grant the data factory service identity proper permission in Azure Data Lake Store:
->- As source, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
->- As sink, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
+>- **As source**, grant at least **Read + Execute** data access permission to list and copy the contents of a folder, or **Read** permission to copy a single file. No requirement on account level access control (IAM).
+>- **As sink**, grant at least **Write + Execute** data access permission to create child items in the folder. And if you use Azure IR to copy (both source and sink are in cloud), in order to let Data Factory detect Data Lake Store's region, grant at least **Reader** role in account access control (IAM). If you want to avoid this IAM role, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store, and associate in the Data Lake Store linked service as the following example:
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in linked service.
 

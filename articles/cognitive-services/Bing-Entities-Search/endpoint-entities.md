@@ -17,12 +17,10 @@ The **Entity Search API**  includes one endpoint that returns entities from the 
 ##Endpoint
 To get entity results using the **Bing API**, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
-Endpoint `GET`:  
+**Endpoint:** Returns entities that are relevant to the user's search query defined by `?q=""`.
 ```
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-Returns entities that are relevant to the user's search query defined by `?q=""`.
-
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference.
 

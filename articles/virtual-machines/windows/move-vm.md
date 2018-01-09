@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/06/2017
 ms.author: cynthn
 
 ---
@@ -31,33 +31,31 @@ This article walks you through how to move a Windows VM between resource groups 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## Use Powershell to move a VM
-To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the resource name and the type of resource. You can get both from the Find-AzureRMResource cmdlet.
 
-    Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
+To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the ResourceId of each of the resources. You can get a list of the ResourceId's using the [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
 
+```azurepowershell-interactive
+ Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+```
 
-To move a VM we need to move multiple resources. We can just create separate variables for each resource and then list them. This example includes most of the basic resources for a VM, but you can add more as needed.
+To move a VM we need to move multiple resources. We can use the output of Find-AzureRMResource to create a comma separated list of the ResourceIds and pass that to [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) to move them to the destination. 
 
-    $sourceRG = "<sourceResourceGroupName>"
-    $destinationRG = "<destinationResourceGroupName>"
+```azurepowershell-interactive
 
-    $vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-    $storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
-    $diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
-    $vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-    $nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-    $ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-    $nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
-
-    Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
-
+Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
+	
 To move the resources to different subscription, include the **-DestinationSubscriptionId** parameter. 
 
-    Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
+```azurepowershell-interactive
+Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+    -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
 
 
-
-You will be asked to confirm that you want to move the specified resources. Type **Y** to confirm that you want to move the resources.
+You will be asked to confirm that you want to move the specified resources. 
 
 ## Next steps
 You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).    

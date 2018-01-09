@@ -228,4 +228,4 @@ mysqli_close($conn);
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Build a PHP and MySQL web app in Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Connect to Azure Database for MySQL via SSL] (howto-configure-ssl.md)

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
 
 ---
@@ -49,14 +49,16 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 ### To add Terms of Use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
 2. Click Add.</br>
-![Add TOU](media/active-directory-tou/tou2.png)
+![Add TOU](media/active-directory-tou/tou12.png)
 3. Enter the **Name** for the Terms of Use
 4. Enter **Display Name**.  This header is what users see when they sign in.
 5. **Browse** to your finalized terms of use pdf and select it.  The recommended font size is 24.
-6. You can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
-7. Click **Create**.
-8. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
-7. You should now see your new Terms of Use.</br>
+6. **Select** a language for the terms of use.  The language option allows you to upload multiple terms of use, each with a different language.  The version of the terms of use that an end user will see will be based on their browser preferences.
+7. Select  either on or off for **Require users to expand the terms of use**.  If this is set to on, end users will be required to view the terms of use prior to accepting them.
+8. Under the **Conditional Access** section you can **Enforce** the uploaded terms of use by using a template or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
+9. Click **Create**.
+10. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
+11. You should now see your new Terms of Use.</br>
 
 ![Add TOU](media/active-directory-tou/tou3.png)
 
@@ -87,6 +89,19 @@ Users, who are in scope, will see the following once a terms of use is created a
 ![Audit Event](media/active-directory-tou/tou10.png)
 -	This screen is how it appears on mobiles</br></br>
 ![Audit Event](media/active-directory-tou/tou11.png)
+
+### Review terms of use
+Users can review and see the terms of use that they have accepted.  This can be done using the following procedure:
+
+1. Navigate and sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. In upper right corner, click your name and select **Profile** from the drop-down.
+![Profile](media/active-directory-tou/tou14.png)
+
+3. On your Profile, click **Review terms of use**.
+![Audit Event](media/active-directory-tou/tou13a.png)
+
+4.  From there you can review the terms of use you have accepted. 
+
 
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.

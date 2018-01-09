@@ -854,7 +854,7 @@ Encryption of an OS drive on a running Linux VM is supported on the following di
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
+Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
 
 #### Monitoring OS encryption progress
 You can monitor OS encryption progress in three ways:
@@ -888,7 +888,7 @@ You can monitor OS encryption progress in three ways:
 
  ![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Look at [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
+* Look at [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
 
 * Sign in to the VM via SSH, and get the extension log from:
 
@@ -920,7 +920,7 @@ Configure encryption during the distribution installation by doing the following
 
  ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Do not run the last step (deprovisioning the VM) yet.
+6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Do not run the last step (deprovisioning the VM) yet.
 
 Configure encryption to work with Azure by doing the following:
 
@@ -998,7 +998,7 @@ To configure encryption during the distribution installation, do the following:
 
  ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
+3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following:
 1. Edit the /etc/dracut.conf, and add the following line:
@@ -1074,7 +1074,7 @@ To configure encryption during the distribution installation, do the following:
 
  ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Do not run the last step (deprovisioning the VM) yet.
+5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Do not run the last step (deprovisioning the VM) yet.
 
 6. Now you can deprovision the VM and [upload your VHD](#upload-encrypted-vhd-to-an-azure-storage-account) into Azure.
 

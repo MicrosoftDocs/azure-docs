@@ -47,8 +47,6 @@ Next, you need to create and register the app in your B2C directory. This provid
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 When you are done, you will have both an API and a native application in your application settings.
 
 ## Create policies on your B2C tenant

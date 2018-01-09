@@ -3,7 +3,7 @@ title: Add a VM to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a virtual machine to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Add a VM to a lab in Azure DevTest Labs

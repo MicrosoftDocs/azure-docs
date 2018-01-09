@@ -30,8 +30,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
 * Copy the **Application ID** that is assigned to your app. You will need it later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the three policies, be sure to:
