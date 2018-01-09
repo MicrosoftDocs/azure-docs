@@ -80,7 +80,7 @@ The **Power off** action turns off the node. It’s the same as if you press the
 This action is typically used when a node is in a hung state and no longer responds to requests.
 
 > [!Important] 
-> This functionality is only available via PowerShell. It will be available in the Azure Stack Operator Portal again at a later time.
+> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
 
 
 To run the power off action through PowerShell:
@@ -96,7 +96,7 @@ In the unlikely case that the power off action doesn't work, use the BMC web int
 The **Power on** action turns on the node. It’s the same as if you press the power button. 
 
 > [!Important] 
-> This functionality is only available via PowerShell. It will be available in the Azure Stack Operator Portal again at a later time.
+> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
 
 To run the power on action through PowerShell:
 
