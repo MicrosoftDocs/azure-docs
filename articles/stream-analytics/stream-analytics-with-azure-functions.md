@@ -37,7 +37,7 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 
 The following steps are required to achieve this task:
 * [Create a Stream Analytics job with Event Hubs as input.](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Create a cache in Azure Redis Cache.](#create-an-azure-redis-cache)  
+* [Create an Azure Redis Cache.](#create-an-azure-redis-cache)  
 * [Create a function in Azure Functions that can write data to the Azure Redis Cache.](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
 * [Update the Stream Analytics job with the function as output.](#update-the-stream-analytic-job-with-azure-function-as-output)  
 * [Check Azure Redis Cache for results.](#check-redis-cache-for-results)  
@@ -46,7 +46,7 @@ The following steps are required to achieve this task:
 
 Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create a Stream Analytics job. (Skip the steps to create the query and the output; instead, see the following sections to set up Functions output.)
 
-## Create a cache in Azure Redis Cache
+## Create an Azure Redis Cache
 
 1. Create a cache in Azure Redis Cache by using the steps described in [create a cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
