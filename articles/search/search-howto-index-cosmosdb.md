@@ -30,15 +30,21 @@ In this article, learn how to:
 > * Configure an indexer for on-demand and recurring indexing.
 > * Incrementally refresh the index based on changes in the underlying data.
 
-Only the SQL API is supported. Although connections to other data models typically succeed, there are known issues with indexing operations. To help us prioritize which data sources to support first, please cast your vote:
+> [!NOTE]
+> Azure Cosmos DB SQL API is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the Azure Search APIs and portal pages. When configuring indexers, be sure to specify the `documentdb` syntax as instructed in this article.
+
+<a name="supportedAPIs"></a>
+
+## Supported API types
+
+Although Azure Cosmos DB supports a variety of data models and APIs, indexer support extends to the SQL API only. 
+
+Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast on the user Voice web site:
 
 * [Table API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
 * [Graph API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
 * [MongoDB API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
 * [Apache Cassandra API data source support](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
-
-> [!NOTE]
-> Azure Cosmos DB SQL API is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the API and portal. Be sure to specify the `documentdb` syntax as instructed in this article
 
 ## Prerequisites
 
@@ -161,7 +167,7 @@ The following example creates an index with an id and description field:
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
 > [!NOTE]
-> For partitioned collections, the default document key is SQL API's `_rid` property, which gets renamed to `rid` in Azure Search. Also, SQL API's `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
+> For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, Azure Cosmos DB's `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
 > 
 > 
 
@@ -249,7 +255,7 @@ Execution history contains up to the 50 most recent completed executions, which 
 
 <a name="DataChangeDetectionPolicy"></a>
 ## Indexing changed documents
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by SQL API, which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
