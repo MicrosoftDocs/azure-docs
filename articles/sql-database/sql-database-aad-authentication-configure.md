@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 07/10/2017
+ms.date: 01/09/2018
 ms.author: rickbyh
 
 ---
@@ -31,31 +31,12 @@ Create an Azure AD and populate it with users and groups. Azure AD can be the in
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0), and [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md).
 
-## Optional: Associate or change the active directory that is currently associated with your Azure Subscription
-To associate your database with the Azure AD directory for your organization, make the directory a trusted directory for the Azure subscription hosting the database. For more information, see [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## Associate or add an Azure subscription to Azure Active Directory
 
-**Additional information:** Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. You can see which directory is trusted by your subscription under the **Settings** tab at [https://manage.windowsazure.com/](https://manage.windowsazure.com/). This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Associate your Azure subscription to Azure Active Directory by making the directory a trusted directory for the Azure subscription hosting the database. For details, see [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+2. Use the directory switcher in the Azure portal to switch to the subscription associated with domain in which the SQL Server exists.
 
-The following procedures show you how to change the associated directory for a given subscription.
-1. Connect to your [Azure Classic Portal](https://manage.windowsazure.com/) by using an Azure subscription administrator.
-2. On the left banner, select **SETTINGS**.
-3. Your subscriptions appear in the settings screen. If the desired subscription does not appear, click **Subscriptions** at the top, drop down the **FILTER BY DIRECTORY** box and select the directory that contains your subscriptions, and then click **APPLY**.
-   
-    ![select subscription][4]
-4. In the **settings** area, click your subscription, and then click  **EDIT DIRECTORY** at the bottom of the page.
-   
-    ![ad-settings-portal][5]
-5. In the **EDIT DIRECTORY** box, select the Azure Active Directory that is associated with your SQL Server or SQL Data Warehouse, and then click the arrow for next.
-   
-    ![edit-directory-select][6]
-6. In the **CONFIRM** directory Mapping dialog box, confirm that "**All co-administrators will be removed.**"
-   
-    ![edit-directory-confirm][7]
-7. Click the check to reload the portal.
-
-   > [!NOTE]
-   > When you change the directory, access to all co-administrators, Azure AD users and groups, and directory-backed resource users are removed and they no longer have access to this subscription or its resources. Only you, as a service administrator, can configure access for principals based on the new directory. This change might take a substantial amount of time to propagate to all resources. Changing the directory, also changes the Azure AD administrator for SQL Database and SQL Data Warehouse and disallow database access for any existing Azure AD users. The Azure AD admin must be reset (as described below) and new Azure AD users must be created.
-   >  
+   **Additional information:** Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users. For more information about resources, see [Understanding resource access in Azure](../active-directory/active-directory-b2b-admin-add-users). To learn more about this trusted relationship see [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory).
 
 ## Create an Azure AD administrator for Azure SQL server
 Each Azure SQL server (which hosts a SQL Database or SQL Data Warehouse) starts with a single server administrator account that is the administrator of the entire Azure SQL server. A second SQL Server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
