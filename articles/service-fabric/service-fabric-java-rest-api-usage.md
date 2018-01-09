@@ -23,7 +23,7 @@ Service Fabric client APIs allows deploying and managing microservices based app
 
 ## Generate the client code using AutoRest
 
-AutoRest is a tool that generates client libraries for accessing RESTful web services. Input to AutoRest is a specification that describes the REST API using the OpenAPI Specification format. Service Fabric client REST APIs follow this specification .
+[AutoRest](https://github.com/Azure/autorest) is a tool that generates client libraries for accessing RESTful web services. Input to AutoRest is a specification that describes the REST API using the OpenAPI Specification format. [Service Fabric client REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) follow this specification .
 
 Follow the steps mentioned below to generate Service Fabric Java client code using the AutoRest tool.
 
@@ -64,7 +64,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 ## Include and use the generated client in your project
 
 1. Add the generated code appropriately into your project. We recommened you to create a library out of the generated code and include it in your project.
-2. Add following dependency into your project.
+2. If you are creating a library then include the following dependency in your library's project. If you are following a different approach then include the dependency appropriately.
 
 	```
 		GroupId:  com.microsoft.rest
@@ -111,13 +111,13 @@ For example, if you are using maven build system include the following in your `
 
 ## Understanding the generated code
 For every API you will find four overloads of implementation. If there are optional parameters then you would find four more variations including those optional parameters. For example consider the API ``removeReplica``.
- 1. public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout):
+ 1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**:
 	* This is the synchronous variant of the removeReplica API call
- 2. public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback):
+ 2. **public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback)**:
 	* This variant of API call can be used if you want to use future based asynchronous programming and use callbacks
- 3. public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)
+ 3. **public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
 	* This variant of API call can be used if you want to use reactive asynchronous programming
- 4. public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)
+ 4. **public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
 	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
 
 ## Next steps
