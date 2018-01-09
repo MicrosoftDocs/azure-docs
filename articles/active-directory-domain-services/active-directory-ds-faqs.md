@@ -45,9 +45,6 @@ The service itself does not directly support this scenario. Your managed domain 
 #### Can I enable Azure AD Domain Services using PowerShell?
 Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 
-#### Is Azure AD Domain Services available in the new Azure portal?
-Yes. Azure AD Domain Services can be configured using the [Azure portal](https://portal.azure.com). The [classic Azure portal](https://manage.windowsazure.com) is no longer supported.
-
 #### Can I enable Azure AD Domain Services using a Resource Manager template?
 Yes. See [how to enable Azure AD Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md).
 

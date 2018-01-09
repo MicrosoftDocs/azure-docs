@@ -69,6 +69,7 @@ The system account must have the following privileges:
 
     | Azure Stack Build | MySQL RP installer |
     | --- | --- |
+    | 1.0.180102.3 | **Please wait for further information, current builds will not install but will continue to run on multi-node after an Azure Stack upgrade.** |
     | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |

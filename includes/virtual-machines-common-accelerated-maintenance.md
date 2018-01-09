@@ -8,11 +8,11 @@ With the public disclosure of the security vulnerability, we [accelerated the pl
  
 ## How can I see which of my VMs are already updated? 
 
-You can see the status of your VMs and if the reboot completed within the in the [VM list in the Azure portal](https://aka.ms/T08tdc). Your VMs will be listed as either “Already updated” if the update has been applied, or “Scheduled” if the update is still required. If you want to see just your VMs “Scheduled” refer to your [Azure Service Health](https://portal.azure.com/).
+You can see the status of your VMs, and if the reboot completed, in the [VM list in the Azure portal](https://aka.ms/T08tdc). Your VMs are listed as either “Already updated” if the update has been applied, or “Scheduled” if the update is still required. If you want to see just your VMs “Scheduled” refer to your [Azure Service Health](https://portal.azure.com/).
 
 ## Can I find out exactly when my VMs will be rebooted?
 
-The best way to get an alert about the reboot is to configure [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). This provides a 15 minute notification of the VM going down due to maintenance – it makes an API call to the VM and, in addition, the activity log entry can be used to trigger Azure Monitor to send emails, SMS, or webhooks. It is not possible to provide any earlier notice.
+The best way to get an alert about the reboot is to configure [Scheduled Events](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). This provides a 15 minute notification of the VM going down due to maintenance.
 
 ## Can I manually redeploy now to perform the required maintenance? 
 
@@ -24,7 +24,7 @@ Most reboots are taking approximately **30 minutes**.
 
 ## Does the guest OS need to be updated? 
 
-This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available here.
+This Azure infrastructure update addresses the disclosed vulnerability at the hypervisor level and does not require an update to your Windows or Linux VM images. However, as always, you should continue to apply security best practices for your VM images. Please consult with the vendor of your operating systems for updates and instructions, as needed. For Windows Server VM customers, guidance has now been published and is available [here](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## Will there be a performance impact as a result of resolving this update?
 
