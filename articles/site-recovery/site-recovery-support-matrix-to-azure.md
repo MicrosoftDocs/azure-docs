@@ -23,7 +23,7 @@ ms.author: rajanaki
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 > [!NOTE]
-> Ensure that you update to the latest version of Site Recovery provider and agent to achieve compatability with the updates in the support matrix.
+> Ensure that you update to the latest version of Site Recovery provider and agent to achieve compatibility with the updates in the support matrix.
 
 
 ## Support for deployment options
@@ -65,13 +65,13 @@ The following table summarizes replicated operating system support in various de
 
  **VMware/physical server** | **Hyper-V (with/without VMM)** |
 --- | --- |
-64-bit Windows Server 2016  (Server Core, Server with Desktop Experience)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/>CentOS : 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2016  (Server Core, Server with Desktop Experience)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \* Windows Server 2016 Nano Server is not supported.
 >
-> On Linux distributions, only the stock kernels that are part of the the minor version release/update of the distribution are supported.
+> On Linux distributions, only the stock kernels that are part of the minor version release/update of the distribution are supported.
 >
 > Upgrades across major versions of a Linux distribution on an Azure Site Recovery protected VMware virtual machine or physical server is not supported. While upgrading the operating system across major versions (for example CentOS 6.* to CentOS 7.*), disable replication for the machine, upgrade the operating system on the machine, and then enable replication again.
 > 
@@ -92,18 +92,17 @@ The following table summarizes replicated operating system support in various de
 
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
-The following file systems and storage configuration software is supported on Linux servers running on VMware or Physical servers:
+The following file systems and storage configuration software are supported on Linux servers running on VMware or Physical servers:
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
-* Volume manager : LVM2
-* Multipath software : Device Mapper
+* Volume manager: LVM2
+* Multipath software: Device Mapper
 
 Paravirtualized storage devices (devices exported by paravirtualized drivers) are not supported.<br/>
 Multi-queue block IO devices are not supported.<br/>
 Physical servers with the HP CCISS storage controller aren't supported.<br/>
 
 >[!Note]
-> On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
-> XFSv5 features on XFS filesystems such as metadata checksum are supported starting from version 9.10 of the Mobility service. If you are using XFSv5 features, ensure you are running Mobility Service version 9.10 or later. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.
+> On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc; and /boot should be on a disk partition and not be an LVM volume<br/><br/>
 >
 
 
@@ -127,7 +126,7 @@ NIC teaming | No | No
 IPv4 | Yes | Yes
 IPv6 | No | No
 Static IP (Windows) | Yes | Yes
-Static IP (Linux) | Yes <br/><br/>Virtual machines is configured to use DHCP on failback  | No
+Static IP (Linux) | Yes <br/><br/>Virtual machines are configured to use DHCP on failback  | No
 Multi-NIC | Yes | Yes
 
 ### Failed-over Azure VM network configuration
