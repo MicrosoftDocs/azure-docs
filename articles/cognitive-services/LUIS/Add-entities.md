@@ -42,7 +42,7 @@ A simple entity is a generic entity that describes a single concept.
 ## Add hierarchical entities
 A hierarchical entity defines a relationship between a category and its members.
 
-To add hierarchical entities, complete the following steps. Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
+To add hierarchical entities, complete the following steps: Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
 2. On the **Entities** page, click **Create new entity**.
@@ -64,19 +64,34 @@ To add hierarchical entities, complete the following steps. Make sure to add the
 You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
 
 1. Add the prebuilt entity "number". For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
-2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". 
 
-3. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
-4. On the **Entities** page, click **Create new entity** to create a custom entity.
-5. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
-6. Click **Add Child** to add a new child.
-7. In **Child #1**, select the entity "number" from the list.
-8. In **Child #2**, select the parent entity "Category" from the list. 
-9. In **Child #3**, select the parent entity "TravelClass" from the list. 
+    |Category (hierarchical entity)|
+    |----|
+    |adult|
+    |child|
+    |infant|
+
+
+3. Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
+
+    |TravelClass (hierarchical entity)|
+    |----|
+    |first|
+    |business|
+    |economy|
+
+4. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+5. On the **Entities** page, click **Create new entity** to create a custom entity.
+6. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+7. Click **Add Child** to add a new child.
+8. In **Child #1**, select the entity "number" from the list.
+9. In **Child #2**, select the parent entity "Category" from the list. 
+10. In **Child #3**, select the parent entity "TravelClass" from the list. 
 
     ![Add composite entity](./media/add-entities/ticketsorder-composite-entity.png)
 
-10. Click **Done**.
+11. Click **Done**.
 
     >[!NOTE]
     >To delete a child, click the trash button next to it.
