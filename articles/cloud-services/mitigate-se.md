@@ -21,6 +21,6 @@ ms.author: cynthn
 
 
 
-# Guidance for mitigating speculative execution side-channel vulnerabilities
+# Guidance for mitigating speculative execution side-channel vulnerabilities in Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]
