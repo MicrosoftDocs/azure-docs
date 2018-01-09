@@ -43,7 +43,7 @@ Let's see how such operations could be tracked.
 On a high level, the task is to create `RequestTelemetry` and set known properties. After the operation is finished, you track the telemetry. The following example demonstrates this task.
 
 ### HTTP request in Owin self-hosted app
-In this example, we follow the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
+In this example, trace context is propagated according to the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -119,7 +119,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 The HTTP Protocol for Correlation also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
-For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
+While there is [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
 
 ### Service Bus Queue
 Application Insights tracks Service Bus Messaging calls with the new [Microsoft Azure ServiceBus Client for .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 and higher.
@@ -127,7 +127,7 @@ If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queu
 Refer to the [Service Bus client tracing with Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) if you manually process messages.
 
 If you use [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) package, read further - following examples demonstrate how to track (and correlate) calls to the Service Bus as Service Bus queue uses AMQP protocol and Application Insights doesn't automatically track queue operations.
-As Service Bus allows passing a property bag along with the message, we use it to pass the correlation ID.
+Correlation identifiers are passed in the message properties.
 
 #### Enqueue
 
@@ -225,7 +225,7 @@ You also might want to correlate the Application Insights operation ID with the 
 #### Enqueue
 Because Storage queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similarly to how we do it in the HTTP Protocol for Correlation. 
 
-In this example, we track the optional `Enqueue` operation. You can:
+This example shows how to track the `Enqueue` operation. You can:
 
  - **Correlate retries (if any)**: They all have one common parent that's the `Enqueue` operation. Otherwise, they're tracked as children of the incoming request. If there are multiple logical requests to the queue, it might be difficult to find which call resulted in retries.
  - **Correlate Storage logs (if and when needed)**: They're correlated with Application Insights telemetry.
@@ -335,7 +335,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### Process
 
-In the following example, we trace an incoming message in a manner similarly to how we trace an incoming HTTP request:
+In the following example, an incoming message is tracked in a manner similarly to incoming HTTP request:
 
 ```csharp
 public async Task Process(MessagePayload message)
@@ -412,7 +412,7 @@ async Task BackgroundTask()
 }
 ```
 
-In this example, we use `telemetryClient.StartOperation` to create `RequestTelemetry` and fill the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
+In this example, `telemetryClient.StartOperation` creates `RequestTelemetry` and fills the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
 
 When the task starts from the background thread that doesn't have any operation (`Activity`) associated with it, `BackgroundTask` doesn't have any parent. However, it can have nested operations. All telemetry items reported from the task are correlated to the `RequestTelemetry` created in `BackgroundTask`.
 
@@ -472,7 +472,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-Make sure you always call `StartOperation` and process operation in the same **async** method to isolate operations running in parallel. If operation is synchronous (or just not async), wrap process and track with `Task.Run`:
+Make sure you always call `StartOperation` and process operation in the same **async** method to isolate operations running in parallel. If operation is synchronous (or not async), wrap process and track with `Task.Run`:
 
 ```csharp
 public void RunMyTask(string name)
