@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 01/09/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -37,7 +37,7 @@ az group create \
 
 ## Create a storage account
 
-As shown in this quickstart, you can link an Azure general-purpose storage account with your Batch account. The storage account is useful to deploy applications and store input and output data. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can link an Azure general-purpose storage account with your Batch account. Although not required for the example in this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \
@@ -82,18 +82,18 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04" 
 ```
 
-It takes a few minutes to provision the pool resources. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. The following command gets the allocation state of the pool:
+The pool is created immediately, but it takes a few minutes to start the pool nodes. During this time, the pool is in the `resizing` state. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command gets the allocation state of the pool:
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
     --query "allocationState"
 ```
 
-Continue the following steps to create a job and tasks while the pool state is changing. The pool is completely provisioned when the allocation state is `Steady`. 
+Continue the following steps to create a job and tasks while the pool state is changing. The pool is ready to run tasks when the allocation state is `steady` and all the nodes are running. 
 
 ## Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. The following example creates a job *myjob* on the pool *mypool*. Initially the job has no tasks.
+A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Create a Batch job by using the [az batch job create](/cli/azure/batch/job#az_batch_job_create) command. The following example creates a job *myjob* on the pool *mypool*. Initially the job has no tasks.
 
 ```azurecli-interactive 
 az batch job create \
@@ -101,11 +101,17 @@ az batch job create \
     --pool-id mypool
 ```
 
+To see the properties associated with all jobs in the account, use the [az batch job list](/cli/azure/batch/job#az_batch_job_list) command. In this case, one job is listed:
+
+```azurecli-interactive 
+az batch job list
+```
+
 ## Create tasks
 
 Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, you create four identical tasks. Each task runs a `command-line` to display the Batch environment variables on a compute node, and then waits 90 seconds. When you use Batch, this command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-The following script creates 4 parallel tasks (*mytask1* to *mytask4*).
+The following Bash script creates 4 parallel tasks (*mytask1* to *mytask4*).
 
 ```azurecli-interactive 
 for i in {1..4}
@@ -113,7 +119,7 @@ do
    az batch task create \
     --task-id mytask$i \
     --job-id myjob \
-    --command-line "/bin/bash -c \"printenv | grep AZ_BATCH; sleep 90s\""
+    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
 done
 ```
 
