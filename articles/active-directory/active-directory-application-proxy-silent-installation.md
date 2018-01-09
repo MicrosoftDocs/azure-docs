@@ -3,7 +3,7 @@ title: Silent install Azure AD App Proxy connector | Microsoft Docs
 description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: daveba
 manager: mtillman
 
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---

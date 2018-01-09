@@ -12,20 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 12/18/2017
 ms.author: tomfitz
 
 ---
 
 # Deploy Azure resources to more than one subscription or resource group
 
-Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
-
-The resource group is the lifecycle container for the application and its collection of resources. You create the resource group outside of the template, and specify the resource group to target during deployment. For an introduction to resource groups, see [Azure Resource Manager overview](resource-group-overview.md).
+Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
 
 ## Specify a subscription and resource group
 
-To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`. These properties enable you to specify a different subscription and resource group for the nested deployment. All the resource groups must exist before running the deployment. If you do not specify either the subscription ID or resource group, the subscription and resource group from the parent template is used.
+To target a different resource, use a nested or linked template. The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`. These properties enable you to specify a different subscription and resource group for the nested deployment. All the resource groups must exist before running the deployment. If you do not specify either the subscription ID or resource group, the subscription and resource group from the parent template is used.
+
+To specify a different resource group and subscription, use:
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "resourceGroup": "[parameters('secondResourceGroup')]",
+        "subscriptionId": "[parameters('secondSubscriptionID')]",
+        ...
+    }
+]
+```
+
+If your resource groups are in the same subscription, you can remove the **subscriptionId** value.
 
 The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group specified in the `secondResourceGroup` parameter:
 
@@ -104,93 +119,7 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-## Deploy the template
-
-To deploy the example template, use a release of Azure PowerShell or Azure CLI from May 2017 or later. For these examples, use the [cross subscription template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) in GitHub.
-
-### Two resource groups in the same subscription
-
-For PowerShell, to deploy two storage accounts to two resource groups in the same subscription, use:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
-```
-
-For Azure CLI, to deploy two storage accounts to two resource groups in the same subscription, use:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-After deployment completes, you see two resource groups. Each resource group contains a storage account.
-
-### Two resource groups in different subscriptions
-
-For PowerShell, to deploy two storage accounts to two subscriptions, use:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
-```
-
-For Azure CLI, to deploy two storage accounts to two subscriptions, use:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
+To deploy the example template, use a release of Azure PowerShell or Azure CLI from May 2017 or later.
 
 ## Use the resourceGroup() function
 
@@ -228,9 +157,59 @@ If you link to a separate template, resourceGroup() in the linked template resol
 }
 ```
 
-To test the different ways `resourceGroup()` resolves, deploy an [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) that returns the resource group object for the parent template, inline template, and linked template. The parent and inline template both resolve to the same resource group. The linked template resolves to the linked resource group.
+## Example templates
 
-For PowerShell, use:
+The following templates demonstrate multiple resource group deployments. Scripts to deploy the templates are shown after the table.
+
+|Template  |Description  |
+|---------|---------|
+|[Cross subscription template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Deploys one storage account to one resource group and one storage account to a second resource group. Include a value for the subscription ID when the second resource group is in a different subscription. |
+|[Cross resource group properties template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Demonstrates how the `resourceGroup()` function resolves. It does not deploy any resources. |
+
+### PowerShell
+
+For PowerShell, to deploy two storage accounts to two resource groups in the **same subscription**, use:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
+```
+
+For PowerShell, to deploy two storage accounts to **two subscriptions**, use:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+For PowerShell, to test how the **resource group object** resolves for the parent template, inline template, and linked template, use:
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -242,7 +221,46 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-For Azure CLI, use:
+### Azure CLI
+
+For Azure CLI, to deploy two storage accounts to two resource groups in the **same subscription**, use:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
+```
+
+For Azure CLI, to deploy two storage accounts to **two subscriptions**, use:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+For Azure CLI, to test how the **resource group object** resolves for the parent template, inline template, and linked template, use:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

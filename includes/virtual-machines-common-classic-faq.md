@@ -96,7 +96,7 @@ Azure offers several options for anti-virus solutions, but it’s up to you to m
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## What are my options for backup and recovery?
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-arm-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
 
 An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
 
 ---
@@ -35,7 +35,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | Conflict | You are requesting an operation that is not permitted in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DnsRecordInUse | The DNS record name must be unique. Either provide a different name, or modify the existing record. | |
-| ImageNotFound | Check VM image settings. | [Troubleshoot Linux images](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) and [Troubleshoot Windows images](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You may encounter this error when attempting to update a resource, but the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
 | InvalidContentLink | You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. | [Linked templates](resource-group-linked-templates.md) |

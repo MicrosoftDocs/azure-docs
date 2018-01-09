@@ -2,14 +2,14 @@
 title: Add entities in LUIS apps | Microsoft Docs
 description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 12/19/2017
+ms.author: v-geberr
 ---
 
 # Manage entities
@@ -97,7 +97,7 @@ A list entity is an entity that is defined by a list of all its values.
 
 5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
 
-![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
+    ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
  
 ## Import list entity values
 
@@ -113,26 +113,26 @@ A list entity is an entity that is defined by a list of all its values.
 
  4. Click **Done**.
 
-An example of valid json for an entity list is shown in the following JSON-formatted code:
+    An example of valid json for an entity list is shown in the following JSON-formatted code:
 
-```
-[
-    {
-        "canonicalForm": "Egypt",
-        "list": [
-            "Cairo",
-            "Alexandria"
-        ]
-    },
-    {
-        "canonicalForm": "USA",
-        "list": [
-            "California",
-            "Texas"
-        ]
-    }
-]  
-```
+    ```
+    [
+        {
+            "canonicalForm": "Egypt",
+            "list": [
+                "Cairo",
+                "Alexandria"
+            ]
+        },
+        {
+            "canonicalForm": "USA",
+            "list": [
+                "California",
+                "Texas"
+            ]
+        }
+    ]  
+    ```
 
 ## Edit entity name
 On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
@@ -150,9 +150,11 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed.  
+Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed. [Fuzzy search](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#fuzzy-search) is on by default. 
 
 ![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
+
+
 
 ## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [add features](Add-Features.md) to improve the app.

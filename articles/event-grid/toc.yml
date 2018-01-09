@@ -36,6 +36,8 @@
   items:
   - name: Stream data from Event Hubs to data warehouse
     href: event-grid-event-hubs-integration.md
+  - name: Templates for event subscriptions
+    href: event-subscription-template.md
 - name: Reference
   items:
   - name: Azure CLI

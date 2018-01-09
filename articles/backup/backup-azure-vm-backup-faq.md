@@ -27,7 +27,7 @@ This article has answers to common questions to help you quickly understand the 
 Recovery Services vaults support both models.  You can back up a classic VM (created in the Classic portal), or a Resource Manager VM (created in the Azure portal) to a Recovery Services vault.
 
 ### What configurations are not supported by Azure VM backup?
-Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs that are:
@@ -50,6 +50,9 @@ Yes. Even when a machine is shut down backups work and the recovery point is mar
 
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**. 
+
+### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
+If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?

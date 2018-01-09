@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
 
 ---
@@ -135,9 +135,9 @@ In this section, you use the Azure portal to add an HDInsight cluster into the v
     There are six sections using the custom configuration option: Basics, Storage, Application, Cluster size, Advanced settings, and Summary.
 5. In the **Basics** section:
 
-    - Cluster type: Choose **PREMIUM**. Currently you can only create premium cluster with the following cluster types: Hadoop, Interactive Query, and Spark.
+    - Cluster type: Select **Enterprise Security Package**. Currently the Enterprise Security package can only be enabled for the following cluster types: Hadoop, Interactive Query, and Spark.
 
-        ![HDInsight domain joined Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![HDInsight domain joined enterprise security package](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Cluster login username: This is the Hadoop HTTP user. This account is different from the domain administrator account.
     - Resource group: Select the resource group you created earlier using the Resource Manager template.
     - Location:  The location must be the same as the one you used when you create the vnet and the DCs using the Resource Manager template.
