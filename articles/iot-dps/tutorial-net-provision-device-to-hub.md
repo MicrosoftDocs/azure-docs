@@ -30,7 +30,7 @@ Before you proceed, make sure to configure your device and its *Hardware Securit
 
 * Visual Studio 2015 or Visual Studio 2017
 
-<a id="enrolldevice"></a>
+
 ## Enroll the device
 
 This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are as follows:
@@ -49,191 +49,167 @@ There are two ways to enroll the device to the Device Provisioning Service:
 
 The following are the steps to enroll the device in the portal using **Individual Enrollments**:
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **DeviceProvisioning**.
+1. In Visual Studio, create a Visual C# Console Application project by using the **Console App** project template. Name the project **DeviceProvisioning**.
     
 1. In Solution Explorer, right-click the **DeviceProvisioning** project, and then click **Manage NuGet Packages...**.
 
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices**. Select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices) NuGet package and its dependencies.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.provisioning.service**. Select the entry and click **Install** to install the **Microsoft.Azure.Devices.Provisioning.Service** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device provisioning service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
     ```csharp
-    using Microsoft.Azure.Devices;
-    using Microsoft.Azure.Devices.Shared;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Add the following fields to the **Program** class. Replace the placeholder values with the DPS connection string and device information that you noted in the previous section.  _deviceId_ can be of your choosing.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the DPS connection string noted in the previous section.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{dpsConnectionString}";
-    static readonly string registrationId = "{registrationId}";
-    static readonly string endorsementKey = "{endorsementKey}";
+    static readonly string ServiceConnectionString = "{DPS connection string}";
 
-    static readonly string deviceId = "{deviceId}";
+    private const string SampleRegistrationId = "sample-individual-csharp";
+    private const string SampleTpmEndorsementKey =
+            "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
+            "cTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3d" +
+            "yKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKR" +
+            "dln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFe" +
+            "WlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==";
+    private const string OptionalDeviceId = "myCSharpDevice";
+    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
     ```
 
 1. Add the following to implement the enrollment for the device:
 
     ```csharp
-    static async Task EnrollmentSampleAsync(string connectionString)
+    static async Task SetRegistrationDataAsync()
     {
-        DeviceRegistrationClient drsClient = DeviceRegistrationClient.CreateFromConnectionString(connectionString);
-            
-        var enrollment = new Enrollment(registrationId)
-        {
-            Attestation = new AttestationMechanism()
-            {
-                Tpm = new TpmAttestation()
-                {
-                    EndorsementKey = endorsementKey
-                }
-            },
-            InitialTwinState = new TwinState()
-            {
-                DesiredProperties = new TwinCollection
-                {
-                    ["temperature"] = 55,
-                    ["firmwareVersion"] = "1.2.5"
-                },
-                Tags = new TwinCollection
-                {
-                    ["location"] = new Dictionary<string, object>
-                    {
-                        { "building", "43" },
-                        { "floor", "1" }
-                    }
-                }
-            }
-        };
+        Console.WriteLine("Starting SetRegistrationData");
 
-        enrollment.DeviceId = deviceId;
-        enrollment.ProvisioningStatus = ProvisioningStatus.Enabled;
-            
-        Console.WriteLine("############################ Enrollment");
-        Console.WriteLine(JsonConvert.SerializeObject(enrollment, Formatting.Indented));
+        Attestation attestation = new TpmAttestation(SampleTpmEndorsementKey);
 
-        var enrollmentGroupFromCreate = await drsClient.AddEnrollmentAsync(enrollment);
+        IndividualEnrollment individualEnrollment = new IndividualEnrollment(SampleRegistrationId, attestation);
 
-        Console.WriteLine("Enrollment successfully created");
+        individualEnrollment.DeviceId = OptionalDeviceId;
+        individualEnrollment.ProvisioningStatus = OptionalProvisioningStatus;
+
+        Console.WriteLine("\nAdding new individualEnrollment...");
+        var serviceClient = ProvisioningServiceClient.CreateFromConnectionString(ServiceConnectionString);
+
+        IndividualEnrollment individualEnrollmentResult =
+            await serviceClient.CreateOrUpdateIndividualEnrollmentAsync(individualEnrollment).ConfigureAwait(false);
+
+        Console.WriteLine("\nIndividualEnrollment created with success.");
+        Console.WriteLine(individualEnrollmentResult);
     }
     ```
 
 1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and begin the enrollment:
    
-        try
-        {
-            Console.WriteLine("IoT Device Provisioning example");
+    ```csharp
+    try
+    {
+        Console.WriteLine("IoT Device Provisioning example");
 
-            EnrollmentSampleAsync(ServiceConnectionString).GetAwaiter().GetResult();
+        SetRegistrationDataAsync().GetAwaiter().GetResult();
             
-            Console.WriteLine("Done, hit enter to exit.");
-            Console.ReadLine();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-        }
+        Console.WriteLine("Done, hit enter to exit.");
+        Console.ReadLine();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Error in sample: {0}", ex.Message);
+    }
+    ```
         
 1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **DeviceProvisioning** project in the dropdown menu.  
 
 1. Run the .NET device app **DeviceProvisiong**. It should set up provisioning for the device: 
 
-    ![Device app run](./media/tutorial-net-provision-device-to-hub/devicerun.png)
+    ![Individual registration run](./media/tutorial-net-provision-device-to-hub/individual.png)
 
 When the device is successfully enrolled, you should see it displayed in the portal as following:
 
-   ![Successful TPM enrollment in the portal](./media/tutorial-net-provision-device-to-hub/tpm-enrollment-success.png)
+   ![Successful enrollment in the portal](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
 
 - **Enrollment Groups**
     This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
 
+> [!NOTE]
+> This enrollment group sample requires an X509 certificate and corresponding password.
+
 The following are the steps to enroll the device in the portal using **Enrollment Groups**:
 
-1. In the Visual Studio Solution Explorer, open the **DeviceProvisioning** project created above.  
+1. In the Visual Studio Solution Explorer, open the **DeviceProvisioning** project created above. 
+
+1. Add the following `using` statements at the top of the **Program.cs** file:
+    
+    ```csharp
+    using System.Security.Cryptography.X509Certificates;
+    ```
+
+1. Add the following fields to the **Program** class. Replace the placeholder value with the X509 certificate location.
+   
+    ```csharp
+    private const string X509RootCertPathVar = "{X509 Certificate Location}";
+    private const string SampleEnrollmentGroupId = "sample-group-csharp";
+    ```
 
 1. Add the following to **Program.cs** implement the enrollment for the group:
 
     ```csharp
-    static async Task EnrollmentGroupSampleAsync(string connectionString)
+    public static async Task SetGroupRegistrationDataAsync()
     {
-        DeviceRegistrationClient drsClient = DeviceRegistrationClient.CreateFromConnectionString(connectionString);
-        
-        var enrollmentGroup = new EnrollmentGroup(registrationId)
+        Console.WriteLine("Starting SetGroupRegistrationData");
+
+        using (ProvisioningServiceClient provisioningServiceClient =
+                ProvisioningServiceClient.CreateFromConnectionString(ServiceConnectionString))
         {
-            Attestation = new AttestationMechanism()
-            {
-                Tpm = new TpmAttestation()
-                {
-                    EndorsementKey = endorsementKey
-                }
-            },
-            InitialTwinState = new TwinState()
-            {
-                DesiredProperties = new TwinCollection
-                {
-                    ["temperature"] = 55,
-                    ["firmwareVersion"] = "1.2.5"
-                },
-                Tags = new TwinCollection
-                {
-                    ["location"] = new Dictionary<string, object>
-                    {
-                        { "building", "42" },
-                        { "floor", "1" }
-                    }
-                }
-            }
-        };
+            Console.WriteLine("\nCreating a new enrollmentGroup...");
 
-        Console.WriteLine("############################ Enrollment Group");
-        Console.WriteLine(JsonConvert.SerializeObject(enrollmentGroup, Formatting.Indented));
+            var certificate = new X509Certificate2(X509RootCertPathVar);
 
-        var enrollmentFromCreate = await drsClient.AddEnrollmentGroupAsync(enrollmentGroup);
+            Attestation attestation = X509Attestation.CreateFromRootCertificates(certificate);
 
-        Console.WriteLine("Enrollment Group successfully created");
+            EnrollmentGroup enrollmentGroup = new EnrollmentGroup(SampleEnrollmentGroupId, attestation);
+
+            Console.WriteLine(enrollmentGroup);
+            Console.WriteLine("\nAdding new enrollmentGroup...");
+
+            EnrollmentGroup enrollmentGroupResult =
+                await provisioningServiceClient.CreateOrUpdateEnrollmentGroupAsync(enrollmentGroup).ConfigureAwait(false);
+
+            Console.WriteLine("\nEnrollmentGroup created with success.");
+            Console.WriteLine(enrollmentGroupResult);
+        }
     }
     ```
 
 1. Finally, replace the following code to the **Main** method to open the connection to your IoT hub and begin the group enrollment:
    
     ```csharp
-    static void Main(string[] args)
+    try
     {
-        try
-        {
-            Console.WriteLine("IoT Device Provisioning example");
+        Console.WriteLine("IoT Device Group Provisioning example");
 
-            EnrollmentGroupSampleAsync(ServiceConnectionString).GetAwaiter().GetResult();
+        SetGroupRegistrationDataAsync().GetAwaiter().GetResult();
             
-            Console.WriteLine("Done, hit enter to exit.");
-            Console.ReadLine();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-        }
+        Console.WriteLine("Done, hit enter to exit.");
+        Console.ReadLine();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Error in sample: {0}", ex.Message);
     }
     ```
 
 1. Run the .NET device app **DeviceProvisiong**. It should set up group provisioning for the device: 
 
-    ![Device app run](./media/tutorial-net-provision-device-to-hub/devicerungroup.png)
+    ![Group registration run](./media/tutorial-net-provision-device-to-hub/group.png)
 
-> [!NOTE]
-> To use X509 certificates, replace `Tpm = new TpmAttestation() { EndorsementKey = endorsementKey }` with `X509 = certificate` in the code sample above. Then use the following code to create the attestation:
->     ```csharp
->     var certificateLocation = "{certificateFileLocation}";
->
->     var certificate = new X509Attestation();
->     certificate.ClientCertificates = new X509Certificates();
->     certificate.ClientCertificates.Primary = new X509CertificateWithInfo();
->     certificate.ClientCertificates.Primary.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateLocation);    
+    When the device group is successfully enrolled, you should see it displayed in the portal as following:
+
+   ![Successful group enrollment in the portal](./media/tutorial-net-provision-device-to-hub/group-portal.png)
 
 
 ## Start the device
