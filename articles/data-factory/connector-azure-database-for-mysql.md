@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/09/2018
 ms.author: jingwang
 
 ---
@@ -55,7 +55,7 @@ The following properties are supported for Azure Database for MySQL linked servi
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=3306;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -130,7 +130,7 @@ To copy data from Azure Database for MySQL, set the source type in the copy acti
         "typeProperties": {
             "source": {
                 "type": "AzureMySqlSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "<custom query e.g. SELECT * FROM MyTable>"
             },
             "sink": {
                 "type": "<sink type>"
