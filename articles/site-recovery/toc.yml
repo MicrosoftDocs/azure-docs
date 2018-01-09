@@ -125,6 +125,8 @@
       items:
       - name: About failover
         href: site-recovery-failover.md
+      - name: Run a test failover to a secondary site
+        href: tutorial-dr-drill-secondary.md
       - name: Run a failover and failback for physical servers
         href: physical-to-azure-failover-failback.md
       - name: Run a failover and failback between on-premises sites
