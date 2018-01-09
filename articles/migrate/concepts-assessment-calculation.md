@@ -1,22 +1,13 @@
 ---
 title: Assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of assessment calculations in the Azure Migrate service.
-services: migrate
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
-editor: ''
-
-ms.assetid: 39a63769-31eb-49f9-9089-4d3e4e88a412
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-
 ---
+
 # Assessment calculations
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. This article provides information about how assessments are calculated.
@@ -53,10 +44,10 @@ Machines that you want to migrate to Azure must meet Azure requirements and limi
 After a machine is marked as suitable for Azure, Azure Migrate maps it to a VM size in Azure, using the following criteria:
 
 - **Storage check**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure:
-       - Azure Migrate multiplies the I/O per second (IOPS) by the comfort factor. It also multiples the throughput ( in MBps) of each disk by the comfort factor. This provides the effective disk IOPS and throughput. Based on this, Azure Migrate maps the disk to a standard or premium disk in Azure.
-    - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
-    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
-    - If there are multiple eligible disks, it selects the one with the lowest cost.
+    - Azure Migrate multiplies the I/O per second (IOPS) by the comfort factor. It also multiples the throughput ( in MBps) of each disk by the comfort factor. This provides the effective disk IOPS and throughput. Based on this, Azure Migrate maps the disk to a standard or premium disk in Azure.
+      - If the service can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure.
+      - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
+      - If there are multiple eligible disks, it selects the one with the lowest cost.
 - **Storage disk throughput**: [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
 - **Disk type**: Azure Migrate supports managed disks only.
 - **Network check**: Azure Migrate tries to find an Azure VM that can support the number of NICs on the on-premises machine.

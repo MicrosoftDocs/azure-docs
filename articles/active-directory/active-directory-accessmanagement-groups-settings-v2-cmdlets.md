@@ -5,7 +5,7 @@ keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac

@@ -49,7 +49,7 @@ You need the following resources and abilities:
   * Corosync and Pacemaker
 
 ### Affinity group
-Create an affinity group for the solution by signing in to the Azure classic portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
+Create an affinity group for the solution by signing in to the Azure portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.

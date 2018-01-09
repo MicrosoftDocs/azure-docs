@@ -71,10 +71,10 @@
     items:
     - name: Supported languages 
       href: supported-languages.md
-    - name: C# script 
-      href: functions-reference-csharp.md
-    - name: .NET class library
+    - name: C# (class library)
       href: functions-dotnet-class-library.md
+    - name: C# script (.csx)
+      href: functions-reference-csharp.md
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
@@ -135,6 +135,8 @@
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
+    - name: Zip push deployment
+      href: deployment-zip-push.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions

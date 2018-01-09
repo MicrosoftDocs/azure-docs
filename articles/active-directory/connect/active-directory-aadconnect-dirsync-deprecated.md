@@ -4,7 +4,7 @@ description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -59,7 +59,7 @@ If you want to see how to do an in-place upgrade from DirSync to Azure AD Connec
 The notification was also sent to customers using Azure AD Connect with a build number 1.0.\*.0 (using a pre-1.1 release). Microsoft recommends customers to stay current with Azure AD Connect releases. The [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature introduced in 1.1 makes it easy to always have a recent version of Azure AD Connect installed.
 
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
-DirSync/Azure AD Sync will continue to work on April 13, 2017.  However, Azure AD will no longer accept communications from DirSync/Azure AD Sync after December 31, 2017.
+DirSync/Azure AD Sync will continue to work on April 13, 2017.  However, Azure AD may no longer accept communications from DirSync/Azure AD Sync after December 31, 2017.
 
 **Q: Which DirSync versions can I upgrade from?**  
 It is supported to upgrade from any DirSync release currently being used. Note that in-place upgrade from DirSync to Azure AD Connect is not supported after December 31st 2017. Customers who are using DirSync after that date and want to move to Azure AD Connect may have to do a fresh installation of Azure AD Connect instead.

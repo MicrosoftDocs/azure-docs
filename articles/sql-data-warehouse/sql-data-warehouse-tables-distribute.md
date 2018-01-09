@@ -3,8 +3,8 @@ title: Distributing tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with distributing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # Distributing tables in SQL Data Warehouse

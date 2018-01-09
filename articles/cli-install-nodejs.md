@@ -36,7 +36,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of
 
 For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Once the Azure CLI 1.0 is installed, [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
+Once the Azure CLI 1.0 is installed, [connect it with your Azure subscription](/cli/azure/authenticate-azure-cli) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
 ## Option 1: Install an npm package
 To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
@@ -96,7 +96,7 @@ To see the version of the Azure CLI 1.0 you installed, type the following:
 azure --version
 ```
 
-Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
+Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect usage information. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
@@ -126,7 +126,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## Next steps
-* [Connect from the CLI to your Azure subscription](xplat-cli-connect.md) to create and manage Azure resources.
+* [Connect from the CLI to your Azure subscription](/cli/azure/authenticate-azure-cli) to create and manage Azure resources.
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 * If you have questions about using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

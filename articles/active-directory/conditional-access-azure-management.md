@@ -4,7 +4,7 @@ description: Learn about using conditional access in Azure AD to manage access t
 services: active-directory
 documentationcenter: ''
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
 ms.service: active-directory

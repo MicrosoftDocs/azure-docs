@@ -4,7 +4,7 @@ description: A description of various features in the Microsoft app registration
 services: active-directory
 documentationcenter: ''
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278

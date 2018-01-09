@@ -4,7 +4,7 @@ description: How to get started with Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d

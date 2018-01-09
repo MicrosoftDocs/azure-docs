@@ -16,7 +16,7 @@ ms.custom: mvc
 
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service (preview)
+# Provisioning devices with Azure IoT Hub Device Provisioning Service
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service
@@ -114,7 +114,7 @@ For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
 
 ## Related Azure components
-The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.

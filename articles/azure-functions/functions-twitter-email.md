@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -69,28 +69,31 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
  
     ![Keys](media/functions-twitter-email/keys.png)
 
-## Create the function
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## Create the function app
 
 Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
-1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Create Azure Function App](media/functions-twitter-email/create_fun.png)
+## Create an HTTP triggered function  
 
-    | Setting      |  Suggested value   | Description       |
-    | --- | --- | --- |
-    | **Name** | MyFunctionApp | Choose a unique account name. |
-    | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
-    | **Hosting plan** | Consumption Plan | This defines your cost and usage allocations.
-    | **Location** | West US | Use the location nearest you. |
-    | **Storage** | Create New | Automatically generates a new storage account.|
-    | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
 
-2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **Webhook + API**, **CSharp**, then **Create This Function**. This will create a function using the HTTPTrigger C# template. Your code will appear in a new window as `run.csx`
+    ![Functions quickstart page in the Azure portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
+2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
 
-3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
+    ![Choose the HTTP trigger](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Type a **Name** for your function, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**. 
+
+    ![Create the HTTP triggered function](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    This creates a C# script function using the HTTP Trigger template. Your code appears in a new window as `run.csx`.
+
+4. Replace the contents of the `run.csx` file with the following code, then click **Save**:
 
     ```csharp
     using System.Net;

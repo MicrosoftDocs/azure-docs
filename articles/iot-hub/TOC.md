@@ -150,8 +150,8 @@
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (Devices)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (Service)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (Devices)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -162,6 +162,7 @@
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)

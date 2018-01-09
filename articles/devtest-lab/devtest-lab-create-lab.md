@@ -3,7 +3,7 @@ title: Create a lab in Azure DevTest Labs | Microsoft Docs
 description: Create a lab in Azure DevTest Labs for virtual machines
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: tarcher	
+ms.author: v-craic	
 
 ---
 # Create a lab in Azure DevTest Labs

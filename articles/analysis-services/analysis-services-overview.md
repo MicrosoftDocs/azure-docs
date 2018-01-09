@@ -1,5 +1,5 @@
 ---
-title: What is Azure Analysis Services | Microsoft Docs
+title: Azure Analysis Services overview| Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 01/04/2017
 ms.author: owend
 
 ---
-# What is Azure Analysis Services?
+# Azure Analysis Services overview
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
@@ -113,7 +113,7 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
-Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide users with highly interactive and visually rich insights into your model data.
+Modern data exploration and visualization tools like Power BI, Excel, SQL Server 2017 Reporting Services, and third-party tools are all supported, providing users with highly interactive and visually rich insights into your model data. 
 
 Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 

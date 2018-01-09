@@ -6,9 +6,9 @@ keywords:
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 08/24/2017
-ms.topic: how to
+ms.topic: article
 
-ms.service: multiple
+ms.service: azure-portal
 ms.custom: accessibility
 manager:  timlt
 ---

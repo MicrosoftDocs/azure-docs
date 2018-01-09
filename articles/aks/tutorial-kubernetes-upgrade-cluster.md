@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Upgrade Kubernetes in Azure Container Service (AKS)
 
-An Azure Container Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) to minimize disruption to running applications.
+An Azure Container Service (AKS) cluster can be upgraded using the Azure CLI. During the upgrade process, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.
 
 In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks that you complete include:
 
@@ -27,7 +27,7 @@ In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks t
 
 In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster.
 
-If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
+If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 
 ## Get cluster versions
@@ -138,4 +138,11 @@ In this tutorial, you upgraded Kubernetes in an AKS cluster. The following tasks
 Follow this link to learn more about AKS.
 
 > [!div class="nextstepaction"]
-> [AKS overview](./intro-kubernetes.md)
+> [AKS overview][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

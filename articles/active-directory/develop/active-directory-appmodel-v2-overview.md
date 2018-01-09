@@ -4,7 +4,7 @@ description: An introduction to building applications with both Microsoft Accoun
 services: active-directory
 documentationcenter: ''
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27

@@ -3,18 +3,18 @@ title: Add the default VM image to the Azure Stack Marketplace | Microsoft Docs
 description: Add the Windows Server 2016 VM default image to the Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: 2849E53F-3D58-48A5-8007-3238FC39F630
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack Marketplace

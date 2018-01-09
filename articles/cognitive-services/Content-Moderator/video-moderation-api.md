@@ -36,8 +36,8 @@ The Content Moderator's video capability is available as a private preview **med
 
 ## Get Azure Active Directory credentials
 
-   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
-   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
+   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
+   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
 
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
