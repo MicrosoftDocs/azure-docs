@@ -168,7 +168,7 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
     ```
 
 ## Test Nginx installation
-To test that Nginx is installed, you can use SSH to connect to the virtual machine, and then run `nginx status`.
+This section illustrates one technique to test that Nginx is installed on your virtual machine.
 
 1. Use the [az vm list-ip-addresses command](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) to retrieve the IP address of the `ansible-inventory-test-vm1` virtual machine. The returned value (the virtual machine's IP address) is then used as the parameter to the SSH command to connect to the virtual machine.
 
