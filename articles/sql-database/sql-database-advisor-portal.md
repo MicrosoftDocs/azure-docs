@@ -90,7 +90,8 @@ If desired, you can add discarded items back to the **Recommendations** list:
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
 > [!NOTE]
-> Please note that discarded index recommendations won’t be applied any longer by the system -- even though the system might find them beneficial to the SQL Database performance. You can revert this behavior by adding discarded items back to the Recommendations list by selecting the Undo Discard option.
+> Please note that if SQL Database [Automatic tuning](sql-database-automatic-tuning.md) is enabled, the system will ignore discarded recommendations. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when knowing that a specific recommendation shouldn’t be applied.
+> You can revert this behavior by adding discarded recommendations back to the Recommendations list by selecting the Undo Discard option.
 > 
 
 ### Enable automatic tuning
