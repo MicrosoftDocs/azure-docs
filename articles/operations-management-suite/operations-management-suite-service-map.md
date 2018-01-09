@@ -329,34 +329,34 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ## Sample log searches
 
 ### List all known machines
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List the physical memory capacity of all managed computers.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### List computer name, DNS, IP, and OS.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### Find all processes with "sql" in the command line
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by resource name
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by IP address
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all known processes on a specified machine
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all computers running SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "*sql*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### List all unique product versions of curl in my datacenter
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### Create a computer group of all computers running CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## REST API
