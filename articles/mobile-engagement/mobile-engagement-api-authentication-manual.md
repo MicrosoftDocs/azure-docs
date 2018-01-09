@@ -52,12 +52,12 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
      ![Configure app][11]
 
-10. Create a new key, and then immediately copy it and save it for use. It will never be shown again.
+10. Create a new key, and then immediately copy it and save it for use. It is never be shown again.
 
      ![Configure app][12]
 
     > [!IMPORTANT]
-    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. You can also delete and recreate this key if you think that it has been compromised.
+    > This key expires at the end of the duration that you specified. Make sure to renew it when the time comes, otherwise your API authentication won't work anymore. Iff you think that this key has been compromised, you can also delete and recreate it .
     >
     >
 11. Select **Endpoints** button at the top of the page. Then copy the **OAUTH 2.0 TOKEN ENDPOINT**.
@@ -66,7 +66,7 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
 16. This endpoint is in the following form, where the GUID in the URL is your **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-17. Now we  proceed to configure the permissions on this app. For this, you  have to open up the [Azure portal](https://portal.azure.com).
+17. Now we  proceed to configure the permissions on this app. To start the process, go to the [Azure portal](https://portal.azure.com).
 
 18. Select **Resource Groups**, and then find the **Mobile Engagement** resource group.
 
@@ -88,7 +88,7 @@ After you finish, you have an Azure AD app with the name you provided. It is you
 
     ![][19]
 
-23. Search for the name of your application, **AD\_APP\_NAME**, in the Search box. You will not see this by default here. After you find it, select it. Then click **Select** at the bottom of the section.
+23. Search for the name of your application, **AD\_APP\_NAME**, in the Search box. This name is not here by default. After you find it, select it. Then click **Select** at the bottom of the section.
 
     ![][20]
 
