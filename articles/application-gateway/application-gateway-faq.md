@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Application Gateway | Microsoft Docs
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 
@@ -286,7 +286,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Prevention against bots, crawlers, and scanners
 
-* Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+ * Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 **Q. Does WAF also support DDoS prevention?**
 

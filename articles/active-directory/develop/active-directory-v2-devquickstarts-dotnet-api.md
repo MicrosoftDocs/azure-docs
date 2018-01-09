@@ -4,7 +4,7 @@ description: How to build a .NET MVC Web Api that accepts tokens from both perso
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
@@ -121,7 +121,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincpal` object.  
+* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincipal` object.  
 
 ```C#
 public IEnumerable<TodoItem> Get()

@@ -29,20 +29,21 @@ The Azure Functions Tools provides the following benefits:
 
 This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
 
+> [!IMPORTANT]
+> Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process will overwrite any functions that you developed in the portal.
+
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 version 15.3 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
 
 ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
->[!NOTE]  
->After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
 
 To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## Create an Azure Functions project 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -52,7 +53,7 @@ To create and deploy functions, you also need:
 
 When you create a new project using the Azure Functions template, you get an empty C# project that contains the following files:
 
-* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) reference article.
+* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
     
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
@@ -64,7 +65,7 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.   
 
-2. In your project, open the local.settings.json project file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
+2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
 3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.  
 
@@ -102,7 +103,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     } 
     ````
  
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, The first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters.  
+    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute.
 
 ## Testing functions
 
@@ -132,4 +133,4 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).  
-To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md). This topic also provides examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This topic also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    

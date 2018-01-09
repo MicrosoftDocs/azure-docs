@@ -53,7 +53,7 @@ sudo apt-get install -y maven
 An Azure credential is needed to execute Azure CLI.
 
 * Within the Jenkins dashboard, click **Credentials -> System ->**. Click **Global credentials(unrestricted)**.
-* Click **Add Credentials** to add a [Microsoft Azure service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint. Provide an ID for use in subsequent step.
+* Click **Add Credentials** to add a [Microsoft Azure service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) by filling out the Subscription ID, Client ID, Client Secret, and OAuth 2.0 Token Endpoint. Provide an ID for use in subsequent step.
 
 ![Add Credentials](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
@@ -88,7 +88,7 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
 ### Create an Azure Web app
 
- Use the [az webapp create](/cli/azure/appservice/web#create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
+ Use the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli-interactive
 az webapp create \

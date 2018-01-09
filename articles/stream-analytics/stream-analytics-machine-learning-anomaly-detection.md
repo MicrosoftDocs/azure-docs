@@ -3,7 +3,7 @@ title: Anomaly Detection in Azure Usage Guide  (Preview)| Microsoft Docs
 description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
-author: jeanb
+author: dubansal
 manager: jhubbard
 
 ms.service: stream-analytics
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/28/2017
-ms.author: jeanb
+ms.date: 03/28/2017
+ms.author: dubansal
 ---
 
 # Using the ANOMALYDETECTION operator
@@ -20,7 +20,7 @@ ms.author: jeanb
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
 
-The **ANOMALYDETECTION** operator can be used to detect anomalies in **live event streams** coming from IoT Hub and Event Hub.
+The **ANOMALYDETECTION** operator can be used to detect anomalies in event streams.
 For example, a slow decrease in free memory over a long time can be indicative
 of a memory leak, or the number of web service requests that are stable in a
 range might dramatically increase or decrease.
@@ -42,12 +42,12 @@ independently in each partition.
 
 ## Syntax
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## Example usage
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## Arguments
@@ -63,9 +63,9 @@ analytic functions or external functions.
 
 - **partition_by_clause** 
 
-  The `PARTITION BY \<partition key\>` clause divides the
+  The `PARTITION BY <partition key>` clause divides the
 learning and training across separate partitions. In other words, a separate
-model would be used per value of `\<partition key\>` and only events with that
+model would be used per value of `<partition key>` and only events with that
 value would be used for learning and training in that model. For example,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
@@ -95,7 +95,7 @@ properties associated with the different types of anomaly detectors are called:
 To extract the individual values out of the record, use the
 **GetRecordPropertyValue** function. For example:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 An anomaly of a particular type is detected when one of these anomaly scores
@@ -133,8 +133,8 @@ having this step will result in a compilation error.
 - A non-partitioned query using the **ANOMALYDETECTION** function can produce results with a computation latency of about 25ms on average.
 - The latency experienced by a partitioned query varies slightly with the number of partitions, as the number of computations is higher. However, the latency is about the same as the non-partitioned case for a comparable total number of events across all partitions.
 - While reading non-real-time data, a large amount of data is ingested quickly. Processing this data is currently significantly slower. The latency in such scenarios was found to increase linearly with the number of data points in the window rather than the window size or event interval per se. To reduce the latency in non-real-time cases, consider using a smaller window size. Alternatively, consider starting your job from the current time. A few examples of latencies in a non-partitioned query: 
-    - At 60 data points in the detection window, a latency of 10 seconds with a throughput of 3 MBps have been observed.
-    - At 600 data points, it has been observed that the latency can reach about 80 seconds with a throughput of 0.4 MBps.
+    - 60 data points in the detection window can result in a latency of 10 seconds with a throughput of 3 MBps. 
+    - At 600 data points, the latency can reach about 80 seconds with a throughput of 0.4 MBps.
 
 ## Example
 
@@ -203,12 +203,12 @@ As noted before, do not skip the `FillInMissingValuesStep` step for now. Omittin
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## References

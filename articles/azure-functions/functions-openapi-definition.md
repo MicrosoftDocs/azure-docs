@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ---
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. 
+You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, scaling, and sharing of resources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -45,9 +45,17 @@ You must have a function app to host the execution of your functions. A function
 
 This tutorial uses an HTTP triggered function that takes two parameters: the estimated time to make a turbine repair (in hours); and the capacity of the turbine (in kilowatts). The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period.
 
-1. Expand your function app, click the **+** button next to **Functions**, click the **HTTPTrigger** template. Enter `TurbineRepair` for the function **Name** and click **Create**.
+1. Expand your function app and select the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates. 
 
-    ![Function Apps blade, Functions +](media/functions-openapi-definition/add-function.png)
+    ![Functions quickstart page in the Azure portal](media/functions-openapi-definition/add-first-function.png)
+
+2. In the search field, type `http` and then choose **C#** for the HTTP trigger template. 
+ 
+    ![Choose the HTTP trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
+
+    ![Create the HTTP triggered function](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
@@ -108,13 +116,13 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like [API Apps](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
+Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like API Apps, [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
 
 1. Select only the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
 
     1. On the **Integrate** tab of your new HTTP Trigger function, change **Allowed HTTP methods** to **Selected methods**
 
-    1. In **Selected HTTP methods**, clear every option except **POST**.
+    1. In **Selected HTTP methods**, clear every option except **POST**, then click **Save**.
 
         ![Selected HTTP methods](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -170,20 +178,9 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
     This definition is described as a _template_ because it requires more metadata to be a full OpenAPI definition. You'll modify the definition in the next step.
 
 ## Modify the OpenAPI definition
-Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. For this tutorial, you can simply paste the modified definition below into the **API definition** pane and click **Save**.
+Now that you have a template definition, you modify it to provide additional metadata about the API's operations and data structures. In **API definition**, delete the generated definition from `post` to the bottom of the definition, paste in the content below, and click **Save**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -243,7 +240,7 @@ securityDefinitions:
     in: query
 ```
 
-That said, it's important to understand the types of modifications we made to the default template:
+In this case you could just paste in updated metadata, but it's important to understand the types of modifications we made to the default template:
 
 + Specified that the API produces and consumes data in a JSON format.
 
@@ -272,7 +269,7 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 
 1. Go back to the API definition: **function-demo-energy** > **Platform features** > **API definition**.
 
-1. In the right pane, click **Change Authentication**, enter the API key that you copied, and click **Authenticate**.
+1. In the right pane, click **Authenticate**, enter the API key that you copied, and click **Authenticate**.
 
     ![Authenticate with API key](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +283,7 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 
     Notice how the UI uses the descriptions from the API definition.
 
-1. Click **Send a request**, then click the **Pretty** tab to see the output.
+1. Click **Send Request**, then click the **Pretty** tab to see the output.
 
     ![Send a request](media/functions-openapi-definition/send-request.png)
 

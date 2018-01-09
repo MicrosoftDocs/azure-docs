@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
 
 ---
@@ -55,15 +55,15 @@ The process is simple: A sender sends a message to a Service Bus queue, and a re
 
 Each message has two parts: a set of properties, each a key/value pair, and a message payload. The payload can be binary, text, or even XML. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties **Seller="Ava"** and **Amount=10000**. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, remain empty.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, removes a message from the queue and immediately deletes it. This option is simple, but if the receiver crashes before it finishes processing the message, the message is lost. Because it's been removed from the queue, no other receiver can access it. 
+A receiver can read a message from a Service Bus queue in two different ways. The first option, called *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, receives a message from the queue and immediately deletes it. This option is simple, but if the receiver crashes before it finishes processing the message, the message is lost. Because it's been removed from the queue, no other receiver can access it. 
 
-The second option, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, is meant to help with this problem. Like **ReceiveAndDelete**, a **PeekLock** read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+The second option, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, is meant to help with this problem. Like **ReceiveAndDelete**, a **PeekLock** read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
 
-* If the receiver processes the message successfully, it calls [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). The queue then removes the lock from the message and makes it available to other receivers.
+* If the receiver processes the message successfully, it calls [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync), and the queue deletes the message. 
+* If the receiver decides that it can't process the message successfully, it calls [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). The queue then removes the lock from the message and makes it available to other receivers.
 * If the receiver calls neither of these methods within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called **Abandon**, making the message available to other receivers.
 
-Notice what can happen here: the same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this event. To make duplicate detection easier, each message has a unique [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property that by default stays the same no matter how many times the message is read from a queue. 
+Notice what can happen here: the same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this event. To make duplicate detection easier, each message has a unique [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) property that by default stays the same no matter how many times the message is read from a queue. 
 
 Queues are useful in quite a few situations. They enable applications to communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
 
@@ -81,7 +81,7 @@ A *topic* is similar in many ways to a queue. Senders submit messages to a topic
 * Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, so she wants to see both her own sales and all large sales regardless of who makes them.
 * Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
 
-As with queues, subscribers to a topic can read messages using either [ReceiveAndDelete or PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+As with queues, subscribers to a topic can read messages using either [ReceiveAndDelete or PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Unlike queues, however, a single message sent to a topic can be received by multiple subscriptions. This approach, commonly called *publish and subscribe* (or *pub/sub*), is useful whenever multiple applications are interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
 
 ## Relays
 

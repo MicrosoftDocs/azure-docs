@@ -5,14 +5,14 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 01/04/2018
 ms.author: billmath
 ---
 
@@ -20,32 +20,39 @@ ms.author: billmath
 
 In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
 
->[!IMPORTANT]
->The Seamless SSO feature is currently in preview.
-
 ## What sign-in methods do Seamless SSO work with?
 
 Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
 
 ## Is Seamless SSO a free feature?
 
-Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
+Seamless SSO is a free feature and you don't need any paid editions of Azure AD to use it.
+
+## Is Seamless SSO available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+
+No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that are interested in, let us know in the comments section.
+We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that you are interested in, let us know in the comments section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 
 Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](active-directory-aadconnect-get-started-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
+## What is the difference between the single sign-on experience provided by [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO?
+
+[Azure AD Join](../active-directory-azureadjoin-overview.md) provides SSO to users if their devices are registered with Azure AD. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Edge browser. It also works on Chrome with the use of a browser extension.
+
+You can use both Azure AD Join and Seamless SSO on your tenant. These two features are complementary. If both features are turned on, then SSO from Azure AD Join takes precedence over Seamless SSO.
+
 ## I want to register non-Windows 10 devices with Azure AD, without using AD FS. Can I use Seamless SSO instead?
 
 Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## How can I roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account?
+## How can I roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account?
 
-It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account (which represents Azure AD) created in your on-premises AD forest.
+It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account (which represents Azure AD) created in your on-premises AD forest.
 
 >[!IMPORTANT]
 >We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
@@ -64,7 +71,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 
 1. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and updates it in Azure AD.
+2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACC` computer account in this specific AD forest and updates it in Azure AD.
 3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]

@@ -1,16 +1,15 @@
 ---
-title: Custom events for Azure Event Grid | Microsoft Docs
-description: Use Azure Event Grid to publish a topic, and subscribe to that event. 
+title: Custom events for Azure Event Grid with CLI | Microsoft Docs
+description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. 
 services: event-grid 
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/15/2017
+ms.date: 10/11/2017
 ms.topic: hero-article
 ms.service: event-grid
 ---
-
-# Create and route custom events with Azure Event Grid
+# Create and route custom events with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure CLI to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using an open source, third-party tool called [RequestBin](https://requestb.in/).
 
@@ -113,6 +112,6 @@ az group delete --name gridResourceGroup
 Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
 
 - [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)

@@ -1,5 +1,5 @@
 ### Is BGP supported on all Azure VPN Gateway SKUs?
-No, BGP is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+No, BGP is supported on Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
 
 ### Can I use BGP with Azure Policy-Based VPN gateways?
 No, BGP is supported on Route-Based VPN gateways only.
@@ -10,7 +10,7 @@ Yes, you can use your own public ASNs or private ASNs for both your on-premises 
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
 
-* Public ASNs: 8075, 8076, 12076
+* Public ASNs: 8074, 8075, 12076
 * Private ASNs: 65515, 65517, 65518, 65519, 65520
 
 You cannot specify these ASNs for your on premises VPN devices when connecting to Azure VPN gateways.

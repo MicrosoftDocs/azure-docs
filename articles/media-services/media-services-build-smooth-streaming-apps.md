@@ -29,8 +29,11 @@ This tutorial contains four lessons:
 4. Select Smooth Streaming Tracks
 
 ## Prerequisites
-* Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) from MSDN.
-* Visual Studio 2012 or Visual Studio Express 2012 (or a later version). You can get the trial version from [here](http://www.microsoft.com/visualstudio/11/downloads).
+> [!NOTE]
+> Windows Store projects version 8.1 and earlier are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
+* Windows 8 32-bit or 64-bit.
+* Visual Studio versions 2012 through 2015.
 * [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): 
@@ -56,7 +59,7 @@ This lesson contains the following procedures:
 
 **To create a Windows Store project**
 
-1. Run Visual Studio 2012 or later.
+1. Run Visual Studio; versions 2012 through 2015 are supported.
 2. From the **FILE** menu, click **New**, and then click **Project**.
 3. From the New Project dialog, type or select  the following values:
 

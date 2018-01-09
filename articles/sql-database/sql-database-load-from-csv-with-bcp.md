@@ -13,7 +13,7 @@ ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: "On Demand"
 ms.date: 01/10/2017
 ms.author: carlrab
 

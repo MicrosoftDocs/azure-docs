@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 ---
 
@@ -37,7 +37,7 @@ For the machines in your cluster, consider collecting the following performance 
 | PhysicalDisk(per Disk) | Disk Write Bytes/sec |
 | Memory | Available MBytes |
 | PagingFile | % Usage |
-| Process(Total) | % Processor Time |
+| Processor(Total) | % Processor Time |
 | Process (per service) | % Processor Time |
 | Process (per service) | ID Process |
 | Process (per service) | Private Bytes |
@@ -45,6 +45,11 @@ For the machines in your cluster, consider collecting the following performance 
 | Process (per service) | Virtual Bytes |
 | Process (per service) | Working Set |
 | Process (per service) | Working Set - Private |
+| Network Interface(all-instances) | Output Queue Length |
+| Network Interface(all-instances) | Packets Outbound Discarded |
+| Network Interface(all-instances) | Packets Received Discarded |
+| Network Interface(all-instances) | Packets Outbound Errors |
+| Network Interface(all-instances) | Packets Received Errors |
 
 ## .NET applications and services
 

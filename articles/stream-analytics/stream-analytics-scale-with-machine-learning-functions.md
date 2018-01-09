@@ -22,7 +22,7 @@ ms.author: samacha
 It is often easy to set up a Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it scales. In this document, we focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
 ## What is an Azure Machine Learning function in Stream Analytics?
-A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. However, behind the scene, the function calls are actually Azure Machine Learning Web Service requests. Machine Learning web services support “batching” multiple rows, which is called mini-batch, in the same web service API call, to improve overall throughput. See the following articles for more details; [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) and [Azure Machine Learning Web Services](../machine-learning/machine-learning-consume-web-services.md).
+A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. However, behind the scene, the function calls are actually Azure Machine Learning Web Service requests. Machine Learning web services support “batching” multiple rows, which is called mini-batch, in the same web service API call, to improve overall throughput. See the following articles for more details; [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) and [Azure Machine Learning Web Services](../machine-learning/studio/consume-web-services.md).
 
 ## Configure a Stream Analytics job with Machine Learning functions
 When configuring a Machine Learning function for Stream Analytics job, there are two parameters to consider, the batch size of the Machine Learning function calls, and the streaming units (SUs) provisioned for the Stream Analytics job. To determine the appropriate values for these, first a decision must be made between latency and throughput, that is, latency of the Stream Analytics job, and throughput of each SU. SUs may always be added to a job to increase throughput of a well partitioned Stream Analytics query, although additional SUs increase the cost of running the job.
@@ -41,7 +41,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 An additional consideration may be the 'max concurrent calls' on the Machine Learning web service side, it’s recommended to set this to the maximum value (200 currently).
 
-For more information on this setting, review the [Scaling article for Machine Learning Web Services](../machine-learning/machine-learning-scaling-webservice.md).
+For more information on this setting please review the [Scaling article for Machine Learning Web Services](../machine-learning/studio/scaling-webservice.md).
 
 ## Example – Sentiment Analysis
 The following example includes a Stream Analytics job with the sentiment analysis Machine Learning function, as described in the [Stream Analytics Machine Learning integration tutorial](stream-analytics-machine-learning-integration-tutorial.md).

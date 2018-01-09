@@ -4,7 +4,7 @@ description: Learn how to manage Role-Based Access Control (RBAC) with the Azure
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -155,7 +155,7 @@ The following example creates a custom role called *Virtual Machine Operator*. T
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modify a custom role
-To modify a custom role, first use the `azure role show` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
+To modify a custom role, first use the `azure role list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
 
     azure role set --inputfile <file path>
 
@@ -166,7 +166,7 @@ The following example adds the *Microsoft.Insights/diagnosticSettings/* operatio
 ![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## Delete a custom role
-To delete a custom role, first use the `azure role show` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
+To delete a custom role, first use the `azure role list` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
 
 The following example removes the *Virtual Machine Operator* custom role.
 

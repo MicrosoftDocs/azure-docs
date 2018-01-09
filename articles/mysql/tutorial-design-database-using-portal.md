@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.custom: mvc
 ---
 
@@ -30,14 +30,14 @@ In this tutorial, you use the Azure portal to learn how to:
 Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL server
-An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Navigate to **Databases** > **Azure Database for MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
 ![2-1 Navigate to MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
 2. Click **Azure Database for MySQL** tile, and then click **Create**.
 
-In our example, fill out the Azure Database for MySQL form with the following information:
+In this example, fill out the Azure Database for MySQL form with the following information:
 
 | **Setting** | **Suggested value** | **Field Description** |
 |---|---|---|
@@ -94,9 +94,9 @@ USE mysampledb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for MySQL database, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for MySQL database, you can complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that stores inventory information.
+First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -106,7 +106,7 @@ CREATE TABLE inventory (
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

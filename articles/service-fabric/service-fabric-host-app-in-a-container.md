@@ -36,11 +36,14 @@ In this tutorial, you learn how to:
 4. Install [Azure PowerShell][link-azure-powershell-install]
 5. Install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
 6. Create an [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. 
-7. [Create a cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Create a cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## Create a cluster on Azure
+Service Fabric applications run on a cluster, a network-connected set of virtual or physical machines. [Setup a Service Fabric cluster running in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) before you create and deploy your application. When creating the cluster, choose a SKU that supports running containers (such as Windows Server 2016 Datacenter with Containers).
 
 ## Containerize the application
 
-Now that you have a [Service Fabric cluster is running in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
+Now that you have a Service Fabric cluster running in Azure you are ready to create and deploy a containerized application. To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _Dockerfile_ is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. The new project contains a few docker-compose files. Docker-compose files can be used to describe how the container is run.
 
 More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
@@ -126,11 +129,11 @@ To get the application ready for running in Service Fabric in Azure, we need to 
 ### Expose the port for the app
 The Service Fabric cluster we have configured, has port *80* open by default in the Azure Load Balancer, that balances incoming traffic to the cluster. We can expose our container on this port via our docker-compose.yml file.
 
-In Visual Studio, open **Solution Explorer**, find **docker-compose**, and open the file **docker-compose.override.yml**.
+In Visual Studio, open **Solution Explorer**, find **docker-compose**, and open the file **docker-compose.yml**.
 
 Modify the `fabrikamfiber.web:` node, add a child node named `ports:`.
 
-Add a string entry `- "80:80"`.
+Add a string entry `- "80:80"`. This is what your docker-compose.yml file should look like:
 
 ```yml
   version: '3'
@@ -211,6 +214,8 @@ In this tutorial, you learned how to:
 > * Create a Docker project in Visual Studio
 > * Containerize an existing application
 > * Setup continuous integration with Visual Studio and VSTS
+
+In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

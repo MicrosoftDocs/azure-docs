@@ -3,8 +3,8 @@ title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: fimguy
+manager: bhu
 editor: ''
 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: billmath
+ms.date: 12/19/2017
+ms.author: davidste
 
 ---
 # Generic SQL Connector technical reference
@@ -228,7 +228,11 @@ Generic SQL Connector support Full and Delta Import using these methods:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**  
-To import multi-valued attributes for an object, you have to provide the comma-separated table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table.
+To import multi-valued attributes for an object, you have to provide the table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table. If there are more than one multi-valued table in the data source, you can  use union to a single view.
+
+>[!IMPORTANT]
+The Generic SQL management agent can work only with one multi-valued table. Do not put into Name of Multi-Valued table/views more than one name of table. It is the limitation of Generic SQL.
+
 
 Example: You want to import the Employee object and all its multi-valued attributes. There are two tables, named Employee (main table) and Department (multi-valued).
 Do the following:
@@ -288,7 +292,7 @@ If you choose the Stored Procedure option, Export requires three different Store
 * **Add SP Name**: This SP runs if any object comes to connector for insertion in the respective table.
 * **Update SP Name**: This SP runs if any object comes to connector for update in the respective table.
 * **Delete SP Name**: This SP runs if any object comes to connector for deletion in the respective table.
-* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `EmployeeName: INPUT: @EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
+* Attribute selected from the schema used as a parameter value to the stored procedure. For example, `@EmployeeName: INPUT: EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
 * To run parameterized stored procedure, provide parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 
 **SQL query**  

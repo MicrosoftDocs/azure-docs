@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
 ms.service: active-directory
