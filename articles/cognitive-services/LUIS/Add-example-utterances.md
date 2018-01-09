@@ -115,7 +115,7 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
 1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities do not need to be labeled. 
 
-2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all 3 words should be labeled with the blue background. 
+2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
 
 3. Click on the left-most word of the phrase, "2", labeled as number.
 
