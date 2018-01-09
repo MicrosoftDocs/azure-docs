@@ -111,9 +111,9 @@ For example, if you are using maven build system include the following in your `
 
 ## Understanding the generated code
 For every API you will find four overloads of implementation. If there are optional parameters then you would find four more variations including those optional parameters. For example consider the API ``removeReplica``.
- 1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**:
+ 1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
 	* This is the synchronous variant of the removeReplica API call
- 2. **public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback)**:
+ 2. **public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback)**
 	* This variant of API call can be used if you want to use future based asynchronous programming and use callbacks
  3. **public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
 	* This variant of API call can be used if you want to use reactive asynchronous programming
