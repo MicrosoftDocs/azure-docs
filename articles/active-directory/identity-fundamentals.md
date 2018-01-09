@@ -1,14 +1,14 @@
 ---
 # required metadata
 
-title: Fundamentals of Azure identity management | Microsoft Docs
-description:
+title: Fundamentals of Azure identity management
+description: Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 keywords:
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -26,6 +26,7 @@ ms.custom: it-pro
 
 ---
 # Fundamentals of Azure identity management
+
 As more and more company digital resources live outside the corporate network, in the cloud and on devices, a great cloud-based identity and access management solution is becoming a necessity. Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 
 Microsoft has been securing cloud-based identities for over a decade and now, with [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), these same protection systems are available to you. With Azure AD, enterprise administrators can easily ensure user and administrator accountability with better security and governance than ever before.
@@ -33,7 +34,7 @@ Microsoft has been securing cloud-based identities for over a decade and now, wi
 Azure AD Premium is a cloud-based identity and access management solution with advanced protection capabilities that enables one secure identity for all apps, identity protection (enhanced by the [Microsoft intelligence security graph](https://www.microsoft.com/en-us/security/intelligence)), and Privileged Identity Management. Not just another monitoring or reporting tool, Azure AD Premium can protect your user’s identities in real time and enable you to create risk-based, adaptive access policies to protect your organization’s data.
 
 Watch this short video for a quick overview of Azure AD identity management and protection:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft not only provides an identity that takes you everywhere, but also a set of tools to automate, help secure, and manage IT within your organization. Even after the advent of cloud computing, there is still demand to manage and control IT tasks like helpdesk calls to reset user passwords, user group management, and application requests. Complicating things further, employees are now bringing their personal devices to work and using readily available SaaS applications. This makes maintaining control over their applications across corporate datacenters and public cloud platforms a significant challenge.
 

@@ -3,7 +3,7 @@ title: Create and manage virtual machines in DevTest Labs with Azure CLI | Micro
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure CLI 2.0
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: lisawong19
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: liwong
+ms.author: v-craic
 
 ---
 # Create and manage virtual machines with DevTest Labs using the Azure CLI
@@ -34,7 +34,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > Put the **lab's resource group** name in the --resource-group parameter.
 >
 
-If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#create).
+If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 
 Verify that the VM is available.

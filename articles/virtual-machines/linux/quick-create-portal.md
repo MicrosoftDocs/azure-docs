@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Create a Linux virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,11 +29,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file to the clipboard.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (cat <filename>) to the clipboard. (If you're running bash on Windows for this step, ensure that you don't copy line break characters from the output). Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+You can find more detailed information on this process [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
 
@@ -53,25 +54,25 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. On the settings blade, keep the defaults and click **OK**.
+5. Under **Settings**, keep the defaults and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
-7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
+7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
 
 
 ## Connect to virtual machine
 
 Create an SSH connection with the virtual machine.
 
-1. Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+1. Click the **Connect** button on the virtual machine properties. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
+2. Run the following command to create an SSH session. Replace the <privatekeyfilename> with the filename of your ssh private key from earlier in the guide and replace the connection string (azureuser@40.112.21.50) with the one you copied from the Azure portal.
 
 ```bash 
-ssh azureuser@40.112.21.50
+ssh -i <privatekeyfilename> azureuser@40.112.21.50
 ```
 
 ## Install NGINX
@@ -99,19 +100,19 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
 3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+5. In **Name**, type **http**. Make sure **Source Port range** is set to *, **Destination Port range** is set to 80 and **Action** is set to **Allow**. 
 6. Click **OK**.
 
 
 ## View the NGINX welcome page
 
-With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM blade in the Azure portal.
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM properties in the Azure portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
+When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and click **Delete**.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
 
 ---
@@ -41,7 +41,7 @@ The StorSimple Cloud Appliance is available in two models, a standard 8010 (form
 | **Maximum capacity** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 cores, 7 GB memory)| Standard_DS3 (4 cores, 14 GB memory)|
 | **Region availability** |All Azure regions |Azure regions that support Premium Storage and DS3 Azure VMs<br></br>Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region. |
-| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../storage/storage-premium-storage.md) |
+| **Storage type** |Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account](../storage/common/storage-create-storage-account.md) |Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](../virtual-machines/windows/premium-storage.md) |
 | **Workload guidance** |Item level retrieval of files from backups |Cloud dev and test scenarios <br></br>Low latency and higher performance workloads<br></br>Secondary device for disaster recovery |
 
 <sup>1</sup> *Formerly known as the 1100*.
@@ -90,7 +90,7 @@ Before you provision the cloud appliance, you need to make the following prepara
 Make the following updates to your StorSimple Device Manager service before you create a cloud appliance:
 
 * Add [access control records](storsimple-8000-manage-acrs.md) for the VMs that are going to be the host servers for your cloud appliance.
-* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/storage-create-storage-account.md) or a [Premium Storage account](../storage/storage-premium-storage.md)
+* Use a [storage account](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in the same region as the cloud appliance. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the cloud appliance. More information on how to create a [Standard Storage account](../storage/common/storage-create-storage-account.md) or a [Premium Storage account](../virtual-machines/windows/premium-storage.md)
 * Use a different storage account for cloud appliance creation from the one used for your data. Using the same storage account may result in poor performance.
 
 Make sure that you have the following information before you begin:
@@ -180,6 +180,18 @@ Perform the following steps to create a public endpoint on the cloud appliance.
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network. In this case, connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network. You do not need to append the public port number because the port is already known.
+
+## Get private IP for the cloud appliance
+
+For the cloud appliance to connect to the host server in the same virtual network, you need the internal or the private IP address of the cloud appliance. Perform the following steps to get the private IP address of the cloud appliance
+
+1. Go to the underlying virtual machine for your cloud appliance. The virtual machine has the same name as your cloud appliance. Go to **All resources**, provide the name of cloud appliance and subscription, and select type as virtual machines. In the list of virtual machines presented, select and click the virtual machine corresponding to the cloud appliance.
+
+     ![Select virtual machine for your cloud appliance](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Go to **Settings > Networking**. In the right pane, you see the private IP address of the cloud appliance. Make a note of it.
+
+    ![Get private IP address for your cloud appliance](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## Work with the StorSimple Cloud Appliance
 

@@ -3,8 +3,8 @@ title: "Azure Analysis Services tutorial lesson 1: Create a new tabular model pr
 description: Describes how to create a new Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
-author: minewiskan
-manager: erikre
+author: Minewiskan
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,14 +14,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 01/08/2018
 ms.author: owend
 ---
-# Lesson 1: Create a new tabular model project
+# Create a tabular model project
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-In this lesson, you use SQL Server Data Tools (SSDT) to create a new tabular model project at the 1400 compatibility level. Once your new project is created, you can begin adding data and authoring your model. This lesson also gives you a brief introduction to the tabular model authoring environment in SSDT.  
+In this lesson, you use Visual Studio with SQL Server Data Tools (SSDT) to create a new tabular model project at the 1400 compatibility level. Once your new project is created, you can begin adding data and authoring your model. This lesson also gives you a brief introduction to the tabular model authoring environment in Visual Studio.  
   
 Estimated time to complete this lesson: **10 minutes**  
   
@@ -32,7 +30,7 @@ This topic is the first lesson in a tabular model authoring tutorial. To complet
   
 #### To create a new tabular model project  
   
-1.  In SSDT, on the **File** menu, click **New** > **Project**.  
+1.  In Visual Studio, on the **File** menu, click **New** > **Project**.  
   
 2.  In the **New Project** dialog box, expand **Installed** > **Business Intelligence** > **Analysis Services**, and then click **Analysis Services Tabular Project**.  
   
@@ -44,7 +42,7 @@ This topic is the first lesson in a tabular model authoring tutorial. To complet
   
 5.  In the **Tabular model designer** dialog box, select **Integrated workspace**.  
   
-    The workspace hosts a tabular model database with the same name as the project during model authoring. Integrated workspace means SSDT uses a built-in instance, eliminating the need to install a separate Analysis Services server instance just for model authoring.
+    The workspace hosts a tabular model database with the same name as the project during model authoring. Integrated workspace means Visual Studio uses a built-in instance, eliminating the need to install a separate Analysis Services server instance just for model authoring.
       
 6.  In **Compatibility level**, select **SQL Server 2017 / Azure Analysis Services (1400)**.   
  
@@ -54,9 +52,9 @@ This topic is the first lesson in a tabular model authoring tutorial. To complet
       
   
 ## Understanding the SSDT tabular model authoring environment  
-Now that you’ve created a new tabular model project, let’s take a moment to explore the tabular model authoring environment in SSDT.  
+Now that you’ve created a new tabular model project, let’s take a moment to explore the tabular model authoring environment in Visual Studio.  
   
-After your project is created, it opens in SSDT. On the right side, in **Tabular Model Explorer**, you see a tree view of the objects in your model. Since you haven't yet imported data, the folders are empty. You can right-click an object folder to perform actions, similar to the menu bar. As you step through this tutorial, you use the Tabular Model Explorer to navigate different objects in your model project.
+After your project is created, it opens in Visual Studio. On the right side, in **Tabular Model Explorer**, you see a tree view of the objects in your model. Since you haven't yet imported data, the folders are empty. You can right-click an object folder to perform actions, similar to the menu bar. As you step through this tutorial, you use the Tabular Model Explorer to navigate different objects in your model project.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

@@ -4,7 +4,7 @@ description: This article describes how you can use Azure Media Services (AMS) t
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
@@ -33,9 +33,9 @@ This article describes how to integrate and test Widevine license server managed
 
 * Configuring dynamic Common Encryption with multi-DRM (PlayReady and Widevine) with corresponding license acquisition URLs;
 * Generating a JWT token in order to meet the license server requirements;
-* Developing Azure Media Player app which handles license acquisition with JWT token authentication;
+* Developing Azure Media Player app, which handles license acquisition with JWT token authentication;
 
-The complete system and the flow of content key, key ID, key seed, JTW token and its claims can be best described by the following diagram.
+The complete system and the flow of content key, key ID, key seed, JTW token, and its claims can be best described by the following diagram:
 
 ![DASH and CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -44,13 +44,13 @@ For configuring dynamic protection and key delivery policy, please see Mingfei�
 
 You can configure dynamic CENC protection with multi-DRM for DASH streaming having both of the following:
 
-1. PlayReady protection for MS Edge and IE11, that could have a token authorization restrictions. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS), such as Azure Active Directory;
+1. PlayReady protection for MS Edge and IE11, that could have a token authorization restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS), such as Azure Active Directory;
 2. Widevine protection for Chrome, it can require token authentication with token issued by another STS. 
 
-Please see [JWT Token Generation](media-services-axinom-integration.md#jwt-token-generation) section for why Azure Active Directory cannot be used as an STS for Axinom’s Widevine license server.
+See [JWT Token Generation](media-services-axinom-integration.md#jwt-token-generation) section for why Azure Active Directory cannot be used as an STS for Axinom’s Widevine license server.
 
 ### Considerations
-1. You must use the Axinom specified key seed (8888000000000000000000000000000000000000) and your generated or selected key ID to generate the content key for configuring key delivery service. Axinom license server will issue all licenses containing content keys based on the same key seed, which is valid for both testing and production.
+1. You must use the Axinom specified key seed (8888000000000000000000000000000000000000) and your generated or selected key ID to generate the content key for configuring key delivery service. Axinom license server issues all licenses containing content keys based on the same key seed, which is valid for both testing and production.
 2. The Widevine license acquisition URL for testing: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Both HTTP and HTTS are allowed.
 
 ## Azure Media Player Preparation
@@ -62,14 +62,14 @@ The Widevine license server provided by Axinom requires JWT token authentication
 
 The rest of AMP code is standard AMP API as in AMP document [here](http://amp.azure.net/libs/amp/latest/docs/).
 
-Note that the above javascript for setting custom authorization header is still a short term approach before the official long term approach in AMP is released.
+The above javascript for setting custom authorization header is still a short-term approach before the official long-term approach in AMP is released.
 
 ## JWT Token Generation
 Axinom Widevine license server for testing requires JWT token authentication. In addition, one of the claims in the JWT token is of a complex object type instead of primitive data type.
 
 Unfortunately, Azure AD can only issue JWT tokens with primitive types. Similarly, .NET Framework API (System.IdentityModel.Tokens.SecurityTokenHandler and JwtPayload) only allows you to input complex object type as claims. However, the claims are still serialized as string. Therefore we cannot use any of the two for generating the JWT token for Widevine license request.
 
-John Sheehan’s [JWT Nuget package](https://www.nuget.org/packages/JWT) meets the needs so we are going to use this Nuget package.
+John Sheehan’s [JWT NuGet package](https://www.nuget.org/packages/JWT) meets the needs so we are going to use this NuGet package.
 
 Below is the code for generating JWT token with the needed claims as required by Axinom Widevine license server for testing:
 
@@ -133,12 +133,12 @@ Axinom Widevine license server
 
 ### Considerations
 1. Even though AMS PlayReady license delivery service requires “Bearer=” preceding an authentication token, Axinom Widevine license server does not use it.
-2. The Axinom communication key is used as signing key. Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding. This is achieved by the method ConvertHexStringToByteArray.
+2. The Axinom communication key is used as signing key. The key is a hex string, however it must be treated as a series of bytes not a string when encoding. This is achieved by the method ConvertHexStringToByteArray.
 
 ## Retrieving Key ID
 You may have noticed that in the code for generating a JWT token, key ID is required. Since the JWT token needs to be ready before loading AMP player, key ID needs to be retrieved in order to generate JWT token.
 
-Of course there are multiple ways to get hold of key ID. For example, one may store key ID together with content metadata in a database. Or you can retrieve key ID from DASH MPD (Media Presentation Description) file. The code below is for the latter.
+Of course, there are multiple ways to get hold of key ID. For example, one may store key ID together with content metadata in a database. Or you can retrieve key ID from DASH MPD (Media Presentation Description) file. The code below is for the latter.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)
@@ -186,7 +186,7 @@ The following parameters are required in the mini-solution leveraging Axinom Wid
 | Communication key ID |Must be included as value of the claim "com_key_id" in JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). |
 | Communication key |Must be used as the signing key of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). |
 | Key seed |Must be used to generate content key with any given content key ID (see  [this](media-services-axinom-integration.md#content-protection) section). |
-| Widevine License acquisition URL |Must be used in configuring asset delivery policy for DASH streaming (see  [this](media-services-axinom-integration.md#content-protection) section ). |
+| Widevine License acquisition URL |Must be used in configuring asset delivery policy for DASH streaming (see  [this](media-services-axinom-integration.md#content-protection) section). |
 | Content Key ID |Must be included as part of the value of Entitlement Message claim of JWT token (see [this](media-services-axinom-integration.md#jwt-token-generation) section). |
 
 ## Media Services learning paths

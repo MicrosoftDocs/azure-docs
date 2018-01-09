@@ -4,7 +4,7 @@ description: Learn how to visualize a Stream Analytics job pipeline for self-ser
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,24 +15,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Visualize and troubleshoot Stream Analytics jobs
-In Stream Analytics, as with other cloud-based technologies, troubleshooting is sometimes needed to look into why a job does not produce the expected output (or any output for that matter). With this in mind, Stream Analytics provides the capability for visualizing a streaming job. This is also handy as a modeling tool and has the side benefit for those requiring documentation of their work.
+In Stream Analytics, as with other cloud-based technologies, troubleshooting is sometimes needed to look into why a job does not produce the expected output (or any output for that matter). With this concept in mind, Stream Analytics provides the capability for visualizing a streaming job. This is also handy as a modeling tool and has the side benefit for those requiring documentation of their work.
 
-In the visualization panel the inputs are visible as well as the query being executed and then all the outputs configured. Connectivity or configuration issues can become more apparent and it can also be helpful to see a visual representation of your configuration.
+In the visualization panel, the inputs are visible as well as the query being executed and then all the outputs configured. Connectivity or configuration issues can become more apparent and it can also be helpful to see a visual representation of your configuration.
 
 ## Using the diagnosis diagram tool
-To access this visualizer, simply click on the “Diagnosis diagram” button in the “Settings” blade of the of the Stream Analytics job.
+To access this visualizer, simply click on the “Diagnosis diagram” button in the “Settings” area of the Stream Analytics job.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
-Every input and output is color coded to indicate the current state of that component, as shown below.
+Every input and output is color coded to indicate the current state of that component, as shown as follows.
 
 ![stream-analytics-troubleshoot-visualization-input-map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 
-When the user wants to look at intermediate query steps to understand the data flow patterns inside a job, the visualization tool provides a view of the breakdown of the query into its component steps and the flow sequence. Clicking on each query step will show the corresponding section in a query editing pane as illustrated. 
+When the user wants to look at intermediate query steps to understand the data flow patterns inside a job, the visualization tool provides a view of the breakdown of the query into its component steps and the flow sequence. Clicking on each query step shows the corresponding section in a query editing pane as illustrated. 
 
 ![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 

@@ -2,7 +2,7 @@
 title: Azure Load Balancer Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
 services: load-balancer
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:	

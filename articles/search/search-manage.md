@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
 
 ---
@@ -31,13 +31,10 @@ Azure Search is a fully managed, cloud-based search service used for building a 
 * Adjust service capacity by changing the allocation of partitions and replicas.
 * Monitor resource usage, relative to maximum limits of your service tier.
 
-**Not in scope** 
+Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
 
-*Content management* (or index management) refers to operations such as analyzing search traffic to understand query volume, discover which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For help in this area, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md).
-
-*Query performance* is also beyond the scope of this article. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
-
-*Upgrade* is not an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
+> [!Tip]
+> Looking for help on how to analyze search traffic or query performance? Gain insights into query volume, which terms people search for, and how successful search results are in guiding customers to specific documents in your index. For guidance, see [Search Traffic Analytics for Azure Search](search-traffic-analytics.md), [Monitor usage and query metrics](search-monitor-usage.md), and [Performance and optimization](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -110,15 +107,10 @@ Another way to view access permissions is to click **Roles** on the Users blade.
 ## Monitor resource usage
 In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. For more information, see [Search service limits](search-limits-quotas-capacity.md). 
+Using the Search Service REST API, you can get a count on documents and indexes programmatically: 
 
 * [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Count Documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
-> 
-> 
 
 ## Disaster recovery and service outages
 

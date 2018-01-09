@@ -11,11 +11,12 @@ tags: ''
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create a function triggered by a generic webhook
@@ -44,9 +45,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Select the **Generic WebHook - C#** template. Type a name for your C# function, then select **Create**.
+2. In the search field, type `generic` and then choose your desired language for the generic webhook trigger template. This topic uses a C# function.
 
-     ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Choose the generic webhook trigger template](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Type a **Name** for your function, then select **Create**. 
+
+     ![Create a generic webhook triggered function in the Azure portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. In your new function, click **</> Get function URL**, then copy and save the value. You use this value to configure the webhook. 
 

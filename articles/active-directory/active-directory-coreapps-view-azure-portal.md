@@ -4,7 +4,7 @@ description: How to see a list of the enterprise apps that you have the permissi
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
@@ -13,8 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: asteen
+ms.custom: it-pro
 
 ---
 # View all the enterprise apps that I can manage in Azure Active Directory

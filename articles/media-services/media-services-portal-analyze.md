@@ -4,7 +4,7 @@ description: This topic discusses how to process your media with Media Analytics
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601

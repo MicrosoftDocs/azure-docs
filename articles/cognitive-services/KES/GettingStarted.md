@@ -14,13 +14,13 @@ ms.author: paulhsu
 
 <a name="getting-started"></a>
 # Getting Started
-In this walkthrough, we will use the Knowledge Exploration Service (KES) to create the backend engine for an interactive search experience over academic publications.  The command line tool [`kes.exe`](CommandLine.md) and all example files can be installed from the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
+In this walkthrough, you use the Knowledge Exploration Service (KES) to create the backend engine for an interactive search experience over academic publications.  The command line tool [`kes.exe`](CommandLine.md) and all example files can be installed from the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
 The academic publications example contains a sample of 1000 academic papers published by researchers at Microsoft.  Each paper is associated with a title, publication year, authors, and keywords.  Each author is represented by an ID, name, and affiliation at the time of publication.  Each keyword may be associated with a set of synonyms (ex. *support vector machine* &rarr; *svm*).
 
 <a name="defining-schema"></a>
 ## Defining schema
-The schema describes the attribute structure of the objects in our domain.  It specifies the name and data type for each attribute in a JSON file format.  Below is the content of the file *Academic.schema* that we use in this example:
+The schema describes the attribute structure of the objects in the domain.  It specifies the name and data type for each attribute in a JSON file format.  The following example is the content of the file *Academic.schema*.
 
 ```json
 {
@@ -36,11 +36,11 @@ The schema describes the attribute structure of the objects in our domain.  It s
 }
 ```
 
-Here, we define *Title*, *Year*, and *Keyword* as a string, integer, and string attribute, respectively.  Since authors are represented by their ID, name, and affiliation, we define *Author* as a Composite attribute with 3 sub-attributes: *Author.Id*, *Author.Name*, and *Author.Affiliation*.
+Here, you define *Title*, *Year*, and *Keyword* as a string, integer, and string attribute, respectively.  Since authors are represented by their ID, name, and affiliation, you define *Author* as a Composite attribute with 3 sub-attributes: *Author.Id*, *Author.Name*, and *Author.Affiliation*.
 
-By default, attributes support all operations available for their data type, including *equals*, *starts_with*, *is_between*, etc.  Since author ID is only used internally as an identifier, we override the default and specify *equals* as the only indexed operation.
+By default, attributes support all operations available for their data type, including *equals*, *starts_with*, *is_between*, etc.  Since author ID is only used internally as an identifier, you override the default and specify *equals* as the only indexed operation.
 
-For the *Keyword* attribute, we allow synonyms to match the canonical keyword values by specifying the synonym file *Keyword.syn* in the attribute definition.  This file contains a list of canonical and synonym value pairs:
+For the *Keyword* attribute, you allow synonyms to match the canonical keyword values by specifying the synonym file *Keyword.syn* in the attribute definition.  This file contains a list of canonical and synonym value pairs:
 
 ```json
 ...
@@ -59,7 +59,7 @@ See [Schema Format](SchemaFormat.md) for additional information about the schema
 
 <a name="generating-data"></a>
 ## Generating data
-The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  Below is a single line from the data file *Academic.data*, formatted for readability:
+The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
 
 ```
 ...
@@ -83,29 +83,29 @@ The data file describes the list of the publications to index, with each line sp
 ...
 ```
 
-In this snippet, we specify the *Title* and *Year* attribute of the paper as a JSON string and number, respectively.  Multiple values are represented using JSON arrays.  Since "Author" is a composite attribute, each value is represented using a JSON object consisting of its sub-attributes.  Attributes with missing values, such as "Keyword" in this case, can be excluded from the JSON representation.
+In this snippet, you specify the *Title* and *Year* attribute of the paper as a JSON string and number, respectively.  Multiple values are represented using JSON arrays.  Since "Author" is a composite attribute, each value is represented using a JSON object consisting of its sub-attributes.  Attributes with missing values, such as "Keyword" in this case, can be excluded from the JSON representation.
 
-To differentiate the likelihood of different papers, we specify the relative log probability using the built-in "logprob" attribute.  Given a probability *p* between 0 and 1, we compute the log probability as log(*p*), where log() is the natural log function.
+To differentiate the likelihood of different papers, you specify the relative log probability using the built-in "logprob" attribute.  Given a probability *p* between 0 and 1, you compute the log probability as log(*p*), where log() is the natural log function.
 
 See [Data Format](DataFormat.md) for additional information about the data format.
 
 <a name="building-index"></a>
 ## Building index
-Once we have a schema file and data file, we can build a compressed binary index of the data objects using [`kes.exe build_index`](CommandLine.md#build_index-command).  In this example, we build the index file *Academic.index* from the input schema file *Academic.schema* and data file *Academic.data* using the following command:
+Once you have a schema file and data file, you can build a compressed binary index of the data objects using [`kes.exe build_index`](CommandLine.md#build_index-command).  In this example, you build the index file *Academic.index* from the input schema file *Academic.schema* and data file *Academic.data* using the following command:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally from data files containing up to 10,000 objects.  For larger data files, we can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure.  See [Scaling up](#scaling-up) for details.
+For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally from data files containing up to 10,000 objects.  For larger data files, you can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure.  See [Scaling up](#scaling-up) for details.
 
 <a name="authoring-grammar"></a>
 ## Authoring grammar
-The grammar specifies the set of natural language queries that the service can interpret, as well as how these natural language queries are translated into semantic query expressions.  In this example, we use the grammar specified in *academic.xml*:
+The grammar specifies the set of natural language queries that the service can interpret, as well as how these natural language queries are translated into semantic query expressions.  In this example, you use the grammar specified in *academic.xml*:
 
 ```xml
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">
@@ -196,17 +196,17 @@ For more information about the grammar specification syntax, see [Grammar Format
 
 <a name="compiling-grammar"></a>
 ## Compiling grammar
-Once we have an XML grammar specification, we can compile it into a binary grammar using [`kes.exe build_grammar`](CommandLine.md#build_grammar-command).  Note that if the grammar imports a schema, the schema file needs to be located in the same path as the grammar XML.  In this example, we build the binary grammar file *Academic.grammar* from the input XML grammar file *Academic.xml* using the following command:
+Once you have an XML grammar specification, you can compile it into a binary grammar using [`kes.exe build_grammar`](CommandLine.md#build_grammar-command).  Note that if the grammar imports a schema, the schema file needs to be located in the same path as the grammar XML.  In this example, you build the binary grammar file *Academic.grammar* from the input XML grammar file *Academic.xml* using the following command:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
 <a name="hosting-index"></a>
 ## Hosting service
-For rapid prototyping, we can host the grammar and index in a web service on the local machine using [`kes.exe host_service`](CommandLine.md#host_service-command).  Once hosted, we can access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design.  In this example, we host the grammar file *Academic.grammar* and index file *Academic.index* at http://localhost:8000/ using the following command:
+For rapid prototyping, you can host the grammar and index in a web service on the local machine using [`kes.exe host_service`](CommandLine.md#host_service-command).  Once hosted, you can access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design.  In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at http://localhost:8000/ using the following command:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-This initiates a local instance of the web service.  We can interactively test the service by visiting `http::localhost:<port>` from a browser.  For more information, see [Testing service](#testing-service).  We can also directly call various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  To stop the service, enter 'quit' into the `kes.exe host_service` command prompt or press 'Ctrl+C'.
+This initiates a local instance of the web service.  You can interactively test the service by visiting `http::localhost:<port>` from a browser.  For more information, see [Testing service](#testing-service).  You can also directly call various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  To stop the service, enter 'quit' into the `kes.exe host_service` command prompt or press 'Ctrl+C'.
 
 * [http://localhost:8000/interpret?query=papers by susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
 * [http://localhost:8000/interpret?query=papers by susan t d&complete=1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
@@ -219,15 +219,15 @@ Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) 
 ## Scaling up
 When running `kes.exe` outside of Azure, the index is limited to 10,000 objects.  Once we are ready to scale up, we can build and host larger indices using Azure.  We can sign up for a [free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).  Alternatively, for Visual Studio/MSDN subscriber, we can [activate subscriber benefits](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) which offer some Azure credits each month.
 
-To allow `kes.exe` access to an Azure account, visit https://manage.windowsazure.com/publishsettings/ to download the Azure Publish Settings file.  If prompted, sign into the desired Azure account.  Once signed in, the browser will automatically download the Publish Settings file.  Save it as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
+To allow `kes.exe` access to an Azure account, [download the Azure Publish Settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) from the Azure portal.  If prompted, sign into the desired Azure account. Save the file as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
 
 There are two ways to build and host large indices.  The first is to prepare the schema and data files in a Windows VM in Azure and run [`kes.exe build_index`](#building-index) to build the index locally on the VM without any size restrictions.  The resulting index can be hosted locally on the VM using [`kes.exe host_service`](#hosting-service) for rapid prototyping, again without any restrictions.  See the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md) for detailed steps to create an Azure VM.
 
-The second method is to perform a remote Azure build using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter, which specifies an Azure VM size.  When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size, builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion.  Your Azure subscription is charged for the cost of the VM while the index is being built.  This remote Azure build capability allows [`kes.exe build_index`](CommandLine.md#build_index-command) to be executed in any environment.  When performing a remote build, the input schema and data arguments may be local file paths or [Azure blob storage](../../../articles/storage/storage-dotnet-how-to-use-blobs.md) URLs.  The output index argument must be a blob storage URL.  To create an Azure storage account, see [Create Storage Account](../../../articles/storage/storage-create-storage-account.md).  Note that only classic storage accounts are supported at this time.  We can use the utility [AzCopy](../../../articles/storage/storage-use-azcopy.md) to efficiently copy files to and from blob storage.
+The second method is to perform a remote Azure build using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter, which specifies an Azure VM size.  When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size, builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion.  Your Azure subscription is charged for the cost of the VM while the index is being built.  This remote Azure build capability allows [`kes.exe build_index`](CommandLine.md#build_index-command) to be executed in any environment.  When performing a remote build, the input schema and data arguments may be local file paths or [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) URLs.  The output index argument must be a blob storage URL.  To create an Azure storage account, see [Create Storage Account](../../storage/common/storage-create-storage-account.md).  Note that only classic storage accounts are supported at this time.  We can use the utility [AzCopy](../../storage/common/storage-use-azcopy.md) to efficiently copy files to and from blob storage.
 
 In this example, we assume that the blob storage container http://&lt;*account*&gt;.blob.core.windows.net/&lt;*container*&gt;/ has already been created, containing the schema *Academic.schema*, referenced synonym file *Keywords.syn*, and full-scale data file *Academic.full.data*.  We can build the full index remotely using the following command:
 
-`kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote Large`
+`kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
 Note that it may take 5-10 minutes to provision a temporay VM to build the index.  Thus, for rapid prototyping, we recommend one of two options:
   1. Develop with a smaller data set locally on any machine.
@@ -239,11 +239,11 @@ To avoid paging which slows down the build process, we recommend using a VM with
 ## Deploying service
 Once we have a grammar and index, we are ready to deploy the service to an Azure cloud service.  To create a new Azure cloud service, see [How to Create and Deploy a Cloud Service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md).  Do not specify a deployment package at this point.  
 
-Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale.md).
+Once the cloud service has been created, we can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service.  An Azure cloud service has two deployment slots: Production and Staging.  For a service that receives live user traffic, we should initially deploy to the Staging slot and wait for the service to start up and initialize itself.  Once the service is running, we can send a few requests to validate the deployment and verify that it passes basic tests.  Then, we [swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the Staging slot with the Production slot so that live traffic will now be directed to the newly deployed service.  We can repeat this process when deploying an updated version of the service with new data.  Like all other Azure cloud services, we can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-In this example, we will deploy the Academic index to the staging slot of an existing cloud service with *large* VMs using the following command:
+In this example, we will deploy the Academic index to the staging slot of an existing cloud service with *<vm_size>* VMs using the following command:
 
-`kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> large --slot Staging`
+`kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 
 For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).  Once the service has been deployed, we can call the various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  
 

@@ -4,7 +4,7 @@ description: This topic gives an overview of Media Encoder Standard formats and 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
@@ -36,20 +36,20 @@ This document contains a list of the most common import and export file formats 
 | QuickTime (.mov) |Yes |
 
 > [!NOTE]
-> Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, please provide a feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, provide your feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### Audio formats in input containers
 Media Encoder Standard supports carrying the following audio formats in input containers:
 
-* MXF, GXF and QuickTime files which have audio tracks with interleaved stereo or 5.1 samples
+* MXF, GXF, and QuickTime files, which have audio tracks with interleaved stereo or 5.1 samples
 
 or
 
-* MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
+* MXF, GXF, and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
-Note that support for explicit/user-supplied channel mapping will be provided in the near future.
+Support for explicit/user-supplied channel mapping will be provided in the near future.
 
 ## Input Video Codecs
 | Input Video Codecs | Supported |
@@ -59,7 +59,7 @@ Note that support for explicit/user-supplied channel mapping will be provided in
 | DVCPro/DVCProHD (in MXF) |Yes |
 | Digital video (DV) (in AVI files) |Yes |
 | JPEG 2000 |Yes |
-| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |Up to 422 Profile |
+| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs®, and D10) |Up to 422 Profile |
 | MPEG-1 |Yes |
 | VC-1/WMV9 |Yes |
 | Canopus HQ/HQX |No |

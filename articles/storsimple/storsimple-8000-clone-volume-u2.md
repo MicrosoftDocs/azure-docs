@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
 
 ---
@@ -66,12 +66,7 @@ Perform the following steps to create a clone of your volume from the backup cat
    
     ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volumes** blade of your device, and then follow the steps in [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
-   
-   > [!IMPORTANT]
-   > Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
-   
-4. Navigate back to the **Backup catalog** and select a volume in a backup set. Right-click and then from the context menu, select **Clone**.
+3. Expand the backup set to view the associated volume and select a volume in a backup set. Right-click and then from the context menu, select **Clone**.
 
    ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

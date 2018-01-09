@@ -108,7 +108,7 @@ This is an example of what the request body should look like:
 Here a few important things to note:
 
 * Currently, **authenticationType** should always be set to **PublicOrSas**.
-* You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
+* You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 * The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
 ## Wait for the asynchronous operation to finish

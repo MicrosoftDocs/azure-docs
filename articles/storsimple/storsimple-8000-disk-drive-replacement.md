@@ -99,7 +99,8 @@ After a drive has failed in your StorSimple device and you have removed it, foll
     **Figure 6**  Sliding the drive carrier into the chassis
 3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
 4. Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.
-5. Verify that the replacement was successful and the drive is operational. Access the Azure portal and navigate to **Settings** > **Hardware health**. Under **Shared components** or **EBOD shared components**, the drive status should be green, indicating that it is healthy.
+5. Verify that the replacement was successful and the drive is operational. Access the Azure portal and navigate to **Device settings** > **Hardware health**. Under **Shared components** or **EBOD shared components**, the drive status should be green, indicating that it is healthy.
+
    
    > [!NOTE]
    > It may take several hours for the disk status to turn green after the replacement.
