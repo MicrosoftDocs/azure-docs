@@ -93,12 +93,14 @@ For example, if you are using maven build system include the following in your `
 	```
 4. Use the client object and make the appropriate calls as required. Here are some examples which demonstrate the usage of client object. We assume that the application package is built and uploaded into image store before using the below API's.
 	* Provision an application
+	
 		```java
 			ApplicationTypeImageStorePath imageStorePath = new ApplicationTypeImageStorePath();
 			imageStorePath.withApplicationTypeBuildPath("<application-path-in-image-store>");
 			client.provisionApplicationType(imageStorePath);
 		```
 	* Create an application
+
 		```java
 			ApplicationDescription applicationDescription = new ApplicationDescription();
 			applicationDescription.withName("<application-uri>");
