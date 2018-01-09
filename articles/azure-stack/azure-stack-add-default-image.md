@@ -134,7 +134,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 
 ## Parameters
 
-|New-AzsServer2016VMImage parameters|Required?|Description|
+|New-AzsServer2016VMImage parameters|Required|Description|
 |-----|-----|------|
 |ISOPath|Yes|The fully qualified path to the downloaded Windows Server 2016 ISO.|
 |Net35|No|Installs the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to **true**.|
