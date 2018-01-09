@@ -350,7 +350,7 @@ search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGener
 ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all computers running SQL
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "*sql*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### List all unique product versions of curl in my datacenter
 ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
