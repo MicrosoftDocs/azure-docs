@@ -5,8 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: curtand
-
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
@@ -51,6 +49,7 @@ PP = Public Preview
 &#42; Currently there are two supported options for this.  They are:
    1. You can use the generic LDAP connector and enable it outside of Azure AD Connect.  This is complex and requires a partner for on-boarding and a premier support agreement to mainatin.  This option can handle both single and multiple LDAP directories.
    2. You can develop your own solution for moving objects from LDAP to Active Directory.  Then synchronize the objects with Azure AD Connect.  MIM or FIM could be used as a possible solution for moving the objects.
+
 ## Cloud to On-Premises Synchronization
 | Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
