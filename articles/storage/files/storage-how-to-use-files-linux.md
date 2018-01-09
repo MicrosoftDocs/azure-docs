@@ -59,7 +59,7 @@ ms.author: renash
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
 * <a id="smb-client-reqs"></a>**Understand SMB client requirements.**  
-    Azure Files can be mounted either via SMB 2.1 and SMB 3.0. To protect your data, Azure Files requires clients mounting outside of the Azure region where the Azure file share is hosted to be using SMB 3.0 with encryption. Additionally, if *secure transfer required* is enabled for a storage account, all connections (even connections originating within the same Azure region as the Azure file share) require SMB 3.0 with encryption. 
+    Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If *secure transfer required* is enabled for a storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
     
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support this feature:
 
