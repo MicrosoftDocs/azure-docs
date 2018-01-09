@@ -17,7 +17,7 @@ ms.author: lmolkova
 
 ---
 
-## Distributed tracing and correlation through the Service Bus messaging
+# Distributed tracing and correlation through Service Bus messaging
 
 One of the common problems in microservices development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
