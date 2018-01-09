@@ -31,11 +31,11 @@ By default, no virtual machine images are available in the Azure Stack Marketpla
 
 2. Select **More services** > **Marketplace Management** > **Add from Azure**. 
 
-3. Find or search for the **Windows Server 2016 Datacenter – Eval** image, and then select **Download**.
+3. Find or search for the **Windows Server 2016 Datacenter** image, and then select **Download**.
 
    ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
 
-When the download is finished, the image is available under **Marketplace Management**. The image also is available under **Virtual Machines**.
+When the download is finished, the image is available under **Marketplace Management**. The image also is available under **Compute** and is available to create new virtual machines.
 
 ## Add the image by using PowerShell
 
@@ -142,7 +142,7 @@ To ensure that the Windows Server 2016 VM image has the latest cumulative update
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. By default, this value is set to 40,960 MB.|
 |CreateGalleryItem|No|Specifies whether a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to **true**.|
 |location |No |Specifies the location to which the Windows Server 2016 image should be published.|
-|IncludeLatestCU|No|Applies the latest Windows Server 2016 cumulative update to the new VHD.|
+|IncludeLatestCU|No|Applies the latest Windows Server 2016 cumulative update to the new VHD (Please check the script to ensure that it points to the most current update or use one of the next two options). |
 |CUUri |No |Sets the Windows Server 2016 cumulative update to run from a specific URI. |
 |CUPath |No |Sets the Windows Server 2016 cumulative update to run from a local path. This option is helpful if you have deployed the Azure Stack instance in a disconnected environment.|
 
