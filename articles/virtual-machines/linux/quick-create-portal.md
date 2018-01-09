@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (cat <filename>) to the clipboard (If you are running bash on windows for this step, ensure that you don't copy line break characters from the output). Note the filename of the private key file for later use.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (cat <filename>) to the clipboard. (If you're running bash on Windows for this step, ensure that you don't copy line break characters from the output). Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
