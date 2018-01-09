@@ -321,7 +321,7 @@ This pipeline performs two steps:
 
 ## Monitor the pipeline run
 
-1. Switch to the **Monitor** tab. Click **Refresh** until you see runs for both the pipelines in your solution. Continue refreshing the list unitl you see the **Succeeded** status. 
+1. Switch to the **Monitor** tab. Click **Refresh** until you see runs for both the pipelines in your solution. Continue refreshing the list until you see the **Succeeded** status. 
 
     ![Pipeline runs](./media/tutorial-bulk-copy-portal/pipeline-runs.png)
 2. To view activity runs associated with the GetTableListAndTriggerCopyData pipeline, click the first link in the Actions link for that pipeline. You should see two activity runs for this pipeline run. 
