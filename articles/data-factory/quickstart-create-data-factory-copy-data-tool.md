@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: jingwang
 
 ---
@@ -37,7 +37,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
       
      ![New data factory page](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
@@ -46,7 +46,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-      Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Only supported locations are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations/regions.
 6. Select **Pin to dashboard**.     
@@ -57,7 +57,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
    ![Data factory home page](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab. 
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab. 
 
 ## Launch Copy Data tool
 
@@ -112,4 +112,4 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
     ![Edit tab](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-portal.md) to learn about using Data Factory in more scenarios. 

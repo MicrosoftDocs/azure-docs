@@ -1,6 +1,6 @@
 ---
 title: Create an Azure data factory using the Azure portal | Microsoft Docs
-description: 'Create an Azure data factory to copy data from a cloud data store (Azure Blob Storage) to another cloud data store (Azure SQL Databse).'
+description: 'This tutorial shows you how to create a data factory with a pipeline that copies data from one folder to another folder in Azure Blob Storage.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: jingwang
 
 ---
@@ -35,7 +35,7 @@ This quickstart describes how to use the Azure portal to create and monitor a da
       
      ![New data factory page](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Select your Azure **subscription** in which you want to create the data factory. 
@@ -44,9 +44,9 @@ This quickstart describes how to use the Azure portal to create and monitor a da
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-      Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
 8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
@@ -55,14 +55,14 @@ This quickstart describes how to use the Azure portal to create and monitor a da
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
     ![Data factory home page](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab. 
-
-## Create a linked service
-In this step, you create a linked service to link your Azure Storage Account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
-
-1. In the get started page, click **Create pipeline**, or switch to the **Edit** tab as shown in the following image: 
+10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) application in a separate tab. 
+11. In the get started page, click **Create pipeline**, or switch to the **Edit** tab as shown in the following image: 
 
     ![Get started page](./media/quickstart-create-data-factory-portal/get-started-page.png)
+
+## Create Azure Storage linked service
+In this step, you create a linked service to link your Azure Storage Account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
+
 2. Click **Connections**, and then click the **New** button on the toolbar. 
 
     ![New connection](./media/quickstart-create-data-factory-portal/new-connection-button.png)    
@@ -74,15 +74,19 @@ In this step, you create a linked service to link your Azure Storage Account to 
     1. Enter **AzureStorageLinkedService** for the **Name**.
     2. Select the name of your Azure Storage Account for the **storage account name**.
     3. Click **Test connection** to confirm that the Data Factory service can connect to the storage account. 
-    4. Click **Save** to save the linked service. <br/>
+    4. Click **Save** to save the linked service. 
 
-    ![Azure Storage Linked Service settings](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
+        ![Azure Storage Linked Service settings](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 5. Confirm that you see **AzureStorageLinkedService** in the list of linked services. 
 
     ![Azure Storage linked service in the list](./media/quickstart-create-data-factory-portal/azure-storage-linked-service-in-list.png)
 
 ## Create datasets
-In this step, you create two datasets: **InputDataset** and **OutputDataset**. The input dataset represents the source data in the input folder and the output dataset represents the data that's copied to the destination. These datasets are of type **AzureBlob**. They refer to the **Azure Storage linked service** you created in the previous step. 
+In this step, you create two datasets: **InputDataset** and **OutputDataset**. These datasets are of type **AzureBlob**. They refer to the **Azure Storage linked service** you created in the previous step. 
+
+The input dataset represents the source data in the input folder. In the input dataset definition, you specify the blob container (**adftutorial**), folder (**input**), and the file (**emp.txt**) that contains the source data. 
+
+The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), folder (**output**), and the file to which the data is copied. Each run of a pipeline has a unique ID associated with it, which can be accessed by using the system variable **RunId**. The name of the output file is dynamically evaluated based on the run ID of the pipeline.   
  
 1. Click the **+ (plus)** button, and select **Dataset**.
 
@@ -98,7 +102,7 @@ In this step, you create two datasets: **InputDataset** and **OutputDataset**. T
     1. Select **AzureStorageLinkedService** for the linked service. 
     2. Click **Browse** button for the **File path**. 
         ![Browse for the input file](./media/quickstart-create-data-factory-portal/file-path-browse-button.png)
-    3. In the **Choose a file or folder** window, navigate to the **input** folder in the **adftutorial** container, and select **emp.txt** file. 
+    3. In the **Choose a file or folder** window, navigate to the **input** folder in the **adftutorial** container, select **emp.txt** file, and click **Finish**.
 
         ![Browse for the input file](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     4. (optional) Click **Preview data** to preview the data in the emp.txt file.     
@@ -108,12 +112,12 @@ In this step, you create two datasets: **InputDataset** and **OutputDataset**. T
     2. In the **New Dataset** page, select **Azure Blob Storage**, and click **Finish**.
     3. Specify **OutputDataset** for the name.
     4. Enter **adftutorial/output** for the folder.
-    5. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
+    5. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. It concatenates the **RunId** value with **.txt**. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
-    ![Output dataset settings](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
+        ![Output dataset settings](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## Create a pipeline 
-In this step, you create a pipeline with a copy activity that uses the input and output datasets.  
+In this step, you create and validate a pipeline with a **Copy** activity that uses the input and output datasets.  
 
 1. Click the **+ (plus)** button, and select **Pipeline**. 
 
@@ -133,10 +137,6 @@ In this step, you create a pipeline with a copy activity that uses the input and
 7. Click **Validate** to validate the pipeline settings. Confirm that pipeline has been successfully validated. To close the validation output, click the **right-arrow** (>>) button. 
 
     ![Validate the pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate-button.png)
-8. To publish artifacts to Data Factory, click **Publish**. 
-
-    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
-
 
 ## Test run the pipeline
 In this step, you test run the pipeline before deploying it to the Data Factory repository. 
@@ -149,10 +149,16 @@ In this step, you test run the pipeline before deploying it to the Data Factory 
     
     ![Verify output](./media/quickstart-create-data-factory-portal/verify-output.png)
 
-# Trigger the pipeline manually
-To trigger the pipeline manually, click **Trigger** on the toolbar, and select **Trigger Now**. 
+
+## Trigger the pipeline manually
+In this step, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you trigger a pipeline run that you monitor in the step. You can also publish entities your own VSTS GIT repository, which is covered in [another tutorial](tutorial-copy-data-portal.md?#configure-code-repository).
+
+1. Before triggering a pipeline, you must publish entities to Data Factory. To publish, click **Publish** in the left pane. 
+
+    ![Publish button](./media/quickstart-create-data-factory-portal/publish-button.png)
+2. To trigger the pipeline manually, click **Trigger** on the toolbar, and select **Trigger Now**. 
     
-![Trigger now](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
+    ![Trigger now](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
 
 ## Monitor the pipeline
 
@@ -162,11 +168,12 @@ To trigger the pipeline manually, click **Trigger** on the toolbar, and select *
 2. Click the **View Activity Runs** link under **Actions**. You see the status of the copy activity run in this page. 
 
     ![Pipeline activity runs](./media/quickstart-create-data-factory-portal/pipeline-activity-runs.png)
-3. Confirm that you see a new file in the **output** folder. 
-4. You can switch back to the **Pipeline Runs** view from the **Activity Runs** view by clicking **Pipelines** link. 
+3. To view the results of copy operation, click the link in the **Output** column.
+4. Confirm that you see a new file in the **output** folder. 
+5. You can switch back to the **Pipeline Runs** view from the **Activity Runs** view by clicking **Pipelines** link. 
 
 ## Trigger the pipeline on a schedule
-This step is optional in this tutorial. You can create a scheduler trigger to schedule the pipeline to run periodically (hourly, daily, etc.). In this step, you create a trigger to run every minute until the datetime you specify as the end date. 
+This step is optional in this tutorial. You can create a **scheduler trigger** to schedule the pipeline to run periodically (hourly, daily, etc.). In this step, you create a trigger to run every minute until the datetime you specify as the end date. 
 
 1. Switch to the **Edit** tab. 
 
@@ -186,7 +193,7 @@ This step is optional in this tutorial. You can create a scheduler trigger to sc
 5. In the **New Trigger** page, review the warning message, and click **Finish**.
 
     ![Trigger settings - Finish button](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Click **Publish** to publish changes. 
+6. Click **Publish** to publish changes to Data Factory.
 
     ![Publish button](./media/quickstart-create-data-factory-portal/publish-2.png)
 8. Switch to the **Monitor** tab on the left. You see the pipeline runs once every minute from the current time to the end time. Notice the values in the **Triggered By** column. The manual trigger run was from the step (**Trigger Now**) you did earlier. 
@@ -198,4 +205,4 @@ This step is optional in this tutorial. You can create a scheduler trigger to sc
 10. Confirm that an **output file** is created for every minute until the specified end datetime in the **output** folder. 
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-portal.md) to learn about using Data Factory in more scenarios. 
