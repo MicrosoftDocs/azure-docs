@@ -20,9 +20,9 @@ ms.custom: mvc
 ---
 # Add messages to an Azure Storage queue using Functions
 
-In Azure Functions, input and output bindings provide a declarative way to make data from external services available to your code. In this quickstart, you use an output binding to create a message in a queue when a function is triggered by an HTTP request.
+In Azure Functions, input and output bindings provide a declarative way to make data from external services available to your code. In this quickstart, you use an output binding to create a message in a queue when a function is triggered by an HTTP request. You use Azure Storage Explorer to view the queue messages that your function creates:
 
-![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
+![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
 ## Prerequisites 
 
@@ -30,7 +30,7 @@ To complete this quickstart:
 
 * Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
-* Install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
+* Install [Microsoft Azure Storage Explorer](http://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
 
 ## <a name="add-binding"></a>Add an output binding
 
@@ -82,7 +82,7 @@ In this section you add code that writes a message to the output queue. The mess
    }
    ```
 
-   In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
+   In the body of the C# function just before the `return` statement, add code that uses the parameter to create a queue message.
 
    ```cs
    outputQueueItem.Add("Name passed to the function: " + name);     
@@ -105,9 +105,9 @@ In this section you add code that writes a message to the output queue. The mess
 
    As an alternative, you can call the function by entering a URL in a browser, as shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
-2. Check the logs to make sure that the function succeeded. A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used.
+2. Check the logs to make sure that the function succeeded. 
 
-Next, you can connect to your storage account to verify the new queue and the message you added to it. 
+A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue and a message in it were created.
 
 ### Connect Storage Explorer to your account
 
