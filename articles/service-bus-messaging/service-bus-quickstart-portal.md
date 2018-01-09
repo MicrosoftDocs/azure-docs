@@ -92,8 +92,10 @@ In this article, you created a Service Bus namespace and other resources require
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[Azure portal]: https://portal.azure.com/
 
 [connection-info]: ./media/service-bus-quickstart-portal/connection-info.png
 [connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [createqueue2]: ./media/service-bus-quickstart-portal/create-queue2.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png
+[create-namespace]: ./media/service-bus-quickstart-portal/create-namespace.png
