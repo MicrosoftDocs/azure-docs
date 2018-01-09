@@ -22,6 +22,8 @@ ms.author: sethm
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates.  
 
+![service-bus-flow][service-bus-flow]
+
 This quickstart describes how to send and receive messages with Service Bus, using the Azure portal to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
@@ -42,7 +44,7 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 
 ### Obtain the management credentials
 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md) for information about how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
 
 1.  Click **All resources**, then click the newly created namespace name.
 2. In the namespace window, click **Shared access policies**.
@@ -94,3 +96,4 @@ In this article, you created a Service Bus namespace and other resources require
 [connection-info]: ./media/service-bus-quickstart-portal/connection-info.png
 [connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [createqueue2]: ./media/service-bus-quickstart-portal/create-queue2.png
+[service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png
