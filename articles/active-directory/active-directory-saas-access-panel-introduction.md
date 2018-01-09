@@ -84,7 +84,8 @@ The extension is required for users to sign into password-based single sign-on. 
 - The extension will also show users the last three applications they launched under **Recently Used** section.
 > [!NOTE]
 > Additional features are only available for Edge, Chrome, Firefox.
-
+>
+>
 
 If you are using a different My Apps URL than https://myapps.microsoft.com then you must configure your default URL though the following steps:
 1. While not signed into the extension, **right click** the extension icon.
