@@ -15974,126 +15974,121 @@
       "redirect_url": "/azure/storage/common/storage-account-options",
       "redirect_document_id": false
       },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/about-images.md",
-          "redirect_url": "/azure/virtual-machines/linux/endorsed-distros",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/agents-and-extensions.md",
-          "redirect_url": "/azure/virtual-machines/linux/extensions-features ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/configure-availability.md",
-          "redirect_url": "/azure/virtual-machines/linux/manage-availability ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/faq.md",
-          "redirect_url": "/azure/virtual-machines/linux/faq ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/createportal.md",
-          "redirect_url": "/azure/virtual-machines/linux/quick-create-portal",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/create-custom.md",
-          "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/capture-image.md",
-          "redirect_url": "/azure/virtual-machines/linux/capture-image",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/remote-desktop.md",
-          "redirect_url": "/azure/virtual-machines/linux/use-remote-desktop",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/manage-extensions.md",
-          "redirect_url": "/azure/virtual-machines/linux/extensions-features ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/manage-visual-studio.md",
-          "redirect_url": "/azure/virtual-machines/windows/csharp",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/inject-custom-data.md",
-          "redirect_url": "/azure/virtual-machines/linux/tutorial-automate-vm-deployment",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/reset-access.md",
-          "redirect_url": "/azure/virtual-machines/linux/reset-password ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/planned-maintenance-schedule.md",
-          "redirect_url": "/azure/virtual-machines/linux/maintenance-and-updates",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
-          "redirect_url": "/azure/virtual-machines/linux/dockerextension",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
-          "redirect_url": "/azure/virtual-machines/linux/dockerextension",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/attach-disk.md",
-          "redirect_url": "/azure/virtual-machines/linux/add-disk ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/detach-disk.md",
-          "redirect_url": "/azure/virtual-machines/linux/detach-disk ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/connect-vms.md",
-          "redirect_url": "/azure/virtual-machines/linux/mac-create-ssh-keys ",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/create-upload-vhd.md",
-          "redirect_url": "/azure/virtual-machines/linux/create-upload-generic",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/freebsd-create-upload-vhd.md",
-          "redirect_url": "/azure/virtual-machines/linux/freebsd-intro-on-azure",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/oracle-images.md",
-          "redirect_url": "/azure/virtual-machines/linux/oracle-create-upload-vhd",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/sap-get-started.md",
-          "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/lamp-script.md",
-          "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
-          "redirect_document_id": true
-      },
-      {
-          "source_path": "articles/virtual-machines/linux/classic/web-app-visual-studio.md",
-          "redirect_url": "/azure/app-service/",
-          "redirect_document_id": true
-      },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/faq.md",
+            "redirect_url": "/azure/virtual-machines/windows/faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/tutorial.md",
+            "redirect_url": "/azure/virtual-machines/windows/quick-create-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/connect-logon.md",
+            "redirect_url": "/azure/virtual-machines/windows/connect-logon",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/attach-disk.md",
+            "redirect_url": "/azure/virtual-machines/windows/attach-managed-disk-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/detach-disk.md",
+            "redirect_url": "/azure/virtual-machines/windows/detach-disk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/connect-vms.md",
+            "redirect_url": "/azure/virtual-machines/windows/connect-logon",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/createportal.md",
+            "redirect_url": "/azure/virtual-machines/windows/quick-create-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/create-powershell.md",
+            "redirect_url": "/azure/virtual-machines/windows/quick-create-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/capture-image.md",
+            "redirect_url": "/azure/virtual-machines/windows/capture-image-resource",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/createupload-vhd.md",
+            "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/manage-visual-studio.md",
+            "redirect_url": "/azure/virtual-machines/windows/csharp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/web-app-visual-studio.md",
+            "redirect_url": "/azure/app-service/",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/configure-availability.md",
+            "redirect_url": "/azure/virtual-machines/windows/manage-availability",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/resize-vm.md",
+            "redirect_url": "/azure/virtual-machines/windows/resize-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule.md",
+            "redirect_url": "/azure/virtual-machines/windows/maintenance-and-updates",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/manage-psh.md",
+            "redirect_url": "/azure/virtual-machines/windows/ps-common-ref",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/agents-and-extensions.md",
+            "redirect_url": "/azure/virtual-machines/windows/extensions-features",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/manage-extensions.md",
+            "redirect_url": "/azure/virtual-machines/windows/extensions-features",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/extensions-customscript.md",
+            "redirect_url": "/azure/virtual-machines/windows/extensions-customscript",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/inject-custom-data.md",
+            "redirect_url": "/azure/virtual-machines/windows/tutorial-automate-vm-deployment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/about-images.md",
+            "redirect_url": "/azure/virtual-machines/windows/cli-ps-findimage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/install-mongodb.md",
+            "redirect_url": "/azure/virtual-machines/windows/install-mongodb",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/sap-get-started.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/get-started",
+            "redirect_document_id": true
+        },
       {
         "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
         "redirect_url": "/azure/virtual-network/create-vm-accelerated-networking-cli",
