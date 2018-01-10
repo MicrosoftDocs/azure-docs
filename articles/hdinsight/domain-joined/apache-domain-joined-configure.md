@@ -28,7 +28,7 @@ Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTT
 -	Azure Active Directory.
 -	Active Directory running on the customer on-premises environment.
 
-Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This aricles cover two approaches for this configuration:
+Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
 
 - Option 1: Use one Azure resource management template to create the standalone directory and the HDInsight cluster.
 - Option 2: The whole process is broken into the following steps:
@@ -44,7 +44,7 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
 * Azure subscription
 
 ## Option 1: one-step approach
-In this section, you open an Azure resource management template from the Azure portal.  The templates is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
+In this section, you open an Azure resource management template from the Azure portal.  The template is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
    
@@ -56,16 +56,28 @@ In this section, you open an Azure resource management template from the Azure p
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    To create an Hive cluster:
+    To create a Hive cluster:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. ...
+2. Enter the values, select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. Hover your mouse cursor over the explanation sign next to the fields to see the descriptions. Most of the values have been populated. You can use either the default values, or your own values.
 
+    - **Resource group**: Enter an Azure resource group name.
+    - **Location**: Choose a location that is close to you.
+    - **New Storage Account Name**: Enter an Azure Storage account name. This new storage account is used by the PDC, the BDC, and the HDInsight cluster as the default storage account.
+    - **Admin Username**: Enter the domain administrator username.
+    - **Admin Password**: Enter the domain administrator password.
+    - **Domain Name**: The default name is *contoso.com*.  If you change the domain name, you must also update the **Secure LDAP Certificate** field and the **Organizational Unit DN** field.
+    - **Cluster Name**: Enter the HDInsight cluster name.
+    - **Cluster Type**: Don't change this value. If you want to change the cluster type, use the specific template in the last step.
+
+    Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
+
+    After the template is completed successfully, there are 23 resources created in the resource group.
 
 ## Option 2: multi-step approach
 
-There are 4 steps in this section:
+There are four steps in this section:
 
 1. Create an Active Directory using a template.
 2. Setup LDAPS.
@@ -135,7 +147,7 @@ The Lightweight Directory Access Protocol (LDAP) is used to read from and write 
 
     ![HDInsight domain joined configure AD certificate](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Click **role Services on the left, select **Certification Authority**, and then click **Next**.
+2. Click **Role Services** on the left, select **Certification Authority**, and then click **Next**.
 3. Follow the wizard, use the default settings for the rest of the procedure (click **Configure** at the last step).
 4. Click **Close** to close the wizard.
 
