@@ -2,14 +2,14 @@
 title: Add example utterances in LUIS apps | Microsoft Docs
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: cahann
+ms.date: 01/09/2018
+ms.author: v-geberr
 ---
 
 # Example utterances
@@ -106,11 +106,54 @@ The city "Paris" can be either a ToLocation or a FromLocation when booking a pla
 
 2. Click **Done**.
 
+## Wrap entities in composite label
+In the following procedure, you create and label a composite entity named `TicketsOrder` for the existing utterance:
+
+`book me 2 adult business tickets to Paris tomorrow on Air France`
+
+The composite entity contains three child entities: number (of tickets), Seat, and Category. The Seat hierarchical category was created in [a previous section](#add-list-entity-and-label). Label the word "business" as a Seat category, if it is not already labeled. 
+
+1. Follow these [steps](Add-entities.md#add-prebuilt-entity) to add the **number** prebuilt entity. After the entity is created, the `2` will be blue indicating it is a labeled entity. Prebuilt entities do not need to be labeled. 
+
+2. Follow these [steps](#add-hierarchical-entity-and-label) to create a **Category** [hierarchical entity] with values of Adult, Child, and Infant. Label the word "adult" as a Category entity. At this point, all three words should be labeled with the blue background. 
+
+3. Click on the left-most word of the phrase, "2", labeled as number.
+
+    ![Click on number](./media/add-example-utterances/composite-wrap-1.png)
+
+4. In the pop-up menu, select **Wrap in composite entity**.
+
+    ![Click on Wrap in Composite entity](./media/add-example-utterances/composite-wrap-2.png)
+
+5. Select third word in phrase, `business`. A green bar appears below entire phrase. 
+
+6. Enter `TicketsOrder` then click **Create new composite entity**.
+
+    ![Enter TicketsOrder](./media/add-example-utterances/composite-wrap-3.png)
+
+7. In the pop-up box, enter three existing entity children: number, Category, TravelClass. 
+
+    ![Enter Child entities](./media/add-example-utterances/composite-wrap-4.png)
+
+8. Click **Done**. 
+
+9. Verify the new composite entity by hovering on the green bar under the three words. The composite name, **TicketsOrder** pops up.
+
+    ![Verify composite entity](./media/add-example-utterances/composite-wrap-final.png)
+
 ## Remove custom entity label
 
 In order to remove your own custom entity label from an utterance, click the entity in the utterance and click **Remove label** in the entity drop-down box that appears.
 
 ![Remove Labeling](./media/add-example-utterances/remove-label.png) 
+
+## Intent prediction discrepancy
+An utterance in an intent may have a discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the score. 
+
+![Intent prediction discrepancy](./media/add-example-utterances/score-discrepancy.png) 
+
+## Switch to token view
+Control-E switches between tokens and entities. 
 
 ## Search in utterances
 

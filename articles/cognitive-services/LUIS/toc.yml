@@ -101,9 +101,9 @@
     items: 
     - name: Monitor your app using the dashboard
       href: App-Dashboard.md
-    - name: Manage keys
+    - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Create subscription keys
+    - name: Manage Azure keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
