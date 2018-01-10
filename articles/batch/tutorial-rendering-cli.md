@@ -28,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is from the [3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe) available from the Autodesk site. Use is subject to the Autodesk terms.
+A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is originially from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -95,7 +95,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Download the scene `MotionBlur-Dragon-Flying.max` from [GitHub](https://github.com/dlepow/batchmvc/raw/master/Tutorials/Rendering/scenes/MotionBlur-DragonFlying.max) to a local working directory. For example:
+Download the scene `MotionBlur-Dragon-Flying.max` from [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) to a local working directory. For example:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -149,7 +149,7 @@ Create the pool by passing the JSON file to the `az batch pool create` command:
 az batch pool create \
     --json-file mypool.json
 ``` 
-It can take a few minutes to provision the pool. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. The following command gets the allocation state of the pool:
+It takes a few minutes to provision the pool. To see the status of the pool, run the [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show) command. The following command gets the allocation state of the pool:
 
 ```azurecli-interactive
 az batch pool show \
@@ -196,7 +196,7 @@ az batch job create \
     --pool-id myrenderpool
 ```
 
-Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file name *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/myrendertask.json).)
+Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json* (this file is included in the files you downloaded for this tutorial). Within your current shell, create a file named *myrendertask.json*, then copy and paste the following contents. Be sure all the text copies correctly. (You can also download the file from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/myrendertask.json).)
 
 The task specifies a 3ds Max command to render a single frame of the scene *MotionBlur-DragonFlying.max*.
 
@@ -249,7 +249,7 @@ az batch task create \
     --json-file myrendertask.json
 ```
 
-Batch schedules the task, and the task runs as soon as the pool is available.
+Batch schedules the task, and the task runs as soon as a node in the pool is available.
 
 
 ## View task output
