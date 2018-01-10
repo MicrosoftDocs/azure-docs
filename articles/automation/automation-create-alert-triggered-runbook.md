@@ -29,7 +29,9 @@ Each alert is different on how to monitors your resources, and the data provided
 
 To use automation with alerts, you need a runbook that has logic to manage the alert JSON payload that is passed to the runbook. When an alert calls the runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that contains useful properties related to the alert.
 
-The following example runbook must be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert and evaluates the JSON payload to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. The runbook uses **AzureRunAsConnection** to authenticate with Azure in order to perform the management action against the VM.
+The following example runbook must be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert and evaluates the JSON payload to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is ran.
+
+The runbook uses **AzureRunAsConnection** to authenticate with Azure in order to perform the management action against the VM.
 
 The following PowerShell script can be altered for use with many different resources.
 
