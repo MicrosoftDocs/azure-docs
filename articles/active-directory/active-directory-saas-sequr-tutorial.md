@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Drag and drop the **Certificate** file, which you have downloaded from the Azure portal or manually enter the content of the certificate.
 
-	c. After saving the configuration the relay state value will be generated. Copy the **relay state** value and paste it in the **Relay State** textbox of **Sequr Domain and URLs** section in the Azure portal.
+	c. After saving the configuration, the relay state value will be generated. Copy the **relay state** value and paste it in the **Relay State** textbox of **Sequr Domain and URLs** section in the Azure portal.
 
 	d. Click **Save**.
 
