@@ -63,6 +63,6 @@ During the preview, Azure Event Grid expires all events that are not delivered w
 
 ## Next steps
 
-* To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery,md).
+* To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
