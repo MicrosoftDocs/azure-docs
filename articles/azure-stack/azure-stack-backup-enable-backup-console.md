@@ -28,7 +28,7 @@ Enable the Infrastructure Back Service through the administration portal so that
 1. Open the Azure Stack administration portal at [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 
-    ![Azure Stack - Backup controller settings](media\azure-stack-backup\azure-stack-backup-settings.png).
+    ![Azure Stack - Backup controller settings](media/azure-stack-backup/azure-stack-backup-settings.png).
 
 3. Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data in the event of a disaster, the  device should be in a separate location.
     > [!Note]  
