@@ -39,11 +39,11 @@ The Universal Naming Convention (UNC) string for the path must use a fully quali
 
 The encryption key is used to encrypt backup data that gets exported to external storage. The key can be generated using AzureStack-Tools. 
 
-![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+![AzureStack-Tools](media/azure-stack-backup/azure-stack-backup-encryption1.png)
 
 The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 
-![Stored the key a secure location.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Stored the key a secure location.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## Operational best practices
 
