@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/10/2018
 ms.author: jeedes
 
 ---
@@ -114,22 +114,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	For Production Environment:
 	`urn:sp:fidelity:geninbndnbparts20`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type a URL:
 
 	For Testing Environment:
-    `https://<subdomain>.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+    `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
 
 	For Production Environment:
-	`https://<subdomain>.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
-
-	> [!NOTE] 
-	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) to get the value.
+	`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
-4. Fidelity NetBenefits application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **EmailPrefix()** of **UserPrincipalName** attribute but you should configure the **User Identifier (NameId)** as per your application requirement. The following screenshot shows just an example for this.
 	
 	![Fidelity NetBenefits attribute](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 	
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png) 
 
@@ -141,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Fidelity NetBenefits Configuration](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png) 
 
-7. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Metadata XML**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
