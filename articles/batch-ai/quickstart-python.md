@@ -117,7 +117,7 @@ For illustration purposes, this quickstart uses an Azure file share to host the 
   ```Python
   mnist_dataset_directory = 'mnistcntksample' 
  
-  service.create_directory(azure_file_share_namem, mnist_dataset_directory, fail_on_exist=False) 
+  service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False) 
   ```
 3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip. Upload the contents to the directory.
 
@@ -163,8 +163,8 @@ parameters = models.ClusterCreateParameters(
                      account_name=storage_account_name,
                      credentials=models.AzureStorageCredentialsInfo(
          account_key=storage_account_key),
-         azure_file_url='https://{0}.file.core.windows.net/{1}'.format(
-               storage_account_name, mnist_dataset_directory),
+         azure_file_url='https://{0}.file.core.windows.net/{1}/{2}/'.format(
+               storage_account_name, azure_file_share_name, mnist_dataset_directory),
                   relative_mount_path = relative_mount_point)],
          ), 
     ), 
@@ -224,7 +224,8 @@ parameters = models.job_create_parameters.JobCreateParameters(
  
      input_directories=[models.InputDirectory(
          id='SAMPLE',
-         path='$AZ_BATCHAI_MOUNT_ROOT/{0}/{1}'.format(relative_mount_point, mnist_dataset_directory))], 
+         path='$AZ_BATCHAI_MOUNT_ROOT/{0}/{1}/{2}'.format(
+	 relative_mount_point, azure_file_share_name, mnist_dataset_directory))], 
  
      # Specify directories where files will get written to 
      output_directories=[models.OutputDirectory(
@@ -234,7 +235,7 @@ parameters = models.job_create_parameters.JobCreateParameters(
  
      # Container configuration
      container_settings=models.ContainerSettings(
-        models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0cudnn6.0')), 
+        models.ImageSourceRegistry(image='microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0')), 
  
      # Toolkit specific settings
      cntk_settings = models.CNTKsettings(
