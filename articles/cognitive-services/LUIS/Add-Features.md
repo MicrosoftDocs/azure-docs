@@ -8,7 +8,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/09/2018
 ms.author: v-geberr
 ---
 
@@ -60,8 +60,8 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 
-## Pattern feature
-**This is a deprecated feature**. New patterns cannot be added to LUIS but any existing pattern features will be supported until May 2018. 
+## Pattern (regular expression) feature 
+**This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
 
 ## Next steps
 
