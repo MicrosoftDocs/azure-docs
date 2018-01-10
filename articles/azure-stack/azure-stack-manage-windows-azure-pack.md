@@ -44,7 +44,7 @@ For this preview release of the connector, be aware of the following:
 ## Architecture
 The following diagram shows the main components of the Windows Azure Pack Connector.
 
-![The Windows Azure Pack Connector components](media/azure-stack-manage-wap/image1.png)
+![The Windows Azure Pack Connector components](media/azure-stack-manage-wap/image1.PNG)
 
 Notice the following details:
 * The Azure Stack user portal accesses the resource information from both clouds (Azure Stack and Windows Azure Pack).
@@ -58,7 +58,7 @@ The Windows Azure Pack Tenant API must trust the Azure Stack security token serv
 
 When a user performs an action through the Azure Stack portal that targets Windows Azure Pack resources, the portal uses the Windows Azure Pack Tenant API. Therefore, the provided user authentication token must come from a trusted STS. See the following diagram:
 
-![Diagram of Windows Azure Pack Connector authentication](media/azure-stack-manage-wap/image2.png)
+![Diagram of Windows Azure Pack Connector authentication](media/azure-stack-manage-wap/image2.PNG)
 
 In the development kit environment, Windows Azure Pack and Azure Stack have independent identity providers. Users who access both environments from the Azure Stack portal must have the same user principal name (UPN) name in both identity providers. For example, the account *azurestackadmin@azurestack.local* should also exist in the STS for Windows Azure Pack. Where AD FS is not set up to support outbound trust relationships, you will establish trust from the Windows Azure Pack components (Tenant API) to the Azure Stack instance of AD FS.
 
@@ -137,7 +137,7 @@ You can run the Add-AzurePackConnector.ps1 script immediately after deployment, 
 
     c. Notice the **Cloud** drop-down list in the upper-left corner of the portal.
 
-    ![The cloud selector in the Azure Stack user interface](media/azure-stack-manage-wap/image3.png)
+    ![The cloud selector in the Azure Stack user interface](media/azure-stack-manage-wap/image3.PNG)
 
 ## Configure Windows Azure Pack
 For this Connector preview release only, Windows Azure Pack requires manual configuration.
