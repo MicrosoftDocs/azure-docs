@@ -1,6 +1,6 @@
 ---
-title: Process large-scale datasets using Data Factory and Batch | Microsoft Docs
-description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch.
+title: Process large-scale datasets by using Data Factory and Batch | Microsoft Docs
+description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using the parallel processing capability of Azure Batch.
 services: data-factory
 documentationcenter: ''
 author: spelluru
@@ -18,90 +18,96 @@ ms.author: spelluru
 
 robots: noindex
 ---
-# Process large-scale datasets using Data Factory and Batch
+# Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
 
-This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution using Azure Data Factory and Azure Batch.
+This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walk-through to implement the solution by using Data Factory and Azure Batch.
 
-This article is longer than our typical article because it contains a walkthrough of an entire sample solution. If you are new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you may focus just on the [architecture section](#architecture-of-sample-solution) of the article and if you are developing a prototype or a solution, you may also want to try out step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
+This article is longer than a typical article because it contains a walk-through of an entire sample solution. If you are new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the [architecture section](#architecture-of-sample-solution) of the article. If you are developing a prototype or a solution, you might want to try out step-by-step instructions in the [walk-through](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
 
-First, let's look at how Data Factory and Batch services can help with processing large datasets in the cloud.     
+First, let's look at how Data Factory and Batch services can help you process large datasets in the cloud.     
 
 ## Why Azure Batch?
-Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+ You can use Batch to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines (VMs). It can automatically scale compute resources to meet the needs of your jobs.
 
-With the Batch service, you define Azure compute resources to execute your applications in parallel, and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a complex job and task scheduling infrastructure.
+With the Batch service, you define Azure compute resources to execute your applications in parallel, and at scale. You can run on-demand or scheduled jobs. You don't need to manually create, configure, and manage an HPC cluster, individual VMs, virtual networks, or a complex job and task scheduling infrastructure.
 
-See the following articles if you are not familiar with Azure Batch as it helps with understanding the architecture/implementation of the solution described in this article.   
+ If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Azure Batch](../../batch/batch-technical-overview.md)
+* [Basics of Batch](../../batch/batch-technical-overview.md)
 * [Batch feature overview](../../batch/batch-api-basics.md)
 
-(optional) To learn more about Azure Batch, see the [Learning path for Azure Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Optionally, to learn more about Batch, see [Learning path for Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
 
 ## Why Azure Data Factory?
-Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Using the Data Factory service, you can create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store (for example: Azure Blob Storage), and process/transform data using services such as Azure HDInsight and Azure Machine Learning. You can also schedule data pipelines to run in a scheduled manner (hourly, daily, weekly, etc.) and monitor and manage them at a glance to identify issues and take action.
+Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.
 
-See the following articles if you are not familiar with Azure Data Factory as it helps with understanding the architecture/implementation of the solution described in this article.  
+  If you aren't familiar with Data Factory, the following articles help you understand the architecture/implementation of the solution described in this article:  
 
-* [Introduction of Azure Data Factory](data-factory-introduction.md)
+* [Introduction to Data Factory](data-factory-introduction.md)
 * [Build your first data pipeline](data-factory-build-your-first-pipeline.md)   
 
-(optional) To learn more about Azure Data Factory, see the [Learning path for Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Optionally, to learn more about Data Factory, see [Learning path for Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
 
 ## Data Factory and Batch together
-Data Factory includes built-in activities such as Copy Activity to copy/move data from a source data store to a destination data store and Hive Activity to process data using Hadoop clusters (HDInsight) on Azure. See [Data Transformation Activities](data-factory-data-transformation-activities.md) for a list of supported transformation activities.
+Data Factory includes built-in activities. For example, the Copy activity is used to copy/move data from a source data store to a destination data store. The Hive activity is used to process data by using Hadoop clusters (HDInsight) on Azure. For a list of supported transformation activities, see [Data transformation activities](data-factory-data-transformation-activities.md).
 
-It also allows you to create custom .NET activities to move or process data with your own logic and run these activities on an Azure HDInsight cluster or on an Azure Batch pool of VMs. When you use Azure Batch, you can configure the pool to auto-scale (add or remove VMs based on the workload) based on a formula you provide.     
+You also can create custom .NET activities to move or process data with your own logic. You can run these activities on an HDInsight cluster or on a Batch pool of VMs. When you use Batch, you can configure the pool to auto-scale (add or remove VMs based on the workload) based on a formula you provide.     
 
-## Architecture of sample solution
-Even though the architecture described in this article is for a simple solution, it is relevant to complex scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis.
+## Architecture of a sample solution
+  The architecture described in this article is for a simple solution. It also is relevant to complex scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis.
 
-The diagram illustrates 1) how Data Factory orchestrates data movement and processing and 2) how Azure Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 in. or A3 size): [HPC and data orchestration using Azure Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+The diagram illustrates how Data Factory orchestrates data movement and processing. The diagram also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
 
 [![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
 
 The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 
-1. **Configure Azure Batch with a pool of compute nodes (VMs)**. You can specify the number of nodes and size of each node.
-2. **Create an Azure Data Factory instance** that is configured with entities that represent Azure blob storage, Azure Batch compute service, input/output data, and a workflow/pipeline with activities that move and transform data.
-3. **Create a custom .NET activity in the Data Factory pipeline**. The activity is your user code that runs on the Azure Batch pool.
-4. **Store large amounts of input data as blobs in Azure storage**. Data is divided into logical slices (usually by time).
-5. **Data Factory copies data that is processed in parallel** to the secondary location.
-6. **Data Factory runs the custom activity using the pool allocated by Batch**. Data Factory can run activities concurrently. Each activity processes a slice of data. The results are stored in Azure storage.
-7. **Data Factory moves the final results to a third location**, either for distribution via an app, or for further processing by other tools.
+* **Configure Batch with a pool of compute nodes (VMs).** You can specify the number of nodes and the size of each node.
 
-## Implementation of sample solution
-The sample solution is intentionally simple and is to show you how to use Data Factory and Batch together to process datasets. The solution simply counts the number of occurrences of a search term (“Microsoft”) in input files organized in a time series. It outputs the count to output files.
+* **Create a Data Factory instance** that is configured with entities that represent blob storage, the Batch compute service, input/output data, and a workflow/pipeline with activities that move and transform data.
 
-**Time**: If you are familiar with basics of Azure, Data Factory, and Batch, and have completed the prerequisites listed below, we estimate this solution takes 1-2 hours to complete.
+* **Create a custom .NET activity in the Data Factory pipeline.** The activity is your user code that runs on the Batch pool.
+
+* **Store large amounts of input data as blobs in Azure Storage.** Data is divided into logical slices (usually by time).
+
+* **Data Factory copies data that is processed in parallel** to the secondary location.
+
+* **Data Factory runs the custom activity by using the pool allocated by Batch.** Data Factory can run activities concurrently. Each activity processes a slice of data. The results are stored in storage.
+
+* **Data Factory moves the final results to a third location,** either for distribution via an app or for further processing by other tools.
+
+## Implementation of the sample solution
+The sample solution is intentionally simple. It is designed to show you how to use Data Factory and Batch together to process datasets. The solution counts the number of occurrences of a search term (Microsoft) in input files organized in a time series. It then outputs the count to output files.
+
+**Time:** If you are familiar with the basics of Azure, Data Factory, and Batch and have completed the following prerequisites, this solution takes one to two hours to complete.
 
 ### Prerequisites
 #### Azure subscription
-If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+If you don't have an Azure subscription, you can create a free trial account quickly. For more information, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Azure storage account
-You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
+You use an Azure storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
 #### Azure Batch account
-Create an Azure Batch account using the [Azure portal](http://portal.azure.com/). See [Create and manage an Azure Batch account](../../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
+Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
-The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of virtual machines).
+The sample solution uses Batch (indirectly via a Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of VMs).
 
-#### Azure Batch pool of virtual machines (VMs)
-Create an **Azure Batch pool** with at least 2 compute nodes.
+#### Azure Batch pool of virtual machines
+Create an Azure Batch pool with at least two compute nodes.
 
-1. In the [Azure portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**.
+1. In the [Azure portal](https://portal.azure.com), select **Browse** in the left menu, and select **Batch Accounts**.
 2. Select your Azure Batch account to open the **Batch Account** blade.
-3. Click **Pools** tile.
-4. In the **Pools** blade, click Add button on the toolbar to add a pool.
+3. Select **Pools** tile.
+4. In the **Pools** blade, select Add button on the toolbar to add a pool.
    1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you need it when creating the Data Factory solution.
    2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
    3. Select a **node pricing tier**.
-   4. Enter **2** as value for the **Target Dedicated** setting.
-   5. Enter **2** as value for the **Max tasks per node** setting.
-   6. Click **OK** to create the pool.
+   4. Enter **2** as the value for the **Target Dedicated** setting.
+   5. Enter **2** as the value for the **Max tasks per node** setting.
+   6. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
 [Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). You use these tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
@@ -119,7 +125,7 @@ Create an **Azure Batch pool** with at least 2 compute nodes.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   If you are using **Azure Storage Explorer**, upload the file **file.txt** to **mycontainer**. Click **Copy** on the toolbar to create a copy of the blob. In the **Copy Blob** dialog box, change the **destination blob name** to `inputfolder/2015-11-16-00/file.txt`. Repeat this step to create `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` and so on. This action automatically creates the folders.
+   If you are using **Azure Storage Explorer**, upload the file **file.txt** to **mycontainer**. Select **Copy** on the toolbar to create a copy of the blob. In the **Copy Blob** dialog box, change the **destination blob name** to `inputfolder/2015-11-16-00/file.txt`. Repeat this step to create `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` and so on. This action automatically creates the folders.
 5. Create another container named: `customactivitycontainer`. You upload the custom activity zip file to this container.
 
 #### Visual Studio
@@ -156,13 +162,13 @@ The method has a few key components that you need to understand.
 1. Create a .NET Class Library project in Visual Studio.
 
    1. Launch **Visual Studio 2012**/**2013/2015**.
-   2. Click **File**, point to **New**, and click **Project**.
+   2. Select **File**, point to **New**, and select **Project**.
    3. Expand **Templates**, and select **Visual C\#**. In this walkthrough, you use C\#, but you can use any .NET language to develop the custom activity.
    4. Select **Class Library** from the list of project types on the right.
    5. Enter **MyDotNetActivity** for the **Name**.
    6. Select **C:\\ADF** for the **Location**. Create the folder **ADF** if it does not exist.
-   7. Click **OK** to create the project.
-2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
+   7. Select **OK** to create the project.
+2. Select **Tools**, point to **NuGet Package Manager**, and select **Package Manager Console**.
 3. In the **Package Manager Console**, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
 	```powershell
@@ -363,7 +369,7 @@ The method has a few key components that you need to understand.
 
     The **Calculate** method calculates the number of instances of keyword **Microsoft** in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
 
-1. Compile the project. Click **Build** from the menu and click **Build Solution**.
+1. Compile the project. Select **Build** from the menu and select **Build Solution**.
 2. Launch **Windows Explorer**, and navigate to **bin\\debug** or **bin\\release** folder depending on the type of build.
 3. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the **\\bin\\Debug** folder. You may want to include the MyDotNetActivity.**pdb** file so that you get additional details such as line number in the source code that caused the issue when a failure occurs.
 
@@ -491,13 +497,13 @@ The following walkthrough provides additional details.
 #### Step 1: Create the data factory
 1. After logging in to the [Azure portal](https://portal.azure.com/), do the following steps:
 
-   1. Click **NEW** on the left menu.
-   2. Click **Data + Analytics** in the **New** blade.
-   3. Click **Data Factory** on the **Data analytics** blade.
+   1. Select **NEW** on the left menu.
+   2. Select **Data + Analytics** in the **New** blade.
+   3. Select **Data Factory** on the **Data analytics** blade.
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
-3. Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
+3. Select **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
 4. Verify that you are using the correct subscription and region where you want the data factory to be created.
-5. Click **Create** on the **New data factory** blade.
+5. Select **Create** on the **New data factory** blade.
 6. You see the data factory being created in the **Dashboard** of the Azure portal.
 7. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory.
 
@@ -507,21 +513,21 @@ The following walkthrough provides additional details.
 Linked services link data stores or compute services to an Azure data factory. In this step, you link your **Azure Storage** account and **Azure Batch** account to your data factory.
 
 #### Create Azure Storage linked service
-1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
-2. Click **New data store** on the command bar and choose **Azure storage.** You should see the JSON script for creating an Azure Storage linked service in the editor.
+1. Select the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
+2. Select **New data store** on the command bar and choose **Azure storage.** You should see the JSON script for creating an Azure Storage linked service in the editor.
 
    ![](./media/data-factory-data-processing-using-batch/image7.png)
 
 3. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Click **Deploy** on the command bar to deploy the linked service.
+4. Select **Deploy** on the command bar to deploy the linked service.
 
    ![](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### Create Azure Batch linked service
 In this step, you create a linked service for your **Azure Batch** account that is used to run the Data Factory custom activity.
 
-1. Click **New compute** on the command bar and choose **Azure Batch.** You should see the JSON script for creating an Azure Batch linked service in the editor.
+1. Select **New compute** on the command bar and choose **Azure Batch.** You should see the JSON script for creating an Azure Batch linked service in the editor.
 2. In the JSON script:
 
    1. Replace **account name** with the name of your Azure Batch account.
@@ -543,13 +549,13 @@ In this step, you create a linked service for your **Azure Batch** account that 
       >
       >
    5. Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
-3. Click **Deploy** on the command bar to deploy the linked service.
+3. Select **Deploy** on the command bar to deploy the linked service.
 
 #### Step 3: Create datasets
 In this step, you create datasets to represent input and output data.
 
 #### Create input dataset
-1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Azure Blob storage** from the drop-down menu.
+1. In the **Editor** for the Data Factory, select **New dataset** button on the toolbar and select **Azure Blob storage** from the drop-down menu.
 2. Replace the JSON in the right pane with the following JSON snippet:
 
 	```json
@@ -632,12 +638,12 @@ In this step, you create datasets to represent input and output data.
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-1. Click **Deploy** on the toolbar to create and deploy the **InputDataset** table.
+1. Select **Deploy** on the toolbar to create and deploy the **InputDataset** table.
 
 #### Create output dataset
 In this step, you create another dataset of type AzureBlob to represent the output data.
 
-1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Azure Blob storage** from the drop-down menu.
+1. In the **Editor** for the Data Factory, select **New dataset** button on the toolbar and select **Azure Blob storage** from the drop-down menu.
 2. Replace the JSON in the right pane with the following JSON snippet:
 
 	```json
@@ -680,7 +686,7 @@ In this step, you create another dataset of type AzureBlob to represent the outp
 
 	Remember that all the files in an input folder (for example: 2015-11-16-00) are part of a slice with the start time: 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the folder 2015-11-16-00, there are three lines in the output file: 2015-11-16-00.txt.
 
-1. Click **Deploy** on the toolbar to create and deploy the **OutputDataset**.
+1. Select **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 
 #### Step 4: Create and run the pipeline with custom activity
 In this step, you create a pipeline with one activity, the custom activity you created earlier.
@@ -690,7 +696,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 >
 >
 
-1. In the Data Factory Editor, click **New pipeline** on the command bar. If you do not see the command, click **... (Ellipsis)** to see it.
+1. In the Data Factory Editor, select **New pipeline** on the command bar. If you do not see the command, select **... (Ellipsis)** to see it.
 2. Replace the JSON in the right pane with the following JSON script:
 
 	```json
@@ -752,12 +758,12 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
     -   The **start** time and **end** times are five hours apart and slices are produced hourly, so five slices are produced by the pipeline.
 
-1. Click **Deploy** on the command bar to deploy the pipeline.
+1. Select **Deploy** on the command bar to deploy the pipeline.
 
 #### Step 5: Test the pipeline
 In this step, you test the pipeline by dropping files into the input folders. Let’s start with testing the pipeline with one file per one input folder.
 
-1. In the Data Factory blade in the Azure portal, click **Diagram**.
+1. In the Data Factory blade in the Azure portal, select **Diagram**.
 
    ![](./media/data-factory-data-processing-using-batch/image10.png)
 2. In the diagram view, double-click input dataset: **InputDataset**.
@@ -766,7 +772,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
 3. You should see the **InputDataset** blade with all five slices ready. Notice the **SLICE START TIME** and **SLICE END TIME** for each slice.
 
    ![](./media/data-factory-data-processing-using-batch/image12.png)
-4. In the **Diagram View**, now click **OutputDataset**.
+4. In the **Diagram View**, now select **OutputDataset**.
 5. You should see that the five output slices are in the Ready state if they have already been produced.
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
@@ -785,7 +791,7 @@ In this step, you test the pipeline by dropping files into the input folders. Le
    ![](./media/data-factory-data-processing-using-batch/image16.png)
 8. Now, let’s try with multiple files in a folder. Create files: **file2.txt**, **file3.txt**, **file4.txt**, and **file5.txt** with the same content as in file.txt in the folder: **2015-11-06-01**.
 9. In the output folder, **delete** the output file: **2015-11-16-01.txt**.
-10. Now, in the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**, and click **Run** to rerun/re-process the slice. Now, the slice has five files instead of one file.
+10. Now, in the **OutputDataset** blade, right-click the slice with **SLICE START TIME** set to **11/16/2015 01:00:00 AM**, and select **Run** to rerun/re-process the slice. Now, the slice has five files instead of one file.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
 11. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**) in the `outputfolder` of `mycontainer` in your blob storage. There should be a line for each file of the slice.
@@ -824,13 +830,13 @@ Debugging consists of a few basic techniques:
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 2. In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that helps you troubleshoot issues. The logged messages show up in the user\_0.log file.
 
-   In the **OutputDataset** blade, click the slice to see the **DATA SLICE** blade for that slice. You see **activity runs** for that slice. You should see one activity run for the slice. If you click **Run** in the command bar, you can start another activity run for the same slice.
+   In the **OutputDataset** blade, select the slice to see the **DATA SLICE** blade for that slice. You see **activity runs** for that slice. You should see one activity run for the slice. If you select **Run** in the command bar, you can start another activity run for the same slice.
 
-   When you click the activity run, you see the **ACTIVITY RUN DETAILS** blade with a list of log files. You see logged messages in the **user\_0.log** file. When an error occurs, you see three activity runs because the retry count is set to 3 in the pipeline/activity JSON. When you click the activity run, you see the log files that you can review to troubleshoot the error.
+   When you select the activity run, you see the **ACTIVITY RUN DETAILS** blade with a list of log files. You see logged messages in the **user\_0.log** file. When an error occurs, you see three activity runs because the retry count is set to 3 in the pipeline/activity JSON. When you select the activity run, you see the log files that you can review to troubleshoot the error.
 
    ![](./media/data-factory-data-processing-using-batch/image18.png)
 
-   In the list of log files, click the **user-0.log**. In the right panel are the results of using the **IActivityLogger.Write** method.
+   In the list of log files, select the **user-0.log**. In the right panel are the results of using the **IActivityLogger.Write** method.
 
    ![](./media/data-factory-data-processing-using-batch/image19.png)
 
@@ -850,7 +856,7 @@ Debugging consists of a few basic techniques:
 
    ![](./media/data-factory-data-processing-using-batch/image20.png)
 5. Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values.
-6. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**.
+6. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and select **Run**.
 
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
