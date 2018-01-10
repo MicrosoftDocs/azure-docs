@@ -104,6 +104,15 @@ During profiling, you can optionally pass a storage-account name and key to find
 
 You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled 10 VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect. 
 
+By default, the tool is configurd to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+With the default settings, to profile say 1500 VMs, create two VMList.txt files. One with 1000 VMs and other with 500 VM list. Run the two instances of ASR Deployment Planner, one with VMList1.txt and other with VMList2.txt. You can use the same directory path to store the profiled data of both the VMList VMs. 
+
+We have seen that based on the hardware configuration especially RAM size of the server from where the tool is run to generate the report, the operation may fail with insufficient memory. If you have good hardware, you can change the  MaxVMsSupported any higher value.  
+
 VM configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in VM configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling is not captured. If a profiled VM configuration has changed during profiling, here is the workaround to get latest VM details when generating the report:
 
 * Back up VMdetailList.xml and delete the file from its current location.
@@ -166,6 +175,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (Pay-As-You-Go).|
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
 
+By default, the tool is configured to profile and generate report upto 1000 VMs. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+
 ### Examples
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
@@ -203,6 +218,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## Percentile value used for the calculation
 **What default percentile value of the performance metrics collected during profiling does the tool use when it generates a report?**

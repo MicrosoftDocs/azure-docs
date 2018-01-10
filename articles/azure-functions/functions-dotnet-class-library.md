@@ -86,6 +86,7 @@ The purpose of this file is to provide information to the scale controller to us
 
 The generated *function.json* file includes a `configurationSource` property that tells the runtime to use .NET attributes for bindings, rather than *function.json* configuration. Here's an example:
 
+```json
 {
   "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
   "configurationSource": "attributes",
@@ -100,6 +101,7 @@ The generated *function.json* file includes a `configurationSource` property tha
   "scriptFile": "..\\bin\\FunctionApp1.dll",
   "entryPoint": "FunctionApp1.QueueTrigger.Run"
 }
+```
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source code is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -255,7 +257,7 @@ or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#input--output)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#output)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
@@ -316,7 +318,7 @@ The following table lists the trigger and binding attributes that are available 
 
 | Trigger | Input | Output|
 |------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)|
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
 | [CosmosDBTrigger](functions-bindings-documentdb.md#trigger---attributes)| [DocumentDB](functions-bindings-documentdb.md#input---attributes)| [DocumentDB](functions-bindings-documentdb.md#output---attributes) |
 | [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||

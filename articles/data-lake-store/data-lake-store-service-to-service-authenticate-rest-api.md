@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
 
 ---
@@ -52,5 +52,4 @@ In this article, you learned how to use service-to-service authentication to aut
 
 * [Account management operations on Data Lake Store using REST API](data-lake-store-get-started-rest-api.md)
 * [Data operations on Data Lake Store using REST API](data-lake-store-data-operations-rest-api.md)
-
 
