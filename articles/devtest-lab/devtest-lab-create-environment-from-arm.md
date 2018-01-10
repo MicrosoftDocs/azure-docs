@@ -137,8 +137,6 @@ After you have saved a Resource Manager template and customized it for your need
 
 Consider these limitations when using a Resource Manager template in DevTest Labs:
 
-- By default, only a lab admin can deploy Resource Manager templates. 
-
 - Any Resource Manager template you create cannot refer to existing resources; it can only refer to new resources. In addition, if you have an existing Resource Manager template that you typically deploy outside of DevTest Labs and it contains references to existing resources, it can't be used in the lab.
 
    The only exception to this is that you **can** reference an existing virtual network. 
@@ -158,9 +156,10 @@ Consider these limitations when using a Resource Manager template in DevTest Lab
 
 ### Configure environment resource group access rights for lab users
 
-By default, lab users have Reader access rights and cannot change the resources in an environment resource group. For example, they cannot stop or start their resources.
+Lab users can deploy a Resource Manager template. But by default, they have Reader access rights, which means they can’t change the resources in an environment resource group. For example, they cannot stop or start their resources.
 
-Follow these steps to give your lab users Contributor access rights, which lets them edit environment resources. As a result, lab users are then able to deploy Resource Manager templates. When they do, the resources that are deployed on the Resource Manager template have read/write permissions.
+Follow these steps to give your lab users Contributor access rights. Then, when they deploy a Resource Manager template, they will be able to edit the resources in that environment. 
+
 
 1. On your lab's **Overview** pane, select **Configuration and policies**.
 1. Select **Lab settings**.

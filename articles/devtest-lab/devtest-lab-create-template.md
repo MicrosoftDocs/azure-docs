@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/10/2018
 ms.author: v-craic
 
 ---
@@ -59,7 +59,7 @@ The following steps walk you through creating a custom image from a VHD file usi
 
 1. Select **OK** to create the custom image.
 
-After a few minutes, the custom image is created and is made available in the list of base images for lab users to select when they create a new VM.
+After a few minutes, the custom image is created and is stored inside the lab’s storage account. When a lab user wants to create a new VM, the image is available in the list of base images.
 
 ![Custom image available in list of base images](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
