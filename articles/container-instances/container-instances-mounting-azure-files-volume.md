@@ -90,6 +90,33 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file written to the file share.
 
+## Mount multiple volumes
+
+To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+
+Populate the `volumes` array in the template to mount multiple volumes. For example, if you've created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array mounting both would appear similar to the following:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+To see an example of container instance deployment with an Azure Resource Manager template, see [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md).
+
 ## Next steps
 
 Learn about the relationship between [Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md).
