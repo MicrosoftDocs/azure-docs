@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/10/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 
@@ -40,25 +40,15 @@ To complete this tutorial, install:
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-## Create an Azure Functions project in Visual Studio
+## Create an Azure Functions project and HTTP function in Visual Studio
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Now that you have created the project, you can create your first function.
+A code file is added to your project that contains a class that implements your function code. This code is based on a template, which receives a name value and echos it back. The **FunctionName** attribute sets the name of your function. The **HttpTrigger** attribute indicates the message that triggers the function. 
 
-## Create the function
+![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, enter `HttpTriggerCSharp.cs` for **Name**, and click **Add**.
-
-2. Select **HttpTrigger**, select **Anonymous** for **Access rights**, and click **OK**. The function created is accessed by an HTTP request from any client. 
-
-    ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
-
-    A code file is added to your project that contains a class that implements your function code. This code is based on a template, which receives a name value and echos it back. The **FunctionName** attribute sets the name of your function. The **HttpTrigger** attribute indicates the message that triggers the function. 
-
-    ![Function code file](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
-
-Now that you have created an HTTP-triggered function, you can test it on your local computer.
+Now that you have created your function app project and an HTTP-triggered function, you can test it on your local computer.
 
 ## Test the function locally
 
