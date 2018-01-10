@@ -149,10 +149,10 @@
     - name: Investigation
       href: security-center-investigation.md
   
-  ## Automate and orchestrate
-  - name: Logic Apps playbooks
-    href: security-center-playbooks.md
+  - name: Automate and orchestrate
     items:
+    - name: Logic Apps playbooks
+      href: security-center-playbooks.md
     - name: View events
       href: security-center-events-dashboard.md
     - name: Search
