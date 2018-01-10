@@ -16138,7 +16138,7 @@
         "redirect_document_id": false
       },
       {
-        "source_path": "/articles/azure-functions/functions-bindings-documentdb.md",
+        "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
         "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
         "redirect_document_id": false
       },
