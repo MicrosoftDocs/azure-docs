@@ -46,14 +46,14 @@ in the region:
 2. From the list of **Resource Providers**, select **Network**.
 3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/Image01.png)
 
 Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
 
 ## View the public IP addresses that were created by tenant subscriptions
 To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/Image02.png)
 
 You might notice that some public IP addresses that have been dynamically
 allocated appear in the list but do not have an address associated with
