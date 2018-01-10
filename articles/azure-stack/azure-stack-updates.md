@@ -55,7 +55,7 @@ The Update tile shows the current version of Azure Stack. You can get to the Upd
 
 - On the dashboard, view the current version in the **Update** tile.
  
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.PNG)
  
 - On the **Region management** tile, click the region name. View the current version in the **Update** tile.
 
