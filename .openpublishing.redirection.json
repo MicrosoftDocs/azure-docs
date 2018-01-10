@@ -16146,6 +16146,11 @@
         "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
         "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
         "redirect_document_id": false
-      }
+      },
+      {
+            "source_path": "articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
+            "redirect_url": "articles/cognitive-services/Translator/ctf-reporting.md",
+            "redirect_document_id": false
+	}
     ]
 }
