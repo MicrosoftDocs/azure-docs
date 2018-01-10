@@ -55,6 +55,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.logicapp/?view=azurermps-5.1.1">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/logic/">REST API Reference</a></p>
