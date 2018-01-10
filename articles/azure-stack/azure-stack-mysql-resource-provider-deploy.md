@@ -231,7 +231,7 @@ The SKU name should reflect the properties so that tenants can place their datab
 
 3. Fill in the form with the database details.
 
-    ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.PNG)
 
 4. Select a SKU.
 
@@ -243,7 +243,7 @@ The SKU name should reflect the properties so that tenants can place their datab
 
     The connections string includes the real database server name. Copy it from the portal.
 
-    ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+    ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.PNG)
 
 > [!NOTE]
 > The length of the user names cannot exceed 32 characters with MySQL 5.7 or 16 characters in earlier editions.
