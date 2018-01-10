@@ -11,23 +11,32 @@ manager: carmonm
 ---
 # Respond to Azure alerts with an automation runbook
 
-Azure automation provides the ability to automate tasks. [Azure monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) provides base-level metrics and logs for most services within Microsoft Azure. Azure automation can be called using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or from classic alerts to automate tasks based on the alerts. This article shows you how to configure and run a runbook based off of these alerts. 
+[Azure monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) provides base-level metrics and logs for most services within Microsoft Azure. Azure automation can be called using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or from classic alerts to automate tasks based on the alerts. This article shows you how to configure and run a runbook based off of these alerts.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+## Alert types
 
-## Prerequisites
+Runbooks are supported actions on all three types of alerts:
 
-To complete this tutorial 
 
-## Log in to the Azure portal
+|Alert  |Schema  |
+|---------|---------|
+|[Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[Acitivity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
+|[Near real time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
-Log in to the Azure portal at http://portal.azure.com
+* [Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)
+* [Acitivity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
+* [Near real time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
 
-## Create the runbook
+Each alert is different on how to monitors your resources, and the data provided by each alert is different and is handled differently.
 
-Navigate to your automation account
+## Create a runbook to handle alerts
 
-The following example must be called from an Azure alert. The script takes in the webhook data and evaluates the webhook JSON to determine which alert type was triggered. Each alert type has a different schema.
+To use automation with alerts, you need a runbook that is able to accept the JSON payload that is passed to the webhook.
+
+The following example runbook requires that it be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. 
+
+Take the following example and create a runbook called **Stop-AzureVmInResponsetoVMAlert** with the sample PowerShell.
 
 ```powershell-interactive
 <#
@@ -42,15 +51,15 @@ The following example must be called from an Azure alert. The script takes in th
   - The runbook must be called from an Azure alert via a webhook.
   
   REQUIRED AUTOMATION ASSETS
-  - An Automation connection asset called "AzureRunAsConnection" that is of type AzureRunAsConnection.  
-  - An Automation certificate asset called "AzureRunAsCertificate". 
+  - An Automation connection asset called "AzureRunAsConnection" that is of type AzureRunAsConnection.
+  - An Automation certificate asset called "AzureRunAsCertificate".
 
 .PARAMETER WebhookData
    Optional (user does not need to enter anything, but the service will always pass an object)
    This is the data that is sent in the webhook that is triggered from the alert.
 
 .NOTES
-   AUTHOR: Azure Automation Team 
+   AUTHOR: Azure Automation Team
    LASTEDIT: 2017-11-22
 #>
 
@@ -64,11 +73,11 @@ param
 
 $ErrorActionPreference = "stop"
 
-if ($WebhookData) 
-{ 
+if ($WebhookData)
+{
     # Get the data object from WebhookData
     $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-    
+
     # Get the info needed to identify the VM (depends on the payload schema)
     $schemaId = $WebhookBody.schemaId
     Write-Verbose "schemaId: $schemaId" -Verbose
@@ -96,7 +105,7 @@ if ($WebhookData)
     }
 
     Write-Verbose "status: $status" -Verbose
-    if ($status -eq "Activated") 
+    if ($status -eq "Activated")
     {
         $ResourceType = $AlertContext.resourceType
         $ResourceGroupName = $AlertContext.resourceGroupName
@@ -105,13 +114,13 @@ if ($WebhookData)
         Write-Verbose "resourceName: $ResourceName" -Verbose
         Write-Verbose "resourceGroupName: $ResourceGroupName" -Verbose
         Write-Verbose "subscriptionId: $SubId" -Verbose
-    
+
         # Do work only if this is a V2 VM
         if ($ResourceType -eq "Microsoft.Compute/virtualMachines")
         {
             # This is an ARM (V2) VM
             Write-Verbose "This is an ARM (V2) VM." -Verbose
-            
+
             # Authenticate to Azure with service principal and certificate and set subscription
             Write-Verbose "Authenticating to Azure with service principal and certificate" -Verbose
             $ConnectionAssetName = "AzureRunAsConnection"
@@ -125,7 +134,7 @@ if ($WebhookData)
             Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
             Write-Verbose "Setting subscription to work against: $SubId" -Verbose
             Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
-        
+
             # Stop the ARM (V2) VM
             Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
             Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
@@ -146,10 +155,10 @@ else {
     Write-Error "This runbook is meant to be started from an Azure alert webhook only."
 }
 ```
-## Clean up resources
-
 
 ## Create an action group
+
+In order to use a runbook in an action group, it must have already been created in your automation account. If you want to use the example runbook created in the preceding step.
 
 In the portal, select **Monitor**.
 
@@ -186,7 +195,7 @@ Select **Email** for the **Action Type**.
 
 Under **Details** select, **Edit Details**
 
-On the **Email** page, enter the email address to notify and click **OK**.
+On the **Email** page, enter the email address to notify and click **OK**. Adding an email address as well as the runbook as an action is helpful as you are notified when the runbook is started.
 
 Your action group should look like the following image:
 
@@ -194,20 +203,11 @@ Your action group should look like the following image:
 
 Click **OK** to create the action group.
 
-## Create alert from blah
+With the action group created, you can create activity log alerts or near real time alerts and use the action group you created.
 
-Navigate to **Virtual machines** and select a current VM.
+## Classic alert
 
-Select **Alert rules** under **MONITORING**
-
-Here is where you can create alerts of one of the following
-
-* Metric alert - 
-* Activity log alert - 
-
-## Classic Alert
-
-Classic alerts based on metrics do not use action groups, but have runbook actions based on them.
+Classic alerts are based on metrics and do not use action groups, but have runbook actions based on them.
 
 Select **+ Add metric alert**.
 
@@ -219,7 +219,7 @@ Under **Take action**, select **Run a runbook from this alert**
 
 On the **Configure Runbook** page, select **User** for **Runbook source**. Choose your automation account and select the **Stop-AzureVmInResponsetoVMAlert** runbook. Click **OK**, and then click **OK** again to save the alert rule.
 
-The following is an example webhookdata passed to a runbook for classic metric alerts.
+The following is an example of the JSON payload passed to the webhook for classic metric alerts.
 
 ```json
 {
@@ -265,12 +265,29 @@ The following is an example webhookdata passed to a runbook for classic metric a
         "x-ms-request-id": "fad24ad4-8d53-4675-a9a9-033139598256"
     }
 }
+
 ```
 
-## Near real-time metric alert
+
 ## Activity alert
 
+Activity alerts allow you to call an action group based on events that are found in the Azure activity logs.
 
+Navigate to your VM and select **Alert rules** under **Monitoring**.
+
+Select **+ Add acitivity log alert**.
+
+Fill out the form for the activity you want to look for. For this the start operation for a specific VM is chosen.
+
+![Add activity log alert page](./media/automation-create-alert-triggered-runbook/add-activity-log-alert.png)
+
+Under **Actions** select **Automation Runbook** for the **Action Type** and click **Edit details** to choose the runbook.
+
+Select **User** for the **Runbook source** and choose the runbook that you created earlier.
+
+Click **OK** to configure the runbook, and click **OK** to finish adding the alert. It takes a few minutes for the alert to be active. When active, navigate to **Monitor** in the left page of the portal to view activity log alerts.
+
+The following is an example of the JSON payload passed to the webhook for activity log alerts.
 
 ```json
 {
@@ -354,6 +371,10 @@ The following is an example webhookdata passed to a runbook for classic metric a
 }
 ```
 
+## Near real-time metric alert
+
+The following is an example of the JSON payload passed to the webhook for near real time metric alerts.
+
 ```json
 {
     "WebhookName": "Alert1510875839452",
@@ -401,6 +422,8 @@ The following is an example webhookdata passed to a runbook for classic metric a
 ```
 
 ## Next steps
+
+For more information 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * All tutorials include a list summarizing the steps to completion
