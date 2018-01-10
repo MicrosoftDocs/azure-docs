@@ -53,7 +53,7 @@
     items:
     - name: Authentication overview
       href: container-registry-authentication.md
-    - name: Azure Container Service (AKS)
+    - name: Azure Container Service
       href: ./container-registry-auth-aks.md
 - name: Reference
   items:
