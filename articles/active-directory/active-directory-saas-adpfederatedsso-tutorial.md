@@ -204,27 +204,27 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
                                                               
 	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
 
-	 b. Global admin have to append the RelayState value manually to the User access URL. These are the 5 apps they support with different relay state URLs.
+	 b. Global admin have to append the RelayState value manually to the User access URL. These are the 5 apps they support with different relay state URLs mentioned below the same.
 	
-	1- Child App1 - **ADP Workforce Now**
+	1- **ADP Workforce Now**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**WFN**`
 
-	2- Child App2 - **ADP Workforce Now Enhanced Time**
+	2- **ADP Workforce Now Enhanced Time**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**EETDC2**`
 	
-	3- Child App3 - **ADP Vantage HCM**
+	3-**ADP Vantage HCM**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**ADPVANTAGE**`
 
-	4-  Child App4 - **ADP Enterprise HR**
+	4-**ADP Enterprise HR**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**PORTAL**`
 
-	5-  Child App5 - **MyADP**
+	5-**MyADP**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**REDBOX**`
 
 	c. **Save** your changes.
 
