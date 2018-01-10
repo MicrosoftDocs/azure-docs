@@ -30,7 +30,7 @@ Without domain joined HDInsight cluster, each cluster can only have a Hadoop HTT
 
 Using a standalone Active Directory running on Azure IaaS is covered in this article. It is the simplest architecture a customer can follow to get multi-user support on HDInsight. This article cover two approaches for this configuration:
 
-- Option 1: Use one Azure resource management template to create the standalone directory and the HDInsight cluster.
+- Option 1: Use one Azure resource management template to create both the standalone active directory and the HDInsight cluster.
 - Option 2: The whole process is broken into the following steps:
     - Create an Active Directory using a template.
     - Setup LDAPS.
@@ -44,7 +44,7 @@ Using a standalone Active Directory running on Azure IaaS is covered in this art
 * Azure subscription
 
 ## Option 1: one-step approach
-In this section, you open an Azure resource management template from the Azure portal.  The template is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
+In this section, you open an Azure resource management template from the Azure portal. The template is used to create a standalone Active Directory, and an HDInsight cluster. Currently you can create domain-joined Hadoop cluster, Spark cluster, and Interactive Query cluster.
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
    
@@ -73,7 +73,9 @@ In this section, you open an Azure resource management template from the Azure p
 
     Some of the values are hard-coded in the template, for example, the worker node instance count is two.  To change the hard-coded values, click **Edit template**.
 
-    After the template is completed successfully, there are 23 resources created in the resource group.
+    ![HDInsight domain-joined cluster edit template](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+After the template is completed successfully, there are 23 resources created in the resource group.
 
 ## Option 2: multi-step approach
 
