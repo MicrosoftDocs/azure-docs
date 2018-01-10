@@ -56,9 +56,11 @@ Example:
 Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model:
 1.	If not already installed, [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 2. Delete any existing versions of the PowerShell modules that correspond to registration and [download the latest version of it from GitHub](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-download).
-3.	Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory  created in the preceding step and import the ".\RegisterWithAzure.psm1" module: 
+3.	Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory  created in the preceding step and import the **.\RegisterWithAzure.psm1** module: 
+
   ```powershell
   Import-Module .\RegisterWithAzure.psm1
+  
   ```
 4. In the same PowerShell session, run the Set-AzsRegistration cmdlet. When prompted for credentials, specify the owner of the Azure subscription.  
 
