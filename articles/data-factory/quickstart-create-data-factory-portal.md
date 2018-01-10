@@ -92,7 +92,7 @@ The input dataset represents the source data in the input folder. In the input d
 
 The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), folder (**output**), and the file to which the data is copied. Each run of a pipeline has a unique ID associated with it, which can be accessed by using the system variable **RunId**. The name of the output file is dynamically evaluated based on the run ID of the pipeline.   
 
-In the linked service settings, you specified the Azure storage account that contains the source data. In the source dataset settings, you specify where exactly the source data resides (blob container, folder, and file). In the sink dataset settings, you specify where the data is copied to (blob containter, folder, and file). 
+In the linked service settings, you specified the Azure storage account that contains the source data. In the source dataset settings, you specify where exactly the source data resides (blob container, folder, and file). In the sink dataset settings, you specify where the data is copied to (blob container, folder, and file). 
  
 1. Click the **+ (plus)** button, and select **Dataset**.
 
@@ -118,7 +118,7 @@ In the linked service settings, you specified the Azure storage account that con
     2. In the **New Dataset** page, select **Azure Blob Storage**, and click **Finish**.
     3. Specify **OutputDataset** for the name.
     4. Enter **adftutorial/output** for the folder. The Copy activity creates the output folder if it doesn't exist. 
-    5. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. Each time you run a pipeline, the pipeline run has a unique ID associated with it. The expression concatenates the run ID of the pipline with **.txt** to evaluates the output file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
+    5. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. Each time you run a pipeline, the pipeline run has a unique ID associated with it. The expression concatenates the run ID of the pipeline with **.txt** to evaluate the output file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
         ![Output dataset settings](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
@@ -145,7 +145,7 @@ In this step, you create and validate a pipeline with a **Copy** activity that u
     ![Validate the pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate-button.png)
 
 ## Test run the pipeline
-In this step, you test run the pipeline before deploying it to the Data Factory repository . 
+In this step, you test run the pipeline before deploying it to the Data Factory. 
 
 1. On the toolbar for the pipeline, click **Test Run**. 
     
