@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Send and receive messages from a queue
+# Send and receive messages from a queue using Azure CLI
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sale (POS) data to a back office or regional distribution center for replenishment and inventory updates.  
 
@@ -106,6 +106,6 @@ In this article, you created a Service Bus namespace and other resources require
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 
-[1]: /media/service-bus-quickstart-cli/cli1.png
-[2]: /media/service-bus-quickstart-cli/cli2.png
+[1]: ./media/service-bus-quickstart-cli/cli1.png
+[2]: ./media/service-bus-quickstart-cli/cli2.png
 [service-bus-flow]: ./media/service-bus-quickstart-cli/service-bus-flow.png
