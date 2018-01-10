@@ -85,7 +85,7 @@
     href: functions-best-practices.md 
   - name: Functions Proxies
     href: functions-proxies.md 
-  - name: Functions Runtime
+  - name: On-premises functions
     href: functions-runtime-overview.md
   - name: Durable Functions
     items:
