@@ -66,7 +66,6 @@ ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create a contributor role assignment for the service principal, with a scope of the ACR resource. 
 # The contributor role can be replaces with Owner or Read depending access requirements.
-# Get the service principal password, This is used when creating the Kubernetes secret.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id. This is used when creating the Kubernetes secret.
