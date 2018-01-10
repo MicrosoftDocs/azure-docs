@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/03/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
 
 ---
@@ -293,7 +293,7 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
    > [!NOTE]
    > The hyperv isolation mode is available on Ev3 and Dv3 Azure SKUs which have nested virtualization support. 
-   > Ensure the hyperv role is installed on the hosts. Verify this by connecting to the hosts.
+   >
    >
 
 ## Configure resource governance
@@ -308,6 +308,31 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
   </Policies>
 </ServiceManifestImport>
 ```
+## Configure docker HEALTHCHECK 
+
+Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the **dockerfile** used while generating the container image. 
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
+
+You can configure **HEALTHCHECK**  behavior for each container by specifying **HealthConfig** options as part of **ContainerHostPolicies** in ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+
+If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 
 ## Deploy the container application
 Save all your changes and build the application. To publish your application, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
@@ -325,7 +350,7 @@ The application is ready when it's in ```Ready``` state:
 Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
+You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
 
 After you push the image to the container registry you can delete the local image from your development computer:
 
@@ -333,6 +358,34 @@ After you push the image to the container registry you can delete the local imag
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
+
+## Specify OS build version specific container images 
+
+Windows Server containers (process isolation mode) may not be compatible with newer versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. Hence, if the cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tag them with the build versions of the OS (obtained by running `winver` on a Windows command prompt).  It is recommended to first update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
+
+
+```xml
+<ContainerHostPolicies> 
+         <ImageOverrides> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
+         </ImageOverrides> 
+     </ContainerHostPolicies> 
+```
+The build version for WIndows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
+
+```xml
+<ContainerHost>
+    <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName> 
+</ContainerHost>
+```
+
+   > [!NOTE]
+   > The OS build version tagging features is only available for Service Fabric on Windows
+   >
+
+If the underlying OS on the VM is build 16299 (version 1709), Service Fabric picks the container image corresponding to that Windows Server version.  If an untagged container image is also provided alongside tagged container images in the application manifest, then Service Fabric treats the untagged image as one that works across versions. It is recommended to tag the container images explicitly.
+
 
 ## Complete example Service Fabric application and service manifests
 Here are the complete service and application manifests used in this article.
@@ -467,6 +520,16 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
 
+## Set container retention policy
+
+To assist with diagnosing container startup failures, Service Fabric (version 6.1 or higher) supports retaining containers that terminated or failed to startup. This policy can be set in the **ApplicationManifest.xml** file as shown in the following snippet:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount**  attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. It is recommended to use placement constraints to target the container service to a particular node when using this features to prevent the container service from moving to other nodes. 
+Any containers retained using this feature must be manually removed.
 
 
 ## Next steps
@@ -477,3 +540,6 @@ For images that should not be deleted, you can specify them under the `Container
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
