@@ -208,23 +208,23 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 	
 	1- **ADP Workforce Now**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**WFN**`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
 	2- **ADP Workforce Now Enhanced Time**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**EETDC2**`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 	
 	3-**ADP Vantage HCM**
 		
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**ADPVANTAGE**`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
 	4-**ADP Enterprise HR**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**PORTAL**`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
 	5-**MyADP**
 
-	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?**REDBOX**`
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 	c. **Save** your changes.
 
