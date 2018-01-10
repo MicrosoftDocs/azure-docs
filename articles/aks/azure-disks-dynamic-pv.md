@@ -18,31 +18,6 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-## Prerequisites
-
-When dynamically provisioning an Azure file share as a Kubernetes volume, any storage account can be used as long as it is contained in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster. 
-
-To identify the proper resource group, use the [az group list][az-group-list] command.
-
-```azurecli-interactive
-az group list --output table
-```
-
-The following example output shows the resource groups, both associated with an AKS cluster. The resource group with a name like *MC_myAKSCluster_myAKSCluster_eastus* contains the AKS cluster resources, and is where the storage account needs to be created. 
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
-```
-
-Once the resource group has been identified, create the storage account with the [az storage account create][az-storage-account-create] command.
-
-```azurecli-interactive
-az storage account create --resource-group  MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
-```
-
 ## Create storage class
 
 A storage class is used to define how a dynamically created persistent volume is configured. Items such as the Azure storage account name, SKU, and region are defined in the storage class object. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
