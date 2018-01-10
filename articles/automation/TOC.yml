@@ -132,7 +132,7 @@
         - name: Runbook gallery
           href: automation-runbook-gallery.md
         - name: Start a runbook from Azure alerts
-          name: automation-create-alert-triggered-runbook.md 
+          href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
         - name: Start/stop VM with JSON tags
