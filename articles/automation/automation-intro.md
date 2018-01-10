@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: eamono
+ms.custom: mvc
 
 ---
 # An introduction to Azure Automation

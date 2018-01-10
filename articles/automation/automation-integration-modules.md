@@ -12,7 +12,7 @@ ms.service: automation
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/13/2017
 ms.author: magoedte
 ---
