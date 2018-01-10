@@ -32,10 +32,10 @@ To access the administrator portal, browse to the portal URL and sign in by usin
 | Environment | Administrator Portal URL |   
 | -- | -- | 
 | Development kit| https://adminportal.local.azurestack.external  |
-| Integrated systems | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| Integrated systems | https://adminportal.*region*.*FQDN* | 
 | | |
 
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
+ ![The administrator portal](media/azure-stack-manage-portals/image1.PNG)
 
 In the administrator portal, you can do things such as:
 
