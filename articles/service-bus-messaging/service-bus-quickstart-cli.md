@@ -109,3 +109,5 @@ In this article, you created a Service Bus namespace and other resources require
 [1]: ./media/service-bus-quickstart-cli/cli1.png
 [2]: ./media/service-bus-quickstart-cli/cli2.png
 [service-bus-flow]: ./media/service-bus-quickstart-cli/service-bus-flow.png
+[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[az group create]: /cli/azure/group#az_group_create

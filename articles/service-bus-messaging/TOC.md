@@ -3,7 +3,7 @@
 
 # Quickstarts
 ## [Use PowerShell](service-bus-quickstart-powershell.md)
-## [Use Azure portal](service-bus-quickstart-portal.md)
+## [Use the Azure portal](service-bus-quickstart-portal.md)
 ## [Use Azure CLI](service-bus-quickstart-cli.md)
 
 # Tutorials

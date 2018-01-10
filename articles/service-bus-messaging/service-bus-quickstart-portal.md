@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - use Azure portal to send and receive messages from Azure Service Bus | Microsoft Docs
+title: Azure Quickstart - Use the Azure portal to send and receive messages from Azure Service Bus | Microsoft Docs
 description: Quickly learn to send and receive Service Bus messages using Azure portal
 services: service-bus-messaging
 documentationcenter: ''
