@@ -10,9 +10,9 @@ ms.date: 12/04-2017
 Microsoft AppSource provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
 - [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md).
+- [Use the Seller Dashboard to submit your solution to AppSource and within Office](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
-For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
+For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource and make them available within Office](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
 
 <a name="bk_approval"> </a>
 ## Approval process
@@ -68,9 +68,9 @@ If you have questions about policies or requirements in your report, you can eng
 
 ## Topics in this section
 
-- [Optimize the placement and ranking of your Office Add-in](optimize-for-store-discovery.md)
+- [Optimize the placement and ranking of your Office Add-in in AppSource and within Office](optimize-for-store-discovery.md)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Create effective AppSource listings](create-effective-office-store-listings.md)
+- [Create effective listings in AppSource and within Office](create-effective-office-store-listings.md)
 - [Prepare localized apps and add-ins](prepare-localized-apps-and-add-ins.md)
 - [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md)
