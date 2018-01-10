@@ -165,7 +165,7 @@ You can now connect to the gateway from the cloud, and you are ready to add OPC 
 
 ## Add your own OPC UA servers
 
-To add your own OPC US servers to the Connected factory preconfigured solution:
+To add your own OPC UA servers to the Connected factory preconfigured solution:
 
 1. Browse to the **Connect your own OPC UA server** page in the Connected factory solution portal. Follow the same steps as in the previous section to establish a trust relationship between the Connected factory portal and the OPC UA server.
 
