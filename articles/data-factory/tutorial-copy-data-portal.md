@@ -162,7 +162,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 14. Navigate to the **adftutorial/input** folder, select **emp.txt** file, and click **Finish**. Alternatively, you can double-click emp.txt. 
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Confirm that the **File format** is set to **Text format** and **column delimiter** is set to **Comma (,)**. If the source file uses different row and column delimites, you can click **Detect Text Format** for the **File format** field. The Copy Data tool detects the file format and delimiters automatically for you. You can still override these values. You can preview data on this page by clicking **Preview data**.
+15. Confirm that the **File format** is set to **Text format** and **column delimiter** is set to **Comma (`,`)**. If the source file uses different row and column delimiters, you can click **Detect Text Format** for the **File format** field. The Copy Data tool detects the file format and delimiters automatically for you. You can still override these values. You can preview data on this page by clicking **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
 17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. You are importing the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you may skip this step. For this tutorial, import the schema.
@@ -216,7 +216,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 33. Validate the pipeline by clicking the **Validate** button. Click the **right-arrow** to close the validation window.
 
     ![Pipeline validation output](./media/tutorial-copy-data-portal/pipeline-validation-output.png)   
-34. Click **Code** button in the right corner to see the JSON code associated with the pipeline. 
+34. Click **Code** button in the right corner. You see the JSON code associated with the pipeline. 
 
     ![Code button](./media/tutorial-copy-data-portal/code-button.png)
 35. You see the JSON code similar to the following snippet:  
@@ -284,7 +284,7 @@ You can test run a pipeline before publishing artifacts (linked services, datase
 3. Click **Publish** in the left pane. This action publishes entities (linked services, datasets, and pipelines) you created to Azure Data Factory.
 
     ![Publish button](./media/tutorial-copy-data-portal/publish-button.png)
-4. Wait until you see the **Successfully published** message. To see notification messages , click **Show Notifications** tab on the left sidebar. Close the notifications window by clicking **X**.
+4. Wait until you see the **Successfully published** message. To see notification messages, click **Show Notifications** tab on the left sidebar. Close the notifications window by clicking **X**.
 
     ![Show notifications](./media/tutorial-copy-data-portal/show-notifications.png)
 
@@ -333,7 +333,7 @@ If you don't want to work with the VSTS code repository, you can skip this step,
     3. Click **Sync**. 
 
     ![Sync your changes window](./media/tutorial-copy-data-portal/sync-your-changes.png)
-10. Now, you can see files in the **adf_publish** branch of the **Tutorial2** repository. You can also find the Azure Resource Manager template template for your Data Factory solution in this branch.  
+10. Now, you can see files in the **adf_publish** branch of the **Tutorial2** repository. You can also find the Azure Resource Manager template for your Data Factory solution in this branch.  
 
     ![Files in the adf_publish branch](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
 
@@ -370,7 +370,7 @@ In this schedule, you create a scheduler trigger for the pipeline. The trigger r
     2. Select **On Date** for **End**. 
     3. Click the drop-down list for **End On**.
     4. Select the **current day**. By default, the end day is set to the next day. 
-    5. Update the **minutes** part to be a few minutes past the current datetime. The trigger is acvivated only after you publish the changes. Therefore, if you set it to only a couple of minutes apart and you don't publish it by then, you do not see a trigger run.  
+    5. Update the **minutes** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. Therefore, if you set it to only a couple of minutes apart and you don't publish it by then, you do not see a trigger run.  
     6. Click **Apply**.
     7. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
 

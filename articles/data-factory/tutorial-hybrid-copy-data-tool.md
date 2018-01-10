@@ -73,7 +73,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
 
 #### Get storage account name and account key
-You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following: 
+You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure username and password. 
 
