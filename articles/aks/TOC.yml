@@ -35,6 +35,8 @@
     href: scale-cluster.md
   - name: Upgrade an AKS cluster
     href: upgrade-cluster.md
+  - name: Use Azure Container Registry
+    href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.yaml
   - name: Run applications with Helm
     href: kubernetes-helm.md
   - name: Develop applications with Draft
