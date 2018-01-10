@@ -29,7 +29,7 @@ The main goals of monitoring and diagnostics are to:
 * Track application, service, and infrastructure performance
 
 In a Service Fabric cluster, monitoring and diagnostics data comes from three levels: application, platform (cluster), and infrastructure. 
-* The [application level](service-fabric-diagnostics-event-generation-app.md) includes data about the performance of your applications and any additional custom logging that you have added. Application monitoring data should end up in Application Insights (AI) from the application itself. For C# and Java applications, it can come via the AI SDK, and for all other types of applications, we recommend using EventFlow.
+* The [application level](service-fabric-diagnostics-event-generation-app.md) includes data about the performance of your applications and any additional custom logging that you have added. Application monitoring data should end up in Application Insights (AI) from the application itself. It can come via the AI SDK, EventFlow, or another pipeline of your choice.
 * The [platform level](service-fabric-diagnostics-event-generation-infra.md) includes events from actions being taken on your cluster, related to the management of the cluster and the applications running on it. Platform monitoring data should be sent to OMS Log Analytics, with the Service Fabric Analytics solution to help visualize the incoming events. This data is typically sent to a storage account via the Windows or Linux Azure Diagnostics extension, from where it is accessed by OMS Log Analytics. 
 * The infrastructure level focuses on [performance monitoring](service-fabric-diagnostics-event-generation-perf.md), looking at key metrics and performance counters to determine resource utilization and load. Performance monitoring can be achieved by using an agent - we recommend using the OMS (Microsoft Monitoring) Agent, so that your performance data ends up in the same place as your platform events, which allows for a better diagnostics experience as you correlate changes across a cluster. 
 
@@ -37,7 +37,7 @@ In a Service Fabric cluster, monitoring and diagnostics data comes from three le
 
 ## Monitoring scenarios
 
-This section discusses the key scenarios for monitoring a Service Fabric cluster: Application, Cluster, Performance, and Health monitoring. For each scenario, the intent and overall approach for monitoring is discussed. More details on these and other general monitoring recommendations for Azure resources can be found at [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
+This section discusses key scenarios for monitoring a Service Fabric cluster - application, cluster, performance, and health monitoring. For each scenario, the intent and overall approach for monitoring is discussed. More details on these and other general monitoring recommendations for Azure resources can be found at [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
 
 These scenarios are also loosely mapped to the three levels of monitoring and diagnostics data as discussed above, i.e. for each scenario to be appropriately handled in the cluster, you should have monitoring and diagnostics data coming in at the corresponding level. The health monitoring scenario is an exception, since it spans the cluster and everything running in it.
 
