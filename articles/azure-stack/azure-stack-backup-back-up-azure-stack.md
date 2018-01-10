@@ -1,6 +1,6 @@
 ---
 title: Back up Azure Stack | Microsoft Docs
-description: Perform an on-demand backup on Azure-Stack with backup in place.
+description: Perform an on-demand backup on Azure Stack with backup in place.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -21,9 +21,9 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Perform an on-demand backup on Azure-Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
+Perform an on-demand backup on Azure Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 
-## Start Azure Stack Backup
+## Start Azure Stack backup
 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
 
