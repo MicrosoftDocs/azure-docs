@@ -11,11 +11,11 @@ manager: carmonm
 ---
 # Respond to Azure alerts with an automation runbook
 
-[Azure monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) provides base-level metrics and logs for most services within Microsoft Azure. Azure automation can be called using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or from classic alerts to automate tasks based on the alerts. This article shows you how to configure and run a runbook based off of these alerts.
+[Azure monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) provides base-level metrics and logs for most services within Microsoft Azure. Azure automation runbooks can be called using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or from classic alerts to automate tasks based on the alerts. This article shows you how to configure and run a runbook based off of these alerts.
 
 ## Alert types
 
-Runbooks are supported actions on all three types of alerts. The following table contains links to the payload schema for each alert:
+Runbooks are supported actions on all three types of alerts. Each type of alert has different schema and has to be handled differently. The runbook in this article takes care of the logic for you but for more knowledge on the specific schemas, the following table contains links to the payload schema for each alert type:
 
 |Alert  |Description|Payload Schema  |
 |---------|---------|---------|
@@ -29,7 +29,7 @@ Each alert is different on how to monitors your resources, and the data provided
 
 To use automation with alerts, you need a runbook that is able to accept the JSON payload that is passed to the webhook.
 
-The following example runbook requires that it be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM.
+The following example runbook requires that it is called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. The following PowerShell script can be altered for use with many different resources.
 
 Take the following example and create a runbook called **Stop-AzureVmInResponsetoVMAlert** with the sample PowerShell.
 
@@ -159,7 +159,7 @@ else {
 
 ## Create an action group
 
-In order to use a runbook in an action group, it must have already been created in your automation account.
+An action group is a collection of actions that are taken based off of an alert. Runbooks are just one of the many actions that are available with action groups.
 
 In the portal, select **Monitor**.
 
@@ -224,14 +224,5 @@ Classic alerts are based on metrics and do not use action groups, but have runbo
 
 ## Next steps
 
-For more information 
-In this tutorial, you learned how to:
-> [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to the H2 in the right nav
-> * To minimize bullet bloat, use these green checkboxes in a tutorial
-
-Advance to the next article to learn more
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
+* For more information on starting automation runbooks with webhooks, see [Start a runbook from a webhook](automation-webhooks.md)
+* For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md).
