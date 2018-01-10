@@ -37,7 +37,7 @@ In a Service Fabric cluster, monitoring and diagnostics data comes from three le
 
 ## Monitoring scenarios
 
-This section discusses the key scenarios for monitoring a Service Fabric cluster: Application, Cluster, Performance, and Health monitoring. For each scenerio, the intent and overall approach for monitoring is discussed. More details on these and other general monitoring recommendations for Azure resources can be found at [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
+This section discusses the key scenarios for monitoring a Service Fabric cluster: Application, Cluster, Performance, and Health monitoring. For each scenario, the intent and overall approach for monitoring is discussed. More details on these and other general monitoring recommendations for Azure resources can be found at [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
 
 These scenarios are also loosely mapped to the three levels of monitoring and diagnostics data as discussed above, i.e. for each scenario to be appropriately handled in the cluster, you should have monitoring and diagnostics data coming in at the corresponding level. The health monitoring scenario is an exception, since it spans the cluster and everything running in it.
 
@@ -84,7 +84,7 @@ The Service Fabric platform includes a health model, which provides extensible h
 
 ![SFX health dashboard](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-In addition to seeing latest health reports in SFX, each report is also available as an event. Health events can be collected through the operational channel (see [Event aggregation with Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)), and stored in OMS Log Analytics for alerting and querying in the future. This will help detect issues that may impact your application availability, so we recommend that you set up alerts for appropriate failure scenarios (custom alerts through OMS).
+In addition to seeing latest health reports in SFX, each report is also available as an event. Health events can be collected through the operational channel (see [Event aggregation with Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)), and stored in OMS Log Analytics for alerting and querying in the future. This helps detect issues that may impact your application availability, so we recommend that you set up alerts for appropriate failure scenarios (custom alerts through OMS).
 
 ## Monitoring workflow 
 
@@ -100,7 +100,7 @@ Multiple products are available that cover these three areas, and you are free t
 
 The first step in the monitoring and diagnostics workflow is to set up creation and generation of event and log data. These events, logs, and performance counters are emitted on all three levels: the application level (any instrumentation added to apps and services deployed to the cluster), platform (events emitted from the cluster based on the operation of Service Fabric), and the infrastructure level (performance metrics from each node). Diagnostics data that is collected at each of these levels is customizable, though Service Fabric does enable some default instrumentation. 
 
-Read more about [platform level events](service-fabric-diagnostics-event-generation-infra.md) and [application level events](service-fabric-diagnostics-event-generation-app.md) to understand what is provided and how to add further instrumentation. The main decision you will have to make here is how you want to instrument your application. For .NET applications, we recommend using ILogger, but you can also explore EventSource, Serilog, and other similar libraries. For Java, we recommend using Log4j. Beyond these, there are several other options available that can be used based on the nature of the application. Feel free to explore what would be best for your specific use case, or pick one that you are most comfortable using. 
+Read more about [platform level events](service-fabric-diagnostics-event-generation-infra.md) and [application level events](service-fabric-diagnostics-event-generation-app.md) to understand what is provided and how to add further instrumentation. The main decision you have to make here is how you want to instrument your application. For .NET applications, we recommend using ILogger, but you can also explore EventSource, Serilog, and other similar libraries. For Java, we recommend using Log4j. Beyond these, there are several other options available that can be used based on the nature of the application. Feel free to explore what would be best for your specific use case, or pick one that you are most comfortable using. 
 
 After making a decision on the logging provider you would like to use, you need to make sure your logs are being aggregated and stored correctly.
 
@@ -112,7 +112,7 @@ While it is possible to get a similar job done with using just one of these, in 
 
 In the case that you want to use just one of these, here are some key points to keep in mind.
 * Collecting application logs using the Azure Diagnostics extension is a good option for Service Fabric services if the set of log sources and destinations does not change often and there is a straightforward mapping between the sources and their destinations. The reason for this is configuring Azure Diagnostics happens at the Resource Manager layer, so making significant changes to the configuration requires updating the entire cluster. This means that it often ends up being less efficient than going with AI SDK or EventFlow.
-* Using EventFlow allows you to have services send their logs directly to an analysis and visualization platform, and/or to storage. Other libraries (ILogger, Serilog, etc.) might also be used for the same purpose, but EventFlow has the benefit of having been designed specifically for in-process log collection and to support Service Fabric services. This tends to have several advantages in terms of ease of configuration and deployment, and significantly more flexibility for supporting different logging libraries and analysis tools. 
+* Using EventFlow allows you to have services send their logs directly to an analysis and visualization platform, and/or to storage. Other libraries (ILogger, Serilog, etc.) might also be used for the same purpose, but EventFlow has the benefit of having been designed specifically for in-process log collection and to support Service Fabric services. This tends to have several advantages in terms of ease of configuration and deployment, and offers more flexibility for supporting different logging libraries and analysis tools. 
 
 ## Event analysis
 
