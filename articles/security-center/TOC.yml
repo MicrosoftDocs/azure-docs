@@ -2,19 +2,19 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Security Center?
+  - name: About Security Center
     href: security-center-intro.md
 
 - name: Quickstarts
   expanded: true
   items:
-  - name: Onboard Azure subscriptions
+  - name: Azure subscriptions
     href: security-center-get-started.md
-  - name: Onboard Windows computers
+  - name: Windows computers
     href: quick-onboard-windows-computer.md
-  - name: Onboard Linux computers
+  - name: Linux computers
     href: quick-onboard-linux-computer.md
-  - name: Connect security solutions
+  - name: Security solutions
     href: quick-security-solutions.md
 
 - name: Tutorials
@@ -23,7 +23,7 @@
     href: tutorial-security-policy.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
-  - name: Respond to security incidents
+  - name: Respond to incidents
     href: tutorial-security-incident.md
 
 - name: Concepts
@@ -34,11 +34,12 @@
     href: security-center-data-security.md
 
 - name: How-to guides
+  items:
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Set Security policy
+    href: security-center-policies-overview.md
     items:
-    - name: Set Security policy
-      href: security-center-policies-overview.md
     - name: Data collection
       href: security-center-enable-data-collection.md
     - name: Policy definitions
