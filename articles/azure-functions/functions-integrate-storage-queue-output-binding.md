@@ -1,6 +1,6 @@
 ---
 title: Add messages to an Azure Storage queue using Functions | Microsoft Docs
-description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to an Azure Storage queue.
+description: Use Azure Functions to create a serverless function that is invoked by an HTTP request and creates a message in an Azure Storage queue.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -66,7 +66,7 @@ Now that you have an output binding defined, you need to update the code to use 
 
 ## Add code that uses the output binding
 
-In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string.
+In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string. For example, if the query string includes `name=Azure`, the queue message will be *Name passed to the function: Azure*.
 
 1. Select your function to display the function code in the editor. 
 
@@ -103,7 +103,9 @@ In this section, you add code that writes a message to the output queue. The mes
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   As an alternative, you can call the function by entering a URL in a browser, as shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
+   Notice that the **Request body** contains the `name` value *Azure*. This value will appear in the queue message that is created when the function is invoked.
+
+   As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
 2. Check the logs to make sure that the function succeeded. 
 
@@ -121,7 +123,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 1. Select the **Azure Queue storage** output binding that you added in an earlier step.
 
-1. Expand **Documentation**. 
+1. Expand the **Documentation** section at the bottom of the page. 
 
    The portal shows credentials that you can use in Storage Explorer to connect to the storage account.
 
@@ -143,7 +145,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
-   The queue contains the message that the queue output binding created when you ran the HTTP-triggered function.
+   The queue contains the message that the queue output binding created when you ran the HTTP-triggered function. If you invoked the function with the default `name` value of *Azure*, the queue message is *Name passed to the function: Azure*.
 
     ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
