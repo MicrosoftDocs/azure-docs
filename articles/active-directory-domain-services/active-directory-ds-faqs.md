@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/10/2018
 ms.author: maheshu
 
 ---
@@ -34,7 +34,7 @@ Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtua
 Not currently. Microsoft will deliver a mechanism to migrate your existing managed domain from a classic virtual network to a Resource Manager virtual network in the future.
 
 #### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
-No. The product team is working on adding support for CSP subscriptions.
+Yes. See how you can enable [Azure AD Domain Services in Azure CSP subscriptions](active-directory-ds-csp.md).
 
 #### Can I enable Azure AD Domain Services in a federated Azure AD directory? I use ADFS to authenticate users for access to Office 365 and do not synchronize password hashes to Azure AD. Can I enable Azure AD Domain Services for this directory?
 No. Azure AD Domain Services needs access to the password hashes of user accounts, to authenticate users via NTLM or Kerberos. In a federated directory, password hashes are not stored in the Azure AD directory. Therefore, Azure AD Domain Services does not work with such Azure AD directories.
