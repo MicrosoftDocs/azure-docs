@@ -28,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is originially from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
+A Bash script file, JSON configuration files, and a sample 3ds Max scene for this tutorial are available on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). The sample scene `MotionBlur-Dragon-Flying.max` is originally from the [Autodesk 3ds Max sample files](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
