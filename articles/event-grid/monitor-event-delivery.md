@@ -27,14 +27,14 @@ For topics, the metrics are:
 
 * **Publish Succeeded**: Event successfully sent to the topic, and processed with a 2xx response.
 * **Publish Failed**: Event sent to the topic but rejected with an error code.
-* **Unmatched**: Event successfully published to the topic, but not matched to an event subscription. The event is dropped.
+* **Unmatched**: Event successfully published to the topic, but not matched to an event subscription. The event was dropped.
 
 For subscriptions, the metrics are:
 
 * **Delivery Succeeded**: Event successfully delivered to the subscription's endpoint, and received a 2xx response.
 * **Delivery Failed**: Event sent to subscription's endpoint, but received a 4xx or 5xx response.
-* **Expired Events**: Event is not delivered after the specified number of retry attempts. The event is dropped.
-* **Matched Events**: Count of events in the Topic that are matched by the Event Subscription.
+* **Expired Events**: Event was not delivered and all retry attempts were sent. The event was dropped.
+* **Matched Events**: Event in the topic was matched by the event subscription.
 
 ## Event subscription status
 
