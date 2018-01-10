@@ -52,7 +52,7 @@ The region in which you publish your LUIS app corresponds to the region or locat
 
 ## Publishing regions
 
-LUIS apps created on https://www.luis.ai can be published to all endpoints except the European region. To publish to the European regions, you create LUIS apps at https://eu.luis.ai. 
+LUIS apps created on https://www.luis.ai can be published to all endpoints except the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions. 
 
  Global region | Azure region   |   LUIS website | Endpoint URL format   |
 |-----|------|------|------|
