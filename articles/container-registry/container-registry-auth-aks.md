@@ -9,7 +9,6 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/10/2018
 ms.author: nepeters
-ms.custom: mvc
 ---
 
 # Authenticate with Azure Container Registry from Azure Container Service
@@ -18,13 +17,15 @@ Authentication between a Microsoft Azure Container Service (AKS) cluster and Mic
 
 ## Shared service principal scope
 
-When you create an AKS cluster, an Azure Active Directory Service Principal is configured to work with the cluster. If the scope of this service principal also includes the ACR resource, authentication can occur with no further configuration. There are three ways to achieve this configuration.
+When you create an AKS cluster, an Azure Active Directory service principal is configured to work with the cluster. If the scope of this service principal also includes the ACR resource, authentication can occur with no further configuration. 
 
-- Use the Azure CLI to create an AKS cluster without specifying a service principal. A service principal is generated with subscription scope, which includes the ACR registry.
-- Place the ACR resource in the same resource group as the AKS cluster resources.
-- Create a new role assignment for the AKS service principal with a scope of the ACR resource. You can use the following steps to complete this configuration.
+There are three ways to achieve this configuration.
 
-The following script can be used to extend the scope of the AKS service principle to the ACR registry.
+1. Use the Azure CLI to create an AKS cluster without specifying a service principal. A service principal is generated with subscription scope, which includes the ACR registry.
+2. Place the ACR resource in the same resource group as the AKS cluster resources.
+3. Create a new role assignment for the AKS service principal with a scope of the ACR resource.
+
+The following script can be used to complete method three as describe in the preceding text.
 
 ```bash
 #!/bin/bash
@@ -48,7 +49,7 @@ az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_
 
 ## Access with Kubernetes secret
 
-In many instances, the service principal being used by AKS is not scoped to the ACR registry. For these cases, you can create a unique service principal and scoped it to only the ACR registry.
+In many instances, the service principal being used by AKS is not scoped to the ACR registry. For these cases, you can create a unique service principal and scope it to only the ACR registry.
 
 The following script can be used to create the service principal. 
 
@@ -72,7 +73,7 @@ SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contr
 SP_APP_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 ```
 
-The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret]. The following example assumes that the included script was used to create the service principal.
+The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret]. The following example assumes that the previous script was used to create the service principal.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server=https://$ACR_LOGIN_SERVER --docker-username=$SP_APP_ID --docker-password=$SP_PASSWD --docker-email=user@contoso.com
@@ -93,7 +94,7 @@ spec:
     spec:
       containers:
       - name: acr-auth-example
-        image: myacrinstance.azurecr.io/acr-auth-example
+        image: mycontainerregistry.azurecr.io/acr-auth-example
       imagePullSecrets:
       - name: acr-auth
 ```
