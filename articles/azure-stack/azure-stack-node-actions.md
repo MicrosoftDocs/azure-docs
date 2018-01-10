@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
 
 ---
@@ -23,6 +23,10 @@ ms.author: mabrigg
 *Applies to: Azure Stack integrated systems*
 
 This article describes how to view the status of a scale unit and its associated nodes, and how to use the available node actions. Node actions include power on, power off, drain, resume, and repair. Typically, you use these node actions during field replacement of parts, or for node recovery scenarios.
+
+> [!Important]  
+> All node actions described in this article should only target one node at a time.
+
 
 ## View the status of a scale unit and its nodes
 
@@ -73,13 +77,17 @@ The operational state of the node determines which options are available.
 
 The **Power off** action turns off the node. It’s the same as if you press the power button. It does **not** send a shutdown signal to the operating system. For planned power off operations, make sure you drain a scale unit node first.
 
-This action is typically used when a node is in a hung state and no longer responds to requests.  
+This action is typically used when a node is in a hung state and no longer responds to requests.
+
+> [!Important] 
+> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
+
 
 To run the power off action through PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 In the unlikely case that the power off action doesn't work, use the BMC web interface instead.
 
@@ -87,11 +95,14 @@ In the unlikely case that the power off action doesn't work, use the BMC web int
 
 The **Power on** action turns on the node. It’s the same as if you press the power button. 
 
+> [!Important] 
+> This functionality is only available via PowerShell. It will be available in the Azure Stack administrator portal again at a later time.
+
 To run the power on action through PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 In the unlikely case that the power on action doesn't work, use the BMC web interface instead.
 
