@@ -22,9 +22,10 @@ ms.author: jingwang
 In this tutorial, you use Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an Azure blob storage to an Azure SQL database. 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 >
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 
 You perform the following steps in this tutorial:
 
@@ -87,7 +88,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-     ![New data factory page](./media/tutorial-copy-data-portal/name-not-available-error.png)
+     ![New data factory page](./media/tutorial-copy-data-tool/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -175,7 +176,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     ![Monitor activity runs](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
 16. Click the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool using the editor. Click **Code** to view the JSON code associated with the entity opened in the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
-    ![Editor tab](./media/tutorial-copy-data-tool/editor.png)
+    ![Editor tab](./media/tutorial-copy-data-tool/edit-tab.png)
 17. Verify that the data is inserted into the **emp** table in your Azure SQL database. 
 
     ![Verify SQL output](./media/tutorial-copy-data-tool/verify-sql-output.png)
