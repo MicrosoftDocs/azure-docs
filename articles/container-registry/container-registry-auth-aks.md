@@ -1,6 +1,6 @@
 ---
-title: Authenticate and AKS cluster with Azure Container Registry
-description: Authenticate and AKS cluster with Azure Container Registry
+title: Authenticate with Azure Container Registry from Azure Container Service
+description: Learn how to provide access to images in your private container registry from Azure Container Service by using an Azure Active Directory service principal.
 services: container-service
 author: neilpeterson
 manager: timlt
