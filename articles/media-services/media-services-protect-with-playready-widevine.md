@@ -96,7 +96,7 @@ To manage, encode, and stream your videos, you must first upload your content in
 For more information, see [Upload files into a Media Services account](media-services-dotnet-upload-files.md).
 
 ## Encode the asset that contains the file to the adaptive bitrate MP4 set
-With dynamic encryption, you create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest and fragment request, the on-demand streaming server ensures that you receive the stream in the protocol you selected. Then, you store and pay for the files in only a single storage format. Media Services builds and serves the appropriate response based on requests from a client. For more information, see [Dynamic packaging overview](media-services-dynamic-packaging-overview.md) article.
+With dynamic encryption, you create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest and fragment request, the on-demand streaming server ensures that you receive the stream in the protocol you selected. Then, you store and pay for the files in only a single storage format. Media Services builds and serves the appropriate response based on requests from a client. For more information, see [Dynamic packaging overview](media-services-dynamic-packaging-overview.md).
 
 For instructions on how to encode, see [Encode an asset by using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 

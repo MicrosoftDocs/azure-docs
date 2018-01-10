@@ -36,7 +36,7 @@ These release notes for Azure Media Services summarize changes from previous rel
 | The Media Services throttling mechanism restricts the resource usage for applications that make excessive requests to the service. The service might return the "Service Unavailable" 503 HTTP status code. |For more information, see the description of the 503 HTTP status code in [Media Services error codes](media-services-encoding-error-codes.md). |
 | When you query entities, a limit of 1,000 entities is returned at one time because the public REST version 2 limits query results to 1,000 results. |Use Skip and Take (.NET)/top (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this section](media-services-deliver-content-overview.md#known-issues). |
-| Media Services .NET SDK objects can't be serialized and as a result don't work with Azure Caching. |If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown. |
+| Media Services .NET SDK objects can't be serialized and as a result don't work with Azure Redis Cache. |If you try to serialize the SDK AssetCollection object to add it to Azure Redis Cache, an exception is thrown. |
 
 
 ## <a id="rest_version_history"/>REST API version history
@@ -56,7 +56,7 @@ For information about the Media Services REST API version history, see the [Azur
 * For source video that is encoded with the H.265 (HEVC) video codec, such as video captured by using iOS11 or GoPro Hero 6, you now can use either the Premium Encoder or the Standard Encoder to encode those videos. For information about patent licenses, see [Online Services Terms](https://azure.microsoft.com/support/legal/).
 * For content that contains multiple language audio tracks, the language values must be correctly labeled according to the corresponding file format specification (for example, ISO MP4). Then you can use the Standard Encoder to encode the content for streaming. The resultant streaming locator lists the available audio languages.
 * The Standard Encoder now supports two new audio-only system presets, "AAC Audio" and "AAC Good Quality Audio." Both produce stereo advanced audio coding (AAC) output, at bit rates of 128 Kbps and 192 Kbps, respectively.
-* The Premium Encoder now supports QuickTime/MOV file formats as input. The video codec must be one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats). The audio must be either AAC or pulse code modulation (PCM). The Premium Encoder doesn't support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files as input. The Standard Encoder does support these video codecs.
+* The Premium Encoder now supports QuickTime/MOV file formats as input. The video codec must be one of the [Apple ProRes types listed in this GitHub article](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats). The audio must be either AAC or pulse code modulation (PCM). The Premium Encoder doesn't support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files as input. The Standard Encoder does support these video codecs.
 * The following bug fixes were made in encoders:
 
     * You can now submit jobs by using an input asset. After these jobs finish, you can modify the asset (for example, add, delete, or rename files within the asset), and submit additional jobs.
@@ -90,7 +90,9 @@ Starting April 1, 2017, any job record in your account older than 90 days is aut
 
 ## January 2017 release
 
-In Media Services, a streaming endpoint represents a streaming service that can deliver content directly to a client player application or to a content delivery network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or a progressive download of your asset in your Media Services account. Each Media Services account includes a default streaming endpoint. Additional streaming endpoints can be created under the account. There are two versions of streaming endpoints, 1.0 and 2.0. Starting January 10, 2017, any newly created Media Services accounts include the version 2.0 default streaming endpoint. Additional streaming endpoints that you add to this account are also version 2.0. This change doesn't affect existing accounts. Existing streaming endpoints are version 1.0 and can be upgraded to version 2.0. There are behavior, billing, and feature changes with this change. For more information, see [Streaming endpoints overview](media-services-streaming-endpoints-overview.md).
+In Media Services, a streaming endpoint represents a streaming service that can deliver content directly to a client player application or to a content delivery network (CDN) for further distribution. Media Services also provides seamless Azure Content Delivery Network integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or a progressive download of your asset in your Media Services account. Each Media Services account includes a default streaming endpoint. Additional streaming endpoints can be created under the account. 
+
+There are two versions of streaming endpoints, 1.0 and 2.0. Starting January 10, 2017, any newly created Media Services accounts include the version 2.0 default streaming endpoint. Additional streaming endpoints that you add to this account are also version 2.0. This change doesn't affect existing accounts. Existing streaming endpoints are version 1.0 and can be upgraded to version 2.0. There are behavior, billing, and feature changes with this change. For more information, see [Streaming endpoints overview](media-services-streaming-endpoints-overview.md).
 
 Starting with the 2.15 version, Media Services added the following properties to the streaming endpoint entity:
 
@@ -257,12 +259,12 @@ The Media Services .NET SDK is now version 3.2.0.0. The following updates were m
 
 ## <a id="march_changes_15"></a>March 2015 release
 ### General Media Services updates
-* Media Services now provides Azure CDN integration. To support the integration, the CdnEnabled property was added to StreamingEndpoint. CdnEnabled can be used with REST APIs starting with version 2.9. For more information, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). CdnEnabled can be used with the .NET SDK starting with version 3.1.0.2. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
+* Media Services now provides Content Delivery Network integration. To support the integration, the CdnEnabled property was added to StreamingEndpoint. CdnEnabled can be used with REST APIs starting with version 2.9. For more information, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). CdnEnabled can be used with the .NET SDK starting with version 3.1.0.2. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
 * The Media Encoder Premium Workflow was announced. For more information, see [Introducing Premium encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a id="february_changes_15"></a>February 2015 release
 ### General Media Services updates
-The Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
+The Media Services REST API is now version 2.9. Starting with this version, you can enable the Content Delivery Network integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 ## <a id="january_changes_15"></a>January 2015 release
 ### General Media Services updates
@@ -288,7 +290,7 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 ### Media Services .NET SDK updates
 The [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) is now version 3.1.0.0. The following updates were made:
 
-* The .Net SDK dependency was upgraded to the .NET 4.5 Framework.
+* The .NET SDK dependency was upgraded to the .NET 4.5 Framework.
 * A new API that you can use to update encoding reserved units was added. For more information, see [Update reserved unit type and increase encoding reserved units by using .NET](media-services-dotnet-encoding-units.md).
 * JWT support for token authentication was added. For more information, see [JWT token authentication in Media Services and dynamic encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Relative offsets for BeginDate and ExpirationDate in the PlayReady license template were added.
