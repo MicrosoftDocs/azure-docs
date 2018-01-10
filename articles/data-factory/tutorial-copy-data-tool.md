@@ -126,7 +126,12 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
         ![Specify blob storage account](./media/tutorial-copy-data-tool/specify-blob-storage-account.png)
 
         A linked service links a data store or a compute to the data factory. In this case, you create an Azure Storage linked service to link your Azure Storage account to the data store. The linked service has the connection information that the Data Factory services uses to connect to the blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
-5. In the **Choose the input file or folder** page, navigate to the **adfv2tutorial/input** folder, select **inputEmp.txt** file, click **Choose**, and then click **Next**. 
+5. In the **Choose the input file or folder** page, do the following steps:
+    
+    1. Navigate to the **adfv2tutorial/input** folder.
+    2. Select **inputEmp.txt**
+    3. Click **Choose**. Alternatively, you can double-click **inputEmp.txt**. 
+    4. Click **Next**. 
 
     ![Choose input file or folder](./media/tutorial-copy-data-tool/choose-input-file-folder.png)
 6. In the **File format settings** page, notice that the tool automatically detects the column and row delimiters, and click **Next**. You can also preview data and view schema of the input data on this page. 
@@ -162,7 +167,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 13. In the **Deployment page**, click **Monitor** to monitor the pipeline (task).
 
     ![Deployment page](./media/tutorial-copy-data-tool/deployment-page.png)
-14. Notice that the **Monitor** tab on the left is automatically selected. You see the links to view activity run details and to rerun the pipeline in the **Actions** column. 
+14. Notice that the **Monitor** tab on the left is automatically selected. You see the links to view activity run details and to rerun the pipeline in the **Actions** column. Click **Refresh** to refresh the list. 
 
     ![Monitor pipeline runs](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
 15. To view activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. There is only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, click **Pipelines** link at the top. Click **Refresh** to refresh the list. 
