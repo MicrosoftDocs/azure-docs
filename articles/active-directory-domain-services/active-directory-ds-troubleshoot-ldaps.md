@@ -4,7 +4,7 @@ description: Troubleshooting Secure LDAP for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mahesh-unnikrishnan
+manager: 
 editor:
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: ergreenl
 
 ---
