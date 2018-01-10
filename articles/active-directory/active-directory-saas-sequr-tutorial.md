@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type the URL: `https://login.sequr.io`
 
-	b. In the **Relay State** textbox, you will get this value which is explained later in the tutorial.
+	b. In the **Relay State** textbox, you will get this value, which is explained later in the tutorial.
 	 
 5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -142,9 +142,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Sequr Configuration](./media/active-directory-saas-sequr-tutorial/configure3.png)
 
-	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
+	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
 
-	b. Drag and drop the **Certificate** file which you have downloaded from the Azure portal or manually enter the content of the certificate.
+	b. Drag and drop the **Certificate** file, which you have downloaded from the Azure portal or manually enter the content of the certificate.
 
 	c. After saving the configuration the relay state value will be generated. Copy the **relay state** value and paste it in the **Relay State** textbox of **Sequr Domain and URLs** section in the Azure portal.
 
