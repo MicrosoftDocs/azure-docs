@@ -126,7 +126,7 @@ The command does the following:
 
 To verify that the command ran successfully, in the portal, go to the Marketplace. Verify that the VM image is available in the **Virtual Machines** category.
 
-![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
+![VM image added successfully](./media/azure-stack-add-vm-image/image5.png) 
 
 ## Remove a VM image by using PowerShell
 
