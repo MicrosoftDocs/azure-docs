@@ -33,7 +33,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
 > [!NOTE]
-> If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
+> This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
 >
 
 1. Create the enrollment group information:
