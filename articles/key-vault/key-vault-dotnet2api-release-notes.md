@@ -33,9 +33,9 @@ Key Vault certificates support provides for management of your x509 certificates
 
 ## .NET support
 
-* **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
-* **.NET Framework 4.5.2** is supported by the 2.0 version of the Azure Key Vault .NET/C# library
-* **.NET Standard 1.4** is supported by the 2.0 version of the Azure Key Vault .NET/C# library
+* **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET library
+* **.NET Framework 4.5.2** is supported by the 2.0 version of the Azure Key Vault .NET library
+* **.NET Standard 1.4** is supported by the 2.0 version of the Azure Key Vault .NET library
 
 ## Namespaces
 
