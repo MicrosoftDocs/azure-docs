@@ -30,7 +30,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
+1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
 > [!NOTE]
 > If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
@@ -59,6 +59,10 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
 1. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
+
+> [!NOTE]
+> When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
+>
 
 
 ## Create a device enrollment entry
