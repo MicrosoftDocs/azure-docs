@@ -1,6 +1,6 @@
 ---
-title: Enable Backup for Azure Stack from the administration portal | Microsoft Docs
-description: Enable the Infrastructure Back Service through the administration portal so that Azure Stack can be restored if there is a failure.
+title: Enable backup for Azure Stack from the administration portal | Microsoft Docs
+description: Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can be restored if there is a failure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: mabrigg
 
 ---
-# Enable Backup for Azure Stack from the administration portal
+# Enable backup for Azure Stack from the administration portal
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Enable the Infrastructure Back Service through the administration portal so that Azure Stack can generate backups. You can use these backs ups to restore your environment in the event of a failure.
+Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment in the event of a failure.
 
 > [!Note]  
 > Before you enable the backup through the console, you need to configure the backup service. You can configure the backup service using PowerShell. For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
@@ -46,5 +46,5 @@ To execute a backup, you need to download the Azure Stack Tools, and then run th
 
 ## Next steps
 
- - Learn to run a backup, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Learn to verify that your backup ran, see [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ).
+ - Learn to run a backup. See [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Learn to verify that your backup ran. See [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ).
