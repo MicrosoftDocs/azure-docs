@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 01/09/2018
 ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory (Azure portal)
@@ -75,6 +75,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
 ## Create a data factory
+In this step, you create a data factory, and launch the Azure Data Factory UI to create a pipeline in the data factory. 
 
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
@@ -83,9 +84,9 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
       
      ![New data factory page](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “ADFTutorialDataFactory” is not available`
+     ![New data factory page](./media/tutorial-copy-data-portal/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -106,38 +107,45 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 10. Click **Author & Monitor** tile to launch the Data Integration Application in a separate tab.
 
 ## Create a pipeline
+In this step, you create a pipeline with a Copy activity in the data factory. The Copy activity copies data from Azure Blob Storage to Azure SQL Database. In the [Quickstart tutorial](quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
+
+1. Create the linked service. 
+2. Create input and output datasets.
+3. Then, create a pipeline.
+
+In this tutorial, you start with creating the pipeline, and create linked services and datasets when you need them to configure the pipeline. 
 
 1. In the get started page, click **Create Pipeline** tile (or) click **Edit** tab on the left. 
 
    ![Create pipeline tile](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. Click + (plus), and click Pipeline. 
+2. Click **+ (plus)**, and click **Pipeline**. 
 
    ![New pipeline menu](./media/tutorial-copy-data-portal/new-pipeline-menu.png)
-3. Set the **name** of the pipeline to **CopyPipeline**.
+3. In the **Properties** window for the pipeline, set the **name** of the pipeline to **CopyPipeline**.
 
     ![Pipeline name](./media/tutorial-copy-data-portal/pipeline-name.png)
 4. Drag-drop the **Copy** activity from the tool box to the pipeline designer surface. 
 
     ![Drag-drop copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
-5. In the **General** tab, specify **CopyFromBlobToSql** as the name of the activity.
+5. In the **General** tab of the **Properties** window, specify **CopyFromBlobToSql** as the name of the activity.
 
     ![Activity name](./media/tutorial-copy-data-portal/activity-name.png)
 6. Switch to the **Source** tab. Click **+ New** to create a source dataset. 
 
     ![New source dataset menu](./media/tutorial-copy-data-portal/new-source-dataset-button.png)
-7. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**.
+7. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**. The source data is in an Azure blob storage, so you select Azure Blob Storage for the source dataset. 
 
     ![Select Azure Blob Storage](./media/tutorial-copy-data-portal/select-azure-storage.png)
 8. You see a new **tab** opened in the application with the title **AzureBlob1**.
 
     ![Azure Blob1 tab ](./media/tutorial-copy-data-portal/new-tab-azure-blob1.png)        
-9. In the **General** tab in the properties window at the bottom, specify **SourceBlobDataset** for the **name**.
+9. In the **General** tab in the **Properties** window at the bottom, specify **SourceBlobDataset** for the **name**.
 
     ![Dataset name](./media/tutorial-copy-data-portal/dataset-name.png)
 10. Switch to the **Connection** tab in the properties window.   
 
     ![Connection tab](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Click **+ New** next to the **Linked service** text box. 
+11. Click **+ New** next to the **Linked service** text box. A linked service links a data store or a compute to the data factory. In this case, you create an Azure Storage linked service to link your Azure Storage account to the data store. The linked service has the connection information that the Data Factory services uses to connect to the blob storage at runtime. The dataset specifies the container, folder, and the file (optional) that contains the source data. 
 
     ![New linked service button](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. In the **New Linked Service** window, do the following steps: 
@@ -148,19 +156,19 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     4. Click **Save** to save the linked service.
 
         ![New Azure Storage Linked Service](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-1. Click **Browse** for the **File path** field.  
+13. Click **Browse** for the **File path** field.  
 
     ![Browse button for file](./media/tutorial-copy-data-portal/file-browse-button.png)
 14. Navigate to the **adfv2tutorial/input** folder, and select **inputEmp.txt** file.
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe** character as the **column delimiter**. You can preview data in this by clicking **Preview data**.
+15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe (|)** character as the **column delimiter**. You can preview data in this by clicking **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
-17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. 
+17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. You are importing the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you may skip this step. For this tutorial, import the schema.
 
     ![Detect source schema](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-19. Now, switch to the **tab with the pipeline**. 
+19. Now, switch to the **tab with the pipeline** or click the pipeline in the **treeview** on the left.  
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab.png)
 20. Confirm that the **SourceBlobDataset** is selected for the Source Dataset field in the properties window. You can preview data in this by clicking **Preview data**. 
@@ -169,13 +177,13 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 21. Switch to the **Sink** tab, and click **New** to create a sink dataset. 
 
     ![New sink dataset menu](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-22. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. 
+22. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. You are copying data to an Azure SQL database in this tutorial. 
 
     ![Select Azure SQL Database](./media/tutorial-copy-data-portal/select-azure-sql-database.png)
 23. In the **General** tab of the properties window, set the name to **OutputSqlDataset**. 
     
     ![Output dataset name](./media/tutorial-copy-data-portal/output-dataset-name.png)
-24. Switch to the **Connection** tab, and click **New** for the **Linked service**. 
+24. Switch to the **Connection** tab, and click **New** for the **Linked service**. A dataset must be associated with a linked service. The linked service has the connection string that the Data Factory service uses to connect to the Azure SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied. 
     
     ![New linked service button](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 25. In the **New Linked Service** window, do the following steps: 
@@ -190,7 +198,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     
         ![New Azure SQL Database linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Select **[dbo].[emp]** for **Table**. 
+26. Select **[dbo].[emp]** for **Table**. 
 
     ![Select emp table](./media/tutorial-copy-data-portal/select-emp-table.png)
 27. Switch to **Schema** tab, and click Import Schema. 
@@ -263,9 +271,16 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
         }
     }
     ```
-13. Click **Publish** to publish artifacts to Azure Data Factory.
 
-    ![Publish button](./media/tutorial-copy-data-portal/publish.png)
+## Test run the pipeline
+You can test run a pipeline before publishing artifacts (linked services, datasets, and pipeline) to Data Factory (or) your own VSTS GIT repository. 
+
+1. To test run the pipeline, click **Test Run** on the toolbar. You see the status of the pipeline run in the **Output** tab of the window at the bottom. 
+
+    ![Test Run button](./media/tutorial-copy-data-portal/test-run-output.png)
+2. Verify that the data from the source file is inserted into the destination SQL database. 
+
+    ![Verify SQL output](./media/tutorial-copy-data-portal/verify-sql-output.png)
 
 ## Configure code repository
 You can publish the code associated with your data factory artifacts to a Visual Studio Team System (VSTS) code repository. In this step, you create the code repository. 
@@ -314,16 +329,9 @@ You can publish the code associated with your data factory artifacts to a Visual
 
     ![Files in the adf_publish branch](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
 
-## Test run the pipeline
-
-1. To test run the pipeline, click **Test Run** on the toolbar. You see the status of the pipeline run in the **Output** tab of the window at the bottom. 
-
-    ![Test Run button](./media/tutorial-copy-data-portal/test-run-output.png)
-2. Verify that the data from the source file is inserted into the destination SQL database. 
-
-    ![Verify SQL output](./media/tutorial-copy-data-portal/verify-sql-output.png)
 
 ## Trigger the pipeline manually
+In this step, you manually trigger the pipeline you published in the previous step. 
 
 1. Click **Trigger** on the toolbar, and click **Trigger Now**. 
 
@@ -337,6 +345,7 @@ You can publish the code associated with your data factory artifacts to a Visual
 4. Verify that two more rows are added to the **emp** table in the Azure SQL database. 
 
 ## Trigger the pipeline on a schedule
+In this schedule you create a scheduler trigger for the pipeline. The trigger runs the pipeline on the specified schedule (hourly, daily, etc.). In this example, you set the trigger to run every minute until the specified end datetime. 
 
 1. Switch to the **Edit** tab on the left. 
 
@@ -391,4 +400,4 @@ The pipeline in this sample copies data from one location to another location in
 Advance to the following tutorial to learn about copying data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
->[Copy data from on-premises to cloud](tutorial-hybrid-copy-powershell.md)
+>[Copy data from on-premises to cloud](tutorial-hybrid-copy-data-tool.md)
