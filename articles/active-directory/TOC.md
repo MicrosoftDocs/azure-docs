@@ -44,6 +44,7 @@
 ### [Manage user profiles](active-directory-users-profile-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](active-directory-users-assign-role-azure-portal.md)
+### [Restore a deleted user](active-directory-users-restore.md)
 ### [Add guest users from another directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
 #### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
@@ -216,7 +217,7 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Manage single sign-on for enterprise apps](active-directory-enterprise-apps-manage-sso.md)
 #### [Advanced certificate signing for SAML apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Hide a third-party app from a user's experience](active-directory-coreapps-hide-third-party-app.md)
+#### [Hide an application from a user's experience](active-directory-coreapps-hide-third-party-app.md)
 ### [Configure Sign-In Auto-Acceleration using HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
