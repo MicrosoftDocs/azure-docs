@@ -41,7 +41,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
-## Option 2: Use an existing disk
+## Option 1: Use an existing disk
 
 If you had a VM that you deleted and you want to re-use the OS disk to create a new VM, use [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
 
