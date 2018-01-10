@@ -6,7 +6,7 @@ keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
 ---
