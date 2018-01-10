@@ -41,7 +41,7 @@ This quickstart describes how to use the Azure portal to create and monitor a da
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-     ![Name not available - error](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
+     ![Name not available - error](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -217,7 +217,7 @@ This step is optional in this tutorial. You can create a **scheduler trigger** t
 2. In the **Add Triggers** page, click **Choose trigger...**, and click **New**. 
 
     ![Add triggers - new trigger](./media/quickstart-create-data-factory-portal/add-trigger-new-button.png)
-3. In the **New Trigger** page, For the **End** field, select **On Date**, specify end time a few minutes after the current time, and click **Apply**. There is a cost associated with each pipeline run, so specify the end time only minutes apart from the start time. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
+3. In the **New Trigger** page, For the **End** field, select **On Date**, specify end time a few minutes after the current time, and click **Apply**. There is a cost associated with each pipeline run, so specify the end time only minutes apart from the start time. Ensure that it's the same day. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
 
     ![Trigger settings](./media/quickstart-create-data-factory-portal/trigger-settings.png)
 4. Check the **Activated** option in the **New Trigger** page, and click **Next** 

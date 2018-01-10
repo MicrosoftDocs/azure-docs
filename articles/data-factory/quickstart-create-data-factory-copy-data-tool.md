@@ -22,9 +22,10 @@ ms.author: jingwang
 In this quickstart, you use Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from a folder in an Azure blob storage to another folder. 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
 >
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -39,7 +40,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “ADFTutorialDataFactory” is not available`
+     ![Name not available - error](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -70,10 +71,15 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 3. In the **Source data store** page, select **Azure Blob Storage**, and click **Next**.
 
     ![Source data store page](./media/quickstart-create-data-factory-copy-data-tool/source-data-store-page.png)
-4. In the **Specify the Azure Blob storage account** page, select your storage account name from the drop-down list, and click Next. 
+4. In the **Specify the Azure Blob storage account** page, select your **storage account name** from the drop-down list, and click Next. 
 
     ![Specify blob storage account](./media/quickstart-create-data-factory-copy-data-tool/specify-blob-storage-account.png)
-5. In the **Choose the input file or folder** page, click **Browse**, navigate to the **adftutorial/input** folder, select **emp.txt** file, click **Choose**, and then click **Next**. 
+5. In the **Choose the input file or folder** page, do the following steps:
+
+    1. Navigate to the **adftutorial/input** folder. 
+    2. Select **emp.txt** file.
+    3. Click **Choose**. You can double-click **emp.txt** to skip this step. 
+    4. Click **Next**. 
 
     ![Choose input file or folder](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
 6. In the **File format settings** page, notice that the tool automatically detects the column and row delimiters, and click **Next**. You can also preview data and view schema of the input data on this page. 
@@ -85,7 +91,11 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 8. In the **Specify the Azure Blob storage account** page, select your Azure Blob storage account, and click **Next**. 
 
     ![Specify sink data store page](./media/quickstart-create-data-factory-copy-data-tool/specify-sink-blob-storage-account.png)
-9. In the **Choose the output file or folder** page,  enter **adftutorial/output** for the **folder path**, enter **emp.txt** for the **file name**, and then click **Next**. 
+9. In the **Choose the output file or folder** page, do the following steps: 
+
+    1. Enter **adftutorial/output** for the **folder path**.
+    2. Enter **emp.txt** for the **file name**. 
+    3. Click **Next**. 
 
     ![Choose output file or folder](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
 10. In the **File format settings** page, click **Next**. 
@@ -94,7 +104,7 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 11. Click **Next** on the **Settings** page. 
 
     ![Advanced settings page](./media/quickstart-create-data-factory-copy-data-tool/advanced-settings-page.png)
-12. Review all settings on the summary page, and click Next. 
+12. Review all settings on the **Summary** page, and click Next. 
 
     ![Summary page](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
 13. On the **Deployment complete** page, click **Monitor** to monitor the pipeline you created. 
