@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -37,7 +37,9 @@ In this quickstart, we create a policy assignment and assign the *Audit Virtual 
    - Apply tag and its value
    - Require SQL Server Version 12.0
 
-4. Search through your policy definitions to find the *Audit VMs that do not use managed disks* definition. Click on that policy and click **Assign**.
+    For a complete list of all the available built-in polices, see [Policy templates](json-samples.md).
+
+4. Search through your policy definitions to find the *Audit VMs that do not use managed disks* definition. Click on that policy and click **Select**.
 
    ![Find the correct policy definition](media/assign-policy-definition/select-available-definition.png)
 
@@ -47,11 +49,11 @@ In this quickstart, we create a policy assignment and assign the *Audit Virtual 
    There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Select the **Scope** you would like the policy to be applied to.  A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
-8. Select the subscription (or resource group) you previously registered. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ.
+8. Select the subscription (or resource group) you previously registered. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ. Click **Select**.
 
    ![Find the correct policy definition](media/assign-policy-definition/assign-policy.png)
 
-9. Select **Assign**.
+9. Leave **Exclusions** blank for now and then click **Assign**.
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.
 
@@ -61,9 +63,9 @@ Select **Compliance** on the left pane, and search for the policy assignment you
 
 ![Policy compliance](media/assign-policy-definition/policy-compliance.png)
 
-If there are any existing resources that are not compliant with this new assignment, they will show up under the **Non-compliant resources** tab.
+If there are any existing resources that are not compliant with this new assignment, they appear under **Non-compliant resources**.
 
-If a condition is evaluated across your existing resources and it comes out true for some of them, those resources are marked as non-compliant with the policy. Here’s a table of how the different actions we have available today work with the condition evaluation result and the compliance state of your resources.
+When a condition is evaluated against your existing resources and found true, then those resources are marked as non-compliant with the policy. The preceding example image displays non-compliant resources. The following table shows how different policy actions work with the condition evaluation for the resulting compliance state. Although you don’t see the evaluation logic in the Azure portal, the compliance state results are shown. The compliance state result is either compliant or non-compliant.
 
 |Resource  |If Condition in the Policy Evaluates to  |Action in the Policy   |Compliance State  |
 |-----------|---------|---------|---------|
@@ -78,7 +80,7 @@ If a condition is evaluated across your existing resources and it comes out true
 
 Other guides in this collection build upon this quickstart. If you plan to continue to work with subsequent tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 1. Select **Assignments** on the left pane.
-2. Search for the assignment you just created.
+2. Search for the assignment you just created and then right-click it.
 
    ![Delete an assignment](media/assign-policy-definition/delete-assignment.png)
 
