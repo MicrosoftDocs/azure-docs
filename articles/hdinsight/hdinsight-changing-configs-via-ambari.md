@@ -103,13 +103,13 @@ These changes  affect all Tez jobs across the server. To get an optimal result, 
 
 ORC and Snappy both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
 
-For example, say you have an input data size of 50GB. That data in ORC format with Snappy compression is 1GB. Hive estimates the number of reducers needed as:
+For example, say you have an input data size of 50 GB. That data in ORC format with Snappy compression is 1 GB. Hive estimates the number of reducers needed as:
 
     (number of bytes input to mappers / `hive.exec.reducers.bytes.per.reducer`)
 
-With the default settings, this is 4 reducers in our scenario.
+With the default settings, this example is 4 reducers.
 
-The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of bytes processed per reducer. The default value is 64 MB. Tuning this value down will increase parallelism and may improve performance. Tuning it too low could also produce too many reducers, potentially adversely affecting performance. This parameter is based on your particular data requirements, compression settings, and other environmental factors.
+The `hive.exec.reducers.bytes.per.reducer` parameter specifies the number of bytes processed per reducer. The default value is 64 MB. Tuning this value down increases parallelism and may improve performance. Tuning it too low could also produce too many reducers, potentially adversely affecting performance. This parameter is based on your particular data requirements, compression settings, and other environmental factors.
 
 1. To modify the parameter, navigate to the Hive **Configs** tab and find the **Data per Reducer** parameter on the Settings page.
 
@@ -183,7 +183,7 @@ The available compression types are:
 | Format | Tool | Algorithm | File Extension | Splittable? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | No |
-| Bzip2 | Bzip2 | Bzip2 | .bz2 | Yes |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | Yes |
 | LZO | Lzop | LZO | .lzo | Yes, if indexed |
 | Snappy | N/A | Snappy | Snappy | No |
 
@@ -212,7 +212,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     ![Hive custom property](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
-    This will compress the intermediate file using Snappy compression. Once the property is added, it will appear in the Custom hive-site pane.
+    This will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
     > [!NOTE]
     > This procedure modifies the `$HADOOP_HOME/conf/hive-site.xml` file.
@@ -253,49 +253,47 @@ Hive allows for creating dynamic partitions when inserting records into a table,
 
 Local mode enables Hive to perform all tasks of a job on a single machine, or sometimes in a single process. This improves query performance if the input data is small and the overhead of launching tasks for queries consumes a significant percentage of the overall query execution.
 
-1. To enable local mode, add the `hive.exec.mode.local.auto` parameter to the Custom hive-site panel, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
+To enable local mode, add the `hive.exec.mode.local.auto` parameter to the Custom hive-site panel, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
 
-    ![Hive exec mode local auto](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
+![Hive exec mode local auto](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
 
 ### Set single MapReduce MultiGROUP BY
 
-When this property is set to true, a MultiGROUP BY query with common group by keys will generate a single MapReduce job.  
+When this property is set to true, a MultiGROUP BY query with common group-by keys  generates a single MapReduce job.  
 
-To enable this, add the `hive.multigroupby.singlereducer` parameter to the Custom hive-site pane, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
+To enable this behavior, add the `hive.multigroupby.singlereducer` parameter to the Custom hive-site pane, as explained in step 3 of the [Enable intermediate compression](#enable-intermediate-compression) section.
 
 ![Hive set single MapReduce MultiGROUP BY](./media/hdinsight-changing-configs-via-ambari/hive-multigroupby-singlereducer.png)
 
 ### Additional Hive optimizations
 
-Now that you understand how to go about finding and updating configurations in Ambari, here is a list of additional Hive-related optimizations you can set:
+The following sections describe additional Hive-related optimizations you can set.
 
-**Join Optimizations**
+#### Join optimizations
 
-The default join type in Hive is a **shuffle join**. The way joining works in Hive, is that special mappers read the input, emit a join key/value pair to an intermediate file. Hadoop sorts and merges these pairs in a shuffle stage. This shuffle stage is expensive. Thus, selecting the right Join based on your data can significantly improve performance.
+The default join type in Hive is a *shuffle join*. In Hive,  special mappers read the input and emit a join key/value pair to an intermediate file. Hadoop sorts and merges these pairs in a shuffle stage. This shuffle stage is expensive. Selecting the right join based on your data can significantly improve performance.
 
 | Join Type | When | How | Hive settings | Comments |
 | -- | -- | -- | -- | -- |
 | Shuffle Join | <ul><li>Default choice</li><li>Always works</li></ul> | <ul><li>Reads from part of one of the tables</li><li>Buckets and sorts on Join key</li><li>Sends one bucket to each reduce</li><li>Join is done on the Reduce side</li></ul> | No significant Hive setting needed | Works every time |
-| Map Join | <ul><li>One table can fit in memory</li></ul> | <ul><li>Reads small table into memory hash table</li><li>Streams through part of the big file</li><li>Joins each record from hash table</li><li>Joins will be performed by the mapper alone</li></ul> | `hive.auto.confvert.join=true` | Very fast, but limited |
+| Map Join | <ul><li>One table can fit in memory</li></ul> | <ul><li>Reads small table into memory hash table</li><li>Streams through part of the large file</li><li>Joins each record from hash table</li><li>Joins are by the mapper alone</li></ul> | `hive.auto.confvert.join=true` | Very fast, but limited |
 | Sort Merge Bucket | If both tables are: <ul><li>Sorted the same</li><li>Bucketed the same</li><li>Joining on the sorted/bucketed column</li></ul> | Each process: <ul><li>Reads a bucket from each table</li><li>Processes the row with the lowest value</li></ul> | `hive.auto.convert.sortmerge.join=true` | Very efficient |
 
-**Execution Engine Optimizations**
+#### Execution engine optimizations
 
 Additional recommendations for optimizing the Hive execution engine:
 
-| Setting | Recommended | HDI Default |
+| Setting | Recommended | HDInsight Default |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | true = safer, slower; false = faster | false |
-| `tez.am.resource.memory.mb` | 4GB upper bound for most | Auto-Tuned |
+| `hive.mapjoin.hybridgrace.hashtable` | True = safer, slower; false = faster | false |
+| `tez.am.resource.memory.mb` | 4 GB upper bound for most | Auto-Tuned |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-
-
 ## Pig optimization
 
-Pig properties can be easily modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
+Pig properties can be  modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
 
 1. To modify Pig properties, navigate to the Pig **Configs** tab, and then expand the **Advanced pig-properties** pane.
 
@@ -303,23 +301,23 @@ Pig properties can be easily modified from the Ambari web UI to tune Pig queries
 
 3. Select **Save** on the top right side of the window to save the new value. Some properties may require a service restart.
 
-![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
+    ![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> Note: The session-level settings override property values in the `pig.properties` file.
-
+> [!NOTE]
+> Any session-level settings override property values in the `pig.properties` file.
 
 ### Tune execution engine
 
 Two execution engines are available to execute Pig scripts: MapReduce and Tez. Tez is an optimized engine and is much faster than MapReduce.
 
-1. To modify the execution engine, in the Advanced pig-properties pane, find the property `exectype`.
+1. To modify the execution engine, in the **Advanced pig-properties** pane, find the property `exectype`.
 
-2. The default value is MapReduce. Change it to **Tez**.
+2. The default value is **MapReduce**. Change it to **Tez**.
 
 
 ### Enable local mode
 
-Similar to Hive, local mode is used to speed jobs with relatively less amounts of data.
+Similar to Hive, local mode is used to speed jobs with relatively smaller amounts of data.
 
 1. To enable the local mode, set `pig.auto.local.enabled` to **true**. The default value is false.
 
@@ -328,62 +326,58 @@ Similar to Hive, local mode is used to speed jobs with relatively less amounts o
 
 ### Copy user jar cache
 
-Pig copies the jar required by UDFs to a distributed cache in order to make them available for task nodes. These jars do not change frequently. If enabled, this setting allows jars to be placed in a cache to reuse them for jobs run by the same user. This results in a minor increase in job performance.
+Pig copies the JAR files required by UDFs to a distributed cache  to make them available for task nodes. These jars do not change frequently. If enabled, the `pig.user.cache.enabled` setting allows jars to be placed in a cache to reuse them for jobs run by the same user. This results in a minor increase in job performance.
 
-1. To enable, set `pig.user.cache.enabled` to **true**. The default is false.
+1. To enable, set `pig.user.cache.enabled` to true. The default is false.
 
-2. To set the base path of the cached jars, set `pig.user.cache.location` to the base path. The default is /tmp.
+2. To set the base path of the cached jars, set `pig.user.cache.location` to the base path. The default is `/tmp`.
 
 
 ### Optimize performance with memory settings
 
 The following memory settings can help optimize Pig script performance.
 
-1. `pig.cachedbag.memusage`: The amount of memory allocated to a bag. A bag is collection of tuples. A tuple is an ordered set of fields, and a field is a piece of data. If the data in a bag is beyond the allocated memory, it is spilled to disk. The default value is 0.2, which represents 20 percent of available memory. This memory is shared across all bags in an application.
+* `pig.cachedbag.memusage`: The amount of memory allocated to a bag. A bag is collection of tuples. A tuple is an ordered set of fields, and a field is a piece of data. If the data in a bag is beyond the allocated memory, it is spilled to disk. The default value is 0.2, which represents 20 percent of available memory. This memory is shared across all bags in an application.
 
-2. `pig.spill.size.threshold`: Bags smaller than the spill size threshold (bytes) are not spilled to disk. The default value is 5 MB.
+* `pig.spill.size.threshold`: Bags larger than this spill size threshold (in bytes) are  spilled to disk. The default value is 5 MB.
 
 
 ### Compress temporary files
 
 Pig generates temporary files during job execution. Compressing the temporary files results in a performance increase when reading or writing files to disk. The following settings can be used to compress temporary files.
 
-* `pig.tmpfilecompression`: When true, enables temporary file compression. (Default value is false.)
+* `pig.tmpfilecompression`: When true, enables temporary file compression. The default value is false.
 
-* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files.
-
-> Note: The recommended compression codecs are LZO and Snappy because of lower CPU utilization.
-
+* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files. The recommended compression codecs are LZO and Snappy for lower CPU utilization.
 
 ### Enable split combining
 
-When enabled, small files are combined for fewer map tasks. This improves the efficiency of jobs with many small files. To enable, set `pig.noSplitCombination` to **true**. The default value is false.
+When enabled, small files are combined for fewer map tasks. This improves the efficiency of jobs with many small files. To enable, set `pig.noSplitCombination` to true. The default value is false.
 
 
 ### Tune mappers
 
-The number of mappers can be controlled by modifying the property `pig.maxCombinedSplitSize`. This specifies the size of the data to be processed by a single map task. The default value is the filesystems default block size. Increasing this value will result in a decrease of the number of mapper tasks.
+The number of mappers is controlled by modifying the property `pig.maxCombinedSplitSize`. This specifies the size of the data to be processed by a single map task. The default value is the filesystem's default block size. Increasing this value results in a decrease of the number of mapper tasks.
 
 
 ### Tune reducers
 
-The number of reducers is calculated based on the parameter `pig.exec.reducers.bytes.per.reducer`. The parameter specifies the number of bytes processed per reducer. The default value is 1 GB. To limit the maximum number of reducers, set the `pig.exec.reducers.max` property. The default value is 999.
+The number of reducers is calculated based on the parameter `pig.exec.reducers.bytes.per.reducer`. The parameter specifies the number of bytes processed per reducer, by default  1 GB. To limit the maximum number of reducers, set the `pig.exec.reducers.max` property, by  default  999.
 
 
 ## HBase optimization with the Ambari web UI
 
-HBase configuration can be easily modified from the HBase Configs tab. In this section, we’ll look at some of the important configuration settings that affect HBase performance.
-
+HBase configuration is modified from the **HBase Configs** tab. The following sections describe  some of the important configuration settings that affect HBase performance.
 
 ### Set HBASE_HEAPSIZE
 
-This specifies the maximum amount of heap to be used in megabytes by **region** and **master** servers. The default value is 1,000 MB. This should be tuned as per the cluster workload.
+The HBase heap size specifies the maximum amount of heap to be used in megabytes by *region* and *master* servers. The default value is 1,000 MB. This should be tuned for the cluster workload.
 
 1. To modify, navigate to the **Advanced HBase-env** pane in the HBase **Configs** tab, and then find the `HBASE_HEAPSIZE` setting.
 
 2. Change the default value to 5,000 MB.
 
-![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
+    ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
 
 ### Optimize read-heavy workloads
@@ -392,33 +386,34 @@ The following configurations are important to improve the performance of read-he
 
 #### Block cache size
 
-The block cache is the read cache. This is controlled by the `hfile.block.cache.size` parameter. The default value is 0.4, which is 40 percent of the total region server memory. The larger the block cache size, the faster the random reads will be.
+The block cache is the read cache. Its size is controlled by the `hfile.block.cache.size` parameter. The default value is 0.4, which is 40 percent of the total region server memory. The larger the block cache size, the faster the random reads will be.
 
 1. To modify this parameter, navigate to the **Settings** tab in the HBase **Configs** tab, and then locate **% of RegionServer Allocated to Read Buffers**.
 
-![HBase block cache size](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
+    ![HBase block cache size](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. Click the **Edit** icon to change the value.
+2. To change the value, select the **Edit** icon.
 
 
 #### Memstore size
 
-All edits are stored in the memory buffer, or Memstore. This increases the total amount of data that can be written to disk in a single operation, and it speeds subsequent access to the recent edits. The Memstore size is defined by the following two parameters:
+All edits are stored in the memory buffer, called a *Memstore*. This increases the total amount of data that can be written to disk in a single operation, and it speeds subsequent access to the recent edits. The Memstore size is defined by the following two parameters:
 
 * `hbase.regionserver.global.memstore.UpperLimit`: Defines the maximum percentage of the region server that Memstore combined can use.
 
 * `hbase.regionserver.global.memstore.LowerLimit`: Defines the minimum percentage of the region server that Memstore combined can use.
 
-To optimize for random reads, you can reduce the Memstore upper and lower limits using these parameters.
+To optimize for random reads, you can reduce the Memstore upper and lower limits.
 
 
 #### Number of rows fetched when scanning from disk
 
-This setting defines the number of rows read from disk when the next method is called on a scanner. This is defined by the parameter `hbase.client.scanner.caching`. The default value is 100. The higher the number, the fewer the remote calls made from the client to the region server, resulting in faster scans. However, this will also increase memory pressure on the client.
+The `hbase.client.scanner.caching` setting defines the number of rows read from disk when the `next` method is called on a scanner.  The default value is 100. The higher the number, the fewer the remote calls made from the client to the region server, resulting in faster scans. However, this will also increase memory pressure on the client.
 
 ![HBase number of rows fetched](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> Note: Do not set the values such that the time between invocation of the next method on a scanner is greater than the scanner timeout. The scanner timeout is defined by the `hbase.regionserver.lease.period` property.
+> [!IMPORTANT]
+> Do not set the value such that the time between invocation of the next method on a scanner is greater than the scanner timeout. The scanner timeout duration is defined by the `hbase.regionserver.lease.period` property.
 
 
 ### Optimize write-heavy workloads
@@ -428,22 +423,22 @@ The following configurations are important to improve the performance of write-h
 
 #### Maximum region file size
 
-The property `hbase.hregion.max.filesize` defines the size of a single HFile for a region. HBase stores the data in an internal file format, or HFile. A region is split into two regions if the sum of all HFiles in a region is greater than this setting.
+HBase stores  data in an internal file format, called *HFile*. The property `hbase.hregion.max.filesize` defines the size of a single HFile for a region.  A region is split into two regions if the sum of all HFiles in a region is greater than this setting.
  
 ![HBase HRegion max filesize](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
 
-The larger the region file size, the fewer number of splits. Ideally, you can increase the value and settle for the one that gets you the maximum write performance.
+The larger the region file size, the smaller the number of splits. You can increase the file size  to determine a value that results in the maximum write performance.
 
 
 #### Avoid update blocking
 
-The property `hbase.hregion.memstore.flush.size` defines the size at which Memstore will be flushed to disk. The default size is 128 MB.
+* The property `hbase.hregion.memstore.flush.size` defines the size at which Memstore is flushed to disk. The default size is 128 MB.
 
-The Hbase region block multiplier is defined by `hbase.hregion.memstore.block.multiplier`. The default value is 4. The maximum allowed is 8.
+* The Hbase region block multiplier is defined by `hbase.hregion.memstore.block.multiplier`. The default value is 4. The maximum allowed is 8.
 
-HBase blocks update if the Memstore is (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
+* HBase blocks updates if the Memstore is (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
 
-Considering the default values, updates are blocked when Memstore is of 128 * 4 = 512 MB in size. To reduce the update blocking count, increase the value of `hbase.hregion.memstore.block.multiplier`.
+    With the default values of flush size and block multiplier, updates are blocked when Memstore is  128 * 4 = 512 MB in size. To reduce the update blocking count, increase the value of `hbase.hregion.memstore.block.multiplier`.
 
 ![HBase Region Block Multiplier](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
 
@@ -455,12 +450,12 @@ Memstore size is defined by the `hbase.regionserver.global.memstore.UpperLimit` 
 
 ### Set Memstore local allocation buffer
 
-Defined by the property `hbase.hregion.memstore.mslab.enabled`. When enabled, this prevents heap fragmentation during heavy write operation. The default value is true.
+Memstore local allocation buffer usage is determined by the property `hbase.hregion.memstore.mslab.enabled`. When enabled (true), this prevents heap fragmentation during heavy write operation. The default value is true.
  
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## Next steps
+## See also
 
-* Read more about [managing HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
-* Learn how to work with the Ambari [REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Manage HDInsight clusters with the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
+* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
