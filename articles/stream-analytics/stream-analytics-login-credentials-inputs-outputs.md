@@ -21,11 +21,11 @@ ms.author: sngun
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs
 
 ## Abstract
-Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running.
+Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running. 
 
 While Azure Stream Analytics does support resuming a job from last output, we wanted to share the entire process for minimizing the lag between the stopping and starting of the job and rotating the login credentials.
 
-## Prepare the new credentials:
+## Regenerate the credentials
 This part is applicable to the following inputs/outputs:
 
 * Blob Storage
@@ -49,10 +49,8 @@ For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-sto
 3. Copy the newly generated key and continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.  
 
 ### SQL Database
-> [!NOTE]
-> Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
->
-> 
+
+You need to connect to the SQL database to create a new user and login credentials. You can rotate credentials by using Azure portal or a client-side tool such as SQL Server Management Studio. This section demonstrates the process of rotating credentials by using Azure portal.
 
 1. Go to the SQL Databases extension on the Azure Management portal:  
    ![graphic14][graphic14]
@@ -83,23 +81,18 @@ For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-sto
 14. Click Run:  
    ![graphic25][graphic25]
 15. You should now provide your new user with the same roles and privileges your original user had.
-16. Continue to Part 2.
+16. Continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.
 
-## Stopping the Stream Analytics Job
-1. Go to the Stream Analytics extension on the Azure Management portal:  
-   ![graphic26][graphic26]
-2. Locate your job and go into it:  
-   ![graphic27][graphic27]
-3. Go to the Inputs tab or the Outputs tab based on whether you are rotating the credentials on an Input or on an Output.  
+## Stop the Stream Analytics Job
+1. Sign in to the Azure portal > browse your Stream Analytics job > Select **Stop** and wait for the job to stop.
+2. Go to the Inputs tab or the Outputs tab based on whether you are rotating the credentials on an Input or on an Output.  
    ![graphic28][graphic28]
-4. Click the Stop command and confirm the job has stopped:  
-   ![graphic29][graphic29]
-   Wait for the job to stop.
-5. Locate the input/output you want to rotate credentials on and go into it:  
+3. Locate the input/output you want to rotate credentials on and go into it:  
    ![graphic30][graphic30]
-6. Proceed to Part 3.
+4. Proceed to Part 3.
 
-## Part 3: Editing the credentials on the Stream Analytics Job
+## Update credentials for the Stream Analytics Job
+
 ### Blob storage/Table storage
 1. Find the Storage Account Key field and paste your newly generated key into it:  
    ![graphic31][graphic31]
@@ -136,7 +129,7 @@ For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-sto
 3. A connection test will automatically start when you save your changes, make sure that it has successfully passed.  
 4. Proceed to Part 4.
 
-## Part 4: Starting your job from last stopped time
+## Part 4: Start your job from last stopped time
 1. Navigate away from the Input/Output:  
    ![graphic40][graphic40]
 2. Click the Start command:  
@@ -145,7 +138,7 @@ For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-sto
    ![graphic42][graphic42]
 4. Proceed to Part 5.  
 
-## Part 5: Removing the old set of credentials
+## Part 5: Remove the old credentials
 This part is applicable to the following inputs/outputs:
 
 * Blob Storage
@@ -179,19 +172,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-[graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
-[graphic2]: ./media/stream-analytics-login-credentials-inputs-outputs/2-stream-analytics-login-credentials-inputs-outputs.png
-[graphic3]: ./media/stream-analytics-login-credentials-inputs-outputs/3-stream-analytics-login-credentials-inputs-outputs.png
-[graphic4]: ./media/stream-analytics-login-credentials-inputs-outputs/4-stream-analytics-login-credentials-inputs-outputs.png
-[graphic5]: ./media/stream-analytics-login-credentials-inputs-outputs/5-stream-analytics-login-credentials-inputs-outputs.png
-[graphic6]: ./media/stream-analytics-login-credentials-inputs-outputs/6-stream-analytics-login-credentials-inputs-outputs.png
-[graphic7]: ./media/stream-analytics-login-credentials-inputs-outputs/7-stream-analytics-login-credentials-inputs-outputs.png
-[graphic8]: ./media/stream-analytics-login-credentials-inputs-outputs/8-stream-analytics-login-credentials-inputs-outputs.png
-[graphic9]: ./media/stream-analytics-login-credentials-inputs-outputs/9-stream-analytics-login-credentials-inputs-outputs.png
-[graphic10]: ./media/stream-analytics-login-credentials-inputs-outputs/10-stream-analytics-login-credentials-inputs-outputs.png
-[graphic11]: ./media/stream-analytics-login-credentials-inputs-outputs/11-stream-analytics-login-credentials-inputs-outputs.png
-[graphic12]: ./media/stream-analytics-login-credentials-inputs-outputs/12-stream-analytics-login-credentials-inputs-outputs.png
-[graphic13]: ./media/stream-analytics-login-credentials-inputs-outputs/13-stream-analytics-login-credentials-inputs-outputs.png
 [graphic14]: ./media/stream-analytics-login-credentials-inputs-outputs/14-stream-analytics-login-credentials-inputs-outputs.png
 [graphic15]: ./media/stream-analytics-login-credentials-inputs-outputs/15-stream-analytics-login-credentials-inputs-outputs.png
 [graphic16]: ./media/stream-analytics-login-credentials-inputs-outputs/16-stream-analytics-login-credentials-inputs-outputs.png
