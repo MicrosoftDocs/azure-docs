@@ -27,8 +27,10 @@ You can register Azure Stack with Azure to download marketplace items from Azure
 Before registering Azure Stack with Azure, you must have:
 
 - The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID. 
-> [!NOTE]
-> China, Germany, and US government cloud subscriptions are not currently supported. 
+
+  > [!NOTE]
+  > China, Germany, and US government cloud subscriptions are not currently supported. 
+
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported)
 - *Not required beginning with Azure Stack 1712 update version (180106.1)*: The Azure AD for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details)
@@ -47,7 +49,7 @@ Example:
 
   ```powershell
   Login-AzureRmAccount -EnvironmentName "AzureCloud"
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
   ```
 
 ### Register Azure Stack with Azure using the pay-as-you-use billing model
