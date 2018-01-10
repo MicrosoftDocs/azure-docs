@@ -15,7 +15,7 @@ manager: carmonm
 
 ## Alert types
 
-Runbooks are supported actions on all three types of alerts. Each type of alert has different schema and has to be handled differently. The runbook in this article takes care of the logic for you but for more knowledge on the specific schemas, the following table contains links to the payload schema for each alert type:
+Runbooks are supported actions on all three types of alerts. Each type of alert has different schema and has to be handled differently. The runbook in this article takes care of the logic for you. When an alert calls the runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that contains useful properties related to the alert. The following table contains links to the payload schema for each alert type:
 
 |Alert  |Description|Payload Schema  |
 |---------|---------|---------|
@@ -27,9 +27,9 @@ Each alert is different on how to monitors your resources, and the data provided
 
 ## Create a runbook to handle alerts
 
-To use automation with alerts, you need a runbook that is able to accept the JSON payload that is passed to the webhook.
+To use automation with alerts, you need a runbook that has logic to manage the alert JSON payload that is passed to the runbook. When an alert calls the runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that contains useful properties related to the alert.
 
-The following example runbook requires that it is called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. The following PowerShell script can be altered for use with many different resources.
+The following example runbook requires that it is called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data in the `WebhookData` runbook input parameter from an alert and evaluates the JSON payload to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. The following PowerShell script can be altered for use with many different resources.
 
 Take the following example and create a runbook called **Stop-AzureVmInResponsetoVMAlert** with the sample PowerShell.
 
