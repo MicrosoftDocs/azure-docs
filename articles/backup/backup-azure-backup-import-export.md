@@ -64,7 +64,7 @@ The information in this section helps you complete the offline-backup workflow s
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. This might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
     * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure.
-    * **Azure Publish Settings**: An XML file that contains information about your subscription profile. It also contains secure credentials that are associated with your subscription. You can [download the file](https://manage.windowsazure.com/publishsettings). Provide the local path to the publish settings file.
+    * **Azure Publish Settings**: An XML file that contains information about your subscription profile. It also contains secure credentials that are associated with your subscription. You can [download the file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Provide the local path to the publish settings file.
     * **Azure Subscription ID**: The Azure subscription ID for the subscription where you plan to initiate the Azure Import job. If you have multiple Azure subscriptions, use the ID of the subscription that you want to associate with the import job.
     * **Azure Storage Account**: The storage account in the Azure subscription associated with the Azure Import job.
     * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where this job’s data is imported.
