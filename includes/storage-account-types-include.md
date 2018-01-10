@@ -19,7 +19,7 @@ Blob storage accounts expose the **Access Tier** attribute which can be specifie
 * A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
 * A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/common/storage-account-options.md#pricing-and-billing) for more details.
 
 For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

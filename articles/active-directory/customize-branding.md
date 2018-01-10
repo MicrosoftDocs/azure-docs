@@ -4,7 +4,7 @@ description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
    
 ---
@@ -166,8 +166,8 @@ Examples:
 | Service | Nodes | Port | Protocol | URL path | Description |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
-| Livy server | Head nodes | 8998 | HTTP | /batches | Service for running statements, jobs, and applications |
+| Livy server | Head nodes | 8998 | HTTP | &nbsp; | Service for running statements, jobs, and applications |
 
 Examples:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. In this example, `10.0.0.11` is the IP address of the headnode that hosts the Livy service.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. In this example, `10.0.0.11` is the IP address of the headnode that hosts the Livy service.

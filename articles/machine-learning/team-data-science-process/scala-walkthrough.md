@@ -4,7 +4,7 @@ description: How to use Scala for supervised machine learning tasks with the Spa
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev;deguhath
 
 ---

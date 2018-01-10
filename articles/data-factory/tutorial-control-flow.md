@@ -16,15 +16,10 @@ ms.date: 10/06/2017
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### This tutorial
+In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
 ![Overview](media/tutorial-control-flow/overview.png)
@@ -454,7 +449,7 @@ The first section of our pipeline defines parameters.
 
 - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
 - sinkBlobContainer – parameter in the pipeline consumed by the sink blob dataset
-- receiver – parameter in the pipeline consumed by the two web activities on which email address receives the email
+- receiver – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
 
 ```csharp

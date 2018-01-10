@@ -70,11 +70,9 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 ```json
 {
     "name": "SapBwLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "SapBw",
-        "typeProperties":
-        {
+        "typeProperties": {
             "server": "<server name>",
             "systemNumber": "<system number>",
             "clientId": "<client id>",
@@ -103,8 +101,7 @@ To copy data from SAP BW, set the type property of the dataset to **RelationalTa
 ```json
 {
     "name": "SAPBWDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
@@ -191,4 +188,4 @@ When copying data from SAP BW, the following mappings are used from SAP BW data 
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

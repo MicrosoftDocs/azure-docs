@@ -13,10 +13,10 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: saurabhsensharma;markgal;
-ms.custom:
+ms.custom: mvc
 
 ---
 # Recover files from Azure to a Windows Server

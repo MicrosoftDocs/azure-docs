@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
 
 ---
@@ -33,11 +33,9 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
 
     ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. From __Diagnostics settings__, set the status to __On__ and select logging options.
+3. From __Diagnostics settings__, enter a __Name__ for this logging configuration and then select logging options.
 
     ![Turn on diagnostics to collect audit and request logs](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
-
-   * Set **Status** to **On** to enable diagnostic logging.
 
    * You can choose to store/process the data in three different ways.
 
@@ -55,34 +53,14 @@ Diagnostic logging allows you to collect data access audit trails. These logs pr
         > [!NOTE]
         > You must select either __Archive to a storage account__, __Stream to an Event Hub__ or __Send to Log Analytics__ before clicking the __Save__ button.
 
-Once you have enabled diagnostic settings, you can return to the __Diagnostics logs__ blade to view the logs.
-
-## View logs
-
-### Use the Data Lake Analytics view
-
-1. From your Data Lake Analytics account blade, under **Monitoring**, select **Diagnostic Logs** and then select an entry to display logs for.
-
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-
-2. The logs are categorized by **Audit Logs** and **Request Logs**.
-
-    ![log entries](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Request logs capture every API request made on the Data Lake Analytics account.
-   * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations. For example, a single upload API call in a request log can result in multiple "Append" operations in its audit log.
-
-3. Click the **Download** link for a log entry to download that log.
-
 ### Use the Azure Storage account that contains log data
 
-1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click __Blobs__. The **Blob service** blade lists two containers.
-
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+1. To display the blob containers that hold logging data, open the Azure Storage account used for Data Lake Analytics for logging, and then click __Blobs__.
 
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
-2. Within these containers, the logs are stored under the following structure:
+
+2. Within the containers, the logs are stored under the following file structure:
 
         resourceId=/
           SUBSCRIPTIONS/

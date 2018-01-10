@@ -4,7 +4,7 @@ description: Learn how to create an internal load balancer by using the Azure Po
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jennoc
 tags: azure-resource-manager
 
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -28,9 +28,6 @@ ms.author: kumud
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure offers two deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and [classic](load-balancer-get-started-ilb-classic-ps.md). This article describes how to create a load balancer by using the Resource Manager deployment model. Microsoft recommends that Azure Resource Manager be used for most new deployments.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 

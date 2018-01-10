@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: larryfr
 
 ---
@@ -54,7 +54,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 3. Click **OK** to create the project.
 
-4. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
+4. From the **Tools** menu, select **Library Package Manager** or **NuGet Package Manager**, and then select **Package Manager Console**.
 
 5. To install the .NET SDK packages, use the following command:
 
@@ -118,10 +118,6 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 7. To start the application, press **F5**.
 
 8. To exit the application, press **ENTER**.
-
-## Summary
-
-As you can see, the .NET SDK for Hadoop allows you to create .NET applications that submit Pig jobs to an HDInsight cluster, and monitor the job status.
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -32,11 +32,11 @@ You can copy data from Oracle database to any supported sink data store, or copy
 
 Specifically, this Oracle connector supports the following versions of Oracle database, and it supports Basic or OID authentications.
 
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+- Oracle 12c R1 (12.1)
+- Oracle 11g R1, R2 (11.1, 11.2)
+- Oracle 10g R1, R2 (10.1, 10.2)
+- Oracle 9i R1, R2 (9.0.1, 9.2)
+- Oracle 8i R3 (8.1.7)
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ The following properties are supported for Oracle linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Oracle** | Yes |
-| connectionString | Specify information needed to connect to the Oracle Database instance. Mark this field as a SecureString. | Yes |
+| connectionString | Specify information needed to connect to the Oracle Database instance. Mark this field as a SecureString.<br><br>**Supported connection type**: you can choose to use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- Using SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Using Service Name: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -161,7 +161,7 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **OracleSink** | Yes |
+| type | The type property of the copy activity sink must be set to: **OracleSink** | Yes |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: Integer (number of rows). |No (default is 10000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: Timespan. Example: 00:30:00 (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to execute before writing data into Oracle in each run. You can use this property to clean up the pre-loaded data. | No |
@@ -204,7 +204,7 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 | Oracle data type | Data factory interim data type |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |

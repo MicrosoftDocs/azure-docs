@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
 ---
 
@@ -162,7 +162,7 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 Regenerate one of your keys and then retrieve it again to see the new value.
 
 > [!NOTE] 
-> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Regenate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
+> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Regenerate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### Delete a storage account 
@@ -213,6 +213,12 @@ Now that you understand how to manage your storage account with PowerShell, you 
 * [How to manage blobs with PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [How to manage files with PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [How to manage queues with PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Perform Azure Table storage operations with PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
+
+* For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
+* To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
 ## Azure's independently-deployed clouds
 
@@ -231,7 +237,7 @@ If you created a new resource group and a storage account for this exercise, you
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## Next Steps
+## Next steps
 
 This how-to article covers common operations using the management plane cmdlets to manage storage accounts. You learned how to: 
 

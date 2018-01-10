@@ -26,7 +26,7 @@ To complete this quickstart:
 - Install [Free Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Oxygen (4.7)
 - You will need an Azure Subscription and an existing Java Dynamic Web Project
  
-If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+If you don't have a Java Dynamic Web Project, you can create one with the [Create a Java web app quickstart](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -134,4 +134,4 @@ If you plan to continue on to work with subsequent quickstarts or with the tutor
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Find and diagnose performance problems](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

@@ -3,12 +3,12 @@ title: Overview of Azure Policy | Microsoft Docs
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark; nini
-ms.date: 10/25/2017
+author: bandersmsft
+ms.author: banders; nini
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
-manager: jochan
+manager: carmonm
 ms.custom: mvc
 ---
 
@@ -20,7 +20,7 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 
 ## How is it different from RBAC?
 
-There are a few key differences between policy and role-based access control (RABC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
+There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
 
 To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
 
@@ -47,11 +47,11 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 
 You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
-To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](policy-definition.md).
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment. For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
 
 For more information on setting policy definitions and assignments, see [Create a policy assignment to identify non-compliant resources in your Azure environment](assign-policy-definition.md).
 
@@ -64,7 +64,7 @@ Parameters are defined/created when creating a policy definition. When a paramet
 <!--
 Next link should point to new Concept page for Parameters
 -->
-For more information about policy parameters, see [Resource Policy Overview - Parameters](../azure-resource-manager/resource-manager-policy.md#parameters).
+For more information about policy parameters, see [Resource Policy Overview - Parameters](policy-definition.md#parameters).
 
 ## Initiative definition
 An initiative definition is collection of policy definitions that are tailored towards achieving a singular overarching goal. Initiative definitions simplify managing and assigning policy definitions. They simplify by grouping a set of policies as one single item. For example, you could create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor all the available security recommendations in your Azure Security Center.

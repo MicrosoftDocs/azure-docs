@@ -99,8 +99,7 @@ To copy data from SAP HANA, set the type property of the dataset to **Relational
 ```json
 {
     "name": "SAPHANADataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<SAP HANA linked service name>",
@@ -191,4 +190,4 @@ There are a few known limitations when copying data from SAP HANA:
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

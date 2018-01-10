@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 
 ---
@@ -58,7 +58,7 @@ Application Insights can be configured to continuously export telemetry informat
 
 * **Blob type**: HDInsight only supports block blobs. Application Insights defaults to using block blobs, so should work by default with HDInsight.
 
-For information on adding additional storage to an existing HDInsight cluster, see the [Add additional storage accounts](../hdinsight-hadoop-add-storage.md) document.
+For information on adding storage to an existing cluster, see the [Add additional storage accounts](../hdinsight-hadoop-add-storage.md) document.
 
 ### Data schema
 
@@ -76,7 +76,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 ## Analyze the data: PySpark
 
-1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ blade.
+1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ section.
 
     ![The cluster dashboards](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -219,7 +219,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
 ## Analyze the data: Scala
 
-1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ blade.
+1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the **Quick Links** section, select **Cluster Dashboards**, and then select **Jupyter Notebook** from the Cluster Dashboard__ section.
 
     ![The cluster dashboards](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. In the upper right corner of the Jupyter page, select **New**, and then **Scala**. A new browser tab containing a Scala-based Jupyter Notebook appears.

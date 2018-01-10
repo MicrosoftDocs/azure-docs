@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -46,26 +46,24 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 > [!TIP]
 > When you first connect to HDInsight, your SSH client may display a warning that the authenticity of the host can't be established. When prompted select 'yes' to add the host to your SSH client's trusted server list.
 >
-> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. The SSH client may refuse to connect to the cluster when this occurrs. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
+> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
 
 ## SSH clients
 
 Linux, Unix, and macOS systems provide the `ssh` and `scp` commands. The `ssh` client is commonly used to create a remote command-line session with a Linux or Unix-based system. The `scp` client is used to securely copy files between your client and the remote system.
 
-Microsoft Windows does not provide any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
+Microsoft Windows does not install any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): The Cloud Shell provides a Bash environment in your browser, and provides the `ssh`, `scp`, and other common Linux commands.
+* OpenSSH Client (Beta): In the Fall Creators Update, go to __Settings__ > __Apps & features__ > __Manage optional features__ > __Add a feature__ and select the __OpenSSH Client__. 
+
+    > [!NOTE]
+    > If the `ssh` and `scp` commands are not available in PowerShell after enabling this feature, log out and back in.
 
 * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about): The `ssh` and `scp` commands are available through the Bash on Windows command line.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): The Cloud Shell provides a Bash environment in your browser, and provides the `ssh`, `scp`, and other common Linux commands.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): The `ssh` and `scp` commands are available through the GitBash command line.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) The `ssh` and `scp` commands are available through the GitHub Shell command line. GitHub Desktop can be configured to use Bash, the Windows Command Prompt, or PowerShell as the command line for the Git Shell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): The PowerShell team is porting OpenSSH to Windows, and provides test releases.
-
-    > [!WARNING]
-    > The OpenSSH package includes the SSH server component, `sshd`. This component starts an SSH server on your system, allowing others to connect to it. Do not configure this component or open port 22 unless you want to host an SSH server on your system. It is not required to communicate with HDInsight.
 
 There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
 
@@ -114,7 +112,7 @@ You are prompted for information during the key creation process. For example, w
 SSH accounts can be secured using a password. When you connect to HDInsight using SSH, you are prompted to enter the password.
 
 > [!WARNING]
-> We do not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
+> Microsoft does not recommend using password authentication for SSH. Passwords can be guessed and are vulnerable to brute force attacks. Instead, we recommend that you use [SSH keys for authentication](#sshkey).
 
 ### Create HDInsight using a password
 
@@ -150,7 +148,7 @@ The head nodes and edge node (if there is one) can be accessed over the internet
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* When connectiung to the __edge node__, use port 22. The fully qualified domain name is `edgenodename.clustername-ssh.azurehdinsight.net`, where `edgenodename` is a name you provided when creating the edge node. `clustername` is the name of the cluster.
+* When connecting to the __edge node__, use port 22. The fully qualified domain name is `edgenodename.clustername-ssh.azurehdinsight.net`, where `edgenodename` is a name you provided when creating the edge node. `clustername` is the name of the cluster.
 
     ```bash
     # Connect to edge node
@@ -158,7 +156,7 @@ The head nodes and edge node (if there is one) can be accessed over the internet
     ```
 
 > [!IMPORTANT]
-> The previous examples assume that you are using password authentication, or that certificate authentication is occuring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> The previous examples assume that you are using password authentication, or that certificate authentication is occurring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 Once connected, the prompt changes to indicate the SSH user name and the node you are connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
 
@@ -174,7 +172,7 @@ The worker nodes and Zookeeper nodes are not directly accessible from the intern
 
         ssh sshuser@wn0-myhdi
 
-    To retrieve a list of the domain names of the nodes in the cluster, see the [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+    To retrieve a list of the node names, see the [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
 If the SSH account is secured using a __password__, enter the password when connecting.
 

@@ -3,9 +3,9 @@ title: Use PowerShell to create a policy assignment to identify non-compliant re
 description: Use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/02/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -26,19 +26,6 @@ Before you start, make sure that the latest version of PowerShell is installed. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Opt in to Azure Policy
-
-Azure Policy is now available in Public Preview and you need to register to request access.
-
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
-
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   ![Opt in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 

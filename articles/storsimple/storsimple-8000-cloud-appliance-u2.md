@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
 
 ---
@@ -180,6 +180,18 @@ Perform the following steps to create a public endpoint on the cloud appliance.
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network. In this case, connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network. You do not need to append the public port number because the port is already known.
+
+## Get private IP for the cloud appliance
+
+For the cloud appliance to connect to the host server in the same virtual network, you need the internal or the private IP address of the cloud appliance. Perform the following steps to get the private IP address of the cloud appliance
+
+1. Go to the underlying virtual machine for your cloud appliance. The virtual machine has the same name as your cloud appliance. Go to **All resources**, provide the name of cloud appliance and subscription, and select type as virtual machines. In the list of virtual machines presented, select and click the virtual machine corresponding to the cloud appliance.
+
+     ![Select virtual machine for your cloud appliance](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Go to **Settings > Networking**. In the right pane, you see the private IP address of the cloud appliance. Make a note of it.
+
+    ![Get private IP address for your cloud appliance](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## Work with the StorSimple Cloud Appliance
 

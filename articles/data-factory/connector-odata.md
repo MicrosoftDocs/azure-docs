@@ -58,11 +58,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         },
@@ -79,11 +77,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
             "userName": "<username>",
@@ -105,11 +101,9 @@ The following properties are supported for OData linked service:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of on-premises OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",

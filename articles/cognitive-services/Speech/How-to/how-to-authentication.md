@@ -140,11 +140,13 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
+If you cannot get an authorization token from the token service, check whether your subscription key is still valid. If you are using a free trial key, go to the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page, click on "Log in" to login using the account that you used for applying the free trial key, and check whether the subscription key is expired or exceeds the quota.
+
 ### Use an authorization token in a request
 
 Each time you call the Speech API, you need to pass the authorization token in the `Authorization` header. The `Authorization` header must contain a JWT access token.
 
-The following example shows how to use an authorization token when you call the Speech REST API. 
+The following example shows how to use an authorization token when you call the Speech REST API.
 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).

@@ -14,10 +14,10 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: larryfr
 ---
-# Start with Apache Kafka (preview) on HDInsight
+# Start with Apache Kafka on HDInsight
 
 Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. Kafka is an open-source, distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
@@ -164,7 +164,7 @@ The output of this command lists Kafka topics, which contains the **test** topic
 
 ## Produce and consume records
 
-Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers retrieve records from Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
+Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers produce records to Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
 
 Use the following steps to store records into the test topic you created earlier, and then read them using a consumer:
 
@@ -179,7 +179,7 @@ Use the following steps to store records into the test topic you created earlier
 2. Use a script provided with Kafka to read records from the topic:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
    
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.

@@ -88,7 +88,7 @@ The specific license versions provided are as follows:
 
 ### Custom images
 
-Azure Batch allows you to provide your own custom image. Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Note that Autodesk and Chaos Group have modified Arnold and V-Ray respectively to validate against our own licensing service. You will need to ensure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. This license validation isn't required for Maya or 3ds Max as the current published versions don't require a license server when running headless (in batch/command-line mode). Please contact Azure support if you're not sure how to proceed with this option.
+Azure Batch allows you to provide your own custom image. Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Note that Autodesk and Chaos Group have modified Arnold and V-Ray respectively to validate against our own licensing service. You will need to ensure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. This license validation isn't required for Maya or 3ds Max as the current published versions don't require a license server when running headless (in batch/command-line mode). Please contact Azure support if you're not sure how to proceed with this option.
 
 ## Options for submitting a render job
 
@@ -98,7 +98,7 @@ Depending on the 3D application you use, there are various options for submittin
 
 With Maya, you can use:
 
-- [Batch plug-in for Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Batch plug-in for Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [BatchLabs](https://azure.github.io/BatchLabs) desktop application
 - [Batch Templates CLI](batch-cli-templates.md)
 
@@ -111,7 +111,7 @@ With 3ds Max, you can use:
 
 The 3ds Max Batch Labs templates allow you to render VRay and Arnold scenes using the Azure Batch Rendering Service. There are two variations of the template for VRay and Arnold, one for standard scenes and one for more complex scenes that require a 3ds Max path file to assets and textures (.mxp file). For more information on the 3ds Max Batch Labs templates, see the [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) repo on GitHub.
 
-Additionally, you can use the [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) to integrate the rendering service with your existing pipeline.
+Additionally, you can use the [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) to integrate the rendering service with your existing pipeline.
 
 
 ## Use the Batch plug-in for Maya to submit a render job
