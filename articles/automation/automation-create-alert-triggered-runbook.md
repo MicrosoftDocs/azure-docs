@@ -15,28 +15,29 @@ manager: carmonm
 
 ## Alert types
 
-Runbooks are supported actions on all three types of alerts:
+Runbooks are supported actions on all three types of alerts. The following table contains links to the payload schema for each alert:
 
+|Alert  |Description|Payload Schema  |
+|---------|---------|---------|
+|[Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification when any platform-level metric meets a specific condition (for example, CPU % on a VM is greater than 90 for the past 5 minutes).| [Payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[Acitivity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification when any new event in the Azure Activity Log matches specific conditions (for example, when a "Delete VM" operation occurs in myProductionResourceGroup or when a new Service Health event with "Active" as the status appears).| [Payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
+|[Near real time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Receive a notification faster than metric alerts when one or more platform-level metrics meet specified conditions (for example, CPU % on a VM is greater than 90 and Network In is greater than 500 MB for the past 5 minutes).| [Payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
-|Alert  |Schema  |
-|---------|---------|
-|[Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Acitivity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Near real time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    | [Payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
-
-* [Classic metric alert](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Acitivity log alert](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Near real time metric alert](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
-
-Each alert is different on how to monitors your resources, and the data provided by each alert is different and is handled differently.
+Each alert is different on how to monitors your resources, and the data provided by each alert is different and is handled differently. In the next section, you learn how to create a runbook to handle these different types of alerts.
 
 ## Create a runbook to handle alerts
 
 To use automation with alerts, you need a runbook that is able to accept the JSON payload that is passed to the webhook.
 
-The following example runbook requires that it be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM. 
+The following example runbook requires that it be called from an Azure alert. As described in the preceding section, each type of alert type has a different schema. The script takes in the webhook data from an alert and evaluates the webhook JSON to determine which alert type was used. The following example would be used on an alert from a VM. It retrieves the VM data from the payload, and uses that information to stop the VM.
 
 Take the following example and create a runbook called **Stop-AzureVmInResponsetoVMAlert** with the sample PowerShell.
+
+1. Open your Automation account.
+1. Click **Runbooks** under **PROCESS AUTOMATION**. The list of runbooks is displayed.
+1. Click the **Add a runbook** button found at the top of the list. On the **Add Runbook page**, select **Quick Create**.
+1. Enter "Stop-AzureVmInResponsetoVMAlert" for the runbook **Name**, and select **PowerShell** for **Runbook type**. Click **Create**.
+1. Copy the following PowerShell example into the edit pane. Click **Publish** to save and publish the runbook.
 
 ```powershell-interactive
 <#
@@ -158,7 +159,7 @@ else {
 
 ## Create an action group
 
-In order to use a runbook in an action group, it must have already been created in your automation account. If you want to use the example runbook created in the preceding step.
+In order to use a runbook in an action group, it must have already been created in your automation account.
 
 In the portal, select **Monitor**.
 
@@ -175,251 +176,51 @@ For this example, you create two actions, a runbook action and a notification ac
 
 ### Runbook action
 
-Under **Actions**, give the action a name.
+The following steps create a runbook action within the action group.
 
-Select **Automation Runbook** for the **Action Type**.
+1. Under **Actions**, give the action a name.
 
-Under **Details** select, **Edit Details**
+1. Select **Automation Runbook** for the **Action Type**.
 
-On the **Configure Runbook** page, select **User** under **Runbook source**.
+1. Under **Details** select, **Edit Details**
 
-Choose your **Subscription** and **Automation account**, and finally select the **Stop-AzureVmInResponsetoVMAlert** runbook.
+1. On the **Configure Runbook** page, select **User** under **Runbook source**.
 
-When done, click **OK**.
+1. Choose your **Subscription** and **Automation account**, and finally select the runbook you created in the preceding step called "Stop-AzureVmInResponsetoVMAlert".
+
+1. When done, click **OK**.
 
 ### Notification action
 
-Under **Actions**, give the action a name.
+The following steps create a notification action within the action group.
 
-Select **Email** for the **Action Type**.
+1. Under **Actions**, give the action a name.
 
-Under **Details** select, **Edit Details**
+1. Select **Email** for the **Action Type**.
 
-On the **Email** page, enter the email address to notify and click **OK**. Adding an email address as well as the runbook as an action is helpful as you are notified when the runbook is started.
+1. Under **Details** select, **Edit Details**
 
-Your action group should look like the following image:
+1. On the **Email** page, enter the email address to notify and click **OK**. Adding an email address as well as the runbook as an action is helpful as you are notified when the runbook is started. Your action group should look like the following image:
 
-![Add action group page](./media/automation-create-alert-triggered-runbook/add-action-group.png)
+   ![Add action group page](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-Click **OK** to create the action group.
+1. Click **OK** to create the action group.
 
 With the action group created, you can create activity log alerts or near real time alerts and use the action group you created.
 
 ## Classic alert
 
-Classic alerts are based on metrics and do not use action groups, but have runbook actions based on them.
+Classic alerts are based on metrics and do not use action groups, but have runbook actions based on them. To create a classic alert, use the following steps:
 
-Select **+ Add metric alert**.
+1. Select **+ Add metric alert**.
 
-Name your metric alert 'myVMCPUAlert', and provide a brief description for the alert.
+1. Name your metric alert 'myVMCPUAlert', and provide a brief description for the alert.
 
-Set the Condition for the metric alert as 'Greater than', set the Threshold as '10', and set the Period as 'Over the last 5 minutes'.
+1. Set the Condition for the metric alert as 'Greater than', set the Threshold as '10', and set the Period as 'Over the last 5 minutes'.
 
-Under **Take action**, select **Run a runbook from this alert**
+1. Under **Take action**, select **Run a runbook from this alert**
 
-On the **Configure Runbook** page, select **User** for **Runbook source**. Choose your automation account and select the **Stop-AzureVmInResponsetoVMAlert** runbook. Click **OK**, and then click **OK** again to save the alert rule.
-
-The following is an example of the JSON payload passed to the webhook for classic metric alerts.
-
-```json
-{
-    "WebhookName": "Alert1515515157799",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "condition": {
-                "metricName": "Percentage CPU",
-                "metricUnit": "Percent",
-                "metricValue": "32.5441666666667",
-                "threshold": "1",
-                "windowSize": "5",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan"
-            },
-            "resourceName": "contosovm1",
-            "resourceType": "microsoft.compute/virtualmachines",
-            "resourceRegion": "eastus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
-            "timestamp": "2018-01-09T18:06:40.4724348Z",
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/myVMCPUAlert",
-            "name": "myVMCPUAlert",
-            "description": "An alert on CPU that calls a runbook to Shutdown the VM",
-            "conditionType": "Metric",
-            "subscriptionId": "00000000-0000-0000-0000-000000000000",
-            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
-            "resourceGroupName": "ContosoVM"
-        },
-        "properties": {
-            "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary`1[[System.String, mscorlib]], Microsoft.WindowsAzure.Management.Common.Storage",
-            "automationAccountResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestAzureAuto/providers/Microsoft.Automation/automationAccounts/TestAzureAuto",
-            "automationRunbookName": "Stop-AzureVmInResponsetoVMAlert",
-            "webhookResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TestAzureAuto/providers/Microsoft.Automation/automationAccounts/TestAzureAuto/webhooks/Alert1515515157799",
-            "isGlobalRunbook": "False",
-            "isEnabled": "True"
-        }
-    },
-    "RequestHeader": {
-        "Connection": "Keep-Alive",
-        "Host": "s1events.azure-automation.net",
-        "User-Agent": "azure-insights/0.9",
-        "x-ms-request-id": "fad24ad4-8d53-4675-a9a9-033139598256"
-    }
-}
-
-```
-
-
-## Activity alert
-
-Activity alerts allow you to call an action group based on events that are found in the Azure activity logs.
-
-Navigate to your VM and select **Alert rules** under **Monitoring**.
-
-Select **+ Add acitivity log alert**.
-
-Fill out the form for the activity you want to look for. For this the start operation for a specific VM is chosen.
-
-![Add activity log alert page](./media/automation-create-alert-triggered-runbook/add-activity-log-alert.png)
-
-Under **Actions** select **Automation Runbook** for the **Action Type** and click **Edit details** to choose the runbook.
-
-Select **User** for the **Runbook source** and choose the runbook that you created earlier.
-
-Click **OK** to configure the runbook, and click **OK** to finish adding the alert. It takes a few minutes for the alert to be active. When active, navigate to **Monitor** in the left page of the portal to view activity log alerts.
-
-The following is an example of the JSON payload passed to the webhook for activity log alerts.
-
-```json
-{
-    "WebhookName": "Alert1510204804154",
-    "RequestBody": {
-        "schemaId": "Microsoft.Insights/activityLogs",
-        "data": {
-            "status": "Activated",
-            "context": {
-                "activityLog": {
-                    "authorization": {
-                        "action": "Microsoft.Compute/virtualMachines/start/action",
-                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/Win2012R2DC"
-                    },
-                    "channels": "Operation",
-                    "claims": {
-                        "aud": "https://management.core.windows.net/",
-                        "iss": "https://sts.windows.net/f9e6521b-53b4-4a64-815a-9f08aeddbf8c/",
-                        "iat": "1510265260",
-                        "nbf": "1510265260",
-                        "exp": "1510269160",
-                        "http://schemas.microsoft.com/claims/authnclassreference": "1",
-                        "aio": "ASQA2/8GAAAAAqOuBHyoRyEm/SulPrkirgOr7P3TgDAW4BadDOPTKxg=",
-                        "altsecid": "1:live.com:00034001A5977943",
-                        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
-                        "appidacr": "2",
-                        "e_exp": "262800",
-                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "csand-msft@LIVE.COM",
-                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Sanders",
-                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Chris",
-                        "groups": "506d3255-e0c4-4984-9fab-9ce0b359dd54",
-                        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
-                        "ipaddr": "131.107.174.111",
-                        "name": "Chris Sanders",
-                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "83107163-1bf7-4112-aef9-106af0a30e33",
-                        "puid": "1003000088E910E1",
-                        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "a9Df4wC1k4tSRl_6aizc53wA3lhpgv6U78SevNGWs-0",
-                        "http://schemas.microsoft.com/identity/claims/tenantid": "f9e6521b-53b4-4a64-815a-9f08aeddbf8c",
-                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#csand-msft@LIVE.COM",
-                        "uti": "XHFssrNmxkC4uD8xvmQlAA",
-                        "ver": "1.0",
-                        "wids": "62e90394-69f5-4237-9190-012177145e10"
-                    },
-                    "caller": "csand-msft@LIVE.COM",
-                    "correlationId": "582e6c32-457c-4524-b523-70bf170f2a69",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2017-11-09T22:35:52.0565988+00:00",
-                    "httpRequest": {
-                        "clientRequestId": "cc0cc932-de7d-44a9-aaeb-1133f46bc108",
-                        "clientIpAddress": "131.107.174.239",
-                        "method": "POST"
-                    },
-                    "eventDataId": "946b140c-3b64-41b2-b046-47117c5d8e54",
-                    "level": "Informational",
-                    "operationName": "Microsoft.Compute/virtualMachines/start/action",
-                    "operationId": "582e6c32-457c-4524-b523-70bf170f2a69",
-                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/Win2012R2DC",
-                    "resourceGroupName": "automationtest",
-                    "resourceProviderName": "Microsoft.Compute",
-                    "status": "Started",
-                    "subStatus": "",
-                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-                    "submissionTimestamp": "2017-11-09T22:36:09.8216757+00:00",
-                    "resourceType": "Microsoft.Compute/virtualMachines"
-                }
-            },
-            "properties": {}
-        }
-    },
-    "RequestHeader": {
-        "Connection": "Keep-Alive",
-        "Expect": "100-continue",
-        "Host": "s1events.azure-automation.net",
-        "User-Agent": "IcMBroadcaster/1.0",
-        "X-CorrelationContext": "RkkKACgAAAACAAAAEAAIOa18KivnSZWavGFEr0yMAQAQAO7R1SdBMQZAgDlliAIWpFo=",
-        "x-ms-request-id": "4da979ca-941f-4683-8f0f-9305ecf69ea4"
-    }
-}
-```
-
-## Near real-time metric alert
-
-The following is an example of the JSON payload passed to the webhook for near real time metric alerts.
-
-```json
-{
-    "WebhookName": "Alert1510875839452",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "condition": {
-                "metricName": "Percentage CPU",
-                "metricUnit": "Percent",
-                "metricValue": "17.7654545454545",
-                "threshold": "1",
-                "windowSize": "10",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan"
-            },
-            "resourceName": "win2012r2dc",
-            "resourceType": "microsoft.compute/virtualmachines",
-            "resourceRegion": "westus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/Win2012R2DC",
-            "timestamp": "2017-11-16T23:54:03.9517451Z",
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/microsoft.insights/alertrules/VMMetricAlert1",
-            "name": "VMMetricAlert1",
-            "description": "A metric alert for the VM Win2012R2",
-            "conditionType": "Metric",
-            "subscriptionId": "00000000-0000-0000-0000-000000000000",
-            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/Win2012R2DC",
-            "resourceGroupName": "automationtest"
-        },
-        "properties": {
-            "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary`1[[System.String, mscorlib]], Microsoft.WindowsAzure.Management.Common.Storage",
-            "automationAccountResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HybridWinRG/providers/Microsoft.Automation/automationAccounts/AutomationTestEUS2",
-            "automationRunbookName": "Get-MetricAlertData",
-            "webhookResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HybridWinRG/providers/Microsoft.Automation/automationAccounts/AutomationTestEUS2/webhooks/Alert1510875839452",
-            "isGlobalRunbook": "False",
-            "isEnabled": "True"
-        }
-    },
-    "RequestHeader": {
-        "Connection": "Keep-Alive",
-        "Host": "s1events.azure-automation.net",
-        "User-Agent": "azure-insights/0.9",
-        "x-ms-request-id": "42ead714-5be5-42db-b510-ef927a6f1082"
-    }
-}
-```
+1. On the **Configure Runbook** page, select **User** for **Runbook source**. Choose your automation account and select the **Stop-AzureVmInResponsetoVMAlert** runbook. Click **OK**, and then click **OK** again to save the alert rule.
 
 ## Next steps
 
