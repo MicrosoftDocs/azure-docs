@@ -41,6 +41,6 @@ You can choose to deploy Azure Stack either connected to the internet (and to Az
 
 After you've decided on the Azure connection model to be used for Azure Stack deployment, additional, connection-dependent decisions must be made for the identity store and billing method. 
 
-## Learn more
+## Next steps
 - Learn more about [Azure connected Azure Stack deployment decisions](azure-stack-connected-deployment)
 - Learn more about [Azure disconnected Azure Stack deployment decisions](azure-stack-disconnected-deployment.md)

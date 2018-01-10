@@ -37,7 +37,7 @@ Before registering Azure Stack with Azure, you must have:
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
 
-## Register Azure Stack with Azure in connected environments
+## Register Azure Stack connected environments
 
 ### Register Azure Stack resource provider
 Use these steps to register the Azure Stack resource provider with Azure:
@@ -103,10 +103,10 @@ If you see a list of items available from Azure (such as WordPress), your activa
 > [!NOTE]
 > After registration is complete, the active warning for not registering will no longer appear.
 
-## Disconnected registration
+## Register Azure Stack in disconnected environments 
 *The information in this section applies beginning with the Azure Stack 1712 update version (180106.1) and is not supported with earlier versions.*
 
-If you are registering Azure Stack in a disconnected environment, you need to get a registration token from the Azure Stack environment and then use that token on a machine that can connect to Azure for registration.  
+If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a machine that can connect to Azure to complete the registration process.  
 
 ### Get a registration token from the Azure Stack environment
   1. To get the registration token, run the following:  
