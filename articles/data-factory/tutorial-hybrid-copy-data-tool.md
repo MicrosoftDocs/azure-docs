@@ -235,4 +235,4 @@ For a list of data stores that are supported by Data Factory, see [supported dat
 To learn about copying data in bulk from a source to a destination, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Copy data in bulk](tutorial-bulk-copy.md)
+>[Copy data in bulk](tutorial-bulk-copy-portal.md)

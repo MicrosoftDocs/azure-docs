@@ -192,4 +192,4 @@ The pipeline in this sample copies data from an Azure blob storage to an Azure S
 Advance to the following tutorial to learn about copying data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
->[Copy data from on-premises to cloud](tutorial-hybrid-copy-powershell.md)
+>[Copy data from on-premises to cloud](tutorial-hybrid-copy-data-tool.md)

@@ -43,14 +43,14 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 
 #### Create a source blob
 
-1. Launch Notepad. Copy the following text and save it as **inputEmp.txt** file on your disk.
+1. Launch Notepad. Copy the following text and save it as **emp.txt** file on your disk.
 
 	```
-    John|Doe
-    Jane|Doe
+    John,Doe
+    Jane,Doe
 	```
 
-2. Create a container named **adfv2tutorial** in your Azure blob storage. Create a folder named **input** in this container. Then, upload the **inputEmp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](http://storageexplorer.com/) to do these tasks.
+2. Create a container named **adftutorial** in your Azure blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](http://storageexplorer.com/) to do these tasks.
 
 #### Create a sink SQL table
 
@@ -118,7 +118,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 1. In the get started page, click **Create Pipeline** tile (or) click **Edit** tab on the left. 
 
    ![Create pipeline tile](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. Click **+ (plus)**, and click **Pipeline**. 
+2. Click **+ (plus)**, and click **Pipeline**. You see a new tab in the edit titled **pipeline1**. You also see the pipeline in the treeview in the left pane. 
 
    ![New pipeline menu](./media/tutorial-copy-data-portal/new-pipeline-menu.png)
 3. In the **Properties** window for the pipeline, set the **name** of the pipeline to **CopyPipeline**.
@@ -159,10 +159,10 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 13. Click **Browse** for the **File path** field.  
 
     ![Browse button for file](./media/tutorial-copy-data-portal/file-browse-button.png)
-14. Navigate to the **adfv2tutorial/input** folder, and select **inputEmp.txt** file.
+14. Navigate to the **adftutorial/input** folder, select **emp.txt** file, and click **Finish**. Alternatively, you can double-click emp.txt. 
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe (|)** character as the **column delimiter**. You can preview data on this page by clicking **Preview data**.
+15. Confirm that the **File format** is set to **Text format** and **column delimiter** is set to **Comma (,)**. If the source file uses different row and column delimites, you can click **Detect Text Format** for the **File format** field. The Copy Data tool detects the file format and delimiters automatically for you. You can still override these values. You can preview data on this page by clicking **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
 17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. You are importing the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you may skip this step. For this tutorial, import the schema.
@@ -281,9 +281,17 @@ You can test run a pipeline before publishing artifacts (linked services, datase
 2. Verify that the data from the source file is inserted into the destination SQL database. 
 
     ![Verify SQL output](./media/tutorial-copy-data-portal/verify-sql-output.png)
+3. Click **Publish** in the left pane. This action publishes entities (linked services, datasets, and pipelines) you created to Azure Data Factory.
+
+    ![Publish button](./media/tutorial-copy-data-portal/publish-button.png)
+4. Wait until you see the **Successfully published** message. To see notification messages , click **Show Notifications** tab on the left sidebar. Close the notifications window by clicking **X**.
+
+    ![Show notifications](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## Configure code repository
 You can publish the code associated with your data factory artifacts to a Visual Studio Team System (VSTS) code repository. In this step, you create the code repository. 
+
+If you don't want to work with the VSTS code repository, you can skip this step, and continue publishing to Data Factory as you did in the previous step. 
 
 1. Click **Data Factory** in the left corner (or) the down arrow next to it, and click **Configure Code Repository**. 
 
@@ -321,7 +329,7 @@ You can publish the code associated with your data factory artifacts to a Visual
 9. In the Sync your changes window, do the following actions: 
 
     1. Confirm that **CopyPipeline** is shown in the updated pipelines list.
-    2. Confirm that **Publish changes after sync** is selected. If you uncheck this option, you only sync your changes in your branch with the master branch, but don't publish them to the Data Factory service. You can publish them later by using the Publish button. If you check this option, the changes are synced to the master first and then they are published to the Data Factory service.
+    2. Confirm that **Publish changes after sync** is selected. If you uncheck this option, you only sync your changes in your branch with the master branch, but don't publish them to the Data Factory service. You can publish them later by using the **Publish** button. If you check this option, the changes are synced to the master first and then they are published to the Data Factory service.
     3. Click **Sync**. 
 
     ![Sync your changes window](./media/tutorial-copy-data-portal/sync-your-changes.png)
@@ -361,11 +369,15 @@ In this schedule, you create a scheduler trigger for the pipeline. The trigger r
     1. Set the **name** to **RunEveryMinute**.
     2. Select **On Date** for **End**. 
     3. Click the drop-down list for **End On**.
-    4. Update the minutes part so that the trigger runs for a few times.
-    5. Click **Apply**.
-    6. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
+    4. Select the **current day**. By default, the end day is set to the next day. 
+    5. Update the **minutes** part to be a few minutes past the current datetime. The trigger is acvivated only after you publish the changes. Therefore, if you set it to only a couple of minutes apart and you don't publish it by then, you do not see a trigger run.  
+    6. Click **Apply**.
+    7. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
 
     ![Set trigger properties](./media/tutorial-copy-data-portal/set-trigger-properties.png)
+
+    > [!IMPORTANT]
+    > There is a cost associated with each pipeline run. Therefore, set the end date appropriately. 
 
 1. Click **Next**. Notice that the trigger is activated.  
 
