@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: hero-article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: spelluru
 ---
 # Provision an Azure-SSIS (SQL Server Integration Services) integration runtime by using the Azure portal
@@ -151,4 +151,4 @@ In this tutorial, you learned how to:
 Advance to the following tutorial to learn about coping data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
->[Copy data in cloud](tutorial-copy-data-dot-net.md)
+>[Copy data in cloud](tutorial-copy-data-portal.md)
