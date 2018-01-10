@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Send and receive messages from a queue using PowerShell
+# Send and receive messages using PowerShell
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates.
 
