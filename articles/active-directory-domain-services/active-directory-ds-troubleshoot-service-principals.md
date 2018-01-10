@@ -17,28 +17,29 @@ ms.date: 01/10/2018
 ms.author: ergreenl
 
 ---
-# Azure AD Domain Services - Troubleshooting Service Principal Configuration
+# Azure AD Domain Services - Troubleshooting Service Principal configuration
 
 To service, manage, and update your domain, Microsoft uses various [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects) to communicate with your tenant. If one is misconfigured or deleted, it can cause a disruption in your service.
 
 ## AADDS102: Service principal not found
 
-**Message:** *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
+**Alert Message:**
+*A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
 Service principals are applications that Microsoft uses to manage, update, and maintain your managed domain. If they are deleted, it breaks Microsoft's ability to service your domain. Use the preceding steps to determine which service principals need to be recreated.
 
 1. Navigate to the [Enterprise Applications - All Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) page in the Azure portal.
 2. Using the Show dropdown, select **All Applications** and click **Apply**.
-3. Using the preceding table, search for each application ID by pasting the ID into the search box and pressing enter. If the search results are empty, you must recreate the service principal by following the steps in the "resolution" column. 
+3. Using the preceding table, search for each application ID by pasting the ID into the search box and pressing enter. If the search results are empty, you must recreate the service principal by following the steps in the "resolution" column.
 
 | Application ID | Resolution |
 | :--- | :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recreating a Missing Service Principal with PowerShell](#recreating-a-missing-service-principal-with-powershell) |
-| 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register to the Microsoft.AAD namespace](#Re-register-to-the-Microsoft.AAD-namespace-using-the-Azure-portal) |
-| abba844e-bc0e-44b0-947a-dc74e5d09022  | [Re-register to the Microsoft.AAD namespace](#Re-register-to-the-Microsoft.AAD-namespace-using-the-Azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Service Principals that Self Correct](#Service Principals that Self Correct) |
+| 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register to the Microsoft.AAD namespace](#reregister-to-the-Microsoft.AAD-namespace-using-the-Azure-portal) |
+| abba844e-bc0e-44b0-947a-dc74e5d09022  | [Re-register to the Microsoft.AAD namespace](#reregister-to-the-Microsoft.AAD-namespace-using-the-Azure-portal) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Service Principals that Self Correct](#Service-Principals-that-Self-Correct) |
 
-### Recreating a Missing Service Principal with PowerShell
+### Recreating a missing Service Principal with PowerShell
 
 *For IDs: 2565bd9d-da50-47d4-8b85-4c97f669dc36*
 

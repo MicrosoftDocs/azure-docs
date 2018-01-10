@@ -4,7 +4,7 @@ description: Troubleshooting Secure LDAP for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: 
+manager:
 editor:
 
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
@@ -21,9 +21,7 @@ ms.author: ergreenl
 
 This article provides resolutions for common issues when [configuring secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) for Azure AD Domain Services.
 
-## Secure LDAP Network Security Group Configuration
-
-**Alert ID:** AADDS101
+## AADDS101: Secure LDAP Network Security Group Configuration
 
 **Alert message:**
 

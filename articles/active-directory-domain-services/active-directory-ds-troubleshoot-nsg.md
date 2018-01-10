@@ -23,7 +23,8 @@ ms.author: ergreenl
 
 ## AADDS104: Network error
 
-**Message:** *We are unable to reach the domain controllers for this domain. This may happen if a network security group (NSG) configured on your virtual network blocks us from access to the managed domain. Another possible reason for your domain to be unreachable is if there is a user defined route that blocks incoming traffic from the internet.*
+**Alert Message:**
+ *We are unable to reach the domain controllers for this domain. This may happen if a network security group (NSG) configured on your virtual network blocks us from access to the managed domain. Another possible reason for your domain to be unreachable is if there is a user defined route that blocks incoming traffic from the internet.*
 
 The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
 
@@ -35,7 +36,7 @@ Preceding are steps you can use to create an NSG using PowerShell that keeps all
 2.
 
 
-> [!NOTE] This default NSG does not lock down access to the port used for Secure LDAP. To find out how to create a rule for this port, visit [this article](active-directory-ds-troubleshooting-ldaps.md).
+> [!NOTE] This default NSG does not lock down access to the port used for Secure LDAP. To find out how to create a rule for this port, visit [this article](active-directory-ds-troubleshoot-ldaps.md).
 
 
 ### Adding a rule to a Network Security group using the Azure portal

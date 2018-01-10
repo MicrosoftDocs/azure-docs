@@ -21,9 +21,9 @@ ms.author: ergreenl
 This article provides troubleshooting guides for any alerts you may experience on your managed domain.
 
 
-Pick the troubleshooting steps that correspond to the error message or alert ID you encounter.
+Pick the troubleshooting steps that correspond to or alert ID or message you encounter.
 
-| **Alert ID** | **Error Message** | **Resolution** |
+| **Alert ID** | **Alert Message** | **Resolution** |
 | --- | --- | :--- |
 | AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Incorrect secure LDAP configuration](active-directory-ds-troubleshoot-ldaps.md) |
 | AADDS100 | *Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original directory this subscription was associated with.* | [Missing tenant](#aadds100-missing-tenant) |
@@ -33,7 +33,7 @@ Pick the troubleshooting steps that correspond to the error message or alert ID 
 | AADDS104 | *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This error is usually caused by an incorrect NSG configuration.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
 
 ### AADDS100: Missing tenant
-**Error message:**
+**Alert Message:**
 
 *Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original directory this subscription was associated with.*
 
@@ -42,7 +42,7 @@ Pick the troubleshooting steps that correspond to the error message or alert ID 
 This is an unrecoverable error. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md). If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](active-directory-ds-contact-us.md).
 
 ### AADDS101: Azure B2C is enabled on the tenant
-**Error message:**
+**Alert Message:**
 
 *Azure AD Domain Services and Azure AD B2C cannot be enabled concurrently in the same Azure AD Directory. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.*
 
@@ -59,7 +59,7 @@ To restore your service, follow these steps:
 
 ### AADDS103: Address is in a public IP range
 
-**Error message:**
+**Alert Message:**
 
 *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
