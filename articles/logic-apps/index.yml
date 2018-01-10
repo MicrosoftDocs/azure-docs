@@ -25,7 +25,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
+      text: Azure portal
       href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
 - title: Step-by-step Tutorials
   items:
