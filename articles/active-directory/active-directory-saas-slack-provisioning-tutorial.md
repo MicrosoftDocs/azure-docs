@@ -107,6 +107,7 @@ Optionally, you can enable the provisioning of group objects from Azure AD to Sl
 
 This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on your Slack app.
 
+<<Need to specify what groups are allowed to provision into Slack i.e. Security, mail-enabled security, Distro list, Office 365 group>>
 
 ## Additional Resources
 
