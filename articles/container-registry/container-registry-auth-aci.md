@@ -21,8 +21,16 @@ In this article, you learn to create and configure an Azure AD service principal
 
 ## Authenticate using the service principal
 
+To launch a container in Azure Container Instances using a service principal, specify its ID for `--registry-username`, and its password for `--registry-password`.
+
 ```azurecli
-az container create blah
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainer \
+    --image mycontainerregistry.azurecr.io \
+    --registry-login-server myregistry.com \
+    --registry-username <service-principal-ID> \
+    --registry-password  <service-principal-password>
 ```
 
 ## Next steps

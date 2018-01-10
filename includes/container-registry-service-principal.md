@@ -1,6 +1,6 @@
 ## Service principal
 
-Azure Active Directory *service principals* provide access to Azure resources within your subscription. Think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources.
+Azure Active Directory *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs access to the resources.
 
 You can configure a service principal with access rights scoped only to those resources you specify. Then, you can configure your application or service to use the service principal's credentials to access those resources.
 
@@ -8,7 +8,7 @@ You can configure a service principal with access rights scoped only to those re
 
 In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or owner permissions to your private Docker registry in Azure.
 
-You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the last command to specify different permissions. By default, the script configures the service principal for both *push* and *pull* permissions.
+You can use the following script to create a service principal with access to your container registry. Update the `ACR_NAME` variable with the name of your container registry, and optionally the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to specify different permissions. By default, the script configures the service principal for both *push* and *pull* permissions.
 
 ```bash
 #!/bin/bash
@@ -19,20 +19,17 @@ You can use the following script to create a service principal with access to yo
 ACR_NAME=myregistryname
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
-# Available role assignments for the service principal, and the permissions they
-# provide to the registry.
-PUSH_AND_PULL=contributor
-PULL_ONLY=reader
-OWNER=owner
-
 # Populate some values required for subsequent command args
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
 # Create the service principal with rights scoped to the registry.
 # Default permissions are for both docker push and pull access. Modify the
-# '--role' argument value as desired.
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role $PUSH_AND_PULL --scopes $ACR_REGISTRY_ID --query password --output tsv)
+# '--role' argument value as desired:
+# reader:      pull only
+# contributor: push and pull
+# owner:       push, pull, and assign roles
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role contributor --scopes $ACR_REGISTRY_ID --query password --output tsv)
 SP_APP_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 
 # Output the service principal's credentials; use these in your services and
@@ -41,4 +38,7 @@ echo "Service principal ID: $SP_APP_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Now that you have the service principal's credentials, you can use them in your applications and services to interact with your container registry.
+After you run the script, take note of the service principal's **ID** and **password**. Now that you have its credentials, you can configure your applications and services to authenticate to your container registry as the service principal.
+
+<!-- LINKS - Internal -->
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
