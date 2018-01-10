@@ -36,15 +36,11 @@ To complete this quickstart:
 
 In this section, you use the portal UI to add a queue storage output binding to the function you created earlier. This binding will make it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
-1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
-
-   To open the function app starting from the Azure portal dashboard, select **More services > Function Apps**, and then select your function app.
+1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, select **More services > Function Apps**, and then select your function app.
 
 2. Select the function that you created in that earlier quickstart.
 
-1. Select **Integrate**.
-
-1. Select **+ New output**, and then select **Azure Queue storage**.
+1. Select **Integrate > New output > Azure Queue storage**.
 
 1. Click **Select**.
     
@@ -103,7 +99,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Notice that the **Request body** contains the `name` value *Azure*. This value will appear in the queue message that is created when the function is invoked.
+   Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
 
    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
@@ -133,9 +129,7 @@ Skip this section if you have already installed Storage Explorer and connected i
  
 1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
   
-3. Select **Next**.
-
-4. Select **Connect**. 
+3. Select **Next > Connect**.
 
    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
