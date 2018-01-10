@@ -4,7 +4,7 @@ description: Learn how to use Multi-Factored Authentication with SSMS for SQL Da
 services: sql-database
 documentationcenter: ''
 author: GithubMirek
-manager: jhubjohammerbard
+manager: johammer
 editor: ''
 tags: ''
 
