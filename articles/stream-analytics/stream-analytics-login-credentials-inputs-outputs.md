@@ -4,7 +4,7 @@ description: Learn how to update the credentials for Stream Analytics inputs and
 keywords: login credentials
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
+ms.date: 01/09/2018
+ms.author: sngun
 
 ---
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs
+
 ## Abstract
 Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running.
 
 While Azure Stream Analytics does support resuming a job from last output, we wanted to share the entire process for minimizing the lag between the stopping and starting of the job and rotating the login credentials.
 
-## Part 1 - Prepare the new set of credentials:
+## Prepare the new credentials:
 This part is applicable to the following inputs/outputs:
 
 * Blob Storage
@@ -32,42 +33,20 @@ This part is applicable to the following inputs/outputs:
 * SQL Database
 * Table Storage
 
-For other inputs/outputs, proceed with Part 2.
+For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-stopping-the-stream-analytics-job) section.
 
 ### Blob storage/Table storage
-1. Go to the Storage extention on the Azure Management portal:  
-   ![graphic1][graphic1]
-2. Locate the storage used by your job and go into it:  
-   ![graphic2][graphic2]
-3. Click the Manage Access Keys command:  
-   ![graphic3][graphic3]
-4. Between the Primary Access Key and the Secondary Access Key, **pick the one not used by your job**.
-5. Hit regenerate:  
-   ![graphic4][graphic4]
-6. Copy the newly generated key:  
-   ![graphic5][graphic5]
-7. Continue to Part 2.
+
+1. Sign in to the Azure portal > browse the storage account that you used as input/output for the Stream Analytics job.  
+2. From the Settings section, open **Access keys**. Between the two default keys (key1, key2), pick the one that is not used by your job and regenerate it:  
+   ![Regenerate keys for storage account][.\media\stream-analytics-login-credentials-inputs-outputs\image1.png]
+3. Copy the newly generated key and continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.
 
 ### Event hubs
-1. Go to the Service Bus extension on the Azure Management portal:  
-   ![graphic6][graphic6]
-2. Locate the Service Bus Namespace used by your job and go into it:  
-   ![graphic7][graphic7]
-3. If your job uses a shared access policy on the Service Bus Namespace, jump to step 6  
-4. Go to the Event Hubs tab:  
-   ![graphic8][graphic8]
-5. Locate the Event Hub used by your job and go into it:  
-   ![graphic9][graphic9]
-6. Go to the Configure Tab:  
-   ![graphic10][graphic10]
-7. On the Policy Name drop-down, locate the shared access policy used by your job:  
-   ![graphic11][graphic11]
-8. Between the Primary Key and the Secondary Key, **pick the one not used by your job**.  
-9. Hit regenerate:  
-   ![graphic12][graphic12]
-10. Copy the newly generated key:  
-   ![graphic13][graphic13]
-11. Continue to Part 2.  
+1. Sign in to the Azure portal > browse the Event Hub that you used as input/output for the Stream Analytics job.  
+2. From the Settings section, open **Shared access policies** and select the required access policy. Between the Primary Key and the Secondary Key, pick the one that is not used by your job and regenerate it:
+   ![Regenerate keys for Event Hub][.\media\stream-analytics-login-credentials-inputs-outputs\image2.png]
+3. Copy the newly generated key and continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.  
 
 ### SQL Database
 > [!NOTE]
@@ -106,7 +85,7 @@ For other inputs/outputs, proceed with Part 2.
 15. You should now provide your new user with the same roles and privileges your original user had.
 16. Continue to Part 2.
 
-## Part 2: Stopping the Stream Analytics Job
+## Stopping the Stream Analytics Job
 1. Go to the Stream Analytics extension on the Azure Management portal:  
    ![graphic26][graphic26]
 2. Locate your job and go into it:  
