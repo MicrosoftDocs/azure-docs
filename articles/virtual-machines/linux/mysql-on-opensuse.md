@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 01/10/2018
 ms.author: cynthn
 
 ---
@@ -23,11 +23,9 @@ ms.author: cynthn
 [MySQL](http://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
 
 
-<br>
-
 ## Create a virtual machine running OpenSUSE Linux
 
-First, we need to create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the **East US** region.
+First, create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the **East US** region.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
@@ -36,10 +34,10 @@ az group create --name mySQLSUSEResourceGroup --location eastus
 Create the VM. In this example, we are naming the VM *myVM*. We are also going to use a VM size *Standard_D2s_v3*, but you should choose the [VM size](sizes.md) you think is most appropriate for your workload.
 
 ```azurecli-interactive
-az vm create --resource-group mySQSUSEResourceGroup \
+az vm create --resource-group mySQLSUSEResourceGroup \
    --name myVM \
    --image openSUSE-Leap \
-   --size Standard_D2s_v3
+   --size Standard_D2s_v3 \
    --generate-ssh-keys
 ```
 
