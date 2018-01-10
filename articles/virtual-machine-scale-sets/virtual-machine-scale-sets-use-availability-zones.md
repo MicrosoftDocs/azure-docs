@@ -65,6 +65,7 @@ az vmss create \
     --generate-ssh-keys \
     --zones 1
 ```
+For a complete example of a zonal scale set and network resources, see
 
 To create a zone-redundant scale set, specify multiple zones with the `--zones` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across zones *1,2,3*:
 
@@ -79,7 +80,7 @@ az vmss create \
     --zones {1,2,3}
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify.
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redunant scale set and network resources, see
 
 
 ## Use Azure PowerShell
@@ -96,7 +97,9 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Zone "1"
 ```
 
-To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set config named *myScaleSet* across *East US 2* zones *1,2,3*:
+For a complete example of a zonal scale set and network resources, see
+
+To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set config named *myScaleSet* across *East US 2* zones *1, 2, 3*:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
@@ -104,10 +107,10 @@ $vmssConfig = New-AzureRmVmssConfig `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
-    -Zone "1,2,3"
+    -Zone "1", "2", "3"
 ```
 
-To create the actual scale set, follow the additional steps as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md).
+If you create a public IP address with New-AzureRmPublicIpAddress or a load balancer with New-AzureRmLoadBalancer, specify the *-SKU "Standard* to also create zone-redundant network resources. For a complete example of a zone-redunant scale set and network resources, see
 
 
 ## Use Azure Resource Manager templates
@@ -168,7 +171,6 @@ To create a zone-redundant scale set, specify multiple values in the `zones` pro
       ]
 }
 ```
-
 
 To create the actual scale set, follow the additional steps as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md)
 
