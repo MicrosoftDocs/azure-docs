@@ -15,9 +15,9 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
+# Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
 
-In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using **_enrollment lists_**. This tutorial shows you how to:
+In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using both **_Individual Enrollment_** and **_Enrollment Groups_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Enroll the device
@@ -30,6 +30,11 @@ Before you proceed, make sure to configure your device and its *Hardware Securit
 
 * Visual Studio 2015 or Visual Studio 2017
 
+> [!NOTE]
+> Visual Studio is not required. The installation of [.NET](https://www.microsoft.com/net) is sufficient and developers can use their preferred editor on Windows or Linux.  
+
+This tutorial simulates the period during or right after the hardware manufacturing process, when device information is added to the provisioning service. This code is usually run on a PC or a factory device that can run .NET code and should not be added to the devices themselves.
+
 
 ## Enroll the device
 
@@ -40,14 +45,17 @@ This step involves adding the device's unique security artifacts to the Device P
     - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For TPM-based devices, the registration ID may be derived from the TPM itself, for example, an SHA-256 hash of the TPM Endorsement Key.
 
 - For X.509 based devices:
-    - The [certificate issued to the X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip or simulation, in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *signer certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate*.
+    - The [X.509 certificate issued to the device](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *leaf certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate* or an equivalent *signer certificate*.
 
 There are two ways to enroll the device to the Device Provisioning Service:
 
 - **Individual Enrollments**
-    This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices, which require unique initial configurations, or for devices that can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
+    This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either X.509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices, which require unique initial configurations, or for devices that can only use SAS tokens via TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
 
-The following are the steps to enroll the device in the portal using **Individual Enrollments**:
+- **Enrollment Groups**
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. Enrollment groups are X.509 only and all share a signing certificate in their X.509 certificate chain.
+
+The following are the steps to enroll the device using **Individual Enrollments**:
 
 1. In Visual Studio, create a Visual C# Console Application project by using the **Console App** project template. Name the project **DeviceProvisioning**.
     
@@ -131,13 +139,10 @@ When the device is successfully enrolled, you should see it displayed in the por
 
    ![Successful enrollment in the portal](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
 
-- **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
+The following are the steps to enroll the device using **Enrollment Groups**:
 
 > [!NOTE]
-> This enrollment group sample requires an X509 certificate and corresponding password.
-
-The following are the steps to enroll the device in the portal using **Enrollment Groups**:
+> The enrollment group sample requires an X.509 certificate.
 
 1. In the Visual Studio Solution Explorer, open the **DeviceProvisioning** project created above. 
 
@@ -216,10 +221,10 @@ The following are the steps to enroll the device in the portal using **Enrollmen
 
 At this point, the following setup is ready for device registration:
 
-1. Your device or group of devices are enrolled to your Device Provisioning service, and 
-2. Your device is ready with the HSM chip configured and accessible through the application using the Device Provisioning Service client SDK.
+1. Your device or group of devices are enrolled to your Device Provisioning Service, and 
+2. Your device is ready with the security configured and accessible through the application using the Device Provisioning Service client SDK.
 
-Start the device to allow your client application to start the registration with your Device Provisioning service.  
+Start the device to allow your client application to start the registration with your Device Provisioning Service.  
 
 
 ## Verify the device is registered
