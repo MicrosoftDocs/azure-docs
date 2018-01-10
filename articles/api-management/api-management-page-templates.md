@@ -105,16 +105,16 @@ Azure API Management provides you the ability to customize the content of develo
   
 ```json  
 {
-                "Email": null,
-                "Password": null,
-                "ReturnUrl": null,
-                "RememberMe": false,
-                "RegistrationEnabled": true,
-                "DelegationEnabled": false,
-                "DelegationUrl": null,
-                "SsoSignUpUrl": null,
-                "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
-                "Providers": [  
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
+    "Providers": [  
         {  
             "Properties": {  
                 "AuthenticationType": "Aad",  
@@ -123,9 +123,9 @@ Azure API Management provides you the ability to customize the content of develo
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],
-                "UserRegistrationTerms": null,
-                "UserRegistrationTermsEnabled": false
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
 }
 ```  
   
