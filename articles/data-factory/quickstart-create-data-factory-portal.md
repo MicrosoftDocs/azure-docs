@@ -131,7 +131,7 @@ In this step, you create and validate a pipeline with a **Copy** activity that u
 2. Specify **CopyPipeline** for **Name** in the **Properties** window. 
 
     ![Pipeline general settings](./media/quickstart-create-data-factory-portal/pipeline-general-settings.png)
-3. Drag-and-drop the **Copy** activity from the toolbox to the pipeline designer surface. Specify **CopyFromBlobToBlob** for the **name**.
+3. Drag-and-drop the **Copy** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for the **name**.
 
     ![Copy activity general settings](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 4. Switch to the **Source** tab in the copy activity settings, and select **InputDataset** for the **source dataset**.
