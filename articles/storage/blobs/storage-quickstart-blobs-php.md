@@ -16,9 +16,6 @@ ms.author: v-rogara
 #  Transfer objects to/from Azure Blob storage using PHP
 In this quickstart, you learn how to use PHP to upload, download, and list block blobs in a container in Azure Blob storage. 
 
-
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
-
 ## Prerequisites
 
 To complete this quickstart: 
