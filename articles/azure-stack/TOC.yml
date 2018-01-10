@@ -75,10 +75,6 @@
       href: azure-stack-registration.md
     - name: Deployment planning worksheet
       href: azure-stack-deployment-worksheet.md
-      - name: Customer requirements planning
-        href: azure-stack-deployment-worksheet-customer
-      - name: Environment integration planning
-        href: azure-stack-deployment-worksheet-environment
   - name: Datacenter integration
     items:
     - name: DNS
