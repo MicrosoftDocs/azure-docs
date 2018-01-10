@@ -2,9 +2,9 @@
 ## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
 
 # Quickstarts
-## [Send and receive messages using PowerShell](service-bus-quickstart-powershell.md)
-## [Send and receive messages using Azure portal](service-bus-quickstart-portal.md)
-## [Send and receive messages using Azure CLI](service-bus-quickstart-cli.md)
+## [Use PowerShell](service-bus-quickstart-powershell.md)
+## [Use the Azure portal](service-bus-quickstart-portal.md)
+## [Use Azure CLI](service-bus-quickstart-cli.md)
 
 # Tutorials
 ## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)

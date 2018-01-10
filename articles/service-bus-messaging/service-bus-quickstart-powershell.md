@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - use PowerShell to send and receive messages from Azure Service Bus | Microsoft Docs
-description: Quickly learn to send and receive Service Bus messages
+description: Quickly learn to send and receive Service Bus messages using PowerShell
 services: service-bus-messaging
 documentationcenter: ''
 author: sethmanheim
@@ -13,14 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/09/2018
 ms.author: sethm
 
 ---
 
-# Send and receive messages from a queue
+# Send and receive messages using PowerShell
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. This quickstart describes how to send and receive messages with Service Bus, using PowerShell to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates.
+
+![service-bus-flow][service-bus-flow] 
+
+This quickstart describes how to send and receive messages with Service Bus, using PowerShell to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
@@ -123,3 +127,4 @@ In this article, you created a Service Bus namespace and other resources require
 [Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[service-bus-flow]: ./media/service-bus-quickstart-powershell/service-bus-flow.png

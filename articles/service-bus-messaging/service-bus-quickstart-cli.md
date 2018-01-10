@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - use PowerShell to send and receive messages from Azure Service Bus | Microsoft Docs
+title: Azure Quickstart - use Azure CLI to send and receive messages from Azure Service Bus | Microsoft Docs
 description: Quickly learn to send and receive Service Bus messages
 services: service-bus-messaging
 documentationcenter: ''
@@ -13,81 +13,65 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/09/2018
 ms.author: sethm
 
 ---
 
-# Send and receive messages from a queue
+# Send and receive messages using Azure CLI
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. This quickstart describes how to send and receive messages with Service Bus, using PowerShell to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario might involve decoupling two or more applications from each other, and transferring order fulfillment information between those two applications. For example, a retail company might send their point of sale (POS) data to a back office or regional distribution center for replenishment and inventory updates.  
+
+![service-bus-flow][service-bus-flow]
+
+This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
-This quickstart requires the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+## Launch Azure Cloud Shell
 
-## Log in to Azure
+Azure Cloud Shell is a free Bash shell that you can run directly from within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. Click **Cloud Shell** on the upper right menu in the Azure portal.
 
-Log in to your Azure subscription with the **Login-AzureRmAccount** cmdlet and follow the on-screen directions:
+![][1]
 
-```powershell
-Login-AzureRmAccount
-```
+This option launches an interactive shell that you can use to run the steps in this article.
 
-## Install Service Bus PowerShell module
+![][2]
 
-First, install the current version of the Service Bus PowerShell module, as follows:
-
-```powershell
-Install-Module AzureRM.ServiceBus
-```
-
-## Set the current Azure subscription
-
-Decide which Azure subscription you want to use, then set the current Azure subscription context by running the following command:
-
-```powershell
-Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
-```
-
-You can optionally check to see that you've set the correct context by running the following command:
-
-```powershell
-Get-AzureRmContext
-``` 
+If you choose to install and use the CLI locally, this article requires that you run the latest version of Azure CLI (2.0.14 or later). To find the version, run the `cli az –version` command. If you need to install or upgrade, see [Install Azure CLI 2.0][].
 
 ## Create a resource group
 
-A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group.
+A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Create a new resource group with [az group create][] command.
 
-Create a new resource group by using the **New-AzureRmResourceGroup** cmdlet. For example:
+The following example creates a resource group named **serviceBusResourceGroup** in the **East US** region
 
-```powershell
-New-AzureRmResourceGroup –Name <resource_group_name> –Location westus2
+```azurecli-interactive
+az group create --name serviceBusResourceGroup --location eastus
 ```
 
 ## Create a Service Bus namespace
 
 A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
 
-```powershell
-New-AzureRmServiceBusNamespace -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Location westus2
+```azurecli-interactive
+az servicebus namespace create --name <namespace_name> -location eastus
 ```
 
 ## Create a queue
 
-To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue with [partitioning enabled](service-bus-partitioning.md):
+To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue:
 
-```powershell
-New-AzureRmServiceBusQueue -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Name <queue_name> -EnablePartitioning $True
+```azurecli-interactive
+az servicebus entity create --name <queue_name> -location eastus
 ```
 
 ## Get the connection string
 
-You need the namespace-level connection string in order to perform operations on the messaging entities within that namespace. To obtain the connection string, run the following cmdlet:
+You need the namespace-level connection string in order to perform operations on the messaging entities within that namespace. To obtain the connection string, run the following command:
 
-```powershell
-Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
+```azurecli-interactive
+az servicebus TBD
 ```
 
 Copy and paste the **PrimaryConnectionString** value to a temporary location, such as Notepad, to use later.
@@ -106,8 +90,8 @@ After the namespace and queue are provisioned, and you have the necessary creden
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```powershell
-Remove-AzureRmResourceGroup -Name <resource_group_name>
+```azurecli-interactive
+TBD
 ```
 
 ## Next steps
@@ -120,6 +104,10 @@ In this article, you created a Service Bus namespace and other resources require
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+
+[1]: ./media/service-bus-quickstart-cli/cli1.png
+[2]: ./media/service-bus-quickstart-cli/cli2.png
+[service-bus-flow]: ./media/service-bus-quickstart-cli/service-bus-flow.png
+[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[az group create]: /cli/azure/group#az_group_create
