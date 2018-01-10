@@ -49,7 +49,7 @@
     href: container-registry-upgrade.md
   - name: Use ACR webhooks
     href: ./container-registry-webhook.md
-  - name: Authenticate with ACR
+  - name: Authentication with ACR
     items:
     - name: Authentication overview
       href: container-registry-authentication.md
