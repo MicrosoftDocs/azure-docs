@@ -38,7 +38,7 @@ For subscriptions, the metrics are:
 
 ## Event subscription status
 
-To see metrics for an event subscription, search for **Event Subscriptions** in the available services, and select it.
+To see metrics for an event subscription, search for **Event Grid Subscriptions** in the available services, and select it.
 
 ![Search for event subscriptions](./media/monitor-event-delivery/select-event-subscriptions.png)
 
