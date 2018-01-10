@@ -7,7 +7,7 @@ ms.date: 12/04-2017
 
 # Make your solutions available in AppSource and within Office
 
-Microsoft AppSource provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
+Microsoft AppSource provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
 - [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
 - [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md).
