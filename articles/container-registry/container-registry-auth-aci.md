@@ -13,7 +13,9 @@ ms.author: marsma
 
 # Authenticate with Azure Container Registry from Azure Container Instances
 
-You can use an Azure Active Directory (Azure AD) service principal to provide access to your private container registries in Azure Container Registry. In this article, you learn to to create and configure an Azure AD service principal with push and pull permissions to your registry. Then, you start a container in Azure Container Instances that pulls its image from your private registry using the service principal for authentication.
+You can use an Azure Active Directory (Azure AD) service principal to provide access to your private container registries in Azure Container Registry.
+
+In this article, you learn to create and configure an Azure AD service principal with push and pull permissions to your registry. Then, you start a container in Azure Container Instances that pulls its image from your private registry, using the service principal for authentication.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
