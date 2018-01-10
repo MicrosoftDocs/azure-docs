@@ -42,7 +42,7 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 ## Create an Azure storage account
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Storage** > **Storage account** > **Create**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Storage** > **Storage account** > **Create**.
 
 2. Enter the necessary information for the storage account:
 
