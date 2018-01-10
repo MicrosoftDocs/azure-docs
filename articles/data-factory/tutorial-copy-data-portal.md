@@ -162,7 +162,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 14. Navigate to the **adfv2tutorial/input** folder, and select **inputEmp.txt** file.
 
     ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe (|)** character as the **column delimiter**. You can preview data in this by clicking **Preview data**.
+15. Click **Detect Text Format** for the **File format** field. Confirm that you see **Pipe (|)** character as the **column delimiter**. You can preview data on this page by clicking **Preview data**.
 
     ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
 17. Switch to the **Schema** tab in the properties window, and click **Import Schema**. Notice that the application detected two columns in the source file. You are importing the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you may skip this step. For this tutorial, import the schema.
@@ -171,7 +171,7 @@ In this tutorial, you start with creating the pipeline, and create linked servic
 19. Now, switch to the **tab with the pipeline** or click the pipeline in the **treeview** on the left.  
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab.png)
-20. Confirm that the **SourceBlobDataset** is selected for the Source Dataset field in the properties window. You can preview data in this by clicking **Preview data**. 
+20. Confirm that the **SourceBlobDataset** is selected for the Source Dataset field in the properties window. You can preview data on this page by clicking **Preview data**. 
     
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 21. Switch to the **Sink** tab, and click **New** to create a sink dataset. 
@@ -325,7 +325,7 @@ You can publish the code associated with your data factory artifacts to a Visual
     3. Click **Sync**. 
 
     ![Sync your changes window](./media/tutorial-copy-data-portal/sync-your-changes.png)
-10. Now, you can see files in the **adf_publish** branch of the **Tutorial2** repository. You can also find the Azure Resource Manager template (ARM) template for your Data Factory solution in this branch.  
+10. Now, you can see files in the **adf_publish** branch of the **Tutorial2** repository. You can also find the Azure Resource Manager template template for your Data Factory solution in this branch.  
 
     ![Files in the adf_publish branch](./media/tutorial-copy-data-portal/adf-publish-files-after-publish.png)
 
@@ -339,13 +339,13 @@ In this step, you manually trigger the pipeline you published in the previous st
 2. Switch to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the Actions column to view activity details and to rerun the pipeline.
 
     ![Monitor pipeline run](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. Click **View Activity Runs** link in the **Actions** column to see the details about activity runs associated with the pipeline. In this example, there is only one activity, so you see only one entry in the list. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view.
+3. To see activity runs associated with the pipeline run, click **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. You can click **Pipelines** at the top to switch back to the **Pipeline Runs** view.
 
     ![View activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Verify that two more rows are added to the **emp** table in the Azure SQL database. 
 
 ## Trigger the pipeline on a schedule
-In this schedule you create a scheduler trigger for the pipeline. The trigger runs the pipeline on the specified schedule (hourly, daily, etc.). In this example, you set the trigger to run every minute until the specified end datetime. 
+In this schedule, you create a scheduler trigger for the pipeline. The trigger runs the pipeline on the specified schedule (hourly, daily, etc.). In this example, you set the trigger to run every minute until the specified end datetime. 
 
 1. Switch to the **Edit** tab on the left. 
 
@@ -360,12 +360,14 @@ In this schedule you create a scheduler trigger for the pipeline. The trigger ru
 
     1. Set the **name** to **RunEveryMinute**.
     2. Select **On Date** for **End**. 
-    3. Click the drop-down list for **End On**, and update the minutes part so that the trigger runs for a few times, and then click **Apply**.
-    4. Check the **Activated** option. 
+    3. Click the drop-down list for **End On**.
+    4. Update the minutes part so that the trigger runs for a few times.
+    5. Click **Apply**.
+    6. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
 
     ![Set trigger properties](./media/tutorial-copy-data-portal/set-trigger-properties.png)
 
-1. Click **Next**. Notice that the trigger is activated by default. You can deactivate it and activate it later by using this check box. 
+1. Click **Next**. Notice that the trigger is activated.  
 
     ![Activated trigger](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 6. In the **Trigger Run Parameters** page, review the warning, and click **Finish**. The pipeline in this example does not take any parameters. 
