@@ -22,7 +22,7 @@ For more information on Kubernetes persistent volumes, see [Kubernetes persisten
 
 A storage class is used to define how a dynamically created persistent volume is configured. Items such as the Azure storage account name, SKU, and region are defined in the storage class object. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-The following example specifies that any storage account of SKU type `Standard_LRS` in the `eastus` region can be used when requesting storage. 
+The following manifest can be used to create a storage class for an Azure disk. 
 
 ```yaml
 apiVersion: storage.k8s.io/v1beta1
@@ -31,16 +31,12 @@ metadata:
   name: azure-managed-disk
 provisioner: kubernetes.io/azure-disk
 parameters:
-  storageaccounttype: Standard_LRS
   kind: Managed
 ```
 
 ## Create persistent volume claim
 
-A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Files, an Azure file share is created in the storage account selected or specified in the storage class object.
-
->  [!NOTE]
->	Make sure a suitable storage account has been pre-created in the same resource group as the AKS cluster resources. This resource group has a name like *MC_myAKSCluster_myAKSCluster_eastus*. The persistent volume claim will fail to provision the Azure file share if a storage account is not available. 
+A persistent volume claim uses the storage class object to dynamically provision a piece of storage. When using an Azure Disk, an Azure managed disk is created in the same resource group that contains the AKS resource.
 
 The following manifest can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on PVC access modes, see [Access Modes][access-modes].
 
@@ -56,12 +52,12 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi
 ```
 
 ## Using the persistent volume
 
-Once the persistent volume claim has been created, and the storage successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azurefile` to mount the Azure file share at the `/var/www/html` path. 
+Once the persistent volume claim has been created, and the managed disk successfully provisioned, a pod can be created with access to the volume. The following manifest creates a pod that uses the persistent volume claim `azure-managed-disk` to mount the Azure disk at the `/var/www/html` path. 
 
 ```yaml
 kind: Pod
@@ -114,16 +110,16 @@ If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified
 
 ## Next steps
 
-Learn more about Kubernetes persistent volumes using Azure Files.
+Learn more about Kubernetes persistent volumes using Azure managed misks.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure Files][kubernetes-files]
+> [Kubernetes plugin for Azure Files][kubernetes-disk]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
-[kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
+[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
