@@ -50,37 +50,37 @@ Now you can get things ready for your users. When you start the process, you are
    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
    a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Offers + Plans** > **Offer**.
-   ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
+   ![New offer](media/azure-stack-tutorial-tenant-vm/Image01.png)
 
    b. In the **New Offer** section, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Display name](media/azure-stack-tutorial-tenant-vm/Image02.png)
 
    c. Click **Base plans**, and in the **Plan** section, click **Add** to add a new plan to the offer.
 
-   ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
+   ![Add a plan](media/azure-stack-tutorial-tenant-vm/Image03.png)
 
    d. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
-   ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
+   ![Plan display name](media/azure-stack-tutorial-tenant-vm/Image04.png)
 
    e. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-   ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![Plan services](media/azure-stack-tutorial-tenant-vm/Image05.png)
 
    f. Click **Quotas**, and then select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
 
    In this example, we first create a quota for the Compute service. In the namespace list, select the **Microsoft.Compute** namespace and then click **Create new quota**.
    
-   ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Create new quota](media/azure-stack-tutorial-tenant-vm/Image06.png)
 
    g. On the **Create quota** section, type a name for the quota and set the desired parameters for the quota and click **OK**.
 
-   ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
+   ![Quota name](media/azure-stack-tutorial-tenant-vm/Image07.png)
 
    h. Now, for **Microsoft.Compute**, select the quota that you created.
 
-   ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+   ![Select quota](media/azure-stack-tutorial-tenant-vm/Image08.png)
 
    Repeat these steps for the Network and Storage services, and then click **OK** on the **Quotas** section.
 
@@ -94,7 +94,7 @@ Now you can get things ready for your users. When you start the process, you are
 
    m. Click **Change State**, and then click **Public**.
 
-   ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
+   ![Public state](media/azure-stack-tutorial-tenant-vm/Image09.png)
 
 ## Add an image
 
