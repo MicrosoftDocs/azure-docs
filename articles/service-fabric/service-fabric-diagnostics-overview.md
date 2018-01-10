@@ -132,3 +132,7 @@ To customize the charts, follow the instructions in [Metrics in Microsoft Azure]
 
 ## Next steps
 
+* Learn more about monitoring the platform and the events Service Fabric provides for you at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md)
+* For getting started with instrumenting your applications, see [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md)
+* Go through the tutorial on [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+
