@@ -8,7 +8,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-geberr
 ---
 
