@@ -38,7 +38,7 @@ Non hot-swappable components include the following:
 
 The following flow diagram shows the general FRU process to replace a non hot-swappable hardware component.
 
-![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
+![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.png)
 
 *This action may not be required based on the physical condition of the hardware.
 
