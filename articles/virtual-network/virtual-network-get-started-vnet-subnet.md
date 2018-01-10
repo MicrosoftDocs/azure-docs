@@ -39,8 +39,7 @@ You will have a basic understanding of how you can use a VNet after completing t
 To create a virtual network with two subnets, complete the steps that follow. Different subnets are typically used to control the flow of traffic between subnets.
 
 1. Log in to the [Azure portal](<https://portal.azure.com>). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free). 
-2. In the **Favorites** pane, of the portal, click **New**.
-3. In the **New** blade, click **Networking**. In the **Networking** blade, click **Virtual network**, as shown in the following picture:
+2. Click **Create a resource** > **Networking** > **Virtual network**, as shown in the following picture:
 
 	![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
 
@@ -83,8 +82,8 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 To create the web server VM, complete the following steps:
 
-1. In the Azure portal favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
-2. In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1. In the [Azure portal](https://portal.azure.com), click **Create** > **Compute** > **Windows Server 2016 Datacenter**.
+2. Click **Create**.
 3. In the **Basics** blade that appears, enter or select the following values and click **OK**:
 
 	|**Setting**| **Value**|**Details**|
@@ -117,8 +116,8 @@ To create the web server VM, complete the following steps:
 
 To create the database server VM, complete the following steps:
 
-1.  In the Favorites pane, click **New**, **Compute**, then **Windows Server 2016 Datacenter**.
-2.  In the **Windows Server 2016 Datacenter** blade, click **Create**.
+1.  In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
+2.  Click **Create**.
 3.  In the **Basics blade**, enter or select the following values, then click **OK**:
 
 	|**Setting**|**Value**|**Details**|
@@ -149,8 +148,8 @@ To create the database server VM, complete the following steps:
 
 Though you created one VNet and two VMs, the Azure portal created several additional resources for you in the MyRG resource group. Review the contents of the MyRG resource group by completing the following steps:
 
-1. In the **Favorites** pane, click **More services**.
-2. In the **More services** pane, type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.
+1. In the [Azure portal](https://portal.azure.com), click **All services**.
+2. Type *Resource groups* in the box that has the word *Filter* in it. Click **Resource groups** when you see it in the filtered list.
 3. In the **Resource groups** pane, click the *MyRG* resource group. If you have many existing resource groups in your subscription, you can type *MyRG* in the box that contains the text *Filter by name…* to quickly access the MyRG resource group.
 4.  In the **MyRG** blade, you see that the resource group contains 12 resources, as shown in the following picture:
 
