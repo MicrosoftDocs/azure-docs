@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 1/10/2017
 ms.author: jeedes
 
 ---
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Relay state** textbox, type a URL using the following pattern:`https://<subdomain>.grovo.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Relay state. Contact [Grovo support team](https://www.grovo.com/contact-us) to get these values.
  
 5. Grovo application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
@@ -167,13 +167,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. In **SP Initiated SAML 2.0** popup window perform the following steps.
+13. In **SP Initiated SAML 2.0** popup window perform the following steps:
 
 	![Grovo Configuration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-	a. In the **Entity id** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+	a. In the **Entity id** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
-	b. In the **Single sign on service endpoint** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	b. In the **Single sign on service endpoint** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
 	c. Select **Single sign on service endpoint binding** as `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
 	
