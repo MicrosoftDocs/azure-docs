@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/10/2018
 ms.author: jeedes
 
 ---
@@ -100,15 +100,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single sign-on properties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
 
-	a.	Set the **Enabled for users to sign-in** field value to **No**.
+	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 
 	b. Copy the **User access URL** and you have to paste it in **Configure Sign-on URL section**, which is explained later in the tutorial.
 	
 	c.	Set the **User assignment required** field value to **Yes**.
 
-	d.	Set the **Visible to users** field value to **Yes**.
+	d.	Set the **Visible to users** field value to **No**.
 
-2. Click **Single sign-on** on **ADP Federated SSO** application integration page. .
+2. Click **Single sign-on** on **ADP Federated SSO** application integration page.
 
 	![Configure single sign-on link][4]
 
@@ -176,30 +176,25 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	![The New application button][3]
 
-5. In the search box, type **ADP**, select your **ADP service** from result panel then click **Add** button to add the application.
+5. In the search box, type **ADP Federated SSO**, select **ADP Federated SSO** from result panel then click **Add** button to add the application.
 
 	![ADP Federated SSO in the results list](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
 
-6. In the Azure portal, on your **ADP service** application integration page, click on **Properties tab** and perform the following steps:  
+6. In the Azure portal, on your **ADP Federated SSO** application integration page, click on **Properties tab** and perform the following steps:  
 
-	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_adpserviceprop.png)
+	![Single sign-on linkedproperties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
 
-	a.	In the Name field, enter your **ADP service**.
+	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	>[!Note]
-	>To enable easy identification of your ADP service, specify the ADP service name (for example, **ADP Background Checking**, **ADP Easy Pay**, **ADP Flex Direct**, etc.)  
+	b.	Set the **User assignment required** field value to **Yes**.
 
-	b.	Set the **Enabled for users to sign-in** field value to **Yes**.
+	c.	Set the **Visible to users** field value to **Yes**.
 
-	c.	Set the **User assignment required** field value to **Yes**.
-
-	d.	Set the **Visible to users** field value to **Yes**.
-
-7. Click **Single sign-on** on your **ADP service** application integration page.
+7. Click **Single sign-on** on your **ADP Federated SSO** application integration page.
 
 	![Configure single sign-on link][4]
 
-8. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on**. to link your application to **ADP**.
+8. On the **Single sign-on** dialog, select **Mode** as	**Linked Sign-on**. to link your application to **ADP Federated SSO**.
 
 	![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
@@ -207,9 +202,29 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
                                                               
-	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP app).
-                                                           
-	b. Paste/type the **Relay state** of your ADP service from the [ADP Federated SSO website](https://adpfedsso.adp.com/public/login/index.fcc)
+	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
+
+	 b. Global admin have to append the RelayState value manually to the User access URL. These are the 5 apps they support with different relay state URLs.
+	
+	1- Child App1 - **ADP Workforce Now**
+		
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+
+	2- Child App2 - **ADP Workforce Now Enhanced Time**
+		
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+	
+	3- Child App3 - **ADP Vantage HCM**
+		
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+
+	4-  Child App4 - **ADP Enterprise HR**
+
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+
+	5-  Child App5 - **MyADP**
+
+	`https://myapps.microsoft.com/signin/ADP%20Federated%20Access/c8e916c9-e705-40b8-b033-435bfbc1943a?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 	c. **Save** your changes.
 
