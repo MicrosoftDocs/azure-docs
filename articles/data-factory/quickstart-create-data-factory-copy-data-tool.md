@@ -106,8 +106,34 @@ In this quickstart, you use Azure portal to create a data factory. Then, you use
 15. Click the **View Activity Runs** link in the Actions column. The pipeline has only one activity of type **Copy**. 
 
     ![Activity Runs page](./media/quickstart-create-data-factory-copy-data-tool/activity-runs.png)
-16. Verify that the **emp.txt** file is created in the **output** folder of the **adftutorial** container. If the output folder does not exist, the Data Factory service automatically creates it. 
-17. Switch to the **Edit** tab to be able to edit linked services, datasets, and pipelines. 
+16. To view the details about copy operation, click the link in the **Output** column. Here is the sample output: In the following example, the number of bytes read and written were 20, and the number of files read and written were 1. The copy operation took 2 seconds to complete. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). If there was an error, you see a link to the error message in the **Error** column. 
+
+    ```json
+    {
+        "dataRead": 20,
+        "dataWritten": 20,
+        "filesRead": 1,
+        "filesWritten": 1,
+        "copyDuration": 2,
+        "throughput": 0.01,
+        "errors": [],
+        "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
+        "usedCloudDataMovementUnits": 4,
+        "usedParallelCopies": 1,
+        "billedDuration": 11,
+        "effectiveIntegrationRuntimes": [
+            {
+                "name": "DefaultIntegrationRuntime",
+                "type": "Managed",
+                "location": "East US",
+                "billedDuration": 0.06666666666666666,
+                "nodes": null
+            }
+        ]
+    }
+    ```
+17. Verify that the **emp.txt** file is created in the **output** folder of the **adftutorial** container. If the output folder does not exist, the Data Factory service automatically creates it. 
+18. Switch to the **Edit** tab to be able to edit linked services, datasets, and pipelines. To learn about editing them in the Data Factory UI, see [Create a data factory using Azure portal](quickstart-create-data-factory-portal.md).
 
     ![Edit tab](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
 

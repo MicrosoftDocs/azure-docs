@@ -151,4 +151,4 @@ In this tutorial, you learned how to:
 Advance to the following tutorial to learn about coping data from on-premises to cloud: 
 
 > [!div class="nextstepaction"]
->[Copy data in cloud](tutorial-copy-data-dot-net.md)
+>[Copy data in cloud](tutorial-copy-data-portal.md)

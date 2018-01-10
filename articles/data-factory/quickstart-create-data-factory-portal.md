@@ -168,7 +168,32 @@ In this step, you deploy entities (linked services, datasets, pipelines) to Azur
 2. Click the **View Activity Runs** link under **Actions**. You see the status of the copy activity run in this page. 
 
     ![Pipeline activity runs](./media/quickstart-create-data-factory-portal/pipeline-activity-runs.png)
-3. To view the results of copy operation, click the link in the **Output** column.
+3. To view the details about copy operation, click the link in the **Output** column. Here is the sample output: In the following example, the number of bytes read and written were 20, and the number of files read and written were 1. The copy operation took 2 seconds to complete. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). If there was an error, you see a link to the error message in the **Error** column. 
+
+    ```json
+    {
+        "dataRead": 20,
+        "dataWritten": 20,
+        "filesRead": 1,
+        "filesWritten": 1,
+        "copyDuration": 2,
+        "throughput": 0.01,
+        "errors": [],
+        "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
+        "usedCloudDataMovementUnits": 4,
+        "usedParallelCopies": 1,
+        "billedDuration": 11,
+        "effectiveIntegrationRuntimes": [
+            {
+                "name": "DefaultIntegrationRuntime",
+                "type": "Managed",
+                "location": "East US",
+                "billedDuration": 0.06666666666666666,
+                "nodes": null
+            }
+        ]
+    }
+    ```
 4. Confirm that you see a new file in the **output** folder. 
 5. You can switch back to the **Pipeline Runs** view from the **Activity Runs** view by clicking **Pipelines** link. 
 
