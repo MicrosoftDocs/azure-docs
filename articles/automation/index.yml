@@ -35,7 +35,7 @@ sections:
     - image: 
         src: /azure/automation/media/index/dscconfig.svg
       text: Create a DSC configuration
-      href: "/azure/automation/automation-quickstart-dsc-config"
+      href: "/azure/automation/automation-quickstart-dsc-configuration"
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
