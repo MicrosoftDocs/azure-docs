@@ -74,7 +74,7 @@ az vm extension set '
   --vm-name exttest `
   --name customScript `
   --publisher Microsoft.Azure.Extensions `
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
 ### Azure CLI Examples
@@ -83,8 +83,8 @@ az vm extension set '
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
-  "commandToExecute": "./test.sh"
+  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
+  "commandToExecute": "./config-music.sh"
 }
 ```
 
@@ -196,7 +196,7 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
 }
 ```
 
-See the .Net Core Music Store Demo for a complete example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
+See the .Net Core Music Store Demo for a complete example - [Music Store Demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.

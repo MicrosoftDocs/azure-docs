@@ -51,6 +51,9 @@ Yes. Even when a machine is shut down backups work and the recovery point is mar
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**. 
 
+### I enabled Resource Group lock on my backed-up managed disk VMs. Will my backups continue to work?
+If the user locks the Resource Group, Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend. If your backups are failing with an internal error after the RG lock, follow these [steps to remove the restore point collection](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
 Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set. 
