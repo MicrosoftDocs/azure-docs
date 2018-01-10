@@ -70,7 +70,7 @@
     - name: Deploy connected to Azure
       href: azure-stack-connected-deployment.md
     - name: Deploy disconnected from Azure
-      href: azure-stack-powershell-install.md
+      href: azure-stack-disconnected-deployment.md
     - name: Register Azure Stack
       href: azure-stack-registration.md
     - name: Deployment planning worksheet
