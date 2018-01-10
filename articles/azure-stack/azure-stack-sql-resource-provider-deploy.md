@@ -59,7 +59,7 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     | Azure Stack Build | SQL RP installer |
     | --- | --- |
-    | 1.0.180102.3 | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    |1.0.180102.3 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
     | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
