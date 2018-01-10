@@ -30,37 +30,15 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Open a command prompt. Clone the GitHub repo for Java SDK code samples:
-    
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
-    ```
+1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
 
-1. Navigate to the certificate generator project and build the project. 
-
-    ```cmd/sh
-    cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
-    mvn clean install
-    ```
-
-1. Navigate to the target folder and execute the created jar file.
-
-    ```cmd/sh
-    cd target
-    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-    ```
+> [!NOTE]
+> If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
+>
 
 1. Create the enrollment group information:
 
-    1. Enter **N** for _Do you want to input common name_. Note the _Client Cert_, _Client Cert Private Key_, _Signer (Intermediate) Cert_, and _Root Cert_ values.
-
-    1. Copy to the clipboard the output of `Root Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
-
-        ![Group certificate generator](./media/tutorial-group-enrollments/group.png)
-
-    1. Create a file named **_X509group.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-
-    1. Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the tutorial.
+    1. Run through **Step 1** and **Step 2** to create your _root_ and _intermediate_ certificates.
 
     1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -68,25 +46,28 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
         1. Under the **Add Certificate**, enter the following information:
             - Enter a unique certificate name.
-            - Select the **_X509group.pem_** file you created previously.
+            - Select the **_RootCA.pem_** file you just created.
             - Once complete, click the **Save** button.
 
         ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
-            - Enter the _verification code_ or right-click to paste in your running _provisioning-x509-cert-generator_ window.  Press **Enter**.
-            - Copy to the clipboard the output of `Verification Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
-            
-                ![Validation generator](./media/tutorial-group-enrollments/validation-generator.png)
-
-            - Create a file named **_X509validation.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file.
-            - Select the **_X509validation.pem_** file in the Azure portal. Click **Verify**.
+            - Run through **Step 3**. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
+            - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
 
             ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
+1. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
+
 
 ## Create a device enrollment entry
+
+1. Open a command prompt. Clone the GitHub repo for Java SDK code samples:
+    
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
 
 1. In the downloaded source code, navigate to the sample folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Open the file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** in an editor of your choice, and add the following details:
 
@@ -106,7 +87,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Assign the value of the **Root Cert** to the parameter **PUBLIC_KEY_CERTIFICATE_STRING** as shown below:
+    1. Open the **_RootCA.pem_** file in a text editor. Assign the value of the **Root Cert** to the parameter **PUBLIC_KEY_CERTIFICATE_STRING** as shown below:
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -176,7 +157,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Enter the enrollment group information in the following way:
 
-    1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_ and _Client Cert Private Key_ as noted before.
+    1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Open your **_{deviceName}-public.pem_** file and include this value as your _Client Cert_. Open your **_{deviceName}-all.pem_** file and copy the text from _-----BEGIN PRIVATE KEY-----_ to _-----END PRIVATE KEY-----_.  Use this as your _Client Cert Private Key_.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
@@ -201,35 +182,6 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "XXXXXXXXXX\n" +
                 "-----END PRIVATE KEY-----\n";
-            ```
-
-    1. Add the following lines of code to the beginning of the `main` function. Include _Signer (Intermediate) Cert_ and _Root Cert_ as noted before.
-        
-        ```java
-        String intermediatePem = "<Your Signer Certificate here>";			
-    	String rootPem = "<Your Root Certificate here>";
-    			
-    	signerCertificates.add(intermediatePem);
-    	signerCertificates.add(rootPem);
-        ```
-    
-        - Use the following format for including your certificates:
-        
-            ```java
-            String intermediatePem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            String rootPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
             ```
 
 1. Build the sample. Navigate to the target folder and execute the created jar file.
