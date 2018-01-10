@@ -25,7 +25,7 @@ Create a new VM by attaching a specialized managed disk as the OS disk. A specia
 When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also be kept and, in some cases, this duplicate information could cause issues. Be aware of what types of computer-specific information your applications rely on when copying a VM.
 
 You have several options:
-* [Use an existing managed disk](#option-1-use-an-existing-disk). This is useful if you have a VM that isn't working correctly. You can delete the VM re-use the managed disk to create a new VM. 
+* [Use an existing managed disk](#option-1-use-an-existing-disk). This is useful if you have a VM that isn't working correctly. You can delete the VM reuse the managed disk to create a new VM. 
 * [Upload a VHD](#option-2-upload-a-specialized-vhd) 
 * [Copy an existing Azure VM using snapshots](#option-3-copy-an-existing-azure-vm)
 
@@ -43,7 +43,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
 ## Option 1: Use an existing disk
 
-If you had a VM that you deleted and you want to re-use the OS disk to create a new VM, use [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
