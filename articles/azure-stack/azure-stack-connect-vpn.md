@@ -26,7 +26,7 @@ This article shows you how to create a site-to-site VPN to connect a virtual net
 ### Connection diagram
 The following diagram shows what the connection configuration should look like when you’re done:
 
-![Site-to-site VPN connection configuration](media/azure-stack-connect-vpn/image2.png)
+![Site-to-site VPN connection configuration](media/azure-stack-connect-vpn/Image2.png)
 
 ### Before you begin
 To complete the connection configuration, make sure you have the following items before you begin:
