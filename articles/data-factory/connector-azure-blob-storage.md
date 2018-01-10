@@ -8,7 +8,7 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -23,7 +23,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Blog Storage connnector in V1](v1/data-factory-azure-blob-connector.md).
 
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from any supported source data store to Azure Blob Storage, or copy data from Azure Blob Storage to any supported sink data store. For a list of data stores that are supported as sources/ or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
@@ -80,7 +80,11 @@ A Shared Access Signature (SAS) provides delegated access to resources in your s
 
 > [!IMPORTANT]
 > Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct. The SAS URL generated from Azure portal or Storage Explorer is an Account SAS, which is not supported.
->
+
+> [!TIP]
+> You can execute below PowerShell commands to generate a Service SAS for your storage account (replace the place-holders and grant the needed permission):
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 To use Service SAS authentication, the following properties are supported:
 

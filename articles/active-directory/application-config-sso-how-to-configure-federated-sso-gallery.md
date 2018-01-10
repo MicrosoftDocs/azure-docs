@@ -4,7 +4,7 @@ description: How to configure federated single sign-on for an existing Azure AD 
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

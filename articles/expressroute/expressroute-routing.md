@@ -3,7 +3,7 @@ title: Routing requirements for Azure ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
+ms.date: 11/03/2017
+ms.author: ganesr
 
 ---
 # ExpressRoute routing requirements
@@ -171,6 +171,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | West Europe | 12076:51002 |
 | UK South | 12076:51024 |
 | UK West | 12076:51025 |
+| France Central | 12076:51030 |
+| France South | 12076:51031 |
 | **Asia Pacific** | |
 | East Asia | 12076:51010 |
 | Southeast Asia | 12076:51011 |

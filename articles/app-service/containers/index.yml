@@ -43,7 +43,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_docker.svg
       text: Docker
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
   - type: paragraph
     text: 'Learn how to deploy continuously:'
   - type: list

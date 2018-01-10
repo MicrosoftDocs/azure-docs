@@ -2,62 +2,67 @@
 title: Migrate on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.topic: tutorial
+ms.date: 01/07/2018
 ms.author: raynew
-
+ms.custom: MVC
 ---
+
 # Migrate on-premises machines to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+In addition to using the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR), you can also use Site Recovery to manage migration of on-premises machines to Azure.
 
-This tutorial shows you how to migrate on-premises VMs and physical servers to Azure, with Site Recovery. In this tutorial, you learn how to:
+
+This tutorial shows you how to migrate on-premises VMs and physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up prerequisites for the deployment
-> * Create a Recovery Services vault for Site Recovery
-> * Deploy on-premises management servers
-> * Set up a replication policy and enable replication
-> * Run a disaster recovery drill to make sure everything's working
+> * Select a replication goal
+> * Set up the source and target environment
+> * Set up a replication policy
+> * Enable replication
+> * Run a test migration to make sure everything's working as expected
 > * Run a one-time failover to Azure
 
-## Overview
+This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
-You migrate a machine by enabling replication for it, and failing it over to Azure.
+1. [Prepare Azure](tutorial-prepare-azure.md)
+2. Prepare on-premises [VMware](tutorial-prepare-on-premises-vmware.md) or Hyper-V servers.
+
+Before you start, it's helpful to review the [VMware](concepts-vmware-to-azure-architecture.md) or [Hyper-V](concepts-hyper-v-to-azure-architecture.md) architectures for disaster recovery.
 
 
 ## Prerequisites
 
-Here's what you need to do for this tutorial.
-
-- [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
-- [Prepare](tutorial-prepare-on-premises-vmware.md) VMware on-premises VMware servers and VMs.
-- Note that devices exported by paravirtualized drivers aren't supported.
+Devices exported by paravirtualized drivers aren't supported.
 
 
 ## Create a Recovery Services vault
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
+2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
+   subscription, select the appropriate one.
+4. Create a resource group **ContosoRG**.
+5. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
+6. To quickly access the vault from the dashboard, click **Pin to dashboard** and then click **Create**.
 
-## Select a protection goal
+   ![New vault](./media/tutorial-migrate-on-premises-to-azure/onprem-to-azure-vault.png)
+
+The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
+
+
+
+## Select a replication goal
 
 Select what you want to replicate, and where you want to replicate to.
 1. Click **Recovery Services vaults** > vault.
 2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
-3. In **Protection goal**, select:
+3. In **Protection goal**, select what you want to migrate.
     - **VMware**: Select **To Azure** > **Yes, with VMWare vSphere Hypervisor**.
     - **Physical machine**: Select **To Azure** > **Not virtualized/Other**.
-    - **Hyper-V**: Select **To Azure** > **Yes, with Hyper-V**.
+    - **Hyper-V**: Select **To Azure** > **Yes, with Hyper-V**. If Hyper-V VMs are managed by VMM, select **Yes**.
 
 
 ## Set up the source environment
@@ -71,17 +76,21 @@ Select what you want to replicate, and where you want to replicate to.
 Select and verify target resources.
 
 1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the target deployment model.
+2. Specify the Resource Manager deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-## Create a replication policy
+## Set up a replication policy
 
 - [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
+- [Set up a replication policy](tutorial-physical-to-azure.md#create-a-replication-policy) for physical servers.
+- [Set up a replication policy](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) for Hyper-V VMs.
 
 
 ## Enable replication
 
 - [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
+- [Enable replication](tutorial-physical-to-azure.md#enable-replication) for physical servers.
+- [Enable replication](tutorial-hyper-v-to-azure.md#enable-replication) for Hyper-V VMs.
 
 
 ## Run a test migration
@@ -96,7 +105,7 @@ Run a failover for the machines you want to migrate.
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. The encryption key setting isn't relevant for this scenario.
-4. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
+4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
 
@@ -104,12 +113,14 @@ Run a failover for the machines you want to migrate.
 
 
 > [!WARNING]
-> **Don't cancel a failover in progress**: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
+> **Don't cancel a failover in progress**: VM replication is stopped before failover starts. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
 In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for physical servers, VMware Linux machines, VMware VMs that don't have the DHCP service enables, and VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
 
 ## Next steps
 
+In this tutorial you migrated on-premises VMs to Azure VMs. Now you can configure disaster recovery for the Azure VMs.
+
 > [!div class="nextstepaction"]
-> [Replicating Azure VMs to another region after migration to Azure](site-recovery-azure-to-azure-after-migration.md)
+> [Set up disaster recovery](site-recovery-azure-to-azure-after-migration.md) for Azure VMs after migration from an on-premises site.

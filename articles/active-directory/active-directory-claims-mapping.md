@@ -3,7 +3,7 @@ title: 'Claims mapping in Azure Active Directory (public preview)| Microsoft Doc
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

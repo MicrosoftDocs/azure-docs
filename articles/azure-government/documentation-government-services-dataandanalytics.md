@@ -43,7 +43,7 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
 
 
-For more information, see [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
+For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 ## Power BI
 Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about [Power BI US Government here](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/).

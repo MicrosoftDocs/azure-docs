@@ -59,8 +59,8 @@ If you need to build an Event Hub connection string by using the previous inform
 The SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes includes the items in the following list:
 
 * [Java Event Hubs client](https://github.com/Azure/azure-event-hubs-java).
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
+* [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
+* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 
 ## Next steps
 

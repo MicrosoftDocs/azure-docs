@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [SFTP connector in V1](v1/data-factory-sftp-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from SFTP server to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -48,7 +48,7 @@ The following properties are supported for SFTP linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Sftp**. |Yes |
 | host | Name or IP address of the SFTP server. |Yes |
-| port | Port on which the SFTP server is listening.<br/>Allowed values are: integer, defualt value is **22**. |No |
+| port | Port on which the SFTP server is listening.<br/>Allowed values are: integer, default value is **22**. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are: **true**, **false** (default).  | No |
 | hostKeyFingerprint | Specify the finger print of the host key. | Yes if the "skipHostKeyValidation" is set to false.  |
 | authenticationType | Specify authentication type.<br/>Allowed values are: **Basic**, **SshPublicKey**. Refer to [Using basic authentication](#using-basic-authentication) and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |

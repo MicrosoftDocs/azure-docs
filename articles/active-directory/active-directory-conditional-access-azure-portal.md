@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -131,17 +131,13 @@ You can use the calculated sign-in risk level as condition in a conditional acce
 ### Device platforms
 
 The device platform is characterized by the operating system that is running on your device:
+You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
+To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (preview). 
 
 ![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
-You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
-To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
+For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### Locations
@@ -204,7 +200,7 @@ If you want to add another layer of protection to these apps, you can configure 
 
 This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
 However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
+While the focus of the previous scenario was on apps with access to sensitive data, the focus of this scenario is on trusted locations.  
 In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust.
 
 
@@ -213,6 +209,9 @@ In other words, you might have a requirement for multi-factor authentication if 
 If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
 
 Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with Conditional Access.
+
+### Switching a device from corporate-owned to Bring Your Own Device (BYOD)
+If you want to block enrolled devices by changing the device ownership from corporate to personal, you can accomplish this using Azure Active Directory (AAD) conditional access. You must first create a conditional access policy where **Block access** is selected from the access controls **Grant** blade. Next, create a **Dynamic Device** group by setting the **deviceOwnership** property to **Personal**. Then, target the above policy to the new group.
 
 ## Next steps
 

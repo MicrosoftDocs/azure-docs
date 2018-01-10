@@ -4,7 +4,7 @@ description: When planning your hybrid identity solution, identify the data prot
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df

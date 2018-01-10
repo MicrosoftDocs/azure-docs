@@ -5,7 +5,7 @@ description: View and manage all the Role-Based Access Control assignments for a
 services: active-directory
 documentationcenter: ''
 author: andredm7
-manager: femila
+manager: mtillman
 editor: jeffsta
 
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005

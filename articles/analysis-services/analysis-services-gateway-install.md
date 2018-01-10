@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway.
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 10/30/2017
 ms.author: owend
 
 ---
@@ -69,6 +69,9 @@ In order to create a gateway resource in Azure, you must register the local inst
     ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
+
+    > [!IMPORTANT]
+    > Save your recovery key in a safe place. The recovery key is required in-order to takeover, migrate, or restore a gateway. 
 
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 

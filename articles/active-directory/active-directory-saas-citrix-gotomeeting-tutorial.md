@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
 
 ---
@@ -140,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. In a different browser window, log in to your [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/)
+8. In a different browser window, log in to your [GoToMeeting Organization Center](https://organization.logmeininc.com/)
 
 9. Under **identity provider** tab, you can configure the Azure settings either by providing the generated **Metadata URL** or the downloaded **Metadata file** or **Manual**.
 

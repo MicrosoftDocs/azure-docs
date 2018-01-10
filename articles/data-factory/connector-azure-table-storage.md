@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Table Storage connector in V1](v1/data-factory-azure-table-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from any supported source data store to Azure Table, or copy data from Azure Table to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -60,6 +60,7 @@ You can create an Azure Storage linked service by using the account key, which p
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -77,7 +78,11 @@ A Shared Access Signature (SAS) provides delegated access to resources in your s
 
 > [!IMPORTANT]
 > Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct. The SAS URL generable from Azure portal or Storage Explorer is an Account SAS, which is not supported.
->
+
+> [!TIP]
+> You can execute below PowerShell commands to generate a Service SAS for your storage account (replace the place-holders and grant the needed permission):
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 To use Service SAS authentication, the following properties are supported:
 
@@ -169,25 +174,27 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 
 ### azureTableSourceQuery examples
 
-If Azure Table column is of string type:
-
-```json
-"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', <datetime parameter>)"
-```
-
 If Azure Table column is of datetime type:
 
 ```json
-"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', <datetime parameter>, <datetime parameter>)"
+"azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
+
+If Azure Table column is of string type:
+
+```json
+"azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
+```
+
+If you are using pipeline parameter, cast the datetime value to proper format according to above samples.
 
 ### Azure Table as sink
 
-To copy data from Azure Table, set the source type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure Table, set the sink type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **AzureTableSink** |Yes |
+| type | The type property of the copy activity sink must be set to: **AzureTableSink** |Yes |
 | azureTableDefaultPartitionKeyValue |Default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |No |
@@ -268,4 +275,4 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

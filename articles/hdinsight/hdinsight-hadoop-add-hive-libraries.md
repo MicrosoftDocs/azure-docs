@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -95,4 +95,4 @@ Once cluster creation finishes, you are able to use the jars added through this 
 
 ## Next steps
 
-For more information on working with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md)
+For more information on working with Hive, see [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)

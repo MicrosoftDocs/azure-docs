@@ -290,7 +290,7 @@ The following table categorizes sizes into use cases.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | General purpose         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | Compute optimized      | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| Memory optimized       | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| Memory optimized       | GS, G, DSv2, DS, Dv2, D   | High memory-to-CPU. Great for relational databases, medium to large caches, and in-memory analytics.                 |
 | Storage optimized       | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
 | GPU           | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
 | High performance | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 

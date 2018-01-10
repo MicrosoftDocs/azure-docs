@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/03/2017
 ---
 
 # How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal
@@ -31,7 +31,7 @@ The following steps restore the sample server to a point in time:
 
    ![Azure portal - Search to locate your server](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. On the toolbar of the server's overview blade, click **Restore**. The Restore blade opens.
+3. On the toolbar of the server's overview page, click **Restore**. The Restore page opens.
 
    ![Azure Database for PostgreSQL - Overview - Restore button](./media/postgresql-howto-restore-server-portal/2_server.png)
 

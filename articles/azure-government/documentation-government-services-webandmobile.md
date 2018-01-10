@@ -26,7 +26,8 @@ those apps created in the public cloud:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| App Service |*.azurewebsites.net |*.azurewebsites.us|
+| App Service |\*.azurewebsites.net |\*.azurewebsites.us|
+| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 04f281cf-dfa6-4986-981d-7f8ddb9e7bd8 |
 
 Some App Service features available in Azure Government have variations:
 
@@ -63,7 +64,7 @@ The following information identifies the Azure Government boundary for App Servi
 | Data entered, stored, and processed within Azure App Service can contain export-controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
 
 ## API Management
-For details on this service and how to use it, see [Azure API Management documentation](../api-management/index.md).
+For details on this service and how to use it, see [Azure API Management documentation](../api-management/index.yml).
 
 ### Variations
 

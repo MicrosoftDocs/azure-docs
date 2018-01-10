@@ -4,7 +4,7 @@ description: Learn about authentication and user permissions in Azure Analysis S
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

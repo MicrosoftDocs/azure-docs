@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 
 robots: noindex
@@ -571,7 +571,7 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | Oracle data type | .NET Framework data type |
 | --- | --- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher when using Microsoft driver) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |

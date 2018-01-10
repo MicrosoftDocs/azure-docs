@@ -3,8 +3,8 @@ title: Create surrogate keys by using IDENTITY | Microsoft Docs
 description: Learn how to use IDENTITY to create surrogate keys on your tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/13/2017
-ms.author: jrj;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # Create surrogate keys by using IDENTITY

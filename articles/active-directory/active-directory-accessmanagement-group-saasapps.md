@@ -4,7 +4,7 @@ description: How to use groups in Azure Active Directory Premium or Basic to ass
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: ab8dee63-bedc-46ca-8852-234f5c16ae98
