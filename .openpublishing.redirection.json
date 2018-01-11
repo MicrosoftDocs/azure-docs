@@ -486,11 +486,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/managed-applications/publish-marketplace-app.md",
-            "redirect_url": "/azure/managed-applications/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
