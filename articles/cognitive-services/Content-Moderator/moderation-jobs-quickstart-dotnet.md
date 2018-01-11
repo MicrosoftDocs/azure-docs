@@ -317,6 +317,6 @@ You see a response like the following example:
 	}
 
 
-## Next steps - get the source code
+## Next steps
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
