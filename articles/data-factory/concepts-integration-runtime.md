@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
 
 ---
@@ -139,7 +139,7 @@ United States | East US | East US
 &nbsp; | South Central US | South Central US
 &nbsp; | West Central US | West Central US
 &nbsp; | West US | West US
-&nbsp; | West US 2 | West US
+&nbsp; | West US 2 | West US 2
 Canada | Canada East | Canada Central
 &nbsp; | Canada Central | Canada Central
 Brazil | Brazil South | Brazil South

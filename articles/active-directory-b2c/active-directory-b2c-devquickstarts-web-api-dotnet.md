@@ -4,7 +4,7 @@ description: How to build a .NET Web app and call a web api using Azure Active D
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: ''
 
 ms.assetid: d3888556-2647-4a42-b068-027f9374aa61

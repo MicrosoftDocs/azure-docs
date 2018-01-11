@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 11/28/2017
 ms.author: jonbeck
 
 ---
@@ -28,11 +28,11 @@ ms.author: jonbeck
 
 
 ## Other sizes
-- [General purpose](../windows/sizes-general.md)
-- [Compute optimized](../windows/sizes-compute.md)
-- [Memory optimized](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [High performance compute](../windows/sizes-hpc.md)
+- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
+- [Memory optimized](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

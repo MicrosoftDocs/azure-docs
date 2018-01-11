@@ -12,10 +12,10 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2016
 ms.author: naziml
-
+ms.custom: mvc
 ---
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 ## Overview

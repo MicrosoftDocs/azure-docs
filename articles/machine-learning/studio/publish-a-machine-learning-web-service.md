@@ -105,7 +105,7 @@ On the **CONFIGURATION** page, you can change the description, title, update the
 Once you've deployed the web service, you can:
 
 * **Access** it through the web service API.
-* **Manage** it through Azure Machine Learning web services portal or the Azure classic portal.
+* **Manage** it through Azure Machine Learning web services portal.
 * **Update** it if your model changes.
 
 #### Access your New web service
@@ -138,7 +138,7 @@ To test the Batch Execution Service, click **Test** preview link . On the Batch 
 
 ![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure classic portal](http://manage.windowsazure.com/) where you manage your web services.
+On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure portal](https://portal.azure.com/) where you manage your web services.
 
 You can provide a description for your input data, output data, and web service parameters by entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **Web SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 

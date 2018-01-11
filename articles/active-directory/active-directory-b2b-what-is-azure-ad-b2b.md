@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration supports your cross-compan
 services: active-directory
 documentationcenter: ''
 author: sasubram
-manager: femila
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -20,10 +20,9 @@ ms.custom: aaddev
 ms.reviewer: sasubram
 
 ---
-
 # What is Azure AD B2B collaboration?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Azure AD business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization, small or large. Those organizations can be with Azure AD or without, or even with an IT organization or without. 
 

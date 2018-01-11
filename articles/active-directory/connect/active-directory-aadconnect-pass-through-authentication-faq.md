@@ -5,14 +5,14 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
 ---
 
@@ -78,6 +78,12 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 
 No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
+## How do I remove a Pass-through Authentication Agent?
+
+As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Azure AD Connect Authentication Agent** and the **Microsoft Azure AD Connect Agent Updater** programs.
+
+If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after a few days.
+
 ## I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
 
 If you have configured AD FS as your method to sign in through the Azure AD Connect wizard, change the method that the user uses to sign in to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and converts _all_ your federated domains into managed domains. Pass-through Authentication handles all subsequent requests to sign in to your tenant. Currently, there is no supported way within Azure AD Connect to use a combination of AD FS and Pass-through Authentication across different domains.
@@ -95,24 +101,20 @@ Yes. Multi-forest environments are supported if there are forest trusts between 
 
 Installing multiple Pass-through Authentication Agents ensures [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
 
-Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300,000 to 400,000 authentications per second on a standard 4-core CPU, 16-GB RAM server. For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity.
+Consider the peak and average load of sign-in requests that you expect to see on your tenant. As a benchmark, a single Authentication Agent can handle 300 to 400 authentications per second on a standard 4-core CPU, 16-GB RAM server.
 
-You should install Authentication Agents close to your domain controllers to improve sign-in latency.
+To estimate network traffic, use the following sizing guidance:
+- Each request has a payload size of (0.5K + 1K * num_of_agents) bytes; i.e., data from Azure AD to the Authentication Agent. Here, "num_of_agents" indicates the number of Authentication Agents registered on your tenant.
+- Each response has a payload size of 1K bytes; i.e., data from the Authentication Agent to Azure AD.
+
+For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
+
+>[!NOTE]
+>There is a system limit of 12 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
 No, this scenario is _not_ supported.
-
-## How many Pass-through Authentication Agents should I install?
-
-We recommend that:
-
-- You install two or three Authentication Agents in total. This configuration is sufficient for most customers.
-- You install Authentication Agents on your domain controllers (or as close to them as possible) to improve sign-in latency.
-- You ensure that you add the servers where you installed the Authentication Agents to the same Active Directory forest as the users whose passwords you need to validate.
-
->[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
 
 ## How can I disable Pass-through Authentication?
 

@@ -40,19 +40,25 @@ For guidance on selecting the most appropriate storage option to use for your sc
 
 ## Use Azure Blob storage accounts with R Server
 
-If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them with R Server.
+If you specified more than one storage account when creating your R Server cluster, the following instructions explain how to use a secondary account for data access and operations on R Server. Assume the following storage accounts and container: **storage1** and a default container called **container1**, and **storage2**.
 
 > [!WARNING]
 > For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. Using a storage account in a different location than the HDInsight cluster is not supported.
 
-1. Create an HDInsight cluster with a storage account name of **storage1** and a default container called **container1**.
-2. Specify an additional storage account called **storage2**.  
-3. Copy the mycsv.csv file to the /share directory, and perform analysis on that file.  
+1. Using an SSH client, connect to the edge node of your cluster as remoteuser.  
+
+  + In Azure portal > HDI cluster service page > Overview, click **Secure Shell (SSH)**.
+  + In Hostname, select the edge node (it includes *ed-ssh.azurehdinsight.net* in the name).
+  + Copy the host name.
+  + Open an SSH client like PutTY or SmartTY and enter the host name.
+  + Enter remoteuser for the user name, followed by the cluster password.
+  
+2. Copy the mycsv.csv file to the /share directory. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. In R code, set the name node to **default,** and set your directory and file to process.  
+3. Switch to R Studio or another R console, and write R code to set the name node to **default** and location of the file you want to access.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -61,7 +67,7 @@ If necessary, you can access multiple Azure storage accounts or containers with 
         bigDataDirRoot <- "/share"  
 
     	#Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
     	#Set compute context:
         rxSetComputeContext(mySparkCluster)

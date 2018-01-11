@@ -54,6 +54,8 @@
 #### [Compliance - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overview](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Compliance - Financial Services
+##### [Financial Services for Regulated Workloads](./blueprints/financial-services-regulated-workloads.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
@@ -133,6 +135,7 @@
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security Recommendations for Azure Marketplace images](security-recommendations-azure-marketplace-images.md)
+## [How to Log a Security Event Support Ticket](azure-security-event-support-ticket.md)
 ## Scenarios
 ### [Manage personal data in Azure](manage-personal-data-azure.md)
 ### [Discover, identify, and classify personal data in Azure](how-to-discover-classify-personal-data-azure.md)

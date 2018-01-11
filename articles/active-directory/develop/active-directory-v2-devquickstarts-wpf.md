@@ -4,7 +4,7 @@ description: How to build a .NET native app that signs users in with both person
 services: active-directory
 documentationcenter: ''
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
@@ -17,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Teamwork.com
+# Tutorial: Azure Active Directory integration with [Teamwork.com](https://www.teamwork.com/projects)
 
 In this tutorial, you learn how to integrate Teamwork.com with Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Teamwork.com, you need the following items:
 
 - An Azure AD subscription
-- A Teamwork.com single sign-on enabled subscription
+- A [Teamwork.com](https://www.teamwork.com/projects) subscription on the Pro plan or higher
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.

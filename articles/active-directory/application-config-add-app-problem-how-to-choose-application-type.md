@@ -4,7 +4,7 @@ description: Understand the supported types of applications you can integrate wi
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

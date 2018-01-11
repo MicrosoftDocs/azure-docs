@@ -13,12 +13,12 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
 
 ---
 
-# Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template
+# Create a namespace with event hub and enable Capture using a template
 
 This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace, with one event hub instance, and also enables the [Capture feature](event-hubs-capture-overview.md) on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
@@ -159,7 +159,7 @@ The time interval in which Event Hubs Capture starts capturing the data.
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -246,7 +246,7 @@ Subscription ID for the Event Hubs namespace and Azure Data Lake Store. Both the
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -266,20 +266,20 @@ The Azure Data Lake Store name for the captured events.
 
 ###dataLakeFolderPath
 
-The destination folder path for the captured events.This is the folder in your Data Lake Store to which the events will be pushed from Capture. For setting permissions on this folder, please reder to this article [Use Azure Data Lake Store to capture data from Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
+The destination folder path for the captured events. This is the folder in your Data Lake Store to which the events will be pushed during the capture operation. To set permissions on this folder, see [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## Resources to deploy for Azure Storage as destination to captured events
 
-Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture to Azure Blob Storage.
+Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -340,7 +340,7 @@ Creates a namespace of type **EventHubs**, with one event hub, and also enables 
 
 ## Resources to deploy for Azure Data Lake Store as destination
 
-Creates a namespace of type **EventHubs**, with one event hub, and also enables Capture to Azure Data Lake Store.
+Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -405,7 +405,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## Azure CLI
 
-Choosing Azure Blob Storage as destination:
+Azure Blob Storage as destination:
 
 ```azurecli
 azure config mode arm
@@ -413,7 +413,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Choosing Azure Data Lake Store as destination:
+Azure Data Lake Store as destination:
 
 ```azurecli
 azure config mode arm

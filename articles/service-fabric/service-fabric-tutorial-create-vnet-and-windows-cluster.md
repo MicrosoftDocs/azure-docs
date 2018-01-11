@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-
+ms.custom: mvc
 ---
 
 # Deploy a Service Fabric Windows cluster into an Azure virtual network
@@ -35,6 +35,7 @@ In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure cluster on Azure
 > * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites

@@ -3,7 +3,7 @@ title: How to deploy a Web Service to multiple regions | Microsoft Docs
 description: Steps to deploy (Copy) a New Web Service to other regions.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: cgronlun
 

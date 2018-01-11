@@ -4,7 +4,7 @@ description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
