@@ -36,15 +36,15 @@
     href: http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure
   - name: Ansible reference
     href: http://docs.ansible.com/ansible/latest/dev_guide/index.html
-  - name: Official release
-    html: https://github.com/ansible/ansible/releases
+  - name: Official releases
+    href: https://github.com/ansible/ansible/releases
   - name: Playbook Role azure_module
-    html: https://galaxy.ansible.com/Azure/azure_modules/
+    href: https://galaxy.ansible.com/Azure/azure_modules/
   - name: Playbook Role azure_preview_module
-    html: https://galaxy.ansible.com/Azure/azure_preview_modules
+    href: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Ansible modules and features matrix
-    html: ./ansible-matrix.md
+    href: ./ansible-matrix.md
 - name: Resources
   items:
   - name: Tools for using Ansible with Azure
-    html: ./ansible-tools.md
+    href: ./ansible-tools.md
