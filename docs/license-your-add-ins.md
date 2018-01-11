@@ -10,11 +10,11 @@ The licensing framework for Office and SharePoint Add-ins gives you a way to inc
 
 The add-in license framework itself does not enforce add-in licenses. It's a structure in which you can add code to your add-ins to retrieve and then act on license information.
 
-The add-in license framework applies only to add-ins acquired directly from the AppSource or add-ins from the AppSource that are made available in an add-in catalog hosted on SharePoint. Add-ins made available in other ways—such as from a file system location, or uploaded directly to an add-in catalog hosted on SharePoint—cannot use the add-in license framework.
+The add-in license framework applies only to add-ins acquired directly from the AppSource site or in-product experience, or add-ins from AppSource that are made available in an add-in catalog hosted on SharePoint. Add-ins made available in other ways—such as from a file system location, or uploaded directly to an add-in catalog hosted on SharePoint—cannot use the add-in license framework.
 
 The Office and SharePoint add-in license framework includes:
 
-- The AppSource—a site where users can acquire licensed Office and SharePoint Add-ins. The AppSource handles payment and issues licenses.
+- AppSource—a site where users can acquire licensed Office and SharePoint Add-ins. AppSource handles payment and issues licenses.
 - Storage of licenses, and renewal of add-in license tokens.
 - APIs you can use to get license information.
 - A web service you can use to verify whether a license is valid.
@@ -120,5 +120,5 @@ Figure 2 shows the add-in license query and validation process for SharePoint Ad
 - [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
     
