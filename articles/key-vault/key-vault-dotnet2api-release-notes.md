@@ -40,7 +40,10 @@ Key Vault certificates support provides for management of your x509 certificates
 
 * The namespace for **models** is changed from **Microsoft.Azure.KeyVault** to **Microsoft.Azure.KeyVault.Models**.
 * The **Microsoft.Azure.KeyVault.Internal** namespace is dropped.
-* The Azure SDK dependencies namespace are changed from **Hyak.Common** and **Hyak.Common.Internals** to **Microsoft.Rest** and **Microsoft.Rest.Serialization**
+* The following Azure SDK dependencies namespaces have 
+
+    - **Hyak.Common** is now **Microsoft.Rest**.
+    - **Hyak.Common.Internals** is now **Microsoft.Rest.Serialization**.
 
 ## Type changes
 
@@ -51,13 +54,13 @@ Key Vault certificates support provides for management of your x509 certificates
 
 ## Return types
 
-* **KeyList** and **SecretList** will return *IPage<T>* instead of *ListKeysResponseMessage*
-* The generated **BackupKeyAsync** will return *BackupKeyResult* which contains *Value* (back-up blob). Before the method was wrapped and returning only the value.
+* **KeyList** and **SecretList** nosw returns *IPage<T>* instead of *ListKeysResponseMessage*
+* The generated **BackupKeyAsync** now returns *BackupKeyResult* which contains *Value* (back-up blob). Previously, the method was wrapped and returning only the value.
 
 ## Exceptions
 
 * *KeyVaultClientException* is changed to *KeyVaultErrorException*
-* The service error is changed from *exception.Error* to *exception.Body.Error.Message*.
+* The service error changed from *exception.Error* to *exception.Body.Error.Message*.
 * Removed additional info from the error message for **[JsonExtensionData]**.
 
 ## Constructors
@@ -66,29 +69,29 @@ Key Vault certificates support provides for management of your x509 certificates
 
 ## Downloaded packages
 
-When a client is processing a  dependency on Key Vault the following were downloaded
+When a client processes a Key Vault dependency, the following packages are downloaded:
 
 ### Previous package list
 
-* package id="Hyak.Common" version="1.0.2" targetFramework="net45"
-* package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
-* package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
-* package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"
-* package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"
-* package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"
-* package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
-* package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### Current package list
 
-* package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
-* package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
-* package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## Class changes
 
-* **UnixEpoch** class has been removed
-* **Base64UrlConverter** class is renamed to **Base64UrlJsonConverter**
+* **UnixEpoch** class has been removed.
+* **Base64UrlConverter** class is renamed to **Base64UrlJsonConverter**.
 
 ## Other changes
 
@@ -96,9 +99,9 @@ When a client is processing a  dependency on Key Vault the following were downlo
 
 ## Microsoft.Azure.Management.KeyVault NuGet
 
-* For the operations that returned a *vault*, the return type was a class that contained a Vault property. The return type is now *Vault*.
+* For the operations that returned a *vault*, the return type was a class that contained a **Vault** property. The return type is now *Vault*.
 * *PermissionsToKeys* and *PermissionsToSecrets* are now *Permissions.Keys* and *Permissions.Secrets*
-* Some of the return types changes apply to the control-plane as well.
+* Certain return types changes apply to the control-plane as well.
 
 ## Microsoft.Azure.KeyVault.Extensions NuGet
 
