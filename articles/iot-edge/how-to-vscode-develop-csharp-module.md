@@ -46,6 +46,7 @@ There are two ways to list your IoT hub devices in your VS Code. You can choose 
 1. In Command Palette (F1 or Ctrl + Shift + P), type and select **Azure: Sign in**. Then click **Copy* & Open** in the pop-up. Paste (Ctrl + V) the code in your browser and click Continue button. Then log in with your Azure account. You can see your account info in VS Code status bar.
 2. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Select IoT Hub**. You first select the subscription where you created your IoT hub in previous tutorial. Then choose the IoT hub that contains the IoT Edge device.
 
+![Diagrams of gateway patterns](./media/how-to-vscode-develop-csharp-module/sign-in-azure.gif)
 
 #### Set IoT hub connection string
 1. In Command Palette (F1 or Ctrl + Shift + P), type and select **IoT: Set IoT Hub Connection String**. Make sure you paste the connecting string under policy **iothubowner** (You can find it in Shared access policies of your IoT hub in Azure portal).
