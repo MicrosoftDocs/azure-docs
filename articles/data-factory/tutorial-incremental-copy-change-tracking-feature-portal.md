@@ -279,7 +279,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 
     ![New pipeline menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
-3. Drag-and-drop the **Copy** activity from the **Activities** toolbox to the pipeline designer surface, and set the name **FullCopyActivity**. 
+3. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface, and set the name **FullCopyActivity**. 
 
     ![Full copy activity-name](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
 4. Switch to the **Source** tab, and select **SourceDataset** for the **Source Dataset** field. 
@@ -356,7 +356,7 @@ In this step, you create a pipeline with the following activities, and run it pe
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **IncrementalCopyPipeline**.
 
     ![Pipeline name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Drag-and-drop the **Lookup** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
+3. Expand **SQL Database** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
 
     ![Lookup Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Switch to the **Settings** in the **Properties** window, and select **ChangeTrackingDataset** for the **Source Dataset** field. 
@@ -376,7 +376,7 @@ In this step, you create a pipeline with the following activities, and run it pe
         ```
 
     ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-7. Drag-and-drop the **Copy** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store. 
+7. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store. 
 
     ![Copy Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
@@ -421,7 +421,7 @@ In this step, you create a pipeline with the following activities, and run it pe
     ![Validate button](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16.  Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish** button. Wait until you see the **Publishing succeeded** message. 
 
-    ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)
+        ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### Run the incremental copy pipeline
 Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**. 
