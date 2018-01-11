@@ -1017,3 +1017,8 @@ The log file written by the program has the following output:
 	Getting all image list IDs.
 	Response:
 	[]
+
+
+## Next steps - get the source code
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
