@@ -1,9 +1,9 @@
 ---
-title: How to configure an Application Proxy application to use Kerberos Constrained Delegation | Microsoft Docs
-description: How to configure Kerberos Constrained Delegation for an Azure AD Application Proxy application.
+title: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy | Microsoft Docs
+description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: daveba
 manager: mtillman
 
 ms.assetid: 
@@ -17,7 +17,7 @@ ms.author: asteen
 
 ---
 
-# How to configure an Application Proxy application to use Kerberos Constrained Delegation
+# Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy
 
 The methods available for achieving SSO to published applications can somewhat vary from application to application and one of the options that Azure Application Proxy offers right out of the box, is Kerberos Constrained Delegation (KCD). This is where a connector host is configured to perform constrained kerberos authentication to backend applications, on behalf of users.
 
