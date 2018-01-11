@@ -1,3 +1,3 @@
-# [Index](index.md)
-# [Prerequisites] (prerequisites.md)
-# [Cloud Provider Setup] (cpsetup.md)
+# [Introduction to CycleCloud](index.md)
+# [Prerequisites](prerequisites.md)
+# [Cloud Provider Setup](cpsetup.md)

@@ -9,7 +9,7 @@ credentials you provide to provision infrastructure.
 To begin, click on **Clusters** in the top menu bar. A notice will
 appear that you currently do not have a cloud provider set up.
 
-![No Accounts Found error](/images/no_accounts_found.png)
+![No Accounts Found error](~/images/no_accounts_found.png)
 
 Click the link to add your credentials. Choose your cloud provider below
 to view the configuration settings:
