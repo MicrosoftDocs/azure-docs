@@ -70,8 +70,8 @@ Configure a backend address pool and a probe before configuring a load balancing
 ### Step 2: Configure a probe
 
 1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer that you created earlier.
-2. In the **Settings** page, click **Healt probes**.
-3. In the **Health probes**  page, click **Add**.
+2. In the **Settings** page, click **Health probes**.
+3. In the **Health probes** page, click **Add**.
 4. In the **Add health probe** page, enter a **Name** for the probe.
 5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP-based applications).
 6. Under **Port**, specify the port to use when accessing the probe.
