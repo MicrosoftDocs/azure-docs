@@ -33,10 +33,10 @@ Azure AD enables single sign on to devices, apps, and services from anywhere on 
 
 - Blocking access for users accessing a service from specific countries or regions. 
 
-A location is a label for a network location that either represents a named location or MFA trusted IPs.
+A location is a label for a network location that either represents a named location or multi-factor authentication trusted IPs.
 
 
-## Named Locations 
+## Named locations 
 
 With named locations, you can create logical groupings of IP address ranges, countries and regions. 
 
