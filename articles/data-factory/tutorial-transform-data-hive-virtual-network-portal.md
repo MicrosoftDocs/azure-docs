@@ -201,7 +201,7 @@ Note the following points:
 1. In the Data Factory UI, click **+ (plus)** in the left pane, and click **Pipeline**. 
 
     ![New pipeline menu](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
-2. Drag-drop **Hive** activity from the **Activities** toolbox to the pipeline designer surface. 
+2. In the **Activities** toolbox, expand **HDInsight**, and drag-drop **Hive** activity to the pipeline designer surface. 
 
     ![drag-drop Hive activity](./media/tutorial-transform-data-using-hive-in-vnet-portal/drag-drop-hive-activity.png)
 3. In the properties window, switch to the **HDI Cluster** tab, and select **AzureHDInsightLinkedService** for **HDInsight Linked Service**.
