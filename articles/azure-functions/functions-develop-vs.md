@@ -57,7 +57,7 @@ When you create a new project using the Azure Functions template, you get an emp
     
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. 
 
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -79,7 +79,7 @@ In pre-compiled functions, the bindings used by the function are defined by appl
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    A connection string key named **QueueStorage** is supplied, which is defined in the local.settings.json file. 
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the local.settings.json file. 
  
 3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function. 
 
