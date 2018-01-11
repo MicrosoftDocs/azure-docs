@@ -42,7 +42,7 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
 
 1. Click **NEW** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
-   ![New->DataFactory](./media/load-data-into-azure-data-lake-store.md/new-azure-data-factory-menu.png)
+   ![New->DataFactory](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
 2. In the **New data factory** page, provide the values as shown in the following screenshot: 
       
      ![New data factory page](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
@@ -97,7 +97,7 @@ This article shows you how to use Data Factory Copy Data tool to **load data fro
     3. Click **Next**. 
 
     > [!IMPORTANT]
-    > In this walkthrough, you use a **Service principal** to authenticate data lake store. Follow the instruction [here](connector-azure-data-lake-store#using-service-principal-authentication) and make sure you grant the service principal proper permission in Azure Data Lake Store.
+    > In this walkthrough, you use a **Service principal** to authenticate data lake store. Follow the instruction [here](connector-azure-data-lake-store.md#using-service-principal-authentication) and make sure you grant the service principal proper permission in Azure Data Lake Store.
 
     ![Specify Azure Data Lake Store account](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 
