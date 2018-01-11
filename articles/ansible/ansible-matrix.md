@@ -12,7 +12,7 @@ ms.topic: article
 
 # Ansible matrix
 
-| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role azure_module |  Playbook Role azure_preview_module | 
+| Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azure_module) |  Playbook Role [azure_preview_module](#introduction-to-azure_preview_module) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes                                 | 
@@ -82,7 +82,7 @@ ms.topic: article
 | azure_rm_postgresqlconfiguration            | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
 
-## Introduction to azure_module 
+## Introduction to azure_module
 The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing this role is a good choice.
 
 The azure_module playbook role is released every three weeks.
