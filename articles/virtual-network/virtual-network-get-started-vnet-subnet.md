@@ -79,7 +79,7 @@ With the VNet and subnets created, you can create the VMs. For this exercise, bo
 
 To create the web server VM, complete the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), click **Create** > **Compute** > **Windows Server 2016 Datacenter**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 2. Click **Create**.
 3. In the **Basics** blade that appears, enter or select the following values and click **OK**:
 
