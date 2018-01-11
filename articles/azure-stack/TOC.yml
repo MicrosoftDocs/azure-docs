@@ -73,8 +73,6 @@
       href: azure-stack-disconnected-deployment.md
     - name: Register Azure Stack
       href: azure-stack-registration.md
-    - name: Deployment planning worksheet
-      href: azure-stack-deployment-worksheet.md
   - name: Datacenter integration
     items:
     - name: DNS
