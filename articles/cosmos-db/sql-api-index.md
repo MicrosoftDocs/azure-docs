@@ -104,7 +104,7 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 - [REST](/rest/api/documentdb/)
 - [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 - [SQL query reference](sql-api-sql-query-reference.md)
-- [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md)
+- [Azure Functions reference](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## Samples
 
