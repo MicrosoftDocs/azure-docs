@@ -26,7 +26,7 @@
     maintainContext: true
 - name: Samples
   items:
-  - name: Ansible Playbook on Azure
+  - name: Ansible playbooks for Azure
     href: https://github.com/Azure-Samples/ansible-playbooks
   - name: Ansible Galaxy
     href: https://galaxy.ansible.com
@@ -38,9 +38,9 @@
     href: http://docs.ansible.com/ansible/latest/dev_guide/index.html
   - name: Official releases
     href: https://github.com/ansible/ansible/releases
-  - name: Playbook Role azure_module
+  - name: Ansible playbook role azure_module
     href: https://galaxy.ansible.com/Azure/azure_modules/
-  - name: Playbook Role azure_preview_module
+  - name: Ansible playbook role azure_preview_module
     href: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Ansible modules and features matrix
     href: ./ansible-matrix.md

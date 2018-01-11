@@ -40,14 +40,14 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm">Create a complete Linux VM with Ansible</a>.
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Run a playbook in Cloud Shell</a>.
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Use Ansible in the Azure Cloud Shell</a>.
     - html: <a href="./ansible-manage-azure-dynamic-inventories">Manage your Azure dynamic inventories</a>.
 - title: Samples
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">Ansible sample playbooks</a>.
+    - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">GitHub repository containing samples and best practices for building Ansible Playbooks for Azure</a>.
     - html: <a href="https://galaxy.ansible.com">Ansible Galaxy for creating, managing, and installing roles published by the community.</a>.
 - title: Reference
   items:
