@@ -81,14 +81,14 @@ ms.topic: article
 | azure_rm_postgresqlconfiguration_facts,-,-,Y                                                           | 
 
 ## Introduction to azure_module 
-The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the devel branch of Ansible repository. If you cannot wait for Ansible's next release, installing this role is a good choice.
+The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing this role is a good choice.
 
-The azure_module playbook role is released every 3 weeks.
+The azure_module playbook role is released every three weeks.
 
 ## Introduction to azure_preview_module
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete and includes all the latest Azure modules. The update and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're strongly encouraged to install this role.
+The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete and includes all the latest Azure modules. The update and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install this role.
 
-The azure_preview_module playbook role is released every 3 weeks.
+The azure_preview_module playbook role is released every three weeks.
 
 ## Next steps
 More information related to playbook roles, refer to [Creating Reusable Playbooks](http://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
