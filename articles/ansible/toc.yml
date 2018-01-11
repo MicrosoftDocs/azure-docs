@@ -43,8 +43,8 @@
   - name: Playbook Role azure_preview_module
     html: https://galaxy.ansible.com/Azure/azure_preview_modules
   - name: Ansible modules and features matrix
-    html: ./ansible-matrix
+    html: ./ansible-matrix.md
 - name: Resources
   items:
   - name: Tools for using Ansible with Azure
-    html: ./ansible-tools
+    html: ./ansible-tools.md
