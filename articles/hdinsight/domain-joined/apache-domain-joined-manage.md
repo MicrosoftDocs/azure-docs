@@ -15,12 +15,81 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
 
 ---
 # Manage Domain-joined HDInsight clusters
 Learn the users and the roles in Domain-joined HDInsight, and how to manage domain-joined HDInsight clusters.
+
+## Access the clusters with Enterprise Security Package.
+
+Enterprise Security Package (previously known as HDInsight Premium) provides multi-user access to the cluster, where authentication is done by Active Directory and authorization by Apache Ranger and Storage ACLs (ADLS ACLs). Authorization provides secure boundaries among multiple users and allows only privileged users to have access to the data based on the authorization policies.
+
+Security and user isolation are important for a HDInsight cluster with Enterprise Security Package. To meet these requirements, SSH access to the cluster with Enterprise Security Package is blocked. The following table shows the recommended access methods for each cluster type:
+
+
+
+
+
+
+|Workload|Scenario|Access Method|
+|--------|--------|-------------|
+|Hadoop|Hive – Interactive Jobs/Queries	|
+
+- Use Beeline (see instructions below)
+- Use Hive View
+- ODBC/JDBC – Power BI
+- Visual Studio Tools|
+
+|Spark|Interactive Jobs/Queries, Pyspark interactive|<ul><li>Use Beeline (see instructions below)</li>
+<li>Zeppelin with Livy</li>
+<li>Use Hive View</li>
+<li>ODBC/JDBC – Power BI</li>
+<li>Visual Studio Tools</li></ul>|
+
+|Spark|Batch Scenarios – Spark submit, Pyspark|1.	Livy|
+
+|Interactive Query (LLAP)|Interactive|1.	Use Beeline (see instructions below)
+2.	Use Hive View
+3.	ODBC/JDBC – Power BI
+4.	Visual Studio Tools|
+
+|Any|Install Custom Application|1.	Script Actions|
+
+
+The next obvious question is how do run my jobs or queries for both batch or interactive scenarios without SSH access to the cluster.
+Based on your scenario and need, the follbelow are the recommended access methods.
+
+In general, going through the standard APIs not only helps to from security perspective but also you get below benefits
+1.	Management – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
+2.	Auditing – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
+
+
+
+Use Beeline 
+Install Beeline on your machine, and connect over the public internet, use the following parameters: 
+•	Connection string: -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+•	Cluster login name: -n admin
+•	Cluster login password -p 'password'
+Replace the clustername in the connection string with the name of your HDInsight cluster. 
+Replace admin with the name of your cluster login, and replace password with the password for your cluster login. 
+If you have Beeline installed locally, and connect over an Azure Virtual Network, use the following parameters: 
+•	Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+To find the fully qualified domain name of a headnode, use the information in the Manage HDInsight using the Ambari REST API document.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Users of Domain-joined HDInsight clusters
 An HDInsight cluster that is not domain-joined has two user accounts that are created during the cluster creation:
