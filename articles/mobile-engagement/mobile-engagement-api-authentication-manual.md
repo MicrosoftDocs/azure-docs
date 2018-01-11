@@ -52,7 +52,7 @@ This documentation is an appendix to [Authenticate with Mobile Engagement REST A
 
      ![Configure app][11]
 
-10. Create a new key, and then immediately copy it and save it for use. It won't be shown again.
+10. Create a new key, and then immediately copy it. It won't be shown again.
 
      ![Configure app][12]
 

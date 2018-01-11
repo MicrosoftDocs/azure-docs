@@ -44,7 +44,7 @@ There are several ways to get a token. Because the APIs are called from a cloud 
 
 To perform the setup by using a PowerShell script, take the steps in the following instructions. A PowerShell script requires the least amount of time for setup but uses the most permissible defaults. 
 
-Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. Setting up from the Azure portal allows for more detailed configuration.
+Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. When you set up from the Azure portal allows, you can do a more detailed configuration.
 
 1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information about the download instructions, see  this [link](/powershell/azure/overview).
 
@@ -144,7 +144,7 @@ Now that you have a valid token, you are ready to make the API calls.
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    To get the parameters, select your application name. Then select  **Dashboard**, and you see a page with all three parameters, as follows:
+    To get the parameters, select your application name. Then select  **Dashboard**. You see a page with all three parameters, as follows:
    
    * **1** `{subscription-id}`
    * **2** `{app-collection}`
