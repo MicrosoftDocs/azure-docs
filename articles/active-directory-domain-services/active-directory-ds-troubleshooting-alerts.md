@@ -26,16 +26,16 @@ Pick the troubleshooting steps that correspond to or alert ID or message you enc
 | **Alert ID** | **Alert Message** | **Resolution** |
 | --- | --- | :--- |
 | AADDS001 | *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.* | [Incorrect secure LDAP configuration](active-directory-ds-troubleshoot-ldaps.md) |
-| AADDS100 | *Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original directory this subscription was associated with.* | [Missing tenant](#aadds100-missing-tenant) |
-| AADDS101 | *Azure AD Domain Services and Azure AD B2C cannot be enabled concurrently in the same Azure AD Directory. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.* | [Azure B2C is enabled on the tenant](#aadds101-azure-b2c-is-enabled-on-the-tenant) |
-| AADDS102 | *The Service Principal %SERVICE_PRINCIPAL% required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Missing Service Principal](active-directory-ds-troubleshoot-service-principals.md) |
-| AADDS103 | *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](#aadds103-address-is-in-a-public-ip-range) |
-| AADDS104 | *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This error is usually caused by an incorrect NSG configuration.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS100 | *The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.* | [Missing tenant](#aadds100-missing-tenant) |
+| AADDS101 | *Azure AD Domain Services and Azure AD B2C cannot be enabled concurrently in the same Azure AD Directory. * | [Azure B2C is enabled on the tenant](#aadds101-azure-b2c-is-enabled-on-the-tenant) |
+| AADDS102 | *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD tenant. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Missing Service Principal](active-directory-ds-troubleshoot-service-principals.md) |
+| AADDS103 | *The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.* | [Address is in a public IP range](#aadds103-address-is-in-a-public-ip-range) |
+| AADDS104 | *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
 
 ### AADDS100: Missing tenant
 **Alert Message:**
 
-*Azure AD Domain Services could not reach the tenant for this domain. This could be caused by accidentally deleting the original directory this subscription was associated with.*
+*The Azure AD directory associated with your managed domain may have been deleted. The managed domain is no longer in a supported configuration. Microsoft cannot monitor, manage, patch, and synchronize your managed domain.*
 
 **Remediation:**
 
@@ -44,7 +44,7 @@ This is an unrecoverable error. To resolve, you must [delete your existing manag
 ### AADDS101: Azure B2C is enabled on the tenant
 **Alert Message:**
 
-*Azure AD Domain Services and Azure AD B2C cannot be enabled concurrently in the same Azure AD Directory. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.*
+*Azure AD Domain Services and Azure AD B2C cannot be enabled concurrently in the same Azure AD Directory. *
 
 **Remediation:**
 
@@ -61,7 +61,7 @@ To restore your service, follow these steps:
 
 **Alert Message:**
 
-*The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
+*The IP address range for the virtual network in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.*
 
 **Remediation:**
 

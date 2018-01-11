@@ -24,7 +24,7 @@ ms.author: ergreenl
 ## AADDS104: Network error
 
 **Alert Message:**
- *We are unable to reach the domain controllers for this domain. This may happen if a network security group (NSG) configured on your virtual network blocks us from access to the managed domain. Another possible reason for your domain to be unreachable is if there is a user defined route that blocks incoming traffic from the internet.*
+ *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user defined route that blocks incoming traffic from the internet.*
 
 The most common cause of network errors for Azure AD Domain Services can be attributed to incorrect NSG configurations. To ensure that Microsoft can service and maintain you managed domain, you must use a Network Security Group (NSG) to allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services) inside your subnet. If these ports are blocked, Microsoft cannot access the resources it needs, which may be detrimental to your service. While creating your NSG, keep these ports open to ensure no interruption in service.
 
