@@ -154,12 +154,6 @@ Returns a DateTime based on the employee’s start time
 Returns a DateTime representing "2013-01-11 12:00 AM"
 
 
-
-
-
-
-
-
 - - -
 ### CertExtensionOids
 **Description:**  
@@ -543,7 +537,7 @@ The DNComponent function returns the value of a specified DN component going fro
 * ComponentNumber: The component in the DN to return
 
 **Example:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 If dn is "cn=Joe,ou=…," it returns Joe
 
 - - -
@@ -561,8 +555,8 @@ The DNComponentRev function returns the value of a specified DN component going 
 
 **Example:**  
 If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Both return US.
 
 - - -

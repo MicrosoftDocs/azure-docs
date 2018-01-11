@@ -43,11 +43,11 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
-2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident.
+2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 
   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
-3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click in the security incident that you want to investigate further to obtain more information.
+3. On this screen you have the security incident description on top, and the list of alerts that are part of this incident. Click on the alert that you want to investigate further to obtain more information.
 
   ![Security incident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
