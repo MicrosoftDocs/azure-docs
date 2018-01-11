@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/09/2018
+ms.date: 01/11/2018
 ms.author: sngun
 
 ---
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs
 
-## Abstract
-Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running. 
+Azure Stream Analytics currenlty doesn’t allow replacing the credentials on an input/output while the job is running. 
 
 While Azure Stream Analytics does support resuming a job from last output, we wanted to share the entire process for minimizing the lag between the stopping and starting of the job and rotating the login credentials.
 
@@ -40,13 +39,25 @@ For other inputs/outputs, proceed to [stop the Stream Analytics job](#part-2-sto
 1. Sign in to the Azure portal > browse the storage account that you used as input/output for the Stream Analytics job.  
 2. From the Settings section, open **Access keys**. Between the two default keys (key1, key2), pick the one that is not used by your job and regenerate it:  
    ![Regenerate keys for storage account][.\media\stream-analytics-login-credentials-inputs-outputs\image1.png]
-3. Copy the newly generated key and continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.
+3. Copy the newly generated key.  
+4. From the Azure portal, browse your Stream Analytics job > Select **Stop** and wait for the job to stop.  
+5. Next, locate the input/output for which you want to rotate credentials.
+6. Find the **Storage Account Key** field and paste your newly generated key > **Save**  
+7. A connection test will automatically start when you save your changes, you can view it from the notifications tab. There ar two notifications- one corresponds to saving the update and other corresponds to testing the connection: 
+   ![Notifications after editing the key][.\media\stream-analytics-login-credentials-inputs-outputs\image3.png]
+8. Proceed to Part 4.
 
 ### Event hubs
+
 1. Sign in to the Azure portal > browse the Event Hub that you used as input/output for the Stream Analytics job.  
 2. From the Settings section, open **Shared access policies** and select the required access policy. Between the Primary Key and the Secondary Key, pick the one that is not used by your job and regenerate it:
    ![Regenerate keys for Event Hub][.\media\stream-analytics-login-credentials-inputs-outputs\image2.png]
-3. Copy the newly generated key and continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.  
+3. Copy the newly generated key.  
+4. From the Azure portal, browse your Stream Analytics job > Select **Stop** and wait for the job to stop.  
+5. Next, locate the input/output for which you want to rotate credentials.  
+6. Find the **Event Hub policy Key** field and paste your newly generated key > **Save**  
+7. A connection test will automatically start when you save your changes, make sure that it has successfully passed.  
+8. Proceed to Part 4.
 
 ### SQL Database
 
@@ -84,33 +95,28 @@ You need to connect to the SQL database to create a new user and login credentia
 16. Continue to [stop the Stream Analytics job](part-2-stopping-the-stream-analytics-job) section.
 
 ## Stop the Stream Analytics Job
-1. Sign in to the Azure portal > browse your Stream Analytics job > Select **Stop** and wait for the job to stop.
-2. Go to the Inputs tab or the Outputs tab based on whether you are rotating the credentials on an Input or on an Output.  
-   ![graphic28][graphic28]
-3. Locate the input/output you want to rotate credentials on and go into it:  
-   ![graphic30][graphic30]
+1. Sign in to the Azure portal > browse your Stream Analytics job > Select **Stop** and wait for the job to stop.  
+2. Browse to the Inputs or the Outputs tile based on whether you are rotating credentials for an Input or an Output.  
+3. Locate the input/output for which you want to rotate credentials.  
 4. Proceed to Part 3.
 
 ## Update credentials for the Stream Analytics Job
 
 ### Blob storage/Table storage
-1. Find the Storage Account Key field and paste your newly generated key into it:  
-   ![graphic31][graphic31]
-2. Click the Save command and confirm saving your changes:  
-   ![graphic32][graphic32]
-3. A connection test will automatically start when you save your changes, make sure that is has successfully passed.
+1. Find the **Storage Account Key** field and paste your newly generated key > **Save** 
+2. A connection test will automatically start when you save your changes, you can view it from the notifications tab. There ar two notifications- one corresponds to saving the update and other corresponds to testing the connection: 
+   ![Notifications after editing the key][.\media\stream-analytics-login-credentials-inputs-outputs\image3.png]
 4. Proceed to Part 4.
 
 ### Event hubs
-1. Find the Event Hub Policy Key field and paste your newly generated key into it:  
-   ![graphic33][graphic33]
-2. Click the Save command and confirm saving your changes:  
-   ![graphic34][graphic34]
+1. Find the **Event Hub policy Key** field and paste your newly generated key > **Save**  
 3. A connection test will automatically start when you save your changes, make sure that it has successfully passed.
 4. Proceed to Part 4.
 
 ### Power BI
-1. Click the Renew authorization:  
+1. Sign in to the Azure portal > browse your Stream Analytics job > Select **Stop** and wait for the job to stop.  
+2. Locate the input/output for which you want to rotate credentials.  
+3. Click the Renew authorization:  
 
    ![graphic35][graphic35]
 2. You will get the following confirmation:  
@@ -184,15 +190,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic23]: ./media/stream-analytics-login-credentials-inputs-outputs/23-stream-analytics-login-credentials-inputs-outputs.png
 [graphic24]: ./media/stream-analytics-login-credentials-inputs-outputs/24-stream-analytics-login-credentials-inputs-outputs.png
 [graphic25]: ./media/stream-analytics-login-credentials-inputs-outputs/25-stream-analytics-login-credentials-inputs-outputs.png
-[graphic26]: ./media/stream-analytics-login-credentials-inputs-outputs/26-stream-analytics-login-credentials-inputs-outputs.png
-[graphic27]: ./media/stream-analytics-login-credentials-inputs-outputs/27-stream-analytics-login-credentials-inputs-outputs.png
-[graphic28]: ./media/stream-analytics-login-credentials-inputs-outputs/28-stream-analytics-login-credentials-inputs-outputs.png
-[graphic29]: ./media/stream-analytics-login-credentials-inputs-outputs/29-stream-analytics-login-credentials-inputs-outputs.png
-[graphic30]: ./media/stream-analytics-login-credentials-inputs-outputs/30-stream-analytics-login-credentials-inputs-outputs.png
-[graphic31]: ./media/stream-analytics-login-credentials-inputs-outputs/31-stream-analytics-login-credentials-inputs-outputs.png
-[graphic32]: ./media/stream-analytics-login-credentials-inputs-outputs/32-stream-analytics-login-credentials-inputs-outputs.png
-[graphic33]: ./media/stream-analytics-login-credentials-inputs-outputs/33-stream-analytics-login-credentials-inputs-outputs.png
-[graphic34]: ./media/stream-analytics-login-credentials-inputs-outputs/34-stream-analytics-login-credentials-inputs-outputs.png
+./media/stream-analytics-login-credentials-inputs-outputs/34-stream-analytics-login-credentials-inputs-outputs.png
 [graphic35]: ./media/stream-analytics-login-credentials-inputs-outputs/35-stream-analytics-login-credentials-inputs-outputs.png
 [graphic36]: ./media/stream-analytics-login-credentials-inputs-outputs/36-stream-analytics-login-credentials-inputs-outputs.png
 [graphic37]: ./media/stream-analytics-login-credentials-inputs-outputs/37-stream-analytics-login-credentials-inputs-outputs.png
