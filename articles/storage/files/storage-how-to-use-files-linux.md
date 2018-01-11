@@ -97,7 +97,7 @@ ms.author: renash
     ```
 
 > [!Note]  
-> Make sure you add the `nofail` option in the `/etc/fstab` entry, otherwise your VM may hang during boot in case of a misconfiguration or or other error while mounting the Azure File share.
+> Make sure you add the `nofail` option in the `/etc/fstab` entry, otherwise your VM may hang during boot in case of a misconfiguration or other error while mounting the Azure File share.
 
 > [!Note]  
 > You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.
