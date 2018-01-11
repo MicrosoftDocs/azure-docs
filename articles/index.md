@@ -157,7 +157,7 @@ featureFlags:
                                                             PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/">
+                                                        <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
@@ -3927,13 +3927,13 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
+                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">Get started</a>
+                                                    <a href="/javascript/azure/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/nodejs/api/overview/azure">API reference</a>
+                                                    <a href="/javascript/api/overview/azure/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
