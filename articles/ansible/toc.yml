@@ -26,8 +26,10 @@
     maintainContext: true
 - name: Samples
   items:
-  - html: <a href="https://github.com/Azure-Samples/ansible-playbooks">Ansible Playbook on Azure</a>.
-  - html: <a href="https://galaxy.ansible.com">Ansible Galaxy</a>.
+  - name: Ansible Playbook on Azure
+    href: https://github.com/Azure-Samples/ansible-playbooks
+  - name: Ansible Galaxy
+    href: https://galaxy.ansible.com
 - name: Reference 
   items:
   - name: Ansible modules for Azure
