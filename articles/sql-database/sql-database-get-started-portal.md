@@ -137,17 +137,15 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 1. On the SQL Database page for your database, find and click **Data explorer (preview)** in the left-hand menu
 
-   ![tools menu](./media/sql-database-get-started-portal/find-query-editor.png)
+   ![find query editor](./media/sql-database-get-started-portal/find-query-editor.PNG)
 
-2. Click the **Preview terms** checkbox, and then click **OK**. The Data explorer page opens.
-
-3. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
+2. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
 
    ![login](./media/sql-database-get-started-portal/login-menu.png)
 
-4. Click **OK** to log in.
+3. Click **OK** to log in.
 
-5. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
+4. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -156,11 +154,11 @@ Now that you have created a sample database in Azure, let’s use the built-in q
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-6. Click **Run** and then review the query results in the **Results** pane.
+5. Click **Run** and then review the query results in the **Results** pane.
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
+6. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
 
 ## Clean up resources
 

@@ -42,15 +42,13 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. On the SQL database page for your database, find and click **Data explorer (preview)** in the left-hand menu.
 
-    ![tools menu](./media/sql-database-connect-query-portal/find-query-editor.png)
+    ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Click the **Preview terms** checkbox, and then click **OK**. The Data explorer page opens.
-
-4. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
+3. Click **Login** and then, when prompted, select **SQL Server authentication** and then provide the server admin login and password you provided when creating the database.
 
     ![login](./media/sql-database-connect-query-portal/login-menu.png)
 
-5. Click **OK to login**.
+4. Click **OK to login**.
 
 
 ## Connect using Azure AD
