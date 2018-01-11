@@ -1,59 +1,124 @@
 ---
-title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
-description: Provides an overview of the StorSimple Data Manager serivce
+title: Use Azure Automation to launch a job in StorSimple Data Manager | Microsoft Docs
+description: Learn how to use Azure Automation for triggering StorSimple Data Manager jobs
 services: storsimple
 documentationcenter: NA
-author: vidarmsft
-manager: syadav
+author: alkohli
+manager: jeconnoc
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/08/2017
-ms.author: vidarmsft
+ms.date: 12/20/2017
+ms.author: alkohli
 ---
 
-# StorSimple Data Manager overview
+# Use Azure Automation to trigger a job
 
-## Overview
+This article explains how you can use the data transformation feature within the StorSimple Data Manager service to transform StorSimple device data. You can launch a data transformation job in two ways: 
 
-Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across the on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure. Archival and disaster recovery is also seamless with the cloud acting as an offsite location.
+ - Use the .NET SDK
+ - Use Azure Automation runbook
+ 
+This article details how to create an Azure Automation runbook and then use it to initiate a data transformation job. To learn more about how to initiate data transformation via .NET SDK, go to [Use .NET SDK to trigger data transformation jobs](storsimple-data-manager-dotnet-jobs.md).
 
-The StorSimple Data Manager service allows you to seamlessly access the StorSimmple data in the cloud. The Data Transformation service then converts the StorSimple data and presents it to other Azure services such as Azure Media Services, Azure HDInsight that readily consume this data.
+## Prerequisites
 
-This article provides an overview of the StorSimple Data Manager solution. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
+Before you begin, ensure that you have:
 
-## How does it work?
+*	Azure Powershell installed on the client computer. [Download Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+*	A correctly configured job definition in a StorSimple Data Manager service within a resource group.
+*	Download  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) file from the GitHub repository. 
+*	Download [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script from the GitHub repository.
 
-The StorSimple Data Manager service identifies the StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is in native HCS format. The Data Manager service provides APIs to extract the native format data and convert it into other formats such as Azure blobs and Azure media assets. This converted data is then readily consumed by Azure HDInsight and Azure Media services. The data transformation thus enables these services to operate upon the converted StorSimple data from StorSimple 8000 series on-premises device. A high-level block diagram illustrating this is shown below.
+## Step-by-step
 
-![High-level diagram](./media/storsimple-data-manager-overview/storsimple-data-manager-overview.png)
+### Set up the Automation Account
 
-## Data Manager components
+1. Create an Azure Run As automation account in the Azure portal. To do so, go to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
-The StorSimple Data Manager solution consists of the following components: 
+    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-## Data Manager usecases
+2. To add a new automation account, click **+ Add**.
 
-## Security considerations
+    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
-Your data stays secure when using the Data Manager service. The StorSimple data in cloud 
+3. In the **Add Automation**:
 
-## Region availability
+    1. Supply the **Name** of your automation account.
+    2. Select the **Subscription** linked to your StorSimple Data Manager service.
+    3. Create a new resource group or select from an existing resource group.
+    4. Select a **Location**.
+    5. Leave the default **Create Run As account** option selected.
+    6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
 
+    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+    
+    After the automation account is successfully created, you are notified.
+    
+    ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
+    For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
 
+3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
 
-## 
+    ![Import module 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
 
+4. Browse to the location of `DataTransformationApp.zip` file from your local computer, and select and open the module. Click **OK** to import the module.
 
+    ![Import module 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
+   When Azure Automation imports a module to your account, it extracts metadata about the module. This operation may take a couple of minutes.
 
+   ![Import module 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
+5. You receive a notification that the module is being deployed and another notification when the process is complete.  The status in **Modules** changes to **Available**.
+
+    ![Import module 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
+
+### Import, publish, and run Automation runbook
+
+Perform the following steps to import, publish, and run the runbook to trigger job definition.
+
+1. In the Azure portal, open your Automation account. Go to **Process Automation > Runbooks** and click **+ Add a runbook**.
+
+    ![Add runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
+
+2. In **Add runbook**, click **Import an existing runbook**.
+
+3. Point to the Azure PowerShell script file `Trigger-DataTransformation-Job.ps1` for the **Runbook file**. The runbook type is automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
+
+    ![Add runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
+
+4. The new runbook appears in the list of runbooks for the Automation account. Select and click this runbook.
+
+    ![Add runbook 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
+
+5. Edit the runbook and click **Test** pane.
+
+    ![Add runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
+
+6. Provide the parameters such as the name of your StorSimple Data Manager service, the associated reource group and the job definition name. **Start** the test. The report is generated when the run is complete. For more information, go to how to [test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+
+    ![Add runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
+
+7. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm, and publish the runbook.
+
+    ![Add runbook 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
+
+8. Go back to **Runbooks** and select the newly created runbook.
+
+    ![Add runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
+
+9. **Start** the runbook. In **Start runbook**, enter all the parameters. Click **OK** to submit and start the data transformation job.
+
+10. To monitor the job progress in Azure portal, go to **Jobs** in your StorSimple Data Manager service. Select and click the job to view the job details.
+
+    ![Add runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
 ## Next steps
 
