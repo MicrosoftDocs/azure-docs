@@ -6,7 +6,7 @@ services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: csteele86
+editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -278,7 +278,7 @@ To learn about how to authenticate clients to your Mobile Apps backend, see [Add
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
 > [!IMPORTANT]
-> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure Portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
+> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
 > 
 > 
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install
