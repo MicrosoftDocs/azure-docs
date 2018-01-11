@@ -89,7 +89,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
 
 ## Introduction to azure_module
-The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing this role is a good choice.
+The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of the Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing this role is a good choice.
 
 The azure_module playbook role is released every three weeks.
 
