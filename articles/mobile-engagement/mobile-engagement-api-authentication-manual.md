@@ -38,7 +38,7 @@ This documentation is an appendix to [Authenticate with Mobile Engagement REST A
 
 5. Fill in the name of the application. Leave the type of application as **Web app/API**, and then select the **Next** button. You can provide any dummy URLs for **SIGN-ON URL**. They are not used for this scenario, and the URLs themselves are not validated.
 
-    After you finish, you have an Azure AD app with the name you provided. It is your **AD\_APP\_NAME**, so be sure to make a note of it.
+    After you finish, you have an Azure Active Directory (Azure AD) app with the name you provided. It is your **AD\_APP\_NAME**, so be sure to make a note of it.
 
 ![App name][8]
 

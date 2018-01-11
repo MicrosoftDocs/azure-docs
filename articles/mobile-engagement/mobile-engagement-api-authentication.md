@@ -23,7 +23,7 @@ ms.author: wesmc;ricksal
 
 This document describes how to get a valid Azure AD Oauth token to authenticate with the Mobile Engagement REST APIs.
 
-This procedure assumes that you have a valid Azure subscription and have created a Mobile Engagement app by using one of the [Developer Tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
+This procedure assumes that you have a valid Azure subscription and have created a Mobile Engagement app by using one of the [developer tutorials](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Authentication
 
@@ -44,7 +44,7 @@ There are several ways to get a token. Because the APIs are called from a cloud 
 
 To perform the setup by using a PowerShell script, take the steps in the following instructions. A PowerShell script requires the least amount of time for setup but uses the most permissible defaults. 
 
-Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. When you set up from the Azure portal allows, you can do a more detailed configuration.
+Optionally, you can also follow the instructions in the [manual setup](mobile-engagement-api-authentication-manual.md) for doing this from the Azure portal directly. When you set up from the Azure portal, you can do a more detailed configuration.
 
 1. Get the latest version of Azure PowerShell from [here](http://aka.ms/webpi-azps). For more information about the download instructions, see  this [link](/powershell/azure/overview).
 
@@ -68,7 +68,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
 
         Get-AzureRmSubscription
 
-    b. Run the following command, providing the **SubscriptionId** to configure the subscription that you're going to use:
+    b. Run the following command. Provide the **SubscriptionId** to configure the subscription that you're going to use:
 
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
 5. Copy the text for the [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) script to your local machine. Then save it as a PowerShell cmdlet (for example, `APIAuth.ps1`), and run it.
@@ -97,7 +97,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
 
 ### Steps to get a valid token
 
-1. Call the API with the following parameters, and make sure to replace **TENANT\_ID**, **CLIENT\_ID**, and **CLIENT\_SECRET**:
+1. Call the API with the following parameters. Make sure to replace **TENANT\_ID**, **CLIENT\_ID**, and **CLIENT\_SECRET**:
    
    * **Request URL** as `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
 
@@ -134,7 +134,7 @@ Optionally, you can also follow the instructions in the [manual setup](mobile-en
    
     If your request returns a 401 status code, check the response body. It might tell you the token is expired. In that case, get a new token.
 
-## Using the APIs
+## Use the APIs
 Now that you have a valid token, you are ready to make the API calls.
 
 1. In each API request, you need to pass a valid, unexpired token. You obtained the unexpired token in the previous section.
