@@ -12,8 +12,8 @@ The Azure Functions project template in Visual Studio creates a project that can
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | Version | Azure Functions v1 <br />(.NET Framework) | This topic creates a function app that uses the version 1 runtime. To learn more about the version 2 runtime that is preview, see [How to target Azure Functions runtime version](../articles/azure-functions/functions-versions.md).   | 
-    | Template | HTTP trigger | This topic creates a function triggered by an HTTP request. |
+    | Version | Azure Functions v1 <br />(.NET Framework) | This creates a function app that uses the version 1 runtime of Azure Functions. The version 2 runtime, which supports .NET Core, is currently in preview. For more information, see [How to target Azure Functions runtime version](../articles/azure-functions/functions-versions.md).   | 
+    | Template | HTTP trigger | This creates a function triggered by an HTTP request. |
     | **Storage account**  | Storage Emulator | An HTTP trigger doesn't use the Storage account connection. All other trigger types require a valid Storage account connection string. |
     | **Access rights** | Anonymous | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. Function key values can be found in the [Azure portal](https://portal.azure.com).|
 
