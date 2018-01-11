@@ -285,7 +285,7 @@ For further troubleshooting, take the following steps:
 
 	![Log error](media/data-factory-spark/yarnui-application-error.png)
 
-The following sections provide information about Data Factory entities to use Spark cluster and Spark activity in your data factory.
+The following sections provide information about the data factory entities to use Spark cluster and Spark activity in your data factory.
 
 ## Spark activity properties
 Here is the sample JSON definition of a pipeline with a Spark activity: 
@@ -342,7 +342,7 @@ The following table describes the JSON properties used in the JSON definition.
 ## Folder structure
 The Spark activity doesn't support an inline script as Pig and Hive activities do. Spark jobs are also more extensible than Pig/Hive jobs. For Spark jobs, you can provide multiple dependencies such as jar packages (placed in the java CLASSPATH), python files (placed on the PYTHONPATH), and any other files.
 
-Create the following folder structure in the blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate subfolders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, Data Factory service expects the following folder structure in the blob storage: 
+Create the following folder structure in the blob storage referenced by the HDInsight linked service. Then, upload dependent files to the appropriate subfolders in the root folder represented by **entryFilePath**. For example, upload python files to the pyFiles subfolder and jar files to the jars subfolder of the root folder. At runtime, the Data Factory service expects the following folder structure in the blob storage: 
 
 | Path | Description | Required | Type |
 | ---- | ----------- | -------- | ---- |
