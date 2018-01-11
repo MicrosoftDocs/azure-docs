@@ -102,11 +102,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 
-	b. Copy the **User access URL** and paste it in the **Configure Sign-on URL section**, which is explained later in the tutorial.
+	b.	Set the **User assignment required** field value to **Yes**.
 
-	c.	Set the **User assignment required** field value to **Yes**.
-
-	d.	Set the **Visible to users** field value to **No**.
+	c.	Set the **Visible to users** field value to **No**.
 
 2. Click **Single sign-on** on **ADP Federated SSO** application integration page.
 
@@ -198,17 +196,15 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
-9. Navigate to the **Configure Sign-on URL** section, perform the following steps:
+9. On the **Configure Sign-on URL** section, perform the following steps:
 
 	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
 
-	a. Paste the **User access URL**, which you have copied from above **properties tab** (from the main ADP Federated SSO app).
-
 	![Single sign-on prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_useraccess.png)
 
-	b. Navigate to **properties tab** on **ADP Federated SSO** application integration page, copy the **User access URL**
+	a. Navigate to **properties tab** on **ADP Federated SSO** application integration page, copy the **User access URL**
                                                              
-	c. Global admin have to append the **Relay State** value manually to the **User access URL**. These are the 5 apps they support with different **Relay State URLS** you have to append the appropriate value for particlular application mentioned below.
+	b. Paste the **User access URL** which you have copied from the **properties tab** and global admin have to append the **Relay State** value manually to the **User access URL**. These are the 5 apps they support with different **Relay State URLS** and you have to append the appropriate value for particlular application mentioned below.
 	
 	1- **ADP Workforce Now**
 		
