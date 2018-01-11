@@ -106,25 +106,25 @@
             - name: Migrating to Premium Storage using Azure Site Recovery
               href: https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
             - name: Design for high performance
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance.md
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance
         - name: Windows
           items: 
             - name: High-performance Premium Storage for VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage.md
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
             - name: Migrating to Premium Storage using Azure Site Recovery
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
             - name: Design for high performance
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance.md
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance
     - name: Standard Storage 
       items:
         - name: Linux
           items: 
             - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage.md
+              href: https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage
         - name: Windows
           items: 
             - name: Cost-effective Standard Storage and unmanaged and managed VM Disks
-              href: https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage.md
+              href: https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage
   - name: Secure
     items:
     - name: Security guide
