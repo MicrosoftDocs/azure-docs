@@ -106,6 +106,8 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
+  - name: Visuall author data factories
+    href: author-visuallly.md
   - name: Copy data
     items:
     - name: Copy data from supported sources to destinations
