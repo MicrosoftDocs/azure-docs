@@ -1,12 +1,12 @@
 ---
-title: Create effective AppSource listings
+title: Create effective listings in AppSource and within Office
 description: Make sure that the information you submit, including your title, description, logos, and screenshots, clearly communicates the benefits and functionality that your solution provides.
 ms.date: 12/04-2017
 ---
 
-# Create effective AppSource listings
+# Create effective listings in AppSource and within Office
 
-The information and images that you submit to the Seller Dashboard become the AppSource listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and screenshots—clearly communicates the benefits and functionality that your solution provides.
+The information and images that you submit to the Seller Dashboard become the AppSource and in-product Store listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your title, description, logos, and screenshots—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your title, description, and images:
 
@@ -28,7 +28,7 @@ In your title:
 - Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
-- Don't include the Microsoft product name. This appears on your landing page in the AppSource, and in AppSource search results.
+- Don't include the Microsoft product name. This appears on your landing page, and in AppSource and in-product Store search results.
 - Avoid acronyms that might be unfamiliar to potential users. 
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
@@ -42,7 +42,7 @@ In your title:
 You specify your add-in name in two places, so be sure to use the same name in both:
 
 - Your add-in manifest; specifically, the [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
-- The Seller Dashboard add-in submission form. This specifies the name that is displayed in the AppSource.
+- The Seller Dashboard add-in submission form. This specifies the name that is displayed in AppSource and the in-product Store.
 
 <a name="bk_describe"> </a>
 ## Write compelling descriptions
@@ -51,7 +51,7 @@ A good description makes your solution stand out. Your short description should 
 
 ### Effective short descriptions
 
-The short description that you supply with your submission is the text that is shown to users in AppSource search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The short description that you supply with your submission is the text that is shown to users in AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the title.
@@ -64,7 +64,7 @@ The short description that you supply with your submission is the text that is s
 
 ### Effective long descriptions
 
-The long description is displayed on your landing page in the AppSource. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
+The long description is displayed on your landing page in AppSource and within Office. It should match the description in your manifest as closely as possible. You have room for a more detailed description, including the main features, the problems it solves, and the target audience for your solution. Be sure to include popular search keywords. The Office.com search engine will pick these up in search query return sets.
 
 In your long description, answer the following questions:
 
@@ -95,7 +95,7 @@ Features:
 <a name="bk_images"> </a>
 ## Create a consistent visual identity 
 
-Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your solution. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in the AppSource and when the solution is displayed in Office or SharePoint. The two images have different formatting requirements.
+Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your solution. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in AppSource and when the solution is displayed in Office or SharePoint. The two images have different formatting requirements.
 
 Your logo should:
 
@@ -113,7 +113,7 @@ For SharePoint Add-ins, you include an image in your add-in package, and upload 
 
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to the AppSource, you have to link to an image by using the [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins that you are submitting to AppSource, you have to link to an image by using the [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 
@@ -165,9 +165,9 @@ Good ratings and reviews lead to better store placement and improved customer pe
 
 ![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
 
-## Respond to customer reviews in the AppSource
+## Respond to customer reviews in AppSource
 
-You can use the comment feature in the AppSource to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the AppSource with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
+You can use the comment feature in AppSource to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to AppSource with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
 *Figure 5. A developer response to a comment with the App provider label under the name*
 
@@ -203,6 +203,6 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Validation policies for apps and add-ins submitted to the AppSource](validation-policies.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Validation policies](validation-policies.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

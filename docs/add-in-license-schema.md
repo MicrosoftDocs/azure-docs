@@ -52,7 +52,7 @@ Required. Contains attributes that represent various properties of the add-in li
 </tr>
 <tr>
 <td>aid</td>
-<td>Required text. The asset ID assigned to this add-in by the AppSource.</td>
+<td>Required text. The asset ID assigned to this add-in by AppSource.</td>
 </tr>
 <tr>
 <td>pid</td>
@@ -230,7 +230,7 @@ The following example shows the add-in license for a user who is signed in with 
 - [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 
 
 

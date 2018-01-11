@@ -179,7 +179,7 @@ The Office and SharePoint Add-ins licensing model gives you a way to include cod
 - The Visual Studio project for your add-in.
 - The file system by using the Developer Registry provider.
 
-Both methods allow an add-in to get the license the same way it would if it were launched from the AppSource or a SharePoint add-in catalog. However, test licenses aren't treated the same way by the Office and SharePoint Add-ins runtime. They are not tested for expiration or the entitlement type, and therefore won't trigger a token refresh or raise an error in the UI.
+Both methods allow an add-in to get the license the same way it would if it were launched from AppSource or a SharePoint add-in catalog. However, test licenses aren't treated the same way by the Office and SharePoint Add-ins runtime. They are not tested for expiration or the entitlement type, and therefore won't trigger a token refresh or raise an error in the UI.
 
 ### Load a test license from your Visual Studio project
 
@@ -357,7 +357,7 @@ If multiple licenses are purchased for the same add-in by using different Micros
 - Unexpired Trial
 - Expired Trial
      
-The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to the AppSource.
+The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to AppSource.
 
 #### Code example: Retrieve add-in license tokens
 
@@ -518,6 +518,6 @@ private void VerifyLicenseToken(string rawLicenseToken)
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
 
 

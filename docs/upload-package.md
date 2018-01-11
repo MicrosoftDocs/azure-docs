@@ -1,10 +1,10 @@
 ---
-title: Upload your package to the AppSource
+title: Upload your package to AppSource
 description: Upload the manifest for your Office Add-in, SharePoint Add-in, or Microsoft Teams app, or upload your Office 365 web app or Power BI custom visual.
 ms.date: 12/04-2017
 ---
 
-# Upload your package to the AppSource
+# Upload your package to AppSource
 
 On the Overview page in the Seller Dashboard, under **App package**, you upload your manifest. The upload process varies based on your submission type.
 
@@ -52,12 +52,12 @@ To submit a Power BI custom visual, send an email to the Power BI custom visuals
 - The .pbiviz file 
 - The sample report .pbix file
 
-The Power BI team will reply back with instructions and a manifest XML file to upload. This XML manifest is required to submit your custom visual to the AppSource.
+The Power BI team will reply back with instructions and a manifest XML file to upload. This XML manifest is required to submit your custom visual to AppSource.
 
 > [!NOTE]
 > To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals take approximately two weeks to reach the general public after approval. 
 
-For more details about submitting Power BI custom visuals, see [Publish custom visuals to the AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store).
+For more details about submitting Power BI custom visuals, see [Publish custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store).
 
 ## Upload a Microsoft Teams app
 
@@ -76,5 +76,5 @@ For more details about Microsoft Teams app packages, see [Create the package for
 - [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [AppSource submission FAQ](office-store-submission-faq.md)
-- [Use the Seller Dashboard to submit your solution to the AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

@@ -11,7 +11,7 @@ If you're building an Office Add-in that is backed by a subscription service, yo
 
 ## Step 1: Use a single manifest for all customers
 
-To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the AppSource. That way, as you add new features, such as [add-in commands](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to AppSource. That way, as you add new features, such as [add-in commands](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
 
 > [!NOTE]
 > Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest; for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
@@ -21,7 +21,7 @@ To make distributing and maintaining your add-in easy, we recommend that you sub
 To sell Office Add-ins to organizations, you need to create a licensing database. This is necessary because:
 
 - Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment models and at the price points they choose.
-- Centralized deployment does not allow users to buy add-ins from the AppSource and deploy them. AppSource paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
+- Centralized deployment does not allow users to buy add-ins from AppSource and deploy them. AppSource paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
 
 As such, you must build a licensing database (or use your existing licensing database). This might record:
 
@@ -140,7 +140,7 @@ When a customer makes a purchase, update your licensing database with the record
 
 After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can deploy it yourself.
 
-A tenant administrator can deploy the add-in via [centralized deployment](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/centralized-deployment). If your add-in is published in the AppSource, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
+A tenant administrator can deploy the add-in via [centralized deployment](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/centralized-deployment). If your add-in is published in AppSource, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
 
 <!-- In our other content, we don't say that the admin has to create a group to assign the add-in. They can assign the add-in to groups or individuals. I suggest we leave this part out as it isn't consistent with our other content, or we update the centralized deployment topics to clarify that the add-ins have to be assigned to a group. 
 
@@ -148,7 +148,7 @@ The administrator should then create a flat group (or DL) containing the target 
 
 At this point, everyone in the organization belonging to that group will see it in their ribbon.    (Link to Admin Center telemetry dashboard)
 
-As group membership grows (or as users from the organization install the add-in from the AppSource), your licensing service will work as designed.-->
+As group membership grows (or as users from the organization install the add-in from AppSource), your licensing service will work as designed.-->
 
 
 ## See also
@@ -160,4 +160,4 @@ As group membership grows (or as users from the organization install the add-in 
 - [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
-- [Submit your solutions to the AppSource](submit-to-the-office-store.md)
+- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

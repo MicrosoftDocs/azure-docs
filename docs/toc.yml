@@ -1,6 +1,6 @@
-- name: Submit to the AppSource
+- name: Submit your solutions to AppSource
   href: submit-to-the-office-store.md
-- name: Optimize add-ins for AppSource discovery
+- name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
 - name: License your add-ins
   href: license-your-add-ins.md
