@@ -35,31 +35,12 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 
 |Workload|Scenario|Access Method|
 |--------|--------|-------------|
-|Hadoop|Hive – Interactive Jobs/Queries	|
+|Hadoop|Hive – Interactive Jobs/Queries	|<ul><li>Use Beeline (see instructions below)</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
+|Spark|Interactive Jobs/Queries, Pyspark interactive|<ul><li>Use Beeline (see instructions below)</li><li>Zeppelin with Livy</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
+|Spark|Batch Scenarios – Spark submit, Pyspark|<ul><li>Livy</li></ul>|
+|Interactive Query (LLAP)|Interactive|<ul><li>Use Beeline (see instructions below)</li><li>Use Hive View</li><li>ODBC/JDBC – Power BI</li><li>Visual Studio Tools</li></ul>|
+|Any|Install Custom Application|<ul><li>Script Actions</li></ul>|
 
-- Use Beeline (see instructions below)
-- Use Hive View
-- ODBC/JDBC – Power BI
-- Visual Studio Tools|
-
-|Spark|Interactive Jobs/Queries, Pyspark interactive|<ul><li>Use Beeline (see instructions below)</li>
-<li>Zeppelin with Livy</li>
-<li>Use Hive View</li>
-<li>ODBC/JDBC – Power BI</li>
-<li>Visual Studio Tools</li></ul>|
-
-|Spark|Batch Scenarios – Spark submit, Pyspark|1.	Livy|
-
-|Interactive Query (LLAP)|Interactive|1.	Use Beeline (see instructions below)
-2.	Use Hive View
-3.	ODBC/JDBC – Power BI
-4.	Visual Studio Tools|
-
-|Any|Install Custom Application|1.	Script Actions|
-
-
-The next obvious question is how do run my jobs or queries for both batch or interactive scenarios without SSH access to the cluster.
-Based on your scenario and need, the follbelow are the recommended access methods.
 
 In general, going through the standard APIs not only helps to from security perspective but also you get below benefits
 1.	Management – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
@@ -67,15 +48,21 @@ In general, going through the standard APIs not only helps to from security pers
 
 
 
-Use Beeline 
+### Use Beeline 
 Install Beeline on your machine, and connect over the public internet, use the following parameters: 
-•	Connection string: -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
-•	Cluster login name: -n admin
-•	Cluster login password -p 'password'
-Replace the clustername in the connection string with the name of your HDInsight cluster. 
-Replace admin with the name of your cluster login, and replace password with the password for your cluster login. 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
 If you have Beeline installed locally, and connect over an Azure Virtual Network, use the following parameters: 
-•	Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
 To find the fully qualified domain name of a headnode, use the information in the Manage HDInsight using the Ambari REST API document.
 
 
