@@ -516,7 +516,7 @@ If you drop multiple files (file.txt, file2.txt, file3.txt) with the same conten
 
 The output file has three lines now, one for each input file (blob) in the folder associated with the slice (2015-11-16-00).
 
-A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Batch to process the slice. Because there are five slices (each slice can have multiple blobs or file), five tasks are created in Batch. When a task runs on Batch, it's actually the custom activity that is running.
+A task is created for each activity run. In this sample, there is only one activity in the pipeline. When a slice is processed by the pipeline, the custom activity runs on Batch to process the slice. Because there are five slices (each slice can have multiple blobs or file), five tasks are created in Batch. When a task runs on Batch, it's the custom activity that is running.
 
 The following walk-through provides additional details.
 
