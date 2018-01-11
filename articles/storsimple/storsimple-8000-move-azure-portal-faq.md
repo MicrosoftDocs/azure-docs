@@ -127,11 +127,9 @@ No. With your service moving to new Azure portal, there should be no impact on t
 
 ## Moving StorSimple Data Manager service
 
-### I am using StorSimple Data Manager service. How should I proceed with this move?
+### I am using StorSimple Data Manager service in classic Azure portal. How should I proceed with this move?
 
-If you are using StorSimple Data Manager service, you must move your StorSimple Device Managers first to the Azure portal. Once the move is complete, create new StorSimple Data Managers in the Azure portal. StorSimple Data Managers created prior to the move do not work.
-
-For more information on StorSimple Device Manager service migration, go to [Move your service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). For more information on StorSimple Data Manager creation, go to [Create a StorSimple Data Manager service](storsimple-data-manager-ui.md).
+If you are using StorSimple Data Manager service, you have been automatically moved to the Azure portal.
 
 ## Miscellaneous
 
@@ -145,7 +143,7 @@ No. You cannot rename devices, volumes, volume containers, or backup policies in
 
 ## Next steps
 
-Learn more about [Supported operations on devices running versions prior to Update 5.0](storsimple-8000-manage-service.md#storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
+Learn more about [Supported operations on devices running versions prior to Update 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 
