@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2018
+ms.date: 01/10/2018
 ms.author: shengc
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
@@ -81,9 +81,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
       
      ![New data factory page](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “ADFTutorialDataFactory” is not available`
+     ![Name not available - error](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -115,7 +115,7 @@ You author two Linked Services in this section:
 
     ![Create pipeline tile](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
-2. Click Connections at the bottom of the window, and click + New. 
+2. Click **Connections** at the bottom of the window, and click **+ New**. 
 
     ![New connection button](./media/tutorial-transform-data-spark-portal/new-connection.png)
 3. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**. 
@@ -156,7 +156,7 @@ You author two Linked Services in this section:
 2. Click + (plus) button, and click **Pipeline** in the menu.
 
     ![New pipeline menu](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
-3. Drag-drop **Spark** activity from the **Activities** toolbox to the pipeline desinger surface. 
+3. In the **Activities** toolbox, expand **HDInsight**, and drag-drop **Spark** activity from the **Activities** toolbox to the pipeline desinger surface. 
 
     ![Drag-drop Spark activity](./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png)
 4. In the properties for **Spark** activity window at the bottom, do the following steps: 
@@ -175,7 +175,7 @@ You author two Linked Services in this section:
 6. To validate the pipeline, click **Validate** button on the toolbar. Click the **right-arrow** (>>) button to close the validation window. 
     
     ![Validate button](./media/tutorial-transform-data-spark-portal/validate-button.png)
-7. Click **Publish** artifacts to Data Factory. 
+7. Click **Publish**. Data Factory UI publishes entities (linked services and pipeline) to the Azure Data Factory service. 
 
 ## Trigger a pipeline run
 Click **Trigger** on the toolbar, and click **Trigger Now**. 
@@ -221,7 +221,7 @@ The pipeline in this sample transforms data using Spark Activity and an on-deman
 Advance to the next tutorial to learn how to transform data by running Hive script on an Azure HDInsight cluster that is in a virtual network. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
+> [Tutorial: transform data using Hive in Azure Virtual Network](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 
