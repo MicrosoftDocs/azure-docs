@@ -10,6 +10,8 @@ ms.date: 01/11/2018
 ms.topic: article
 ---
 
+# Ansible matrix
+
 | Ansible modules for Azure                   |  Ansible 2.4 |  Playbook Role azure_module |  Playbook Role azure_preview_module | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 

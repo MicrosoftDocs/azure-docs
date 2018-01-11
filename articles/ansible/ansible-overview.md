@@ -12,7 +12,7 @@ ms.topic: article
 
 # Ansible with Azure
 
-[Ansible](http://www.ansible.com) is an open source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. In addition, Ansible allows you to automate the deployment and configuration of resources in your environment.
+[Ansible](http://www.ansible.com) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. In addition, Ansible allows you to automate the deployment and configuration of resources in your environment.
 
 This article gives a basic overview of some of the benefits of using Ansible with Azure.
 
