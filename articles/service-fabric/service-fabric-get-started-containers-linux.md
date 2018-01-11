@@ -402,6 +402,23 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
 
+## Configure container image download time
+
+By default, the Service Fabric runtime allocates a time of 20 minutes to download and extract container images, which works for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This can be set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
 ## Set container retention policy
 
 To assist with diagnosing container startup failures, Service Fabric (version 6.1 or higher) supports retaining containers that terminated or failed to startup. This policy can be set in the **ApplicationManifest.xml** file as shown in the following snippet:
