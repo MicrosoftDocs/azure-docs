@@ -149,6 +149,8 @@
     items:
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
+    - name: How to use views in sys schema
+      href: howto-troubleshoot-sys-schema.md
 - name: Reference
   items:
   - name: Azure CLI
