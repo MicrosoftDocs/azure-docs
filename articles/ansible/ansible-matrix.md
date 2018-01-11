@@ -18,6 +18,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 
 | Ansible module for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
+| **Compute**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes                                 | 
 | azure_rm_deployment                         | Yes          | Yes                         | Yes                                 | 
@@ -28,6 +29,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_virtualmachine                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_extension           | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualmachine_scaleset            | Yes          | Yes                         | Yes                                 | 
+| **Networking**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_virtualnetwork_facts               | Yes          | Yes                         | Yes                                 | 
 | azure_rm_subnet                             | Yes          | Yes                         | Yes                                 | 
