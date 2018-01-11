@@ -81,7 +81,9 @@ az vmss create \
     --zones {1,2,3}
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
+It takes a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. A zone-redundant *Standard* SKU public IP address and load balancer are created. A Network Security Group and rules are also created to permit SSH traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
+
+For a complete example of a zone-redundant scale set and network resources, see [this sample CLI script](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
 
 
 ## Use Azure PowerShell
@@ -112,7 +114,9 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Zone "1", "2", "3"
 ```
 
-If you create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) or a load balancer with [New-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancer), specify the *-SKU "Standard* to also create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For a complete example of a zone-redundant scale set and network resources, see [this sample PowerShell script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1)
+If you create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) or a load balancer with [New-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancer), specify the *-SKU "Standard"* to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
+
+For a complete example of a zone-redundant scale set and network resources, see [this sample PowerShell script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1)
 
 
 ## Use Azure Resource Manager templates
