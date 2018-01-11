@@ -62,75 +62,16 @@ The HA ports feature is available in the [same regions as Load Balancer Standard
 
 ## Preview sign-up
 
-To participate in the preview of the HA ports feature in Load Balancer Standard, register your subscription to gain access. You can use either Azure CLI 2.0 or PowerShell.
+To participate in the preview of the HA ports feature in Load Balancer Standard, register your subscription for Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up). You can register using either Azure CLI 2.0 or PowerShell.
 
 >[!NOTE]
->To use this feature, you must also sign up for Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up), in addition to the HA ports feature. Registration can take up to an hour.
-
-### Sign up by using Azure CLI 2.0
-
-1. Register the feature with the provider:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. The preceding operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    The operation is successful when the feature registration state returns **Registered**, as shown here:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### Sign up by using PowerShell
-
-1. Register the feature with the provider:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. The preceding operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    The operation is successful when the feature registration state returns **Registered**, as shown here:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>Registration can take up to an hour.
 
 ## Limitations
 
 The following are the supported configurations or exceptions for the HA ports feature:
 
-- A single front-end IP configuration can have a single DSR load balancer rule with HA ports, or it can have a single non-DSR load balancer rule with HA ports. It cannot have both.
+- A single front-end IP configuration can have a single Direct Server Return (DSR - Floating IP in Azure) load balancer rule with HA ports, or it can have a single non-DSR load balancer rule with HA ports. It cannot have both.
 - A single network interface IP configuration can only have one non-DSR load balancer rule with HA ports. You can't configure any other rules for this ipconfig.
 - A single network interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective front-end IP configurations are unique.
 - If all of the load balancing rules are HA ports (DSR only), two (or more) Load Balancer rules pointing to the same back-end pool can co-exist. The same is true if all of the rules are non-HA ports (DSR and non-DSR). If there is a combination of HA ports and non-HA ports rules, however, two such load balancing rules can't co-exist.

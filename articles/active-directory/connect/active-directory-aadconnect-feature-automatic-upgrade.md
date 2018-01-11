@@ -4,7 +4,7 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472

@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
 
 ---
@@ -122,7 +122,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Security Center policies contain the following components:
 - [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
-- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
+- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
 - [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
 - [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
 
@@ -175,7 +175,7 @@ After initial configuration and application of Security Center recommendations, 
 
 The Security Center Overview provides a unified view of security across all your Azure resources and any non-Azure resources you have connected. The example below shows an environment with many issues to be addressed:
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.

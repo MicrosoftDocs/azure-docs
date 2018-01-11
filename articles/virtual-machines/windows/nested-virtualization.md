@@ -29,7 +29,7 @@ You can view the regional availability of Dv3 or Ev3 series virtual machines [he
 
 >[!NOTE]
 >
->For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## Connect to your Azure VM
 
@@ -139,7 +139,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 2. In wizard, click **Next** until the Server Roles page.
   
-3. Click to select the **DHCP Server** checkbox, click **Add Features**, and then click**Next** until you complete the wizard.
+3. Click to select the **DHCP Server** checkbox, click **Add Features**, and then click **Next** until you complete the wizard.
   
 4. Click **Install**.
 
@@ -158,7 +158,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
     
 ### Option 2: Manually set a static IP address on the guest virtual machine
-If you did not configure DHCP to dynamically assign an IP address toe the guest virtual machine, follow these steps to set a static IP address.
+If you did not configure DHCP to dynamically assign an IP address to the guest virtual machine, follow these steps to set a static IP address.
 
 1. On the Azure VM, open PowerShell as an Administrator.
 

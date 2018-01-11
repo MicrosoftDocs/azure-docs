@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -83,7 +83,7 @@ This scenario assumes that a user:
 
 - Opens the Outlook application and signs in with the Azure AD credentials
 
-- Is prompted to install either Authenticor (iOS) or Company Portal (Android) to continue
+- Is prompted to install either Authenticator (iOS) or Company Portal (Android) to continue
 
 - Installs the application and can return to the Outlook app to continue
 

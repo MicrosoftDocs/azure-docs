@@ -72,7 +72,7 @@ If you would like to conserve index space, you can adjust the [indexing policy](
 
 ## Debugging why queries are running slow
 
-In the DocumentDB API SDKs, Azure Cosmos DB provides query execution statistics. 
+In the SQL API SDKs, Azure Cosmos DB provides query execution statistics. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

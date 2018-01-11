@@ -25,10 +25,10 @@ Azure Cloud Shell has the following known limitations:
 
 ### System state and persistence
 
-The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires a file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
+The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires an Azure file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 
 * With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
-* File shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, run `env` to find your region set as `ACC_LOCATION`.
 * Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
@@ -74,7 +74,12 @@ PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initial
 Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-resolutions).
 
 ### Default file location when created from Azure drive:
+
 Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
+
+### GUI applications are not supported
+
+If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## Next steps
 

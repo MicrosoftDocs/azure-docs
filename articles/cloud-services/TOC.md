@@ -41,10 +41,10 @@
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configure a custom domain name](cloud-services-custom-domain-name-portal.md)
-### [Stage a cloud service deployment (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
+### [Mitigating speculative execution](mitigate-se.md}
 ### [Common management tasks](cloud-services-how-to-manage-portal.md)
 ### [Configure Cloud Service](cloud-services-how-to-configure-portal.md)
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)

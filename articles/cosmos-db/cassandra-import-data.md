@@ -45,7 +45,7 @@ This tutorial covers the following tasks:
 
 ## Use cqlsh COPY
 
-To import data to Cassandra data into Azure Cosmos DB for use with the Cassandra API, use the following guidance:
+To import Cassandra data into Azure Cosmos DB for use with the Cassandra API, use the following guidance:
 
 1. Log in to cqhsh using the connection information from the portal.
 2. Use the [CQL COPY command](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) to copy local data to the Apache Cassandra API endpoint. Ensure the source and target are in same datacenter to minimize latency issues.

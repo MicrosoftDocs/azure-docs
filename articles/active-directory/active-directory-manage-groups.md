@@ -5,7 +5,7 @@ description: How to use groups in Azure Active Directory to manage user access t
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 714120d0-cdf9-465d-afee-39bef591c6b3

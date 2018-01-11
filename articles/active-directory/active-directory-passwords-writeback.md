@@ -5,16 +5,16 @@ services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
-ms.reviewer: gahug
+manager: mtillman
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -105,8 +105,8 @@ If you're not sure what account the described account refers to, open the Azure 
 
 If you set these permissions, the MA service account for each forest can manage passwords on behalf of the user accounts within that forest. 
 
->[!IMPORTANT]
->If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
+> [!IMPORTANT]
+> If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
 >
 
 > [!NOTE]
@@ -122,7 +122,6 @@ To set up the appropriate permissions for password writeback to occur, complete 
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
 6. In the **Applies to** drop-down list, select **Descendent user** objects.
 7. Under **Permissions**, select the boxes for the following:
-    * **Unexpire-password**
     * **Reset password**
     * **Change password**
     * **Write lockoutTime**
@@ -158,7 +157,6 @@ Passwords are written back in all the following situations:
   * Any administrator self-service voluntary change password operation
   * Any administrator self-service force change password operation, for example, password expiration
   * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
-  * Any administrator-initiated end-user password reset from the [Azure classic portal](https://manage.windowsazure.com)
   * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com)
 
 ### User and admin operations that are not supported for password writeback

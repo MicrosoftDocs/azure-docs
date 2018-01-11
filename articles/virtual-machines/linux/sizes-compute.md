@@ -34,4 +34,4 @@ ms.author: jonbeck
 - [High performance compute](sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

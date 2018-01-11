@@ -19,65 +19,63 @@ ms.author: fboylu
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
-## **Important**
-This article has been deprecated. The discussion is still relevant to the problem at hand, that is, Predictive Maintenance in Aerospace, but refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) for current information.
+>[!Important]
+This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
-## **Acknowledgements**
-This article was authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz, and software engineer Dan Grecoe at Microsoft.
 
-## **Overview**
-Solution Templates are designed to accelerate the process of building an
-E2E demo on top of Cortana Intelligence Suite. A deployed template provisions your subscription with necessary Cortana Intelligence components
-and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data generated from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard. The deployment process guides you through several steps to set up your solution credentials. Make sure you record credentials such as solution name, username, and password you provide during the deployment.  
+Solution templates are designed to accelerate the process of building an
+E2E demo on top of Cortana Intelligence Suite. A deployed template provisions your subscription with necessary Cortana Intelligence components and then builds the relationships between them. It also seeds the data pipeline with sample data from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard.
 
-The goal of this document is to explain the reference architecture, and components provisioned in your subscription as part of this
-solution template, shows how to replace the
-sample data with your own data, and how to modify the Solution Template.  
+The deployment process guides you through several steps to set up your solution credentials. Make sure you record the credentials such as solution name, username, and password that you provide during the deployment. 
+
+
+The goals of this article are to:
+- Describe the reference architecture and components provisioned in your subscription.
+- Demonstrate how to replace the sample data with your own data. 
+- Show how to modify the solution template.  
 
 > [!TIP]
-> You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> You can download and print a [PDF version of this article](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
-## **Overview**
+## Overview
 ![Predictive maintenance architecture](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Deploy the solution activates Azure services within the Cortana
-Analytics Suite (Event Hub, Stream Analytics,
-HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
+When you deploy the solution, it activates Azure services within the Cortana Analytics Suite (including Event Hub, Stream Analytics,
+HDInsight, Data Factory, and Machine Learning). The architecture
 diagram shows how the Predictive Maintenance for
-Aerospace Solution Template is constructed. You can investigate these services in the Azure portal by clicking on them on the solution template diagram created with the solution deployment (With the exception of HDInsight, which is provisioned on demand when the related pipeline activities are required to run and deleted afterwards).
+Aerospace Solution Template is constructed. You can investigate these services in the Azure portal by clicking  them in the solution template diagram created with the solution deployment (except for HDInsight, which is provisioned on demand when the related pipeline activities are required to run and are deleted afterwards).
 Download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe the solution parts.
 
-## **Data source and ingestion**
+## Data source and ingestion
 ### Synthetic data source
 For this template, the data source used is generated from a desktop
-application that you download and run locally, after successful
-deployment. The instructions to download and install this application are in the properties bar when you select the first node called Predictive Maintenance Data Generator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
-with data points, or events, used in the rest of the solution flow. This data
-source is derived from publicly available data from the
-[NASA data
-repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
+application that you download and run locally after successful
+deployment.
+
+To find the instructions to download and install this application,   select the first node, Predictive Maintenance Data Generator, on the solution template diagram. The instructions are found in the Properties bar. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, used in the rest of the solution flow. This data source is derived from publicly available data from the
+[NASA data repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
 using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 The event generation application populates the Azure Event Hub only
 while it's executing on your computer.
 
-### Azure event hub
+### Azure Event Hub
 The [Azure Event
 Hub](https://azure.microsoft.com/services/event-hubs/) service is
 the recipient of the input provided by the Synthetic Data Source.
 
-## **Data preparation and analysis**
+## Data preparation and analysis
 ### Azure Stream Analytics
 Use [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/)
-service to provide near real-time analytics on the input stream
-from the [Azure Event Hub](#azure-event-hub) service and publish results
+to provide near real-time analytics on the input stream
+from the [Azure Event Hub](#azure-event-hub) service. You then publish results
 onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as
-archiving all raw incoming events to the [Azure
+archive all raw incoming events to the [Azure
 Storage](https://azure.microsoft.com/services/storage/) service
 for later processing by the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -90,46 +88,43 @@ the raw events archived using the Azure Stream Analytics
 service.
 
 ### Azure Machine Learning
-Make predictions on the remaining useful life (RUL) of a particular aircraft engine given
-the inputs received with [Azure Machine
+Make predictions on the remaining useful life (RUL) of a particular aircraft engine using the inputs received with [Azure Machine
 Learning Service](https://azure.microsoft.com/services/machine-learning/)
-(orchestrated by Azure Data Factory) to 
+(orchestrated by Azure Data Factory). 
 
-## **Data publishing**
-### Azure SQL Database Service
+## Data publishing
+### Azure SQL Database
 Use [Azure SQL
 Database](https://azure.microsoft.com/services/sql-database/)
-to store (managed by Azure Data Factory) the predictions
-received by the Azure Machine Learning service are consumed in
-the [Power BI](https://powerbi.microsoft.com) dashboard.
+to store the predictions
+received by the Azure Machine Learning service, which are then consumed in the [Power BI](https://powerbi.microsoft.com) dashboard.
 
-## **Data consumption**
+## Data consumption
 ### Power BI
-Use [Power BI](https://powerbi.microsoft.com) service to show a
-dashboard that contains aggregations and alerts provided by the [Azure
-Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service as well as RUL
+Use [Power BI](https://powerbi.microsoft.com) to show a
+dashboard that contains aggregations and alerts provided by [Azure
+Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), as well as RUL
 predictions stored in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) that
-were produced using the [Azure Machine
-Learning](https://azure.microsoft.com/services/machine-learning/)
-service.
+were produced using [Azure Machine
+Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## **How to bring in your own data**
+## How to bring in your own data
 This section describes how to bring your own data to Azure, and what
 areas require changes for the data you bring into this
 architecture.
 
-It's unlikely that your data set matches the dataset used by
+It's unlikely that your dataset matches the dataset used by
 the [Turbofan Engine Degradation Simulation Data
 Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
 requirements are crucial in how you modify this template to work
 with your own data. 
 
-The following sections discuss the sections of the template that
+The following sections discuss the parts of the template that
 require modifications when a new dataset is introduced.
 
 ### Azure Event Hub
-The Azure Event Hub service is generic; data can be
+Azure Event Hub is generic; data can be
 posted to the hub in either CSV or JSON format. No special processing
 occurs in the Azure Event Hub, but it's important that you understand
 the data that's fed into it.
@@ -284,7 +279,7 @@ specific to the data brought in.
 For information about how the Azure Machine Learning experiment was
 created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
-## **Monitor Progress**
+## Monitor Progress
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
 1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
@@ -294,7 +289,7 @@ Once the Data Generator is launched, the pipeline begins to dehydrate, and the d
    
     Here, you can click on New Query and query for the number of rows (for example select count(*) from PMResult). As your database grows, the number of rows in the table should  increase.
 
-## **Power BI Dashboard**
+## Power BI Dashboard
 
 Set up a Power BI dashboard to visualize
 your Azure Stream Analytics data (hot path) and batch prediction results from Azure machine learning (cold path).
@@ -439,10 +434,10 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      Sensor 11 vs. Threshold 48.26" and subtitle to "Average across fleet
      over time."
 
-## **How to delete your solution**
-Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution deletes all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
+## Delete your solution
+Ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Delete the solution if you are not using it. Deleting your solution deletes all the components provisioned in your subscription when you deployed the solution. To delete the solution, click  your solution name in the left panel of the solution template, and then click **Delete**.
 
-## **Cost estimation tools**
+## Cost estimation tools
 The following two tools are available to help you better understand the
 total costs involved in running the Predictive Maintenance for Aerospace
 Solution Template in your subscription:

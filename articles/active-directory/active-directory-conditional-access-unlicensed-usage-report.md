@@ -4,7 +4,7 @@ description: The unlicensed usage report helps you identify unlicensed users tha
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 92138f43-9528-4c8a-b834-66a47da476e3
 ms.service: active-directory

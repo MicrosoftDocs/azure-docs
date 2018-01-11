@@ -4,7 +4,7 @@ description: Describes how shadow attributes work in Azure AD Connect sync servi
 services: active-directory
 documentationcenter: ''
 author: andkjell
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid:

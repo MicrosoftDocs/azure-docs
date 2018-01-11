@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 
 ---
@@ -78,7 +78,11 @@ A Shared Access Signature (SAS) provides delegated access to resources in your s
 
 > [!IMPORTANT]
 > Azure Data Factory now only supports **Service SAS** but not Account SAS. See [Types of Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types and how to construct. The SAS URL generable from Azure portal or Storage Explorer is an Account SAS, which is not supported.
->
+
+> [!TIP]
+> You can execute below PowerShell commands to generate a Service SAS for your storage account (replace the place-holders and grant the needed permission):
+> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 To use Service SAS authentication, the following properties are supported:
 
@@ -170,17 +174,19 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 
 ### azureTableSourceQuery examples
 
-If Azure Table column is of string type:
-
-```json
-"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', <datetime parameter>)"
-```
-
 If Azure Table column is of datetime type:
 
 ```json
-"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', <datetime parameter>, <datetime parameter>)"
+"azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
+
+If Azure Table column is of string type:
+
+```json
+"azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
+```
+
+If you are using pipeline parameter, cast the datetime value to proper format according to above samples.
 
 ### Azure Table as sink
 

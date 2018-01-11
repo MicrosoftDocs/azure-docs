@@ -25,7 +25,7 @@ This article shows you how to create autoscale rules in the Azure portal that mo
 
 
 ## Prerequisites
-To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), or [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 
 ## Create a rule to automatically scale out
@@ -119,7 +119,7 @@ The previous examples automatically scaled a scale set in or out with basic host
 
     ![Create autoscale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale increases or decreases.
+To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale set increases or decreases.
 
 
 ## Next steps
