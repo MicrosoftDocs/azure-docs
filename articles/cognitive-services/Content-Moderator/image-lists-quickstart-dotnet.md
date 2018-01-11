@@ -1019,6 +1019,6 @@ The log file written by the program has the following output:
 	[]
 
 
-## Next steps - get the source code
+## Next steps
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
