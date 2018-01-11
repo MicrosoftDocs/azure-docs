@@ -11,17 +11,7 @@ system needs to meet the following minimum requirements:
   - 8GB System Memory
   - 10GB Free Disk Space
 
-<div class="note">
-
-<div class="admonition-title">
-
-Note
-
-</div>
-
-</div>
-
-> CycleCloud may be installed on physical or virtualized hardware.
+> Note: CycleCloud may be installed on physical or virtualized hardware.
 
 ## Cycle Computing Portal Account
 
@@ -44,21 +34,8 @@ account. To do this, run the following:
     # Rename the private key to have a .pem extension
     $> mv ~/.ssh/cyclecloud ~/.ssh/cyclecloud-private.pem
 
-<div class="warning">
 
-<div class="admonition-title">
-
-Warning
-
-</div>
-
-Use a phraseless SSH key.
-
-If you enter a passphrase when generating your SSH key, the return proxy
-feature of CycleCloud will not work, which may cause node reporting and
-autoscaling to fail.
-
-</div>
+> Warning: Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.
 
 Once you have generated the SSH key pair, you will need to import the
 key to your cloud provider if you are using Google Cloud or Amazon Web
