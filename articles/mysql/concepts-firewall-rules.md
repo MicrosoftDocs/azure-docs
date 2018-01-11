@@ -40,6 +40,8 @@ To allow applications from Azure to connect to your Azure Database for MySQL ser
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
+![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
+
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. See also [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
 
