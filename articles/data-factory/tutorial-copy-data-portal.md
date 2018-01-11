@@ -19,8 +19,9 @@ ms.author: jingwang
 In this tutorial, you create a data factory by using the Azure portal. The pipeline in this data factory copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
+> - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+>
+> - This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 You perform the following steps in this tutorial:
 
@@ -364,28 +365,27 @@ In this schedule, you create a scheduler trigger for the pipeline. The trigger r
 3. In the **Add Triggers** window, click **Choose trigger...**, and click **+ New**. 
 
     ![Add Triggers - new trigger](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
-4. In the New Trigger window, do the following steps: 
+4. In the **New Trigger** window, do the following steps: 
 
     1. Set the **name** to **RunEveryMinute**.
     2. Select **On Date** for **End**. 
     3. Click the drop-down list for **End On**.
     4. Select the **current day**. By default, the end day is set to the next day. 
     5. Update the **minutes** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. Therefore, if you set it to only a couple of minutes apart and you don't publish it by then, you do not see a trigger run.  
-    6. Click **Apply**.
-    7. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
+    6. Click **Apply**. 
 
-    ![Set trigger properties](./media/tutorial-copy-data-portal/set-trigger-properties.png)
+        ![Set trigger properties](./media/tutorial-copy-data-portal/set-trigger-properties.png)
+    7. Check the **Activated** option. You can deactivate it and activate it later by using this check box.
+    8. Click **Next**.
+
+        ![Trigger activated - next](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 
     > [!IMPORTANT]
     > There is a cost associated with each pipeline run. Therefore, set the end date appropriately. 
-
-1. Click **Next**. Notice that the trigger is activated.  
-
-    ![Activated trigger](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
 6. In the **Trigger Run Parameters** page, review the warning, and click **Finish**. The pipeline in this example does not take any parameters. 
 
     ![Pipeline parameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Click **Publish** to publish the changes to the repository. 
+7. Click **Publish** to publish the changes to the repository. The trigger is not actually activated until the publishing succeeds. 
 
     ![Publish trigger](./media/tutorial-copy-data-portal/publish-trigger.png) 
 8. Switch to the **Monitor** tab on the left to see the triggered pipeline runs. 
