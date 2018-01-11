@@ -86,7 +86,7 @@ The URL match conditions identify requests based on their URLs.
 Name | Purpose
 -----|--------
 [URL Path Directory](#url-path-directory) | Identifies requests by their relative path.
-URL Path Extension | Identifies requests by their file name extension.
+[URL Path Extension](#url-path-extension) | Identifies requests by their file name extension.
 URL Path Filename | Identifies requests by their file name.
 URL Path Literal | Compares a request's relative path to the specified value.
 URL Path Regex | Compares a request's relative path to the specified regular expression.
@@ -456,9 +456,13 @@ Key information:
 - **Relative to** option: This option determines whether the URL comparison starts before or after the content access point. The content access point is the portion of the path that appears between the CDN hostname and the relative path to the requested asset (for example, /800001/CustomerOrigin). It identifies a location by server type (for example, CDN or customer origin) and your customer account number.
 
    The following values are available for the **Relative to** option:
-   - **Root**: Indicates that the URL comparison will start directly after the CDN hostname. For example: http:\//wpc.0001._&lt;Domain&gt;_/_**800001/myorigin/myfolder/index.htm**_
+   - **Root**: Indicates that the URL comparison will start directly after the CDN hostname. 
 
-   - **Origin**: Indicates that the URL comparison will start after the content access point (for example, /000001 or /800001/myorigin). For example: http:\//wpc.0001._&lt;Domain&gt;_/800001/myorigin/_**myfolder**_/index.htm
+     For example: http:\//wpc.0001._&lt;Domain&gt;_/_**800001/myorigin/myfolder/index.htm**_
+
+   - **Origin**: Indicates that the URL comparison will start after the content access point (for example, /000001 or /800001/myorigin). 
+
+     For example: http:\//wpc.0001._&lt;Domain&gt;_/800001/myorigin/_**myfolder**_/index.htm
 
 - An edge CNAME URL will be rewritten to a CDN URL prior to the URL comparison.
 
@@ -472,7 +476,7 @@ Key information:
 
   - URL path (Relative to Origin): /path/
 
-- This match condition is satisfied when the relative URL path, excluding file name, is either an exact match ("Matches") or "Does Not Match" one of the specified URL patterns.
+- This match condition is satisfied when the relative URL path, excluding file name, either "Matches" or "Does Not Match" one of the specified URL patterns.
 
    For example, none of the following values are an exact match for the relative path of the URLs in the previous example. Therefore, this match condition will not be satisfied when it is configured to match one of these values:
      - /pa
@@ -480,14 +484,60 @@ Key information:
      - /path
 
 - A URL comparison ends right before the filename of the requested asset. A trailing forward slash is the last character in this type of path.
+    
 - Replace spaces in the URL path with "%20."
+    
 - Each URL path pattern can contain one or more asterisks (*). Each asterisk will match a sequence of one or more characters.
+    
 - Specify multiple URL paths by delimiting each one with a single space.
 
      For example: */sales/ */marketing/
 
 - A URL path can take advantage of special characters.
+    
 - The case-sensitivity of URL comparisons is determined by the **Ignore Case** option.
+
+[Back to top](#match-conditions-for-the-azure-cdn-rules-engine)
+
+</br>
+
+---
+### URL Path Extension
+Identifies requests by the file extension of the requested asset.
+
+Key information:
+
+- This match condition is satisfied when a URL that ends with a period (.) contains the specified file extension. 
+
+- **Value** option: Specifies the file extension to match. Make sure that any file extensions specified in the **Value** option do not contain a leading period. 
+
+   For example:  
+   - Correct specification: htm
+   - Incorrect specification: .htm
+
+- **Ignore Case** option: Determines the case-sensitivity of file extension comparisons.
+
+- Specify multiple file extensions by delimiting each extension with a single space.
+
+    For example: htm html
+
+- This match condition is satisfied when the requested asset's file extension either "Matches" or "Does Not Match" one of the specified file extensions.
+
+   For example, specifying "htm" will match "htm" assets, but not "html" assets.
+
+
+#### Sample Scenario
+
+The following sample configuration assumes that this match condition is satisfied when a request matches one of the specified extensions.
+
+Value	specification: asp aspx php html
+
+This pattern is satisfied when it finds URLs that end with the following extensions:
+- .asp
+- .aspx
+- .php
+- .html
+
 
 
 ## Next steps
