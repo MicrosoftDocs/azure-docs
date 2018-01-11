@@ -49,15 +49,17 @@ Next, you create a function in the new function app.
    
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-A function is created in your chosen language using the template for an HTTP triggered function. You can run the new function by sending an HTTP request.
+A function is created in your chosen language using the template for an HTTP triggered function. This topic shows a C# script function in the portal, but you can create a function in any [supported language](supported-languages). 
+
+Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL**, select **default (Function key)**, and then click **Copy**. 
+1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Paste the function URL into your browser's address bar. Append the query string `&name=<yourname>` to this URL and press the `Enter` key on your keyboard to execute the request. The following is an example of the response returned by the function in the Edge browser:
+2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser. The following is an example of the response in the Edge browser (other browsers may include displayed XML):
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

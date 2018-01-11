@@ -13,7 +13,11 @@
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
     | **OS** | Windows | Serverless hosting is currently only available when running on Windows. For Linux hosting, see [Create your first function running on Linux using the Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
     | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run.   |
-    | **Location** | West Europe | Choose a location near you or near other services your functions will access. |
+    | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions will access. |
     | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
 
-1. Click **Create** to provision and deploy the new function app.
+1. Click **Create** to provision and deploy the new function app. You can monitor the status of the deployment by clicking the Notification icon in the upper-right corner of the portal. 
+
+    ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-notification.png)
+
+    Clicking **Go to resource** takes you to your new function app.
