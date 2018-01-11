@@ -59,9 +59,8 @@ A [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fauto
 The workspace provides a single location to review and analyze data from multiple sources.
 To perform additional actions on VMs that require updates, Azure Automation allows you to run runbooks against VMs, such as download and apply updates.
 
-The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker.
-This agent is used to communicate with the VM and obtain information about the update status.
 The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
+This agent is used to communicate with the VM and obtain information about the update status.
 
 If these prerequisites aren't met, a banner appears that gives you the option to enable the solution.
 
