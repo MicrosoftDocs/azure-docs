@@ -34,11 +34,11 @@
 - name: Reference
   items:
   - name: Functional API
-    href: https://docs.microsoft.com/en-us/rest/api/location-based-services/
+    href: https://docs.microsoft.com/rest/api/location-based-services/
   - name: Management API
-    href: https://docs.microsoft.com/en-us/rest/api/location-based-services-management/
+    href: https://docs.microsoft.com/rest/api/location-based-services-management/
   - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/
+    href: https://docs.microsoft.com/javascript/api/location-based-services-javascript/
 - name: Resources
   items:
   - name: Azure IoT Developer Center
