@@ -16138,6 +16138,11 @@
         "redirect_document_id": false
       },
       {
+        "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
+        "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
         "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
         "redirect_document_id": false
