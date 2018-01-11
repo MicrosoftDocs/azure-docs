@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: devops
   ms.topic: landing-page
-  ms.date: 12/20/2017
+  ms.date: 01/11/2018
   ms.author: tarcher
 abstract:
   description: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
@@ -57,9 +57,19 @@ sections:
     items:
     - title: Ansible modules for Azure
       html: <p><a href="http://docs.ansible.com/ansible/latest/azure_rm_acs_module.html">Manage Azure Container Service Instances</a></p><p><a href="http://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html">Manage Azure Functions</a></p><p><a href="http://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html">Manage Azure load balancers</a></p><p><a href="http://docs.ansible.com/ansible/latest/azure_rm_storageaccount_module.html"></a></p><p><a href="Manage Azure storage accounts"></a></p><p><a href="http://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html">Manage Azure virtual machines</a></p><p><a href="http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure">See all Ansible modules for Azure</a></p>
-- title: Resources
+- title: Tools
   items:
   - type: list
     style: unordered
     items:
     - html: <a href="./ansible-tools.md">Tools for using Ansible with Azure</a>.
+    - html: <a href="./ansible-feature-matrix.md">Feature matrix</a>.
+- title: Releases of Ansible modules for Azure
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/ansible/ansible/releases">Official release</a>
+    - html: <a href="https://galaxy.ansible.com/Azure/azure_modules/">Playbook Role azure_module</a>
+    - html: <a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">Playbook Role azure_preview_module</a>
+    - html: <a href="./ansible-matrix.md">Feature matrix</a>
