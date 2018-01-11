@@ -9,7 +9,7 @@
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | Your subscription | The subscription under which this new function app is be created. | 
+    | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
     | **OS** | Windows | Serverless hosting is currently only available when running on Windows. For Linux hosting, see [Create your first function running on Linux using the Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
     | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run.   |
