@@ -154,7 +154,9 @@
         href: Azure-stack-create-service-principals.md
       - name: Enable multi-tenancy
         href: azure-stack-enable-multitenancy.md
-  - name: Offer services
+    - name: Rotate secrets
+      href: azure-stack-rotate-secrets.md
+  - name: Offer servicesOffer services
     items:
     - name: Overview of offering services
       href: azure-stack-offer-services-overview.md
