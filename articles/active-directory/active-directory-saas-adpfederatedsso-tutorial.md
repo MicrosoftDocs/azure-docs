@@ -204,7 +204,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 	a. Navigate to **properties tab** on **ADP Federated SSO** application integration page, copy the **User access URL**
                                                              
-	b. Paste the **User access URL** in **Sign-on URL** textbox which you have copied from the **properties tab** and global admin have to append the **Relay State** value manually to the **User access URL**. These are the 5 apps they support with different **Relay State URLS** and you have to append the appropriate value for particlular application mentioned below.
+	b. Paste the **User access URL** in **Sign-on URL** textbox which you have copied from the **properties tab** and global admin have to append the **Relay State** value manually to the **User access URL**. These are the 5 apps they support with different **Relay State URLS** and you have to append the appropriate value for particular application mentioned below.
 	
 	1- **ADP Workforce Now**
 		
