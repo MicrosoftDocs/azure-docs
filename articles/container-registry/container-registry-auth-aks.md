@@ -80,11 +80,7 @@ echo "Service principal password: $SP_PASSWD"
 The service principal credentials can now be stored in a Kubernetes [image pull secret][image-pull-secret]. The following example assumes that the previous script was used to create the service principal.
 
 ```bash
-kubectl create secret docker-registry acr-auth \
-  --docker-server=https://mycontainerregistry.azurecr.io \
-  --docker-username=<service-principal-ID> \
-  --docker-password=$SP_PASSWD \
-  --docker-email=<service-principal-password>
+kubectl create secret docker-registry acr-auth --docker-server=https://mycontainerregistry.azurecr.io --docker-username=<service-principal-ID> --docker-password=<service-principal-password> --docker-email=user@contoso.com
 ```
 
 The Kubernetes secret can be used in a pod deployment using the `ImagePullSecrets` parameter. 
