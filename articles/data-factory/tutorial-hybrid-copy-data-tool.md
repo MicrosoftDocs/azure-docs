@@ -22,9 +22,9 @@ ms.author: jingwang
 In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from an on-premises SQL Server database to an Azure blob storage.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> - If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 >
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> - This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 You perform the following steps in this tutorial:
 
@@ -73,7 +73,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
 In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for instructions to create one. The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
 
 #### Get storage account name and account key
-You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following: 
+You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure username and password. 
 
@@ -122,16 +122,16 @@ In this section, you create a blob container named **adftutorial** in your Azure
       
      ![New data factory page](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “ADFTutorialDataFactory” is not available`
+     ![New data factory page](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-      Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+      To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
 5. Select the **location** for the data factory. Only supported locations are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations/regions.
 6. Select **Pin to dashboard**.     
@@ -149,13 +149,13 @@ In this section, you create a blob container named **adftutorial** in your Azure
 1. In the get started page, click **Copy Data** tile to launch the Copy Data tool. 
 
    ![Copy Data tool tile](./media/tutorial-hybrid-copy-data-tool/copy-data-tool-tile.png)
-2. In the **Properties** page of the Copy Data tool, specify **CopyFromOnPremSqlToAzureBlobPipeline** for the **Task name**, and click **Next**. 
+2. In the **Properties** page of the Copy Data tool, specify **CopyFromOnPremSqlToAzureBlobPipeline** for the **Task name**, and click **Next**. The Copy Data tool creates a pipeline with the name you specify for this field. 
     
    ![Properties page](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 3. In the **Source data store** page, select **SQL Server**, and click **Next**. You may need to scroll down to see **SQL Server** in the list. 
 
    ![Source data store page](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
-4. Click **Create Integration Runtime** link. You must create a self-hosted integration runtime, download it to your machine, and register it with the Data Factory service. The self-hosted integration runtime copies data between your on-premises environment and Azure cloud.
+4. Enter **SqlServerLinkedService** for **Connection name**, and click **Create Integration Runtime** link. You must create a self-hosted integration runtime, download it to your machine, and register it with the Data Factory service. The self-hosted integration runtime copies data between your on-premises environment and Azure cloud.
 
    ![Create integration runtime link](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 5. In the **Create Integration Runtime** dialog, enter **TutorialIntegration Runtime** for the **Name** field, and click **Create**. 
@@ -178,8 +178,6 @@ In this section, you create a blob container named **adftutorial** in your Azure
     4. Select appropriate authentication for **Authentication type**.
     5. Enter the name of user with access to on-premises SQL Server for **User name**.
     6. Enter the **password** of the user. 
-        
-        ![Specify on-prem SQL database values](./media/tutorial-hybrid-copy-data-tool/specify-onprem-sql-database.png)
 10. In the **Select tables from which to copy the data or use a custom query** page, select **[dbo].[emp]** table in the list, and click **Next**. 
 
     ![Select the emp table](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
@@ -219,6 +217,9 @@ In this section, you create a blob container named **adftutorial** in your Azure
 20. Confirm that you see the output file in the **fromonprem** folder of the **adftutorial** container.   
  
     ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+21. Click the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool using the editor. Click **Code** to view the JSON code associated with the entity opened in the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
+
+    ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## Next steps
@@ -234,4 +235,4 @@ For a list of data stores that are supported by Data Factory, see [supported dat
 To learn about copying data in bulk from a source to a destination, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Copy data in bulk](tutorial-bulk-copy.md)
+>[Copy data in bulk](tutorial-bulk-copy-portal.md)
