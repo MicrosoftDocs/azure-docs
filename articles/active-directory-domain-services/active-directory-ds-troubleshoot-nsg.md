@@ -40,12 +40,12 @@ This resolution requires installing and running [Azure AD Powershell](https://do
 # Connect to your Azure AD directory.
 Connect-AzureAD
 ```
-2. Login to your Azure subscription.
+2. Log in to your Azure subscription.
 ```PowerShell
-# Login to your Azure subscription.
+# Log in to your Azure subscription.
 Login-AzureRmAccount
 ```
-3. Create a NSG with 3 rules. The following script defines 3 rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those 3 rules. You are welcome to add additional rules as you see fit using the same format.
+3. Create an NSG with three rules. The following script defines three rules for the NSG that allow access to the ports needed to run Azure AD Domain Services. Then, the script creates a new NSG that contains those rules. You are welcome to add additional rules as you see fit using the same format.
 ```PowerShell
 ```PowerShell
 # Create the rules needed
@@ -103,7 +103,7 @@ $rule3 = New-AzureRmNetworkSecurityRuleConfig -Name manage-5986 -Description "Ma
 # Connect to your Azure AD directory.
 Connect-AzureAD
 
-# Login to your Azure subscription.
+# Log in to your Azure subscription.
 Login-AzureRmAccount
 
 # Create the NSG with the 3 rules above
