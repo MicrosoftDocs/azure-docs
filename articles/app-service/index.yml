@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250  
     title: Create a Web App with Node.js and Azure App Service. (2:41)
     href: https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
@@ -34,38 +34,38 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-php
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_python.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-python
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-python
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML
-      href: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
   - type: paragraph
     text: 'Learn how to deploy continuously:'
   - type: list
     style: icon48
     items: 
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
-      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

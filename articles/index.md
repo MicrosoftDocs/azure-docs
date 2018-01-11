@@ -246,13 +246,13 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
                                                             Jenkins
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/terraform">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
                                                             Terraform                                                       
                                                         </a>
                                                     </li>
@@ -4191,7 +4191,7 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
