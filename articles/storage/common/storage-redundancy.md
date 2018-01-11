@@ -49,14 +49,17 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## Zone-redundant storage
-Zone-redundant storage (ZRS) is designed to provide at least 99.9999999999% (12 9's) durability of objects over a given year by replicating your data asynchronously across datacenters within one or two regions, thus providing a higher durability than LRS. Data stored in ZRS is durable even if the primary datacenter is unavailable or unrecoverable.
-Customers who plan to use ZRS should be aware that:
+Zone-redundant storage (ZRS) is designed to simplifies development of highly available applications and provide at least 99.9999999999% (12 9's) durability of objects over a given year by replicating your data synchronously across multiple Availability Zones enabling customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously –and continue to be strongly consistent. ZRS should be considered for scenarios like transactional applications where downtime is not acceptable.  
 
-* ZRS is only available for block blobs in general-purpose storage accounts, and is supported only in storage service versions 2014-02-14 and later.
-* Since asynchronous replication involves a delay, in the event of a local disaster it is possible that changes that have not yet been replicated to the secondary will be lost if the data cannot be recovered from the primary.
-* The replica may not be available until Microsoft initiates failover to the secondary.
-* ZRS accounts cannot be converted later to LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
-* ZRS accounts do not have metrics or logging capability.
+ZRS is currently available for preview in US East 2, US Central, Europe North and France Central with more regions coming. Please refer to the ZRS documentation for more details on getting started and preview pricing.     
+
+The existing ZRS capability will be renamed to ZRS Classic and there will be an automated migration path for ZRS Classic customers to the new ZRS when it is generally available in the region.  ZRS Classic replicates data asynchronously across datacenters within one to two regions and a replica may not be available until Microsoft initiates failover to the secondary.  ZRS Classic accounts is only available for block blobs in general-purpose v1 storage accounts, cannot be converted to or from LRS or GRS accounts, and do not have metrics or logging capability.   
+
+At ZRS GA, ZRS Classic account creation will no longer be available in the portal but can be created through other means.  ZRS Classic accounts are planned for deprecation and migration on 3/31/2021.  More details will be sent to ZRS Classic customers in the future. 
+
+Migration of data from ZRS Classic to ZRS accounts will be enabled at general availability of ZRS, and will only be enabled for regions where ZRS is available. Migration of ZRS data to / from LRS, GRS, or RAGRS accounts can be done manually using AzCopy, Storage Explorer, PowerShell, CLI or Client SDK. 
+
+Some additional questions answered in the Frequently Asked Questions section below. 
 
 ## Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -117,6 +120,12 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
     * Failover the account by changing the primary DNS entries to point to the secondary location.
 
    We take the responsibility of preserving your data very seriously, so if there is any chance of recovering the data, we will hold off on doing the failover and focus on recovering the data in the primary location. In the future, we plan to provide an API to allow you to trigger a failover at an account level, which would then allow you to control the RTO yourself, but this is not available yet.
+#### 8. What Storage services does ZRS support? 
+Block Blobs, non-disk Page Blobs, Tables, Files and Queues. 
+#### 9. Does ZRS also include geo replication? 
+Currently ZRS does not support geo replication.  If you are looking for cross region based replication for the purpose of disaster recovery, please use our GRS or RA-GRS types.   
+#### 10. What happens when one or more ZRS zones go down? 
+When the first zone goes down ZRS will continue to write three replicas of your data across the two remaining zones in the region.  If a second zone goes down, read and write access will be unavailable until at least 2 zones are available again. 
 
 ## Next steps
 * [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
