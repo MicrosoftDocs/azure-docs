@@ -27,14 +27,13 @@ After you buy a Reserved VM Instance, the reservation discount is automatically 
 |Windows VMs with [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.| 
 
 ## Application of reservation discount to non-Windows VMs
- The reservation discount is applied to running VM instances on an hourly basis. The reservations that you have bought are matched to the usage emitted by the running VMs to apply the reservation discount. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
+The reservation discount is applied to running VM instances on an hourly basis and is allocated to a single running VM at a time. The reservations that you have bought are matched to the usage emitted by the running VMs to apply the reservation discount. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
 ![Reserved VM Instance application](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-1.	Any usage that’s above the Reserved VM Instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the Reserved VM Instances line, since it has been already paid as part of reservation purchase.
-2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You are charged the pay-as-you-go rates for the remaining 0.25 hours.
-3.	For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
-4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
+1.	In hour 1, instance 1 runs for the first 30 minutes and is shut down. Instance 2 is started and runs for the second 30 minutes. Total usage for hour 1 is 1 hour and you are fully covered by your reservation purchase.
+2. In hour 2, instance 1 and instance 2 both run for the full hour. Instance 1 is covered by your reservation purchase and instance 2 is charged at pay-as-you-go rates.
+3. In hour 3, both instances run for the first 30 minutes of the hour. Instance 1 is covered for 30 minutes of your reservation purchase and instance 2 is charged at pay-as-you-go-rates. 30 minutes of your reservation go unused as there is no matching instance running in the second half of the hour. 
 
 To understand and view the application of your reservations in billing usage reports, see [Understand Reserved VM Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
