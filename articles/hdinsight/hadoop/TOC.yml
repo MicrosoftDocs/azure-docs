@@ -92,6 +92,10 @@
       href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
     - name: Develop Java MapReduce programs
       href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+    - name: Use Apache Hive as an extract, transform, and load (ETL) tool
+      href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+    - name: Extract, transform, and load at scale
+      href: apache-hadoop-etl-at-scale.md
     - name: Use empty edge nodes
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
@@ -147,6 +151,8 @@
     - name: Analyze Application Insights telemetry logs
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
+    - name: Advanced analytics for HDInsight
+      href: apache-hadoop-deep-dive-advanced-analytics.md
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -380,6 +386,8 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+    - name: Analyze Hadoop logs
+      href: apache-hadoop-debug-jobs.md
 - name: Reference
   items:
   - name: Code samples
