@@ -1,5 +1,5 @@
 ---
-title: Deploy the StorSimple Device Manager service in Azure | Microsoft Docs
+title: Deploy the StorSimple 8000 Device Manager service in Azure | Microsoft Docs
 description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
 services: storsimple
 documentationcenter: ''
@@ -13,27 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 01/11/2018
 ms.author: alkohli
 
 ---
-# Use the Azure Active Directory-based authentication for your StorSimple
+# Use the new authentication for your StorSimple
 
 ## Overview
 
-The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. To date, StorSimple Device Manager service has used an Access Control service (ACS) to authenticate the service to your StorSimple device. The ACS mechanism will be deprecated soon and replaced by an Azure Active Directory (AAD) authentication.
+The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. To date, StorSimple Device Manager service has used an Access Control service (ACS) to authenticate the service to your StorSimple device. The ACS mechanism will be deprecated soon and replaced by an Azure Active Directory (AAD) authentication. For more information, go to the following announcements for ACS deprecation and use of AAD authentication.
 
-The information contained in this article is applicable to both StorSimple 8000 and 1200 series devices. This article describes the details of the AAD authentication and the associated new service registration key and modifications to the firewall rules as applicable to the StorSimple devices.
+- [The future of Azure ACS is Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
+ - [Upcoming changes to the Microsoft Access Control Service](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/)
 
-The AAD authentication occurs in:
+This article describes the details of the AAD authentication and the associated new service registration key and modifications to the firewall rules as applicable to the StorSimple devices. The information contained in this article is applicable to StorSimple 8000 series devices only.
 
-- StorSimple 8000 series device running Update 5 or later.
-- StorSimple Virtual Arrays (model 1200) running Update 1 or later.
-
-Due to the introduction of the AAD authentication, changes occur in:
+The AAD authentication occurs in StorSimple 8000 series device running Update 5 or later. Due to the introduction of the AAD authentication, changes occur in:
 
 - URL patterns for firewall rules.
-- service registration key.
+- Service registration key.
 
 These changes are discussed in detail in the following sections.
 
@@ -41,36 +39,29 @@ These changes are discussed in detail in the following sections.
 
 To ensure that the service uses AAD-based authentication, all the users must include the new authentication URLs in their firewall rules.
 
-If using StorSimple 8000 series or StorSimple Virtual Array, ensure that the following URL is included in the firewall rules:
+If using StorSimple 8000 series, ensure that the following URL is included in the firewall rules:
 
- URL pattern                         | Component/Functionality         |
-|------------------------------------|---------------------------------|
-| `https://login.windows.net`        | AAD authentication service      |
+ URL pattern                         | Cloud | Component/Functionality         |
+|------------------------------------|-------|---------------------------------|
+| `https://login.windows.net`        | Azure Public |AAD authentication service      |
+| `https://login.microsoftonline.us` | US Government |AAD authentication service      |
 
 For a complete list of URL patterns for StorSimple 8000 series devices, go to [URL patterns for firewall rules](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
 
-For a complete list of URL patterns for StorSimple Virtual Arrays, go to [URL patterns for firewall rules](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
-
-If the authentication URL is not included in the firewall rules beyond the deprecation date, the users see a critical alert that their StorSimple device could not authenticate with the service. The service will not be able to communicate with the device.
-
-If the users see this alert, they need to include the new authentication URL. For more information on the alert, go to [Use alerts to monitor your StorSimple device](storsimple-virtual-array-manage-alerts.md#networking-alerts).
+If the authentication URL is not included in the firewall rules beyond the deprecation date, the users see a critical alert that their StorSimple device could not authenticate with the service. The service will not be able to communicate with the device. If the users see this alert, they need to include the new authentication URL. For more information on the alert, go to [Use alerts to monitor your StorSimple device](storsimple-virtual-array-manage-alerts.md#networking-alerts).
 
 ## AAD-based registration keys
 
 Beginning Update 1.0 for StorSimple Virtual Array and Update 5 for StorSimple 8000 series devices, new AAD-based registration keys are used. You use the registration keys to register your StorSimple Device Manager service with the device.
 
 You cannot use the new AAD service registration keys:
-- If you are using a
-    - StorSimple 8000 series device running Update 4 or earlier.
-    - StorSimple Virtual Arrays running Update 0.6 or earlier.
+- If you are using a StorSimple 8000 series device running Update 4 or earlier.
 - If you have an older device that you are activating now.
 
 In the preceding scenarios, you need to regenerate the service registration key. Once you regenerate the key, the new key is used for registering all the subsequent devices. The old key is no longer valid.
 
 - The new AAD registration key expires after 3 days.
-- The AAD registration keys work only with:
-    - StorSimple 8000 series devices running Update 5 or later.
-    - StorSimple 1200 series virtual arrays running Update 1 or later.
+- The AAD registration keys work only with StorSimple 8000 series devices running Update 5 or later.
 - The AAD registration keys are longer than the corresponding ACS registration keys.
 
 Perform the following steps to generate an AAD service registration key.
@@ -96,26 +87,16 @@ Perform the following steps to generate an AAD service registration key.
 
 If using a StorSimple 8000 series device, use the following table to determine what action you need to take based on the device software version you are running.
 
-| If your device is running| And ACS authentication is |And device is| Take the following action                                    |
+| If your device is running| Take the following action                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| Update 5 or later        | deprecated          | offline. <br> See an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). |
-| Update 5 or later        | working             | |No action is required.                                       |
-| Update 4 or earlier      | deprecated          |offline. <br> See an alert that URL is not whitelisted.| [Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
-| Update 4 or earlier      | working             | |Install Update 5 through the Azure portal. <br> Modify the firewall rules to include the authentication URL.               |
+| Update 5 or later and the device is offline. <br> You see an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL.<br> See [authentication URLs](#url-changes-for-aad-authentication). |
+| Update 5 or later and the device online.| No action is required.                                       |
+| Update 4 or earlier and the device is offline. | Modify the firewall rules to include the authentication URL.<br>[Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 4 or earlier and the device is online. |Modify the firewall rules to include the authentication URL.<br> Install Update 5 through the Azure portal.              |
 | Update 5 or later and was factory reset to a version before Update 5      |working             |  |The portal shows an AAD based registration key while the device is running older software. Use the [ACS key generation script](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Get-RegistrationKey.ps1) to get a service registartion key. Register with this key and continue working until the ACS is deprecated.              |
 | A new device running older software - Update 4 or earlier      |working               | |The portal shows an AAD based registration key while the device is running older software. Use the [ACS key generation script](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Get-RegistrationKey.ps1) to get a service registartion key. Register with this key and continue working until the ACS is deprecated.               |
-
-If using a StorSimple Virtual Array, use the following table to determine what action you need to take based on the device software version you are running.
-
-| If your device is running  | And ACS authentication is | And device is| Take the following action                                    |
-|----------------------------|------------------------|-----|--------------------------------------------------------------|
-| Update 1.0 or later        |deprecated          |offline. <br> See an alert that URL is not whitelisted.| Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). |
-| Update 1.0 or later        |working             | | No action is required.                                       |
-| Update 0.6 or earlier      |deprecated          |offline. <br> See an alert that URL is not whitelisted.| [Download Update 1.0 through catalog server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Apply Update 1.0 through the local web UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
-| Update 0.6 or earlier      |working             || Install Update 1.0 through the Azure portal. <br> Modify the firewall rules to include the authentication URL.               |
-
 
 ## Next steps
 
 * Learn more about how to deploy [StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md).
-* Learn more about how to deploy [StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+
