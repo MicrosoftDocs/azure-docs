@@ -124,9 +124,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **EmailPrefix()** of **UserPrincipalName** attribute but you should configure the **User Identifier (NameId)** as per your application requirement. The following screenshot shows just an example for this.
 
-	Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
-	
 	![Fidelity NetBenefits attribute](./media/active-directory-saas-fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
+
+	Fidelity NetBenefits support Static and Dynamic Federation. Static means it will not use SAML based just in time user provisioning and Dynamic means it supports just in time user provisioning. For using JIT based provisioning customers have to add some more claims in Azure AD like user's birthdate etc. These details are provided by the [Fidelity NetBenefits support team](mailto:SSOMaintenance@fmr.com) and they have to enable this dynamic federation for your instance.
 	
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
