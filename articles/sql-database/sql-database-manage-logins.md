@@ -4,7 +4,7 @@ description: Learn about SQL Database security management, specifically how to m
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 documentationcenter: ''
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 tags: ''
@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Active"
 ms.date: 01/23/2017
-ms.author: rickbyh
+ms.author: carlrab
 
 ---
 # Controlling and granting database access
