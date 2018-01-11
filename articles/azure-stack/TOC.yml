@@ -69,6 +69,8 @@
       href: azure-stack-deployment-decisions.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
+      - name: Get PKI certificates for Azure Stack deployment
+        href: azure-stack-get-pki-certs.md
     - name: Deploy connected to Azure
       href: azure-stack-connected-deployment.md
     - name: Deploy disconnected from Azure
